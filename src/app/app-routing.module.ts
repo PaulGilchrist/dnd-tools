@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
+import { SpellsComponent } from './components/spells/spells.component';
 
 const routes: Routes = [
     // Static Loading
-    { path: '', component: HomeComponent }
+    { path: '', component: SpellsComponent }
 ];
 
 @NgModule({

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './components/app/app.component';
-import { HomeComponent } from './components/home/home.component';
+import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
 
 
@@ -14,8 +14,8 @@ import { DataService } from './services/data.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    SpellComponent
+    SpellComponent,
+    SpellsComponent
   ],
   imports: [
     AppRoutingModule,
