@@ -1,0 +1,22 @@
+﻿<div *ngIf="spell != null" class="card w-100">
+	<div class="card-header">
+		<h5 class="card-title">{{spell.name}}</h5>
+	</div>
+	<div class="card-body">
+		<i>{{getLevelText(this.spell.level)}}&nbsp;{{spell.school.name.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br/>
+		<br/>
+		<p class="card-text">
+			<b>Casting Time:</b>&nbsp;{{spell.casting_time}}<br/>
+			<b>Range:</b>&nbsp;{{spell.range}}<br/>
+			<b>Components:</b>&nbsp;{{spell.components}}&nbsp;<span *ngIf="spell.material">({{spell.material}})</span><br/>
+			<b>Duration:</b>&nbsp;<span *ngIf="spell.concentration">Concentration,&nbsp;</span>{{spell.duration}}<br/>
+			<br/>
+			<span *ngFor="let desc of spell.desc">
+				{{desc}}<br/><br/>
+			</span>
+			<span *ngIf="spell.higher_level != null">
+				<b>At higher levels.</b>&nbsp;{{spell.higher_level}}<br/>
+			</span>
+		</p>
+	</div>
+</div>
