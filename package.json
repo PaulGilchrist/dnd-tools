@@ -1,12 +1,20 @@
 {
-  "name": "dndtools",
-  "version": "0.0.0",
+  "authors": [
+    "Paul Gilchrist"
+  ],
+  "name": "dnd-tools",
+  "description": "Quick reference tools for Dungeons & Dragons 5th Edition",
+  "license": "MIT",
+  "version": "1.0.0",
   "scripts": {
+    "build": "ng build --base-href /dnd-tools/",
+    "deploy": "ngh",
+    "lint": "npx ng lint dnd-tools",
     "ng": "ng",
+    "predeploy": "npm run build",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {

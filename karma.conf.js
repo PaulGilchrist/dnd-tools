@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/dndtools'),
+      dir: require('path').join(__dirname, './coverage/dnd-tools'),
       subdir: '.',
       reporters: [
         { type: 'html' },
