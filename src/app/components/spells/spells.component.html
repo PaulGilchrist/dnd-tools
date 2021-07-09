@@ -1,6 +1,6 @@
 ﻿<form #searchForm="ngForm" novalidate>
 	<label for="class" class="col-form-label">Class</label>
-	<select name="class" [(ngModel)]="class" #classControl="ngModel" class="form-control">
+	<select name="class" [(ngModel)]="class" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
 		<option selected>All Spells</option>
 		<option>Bard</option>
 		<option>Cleric</option>
@@ -13,13 +13,13 @@
 	</select>
 	<label for="levels" class="col-form-label">Levels</label>
 	<div [class.has-error]="levelsControl.invalid && levelsControl.dirty">
-		<input type="text" class="form-control" id="levels" name="levels" [(ngModel)]="levels" #levelsControl="ngModel" placeholder="0,1,..." pattern="[0-9 ,]+" required autofocus minlength="1">
+		<input type="text" class="form-control" id="levels" name="levels" [(ngModel)]="levels" #levelsControl="ngModel" (ngModelChange)="filterChanged()" placeholder="0,1,..." pattern="[0-9 ,]+" required autofocus minlength="1">
 		<div [hidden]="levelsControl.valid || levelsControl.pristine" class="alert alert-danger">
 			Levels should be a comma separated list of numbers from 0-9 (0 = cantrip)
 		</div>
 	</div>
 	<label for="class" class="col-form-label">Casting Time</label>
-	<select name="castingTime" [(ngModel)]="castingTime" #classControl="ngModel" class="form-control">
+	<select name="castingTime" [(ngModel)]="castingTime" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
 		<option selected>Any</option>
 		<option>Action</option>
 		<option>Bonus Action</option>
@@ -29,5 +29,5 @@
 	</select>
 </form>
 <div *ngFor="let spell of spells" class="spellList">
-	<app-spell *ngIf="showSpell(spell)" [spell]="spell"></app-spell>
+	<app-spell *ngIf="showSpell(spell)" [spell]="spell" (knownChanged)="saveKnown()" (preparedChanged)="savePrepared()"></app-spell>
 </div>

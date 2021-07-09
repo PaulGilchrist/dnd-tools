@@ -3,3 +3,8 @@
     margin-left: 5px;
     width: 100%;
 }
+.card-header {
+    align-content: center;
+    display: grid;
+    grid-template-columns: auto 110px 80px;
+}

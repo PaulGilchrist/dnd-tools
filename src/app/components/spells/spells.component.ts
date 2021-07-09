@@ -12,7 +12,6 @@ export class SpellsComponent implements OnInit, OnDestroy {
   castingTime: string = 'Any';
   class: string = 'All Spells';
   levels: number[] = [0, 1];
-  ritual: number = 2; // 0=false, 1=true, 2=either
   spells: any[] = [];
   subscriptions: Subscription[] = [];
 
@@ -23,13 +22,52 @@ export class SpellsComponent implements OnInit, OnDestroy {
       this.dataService.getSpells()
     ]).subscribe((data: any) => {
       this.spells = data[0];
-      console.log(this.spells);
+      // Set search filters
+      let castingTime = localStorage.getItem('castingTime');
+      if(castingTime != null) {
+        this.castingTime = castingTime;
+      } else {
+        localStorage.setItem('castingTime', this.castingTime);
+      }
+      let className = localStorage.getItem('class');
+      if(className != null) {
+        this.class = className;
+      } else {
+        localStorage.setItem('class', this.class);
+      }
+      let levelsJson = localStorage.getItem('levels');
+      if(levelsJson != null) {
+        this.levels = JSON.parse(levelsJson);
+      } else {
+        localStorage.setItem('levels', JSON.stringify(this.levels));
+      }
+      // Set known and prepared spells
+      let knownJson = localStorage.getItem('knownSpells');
+      let known: string[] = [];
+      if(knownJson != null) {
+        known = JSON.parse(knownJson);
+      }
+      let preparedJson = localStorage.getItem('preparedSpells');
+      let prepared: string[] = [];
+      if(preparedJson != null) {
+        prepared = JSON.parse(preparedJson);
+      }
+      this.spells.forEach(spell => {
+        spell.known = known.includes(spell.index);
+        spell.prepared = prepared.includes(spell.index);
+      })
     }));
   }
 
   ngOnDestroy(): void {
     // Unsubscribe all subscriptions to avoid memory leak
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  filterChanged(): void {
+    localStorage.setItem('castingTime', this.castingTime);
+    localStorage.setItem('class', this.class);
+    localStorage.setItem('levels', JSON.stringify(this.levels));
   }
 
   showSpell(spell: any) {
@@ -55,11 +93,26 @@ export class SpellsComponent implements OnInit, OnDestroy {
     if (!this.levels.includes(spell.level)) {
       return false;
     }
-    // Ritual filter
-    if (this.ritual != 2 && ((this.ritual == 1 && !spell.ritual) || (this.ritual == 0 && spell.ritual))) {
-      return false;
-    }
     return showSpell;
   }
 
+  saveKnown() {
+    let known: string[] = [];
+    this.spells.forEach(spell => {
+      if(spell.known == true) {
+        known.push(spell.index);
+      }
+    })
+    localStorage.setItem('knownSpells', JSON.stringify(known));
+  }
+
+  savePrepared() {
+    let prepared: string[] = [];
+    this.spells.forEach(spell => {
+      if(spell.prepared == true) {
+        prepared.push(spell.index);
+      }
+    })
+    localStorage.setItem('preparedSpells', JSON.stringify(prepared));
+  }
 }
