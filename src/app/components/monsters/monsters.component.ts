@@ -11,6 +11,14 @@ import { DataService } from '../../services/data.service';
 export class MonstersComponent implements OnInit, OnDestroy {
   monsters: any[] = [];
   subscriptions: Subscription[] = [];
+  filter = {
+    bookmarked: 'All',
+    challengeRatingMin: 0,
+    challengeRatingMax: 25,
+    name: '',
+    size: 'All',
+    type: 'All'
+  }
 
   constructor(public dataService: DataService) { }
 
@@ -20,14 +28,20 @@ export class MonstersComponent implements OnInit, OnDestroy {
     ]).subscribe((data: any) => {
       this.monsters = data[0];
       // Set search filters
+      let filter = localStorage.getItem('monsterFilter');
+      if(filter) {
+        this.filter = JSON.parse(filter);
+      } else {
+        localStorage.setItem('monsterFilter', JSON.stringify(this.filter));
+      }
       // Set bookmarked monsters
-      let bookmarkedJson = localStorage.getItem('bookmarkedMonsters');
-      let bookmarkedMonsters: string[] = [];
-      if(bookmarkedJson != null) {
-        bookmarkedMonsters = JSON.parse(bookmarkedJson);
+      let monstersBookmarkedJson = localStorage.getItem('monstersBookmarked');
+      let monstersBookmarked: string[] = [];
+      if(monstersBookmarkedJson != null) {
+        monstersBookmarked = JSON.parse(monstersBookmarkedJson);
       }
       this.monsters.forEach(monster => {
-        monster.bookmarked = bookmarkedMonsters.includes(monster.index);
+        monster.bookmarked = monstersBookmarked.includes(monster.index);
       })
     }));
   }
@@ -38,25 +52,42 @@ export class MonstersComponent implements OnInit, OnDestroy {
   }
 
   filterChanged(): void {
+    localStorage.setItem('monsterFilter', JSON.stringify(this.filter));
   }
 
   saveBookmark() {
-    let bookmarkedMonsters: string[] = [];
+    let monstersBookmarked: string[] = [];
     this.monsters.forEach(monster => {
       if(monster.bookmarked == true) {
-        bookmarkedMonsters.push(monster.index);
+        monstersBookmarked.push(monster.index);
       }
     })
-    localStorage.setItem('bookmarkedMonsters', JSON.stringify(bookmarkedMonsters));
+    localStorage.setItem('monstersBookmarked', JSON.stringify(monstersBookmarked));
   }
 
   showMonster(monster: any) {
     let showMonster = true;
-    // First filter
-    if (false) {
+    // Bookmarked filter
+    if (this.filter.bookmarked != 'All' && !monster.bookmarked) {
       return false;
     }
-    return showMonster;
+    // Challenge Range
+    if (monster.challenge_rating < this.filter.challengeRatingMin || monster.challenge_rating > this.filter.challengeRatingMax) {
+      return false;
+    }
+    // Name filter
+    if (this.filter.name != '' &&  !monster.name.toLowerCase().includes(this.filter.name.toLowerCase())) {
+      return false;
+    }
+    // Size filter
+    if (this.filter.size != 'All' && this.filter.size != monster.size) {
+      return false;
+    }
+    // Type filter
+    if (this.filter.type != 'All' && this.filter.type != monster.type) {
+      return false;
+    }
+    return true;
   }
 
 }

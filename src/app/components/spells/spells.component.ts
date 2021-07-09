@@ -9,11 +9,16 @@ import { DataService } from '../../services/data.service';
   templateUrl: './spells.component.html'
 })
 export class SpellsComponent implements OnInit, OnDestroy {
-  castingTime: string = 'Any';
-  class: string = 'All Spells';
-  levels: number[] = [0, 1];
+  filter = {
+    castingTime: 'All',
+    class: 'All',
+    levelMin: 0,
+    levelMax: 9,
+    name: '',
+    status: 'All'
+  }
   spells: any[] = [];
-  status: string = 'Prepared or Known Ritual'
+
   subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
@@ -24,37 +29,19 @@ export class SpellsComponent implements OnInit, OnDestroy {
     ]).subscribe((data: any) => {
       this.spells = data[0];
       // Set search filters
-      let castingTime = localStorage.getItem('castingTime');
-      if(castingTime != null) {
-        this.castingTime = castingTime;
+      let filter = localStorage.getItem('spellFilter');
+      if(filter) {
+        this.filter = JSON.parse(filter);
       } else {
-        localStorage.setItem('castingTime', this.castingTime);
-      }
-      let className = localStorage.getItem('class');
-      if(className != null) {
-        this.class = className;
-      } else {
-        localStorage.setItem('class', this.class);
-      }
-      let levelsJson = localStorage.getItem('levels');
-      if(levelsJson != null) {
-        this.levels = JSON.parse(levelsJson);
-      } else {
-        localStorage.setItem('levels', JSON.stringify(this.levels));
-      }
-      let status = localStorage.getItem('status');
-      if(status != null) {
-        this.status = status;
-      } else {
-        localStorage.setItem('status', this.status);
+        localStorage.setItem('spellFilter', JSON.stringify(this.filter));
       }
       // Set known and prepared spells
-      let knownSpellsJson = localStorage.getItem('knownSpells');
+      let knownSpellsJson = localStorage.getItem('spellsKnown');
       let knownSpells: string[] = [];
       if(knownSpellsJson != null) {
         knownSpells = JSON.parse(knownSpellsJson);
       }
-      let preparedSpellsJson = localStorage.getItem('preparedSpells');
+      let preparedSpellsJson = localStorage.getItem('spellsPrepared');
       let preparedSpells: string[] = [];
       if(preparedSpellsJson != null) {
         preparedSpells = JSON.parse(preparedSpellsJson);
@@ -72,40 +59,41 @@ export class SpellsComponent implements OnInit, OnDestroy {
   }
 
   filterChanged(): void {
-    localStorage.setItem('castingTime', this.castingTime);
-    localStorage.setItem('class', this.class);
-    localStorage.setItem('levels', JSON.stringify(this.levels));
-    localStorage.setItem('status', this.status);
+    localStorage.setItem('spellFilter', JSON.stringify(this.filter));
   }
 
   showSpell(spell: any) {
     let showSpell = true;
     // Casting Time filter
-    if (this.castingTime != 'Any'
+    if (this.filter.castingTime != 'All'
         && (
-              (this.castingTime == 'Action' && !(spell.casting_time == '1 action'))
-              || (this.castingTime == 'Bonus Action' && !(spell.casting_time == '1 bonus action'))
-              || (this.castingTime == 'Non-Ritual, Long Cast Time' && (spell.ritual || spell.casting_time == '1 action' || spell.casting_time == '1 bonus action' || spell.casting_time == '1 reaction' ))      
-              || (this.castingTime == 'Reaction' && !(spell.casting_time == '1 reaction'))
-              || (this.castingTime == 'Ritual' && !spell.ritual)
+              (this.filter.castingTime == 'Action' && !(spell.casting_time == '1 action'))
+              || (this.filter.castingTime == 'Bonus Action' && !(spell.casting_time == '1 bonus action'))
+              || (this.filter.castingTime == 'Non-Ritual, Long Cast Time' && (spell.ritual || spell.casting_time == '1 action' || spell.casting_time == '1 bonus action' || spell.casting_time == '1 reaction' ))      
+              || (this.filter.castingTime == 'Reaction' && !(spell.casting_time == '1 reaction'))
+              || (this.filter.castingTime == 'Ritual' && !spell.ritual)
           )
     ) {
       return false;
     }
     // Class filter
     // @ts-ignore
-    if (this.class != 'All Spells' && !spell.classes.some(c => c.name == this.class)) {
+    if (this.filter.class != 'All' && !spell.classes.some(c => c.name == this.filter.class)) {
       return false;
     }
     // Level filter
-    if (!this.levels.includes(spell.level)) {
+    if (spell.level < this.filter.levelMin || spell.level > this.filter.levelMax) {
       return false;
     }
+    // Name filter
+    if (this.filter.name != '' && !spell.name.toLowerCase().includes(this.filter.name.toLowerCase())) {
+      return false;
+    }    
     // Status filter
-    if (this.status != 'Any'
+    if (this.filter.status != 'All'
         && (
-              (this.status == 'Known' && !spell.known)
-              || (this.status == 'Prepared or Known Ritual' && (!spell.known || (!spell.prepared && !spell.ritual)))
+              (this.filter.status == 'Known' && !spell.known)
+              || (this.filter.status == 'Prepared or Known Ritual' && (!spell.known || (!spell.prepared && !spell.ritual)))
           )
     ) {
       return false;
@@ -114,22 +102,22 @@ export class SpellsComponent implements OnInit, OnDestroy {
   }
 
   saveKnown() {
-    let knownSpells: string[] = [];
+    let spellsKnown: string[] = [];
     this.spells.forEach(spell => {
       if(spell.known == true) {
-        knownSpells.push(spell.index);
+        spellsKnown.push(spell.index);
       }
     })
-    localStorage.setItem('knownSpells', JSON.stringify(knownSpells));
+    localStorage.setItem('spellsKnown', JSON.stringify(spellsKnown));
   }
 
   savePrepared() {
-    let preparedSpells: string[] = [];
+    let spellsPrepared: string[] = [];
     this.spells.forEach(spell => {
       if(spell.prepared == true) {
-        preparedSpells.push(spell.index);
+        spellsPrepared.push(spell.index);
       }
     })
-    localStorage.setItem('preparedSpells', JSON.stringify(preparedSpells));
+    localStorage.setItem('spellsPrepared', JSON.stringify(spellsPrepared));
   }
 }

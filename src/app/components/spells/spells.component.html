@@ -1,7 +1,15 @@
 ﻿<form #searchForm="ngForm" novalidate>
+	<!--Name-->
+	<label for="name" class="col-form-label">Name</label>
+	<div [class.has-error]="nameControl.invalid && nameControl.dirty">
+		<input type="text" class="form-control" id="name" name="name" [(ngModel)]="filter.name" #nameControl="ngModel" (ngModelChange)="filterChanged()" pattern="[A-Za-z ]+" maxlength="50">
+		<div [hidden]="nameControl.valid || nameControl.pristine" class="alert alert-danger">
+			Name should be less than 50 characters
+		</div>
+	</div>	<!--Class-->
 	<label for="class" class="col-form-label">Class</label>
-	<select name="class" [(ngModel)]="class" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-		<option selected>All Spells</option>
+	<select name="class" [(ngModel)]="filter.class" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
 		<option>Bard</option>
 		<option>Cleric</option>
 		<option>Druid</option>
@@ -11,25 +19,33 @@
 		<option>Warlock</option>
 		<option>Wizard</option>
 	</select>
-	<label for="levels" class="col-form-label">Levels</label>
-	<div [class.has-error]="levelsControl.invalid && levelsControl.dirty">
-		<input type="text" class="form-control" id="levels" name="levels" [(ngModel)]="levels" #levelsControl="ngModel" (ngModelChange)="filterChanged()" placeholder="0,1,..." pattern="[0-9 ,]+" required autofocus minlength="1">
-		<div [hidden]="levelsControl.valid || levelsControl.pristine" class="alert alert-danger">
-			Levels should be a comma separated list of numbers from 0-9 (0 = cantrip)
+	<!--Levels-->
+	<label for="levelMin" class="col-form-label">Level Range</label>
+	<div class="row" [class.has-error]="levelMinControl.invalid && levelMinControl.dirty || levelMaxControl.invalid && levelMaxControl.dirty">
+		<div class="col">
+			<input type="number" class="column form-control" id="levelMin" name="levelMin" [(ngModel)]="filter.levelMin" #levelMinControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="9" step="1" autofocus placeholder="min">
+		</div>
+		<div class="col">
+			<input type="number" class="column form-control" id="levelMax" name="levelMax" [(ngModel)]="filter.levelMax" #levelMaxControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="9" step="1" placeholder="max">
+		</div>
+		<div class="col alert alert-danger" [hidden]="levelMinControl.valid || levelMinControl.pristine || levelMaxControl.valid || levelMaxControl.pristine">
+			Level range should be between 0 and 9
 		</div>
 	</div>
+	<!--Casting Time-->
 	<label for="class" class="col-form-label">Casting Time</label>
-	<select name="castingTime" [(ngModel)]="castingTime" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-		<option selected>Any</option>
+	<select name="castingTime" [(ngModel)]="filter.castingTime" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
 		<option>Action</option>
 		<option>Bonus Action</option>
 		<option>Non-Ritual, Long Cast Time</option>
 		<option>Reaction</option>
 		<option>Ritual</option>
 	</select>
+	<!--Status-->
 	<label for="class" class="col-form-label">Status</label>
-	<select name="status" [(ngModel)]="status" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-		<option selected>Any</option>
+	<select name="status" [(ngModel)]="filter.status" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
 		<option>Known</option>
 		<option>Prepared or Known Ritual</option>
 	</select>

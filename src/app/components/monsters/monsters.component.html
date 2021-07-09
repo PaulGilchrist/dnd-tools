@@ -1,4 +1,63 @@
 ﻿<form #searchForm="ngForm" novalidate>
+	<!--Name-->
+	<label for="name" class="col-form-label">Name</label>
+	<div [class.has-error]="nameControl.invalid && nameControl.dirty">
+		<input type="text" class="form-control" id="name" name="name" [(ngModel)]="filter.name" #nameControl="ngModel" (ngModelChange)="filterChanged()" pattern="[A-Za-z ]+" maxlength="50">
+		<div [hidden]="nameControl.valid || nameControl.pristine" class="alert alert-danger">
+			Name should be less than 50 characters
+		</div>
+	</div>
+	<!--Challenge Range-->
+	<label for="challengeRatingMin" class="col-form-label">Challenge Rating</label>
+	<div class="row" [class.has-error]="challengeRatingMinControl.invalid && challengeRatingMinControl.dirty || challengeRatingMaxControl.invalid && challengeRatingMaxControl.dirty">
+		<div class="col">
+			<input type="number" class="column form-control" id="challengeRatingMin" name="challengeRatingMin" [(ngModel)]="filter.challengeRatingMin" #challengeRatingMinControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="25" step="0.25" autofocus placeholder="min">
+		</div>
+		<div class="col">
+			<input type="number" class="column form-control" id="challengeRatingMax" name="challengeRatingMax" [(ngModel)]="filter.challengeRatingMax" #challengeRatingMaxControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="25" step="0.25" placeholder="max">
+		</div>
+		<div class="col alert alert-danger" [hidden]="challengeRatingMinControl.valid || challengeRatingMinControl.pristine || challengeRatingMaxControl.valid || challengeRatingMaxControl.pristine">
+			Challenge RangeMinControl should be between 0 and 25
+		</div>
+	</div>
+	<!--Type-->
+	<label for="type" class="col-form-label">Type</label>
+	<select name="type" [(ngModel)]="filter.type" #typeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option value="aberration">Aberration</option>
+		<option value="beast">Beast</option>
+		<option value="celestial">Celestial</option>
+		<option value="construct">Construct</option>
+		<option value="dragon">Dragon</option>
+		<option value="elemental">Elemental</option>
+		<option value="fey">Fey</option>
+		<option value="fiend">Fiend</option>
+		<option value="giant">Giant</option>
+		<option value="humanoid">Humanoid</option>
+		<option value="monstrosity">Monstrosity</option>
+		<option value="ooze">Ooze</option>
+		<option value="plant">Plant</option>
+		<option value="undead">Undead</option>
+	</select>
+	<!--Size-->
+	<label for="size" class="col-form-label">Size</label>
+	<select name="size" [(ngModel)]="filter.size" #typeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Tiny</option>
+		<option>Small</option>
+		<option>Medium</option>
+		<option>Large</option>
+		<option>Huge</option>
+		<option>Gargantuan</option>
+	</select>
+	<!--Alignment-->
+	<!--Bookmarked-->
+	<label for="bookmarked" class="col-form-label">Bookmarked</label>
+	<select name="bookmarked" [(ngModel)]="filter.bookmarked" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Bookmarked</option>
+	</select>
+	<!--Environment-->
 </form>
 <div *ngFor="let monster of monsters" class="list">
 	<app-monster *ngIf="showMonster(monster)" [monster]="monster" (bookmarkChanged)="saveBookmark()"></app-monster>
