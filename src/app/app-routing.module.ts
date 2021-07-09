@@ -5,7 +5,9 @@ import { SpellsComponent } from './components/spells/spells.component';
 
 const routes: Routes = [
     // Static Loading
-    { path: '', component: SpellsComponent }
+    { path: '', redirectTo: '/spells', pathMatch: 'full' },
+    { path: 'spells', component: SpellsComponent },
+    { path: 'monsters', component: SpellsComponent },
 ];
 
 @NgModule({
