@@ -43,8 +43,51 @@
 					<div>{{monster.charisma}} ({{getAbilityModifier(monster.charisma)}})</div>
 				</div>
 			</div>
-			<br />
-			Description<br />
+			<hr>
+			<div *ngIf="hasSavingThrows()">
+				<b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
+			</div>
+			<div *ngIf="hasSkills()">
+				<b>Skills:</b>&nbsp;{{getSkills()}}<br />
+			</div>
+			<div *ngIf="monster.condition_immunities.length > 0">
+				<b>Condition Immunities:</b>&nbsp;{{getConditionImmunities()}}<br />
+			</div>
+			<div *ngIf="monster.damage_immunities.length > 0">
+				<b>Damage Immunities:</b>&nbsp;{{getDamageImmunities()}}<br />
+			</div>
+			<div *ngIf="monster.damage_resistances.length > 0">
+				<b>Damage Resistances:</b>&nbsp;{{getDamageResistances()}}<br />
+			</div>
+			<div *ngIf="monster.damage_vulnerabilities.length > 0">
+				<b>Damage Vulnerabilities:</b>&nbsp;{{getDamageVulnerabilities()}}<br />
+			</div>
+			<b>Senses:</b>&nbsp;{{getSenses()}}<br />
+			<b>Languages:</b>&nbsp;{{monster.languages}}<br />
+			<b>Challenge:</b>&nbsp;{{monster.challenge_rating}} ({{monster.xp}} XP)<br />
+            <hr>
+			<div class="removeExtraLine">
+				<span *ngFor="let special_ability of monster.special_abilities">
+					<b>{{special_ability.name}}:</b>&nbsp;{{special_ability.desc}}<br /><br />
+				</span>
+			</div>
+			<hr>
+			<div class="removeExtraLine">
+				<h5>Actions</h5>
+				<span *ngFor="let action of monster.actions">
+					<b>{{action.name}}:</b>&nbsp;{{action.desc}}<br /><br />
+				</span>
+			</div>
+			<hr>
+			<div *ngIf="monster.legendary_actions != null">
+				<div class="removeExtraLine">
+					<h5>Legendary Actions</h5>
+					<span *ngFor="let legendary_action of monster.legendary_actions">
+						<b>{{legendary_action.name}}:</b>&nbsp;{{legendary_action.desc}}<br /><br />
+					</span>
+				</div>
+				<hr>
+			</div>
 		</div>
 	</div>
 </div>

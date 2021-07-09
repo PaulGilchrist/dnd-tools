@@ -43,7 +43,7 @@ export class MonstersComponent implements OnInit, OnDestroy {
   saveBookmark() {
     let bookmarkedMonsters: string[] = [];
     this.monsters.forEach(monster => {
-      if(monster.bookmark == true) {
+      if(monster.bookmarked == true) {
         bookmarkedMonsters.push(monster.index);
       }
     })
