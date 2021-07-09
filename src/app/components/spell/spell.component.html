@@ -15,8 +15,7 @@
 		</div>
 	</div>
 	<div *ngIf="spell.ui && spell.ui.show" class="card-body">
-		<i>{{getLevelText(this.spell.level)}}&nbsp;{{spell.school.name.toLowerCase()}}&nbsp;<span
-				*ngIf="spell.ritual">(ritual)</span></i><br />
+		<i>{{getLevelText(this.spell.level)}}&nbsp;{{spell.school.name.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br />
 		<br />
 		<p class="card-text">
 			<b>Casting Time:</b>&nbsp;{{spell.casting_time}}<br />

@@ -13,6 +13,10 @@ export class MonsterComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  getAbilityModifier(abilityScore: number) {
+    return Math.floor((abilityScore-10)/2);
+  }
+
   toggleDetails(monster: any) {
     if (monster.ui) {
       monster.ui.show = !monster.ui.show;

@@ -1,6 +1,9 @@
 ﻿<div *ngIf="monster != null" class="card w-100">
 	<div class="card-header">
-		<h4 class="card-title" (click)="toggleDetails(monster)">{{monster.name}}</h4>
+		<div (click)="toggleDetails(monster)">
+			<div class="card-title">{{monster.name}}</div>
+			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}},&nbsp;{{monster.alignment}}</i><br />
+		</div>
 		<div class="form-check">
 			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="monster.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(monster)">
 			<label class="form-check-label" for="bookmarked">
@@ -9,6 +12,39 @@
 		</div>
 	</div>
 	<div *ngIf="monster.ui && monster.ui.show" class="card-body">
-		<p class="card-text">Description</p>
+		<div class="card-text">
+			<b>Armor Class:</b>&nbsp;{{monster.armor_class}}<br />
+			<b>Hit Points:</b>&nbsp;{{monster.hit_points}}&nbsp;({{monster.hit_dice}})<br />
+			<b>Speed:</b>&nbsp;{{monster.speed.walk}}<span *ngIf="monster.speed.burrow">, burrow {{monster.speed.burrow}}</span><span *ngIf="monster.speed.climb">, climb {{monster.speed.climb}}</span><span *ngIf="monster.speed.hover">, hover {{monster.speed.hover}}</span><span *ngIf="monster.speed.fly">, fly {{monster.speed.fly}}</span><span *ngIf="monster.speed.swim">, swim {{monster.speed.swim}}</span><br />
+            <hr>
+			<div class="abilities">
+				<div class="ability">
+					<div class="ability-name">STR</div>
+					<div>{{monster.strength}} ({{getAbilityModifier(monster.strength)}})</div>
+				</div>
+				<div class="ability">
+					<div class="ability-name">DEX</div>
+					<div>{{monster.dexterity}} ({{getAbilityModifier(monster.dexterity)}})</div>
+				</div>
+				<div class="ability">
+					<div class="ability-name">CON</div>
+					<div>{{monster.constitution}} ({{getAbilityModifier(monster.constitution)}})</div>
+				</div>
+				<div class="ability">
+					<div class="ability-name">INT</div>
+					<div>{{monster.intelligence}} ({{getAbilityModifier(monster.intelligence)}})</div>
+				</div>
+				<div class="ability">
+					<div class="ability-name">WIS</div>
+					<div>{{monster.wisdom}} ({{getAbilityModifier(monster.wisdom)}})</div>
+				</div>
+				<div class="ability">
+					<div class="ability-name">CHA</div>
+					<div>{{monster.charisma}} ({{getAbilityModifier(monster.charisma)}})</div>
+				</div>
+			</div>
+			<br />
+			Description<br />
+		</div>
 	</div>
 </div>
