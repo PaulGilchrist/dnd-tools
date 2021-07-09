@@ -1,35 +1,38 @@
 ﻿<div *ngIf="spell != null" class="card w-100">
 	<div class="card-header">
-		<h4 class="card-title" (click)="toggleDetails(spell)">{{spell.name}}</h4>
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox" id="prepared" name="prepared" [disabled]="spell.known != true" [(ngModel)]="spell.prepared" #preparedControl="ngModel" (click)="togglePrepared(spell)">
-			<label class="form-check-label" for="prepared">
-				Prepared
-			</label>
+		<div (click)="toggleDetails(spell)">
+			<div class="card-title">{{spell.name}}</div>
+			<i>{{getLevelText(this.spell.level)}}&nbsp;{{spell.school.name.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br />
 		</div>
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox" id="known" name="known" [(ngModel)]="spell.known" #knownControl="ngModel" (click)="toggleKnown(spell)">
-			<label class="form-check-label" for="known">
-				Known
-			</label>
+		<div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="prepared" name="prepared" [disabled]="spell.known != true" [(ngModel)]="spell.prepared" #preparedControl="ngModel" (click)="togglePrepared(spell)">
+				<label class="form-check-label" for="prepared">
+					Prepared
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="known" name="known" [(ngModel)]="spell.known" #knownControl="ngModel" (click)="toggleKnown(spell)">
+				<label class="form-check-label" for="known">
+					Known
+				</label>
+			</div>
 		</div>
 	</div>
 	<div *ngIf="spell.ui && spell.ui.show" class="card-body">
-		<i>{{getLevelText(this.spell.level)}}&nbsp;{{spell.school.name.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br />
-		<br />
-		<p class="card-text">
+		<div class="card-text">
 			<b>Casting Time:</b>&nbsp;{{spell.casting_time}}<br />
 			<b>Range:</b>&nbsp;{{spell.range}}<br />
 			<b>Components:</b>&nbsp;{{spell.components}}&nbsp;<span
 				*ngIf="spell.material">({{spell.material}})</span><br />
 			<b>Duration:</b>&nbsp;<span *ngIf="spell.concentration">Concentration,&nbsp;</span>{{spell.duration}}<br />
-			<br />
+			<hr>
 			<span *ngFor="let desc of spell.desc">
 				{{desc}}<br /><br />
 			</span>
 			<span *ngIf="spell.higher_level != null">
 				<b>At higher levels.</b>&nbsp;{{spell.higher_level}}<br />
 			</span>
-		</p>
+		</div>
 	</div>
 </div>
