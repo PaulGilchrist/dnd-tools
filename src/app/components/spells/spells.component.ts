@@ -49,19 +49,19 @@ export class SpellsComponent implements OnInit, OnDestroy {
         localStorage.setItem('status', this.status);
       }
       // Set known and prepared spells
-      let knownJson = localStorage.getItem('knownSpells');
-      let known: string[] = [];
-      if(knownJson != null) {
-        known = JSON.parse(knownJson);
+      let knownSpellsJson = localStorage.getItem('knownSpells');
+      let knownSpells: string[] = [];
+      if(knownSpellsJson != null) {
+        knownSpells = JSON.parse(knownSpellsJson);
       }
-      let preparedJson = localStorage.getItem('preparedSpells');
-      let prepared: string[] = [];
-      if(preparedJson != null) {
-        prepared = JSON.parse(preparedJson);
+      let preparedSpellsJson = localStorage.getItem('preparedSpells');
+      let preparedSpells: string[] = [];
+      if(preparedSpellsJson != null) {
+        preparedSpells = JSON.parse(preparedSpellsJson);
       }
       this.spells.forEach(spell => {
-        spell.known = known.includes(spell.index);
-        spell.prepared = prepared.includes(spell.index);
+        spell.known = knownSpells.includes(spell.index);
+        spell.prepared = preparedSpells.includes(spell.index);
       })
     }));
   }
@@ -114,22 +114,22 @@ export class SpellsComponent implements OnInit, OnDestroy {
   }
 
   saveKnown() {
-    let known: string[] = [];
+    let knownSpells: string[] = [];
     this.spells.forEach(spell => {
       if(spell.known == true) {
-        known.push(spell.index);
+        knownSpells.push(spell.index);
       }
     })
-    localStorage.setItem('knownSpells', JSON.stringify(known));
+    localStorage.setItem('knownSpells', JSON.stringify(knownSpells));
   }
 
   savePrepared() {
-    let prepared: string[] = [];
+    let preparedSpells: string[] = [];
     this.spells.forEach(spell => {
       if(spell.prepared == true) {
-        prepared.push(spell.index);
+        preparedSpells.push(spell.index);
       }
     })
-    localStorage.setItem('preparedSpells', JSON.stringify(prepared));
+    localStorage.setItem('preparedSpells', JSON.stringify(preparedSpells));
   }
 }

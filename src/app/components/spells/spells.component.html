@@ -34,6 +34,6 @@
 		<option>Prepared or Known Ritual</option>
 	</select>
 </form>
-<div *ngFor="let spell of spells" class="spellList">
+<div *ngFor="let spell of spells" class="list">
 	<app-spell *ngIf="showSpell(spell)" [spell]="spell" (knownChanged)="saveKnown()" (preparedChanged)="savePrepared()"></app-spell>
 </div>

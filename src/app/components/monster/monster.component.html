@@ -1,0 +1,14 @@
+﻿<div *ngIf="monster != null" class="card w-100">
+	<div class="card-header">
+		<h4 class="card-title" (click)="toggleDetails(monster)">{{monster.name}}</h4>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="monster.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(monster)">
+			<label class="form-check-label" for="bookmarked">
+				Bookmarked
+			</label>
+		</div>
+	</div>
+	<div *ngIf="monster.ui && monster.ui.show" class="card-body">
+		<p class="card-text">Description</p>
+	</div>
+</div>

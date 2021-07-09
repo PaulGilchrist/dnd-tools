@@ -2,13 +2,13 @@
 	<div class="card-header">
 		<h4 class="card-title" (click)="toggleDetails(spell)">{{spell.name}}</h4>
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" id="prepared" name="prepared" [disabled]="spell.known != true" [(ngModel)]="spell.prepared" #levelsControl="ngModel" (click)="togglePrepared(spell)">
+			<input class="form-check-input" type="checkbox" id="prepared" name="prepared" [disabled]="spell.known != true" [(ngModel)]="spell.prepared" #preparedControl="ngModel" (click)="togglePrepared(spell)">
 			<label class="form-check-label" for="prepared">
 				Prepared
 			</label>
 		</div>
 		<div class="form-check">
-			<input class="form-check-input" type="checkbox" id="known" name="known" [(ngModel)]="spell.known" #levelsControl="ngModel" (click)="toggleKnown(spell)">
+			<input class="form-check-input" type="checkbox" id="known" name="known" [(ngModel)]="spell.known" #knownControl="ngModel" (click)="toggleKnown(spell)">
 			<label class="form-check-label" for="known">
 				Known
 			</label>

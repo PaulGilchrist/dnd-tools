@@ -1,0 +1,5 @@
+﻿<form #searchForm="ngForm" novalidate>
+</form>
+<div *ngFor="let monster of monsters" class="list">
+	<app-monster *ngIf="showMonster(monster)" [monster]="monster" (bookmarkChanged)="saveBookmark()"></app-monster>
+</div>
