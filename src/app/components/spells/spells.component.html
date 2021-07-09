@@ -27,6 +27,12 @@
 		<option>Reaction</option>
 		<option>Ritual</option>
 	</select>
+	<label for="class" class="col-form-label">Status</label>
+	<select name="status" [(ngModel)]="status" #classControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>Any</option>
+		<option>Known</option>
+		<option>Prepared or Known Ritual</option>
+	</select>
 </form>
 <div *ngFor="let spell of spells" class="spellList">
 	<app-spell *ngIf="showSpell(spell)" [spell]="spell" (knownChanged)="saveKnown()" (preparedChanged)="savePrepared()"></app-spell>

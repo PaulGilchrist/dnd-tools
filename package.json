@@ -8,7 +8,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "ng build --base-href /dnd-tools/",
-    "deploy": "ngh",
+    "deploy": "ng deploy dnd-tools --base-href=/dnd-tools/",
     "lint": "npx ng lint dnd-tools",
     "ng": "ng",
     "predeploy": "npm run build",

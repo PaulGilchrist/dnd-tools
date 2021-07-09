@@ -13,6 +13,7 @@ export class SpellsComponent implements OnInit, OnDestroy {
   class: string = 'All Spells';
   levels: number[] = [0, 1];
   spells: any[] = [];
+  status: string = 'Prepared or Known Ritual'
   subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
@@ -41,6 +42,12 @@ export class SpellsComponent implements OnInit, OnDestroy {
       } else {
         localStorage.setItem('levels', JSON.stringify(this.levels));
       }
+      let status = localStorage.getItem('status');
+      if(status != null) {
+        this.status = status;
+      } else {
+        localStorage.setItem('status', this.status);
+      }
       // Set known and prepared spells
       let knownJson = localStorage.getItem('knownSpells');
       let known: string[] = [];
@@ -68,6 +75,7 @@ export class SpellsComponent implements OnInit, OnDestroy {
     localStorage.setItem('castingTime', this.castingTime);
     localStorage.setItem('class', this.class);
     localStorage.setItem('levels', JSON.stringify(this.levels));
+    localStorage.setItem('status', this.status);
   }
 
   showSpell(spell: any) {
@@ -91,6 +99,15 @@ export class SpellsComponent implements OnInit, OnDestroy {
     }
     // Level filter
     if (!this.levels.includes(spell.level)) {
+      return false;
+    }
+    // Status filter
+    if (this.status != 'Any'
+        && (
+              (this.status == 'Known' && !spell.known)
+              || (this.status == 'Prepared or Known Ritual' && (!spell.known || (!spell.prepared && !spell.ritual)))
+          )
+    ) {
       return false;
     }
     return showSpell;
