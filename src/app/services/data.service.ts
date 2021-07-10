@@ -7,6 +7,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class DataService {
     // Keeping the BehaviorSubject private makes the pointer to the object read only
     //     They still can however modify any propertis the object contains without calling .next() but that should be avoided
+    private conditions = new BehaviorSubject<any>([]);
+    conditions$ = this.conditions.asObservable();
     private magicItems = new BehaviorSubject<any>([]);
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
@@ -15,6 +17,21 @@ export class DataService {
     spells$ = this.spells.asObservable();
 
     constructor(private http: HttpClient) {}
+
+    getConditions(): Observable<any[]> {
+        if (this.conditions.getValue().length===0) {
+            return this.http.get('./data/conditions.json').pipe(
+                tap(data => {
+                    console.log('Get - conditions');
+                    this.conditions.next(data);
+                }),
+                map(data => this.conditions.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.conditions$;
+        }
+    }
 
     getMagicItems(): Observable<any[]> {
         if (this.magicItems.getValue().length===0) {
