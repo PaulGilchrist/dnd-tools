@@ -65,7 +65,6 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
   }
 
   showMagicItem(magicItem: any) {
-    let showMagicItem = true;
     // Attunement filter
     if (this.filter.attunement != 'All' 
       && (

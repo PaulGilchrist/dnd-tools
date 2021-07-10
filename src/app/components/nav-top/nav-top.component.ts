@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
     styleUrls: ['./nav-top.component.scss'],
     templateUrl: './nav-top.component.html'
 })
-export class NavTopComponent implements OnInit{
-    constructor(private router: Router){}
+export class NavTopComponent implements OnInit {
+
+    constructor(private router: Router) { }
 
     ngOnInit(): void {
         const url = localStorage.getItem('url');
@@ -16,5 +17,6 @@ export class NavTopComponent implements OnInit{
             localStorage.removeItem('url');
             this.router.navigateByUrl(url);
         }
-   }
+    }
+
 }

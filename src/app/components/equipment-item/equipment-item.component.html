@@ -1,0 +1,79 @@
+﻿<div *ngIf="equipmentItem != null" class="card w-100">
+	<div class="card-header">
+		<div (click)="toggleDetails(equipmentItem)">
+			<div class="card-title">{{equipmentItem.name}}</div>
+			<i>{{equipmentItem.equipment_category.name}}, cost {{equipmentItem.cost.quantity}} {{equipmentItem.cost.unit}}<span *ngIf="equipmentItem.weight">, weight {{equipmentItem.weight}} lb.</span></i><br />
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="equipmentItem.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(equipmentItem)">
+			<label class="form-check-label" for="bookmarked">
+				Bookmarked
+			</label>
+		</div>
+	</div>
+	<div *ngIf="equipmentItem.ui && equipmentItem.ui.show" class="card-body">
+		<div class="card-text">
+			<div *ngIf="equipmentItem.equipment_category.name == 'Adventuring Gear'">
+				<b>Category:</b>&nbsp;{{equipmentItem.gear_category.name}}<br />
+				<div *ngIf="equipmentItem.contents">
+					<b>Contents:</b>&nbsp;{{getContents()}}<br />
+				</div>
+			</div>
+			<div *ngIf="equipmentItem.equipment_category.name == 'Armor'">
+				<b>Category:</b>&nbsp;{{equipmentItem.armor_category}}<br />
+				<b>Armor Class:</b>&nbsp;{{equipmentItem.armor_class.base}}<span *ngIf="equipmentItem.armor_class.dex_bonus == true">&nbsp;+ DEX bonus</span><span *ngIf="equipmentItem.armor_class.max_bonus != null">&nbsp;(max {{equipmentItem.armor_class.max_bonus}}))</span><br />
+				<div *ngIf="equipmentItem.str_minimum > 0">
+					<b>Strength Min:</b>&nbsp;{{equipmentItem.str_minimum}}<br />
+				</div>
+				<div *ngIf="equipmentItem.stealth_disadvantage == true">
+					<b>Disadvantages:</b>&nbsp;Stealth<br />
+				</div>
+			</div>
+			<div *ngIf="equipmentItem.equipment_category.name == 'Mounts and Vehicles'">
+				<b>Category:</b>&nbsp;{{equipmentItem.vehicle_category}}<br />
+				<div *ngIf="equipmentItem.speed">
+					<b>Speed:</b>&nbsp;{{equipmentItem.speed.quantity}} {{equipmentItem.speed.unit}}<br />
+				</div>
+				<div *ngIf="equipmentItem.capacity">
+					<b>Capacity:</b>&nbsp;{{equipmentItem.capacity}}<br />
+				</div>
+			</div>
+			<div *ngIf="equipmentItem.equipment_category.name == 'Tools'">
+				<b>Category:</b>&nbsp;{{equipmentItem.tool_category}}<br />
+			</div>
+			<div *ngIf="equipmentItem.equipment_category.name == 'Weapon'">
+				<b>Category:</b>&nbsp;{{equipmentItem.weapon_category}}<br />
+				<div *ngIf="equipmentItem.weapon_range == 'Meele'">
+					<b>Range:</b>&nbsp;Meele<br />
+				</div>
+				<div *ngIf="equipmentItem.weapon_range == 'Ranged'">
+					<b>Range:</b>&nbsp;normal {{equipmentItem.range.normal}} feet, long {{equipmentItem.range.long}} feet<br />
+				</div>
+				<b>Damage:</b>&nbsp;{{equipmentItem.damage.damage_dice}} {{equipmentItem.damage.damage_type.name}}<br />
+				<div *ngIf="equipmentItem.two_handed_damage">
+					<b>Two Handed Damage:</b>&nbsp;{{equipmentItem.two_handed_damage.damage_dice}} {{equipmentItem.two_handed_damage.damage_type.name}}<br />
+				</div>
+				<div *ngIf="equipmentItem.throw_range">
+					<b>Throw Range:</b>&nbsp;normal {{equipmentItem.throw_range.normal}} feet, long {{equipmentItem.throw_range.long}} feet<br />
+				</div>
+				<div *ngIf="equipmentItem.properties && equipmentItem.properties.length > 0">
+					<b>Properties:</b>&nbsp;{{getProperties()}}<br />
+				</div>
+			</div>
+			<div *ngIf="equipmentItem.desc" class="removeExtraLine">
+				<hr>
+				<h5>Description</h5>
+				<span *ngFor="let desc of equipmentItem.desc">
+					{{desc}}<br /><br />
+				</span>
+			</div>
+			<div *ngIf="equipmentItem.special" class="removeExtraLine">
+				<hr>
+				<h5>Special</h5>
+				<span *ngFor="let desc of equipmentItem.special">
+					{{desc}}<br /><br />
+				</span>
+			</div>
+		</div>
+	</div>
+</div>

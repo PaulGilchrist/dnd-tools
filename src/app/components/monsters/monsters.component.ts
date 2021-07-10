@@ -66,7 +66,6 @@ export class MonstersComponent implements OnInit, OnDestroy {
   }
 
   showMonster(monster: any) {
-    let showMonster = true;
     // Bookmarked filter
     if (this.filter.bookmarked != 'All' && !monster.bookmarked) {
       return false;

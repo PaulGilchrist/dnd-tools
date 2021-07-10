@@ -1,18 +1,15 @@
-﻿import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-spell',
   styleUrls: ['./spell.component.scss'],
   templateUrl: './spell.component.html'
 })
-export class SpellComponent implements OnInit {
+export class SpellComponent {
 
   @Input() spell: any = null;
   @Output() readonly knownChanged = new EventEmitter<boolean>(); // Bubble up that the spell is known
   @Output() readonly preparedChanged = new EventEmitter<boolean>(); // Bubble up that the spell is prepared
-
-  ngOnInit(): void {
-  }
 
   getClasses() {
     let classes = '';

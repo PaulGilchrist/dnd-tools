@@ -1,0 +1,51 @@
+﻿<form #searchForm="ngForm" novalidate>
+	<!--Name-->
+	<label for="name" class="col-form-label">Name</label>
+	<div [class.has-error]="nameControl.invalid && nameControl.dirty">
+		<input type="text" class="form-control" id="name" name="name" [(ngModel)]="filter.name" #nameControl="ngModel" (ngModelChange)="filterChanged()" pattern="[A-Za-z ]+" maxlength="50">
+		<div [hidden]="nameControl.valid || nameControl.pristine" class="alert alert-danger">
+			Name should be less than 50 characters
+		</div>
+	</div>
+	<!--Category-->
+	<label for="category" class="col-form-label">Category</label>
+	<select name="category" [(ngModel)]="filter.category" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Adventuring Gear</option>
+		<option>Armor</option>
+		<option>Mounts and Vehicles</option>
+		<option>Tools</option>
+		<option>Weapon</option>
+	</select>
+	<!--Range-->
+	<label *ngIf="filter.category == 'Weapon'" for="range" class="col-form-label">Range</label>
+	<select *ngIf="filter.category == 'Weapon'" name="range" [(ngModel)]="filter.range" #rangeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Melee</option>
+		<option>Ranged</option>
+	</select>		
+	<!--Properties-->
+	<label *ngIf="filter.category == 'Weapon'" for="property" class="col-form-label">Property</label>
+	<select *ngIf="filter.category == 'Weapon'" name="property" [(ngModel)]="filter.property" #rangeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Ammunition</option>
+		<option>Finesse</option>
+		<option>Heavy</option>
+		<option>Light</option>
+		<option>Loading</option>
+		<option>Monk</option>
+		<option>Reach</option>
+		<option>Thrown</option>
+		<option>Two-Handed</option>
+		<option>Versatile</option>
+	</select>
+	<!--Bookmarked-->
+	<label for="bookmarked" class="col-form-label">Bookmarked</label>
+	<select name="bookmarked" [(ngModel)]="filter.bookmarked" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Bookmarked</option>
+	</select>
+</form>
+<div *ngFor="let equipmentItem of equipmentItems" class="list">
+	<equipment-item *ngIf="showEquipmentItem(equipmentItem)" [equipmentItem]="equipmentItem" (bookmarkChanged)="saveBookmark()"></equipment-item>
+</div>

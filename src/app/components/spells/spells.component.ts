@@ -63,7 +63,6 @@ export class SpellsComponent implements OnInit, OnDestroy {
   }
 
   showSpell(spell: any) {
-    let showSpell = true;
     // Casting Time filter
     if (this.filter.castingTime != 'All'
         && (
@@ -98,7 +97,7 @@ export class SpellsComponent implements OnInit, OnDestroy {
     ) {
       return false;
     }
-    return showSpell;
+    return true;
   }
 
   saveKnown() {
