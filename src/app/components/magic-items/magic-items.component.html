@@ -1,0 +1,44 @@
+﻿<form #searchForm="ngForm" novalidate>
+	<!--Name-->
+	<label for="name" class="col-form-label">Name</label>
+	<div [class.has-error]="nameControl.invalid && nameControl.dirty">
+		<input type="text" class="form-control" id="name" name="name" [(ngModel)]="filter.name" #nameControl="ngModel" (ngModelChange)="filterChanged()" pattern="[A-Za-z ]+" maxlength="50">
+		<div [hidden]="nameControl.valid || nameControl.pristine" class="alert alert-danger">
+			Name should be less than 50 characters
+		</div>
+	</div>
+	<!--Rarity-->
+	<label for="rarity" class="col-form-label">Rarity</label>
+	<select name="rarity" [(ngModel)]="filter.rarity" #rarityControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option value=", common">Common</option>
+		<option value=", uncommon">Uncommon</option>
+		<option value=", rare">Rare</option>
+		<option value=", very rare">Very Rare</option>
+		<option value=", legendary">Legendary</option>
+	</select>
+	<!--Type-->
+	<label for="type" class="col-form-label">Type</label>
+	<select name="type" [(ngModel)]="filter.type" #typeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Armor</option>
+		<option>Weapon</option>
+		<option>Wondrous item</option>
+	</select>
+	<!--Attunement-->
+	<label for="attunement" class="col-form-label">Attunement</label>
+	<select name="attunement" [(ngModel)]="filter.attunement" #attunementControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Required</option>
+		<option>Not Required</option>
+	</select>
+	<!--Bookmarked-->
+	<label for="bookmarked" class="col-form-label">Bookmarked</label>
+	<select name="bookmarked" [(ngModel)]="filter.bookmarked" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option>Bookmarked</option>
+	</select>
+</form>
+<div *ngFor="let magicItem of magicItems" class="list">
+	<magic-item *ngIf="showMagicItem(magicItem)" [magicItem]="magicItem" (bookmarkChanged)="saveBookmark()"></magic-item>
+</div>

@@ -1,0 +1,23 @@
+﻿<div *ngIf="magicItem != null" class="card w-100">
+	<div class="card-header">
+		<div (click)="toggleDetails(magicItem)">
+			<div class="card-title">{{magicItem.name}}</div>
+			<i>{{magicItem.desc[0]}}</i><br />
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="magicItem.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(magicItem)">
+			<label class="form-check-label" for="bookmarked">
+				Bookmarked
+			</label>
+		</div>
+	</div>
+	<div *ngIf="magicItem.ui && magicItem.ui.show" class="card-body">
+		<div class="card-text">
+			<span *ngFor="let desc of magicItem.desc; let i = index">
+				<span *ngIf="i > 0">
+					{{desc}}<br /><br />
+				</span>
+			</span>
+		</div>
+	</div>
+</div>

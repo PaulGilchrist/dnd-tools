@@ -50,14 +50,12 @@
 		<option>Huge</option>
 		<option>Gargantuan</option>
 	</select>
-	<!--Alignment-->
 	<!--Bookmarked-->
 	<label for="bookmarked" class="col-form-label">Bookmarked</label>
 	<select name="bookmarked" [(ngModel)]="filter.bookmarked" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
 		<option selected>All</option>
 		<option>Bookmarked</option>
 	</select>
-	<!--Environment-->
 </form>
 <div *ngFor="let monster of monsters" class="list">
 	<app-monster *ngIf="showMonster(monster)" [monster]="monster" (bookmarkChanged)="saveBookmark()"></app-monster>

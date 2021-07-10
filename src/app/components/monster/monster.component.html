@@ -63,7 +63,9 @@
 				<b>Damage Vulnerabilities:</b>&nbsp;{{getDamageVulnerabilities()}}<br />
 			</div>
 			<b>Senses:</b>&nbsp;{{getSenses()}}<br />
-			<b>Languages:</b>&nbsp;{{monster.languages}}<br />
+			<div *ngIf="monster.languages">
+				<b>Languages:</b>&nbsp;{{monster.languages}}<br />
+			</div>
 			<b>Challenge:</b>&nbsp;{{monster.challenge_rating}} ({{monster.xp}} XP)<br />
             <hr>
 			<div class="removeExtraLine">
