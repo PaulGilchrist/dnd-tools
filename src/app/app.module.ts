@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './components/app/app.component';
+import { AbilityScoreComponent } from './components/ability-score/ability-score.component';
+import { AbilityScoresComponent } from './components/ability-scores/ability-scores.component';
 import { ConditionComponent } from './components/condition/condition.component';
 import { ConditionsComponent } from './components/conditions/conditions.component';
 import { MagicItemComponent } from './components/magic-item/magic-item.component';
@@ -24,6 +26,8 @@ import { DataService } from './services/data.service';
   declarations: [
     AppComponent,
     NavTopComponent,
+    AbilityScoreComponent,
+    AbilityScoresComponent,
     ConditionComponent,
     ConditionsComponent,
     MagicItemComponent,
