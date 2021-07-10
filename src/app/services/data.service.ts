@@ -13,6 +13,8 @@ export class DataService {
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
     monsters$ = this.monsters.asObservable();
+    private skills = new BehaviorSubject<any>([]);
+    skills$ = this.skills.asObservable();
     private spells = new BehaviorSubject<any>([]);
     spells$ = this.spells.asObservable();
 
@@ -60,6 +62,21 @@ export class DataService {
             );
         } else {
             return this.monsters$;
+        }
+    }
+
+    getSkills(): Observable<any[]> {
+        if (this.skills.getValue().length===0) {
+            return this.http.get('./data/skills.json').pipe(
+                tap(data => {
+                    console.log('Get - skills');
+                    this.skills.next(data);
+                }),
+                map(data => this.skills.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.skills$;
         }
     }
 

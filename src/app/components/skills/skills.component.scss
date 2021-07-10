@@ -1,0 +1,12 @@
+form {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-gap: 10px;
+  max-width: 500px;
+  margin: auto;
+  padding-left: 5px;
+}
+.list {
+  max-width: 1000px;
+  margin: auto;
+}

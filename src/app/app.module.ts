@@ -13,6 +13,8 @@ import { MagicItemsComponent } from './components/magic-items/magic-items.compon
 import { MonsterComponent } from './components/monster/monster.component';
 import { MonstersComponent } from './components/monsters/monsters.component';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
+import { SkillComponent } from './components/skill/skill.component';
+import { SkillsComponent } from './components/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
 
@@ -24,12 +26,14 @@ import { DataService } from './services/data.service';
     NavTopComponent,
     ConditionComponent,
     ConditionsComponent,
-    SpellComponent,
-    SpellsComponent,
     MagicItemComponent,
     MagicItemsComponent,
     MonsterComponent,
-    MonstersComponent
+    MonstersComponent,
+    SkillComponent,
+    SkillsComponent,
+    SpellComponent,
+    SpellsComponent
   ],
   imports: [
     AppRoutingModule,
