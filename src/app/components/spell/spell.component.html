@@ -21,11 +21,27 @@
 	</div>
 	<div *ngIf="spell.ui && spell.ui.show" class="card-body">
 		<div class="card-text">
-			<b>Casting Time:</b>&nbsp;{{spell.casting_time}}<br />
-			<b>Range:</b>&nbsp;{{spell.range}}<br />
-			<b>Components:</b>&nbsp;{{spell.components}}&nbsp;<span
-				*ngIf="spell.material">({{spell.material}})</span><br />
-			<b>Duration:</b>&nbsp;<span *ngIf="spell.concentration">Concentration,&nbsp;</span>{{spell.duration}}<br />
+			<div class="stats">
+				<div>
+					<b>Casting Time:</b>&nbsp;{{spell.casting_time}}<br />
+					<b>Range:</b>&nbsp;{{spell.range}}<br />
+					<b>Components:</b>&nbsp;{{spell.components}}&nbsp;<span
+						*ngIf="spell.material">({{spell.material}})</span><br />
+					<b>Duration:</b>&nbsp;<span *ngIf="spell.concentration">Concentration,&nbsp;</span>{{spell.duration}}<br />
+				</div>
+				<div>
+					<b>Classes:</b>&nbsp;{{getClasses()}}<br />
+					<div *ngIf="spell.area_of_effect">
+						<b>Area of Effect:</b>&nbsp;{{spell.area_of_effect.size}} foot {{spell.area_of_effect.type}}<br />
+					</div>
+					<div *ngIf="spell.damage">
+						<b>Damage Type:</b>&nbsp;{{spell.damage.damage_type.name}}<br />
+					</div>
+					<div *ngIf="spell.dc">
+						<b>DC:</b>&nbsp;{{spell.dc.dc_type.name}} ({{spell.dc.dc_success}})<br />
+					</div>
+				</div>
+			</div>
 			<hr>
 			<span *ngFor="let desc of spell.desc">
 				{{desc}}<br /><br />

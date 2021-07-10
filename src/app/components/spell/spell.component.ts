@@ -14,6 +14,14 @@ export class SpellComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getClasses() {
+    let classes = '';
+    this.spell.classes.forEach((spellClass: any) => {
+      classes += `${spellClass.name}, `;
+    });
+    return classes.substr(0, classes.length-2);
+  }
+
   getLevelText(level: number) {
     switch (level) {
       case 0:
