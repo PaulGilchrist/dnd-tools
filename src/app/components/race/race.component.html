@@ -14,7 +14,9 @@
 		<div *ngIf="race.starting_proficiency_options">
 			<b>Starting Proficiency Options:</b>&nbsp;{{getStartingProficiencyOptions()}}<br />
 		</div>
-		<b>Traits:</b>&nbsp;{{getTraits()}}<br />
+		<div *ngIf="race.traits.length > 0">
+			<b>Traits:</b>&nbsp;{{getTraits()}}<br />
+		</div>
 		<div *ngIf="race.trait_options">
 			<b>Trait Options:</b>&nbsp;{{getTraitOptions()}}<br />
 		</div>
@@ -26,10 +28,5 @@
 			<b>Language Options:</b>&nbsp;{{getLanguageOptions()}}<br /><br />
 		</div>
 		<b>Size:</b>&nbsp;{{race.size}} - {{race.size_description}}<br />
-		<!-- <div class="card-text removeExtraLine">
-			<span *ngFor="let desc of race.desc">
-				{{desc}}<br /><br />
-			</span>
-		</div> -->
 	</div>
 </div>

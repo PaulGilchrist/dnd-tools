@@ -13,13 +13,13 @@ import { SpellsComponent } from './components/spells/spells.component';
 const routes: Routes = [
     // Static Loading
     { path: '', redirectTo: '/spells', pathMatch: 'full' },
-    { path: 'ability-scores', component: AbilityScoresComponent },
-    { path: 'conditions', component: ConditionsComponent },
+    { path: 'rules/ability-scores', component: AbilityScoresComponent },
+    { path: 'rules/conditions', component: ConditionsComponent },
     { path: 'equipment-items', component: EquipmentItemsComponent },
     { path: 'magic-items', component: MagicItemsComponent },
     { path: 'monsters', component: MonstersComponent },
-    { path: 'races', component: RacesComponent },
-    { path: 'skills', component: SkillsComponent },
+    { path: 'rules/races', component: RacesComponent },
+    { path: 'rules/skills', component: SkillsComponent },
     { path: 'spells', component: SpellsComponent },
 ];
 
