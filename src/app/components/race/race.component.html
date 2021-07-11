@@ -1,0 +1,35 @@
+﻿<div *ngIf="race != null" class="card w-100">
+	<div class="card-header" (click)="toggleDetails(race)">
+		<div class="card-title">{{race.name}}</div>
+	</div>
+	<div *ngIf="race.ui && race.ui.show" class="card-body">
+		<b>Ability Bonuses:</b>&nbsp;{{getAbilityBonuses()}}<br />
+		<div *ngIf="race.ability_bonus_options">
+			<b>Ability Bonus Options:</b>&nbsp;{{getAbilityBonusOptions()}}<br />
+		</div>
+		<b>Speed:</b>&nbsp;{{race.speed}} feet<br />
+		<div *ngIf="race.starting_proficiencies.length > 0">
+			<b>Starting Proficiencies:</b>&nbsp;{{getStartingProficiencies()}}<br />
+		</div>
+		<div *ngIf="race.starting_proficiency_options">
+			<b>Starting Proficiency Options:</b>&nbsp;{{getStartingProficiencyOptions()}}<br />
+		</div>
+		<b>Traits:</b>&nbsp;{{getTraits()}}<br />
+		<div *ngIf="race.trait_options">
+			<b>Trait Options:</b>&nbsp;{{getTraitOptions()}}<br />
+		</div>
+		<hr>
+		<b>Alignment:</b>&nbsp;{{race.alignment}}<br /><br />
+		<b>Age:</b>&nbsp;{{race.age}}<br /><br />
+		<b>Languages:</b>&nbsp;{{getLanguages()}} - {{race.language_desc}}<br /><br />
+		<div *ngIf="race.language_options">
+			<b>Language Options:</b>&nbsp;{{getLanguageOptions()}}<br /><br />
+		</div>
+		<b>Size:</b>&nbsp;{{race.size}} - {{race.size_description}}<br />
+		<!-- <div class="card-text removeExtraLine">
+			<span *ngFor="let desc of race.desc">
+				{{desc}}<br /><br />
+			</span>
+		</div> -->
+	</div>
+</div>

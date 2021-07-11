@@ -4,9 +4,10 @@
     width: 100%;
 }
 .card-header {
-    align-content: center;
-    display: grid;
-    grid-template-columns: auto 110px;
+    display: flex;
+}
+.card-header > .align-center {
+    margin: auto 0;
 }
 .card-title {
     font-size: 1.5em;

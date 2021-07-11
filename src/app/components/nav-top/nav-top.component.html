@@ -7,12 +7,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['ability-scores']">Abilities</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['conditions']">Conditions</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['equipment-items']">Equipment</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
@@ -21,8 +15,16 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['monsters']">Monsters</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['skills']">Skills</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Rules
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" [routerLink]="['ability-scores']">Abilities</a></li>
+          <li><a class="dropdown-item" [routerLink]="['conditions']">Conditions</a></li>
+          <li><a class="dropdown-item" [routerLink]="['races']">Races</a></li>
+          <li><a class="dropdown-item" [routerLink]="['skills']">Skills</a></li>
+        </ul>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['spells']">Spells</a>

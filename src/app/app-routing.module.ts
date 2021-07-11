@@ -6,6 +6,7 @@ import { ConditionsComponent } from './components/conditions/conditions.componen
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonstersComponent } from './components/monsters/monsters.component';
+import { RacesComponent } from './components/races/races.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'equipment-items', component: EquipmentItemsComponent },
     { path: 'magic-items', component: MagicItemsComponent },
     { path: 'monsters', component: MonstersComponent },
+    { path: 'races', component: RacesComponent },
     { path: 'skills', component: SkillsComponent },
     { path: 'spells', component: SpellsComponent },
 ];

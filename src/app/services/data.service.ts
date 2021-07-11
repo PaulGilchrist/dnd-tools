@@ -17,6 +17,8 @@ export class DataService {
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
     monsters$ = this.monsters.asObservable();
+    private races = new BehaviorSubject<any>([]);
+    races$ = this.races.asObservable();
     private skills = new BehaviorSubject<any>([]);
     skills$ = this.skills.asObservable();
     private spells = new BehaviorSubject<any>([]);
@@ -44,6 +46,7 @@ export class DataService {
             return this.http.get('./data/conditions.json').pipe(
                 tap(data => {
                     console.log('Get - conditions');
+                    this.sort(data, 'name');
                     this.conditions.next(data);
                 }),
                 map(data => this.conditions.getValue()),
@@ -59,6 +62,7 @@ export class DataService {
             return this.http.get('./data/equipment.json').pipe(
                 tap(data => {
                     console.log('Get - equipment');
+                    this.sort(data, 'name');
                     this.equipment.next(data);
                 }),
                 map(data => this.equipment.getValue()),
@@ -74,6 +78,7 @@ export class DataService {
             return this.http.get('./data/magic-items.json').pipe(
                 tap(data => {
                     console.log('Get - magic items');
+                    this.sort(data, 'name');
                     this.magicItems.next(data);
                 }),
                 map(data => this.magicItems.getValue()),
@@ -89,6 +94,7 @@ export class DataService {
             return this.http.get('./data/monsters.json').pipe(
                 tap(data => {
                     console.log('Get - monsters');
+                    this.sort(data, 'name');
                     this.monsters.next(data);
                 }),
                 map(data => this.monsters.getValue()),
@@ -99,11 +105,28 @@ export class DataService {
         }
     }
 
+    getRaces(): Observable<any[]> {
+        if (this.races.getValue().length===0) {
+            return this.http.get('./data/races.json').pipe(
+                tap(data => {
+                    console.log('Get - races');
+                    this.sort(data, 'name');
+                    this.races.next(data);
+                }),
+                map(data => this.races.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.races$;
+        }
+    }
+
     getSkills(): Observable<any[]> {
         if (this.skills.getValue().length===0) {
             return this.http.get('./data/skills.json').pipe(
                 tap(data => {
                     console.log('Get - skills');
+                    this.sort(data, 'name');
                     this.skills.next(data);
                 }),
                 map(data => this.skills.getValue()),
@@ -119,6 +142,7 @@ export class DataService {
             return this.http.get('./data/spells.json').pipe(
                 tap(data => {
                     console.log('Get - spells');
+                    this.sort(data, 'name');
                     this.spells.next(data);
                 }),
                 map(data => this.spells.getValue()),
@@ -134,5 +158,22 @@ export class DataService {
 		console.error(error);
 		return observableThrowError(error || 'Server error');
 	}
+
+    private sort(inputObjectArray: any, propertyName: string, descending = false) {
+        // Sort an array of objects (in place) by the value of a given propertyName either ascending (default) or descending
+        if (inputObjectArray && propertyName) {
+            inputObjectArray.sort((a: any, b: any) => {
+                let aValue = a[propertyName];
+                let bValue = b[propertyName];
+                if (aValue < bValue) {
+                    return descending ? 1 : -1;
+                }
+                if (bValue < aValue) {
+                    return descending ? -1 : 1;
+                }
+                return 0;
+            });
+        }
+    }
 
 }

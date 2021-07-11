@@ -1,10 +1,8 @@
 ﻿<div *ngIf="skill != null" class="card w-100">
 	<div class="card-header" (click)="toggleDetails(skill)">
-		<div class="card-title">{{skill.name}}</div>
+		<span class="card-title">{{skill.name}}</span><span class="align-center">&nbsp;- {{getAbilityFullName(skill.ability_score.name)}}</span>
 	</div>
 	<div *ngIf="skill.ui && skill.ui.show" class="card-body">
-		<b>Ability Score:</b>&nbsp;{{skill.ability_score.name}}<br />		
-		<hr>
 		<div class="card-text">
 			<div class="removeExtraLine">
 				<span *ngFor="let desc of skill.desc">
