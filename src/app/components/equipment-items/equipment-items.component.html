@@ -46,6 +46,10 @@
 		<option>Bookmarked</option>
 	</select>
 </form>
+<div *ngIf="filter.category == 'Weapon' && filter.property != 'All'" class="weapon-property-description">
+	<b>Weapon Property - {{filter.property}}</b><br />
+	{{getWeaponPropertyDescription(filter.property)}}
+</div>
 <div *ngFor="let equipmentItem of equipmentItems" class="list">
 	<equipment-item *ngIf="showEquipmentItem(equipmentItem)" [equipmentItem]="equipmentItem" (bookmarkChanged)="saveBookmark()"></equipment-item>
 </div>

@@ -25,6 +25,8 @@ export class DataService {
     spells$ = this.spells.asObservable();
     private traits = new BehaviorSubject<any>([]);
     traits$ = this.traits.asObservable();
+    private weaponProperties = new BehaviorSubject<any>([]);
+    weaponProperties$ = this.weaponProperties.asObservable();
 
     constructor(private http: HttpClient) {}
 
@@ -171,6 +173,22 @@ export class DataService {
         }
     }
 
+    getWeaponProperties(): Observable<any[]> {
+        if (this.weaponProperties.getValue().length===0) {
+            return this.http.get('./data/weapon-properties.json').pipe(
+                tap(data => {
+                    console.log('Get - weapon properties');
+                    this.sort(data, 'name');
+                    this.weaponProperties.next(data);
+                }),
+                map(data => this.weaponProperties.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.weaponProperties$;
+        }
+    }
+    
     private handleError(error: Response) {
 		// In the future, we may send the server to some remote logging infrastructure
 		console.error(error);

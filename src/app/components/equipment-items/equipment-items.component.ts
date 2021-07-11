@@ -10,7 +10,6 @@ import { DataService } from '../../services/data.service';
 })
 export class EquipmentItemsComponent implements OnInit, OnDestroy {
   equipmentItems: any[] = [];
-  subscriptions: Subscription[] = [];
   filter = {
     category: 'All',
     bookmarked: 'All',
@@ -18,14 +17,18 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
     property: 'All',
     range: 'All'
   }
+  subscriptions: Subscription[] = [];
+  weaponProperties: any[] = [];
 
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
     this.subscriptions.push(combineLatest([
-      this.dataService.getEquipment()
+      this.dataService.getEquipment(),
+      this.dataService.getWeaponProperties()
     ]).subscribe((data: any) => {
       this.equipmentItems = data[0];
+      this.weaponProperties = data[1];
       // Set search filters
       let filter = localStorage.getItem('equipmentItemsFilter');
       if(filter) {
@@ -48,6 +51,10 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Unsubscribe all subscriptions to avoid memory leak
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  getWeaponPropertyDescription(name: string) {
+    return this.weaponProperties.find(wp => wp.name == name).desc;
   }
 
   filterChanged(): void {
