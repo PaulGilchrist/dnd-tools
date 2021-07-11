@@ -9,6 +9,7 @@ import { MonstersComponent } from './components/monsters/monsters.component';
 import { RacesComponent } from './components/races/races.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
+import { TraitsComponent } from './components/traits/traits.component';
 
 const routes: Routes = [
     // Static Loading
@@ -21,6 +22,7 @@ const routes: Routes = [
     { path: 'rules/races', component: RacesComponent },
     { path: 'rules/skills', component: SkillsComponent },
     { path: 'spells', component: SpellsComponent },
+    { path: 'rules/traits', component: TraitsComponent },
 ];
 
 @NgModule({

@@ -23,7 +23,8 @@ import { SkillComponent } from './components/skill/skill.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
-
+import { TraitComponent } from './components/trait/trait.component';
+import { TraitsComponent } from './components/traits/traits.component';
 
 import { DataService } from './services/data.service';
 @NgModule({
@@ -45,7 +46,9 @@ import { DataService } from './services/data.service';
     SkillComponent,
     SkillsComponent,
     SpellComponent,
-    SpellsComponent
+    SpellsComponent,
+    TraitComponent,
+    TraitsComponent
   ],
   imports: [
     AppRoutingModule,

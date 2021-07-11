@@ -1,0 +1,18 @@
+﻿<div *ngIf="trait != null" class="card w-100">
+	<div class="card-header" (click)="toggleDetails(trait)">
+		<div class="card-title">{{trait.name}}</div>
+	</div>
+	<div *ngIf="trait.ui && trait.ui.show" class="card-body">
+		<div *ngIf="trait.proficiencies.length > 0">
+			<b>Proficiencies:</b>&nbsp;{{getProficiencies()}}<br />
+		</div>
+		<div *ngIf="trait.races.length > 0">
+			<b>Races:</b>&nbsp;{{getRaces()}}<br /><br />
+		</div>
+		<div class="removeExtraLine">
+			<span *ngFor="let desc of trait.desc">
+				{{desc}}<br /><br />
+			</span>
+		</div>
+	</div>
+</div>
