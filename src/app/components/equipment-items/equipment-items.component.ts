@@ -23,7 +23,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
-    this.subscriptions.push(combineLatest([
+      this.subscriptions.push(combineLatest([
       this.dataService.getEquipment(),
       this.dataService.getWeaponProperties()
     ]).subscribe((data: any) => {

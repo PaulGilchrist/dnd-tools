@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, throwError as observableThrowError, Observable } from 'rxjs';
+import { combineLatest, BehaviorSubject, throwError as observableThrowError, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import * as Showdown from 'showdown';
 
 @Injectable()
 export class DataService {
@@ -19,6 +20,8 @@ export class DataService {
     monsters$ = this.monsters.asObservable();
     private races = new BehaviorSubject<any>([]);
     races$ = this.races.asObservable();
+    private rules = new BehaviorSubject<any>([]);
+    rules$ = this.rules.asObservable();
     private skills = new BehaviorSubject<any>([]);
     skills$ = this.skills.asObservable();
     private spells = new BehaviorSubject<any>([]);
@@ -125,6 +128,43 @@ export class DataService {
         }
     }
 
+    getRules(): Observable<any[]> {
+        let converter = new Showdown.Converter();
+        if (this.rules.getValue().length===0) {
+            return combineLatest([
+                this.http.get('./data/rules.json'),
+                this.http.get('./data/rule-sections.json')
+              ]).pipe(
+                tap(data => {
+                    // @ts-ignore
+                    let rules: any[] = data[0];
+                    // @ts-ignore
+                    let ruleSections: any[] = data[1];
+                    console.log('Get - rules');
+                    // Append on each section
+                    rules.forEach(rule => {
+                        rule.desc = converter.makeHtml(rule.desc);
+                        // Add subsection descriptions to rule.subsection
+                        // @ts-ignore
+                        rule.subsections.forEach(subsection => {
+                            let foundSubSection = ruleSections.find(rs => rs.index == subsection.index);
+                            if(foundSubSection) {
+                                // Remove the first line as it just duplicates the name
+                                let index = foundSubSection.desc.indexOf("\n\n");
+                                subsection.desc = converter.makeHtml(foundSubSection.desc.substr(index+1,Number.MAX_SAFE_INTEGER));
+                            }
+                        });
+                    });
+                    this.rules.next(rules);
+                }),
+                map(data => this.rules.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.races$;
+        }
+    }
+    
     getSkills(): Observable<any[]> {
         if (this.skills.getValue().length===0) {
             return this.http.get('./data/skills.json').pipe(

@@ -19,6 +19,8 @@ import { MonstersComponent } from './components/monsters/monsters.component';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
 import { RaceComponent } from './components/race/race.component';
 import { RacesComponent } from './components/races/races.component';
+import { RuleComponent } from './components/rule/rule.component';
+import { RulesComponent } from './components/rules/rules.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
@@ -43,6 +45,8 @@ import { DataService } from './services/data.service';
     MonstersComponent,
     RaceComponent,
     RacesComponent,
+    RuleComponent,
+    RulesComponent,
     SkillComponent,
     SkillsComponent,
     SpellComponent,

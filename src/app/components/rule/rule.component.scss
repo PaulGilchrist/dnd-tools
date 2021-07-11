@@ -1,0 +1,21 @@
+.card {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 100%;
+}
+.card-header {
+    align-content: center;
+    display: grid;
+    grid-template-columns: auto 110px;
+}
+.card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.hidden {
+    display:none;
+}
+.removeExtraLine {
+    margin-bottom: -20px;
+}
