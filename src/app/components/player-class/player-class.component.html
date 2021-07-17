@@ -101,7 +101,29 @@
 				<div *ngIf="level.class.index=='wizard'">
 					<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
 				</div>
-				<!--Need to add spellcasting here-->
+				<div *ngIf="level.spellcasting">
+					<b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
+					<div *ngIf="level.spellcasting.spells_know">
+						<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
+					</div>
+					<b>Spell Slots Level 1:</b>&nbsp;{{level.spellcasting.spell_slots_level_1}}<br />
+					<b>Spell Slots Level 2:</b>&nbsp;{{level.spellcasting.spell_slots_level_2}}<br />
+					<b>Spell Slots Level 3:</b>&nbsp;{{level.spellcasting.spell_slots_level_3}}<br />
+					<b>Spell Slots Level 4:</b>&nbsp;{{level.spellcasting.spell_slots_level_4}}<br />
+					<b>Spell Slots Level 5:</b>&nbsp;{{level.spellcasting.spell_slots_level_5}}<br />
+					<div *ngIf="level.spellcasting.spell_slots_level_6">
+						<b>Spell Slots Level 6:</b>&nbsp;{{level.spellcasting.spell_slots_level_6}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_7">
+						<b>Spell Slots Level 7:</b>&nbsp;{{level.spellcasting.spell_slots_level_7}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_8">
+						<b>Spell Slots Level 8:</b>&nbsp;{{level.spellcasting.spell_slots_level_8}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_9">
+						<b>Spell Slots Level 9:</b>&nbsp;{{level.spellcasting.spell_slots_level_9}}<br />
+					</div>
+				</div>
 				<br />
 				<div *ngFor="let feature of level.features">
 					<h5>{{feature.name}}:</h5>
