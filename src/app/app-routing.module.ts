@@ -6,6 +6,7 @@ import { ConditionsComponent } from './components/conditions/conditions.componen
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonstersComponent } from './components/monsters/monsters.component';
+import { PlayerClassesComponent } from './components/player-classes/player-classes.component';
 import { RacesComponent } from './components/races/races.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { SkillsComponent } from './components/skills/skills.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
     { path: 'monsters', component: MonstersComponent },
     { path: 'rules/ability-scores', component: AbilityScoresComponent },
     { path: 'rules/conditions', component: ConditionsComponent },
+    { path: 'rules/classes', component: PlayerClassesComponent },
     { path: 'rules/races', component: RacesComponent },
     { path: 'rules/general', component: RulesComponent },
     { path: 'rules/skills', component: SkillsComponent },

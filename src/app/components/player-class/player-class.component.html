@@ -1,0 +1,53 @@
+﻿<div *ngIf="playerClass != null" class="card w-100">
+	<div class="card-header" (click)="toggleDetails(playerClass)">
+		<div class="card-title">{{playerClass.name}}</div>
+	</div>
+	<div *ngIf="playerClass.ui && playerClass.ui.show" class="card-body">
+		<b>Hit Die:</b>&nbsp;d{{playerClass.hit_die}}<br />
+		<div *ngIf="playerClass.proficiencies.length > 0">
+			<b>Proficiencies:</b>&nbsp;{{getProficiencies()}}<br />
+		</div>
+		<div *ngIf="playerClass.proficiency_choices.length > 0">
+			<div *ngFor="let proficiencyChoice of playerClass.proficiency_choices">
+				<b>{{proficiencyChoice.type.charAt(0).toUpperCase() + proficiencyChoice.type.substr(1)}}:</b>&nbsp;{{getProficiencyChoiceText(proficiencyChoice)}}<br />
+			</div>
+		</div>
+		<div *ngIf="playerClass.saving_throws.length > 0">
+			<b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
+		</div>
+		<hr>
+		<div *ngFor="let feature of playerClass.features" class="removeExtraLine">
+			<b>{{feature.name}}:</b>&nbsp;{{feature.desc}}<br />
+			<div *ngIf="feature.prerequisites.length > 0">
+				<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+			</div>
+			<br />
+		</div>
+		<div *ngFor="let level of playerClass.class_levels">
+			<h5>Level&nbsp;{{level.level}}</h5>
+			<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
+			<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
+			<div *ngIf="level.class.index=='barbarian'">
+				<b>Rage Count:</b>&nbsp;{{level.class_specific.rage_count}}<br />
+				<b>Rage Damage Bonus:</b>&nbsp;{{level.class_specific.rage_damage_bonus}}<br />
+				<b>Brutal Critical Dice:</b>&nbsp;{{level.class_specific.brutal_critical_dice}}<br />
+			</div>
+			<br />
+			<div *ngFor="let feature of level.features">
+				<b>{{feature.name}}:</b>&nbsp;{{feature.desc}}<br />
+				<div *ngIf="feature.prerequisites.length > 0">
+					<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+				</div>
+				<br />
+			</div>
+			<div *ngFor="let feature of level.feature_choices">
+				<b>{{feature.name}}:</b>&nbsp;{{feature.desc}}<br />
+				<div *ngIf="feature.prerequisites.length > 0">
+					<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+				</div>
+				<br />
+			</div>
+			<br />
+		</div>
+	</div>
+</div>

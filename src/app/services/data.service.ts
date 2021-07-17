@@ -18,6 +18,8 @@ export class DataService {
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
     monsters$ = this.monsters.asObservable();
+    private playerClasses = new BehaviorSubject<any>([]);
+    playerClasses$ = this.playerClasses.asObservable();
     private races = new BehaviorSubject<any>([]);
     races$ = this.races.asObservable();
     private rules = new BehaviorSubject<any>([]);
@@ -112,6 +114,45 @@ export class DataService {
         }
     }
 
+    getPlayerClasses(): Observable<any[]> {
+        if (this.playerClasses.getValue().length===0) {
+            return combineLatest([
+                this.http.get('./data/classes.json'),
+                this.http.get('./data/features.json'),
+                this.http.get('./data/levels.json')
+              ]).pipe(
+                tap(data => {
+                    // @ts-ignore
+                    let playerClasses: any[] = data[0];
+                    // @ts-ignore
+                    let features: any[] = data[1];
+                    // @ts-ignore
+                    let levels: any[] = data[2];
+                    console.log('Get - Player Classes');
+                    this.sort(playerClasses, 'name');
+                    // Append levels to each class
+                    playerClasses.forEach(playerClass => {
+                        // Append feature that don't have a level
+                        playerClass.features = features.filter(feature => feature.class.index == playerClass.index && !feature.level);
+                        playerClass.class_levels = levels.filter(level => level.class.index == playerClass.index && level.ability_score_bonuses != null);
+                        // Add features to each level
+                        playerClass.class_levels.forEach((level: any) => {
+                            level.feature_choices = features.filter(feature => feature.class.index == playerClass.index && feature.level == level.level && level.feature_choices.find((f: any) => f.index == feature.index));
+                            this.sort(level.feature_choices, 'name');
+                            level.features = features.filter(feature => feature.class.index == playerClass.index && feature.level == level.level && level.features.find((f: any) => f.index == feature.index));
+                            this.sort(level.features, 'name');
+                        });
+                    });
+                    this.playerClasses.next(playerClasses);
+                }),
+                map(data => this.playerClasses.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.playerClasses$;
+        }
+    }
+    
     getRaces(): Observable<any[]> {
         if (this.races.getValue().length===0) {
             return this.http.get('./data/races.json').pipe(
