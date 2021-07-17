@@ -1,4 +1,4 @@
-﻿<div *ngIf="playerClass != null" class="card w-100">
+﻿<div *ngIf="playerClass != null" class="card outer w-100">
 	<div class="card-header" (click)="toggleDetails(playerClass)">
 		<div class="card-title">{{playerClass.name}}</div>
 	</div>
@@ -15,39 +15,115 @@
 		<div *ngIf="playerClass.saving_throws.length > 0">
 			<b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
 		</div>
-		<hr>
-		<div *ngFor="let feature of playerClass.features" class="removeExtraLine">
-			<b>{{feature.name}}:</b>&nbsp;{{feature.desc}}<br />
-			<div *ngIf="feature.prerequisites.length > 0">
-				<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+		<div *ngIf="playerClass.features.length > 0" class="card inner w-100">
+			<div class="card-header" (click)="showLevel('0')">
+				<div class="card-title">Features</div>
 			</div>
-			<br />
+			<div class="card-body removeExtraLine" [class.hidden]="shownLevel != '0'">
+				<div *ngFor="let feature of playerClass.features" class="removeExtraLine">
+					<b>{{feature.name}}:</b>&nbsp;
+					<span *ngFor="let desc of feature.desc">
+						{{desc}}<br />
+					</span>
+					<div *ngIf="feature.prerequisites.length > 0">
+						<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+						<br />
+					</div>
+					<br />
+				</div>
+			</div>
 		</div>
-		<div *ngFor="let level of playerClass.class_levels">
-			<h5>Level&nbsp;{{level.level}}</h5>
-			<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
-			<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
-			<div *ngIf="level.class.index=='barbarian'">
-				<b>Rage Count:</b>&nbsp;{{level.class_specific.rage_count}}<br />
-				<b>Rage Damage Bonus:</b>&nbsp;{{level.class_specific.rage_damage_bonus}}<br />
-				<b>Brutal Critical Dice:</b>&nbsp;{{level.class_specific.brutal_critical_dice}}<br />
+		<div *ngFor="let level of playerClass.class_levels" class="card inner w-100">
+			<div class="card-header" (click)="showLevel(level.index)">
+				<div class="card-title">Level&nbsp;{{level.level}}</div>
 			</div>
-			<br />
-			<div *ngFor="let feature of level.features">
-				<b>{{feature.name}}:</b>&nbsp;{{feature.desc}}<br />
-				<div *ngIf="feature.prerequisites.length > 0">
-					<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+			<div class="card-body removeExtraLine" [class.hidden]="shownLevel != level.index">
+				<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
+				<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
+				<div *ngIf="level.class.index=='barbarian'">
+					<b>Rage Count:</b>&nbsp;{{level.class_specific.rage_count}}<br />
+					<b>Rage Damage Bonus:</b>&nbsp;{{level.class_specific.rage_damage_bonus}}<br />
+					<b>Brutal Critical Dice:</b>&nbsp;{{level.class_specific.brutal_critical_dice}}<br />
 				</div>
-				<br />
-			</div>
-			<div *ngFor="let feature of level.feature_choices">
-				<b>{{feature.name}}:</b>&nbsp;{{feature.desc}}<br />
-				<div *ngIf="feature.prerequisites.length > 0">
-					<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+				<div *ngIf="level.class.index=='bard'">
+					<b>Bardic Inspiration Die:</b>&nbsp;d{{level.class_specific.bardic_inspiration_die}}<br />
+					<b>Song of Rest Die:</b>&nbsp;d{{level.class_specific.song_of_rest_die}}<br />
+					<b>Magical Secrets Max 5:</b>&nbsp;{{level.class_specific.magical_secrets_max_5}}<br />
+					<b>Magical Secrets Max 7:</b>&nbsp;{{level.class_specific.magical_secrets_max_7}}<br />
+					<b>Magical Secrets Max 9:</b>&nbsp;{{level.class_specific.magical_secrets_max_9}}<br />
 				</div>
+				<div *ngIf="level.class.index=='cleric'">
+					<b>Channel Divinity Charges:</b>&nbsp;{{level.class_specific.channel_divinity_charges}}<br />
+					<b>Destroy Undead CR:</b>&nbsp;{{level.class_specific.destroy_undead_cr}}<br />
+				</div>
+				<div *ngIf="level.class.index=='druid'">
+					<b>Wild Shape Max CR:</b>&nbsp;{{level.class_specific.wild_shape_max_cr}}<br />
+					<b>Wild Shape Swim:</b>&nbsp;{{level.class_specific.wild_shape_swim}}<br />
+					<b>Wild Shape Fly:</b>&nbsp;{{level.class_specific.wild_shape_fly}}<br />
+				</div>
+				<div *ngIf="level.class.index=='fighter'">
+					<b>Action Surges:</b>&nbsp;{{level.class_specific.action_surges}}<br />
+					<b>Indomitable Uses:</b>&nbsp;{{level.class_specific.indomitable_uses}}<br />
+					<b>Extra Attacks:</b>&nbsp;{{level.class_specific.extra_attacks}}<br />
+				</div>
+				<div *ngIf="level.class.index=='monk'">
+					<b>Martial Arts:</b>&nbsp;{{level.class_specific.martial_arts.dice_count}}d{{level.class_specific.martial_arts.dice_value}}<br />
+					<b>Ki Points:</b>&nbsp;{{level.class_specific.ki_points}}<br />
+					<b>Unarmored Movement:</b>&nbsp;{{level.class_specific.unarmored_movement}}<br />
+				</div>
+				<div *ngIf="level.class.index=='paladin'">
+					<b>Aura Range:</b>&nbsp;{{level.class_specific.aura_range}}<br />
+				</div>
+				<div *ngIf="level.class.index=='ranger'">
+					<b>Favored Enemies:</b>&nbsp;{{level.class_specific.favored_enemies}}<br />
+					<b>Favored Terrain:</b>&nbsp;{{level.class_specific.favored_terrain}}<br />
+				</div>	
+				<div *ngIf="level.class.index=='rogue'">
+					<b>Sneak Attack:</b>&nbsp;{{level.class_specific.sneak_attack.dice_count}}d{{level.class_specific.sneak_attack.dice_value}}<br />
+				</div>
+				<div *ngIf="level.class.index=='sorcerer'">
+					<b>Sorcery Points:</b>&nbsp;{{level.class_specific.sorcery_points}}<br />
+					<b>Metamagic Known:</b>&nbsp;{{level.class_specific.metamagic_known}}<br />
+					<div *ngIf="level.class_specific.creating_spell_slots.length > 0">
+						<b>Creating Spell Slots:</b><br />
+						<span *ngFor="let spellSlot of level.class_specific.creating_spell_slots">
+							&nbsp;&nbsp;&nbsp;&nbsp;Level {{spellSlot.spell_slot_level}} point cost = {{spellSlot.sorcery_point_cost}}<br />
+						</span>
+					</div>
+				</div>
+				<div *ngIf="level.class.index=='warlock'">
+					<b>Invocations Known:</b>&nbsp;{{level.class_specific.invocations_known}}<br />
+					<b>Mystic Arcanum Level 6:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_6}}<br />
+					<b>Mystic Arcanum Level 7:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_7}}<br />
+					<b>Mystic Arcanum Level 8:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_8}}<br />
+					<b>Mystic Arcanum Level 9:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_9}}<br />
+				</div>
+				<div *ngIf="level.class.index=='wizard'">
+					<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
+				</div>
+				<!--Need to add spellcasting here-->
 				<br />
+				<div *ngFor="let feature of level.features">
+					<h5>{{feature.name}}:</h5>
+					<span *ngFor="let desc of feature.desc">
+						{{desc}}<br /><br />
+					</span>
+					<div *ngIf="feature.prerequisites.length > 0">
+						<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+						<br />
+					</div>
+				</div>
+				<div *ngFor="let feature of level.feature_choices">
+					<h5>{{feature.name}}:</h5>
+					<span *ngFor="let desc of feature.desc">
+						{{desc}}<br /><br />
+					</span>
+					<div *ngIf="feature.prerequisites.length > 0">
+						<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+						<br />
+					</div>
+				</div>
 			</div>
-			<br />
 		</div>
 	</div>
 </div>

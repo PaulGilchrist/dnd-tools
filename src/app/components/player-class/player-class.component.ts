@@ -9,6 +9,8 @@ export class PlayerClassComponent {
 
   @Input() playerClass: any = null;
 
+  shownLevel: string = '';
+
   getProficiencies() {
     let proficiencies = '';
     this.playerClass.proficiencies.forEach((proficiency: any) => {
@@ -51,6 +53,14 @@ export class PlayerClassComponent {
       savingThrows += `${savingThrow.name}, `;
     });
     return savingThrows.substr(0, savingThrows.length - 2);
+  }
+
+  showLevel(level: string) {
+    if(this.shownLevel == level) {
+      this.shownLevel = '';
+    } else {
+      this.shownLevel = level;
+    }
   }
 
   toggleDetails(playerClass: any) {
