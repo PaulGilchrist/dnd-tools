@@ -76,9 +76,9 @@
 			<hr>
 			<div class="removeExtraLine">
 				<h5>Actions</h5>
-				<span *ngFor="let action of monster.actions">
-					<b>{{action.name}}:</b>&nbsp;{{action.desc}}<br /><br />
-				</span>
+				<div *ngFor="let action of monster.actions">
+					<b>{{action.name}}<span *ngIf="action.usage && action.usage.type == 'recharge on roll'">&nbsp;(Recharge {{action.usage.min_value}}-6)</span>:</b>&nbsp;{{action.desc}}<br /><br />
+				</div>
 			</div>
 			<div *ngIf="monster.legendary_actions != null">
 				<hr>
