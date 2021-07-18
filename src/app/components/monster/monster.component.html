@@ -80,15 +80,14 @@
 					<b>{{action.name}}:</b>&nbsp;{{action.desc}}<br /><br />
 				</span>
 			</div>
-			<hr>
 			<div *ngIf="monster.legendary_actions != null">
+				<hr>
 				<div class="removeExtraLine">
 					<h5>Legendary Actions</h5>
 					<span *ngFor="let legendary_action of monster.legendary_actions">
 						<b>{{legendary_action.name}}:</b>&nbsp;{{legendary_action.desc}}<br /><br />
 					</span>
 				</div>
-				<hr>
 			</div>
 		</div>
 	</div>

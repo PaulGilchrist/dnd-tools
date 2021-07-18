@@ -9,7 +9,8 @@
 		</div>
 		<div *ngIf="playerClass.proficiency_choices.length > 0">
 			<div *ngFor="let proficiencyChoice of playerClass.proficiency_choices">
-				<b>{{proficiencyChoice.type.charAt(0).toUpperCase() + proficiencyChoice.type.substr(1)}}:</b>&nbsp;{{getProficiencyChoiceText(proficiencyChoice)}}<br />
+				<b>{{proficiencyChoice.type.charAt(0).toUpperCase() +
+					proficiencyChoice.type.substr(1)}}:</b>&nbsp;{{getProficiencyChoiceText(proficiencyChoice)}}<br />
 			</div>
 		</div>
 		<div *ngIf="playerClass.saving_throws.length > 0">
@@ -67,7 +68,8 @@
 					<b>Extra Attacks:</b>&nbsp;{{level.class_specific.extra_attacks}}<br />
 				</div>
 				<div *ngIf="level.class.index=='monk'">
-					<b>Martial Arts:</b>&nbsp;{{level.class_specific.martial_arts.dice_count}}d{{level.class_specific.martial_arts.dice_value}}<br />
+					<b>Martial
+						Arts:</b>&nbsp;{{level.class_specific.martial_arts.dice_count}}d{{level.class_specific.martial_arts.dice_value}}<br />
 					<b>Ki Points:</b>&nbsp;{{level.class_specific.ki_points}}<br />
 					<b>Unarmored Movement:</b>&nbsp;{{level.class_specific.unarmored_movement}}<br />
 				</div>
@@ -77,9 +79,10 @@
 				<div *ngIf="level.class.index=='ranger'">
 					<b>Favored Enemies:</b>&nbsp;{{level.class_specific.favored_enemies}}<br />
 					<b>Favored Terrain:</b>&nbsp;{{level.class_specific.favored_terrain}}<br />
-				</div>	
+				</div>
 				<div *ngIf="level.class.index=='rogue'">
-					<b>Sneak Attack:</b>&nbsp;{{level.class_specific.sneak_attack.dice_count}}d{{level.class_specific.sneak_attack.dice_value}}<br />
+					<b>Sneak
+						Attack:</b>&nbsp;{{level.class_specific.sneak_attack.dice_count}}d{{level.class_specific.sneak_attack.dice_value}}<br />
 				</div>
 				<div *ngIf="level.class.index=='sorcerer'">
 					<b>Sorcery Points:</b>&nbsp;{{level.class_specific.sorcery_points}}<br />
@@ -87,16 +90,33 @@
 					<div *ngIf="level.class_specific.creating_spell_slots.length > 0">
 						<b>Creating Spell Slots:</b><br />
 						<span *ngFor="let spellSlot of level.class_specific.creating_spell_slots">
-							&nbsp;&nbsp;&nbsp;&nbsp;Level {{spellSlot.spell_slot_level}} point cost = {{spellSlot.sorcery_point_cost}}<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;Level {{spellSlot.spell_slot_level}} Point Cost =
+							{{spellSlot.sorcery_point_cost}}<br />
 						</span>
 					</div>
 				</div>
 				<div *ngIf="level.class.index=='warlock'">
 					<b>Invocations Known:</b>&nbsp;{{level.class_specific.invocations_known}}<br />
-					<b>Mystic Arcanum Level 6:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_6}}<br />
-					<b>Mystic Arcanum Level 7:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_7}}<br />
-					<b>Mystic Arcanum Level 8:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_8}}<br />
-					<b>Mystic Arcanum Level 9:</b>&nbsp;{{level.class_specific.mystic_arcanum_level_9}}<br />
+					<div *ngIf="(level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) || (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) || (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) || (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0)">
+						<b>Mystic Arcanum:</b><br />
+						<div
+							*ngIf="level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Level 6 = {{level.class_specific.mystic_arcanum_level_6}}<br />
+						</div>
+						<div
+							*ngIf="level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Level 7 = {{level.class_specific.mystic_arcanum_level_7}}<br />
+						</div>
+						<div
+							*ngIf="level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Level 8 = {{level.class_specific.mystic_arcanum_level_8}}<br />
+						</div>
+						<div
+							*ngIf="level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Level 9 = {{level.class_specific.mystic_arcanum_level_9}}<br />
+						</div>
+					</div>
+
 				</div>
 				<div *ngIf="level.class.index=='wizard'">
 					<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
@@ -106,22 +126,33 @@
 					<div *ngIf="level.spellcasting.spells_know">
 						<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
 					</div>
-					<b>Spell Slots Level 1:</b>&nbsp;{{level.spellcasting.spell_slots_level_1}}<br />
-					<b>Spell Slots Level 2:</b>&nbsp;{{level.spellcasting.spell_slots_level_2}}<br />
-					<b>Spell Slots Level 3:</b>&nbsp;{{level.spellcasting.spell_slots_level_3}}<br />
-					<b>Spell Slots Level 4:</b>&nbsp;{{level.spellcasting.spell_slots_level_4}}<br />
-					<b>Spell Slots Level 5:</b>&nbsp;{{level.spellcasting.spell_slots_level_5}}<br />
-					<div *ngIf="level.spellcasting.spell_slots_level_6">
-						<b>Spell Slots Level 6:</b>&nbsp;{{level.spellcasting.spell_slots_level_6}}<br />
+					<b>Spell Slots:</b><br />
+					<div *ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 1 = {{level.spellcasting.spell_slots_level_1}}<br />
 					</div>
-					<div *ngIf="level.spellcasting.spell_slots_level_7">
-						<b>Spell Slots Level 7:</b>&nbsp;{{level.spellcasting.spell_slots_level_7}}<br />
+					<div *ngIf="level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 2 = {{level.spellcasting.spell_slots_level_2}}<br />
 					</div>
-					<div *ngIf="level.spellcasting.spell_slots_level_8">
-						<b>Spell Slots Level 8:</b>&nbsp;{{level.spellcasting.spell_slots_level_8}}<br />
+					<div *ngIf="level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 3 = {{level.spellcasting.spell_slots_level_3}}<br />
 					</div>
-					<div *ngIf="level.spellcasting.spell_slots_level_9">
-						<b>Spell Slots Level 9:</b>&nbsp;{{level.spellcasting.spell_slots_level_9}}<br />
+					<div *ngIf="level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 4 = {{level.spellcasting.spell_slots_level_4}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 5 = {{level.spellcasting.spell_slots_level_5}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 6 = {{level.spellcasting.spell_slots_level_6}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 7 = {{level.spellcasting.spell_slots_level_7}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 8 = {{level.spellcasting.spell_slots_level_8}}<br />
+					</div>
+					<div *ngIf="level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0">
+						&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 9 = {{level.spellcasting.spell_slots_level_9}}<br />
 					</div>
 				</div>
 				<br />
