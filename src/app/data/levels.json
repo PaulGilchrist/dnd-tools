@@ -92,7 +92,7 @@
     "features": [
       {
         "index": "barbarian-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/barbarian-ability-score-improvement-1"
       }
     ],
@@ -191,7 +191,7 @@
     "features": [
       {
         "index": "barbarian-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/barbarian-ability-score-improvement-2"
       }
     ],
@@ -285,7 +285,7 @@
     "features": [
       {
         "index": "barbarian-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/barbarian-ability-score-improvement-3"
       }
     ],
@@ -379,7 +379,7 @@
     "features": [
       {
         "index": "barbarian-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/barbarian-ability-score-improvement-4"
       }
     ],
@@ -454,7 +454,7 @@
     "features": [
       {
         "index": "barbarian-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/barbarian-ability-score-improvement-5"
       }
     ],
@@ -592,9 +592,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "bard-choose-expertise-1",
-        "name": "Choose: Expertise 1",
-        "url": "/api/features/bard-choose-expertise-1"
+        "index": "bard-expertise-1",
+        "name": "Expertise",
+        "url": "/api/features/bard-expertise-1"
       }
     ],
     "features": [
@@ -640,7 +640,7 @@
     "features": [
       {
         "index": "bard-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/bard-ability-score-improvement-1"
       }
     ],
@@ -799,7 +799,7 @@
     "features": [
       {
         "index": "bard-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/bard-ability-score-improvement-2"
       }
     ],
@@ -877,9 +877,9 @@
     "prof_bonus": 4,
     "feature_choices": [
       {
-        "index": "bard-choose-expertise-2",
-        "name": "Choose: Expertise 2",
-        "url": "/api/features/bard-choose-expertise-2"
+        "index": "bard-expertise-2",
+        "name": "Expertise",
+        "url": "/api/features/bard-expertise-2"
       }
     ],
     "features": [
@@ -890,7 +890,7 @@
       },
       {
         "index": "magical-secrets-1",
-        "name": "Magical Secrets 1",
+        "name": "Magical Secrets",
         "url": "/api/features/magical-secrets-1"
       }
     ],
@@ -964,7 +964,7 @@
     "features": [
       {
         "index": "bard-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/bard-ability-score-improvement-3"
       }
     ],
@@ -1044,7 +1044,7 @@
     "features": [
       {
         "index": "magical-secrets-2",
-        "name": "Magical Secrets 2",
+        "name": "Magical Secrets",
         "url": "/api/features/magical-secrets-2"
       }
     ],
@@ -1124,7 +1124,7 @@
     "features": [
       {
         "index": "bard-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/bard-ability-score-improvement-4"
       }
     ],
@@ -1204,7 +1204,7 @@
     "features": [
       {
         "index": "magical-secrets-3",
-        "name": "Magical Secrets 3",
+        "name": "Magical Secrets",
         "url": "/api/features/magical-secrets-3"
       }
     ],
@@ -1244,7 +1244,7 @@
     "features": [
       {
         "index": "bard-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/bard-ability-score-improvement-5"
       }
     ],
@@ -1334,7 +1334,7 @@
       },
       {
         "index": "domain-spells-1",
-        "name": "Domain Spells 1",
+        "name": "Domain Spells",
         "url": "/api/features/domain-spells-1"
       }
     ],
@@ -1413,7 +1413,7 @@
     "features": [
       {
         "index": "domain-spells-2",
-        "name": "Domain Spells 2",
+        "name": "Domain Spells",
         "url": "/api/features/domain-spells-2"
       }
     ],
@@ -1450,7 +1450,7 @@
     "features": [
       {
         "index": "cleric-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/cleric-ability-score-improvement-1"
       }
     ],
@@ -1487,7 +1487,7 @@
     "features": [
       {
         "index": "domain-spells-3",
-        "name": "Domain Spells 3",
+        "name": "Domain Spells",
         "url": "/api/features/domain-spells-3"
       },
       {
@@ -1566,7 +1566,7 @@
     "features": [
       {
         "index": "domain-spells-4",
-        "name": "Domain Spells 4",
+        "name": "Domain Spells",
         "url": "/api/features/domain-spells-4"
       }
     ],
@@ -1603,7 +1603,7 @@
     "features": [
       {
         "index": "cleric-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/cleric-ability-score-improvement-2"
       },
       {
@@ -1645,7 +1645,7 @@
     "features": [
       {
         "index": "domain-spells-5",
-        "name": "Domain Spells 5",
+        "name": "Domain Spells",
         "url": "/api/features/domain-spells-5"
       }
     ],
@@ -1756,7 +1756,7 @@
     "features": [
       {
         "index": "cleric-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/cleric-ability-score-improvement-3"
       }
     ],
@@ -1892,7 +1892,7 @@
     "features": [
       {
         "index": "cleric-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/cleric-ability-score-improvement-4"
       }
     ],
@@ -2003,7 +2003,7 @@
     "features": [
       {
         "index": "cleric-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/cleric-ability-score-improvement-5"
       }
     ],
@@ -2197,7 +2197,7 @@
       },
       {
         "index": "druid-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/druid-ability-score-improvement-1"
       }
     ],
@@ -2332,7 +2332,7 @@
       },
       {
         "index": "druid-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/druid-ability-score-improvement-2"
       }
     ],
@@ -2462,7 +2462,7 @@
     "features": [
       {
         "index": "druid-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/druid-ability-score-improvement-3"
       }
     ],
@@ -2592,7 +2592,7 @@
     "features": [
       {
         "index": "druid-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/druid-ability-score-improvement-4"
       }
     ],
@@ -2702,7 +2702,7 @@
     "features": [
       {
         "index": "druid-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/druid-ability-score-improvement-5"
       }
     ],
@@ -2774,9 +2774,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "fighter-choose-fighting-style",
-        "name": "Choose: Fighting Style",
-        "url": "/api/features/fighter-choose-fighting-style"
+        "index": "fighter-fighting-style",
+        "name": "Fighting Style",
+        "url": "/api/features/fighter-fighting-style"
       }
     ],
     "features": [
@@ -2857,7 +2857,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-1"
       }
     ],
@@ -2882,7 +2882,7 @@
     "features": [
       {
         "index": "extra-attack-1",
-        "name": "Extra Attack (1)",
+        "name": "Extra Attack",
         "url": "/api/features/extra-attack-1"
       }
     ],
@@ -2907,7 +2907,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-2"
       }
     ],
@@ -2951,7 +2951,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-3"
       }
     ],
@@ -3045,7 +3045,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-4"
       }
     ],
@@ -3095,7 +3095,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-5"
       }
     ],
@@ -3139,7 +3139,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-6",
-        "name": "Ability Score Improvement 6",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-6"
       }
     ],
@@ -3213,7 +3213,7 @@
     "features": [
       {
         "index": "fighter-ability-score-improvement-7",
-        "name": "Ability Score Improvement 7",
+        "name": "Ability Score Improvement",
         "url": "/api/features/fighter-ability-score-improvement-7"
       }
     ],
@@ -3316,7 +3316,7 @@
       },
       {
         "index": "unarmored-movement-1",
-        "name": "Unarmored Movement 1",
+        "name": "Unarmored Movement",
         "url": "/api/features/unarmored-movement-1"
       }
     ],
@@ -3377,7 +3377,7 @@
     "features": [
       {
         "index": "monk-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/monk-ability-score-improvement-1"
       },
       {
@@ -3504,7 +3504,7 @@
     "features": [
       {
         "index": "monk-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/monk-ability-score-improvement-2"
       }
     ],
@@ -3532,7 +3532,7 @@
     "features": [
       {
         "index": "unarmored-movement-2",
-        "name": "Unarmored Movement 2",
+        "name": "Unarmored Movement",
         "url": "/api/features/unarmored-movement-2"
       }
     ],
@@ -3610,7 +3610,7 @@
     "features": [
       {
         "index": "monk-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/monk-ability-score-improvement-3"
       }
     ],
@@ -3722,7 +3722,7 @@
     "features": [
       {
         "index": "monk-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/monk-ability-score-improvement-4"
       }
     ],
@@ -3800,7 +3800,7 @@
     "features": [
       {
         "index": "monk-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/monk-ability-score-improvement-5"
       }
     ],
@@ -3889,9 +3889,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "paladin-choose-fighting-style",
-        "name": "Choose: Fighting Style",
-        "url": "/api/features/paladin-choose-fighting-style"
+        "index": "paladin-fighting-style",
+        "name": "Fighting Style",
+        "url": "/api/features/paladin-fighting-style"
       }
     ],
     "features": [
@@ -3977,7 +3977,7 @@
     "features": [
       {
         "index": "paladin-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/paladin-ability-score-improvement-1"
       }
     ],
@@ -4091,7 +4091,7 @@
     "features": [
       {
         "index": "paladin-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/paladin-ability-score-improvement-2"
       }
     ],
@@ -4205,7 +4205,7 @@
     "features": [
       {
         "index": "paladin-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/paladin-ability-score-improvement-3"
       }
     ],
@@ -4313,7 +4313,7 @@
     "features": [
       {
         "index": "paladin-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/paladin-ability-score-improvement-4"
       }
     ],
@@ -4397,7 +4397,7 @@
     "features": [
       {
         "index": "paladin-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/paladin-ability-score-improvement-5"
       }
     ],
@@ -4486,9 +4486,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "ranger-choose-fighting-style",
-        "name": "Choose: Fighting Style",
-        "url": "/api/features/ranger-choose-fighting-style"
+        "index": "ranger-fighting-style",
+        "name": "Fighting Style",
+        "url": "/api/features/ranger-fighting-style"
       }
     ],
     "features": [
@@ -4563,7 +4563,7 @@
     "features": [
       {
         "index": "ranger-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/ranger-ability-score-improvement-1"
       }
     ],
@@ -4690,7 +4690,7 @@
     "features": [
       {
         "index": "ranger-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/ranger-ability-score-improvement-2"
       },
       {
@@ -4816,7 +4816,7 @@
     "features": [
       {
         "index": "ranger-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/ranger-ability-score-improvement-3"
       }
     ],
@@ -4937,7 +4937,7 @@
     "features": [
       {
         "index": "ranger-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/ranger-ability-score-improvement-4"
       }
     ],
@@ -5027,7 +5027,7 @@
     "features": [
       {
         "index": "ranger-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/ranger-ability-score-improvement-5"
       }
     ],
@@ -5089,9 +5089,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "rogue-choose-expertise-1",
-        "name": "Expertise 1",
-        "url": "/api/features/rogue-choose-expertise-1"
+        "index": "rogue-expertise-1",
+        "name": "Expertise",
+        "url": "/api/features/rogue-expertise-1"
       }
     ],
     "features": [
@@ -5180,7 +5180,7 @@
     "features": [
       {
         "index": "rogue-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/rogue-ability-score-improvement-1"
       }
     ],
@@ -5230,9 +5230,9 @@
     "prof_bonus": 3,
     "feature_choices": [
       {
-        "index": "rogue-choose-expertise-2",
-        "name": "Expertise 2",
-        "url": "/api/features/rogue-choose-expertise-2"
+        "index": "rogue-expertise-2",
+        "name": "Expertise",
+        "url": "/api/features/rogue-expertise-2"
       }
     ],
     "features": [],
@@ -5284,7 +5284,7 @@
     "features": [
       {
         "index": "rogue-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/rogue-ability-score-improvement-2"
       }
     ],
@@ -5330,7 +5330,7 @@
     "features": [
       {
         "index": "rogue-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/rogue-ability-score-improvement-3"
       }
     ],
@@ -5382,7 +5382,7 @@
     "features": [
       {
         "index": "rogue-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/rogue-ability-score-improvement-4"
       }
     ],
@@ -5480,7 +5480,7 @@
     "features": [
       {
         "index": "rogue-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/rogue-ability-score-improvement-5"
       }
     ],
@@ -5552,7 +5552,7 @@
     "features": [
       {
         "index": "rogue-ability-score-improvement-6",
-        "name": "Ability Score Improvement 6",
+        "name": "Ability Score Improvement",
         "url": "/api/features/rogue-ability-score-improvement-6"
       }
     ],
@@ -5714,9 +5714,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "choose-metamagic",
-        "name": "Choose: Metamagic, First and Second",
-        "url": "/api/features/choose-metamagic"
+        "index": "metamagic-1",
+        "name": "Metamagic",
+        "url": "/api/features/metamagic-1"
       }
     ],
     "features": [],
@@ -5775,7 +5775,7 @@
     "features": [
       {
         "index": "sorcerer-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/sorcerer-ability-score-improvement-1"
       }
     ],
@@ -5993,7 +5993,7 @@
     "features": [
       {
         "index": "sorcerer-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/sorcerer-ability-score-improvement-2"
       }
     ],
@@ -6103,9 +6103,9 @@
     "prof_bonus": 4,
     "feature_choices": [
       {
-        "index": "choose-additional-metamagic-1",
-        "name": "Choose: Metamagic, Third",
-        "url": "/api/features/choose-additional-metamagic-1"
+        "index": "metamagic-2",
+        "name": "Metamagic",
+        "url": "/api/features/metamagic-2"
       }
     ],
     "features": [],
@@ -6217,7 +6217,7 @@
     "features": [
       {
         "index": "sorcerer-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/sorcerer-ability-score-improvement-3"
       }
     ],
@@ -6435,7 +6435,7 @@
     "features": [
       {
         "index": "sorcerer-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/sorcerer-ability-score-improvement-4"
       }
     ],
@@ -6492,9 +6492,9 @@
     "prof_bonus": 6,
     "feature_choices": [
       {
-        "index": "choose-additional-metamagic-2",
-        "name": "Choose: Metamagic, Fourth",
-        "url": "/api/features/choose-additional-metamagic-2"
+        "index": "metamagic-3",
+        "name": "Metamagic",
+        "url": "/api/features/metamagic-3"
       }
     ],
     "features": [],
@@ -6606,7 +6606,7 @@
     "features": [
       {
         "index": "sorcerer-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/sorcerer-ability-score-improvement-5"
       }
     ],
@@ -6767,9 +6767,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "choose-eldritch-invocations",
-        "name": "Choose: Eldritch Invocations",
-        "url": "/api/features/choose-eldritch-invocations"
+        "index": "eldritch-invocations",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations"
       }
     ],
     "features": [],
@@ -6807,9 +6807,9 @@
     "prof_bonus": 2,
     "feature_choices": [
       {
-        "index": "choose-pact-boon",
-        "name": "Choose: Pact Boon",
-        "url": "/api/features/choose-pact-boon"
+        "index": "pact-boon",
+        "name": "Pact Boon",
+        "url": "/api/features/pact-boon"
       }
     ],
     "features": [],
@@ -6849,7 +6849,7 @@
     "features": [
       {
         "index": "warlock-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/warlock-ability-score-improvement-1"
       }
     ],
@@ -6887,9 +6887,9 @@
     "prof_bonus": 3,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-1",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-1"
+        "index": "eldritch-invocations-2",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-2"
       }
     ],
     "features": [],
@@ -6961,9 +6961,9 @@
     "prof_bonus": 3,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-2",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-2"
+        "index": "eldritch-invocations-3",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-3"
       }
     ],
     "features": [],
@@ -7003,7 +7003,7 @@
     "features": [
       {
         "index": "warlock-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/warlock-ability-score-improvement-2"
       }
     ],
@@ -7041,9 +7041,9 @@
     "prof_bonus": 4,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-3",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-3"
+        "index": "eldritch-invocations-4",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-4"
       }
     ],
     "features": [],
@@ -7155,15 +7155,15 @@
     "prof_bonus": 4,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-4",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-4"
+        "index": "eldritch-invocations-5",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-5"
       }
     ],
     "features": [
       {
         "index": "warlock-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/warlock-ability-score-improvement-3"
       }
     ],
@@ -7275,9 +7275,9 @@
     "prof_bonus": 5,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-5",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-5"
+        "index": "eldritch-invocations-6",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-6"
       }
     ],
     "features": [
@@ -7323,7 +7323,7 @@
     "features": [
       {
         "index": "warlock-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/warlock-ability-score-improvement-4"
       }
     ],
@@ -7401,9 +7401,9 @@
     "prof_bonus": 6,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-6",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-6"
+        "index": "eldritch-invocations-7",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-7"
       }
     ],
     "features": [],
@@ -7443,7 +7443,7 @@
     "features": [
       {
         "index": "warlock-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/warlock-ability-score-improvement-5"
       }
     ],
@@ -7481,9 +7481,9 @@
     "prof_bonus": 6,
     "feature_choices": [
       {
-        "index": "choose-additional-eldritch-invocation-7",
-        "name": "Choose: Additional Eldritch Invocation",
-        "url": "/api/features/choose-additional-eldritch-invocation-7"
+        "index": "eldritch-invocations-8",
+        "name": "Eldritch Invocations",
+        "url": "/api/features/eldritch-invocations-8"
       }
     ],
     "features": [
@@ -7633,7 +7633,7 @@
     "features": [
       {
         "index": "wizard-ability-score-improvement-1",
-        "name": "Ability Score Improvement 1",
+        "name": "Ability Score Improvement",
         "url": "/api/features/wizard-ability-score-improvement-1"
       }
     ],
@@ -7755,7 +7755,7 @@
     "features": [
       {
         "index": "wizard-ability-score-improvement-2",
-        "name": "Ability Score Improvement 2",
+        "name": "Ability Score Improvement",
         "url": "/api/features/wizard-ability-score-improvement-2"
       }
     ],
@@ -7877,7 +7877,7 @@
     "features": [
       {
         "index": "wizard-ability-score-improvement-3",
-        "name": "Ability Score Improvement 3",
+        "name": "Ability Score Improvement",
         "url": "/api/features/wizard-ability-score-improvement-3"
       }
     ],
@@ -7999,7 +7999,7 @@
     "features": [
       {
         "index": "wizard-ability-score-improvement-4",
-        "name": "Ability Score Improvement 4",
+        "name": "Ability Score Improvement",
         "url": "/api/features/wizard-ability-score-improvement-4"
       }
     ],
@@ -8098,7 +8098,7 @@
     "features": [
       {
         "index": "wizard-ability-score-improvement-5",
-        "name": "Ability Score Improvement 5",
+        "name": "Ability Score Improvement",
         "url": "/api/features/wizard-ability-score-improvement-5"
       }
     ],
@@ -8602,9 +8602,9 @@
     "level": 10,
     "feature_choices": [
       {
-        "index": "choose-additional-fighting-style",
-        "name": "Choose: Additional Fighting Style",
-        "url": "/api/features/choose-additional-fighting-style"
+        "index": "additional-fighting-style",
+        "name": "Additional Fighting Style",
+        "url": "/api/features/additional-fighting-style"
       }
     ],
     "features": [],
@@ -8884,9 +8884,9 @@
     "level": 3,
     "feature_choices": [
       {
-        "index": "choose-hunters-prey",
-        "name": "Choose: Hunter's Prey",
-        "url": "/api/features/choose-hunters-prey"
+        "index": "hunters-prey",
+        "name": "Hunter's Prey",
+        "url": "/api/features/hunters-prey"
       }
     ],
     "features": [],
@@ -8907,9 +8907,9 @@
     "level": 7,
     "feature_choices": [
       {
-        "index": "choose-defensive-tactics",
-        "name": "Choose: Defensive Tactics",
-        "url": "/api/features/choose-defensive-tactics"
+        "index": "defensive-tactics",
+        "name": "Defensive Tactics",
+        "url": "/api/features/defensive-tactics"
       }
     ],
     "features": [],
@@ -8930,9 +8930,9 @@
     "level": 11,
     "feature_choices": [
       {
-        "index": "choose-multiattack",
-        "name": "Choose: Multiattack",
-        "url": "/api/features/choose-multiattack"
+        "index": "multiattack",
+        "name": "Multiattack",
+        "url": "/api/features/multiattack"
       }
     ],
     "features": [],
@@ -8953,9 +8953,9 @@
     "level": 15,
     "feature_choices": [
       {
-        "index": "choose-superior-hunters-defense",
-        "name": "Choose: Superior Hunter's Defense",
-        "url": "/api/features/choose-superior-hunters-defense"
+        "index": "superior-hunters-defense",
+        "name": "Superior Hunter's Defense",
+        "url": "/api/features/superior-hunters-defense"
       }
     ],
     "features": [],
@@ -9073,9 +9073,9 @@
     "level": 1,
     "feature_choices": [
       {
-        "index": "choose-dragon-ancestor",
-        "name": "Choose: Dragon Ancestor",
-        "url": "/api/features/choose-dragon-ancestor"
+        "index": "dragon-ancestor",
+        "name": "Dragon Ancestor",
+        "url": "/api/features/dragon-ancestor"
       }
     ],
     "features": [
