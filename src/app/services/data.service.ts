@@ -42,7 +42,7 @@ export class DataService {
                     console.log('Get - ability scores');
                     this.abilityScores.next(data);
                 }),
-                map(data => this.abilityScores.getValue()),
+                map(() => this.abilityScores.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -58,7 +58,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.conditions.next(data);
                 }),
-                map(data => this.conditions.getValue()),
+                map(() => this.conditions.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -74,7 +74,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.equipment.next(data);
                 }),
-                map(data => this.equipment.getValue()),
+                map(() => this.equipment.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -84,13 +84,17 @@ export class DataService {
     
     getMagicItems(): Observable<any[]> {
         if (this.magicItems.getValue().length===0) {
-            return this.http.get('./data/magic-items.json').pipe(
-                tap(data => {
+            return combineLatest([
+                this.http.get('./data/magic-items.json'),
+                this.http.get('./data/magic-items-ext.json')
+              ]).pipe(
+                tap((data: any[]) => {
                     console.log('Get - magic items');
-                    this.sort(data, 'name');
-                    this.magicItems.next(data);
+                    const magicItems = [...data[0], ...data[1]];
+                    this.sort(magicItems, 'name');
+                    this.magicItems.next(magicItems);
                 }),
-                map(data => this.magicItems.getValue()),
+                map(() => this.magicItems.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -100,13 +104,18 @@ export class DataService {
 
     getMonsters(): Observable<any[]> {
         if (this.monsters.getValue().length===0) {
-            return this.http.get('./data/monsters.json').pipe(
-                tap(data => {
+            return combineLatest([
+                this.http.get('./data/monsters.json'),
+                this.http.get('./data/monsters-ext.json')
+              ]).pipe(
+                tap((data: any[]) => {
                     console.log('Get - monsters');
-                    this.sort(data, 'name');
-                    this.monsters.next(data);
+                    const monsters = [...data[0], ...data[1]];
+                    this.sort(monsters, 'name');
+                    console.log(monsters);
+                    this.monsters.next(monsters);
                 }),
-                map(data => this.monsters.getValue()),
+                map(() => this.monsters.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -145,7 +154,7 @@ export class DataService {
                     });
                     this.playerClasses.next(playerClasses);
                 }),
-                map(data => this.playerClasses.getValue()),
+                map(() => this.playerClasses.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -161,7 +170,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.races.next(data);
                 }),
-                map(data => this.races.getValue()),
+                map(() => this.races.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -198,7 +207,7 @@ export class DataService {
                     });
                     this.rules.next(rules);
                 }),
-                map(data => this.rules.getValue()),
+                map(() => this.rules.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -214,7 +223,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.skills.next(data);
                 }),
-                map(data => this.skills.getValue()),
+                map(() => this.skills.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -230,7 +239,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.spells.next(data);
                 }),
-                map(data => this.spells.getValue()),
+                map(() => this.spells.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -246,7 +255,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.traits.next(data);
                 }),
-                map(data => this.traits.getValue()),
+                map(() => this.traits.getValue()),
                 catchError(this.handleError)
             );
         } else {
@@ -262,7 +271,7 @@ export class DataService {
                     this.sort(data, 'name');
                     this.weaponProperties.next(data);
                 }),
-                map(data => this.weaponProperties.getValue()),
+                map(() => this.weaponProperties.getValue()),
                 catchError(this.handleError)
             );
         } else {

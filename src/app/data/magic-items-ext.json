@@ -1,0 +1,177 @@
+[
+    {
+        "index": "adjustable-stilts",
+        "name": "Adjustable Stilts",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "The stilts take 1 minute to put on or remove. They increase the height of any humanoid wearing them by 2 to 5 feet. Each stilt weighs 8 pounds and is 1 foot long when fully collapsed."
+        ],
+        "url": null
+    },
+    {
+        "index": "backpack-parachute",
+        "name": "Backpack Parachute",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "A humanoid wearing this piece of gear can deploy the parachute as a reaction while falling, or as an action otherwise. The parachute requires at least a 10-foot cube of unoccupied space in which to deploy, and it doesn't open fast enough to slow a fall of less than 60 feet. If it has sufficient time and space to deploy properly, the parachute allows its wearer to land without taking falling damage. Once it has been used, the parachute takes 10 minutes to repack."
+        ],
+        "url": null
+    },
+    {
+        "index": "barking-box",
+        "name": "Barking Box",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "This metal cube, 6 inches on a side, has a crank on top. Using an action to wind the crank activates the box for 8 hours. While activated, the box barks whenever it detects vibrations within 15 feet of it, as long as the box and the source of the vibrations are in contact with the same ground or substance. A switch on one side of the box sets the device to emit either a small dog's bark or a large dog's bark"
+        ],
+        "url": null
+    },
+    {
+        "index": "bracer-of-daggers",
+        "name": "Bracer of Daggers",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, rare (requires attunement)",
+            "This armband appears to have thin daggers strapped to it. As an action, you can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if you don't hurl it right away, and the daggers disappear right after they hit or miss. The bracer never runs out of daggers."
+        ],
+        "url": null
+    },
+    {
+        "index": "dragonstaff-of-ahghairon ",
+        "name": "Dragonstaff of Ahghairon ",
+        "equipment_category": {
+            "index": "staff",
+            "name": "Staff",
+            "url": "/api/equipment-categories/staff"
+        },
+        "desc": [
+            "Staff, legendary (requires attunement)",
+            "While holding the Dragonstaff of Ahghairon, you have advantage on saving throws against spells and breath weapons of dragons, as well as the breath weapons of other creatures of the dragon type (such as dragon turtles).",
+            "A creature of the dragon type that you touch with the slaff can move through the city of Waterdeep, ignoring Ahghairon's dragonward. This effect lasts until the creature is touched again by the staff or until a time you proclaim when you confer the benefit.",
+            "The staff has 10 charges. While holding it, you can expend 1 charge as an action to cast the command spell. If you target a dragon with this casting, the dragon has disadvantage on its saving throw. The staff regains ld10 charges daily at dawn."
+        ],
+        "url": null
+    },
+    {
+        "index": "feather-of-diatryma-summoning",
+        "name": "Feather of Diatryma Summoning",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, rare (requires attunement)",
+            "This bright plume is made from the feather of a diatryma (pronounced dee-ah-TRY-mah), a Large, colorful, flightless bird native to the Underdark. If you use an action to speak the command word and throw the feather into a Large unoccupied space on the ground within 5 feet of you, the feather becomes a living diatryma for up to 6 hours, after which it reverts to its feather form. 1t reverts to feather form early if it drops to 0 hit points or if you use an action to speak the command word again while touching the bird.",
+            "When the diatryma reverts to feather form, the magic of the feather can't be used again until 7 days have passed.",
+            "The diatryma uses the statistics of an axe beak, except that its beak deals piercing damage instead of slashing damage. The creature is friendly to you and your companions, and it can be used as a mount. It understands your languages and obeys your spoken commands. If you issue no commands, the diatryma defends itself but takes no other actions."
+        ],
+        "url": null
+    },
+    {
+        "index": "flying-snakes",
+        "name": "Flying Snakes",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "Used as couriers to deliver messages."
+        ],
+        "url": null
+    },
+    {
+        "index": "knaves-eye-patch",
+        "name": "Knave's Eye Patch",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, rare (requires attunement)",
+            "While wearing this eye patch, you gain these benefits:",
+            "You have advantage on Wisdom (Perception) checks that rely on sight.",
+            "If you have the Sunlight Sensitivity trait, you are unaffected by the trait.",
+            "You are immune to magic that allows other creatures lo read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it."
+        ],
+        "url": null
+    },
+    {
+        "index": "matchless-pipe",
+        "name": "Matchless Pipe",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "A switch made of flint is built into the bowl of this fine wooden smoking pipe. With a few flicks of the switch, the pipe lights itself."
+        ],
+        "url": null
+    },
+    {
+        "index": "nimblewright-detector",
+        "name": "Nimblewright Detector",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "When the activated device comes within 500 feet of a nimblewright other than Nim, the umbrella begins to spin, whir, and click. The spinning, whirring, and clicking accelerates as the distance to the target lessens, reaching maximum velocity and volume when a nimblewright other than im is within 30 feet of the device."
+        ],
+        "url": null
+    },
+    {
+        "index": "paper-bird",
+        "name": "Paper Bird",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon",
+            "After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magicaJly folds into a Tiny paper bird and Hies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight. The bird is an object that has 1 hit point, an Armor Class of 13, a flying speed of 60 feet, a Dexterity of 16"
+        ],
+        "url": null
+    },
+    {
+        "index": "ring-of-truth-telling",
+        "name": "Ring of Truth Telling",
+        "equipment_category": {
+            "index": "wondrous-item",
+            "name": "Wondrous Item",
+            "url": "/api/equipment-categories/wondrous-item"
+        },
+        "desc": [
+            "Wondrous item, uncommon (requires attunement)",
+            "While wearing this ring, you have advantage on Wisdom (Insight) checks to determine whether someone is lying to you."
+        ],
+        "url": null
+    }
+]
