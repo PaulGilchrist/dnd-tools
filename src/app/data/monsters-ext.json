@@ -43,7 +43,7 @@
         "senses": {
             "passive_perception": 10
         },
-        "languages": "any one language (usually Common)",
+        "languages": "Any one language (usually Common)",
         "challenge_rating": 0.25,
         "xp": 50,
         "special_abilities": [
@@ -56,6 +56,328 @@
             {
                 "name": "Dagger",
                 "desc": "Melee or Ranged Weapon Attack: +2 to hit , reach 5 ft. or range 20/60 ft., one target. Hit: 2 (ld4) piercing damage."
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "bard",
+        "name": "Bard",
+        "size": "Medium",
+        "type": "humanoid (any race)",
+        "subtype": null,
+        "alignment": "any alignment",
+        "armor_class": 15,
+        "hit_points": 44,
+        "hit_dice": "8d8 + 8",
+        "speed": {
+            "walk": "30 ft."
+        },
+        "strength": 11,
+        "dexterity": 14,
+        "constitution": 12,
+        "intelligence": 10,
+        "wisdom": 13,
+        "charisma": 14,
+        "proficiencies": [
+            {
+                "value": 4,
+                "proficiency": {
+                    "index": "saving-throw-dex",
+                    "name": "Saving Throw: DEX",
+                    "url": "/api/proficiencies/saving-throw-dex"
+                }
+            },
+            {
+                "value": 3,
+                "proficiency": {
+                    "index": "saving-throw-wis",
+                    "name": "Saving Throw: WIS",
+                    "url": "/api/proficiencies/saving-throw-wis"
+                }
+            },
+            {
+                "value": 4,
+                "proficiency": {
+                    "index": "skill-acrobatics",
+                    "name": "Skill: Acrobatics",
+                    "url": "/api/proficiencies/skill-acrobatics"
+                }
+            },
+            {
+                "value": 5,
+                "proficiency": {
+                    "index": "skill-preception",
+                    "name": "Skill: Preception",
+                    "url": "/api/proficiencies/skill-preception"
+                }
+            },
+            {
+                "value": 6,
+                "proficiency": {
+                    "index": "skill-performance",
+                    "name": "Skill: Performance",
+                    "url": "/api/proficiencies/skill-performance"
+                }
+            }
+        ],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {
+            "passive_perception": 15
+        },
+        "languages": "Any two languages",
+        "challenge_rating": 2,
+        "xp": 450,
+        "special_abilities": [
+            {
+                "name": "Spellcasting",
+                "desc": "The bard is a 4th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell at- tacks). It has the following bard spells prepared: Cantrips {at will): friends, mage hand, vicious mockery; 1st level (4 slots): charm person, healing word, heroism, sleep, thunderwave; 2nd level (3 slots): invisibility, shatter"
+            },
+            {
+                "name": "Song of Rest",
+                "desc": "The bard can perform a song while taking a short rest. Any ally who hears the song regains an extra ld6 hit points if it spends any Hit Dice to regain hit points at the end ofthat rest. The bard can confer this benefit on itself as well."
+            },
+            {
+                "name": "Taunt (2/Day)",
+                "desc": "The bard can use a bonus action on its turn to target one creature within 30 feet of it. Ifthe target can hear the bard, the target must succeed on a DC 12 Charisma saving throw or have disadvantage on ability checks, attack rolls, and saving throws until the start ofthe bard's next turn."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Shortsword",
+                "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: S (ld6 + 2} piercing damage."
+            },
+            {
+                "name": "Shortbow",
+                "desc": "Ranged Weapon Attack:+4 to hit, range 80/ 320 ft., one target. Hit: 5 (ld6 + 2} piercing damage."
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "carrion-crawler",
+        "name": "Carrion Crawler",
+        "size": "Large",
+        "type": "monstrosity",
+        "subtype": null,
+        "alignment": "unaligned",
+        "armor_class": 13,
+        "hit_points": 51,
+        "hit_dice": "6d10 + 18",
+        "speed": {
+            "walk": "30 ft.",
+            "climb": "30 ft."
+        },
+        "strength": 14,
+        "dexterity": 13,
+        "constitution": 16,
+        "intelligence": 1,
+        "wisdom": 12,
+        "charisma": 5,
+        "proficiencies": [
+            {
+                "value": 3,
+                "proficiency": {
+                    "index": "skill-preception",
+                    "name": "Skill: Preception",
+                    "url": "/api/proficiencies/skill-preception"
+                }
+            }
+        ],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {
+            "darkvision": "60 ft.",
+            "passive_perception": 13
+        },
+        "languages": "",
+        "challenge_rating": 2,
+        "xp": 450,
+        "special_abilities": [
+            {
+                "name": "Keen Smell",
+                "desc": "The carrion crawler has advantage on Wisdom (Perception) checks that rely on smell."
+            },
+            {
+                "name": "Spider Climb",
+                "desc": "The carrion crawler can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The carrion crawler makes two attacks: one with its tentacles and one with its bite."
+            },
+            {
+                "name": "Tentacles",
+                "desc": "Melee Weapon Attack: +8 to hit, reach 10 ft., one creature. Hit: 4 (1 d4 + 2) poison damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for l minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the poison on itself on a success."
+            },
+            {
+                "name": "Bite",
+                "desc": "Mefee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage."
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "displacer-beast",
+        "name": "Displacer Beast",
+        "size": "Large",
+        "type": "monstrosity",
+        "subtype": null,
+        "alignment": "lawful evil",
+        "armor_class": 13,
+        "hit_points": 85,
+        "hit_dice": "10d10 + 30",
+        "speed": {
+            "walk": "40 ft."
+        },
+        "strength": 18,
+        "dexterity": 15,
+        "constitution": 16,
+        "intelligence": 6,
+        "wisdom": 12,
+        "charisma": 8,
+        "proficiencies": [],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {
+            "darkvision": "60 ft.",
+            "passive_perception": 11
+        },
+        "languages": "",
+        "challenge_rating": 3,
+        "xp": 700,
+        "special_abilities": [
+            {
+                "name": "Avoidance",
+                "desc": "If the displacer beast is subjected to an effect that allows itto make a saving throwtotake only halfdamage, it instead takes no damage if it succeeds on the saving throw, and only halfdamage if it fails."
+            },
+            {
+                "name": "Displacement",
+                "desc": "The displacer beast projects a magical illusion that makes it appear to be standing near its actual location, causing attack rolls against it to have disadvantage. If it is hit by an attack, this trait is disrupted until the end of its next turn. This trait is also disrupted while the displacer beast is incapacitated or has a speed of 0."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The displacer beast makes two attacks with its tentacles."
+            },
+            {
+                "name": "Tentacles",
+                "desc": "Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 4 (1d6 + 4) bludgeoning damage plus 3 (1d6) piercing damage"
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "drow-gunslinger",
+        "name": "Drow Gunslinger",
+        "size": "Medium",
+        "type": "humanoid (elf)",
+        "subtype": null,
+        "alignment": "any alignment",
+        "armor_class": 18,
+        "hit_points": 84,
+        "hit_dice": "13d8 + 26",
+        "speed": {
+            "walk": "30 ft."
+        },
+        "strength": 13,
+        "dexterity": 18,
+        "constitution": 14,
+        "intelligence": 11,
+        "wisdom": 13,
+        "charisma": 14,
+        "proficiencies": [
+            {
+                "value": 6,
+                "proficiency": {
+                    "index": "saving-throw-dex",
+                    "name": "Saving Throw: DEX",
+                    "url": "/api/proficiencies/saving-throw-dex"
+                }
+            },
+            {
+                "value": 4,
+                "proficiency": {
+                    "index": "saving-throw-con",
+                    "name": "Saving Throw: CON",
+                    "url": "/api/proficiencies/saving-throw-con"
+                }
+            },
+            {
+                "value": 3,
+                "proficiency": {
+                    "index": "saving-throw-wis",
+                    "name": "Saving Throw: WIS",
+                    "url": "/api/proficiencies/saving-throw-wis"
+                }
+            },
+            {
+                "value": 3,
+                "proficiency": {
+                    "index": "skill-preception",
+                    "name": "Skill: Preception",
+                    "url": "/api/proficiencies/skill-preception"
+                }
+            },
+            {
+                "value": 8,
+                "proficiency": {
+                    "index": "skill-stealth",
+                    "name": "Skill: Stealth",
+                    "url": "/api/proficiencies/skill-stealth"
+                }
+            }
+        ],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {
+            "passive_perception": 15
+        },
+        "languages": "Elvish, Undercommon",
+        "challenge_rating": 4,
+        "xp": 1100,
+        "special_abilities": [
+            {
+                "name": "Fey Ancestry",
+                "desc": "The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep."
+            },
+            {
+                "name": "Gunslinger",
+                "desc": "Beingwithin5feetofahostilecreatureorattack· ing at long range doesn't impose disadvantage on the drow's ranged attack rolls with a pistol. In addition, the drow ignores half cover and three·quarters cover when making ranged at· tacks with a pistol."
+            },
+            {
+                "name": "Innate Spellcasting",
+                "desc": "The drow's spellcasting ability is Charisma (spell save DC 12). It can innately cast the following spells, re· quiring no material components: At will: dancing lights; 1/day each: darkness.faeriefire, levitate (selfonly)"
+            },
+            {
+                "name": "Sunlight Sensitivity",
+                "desc": "While in sunlight, the drew has disadvan· tage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The drow makes two shortsword attacks."
+            },
+            {
+                "name": "Shortsword",
+                "desc": "Melee Weapon Attack: +6 to hit, reach S ft., one target. Hit: 7 (ld6 + 4) piercing damage."
+            },
+            {
+                "name": "Poisonous Pistol",
+                "desc": "Ranged Weapon Attack: +6 to hit, range 30/90 ft., one target. Hit: 9 (ldlO + 4) piercing damage plus 11 (2dl0) poison damage."
             }
         ],
         "url": null
@@ -159,6 +481,86 @@
             {
                 "name": "4. Telekinetic Ray",
                 "desc": "If the target is a creature that is Medium or smaller, it must succeed on a DC 12 Strength saving throw or be moved up to 30 feet directly away from the gazer. If the target is an object weighting 10 pounds or less that isn't being worn or carried, the gazer moves it up to 30 feet in any direction. The gazer can also exert fine control on ovjects with this ray, such as manipulating a simple tool or opening a container."
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "grell",
+        "name": "Grell",
+        "size": "Medium",
+        "type": "aberration",
+        "subtype": null,
+        "alignment": "neutral evil",
+        "armor_class": 12,
+        "hit_points": 55,
+        "hit_dice": "10d8 + 10",
+        "speed": {
+            "walk": "10 ft.",
+            "fly": "30 ft.",
+            "hover": true
+        },
+        "strength": 15,
+        "dexterity": 14,
+        "constitution": 13,
+        "intelligence": 12,
+        "wisdom": 11,
+        "charisma": 9,
+        "proficiencies": [
+            {
+                "value": 4,
+                "proficiency": {
+                    "index": "skill-preception",
+                    "name": "Skill: Preception",
+                    "url": "/api/proficiencies/skill-preception"
+                }
+            },
+            {
+                "value": 6,
+                "proficiency": {
+                    "index": "skill-stealth",
+                    "name": "Skill: Stealth",
+                    "url": "/api/proficiencies/skill-stealth"
+                }
+            }
+        ],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [],
+        "damage_immunities": [
+            "Lightning"
+        ],
+        "condition_immunities": [
+            {
+                "index": "blinded",
+                "name": "Blinded",
+                "url": "/api/conditions/blinded"
+            },
+            {
+                "index": "prone",
+                "name": "Prone",
+                "url": "/api/conditions/prone"
+            }
+        ],
+        "senses": {
+            "blindsight": "60 ft. (blind beyond this radius)",
+            "passive_perception": 14
+        },
+        "languages": "Grell",
+        "challenge_rating": 3,
+        "xp": 700,
+        "special_abilities": [],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The grell makes two attacks: one with its tentacles and one with its beak."
+            },
+            {
+                "name": "Tentacles",
+                "desc": "MeleeWeaponAttack:+4tohit,reach 10ft.,one creature. Hit: 7 (ldlO + 2) piercing damage, and the target must succeed on a DC 1 1 Constitution saving throw or be poisoned for 1 minute. The poisoned target is paralyzed, and it can repeat the saving throw at the end ofeach of its turns, ending the effect on a success. The target is also grappled (escape DC 1 5). Ifthe target is Medium or smaller, it is also restrained until this grapple ends. While grappling the target, the grell has advantage on attack rolls against it and can't use this attack against other targets. When the grell moves, any Medium or smaller target it is grappling moves with it."
+            },
+            {
+                "name": "Beak",
+                "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage."
             }
         ],
         "url": null
