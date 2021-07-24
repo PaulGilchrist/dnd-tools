@@ -43,7 +43,7 @@
         "senses": {
             "passive_perception": 10
         },
-        "languages": "Any one language (usually Common)",
+        "languages": "any one language (usually Common)",
         "challenge_rating": 0.25,
         "xp": 50,
         "special_abilities": [
@@ -128,7 +128,7 @@
         "senses": {
             "passive_perception": 15
         },
-        "languages": "Any two languages",
+        "languages": "any two languages",
         "challenge_rating": 2,
         "xp": 450,
         "special_abilities": [
@@ -391,7 +391,7 @@
         "alignment": "neutral evil",
         "armor_class": 13,
         "hit_points": 13,
-        "hit_dice": "3d4 +6",
+        "hit_dice": "3d4 + 6",
         "speed": {
             "walk": "0 ft.",
             "fly": "30 ft.",
@@ -527,7 +527,7 @@
         "damage_vulnerabilities": [],
         "damage_resistances": [],
         "damage_immunities": [
-            "Lightning"
+            "lightning"
         ],
         "condition_immunities": [
             {
@@ -617,7 +617,7 @@
         "senses": {
             "passive_perception": 12
         },
-        "languages": "Understands Auran and Common but speaks only through the use of its Mimicry trait",
+        "languages": "understands Auran and Common but speaks only through the use of its Mimicry trait",
         "challenge_rating": 0.25,
         "xp": 50,
         "special_abilities": [
@@ -660,7 +660,7 @@
         "alignment": "lawful evil",
         "armor_class": 12,
         "hit_points": 21,
-        "hit_dice": "6d4 +6",
+        "hit_dice": "6d4 + 6",
         "speed": {
             "walk": "40 ft."
         },
@@ -706,7 +706,7 @@
             "blindsight": "60 ft. (blind beyond this radius)",
             "passive_perception": 16
         },
-        "languages": "Understands Deep Speech but can't speak, telepathy 60 ft.",
+        "languages": "understands Deep Speech but can't speak, telepathy 60 ft.",
         "challenge_rating": 2,
         "xp": 450,
         "special_abilities": [
@@ -744,7 +744,7 @@
         "alignment": "lawful evil",
         "armor_class": 15,
         "hit_points": 71,
-        "hit_dice": "13d8 +13",
+        "hit_dice": "13d8 + 13",
         "speed": {
             "walk": "30 ft."
         },
@@ -893,6 +893,289 @@
                     "dice": "1d6",
                     "min_value": 5
                 }
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "nimblewright",
+        "name": "Nimblewright",
+        "size": "Medium",
+        "type": "construct",
+        "subtype": null,
+        "alignment": "unaligned",
+        "armor_class": 18,
+        "hit_points": 45,
+        "hit_dice": "6d8 + 18",
+        "speed": {
+            "walk": "60 ft."
+        },
+        "strength": 12,
+        "dexterity": 18,
+        "constitution": 17,
+        "intelligence": 8,
+        "wisdom": 10,
+        "charisma": 6,
+        "proficiencies": [
+            {
+                "value": 7,
+                "proficiency": {
+                    "index": "saving-throw-dex",
+                    "name": "Saving Throw: DEX",
+                    "url": "/api/proficiencies/saving-throw-dex"
+                }
+            },
+            {
+                "value": 8,
+                "proficiency": {
+                    "index": "skill-acrobatics",
+                    "name": "Skill: Acrobatics",
+                    "url": "/api/proficiencies/skill-acrobatics"
+                }
+            },
+            {
+                "value": 2,
+                "proficiency": {
+                    "index": "skill-preception",
+                    "name": "Skill: Preception",
+                    "url": "/api/proficiencies/skill-preception"
+                }
+            }
+        ],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [
+            "bludgeoning",
+            "piercing",
+            "slashing from nonrnagical attacks"
+        ],
+        "damage_immunities": [],
+        "condition_immunities": [
+            {
+                "index": "exhaustion",
+                "name": "Exhaustion",
+                "url": "/api/conditions/exhaustion"
+            },
+            {
+                "index": "frightened",
+                "name": "Frightened",
+                "url": "/api/conditions/frightened"
+            },
+            {
+                "index": "petrified",
+                "name": "Petrified",
+                "url": "/api/conditions/petrified"
+            },
+            {
+                "index": "poisoned",
+                "name": "Poisoned",
+                "url": "/api/conditions/poisoned"
+            }
+        ],
+        "senses": {
+            "darkvision": "60 ft.",
+            "passive_perception": 12
+        },
+        "languages": "understands one language known to its creator but can't speak",
+        "challenge_rating": 4,
+        "xp": 1100,
+        "special_abilities": [
+            {
+                "name": "Magic Resistance",
+                "desc": "The nimblewright has advantage on saving throws against spells and other magical effects."
+            },
+            {
+                "name": "Magic Weapons",
+                "desc": "The nimblewright's weapon attacks are magical."
+            },
+            {
+                "name": "Repairable",
+                "desc": "As long as it has at least l hit point remaining, the nimblewright regains l hit point when a mending spell is cast on it."
+            },
+            {
+                "name": "Sure-Footed",
+                "desc": "The nimblewright has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The nimblewright makes three attacks: two with its rapie r and one with its dagger."
+            },
+            {
+                "name": "Rapier",
+                "desc": "Melee Weapon Attack: +6 to hiti reach S ft., one target. Hit: 8 (ld8 + 4) piercing damage."
+            },
+            {
+                "name": "Dagger",
+                "desc": "Melee or Ranged Weapon Attack~+6 to hit, reach S ft. or range 20/60 ft., one target. Hit: 6 (1d4 + 4) piercing damage."
+            }
+        ],
+        "reactions": [
+            {
+                "name": "Parry",
+                "desc": "The nimblewright adds 2 to its AC against one melee attack that would hit it. To do so, the nimblewright must see the attacker and be wielding a melee weapon."
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "scarecrow",
+        "name": "Scarecrow",
+        "size": "Medium",
+        "type": "construct",
+        "subtype": null,
+        "alignment": "chaotic evil",
+        "armor_class": 11,
+        "hit_points": 36,
+        "hit_dice": "8d8",
+        "speed": {
+            "walk": "30 ft."
+        },
+        "strength": 11,
+        "dexterity": 13,
+        "constitution": 11,
+        "intelligence": 10,
+        "wisdom": 10,
+        "charisma": 13,
+        "proficiencies": [],
+        "damage_vulnerabilities": [
+            "fire"
+        ],
+        "damage_resistances": [
+            "bludgeoning",
+            "piercing",
+            "slashing from nonrnagical attacks"
+        ],
+        "damage_immunities": [
+            "poison"
+        ],
+        "condition_immunities": [
+            {
+                "index": "charmed",
+                "name": "Charmed",
+                "url": "/api/conditions/charmed"
+            },
+            {
+                "index": "exhaustion",
+                "name": "Exhaustion",
+                "url": "/api/conditions/exhaustion"
+            },
+            {
+                "index": "frightened",
+                "name": "Frightened",
+                "url": "/api/conditions/frightened"
+            },
+            {
+                "index": "paralyzed",
+                "name": "Paralyzed",
+                "url": "/api/conditions/paralyzed"
+            },
+            {
+                "index": "poisoned",
+                "name": "Poisoned",
+                "url": "/api/conditions/poisoned"
+            },
+            {
+                "index": "unconscious",
+                "name": "Unconscious",
+                "url": "/api/conditions/unconscious"
+            }
+        ],
+        "senses": {
+            "darkvision": "60 ft.",
+            "passive_perception": 10
+        },
+        "languages": "understands the languages of its creator but can't speak",
+        "challenge_rating": 1,
+        "xp": 200,
+        "special_abilities": [
+            {
+                "name": "False Appearance",
+                "desc": "While the scarecrow remains motionless, it is indistinguishable from an ordinary, inanimate scarecrow."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The scarecrow makes two claw attacks."
+            },
+            {
+                "name": "Claw",
+                "desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage. If the target is a creature, it must succeed on a DC 11 Wisdom saving throw or be frightened until the end ofthe scarecrow's next turn."
+            },
+            {
+                "name": "Terrifying Glare",
+                "desc": "The scarecrow targets one creature it can see within 30 feet of it. Ifthe target can see the scarecrow, the target must succeed on a DC 11 Wisdom saving throw or be magically frightened until the end ofthe scarecrow's next turn. The frightened target is paralyzed."
+            }
+        ],
+        "url": null
+    },
+    {
+        "index": "troglodyte",
+        "name": "Troglodyte",
+        "size": "Medium",
+        "type": "humanoid (troglodyte)",
+        "subtype": null,
+        "alignment": "chaotic evil",
+        "armor_class": 11,
+        "hit_points": 13,
+        "hit_dice": "2d8 + 4",
+        "speed": {
+            "walk": "30 ft."
+        },
+        "strength": 14,
+        "dexterity": 10,
+        "constitution": 14,
+        "intelligence": 6,
+        "wisdom": 10,
+        "charisma": 6,
+        "proficiencies": [
+            {
+                "value": 2,
+                "proficiency": {
+                    "index": "skill-stealth",
+                    "name": "Skill: Stealth",
+                    "url": "/api/proficiencies/skill-stealth"
+                }
+            }            
+        ],
+        "damage_vulnerabilities": [],
+        "damage_resistances": [],
+        "damage_immunities": [],
+        "condition_immunities": [],
+        "senses": {
+            "darkvision": "60 ft.",
+            "passive_perception": 10
+        },
+        "languages": "Troglodyte",
+        "challenge_rating": 0.25,
+        "xp": 50,
+        "special_abilities": [
+            {
+                "name": "Chameleon Skin",
+                "desc": "The troglodyte has advantage on Dexterity (Stealth) checks made to hide."
+            },
+            {
+                "name": "Stench",
+                "desc": "Any creature other than a troglodyte that starts its turn within 5 feet ofthe troglodyte must succeed on a DC 12 Constitution saving throw or be poisoned until the start ofthe creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for l hour."
+            },
+            {
+                "name": "Sunlight Sensitivity",
+                "desc": "While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+            }
+        ],
+        "actions": [
+            {
+                "name": "Multiattack",
+                "desc": "The troglodyte makes three attacks: one with its bite and two with its claws."
+            },
+            {
+                "name": "Bite",
+                "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (ld4 + 2) piercing damage."
+            },
+            {
+                "name": "Claw",
+                "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (ld4 + 2) slashing damage."
             }
         ],
         "url": null

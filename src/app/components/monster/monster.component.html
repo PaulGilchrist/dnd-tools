@@ -80,6 +80,15 @@
 					<b>{{action.name}}<span *ngIf="action.usage && action.usage.type == 'recharge on roll'">&nbsp;(Recharge {{action.usage.min_value}}-6)</span>:</b>&nbsp;{{action.desc}}<br /><br />
 				</div>
 			</div>
+			<div *ngIf="monster.reactions != null">
+				<hr>
+				<div class="removeExtraLine">
+					<h5>Reactions</h5>
+					<span *ngFor="let reaction of monster.reactions">
+						<b>{{reaction.name}}:</b>&nbsp;{{reaction.desc}}<br /><br />
+					</span>
+				</div>
+			</div>
 			<div *ngIf="monster.legendary_actions != null">
 				<hr>
 				<div class="removeExtraLine">

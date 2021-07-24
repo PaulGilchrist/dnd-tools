@@ -17,7 +17,7 @@ export class MonsterComponent {
   getConditionImmunities() {
     let conditionImmunities = '';
     this.monster.condition_immunities.forEach((conditionImmunity: any) => {
-      conditionImmunities += `${conditionImmunity.name}, `;
+      conditionImmunities += `${conditionImmunity.name.toLowerCase()}, `;
     });
     return conditionImmunities.substr(0, conditionImmunities.length-2);
   }
@@ -59,19 +59,19 @@ export class MonsterComponent {
   getSenses() {
     let senses = '';    
     if(this.monster.senses.blindsight) {
-      senses += `Blindsight ${this.monster.senses.blindsight}, `;
+      senses += `blindsight ${this.monster.senses.blindsight}, `;
     }
     if(this.monster.senses.darkvision) {
-      senses += `Darkvision ${this.monster.senses.darkvision}, `;
+      senses += `darkvision ${this.monster.senses.darkvision}, `;
     }
     if(this.monster.senses.passive_perception) {
-      senses += `Passive perception ${this.monster.senses.passive_perception}, `;
+      senses += `passive perception ${this.monster.senses.passive_perception}, `;
     }
     if(this.monster.senses.tremorsense) {
-      senses += `Tremorsense ${this.monster.senses.tremorsense}, `;
+      senses += `tremorsense ${this.monster.senses.tremorsense}, `;
     }
     if(this.monster.senses.truesight) {
-      senses += `Truesight ${this.monster.senses.truesight}, `;
+      senses += `truesight ${this.monster.senses.truesight}, `;
     }
     return senses.substr(0, senses.length-2);
   }
