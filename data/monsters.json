@@ -1934,7 +1934,7 @@
       }
     ],
     "url": "/api/monsters/adult-gold-dragon",
-    "image": "Adult Gold Dragon - Image.png"
+    "image": true
   },
   {
     "index": "adult-green-dragon",
@@ -8737,7 +8737,7 @@
       }
     ],
     "url": "/api/monsters/black-pudding",
-    "image": "Black Pudding - Image.png"
+    "image": true
   },
   {
     "index": "blink-dog",
@@ -14039,7 +14039,7 @@
       }
     ],
     "url": "/api/monsters/duergar",
-    "image": "Duergar - Image.png"
+    "image": true
   },
   {
     "index": "dust-mephit",
@@ -18680,7 +18680,7 @@
       }
     ],
     "url": "/api/monsters/gibbering-mouther",
-    "image": "Gibbering Mouther - Image.png"
+    "image": true
   },
   {
     "index": "glabrezu",
@@ -19332,7 +19332,7 @@
       }
     ],
     "url": "/api/monsters/goblin",
-    "image": "Goblin - Image.png"
+    "image": true
   },
   {
     "index": "gold-dragon-wyrmling",
@@ -19707,7 +19707,7 @@
       }
     ],
     "url": "/api/monsters/gray-ooze",
-    "image": "Gray Ooze - Image.png"
+    "image": true
   },
   {
     "index": "green-dragon-wyrmling",
@@ -23236,7 +23236,7 @@
       }
     ],
     "url": "/api/monsters/kobold",
-    "image": "Kobold - Image.png"
+    "image": true
   },
   {
     "index": "kraken",
@@ -32426,7 +32426,7 @@
       }
     ],
     "url": "/api/monsters/specter",
-    "image": "Specter - Image.png"
+    "image": true
   },
   {
     "index": "spider",
@@ -33125,7 +33125,7 @@
       }
     ],
     "url": "/api/monsters/stirge",
-    "image": "Stirge - Image.png"
+    "image": true
   },
   {
     "index": "stone-giant",
@@ -35579,7 +35579,7 @@
       }
     ],
     "url": "/api/monsters/troll",
-    "image": "Troll - Image.png"
+    "image": true
   },
   {
     "index": "tyrannosaurus-rex",
@@ -37849,7 +37849,7 @@
       }
     ],
     "url": "/api/monsters/wererat-human",
-    "image": "Wererat - Image.png"
+    "image": true
   },
   {
     "index": "wererat-hybrid",
@@ -38029,7 +38029,7 @@
       }
     ],
     "url": "/api/monsters/wererat-hybrid",
-    "image": "Wererat - Image.png"
+    "image": true
   },
   {
     "index": "wererat-rat",
@@ -40646,7 +40646,7 @@
       }
     ],
     "url": "/api/monsters/young-bronze-dragon",
-    "image": "Young Bronze Dragon - Image.png"
+    "image": true
   },
   {
     "index": "young-copper-dragon",

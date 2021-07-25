@@ -156,7 +156,7 @@
             }
         ],
         "url": null,
-        "image": "Bard - Image.png"
+        "image": true
     },
     {
         "index": "carrion-crawler",
@@ -223,7 +223,8 @@
                 "desc": "Mefee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage."
             }
         ],
-        "url": null
+        "url": null,
+        "image": true
     },
     {
         "index": "displacer-beast",
@@ -276,7 +277,8 @@
                 "desc": "Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 4 (1d6 + 4) bludgeoning damage plus 3 (1d6) piercing damage"
             }
         ],
-        "url": null
+        "url": null,
+        "image": true
     },
     {
         "index": "drow-gunslinger",
@@ -381,7 +383,8 @@
                 "desc": "Ranged Weapon Attack: +6 to hit, range 30/90 ft., one target. Hit: 9 (ldlO + 4) piercing damage plus 11 (2dl0) poison damage."
             }
         ],
-        "url": null
+        "url": null,
+        "image": true
     },
     {
         "index": "gazer",
@@ -485,7 +488,7 @@
             }
         ],
         "url": null,
-        "image": "Gazer - Image.png"
+        "image": true
 
     },
     {
@@ -653,7 +656,7 @@
             }
         ],
         "url": null,
-        "image": "Kenku - Image.png"
+        "image": true
 
     },
     {
@@ -739,7 +742,7 @@
             }
         ],
         "url": null,
-        "image": "Intellect Devourer - Image.png"
+        "image": true
     },
     {
         "index": "mind-flayer",
@@ -902,7 +905,7 @@
             }
         ],
         "url": null,
-        "image": "Mind Flayer - Image.png"
+        "image": true
     },
     {
         "index": "nimblewright",
@@ -1024,7 +1027,7 @@
             }
         ],
         "url": null,
-        "image": "Nimblewright - Image.png"
+        "image": true
     },
     {
         "index": "scarecrow",
@@ -1117,7 +1120,7 @@
             }
         ],
         "url": null,
-        "image": "Scarecrow - Image.png"
+        "image": true
     },
     {
         "index": "troglodyte",
@@ -1188,6 +1191,6 @@
             }
         ],
         "url": null,
-        "image": "Troglodyte - Image.png"
+        "image": true
     }
 ]
