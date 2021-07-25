@@ -26,6 +26,7 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
       this.dataService.getMagicItems()
     ]).subscribe((data: any) => {
       this.magicItems = data[0];
+      console.log(`${this.magicItems.length} magic items`);
       // Set search filters
       let filter = localStorage.getItem('magicItemsFilter');
       if(filter) {

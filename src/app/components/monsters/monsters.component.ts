@@ -27,6 +27,7 @@ export class MonstersComponent implements OnInit, OnDestroy {
       this.dataService.getMonsters()
     ]).subscribe((data: any) => {
       this.monsters = data[0];
+      console.log(`${this.monsters.length} monsters`);
       // Set search filters
       let filter = localStorage.getItem('monsterFilter');
       if(filter) {

@@ -28,6 +28,7 @@ export class SpellsComponent implements OnInit, OnDestroy {
       this.dataService.getSpells()
     ]).subscribe((data: any) => {
       this.spells = data[0];
+      console.log(`${this.spells.length} spells`);
       // Set search filters
       let filter = localStorage.getItem('spellFilter');
       if(filter) {
