@@ -202,7 +202,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/aboleth"
+    "url": "/api/monsters/aboleth",
+    "image": true
   },
   {
     "index": "acolyte",
@@ -3189,7 +3190,8 @@
         }
       }
     ],
-    "url": "/api/monsters/air-elemental"
+    "url": "/api/monsters/air-elemental",
+    "image": true
   },
   {
     "index": "ancient-black-dragon",
@@ -3443,7 +3445,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-black-dragon"
+    "url": "/api/monsters/ancient-black-dragon",
+    "image": true
   },
   {
     "index": "ancient-blue-dragon",
@@ -3674,7 +3677,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-blue-dragon"
+    "url": "/api/monsters/ancient-blue-dragon",
+    "image": true
   },
   {
     "index": "ancient-brass-dragon",
@@ -3957,7 +3961,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-brass-dragon"
+    "url": "/api/monsters/ancient-brass-dragon",
+    "image": true
   },
   {
     "index": "ancient-bronze-dragon",
@@ -4236,7 +4241,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-bronze-dragon"
+    "url": "/api/monsters/ancient-bronze-dragon",
+    "image": true
   },
   {
     "index": "ancient-copper-dragon",
@@ -4511,7 +4517,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-copper-dragon"
+    "url": "/api/monsters/ancient-copper-dragon",
+    "image": true
   },
   {
     "index": "ancient-gold-dragon",
@@ -4798,7 +4805,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-gold-dragon"
+    "url": "/api/monsters/ancient-gold-dragon",
+    "image": true
   },
   {
     "index": "ancient-green-dragon",
@@ -5082,7 +5090,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-green-dragon"
+    "url": "/api/monsters/ancient-green-dragon",
+    "image": true
   },
   {
     "index": "ancient-red-dragon",
@@ -5332,7 +5341,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-red-dragon"
+    "url": "/api/monsters/ancient-red-dragon",
+    "image": true
   },
   {
     "index": "ancient-silver-dragon",
@@ -5614,7 +5624,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-silver-dragon"
+    "url": "/api/monsters/ancient-silver-dragon",
+    "image": true
   },
   {
     "index": "ancient-white-dragon",
@@ -5869,7 +5880,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ancient-white-dragon"
+    "url": "/api/monsters/ancient-white-dragon",
+    "image": true
   },
   {
     "index": "androsphinx",
@@ -6388,7 +6400,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ankheg"
+    "url": "/api/monsters/ankheg",
+    "image": true
   },
   {
     "index": "ape",
@@ -11080,7 +11093,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/cockatrice"
+    "url": "/api/monsters/cockatrice",
+    "image": true
   },
   {
     "index": "commoner",
@@ -13170,7 +13184,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/dragon-turtle"
+    "url": "/api/monsters/dragon-turtle",
+    "image": true
   },
   {
     "index": "dretch",
@@ -14365,7 +14380,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/earth-elemental"
+    "url": "/api/monsters/earth-elemental",
+    "image": true
   },
   {
     "index": "efreeti",
@@ -15321,7 +15337,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/fire-elemental"
+    "url": "/api/monsters/fire-elemental",
+    "image": true
   },
   {
     "index": "fire-giant",
@@ -16390,7 +16407,8 @@
         }
       }
     ],
-    "url": "/api/monsters/ghost"
+    "url": "/api/monsters/ghost",
+    "image": true
   },
   {
     "index": "ghoul",
@@ -19625,7 +19643,8 @@
         }
       }
     ],
-    "url": "/api/monsters/gorgon"
+    "url": "/api/monsters/gorgon",
+    "image": true
   },
   {
     "index": "gray-ooze",
@@ -20029,7 +20048,8 @@
         "desc": "The hag magically turns invisible until she attacks or casts a spell, or until her concentration ends (as if concentrating on a spell). While invisible, she leaves no physical evidence of her passage, so she can be tracked only by magic. Any equipment she wears or carries is invisible with her."
       }
     ],
-    "url": "/api/monsters/green-hag"
+    "url": "/api/monsters/green-hag",
+    "image": true
   },
   {
     "index": "grick",
@@ -22945,7 +22965,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/iron-golem"
+    "url": "/api/monsters/iron-golem",
+    "image": true
   },
   {
     "index": "jackal",
@@ -23505,7 +23526,8 @@
         "attack_bonus": 0
       }
     ],
-    "url": "/api/monsters/kraken"
+    "url": "/api/monsters/kraken",
+    "image": true
   },
   {
     "index": "lamia",
@@ -24138,7 +24160,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/lich"
+    "url": "/api/monsters/lich",
+    "image": true
   },
   {
     "index": "lion",
@@ -26187,7 +26210,8 @@
         }
       }
     ],
-    "url": "/api/monsters/mummy"
+    "url": "/api/monsters/mummy",
+    "image": true
   },
   {
     "index": "mummy-lord",
@@ -26863,7 +26887,8 @@
         }
       }
     ],
-    "url": "/api/monsters/night-hag"
+    "url": "/api/monsters/night-hag",
+    "image": true
   },
   {
     "index": "nightmare",
@@ -28225,7 +28250,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/phase-spider"
+    "url": "/api/monsters/phase-spider",
+    "image": true
   },
   {
     "index": "pit-fiend",
@@ -28458,7 +28484,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/pit-fiend"
+    "url": "/api/monsters/pit-fiend",
+    "image": true
   },
   {
     "index": "planetar",
@@ -29231,7 +29258,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/pseudodragon"
+    "url": "/api/monsters/pseudodragon",
+    "image": true
   },
   {
     "index": "purple-worm",
@@ -29448,7 +29476,8 @@
         "desc": "The quasit magically turns invisible until it attacks or uses Scare, or until its concentration ends (as if concentrating on a spell). Any equipment the quasit wears or carries is invisible with it."
       }
     ],
-    "url": "/api/monsters/quasit"
+    "url": "/api/monsters/quasit",
+    "image": true
   },
   {
     "index": "quipper",
@@ -30648,7 +30677,8 @@
         "desc": "The rust monster corrodes a nonmagical ferrous metal object it can see within 5 feet of it. If the object isn't being worn or carried, the touch destroys a 1-foot cube of it. If the object is being worn or carried by a creature, the creature can make a DC 11 Dexterity saving throw to avoid the rust monster's touch.\nIf the object touched is either metal armor or a metal shield being worn or carried, its takes a permanent and cumulative -1 penalty to the AC it offers. Armor reduced to an AC of 10 or a shield that drops to a bonus is destroyed. If the object touched is a held metal weapon, it rusts as described in the Rust Metal trait."
       }
     ],
-    "url": "/api/monsters/rust-monster"
+    "url": "/api/monsters/rust-monster",
+    "image": true
   },
   {
     "index": "saber-toothed-tiger",
@@ -31667,7 +31697,8 @@
         "desc": "The shambling mound engulfs a Medium or smaller creature grappled by it. The engulfed target is blinded, restrained, and unable to breathe, and it must succeed on a DC 14 Constitution saving throw at the start of each of the mound's turns or take 13 (2d8 + 4) bludgeoning damage. If the mound moves, the engulfed target moves with it. The mound can have only one creature engulfed at a time."
       }
     ],
-    "url": "/api/monsters/shambling-mound"
+    "url": "/api/monsters/shambling-mound",
+    "image": true
   },
   {
     "index": "shield-guardian",
@@ -31842,7 +31873,8 @@
         "desc": "When bright light or a creature is within 30 feet of the shrieker, it emits a shriek audible within 300 feet of it. The shrieker continues to shriek until the disturbance moves out of range and for 1d4 of the shrieker's turns afterward"
       }
     ],
-    "url": "/api/monsters/shrieker"
+    "url": "/api/monsters/shrieker",
+    "image": true
   },
   {
     "index": "silver-dragon-wyrmling",
@@ -32063,7 +32095,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/skeleton"
+    "url": "/api/monsters/skeleton",
+    "image": true
   },
   {
     "index": "solar",
@@ -32851,7 +32884,8 @@
         "desc": "The sprite magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the sprite wears or carries is invisible with it."
       }
     ],
-    "url": "/api/monsters/sprite"
+    "url": "/api/monsters/sprite",
+    "image": true
   },
   {
     "index": "spy",
@@ -35955,7 +35989,8 @@
         "desc": "The unicorn magically regains 11 (2d8 + 2) hit points."
       }
     ],
-    "url": "/api/monsters/unicorn"
+    "url": "/api/monsters/unicorn",
+    "image": true
   },
   {
     "index": "vampire",
@@ -37017,7 +37052,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/water-elemental"
+    "url": "/api/monsters/water-elemental",
+    "image": true
   },
   {
     "index": "weasel",
@@ -38710,7 +38746,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/werewolf-human"
+    "url": "/api/monsters/werewolf-human",
+    "image": true
   },
   {
     "index": "werewolf-hybrid",
@@ -39592,7 +39629,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/worg"
+    "url": "/api/monsters/worg",
+    "image": true
   },
   {
     "index": "wraith",
