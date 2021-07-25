@@ -575,7 +575,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-black-dragon"
+    "url": "/api/monsters/adult-black-dragon",
+    "image": true
   },
   {
     "index": "adult-blue-dragon",
@@ -825,7 +826,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-blue-dragon"
+    "url": "/api/monsters/adult-blue-dragon",
+    "image": true
   },
   {
     "index": "adult-brass-dragon",
@@ -1104,7 +1106,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-brass-dragon"
+    "url": "/api/monsters/adult-brass-dragon",
+    "image": true
   },
   {
     "index": "adult-bronze-dragon",
@@ -1379,7 +1382,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-bronze-dragon"
+    "url": "/api/monsters/adult-bronze-dragon",
+    "image": true
   },
   {
     "index": "adult-copper-dragon",
@@ -1650,7 +1654,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-copper-dragon"
+    "url": "/api/monsters/adult-copper-dragon",
+    "image": true
   },
   {
     "index": "adult-gold-dragon",
@@ -2218,7 +2223,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-green-dragon"
+    "url": "/api/monsters/adult-green-dragon",
+    "image": true
   },
   {
     "index": "adult-red-dragon",
@@ -2520,7 +2526,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-red-dragon"
+    "url": "/api/monsters/adult-red-dragon",
+    "image": true
   },
   {
     "index": "adult-silver-dragon",
@@ -2798,7 +2805,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-silver-dragon"
+    "url": "/api/monsters/adult-silver-dragon",
+    "image": true
   },
   {
     "index": "adult-white-dragon",
@@ -3053,7 +3061,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-white-dragon"
+    "url": "/api/monsters/adult-white-dragon",
+    "image": true
   },
   {
     "index": "air-elemental",
@@ -10415,7 +10424,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/chimera"
+    "url": "/api/monsters/chimera",
+    "image": true
   },
   {
     "index": "chuul",
@@ -10667,7 +10677,8 @@
         }
       }
     ],
-    "url": "/api/monsters/clay-golem"
+    "url": "/api/monsters/clay-golem",
+    "image": true
   },
   {
     "index": "cloaker",
@@ -11017,7 +11028,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/cloud-giant"
+    "url": "/api/monsters/cloud-giant",
+    "image": true
   },
   {
     "index": "cockatrice",
@@ -12827,7 +12839,8 @@
         }
       }
     ],
-    "url": "/api/monsters/djinni"
+    "url": "/api/monsters/djinni",
+    "image": true
   },
   {
     "index": "doppelganger",
@@ -13500,7 +13513,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/drider"
+    "url": "/api/monsters/drider",
+    "image": true
   },
   {
     "index": "drow",
@@ -14580,7 +14594,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/efreeti"
+    "url": "/api/monsters/efreeti",
+    "image": true
   },
   {
     "index": "elephant",
@@ -15427,7 +15442,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/fire-giant"
+    "url": "/api/monsters/fire-giant",
+    "image": true
   },
   {
     "index": "flesh-golem",
@@ -15911,7 +15927,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/frost-giant"
+    "url": "/api/monsters/frost-giant",
+    "image": true
   },
   {
     "index": "gargoyle",
@@ -20601,7 +20618,8 @@
         "attack_bonus": 8
       }
     ],
-    "url": "/api/monsters/guardian-naga"
+    "url": "/api/monsters/guardian-naga",
+    "image": true
   },
   {
     "index": "gynosphinx",
@@ -21483,7 +21501,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/hill-giant"
+    "url": "/api/monsters/hill-giant",
+    "image": true
   },
   {
     "index": "hippogriff",
@@ -22085,7 +22104,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/hydra"
+    "url": "/api/monsters/hydra",
+    "image": true
   },
   {
     "index": "hyena",
@@ -22754,7 +22774,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/invisible-stalker"
+    "url": "/api/monsters/invisible-stalker",
+    "image": true
   },
   {
     "index": "iron-golem",
@@ -25487,7 +25508,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/medusa"
+    "url": "/api/monsters/medusa",
+    "image": true
   },
   {
     "index": "merfolk",
@@ -29320,7 +29342,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/purple-worm"
+    "url": "/api/monsters/purple-worm",
+    "image": true
   },
   {
     "index": "quasit",
@@ -30352,7 +30375,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/roc"
+    "url": "/api/monsters/roc",
+    "image": true
   },
   {
     "index": "roper",
@@ -32727,7 +32751,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/spirit-naga"
+    "url": "/api/monsters/spirit-naga",
+    "image": true
   },
   {
     "index": "sprite",
@@ -33296,7 +33321,8 @@
         "desc": "If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it."
       }
     ],
-    "url": "/api/monsters/stone-giant"
+    "url": "/api/monsters/stone-giant",
+    "image": true
   },
   {
     "index": "stone-golem",
@@ -33429,7 +33455,8 @@
         }
       }
     ],
-    "url": "/api/monsters/stone-golem"
+    "url": "/api/monsters/stone-golem",
+    "image": true
   },
   {
     "index": "storm-giant",
@@ -33674,7 +33701,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/storm-giant"
+    "url": "/api/monsters/storm-giant",
+    "image": true
   },
   {
     "index": "succubus-incubus",
@@ -35369,7 +35397,8 @@
         }
       }
     ],
-    "url": "/api/monsters/treant"
+    "url": "/api/monsters/treant",
+    "image": true
   },
   {
     "index": "tribal-warrior",
@@ -36115,7 +36144,8 @@
         "attack_bonus": 0
       }
     ],
-    "url": "/api/monsters/vampire"
+    "url": "/api/monsters/vampire",
+    "image": true
   },
   {
     "index": "vampire-spawn",
@@ -39816,7 +39846,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/wyvern"
+    "url": "/api/monsters/wyvern",
+    "image": true
   },
   {
     "index": "xorn",
@@ -40117,7 +40148,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/young-black-dragon"
+    "url": "/api/monsters/young-black-dragon",
+    "image": true
   },
   {
     "index": "young-blue-dragon",
@@ -40291,7 +40323,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/young-blue-dragon"
+    "url": "/api/monsters/young-blue-dragon",
+    "image": true
   },
   {
     "index": "young-brass-dragon",
@@ -40486,7 +40519,8 @@
         }
       }
     ],
-    "url": "/api/monsters/young-brass-dragon"
+    "url": "/api/monsters/young-brass-dragon",
+    "image": true
   },
   {
     "index": "young-bronze-dragon",
@@ -40883,7 +40917,8 @@
         }
       }
     ],
-    "url": "/api/monsters/young-copper-dragon"
+    "url": "/api/monsters/young-copper-dragon",
+    "image": true
   },
   {
     "index": "young-gold-dragon",
@@ -41092,7 +41127,8 @@
         }
       }
     ],
-    "url": "/api/monsters/young-gold-dragon"
+    "url": "/api/monsters/young-gold-dragon",
+    "image": true
   },
   {
     "index": "young-green-dragon",
@@ -41286,7 +41322,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/young-green-dragon"
+    "url": "/api/monsters/young-green-dragon",
+    "image": true
   },
   {
     "index": "young-red-dragon",
@@ -41460,7 +41497,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/young-red-dragon"
+    "url": "/api/monsters/young-red-dragon",
+    "image": true
   },
   {
     "index": "young-silver-dragon",
@@ -41662,7 +41700,8 @@
         }
       }
     ],
-    "url": "/api/monsters/young-silver-dragon"
+    "url": "/api/monsters/young-silver-dragon",
+    "image": true
   },
   {
     "index": "young-white-dragon",
@@ -41843,7 +41882,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/young-white-dragon"
+    "url": "/api/monsters/young-white-dragon",
+    "image": true
   },
   {
     "index": "zombie",
