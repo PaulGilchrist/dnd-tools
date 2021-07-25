@@ -12,6 +12,7 @@ import { ConditionComponent } from './components/condition/condition.component';
 import { ConditionsComponent } from './components/conditions/conditions.component';
 import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
+import { ImageModalComponent } from './components/image-modal/image-modal.component';
 import { MagicItemComponent } from './components/magic-item/magic-item.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonsterComponent } from './components/monster/monster.component';
@@ -41,6 +42,7 @@ import { DataService } from './services/data.service';
     ConditionsComponent,
     EquipmentItemComponent,
     EquipmentItemsComponent,
+    ImageModalComponent,
     MagicItemComponent,
     MagicItemsComponent,
     MonsterComponent,

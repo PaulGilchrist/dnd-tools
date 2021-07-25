@@ -27,3 +27,7 @@
 .removeExtraLine {
     margin-bottom: -20px;
 }
+.stats {
+    display: grid;
+    grid-template-columns: auto 70px;
+}

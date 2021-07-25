@@ -9,6 +9,8 @@ export class MonsterComponent {
 
   @Input() monster: any = null;
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the monster is bookmarked for the current session
+
+  modalActive = true;
   
   getAbilityModifier(abilityScore: number) {
     return Math.floor((abilityScore-10)/2);

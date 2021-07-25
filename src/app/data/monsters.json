@@ -1933,7 +1933,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-gold-dragon"
+    "url": "/api/monsters/adult-gold-dragon",
+    "image": "Adult Gold Dragon - Image.png"
   },
   {
     "index": "adult-green-dragon",
@@ -8735,7 +8736,8 @@
         "desc": "When a pudding that is Medium or larger is subjected to lightning or slashing damage, it splits into two new puddings if it has at least 10 hit points. Each new pudding has hit points equal to half the original pudding's, rounded down. New puddings are one size smaller than the original pudding."
       }
     ],
-    "url": "/api/monsters/black-pudding"
+    "url": "/api/monsters/black-pudding",
+    "image": "Black Pudding - Image.png"
   },
   {
     "index": "blink-dog",
@@ -14036,7 +14038,8 @@
         }
       }
     ],
-    "url": "/api/monsters/duergar"
+    "url": "/api/monsters/duergar",
+    "image": "Duergar - Image.png"
   },
   {
     "index": "dust-mephit",
@@ -18676,7 +18679,8 @@
         }
       }
     ],
-    "url": "/api/monsters/gibbering-mouther"
+    "url": "/api/monsters/gibbering-mouther",
+    "image": "Gibbering Mouther - Image.png"
   },
   {
     "index": "glabrezu",
@@ -19327,7 +19331,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/goblin"
+    "url": "/api/monsters/goblin",
+    "image": "Goblin - Image.png"
   },
   {
     "index": "gold-dragon-wyrmling",
@@ -19701,7 +19706,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/gray-ooze"
+    "url": "/api/monsters/gray-ooze",
+    "image": "Gray Ooze - Image.png"
   },
   {
     "index": "green-dragon-wyrmling",
@@ -23229,7 +23235,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/kobold"
+    "url": "/api/monsters/kobold",
+    "image": "Kobold - Image.png"
   },
   {
     "index": "kraken",
@@ -32418,7 +32425,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/specter"
+    "url": "/api/monsters/specter",
+    "image": "Specter - Image.png"
   },
   {
     "index": "spider",
@@ -33116,7 +33124,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/stirge"
+    "url": "/api/monsters/stirge",
+    "image": "Stirge - Image.png"
   },
   {
     "index": "stone-giant",
@@ -35569,7 +35578,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/troll"
+    "url": "/api/monsters/troll",
+    "image": "Troll - Image.png"
   },
   {
     "index": "tyrannosaurus-rex",
@@ -37838,7 +37848,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/wererat-human"
+    "url": "/api/monsters/wererat-human",
+    "image": "Wererat - Image.png"
   },
   {
     "index": "wererat-hybrid",
@@ -38017,7 +38028,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/wererat-hybrid"
+    "url": "/api/monsters/wererat-hybrid",
+    "image": "Wererat - Image.png"
   },
   {
     "index": "wererat-rat",
@@ -40633,7 +40645,8 @@
         }
       }
     ],
-    "url": "/api/monsters/young-bronze-dragon"
+    "url": "/api/monsters/young-bronze-dragon",
+    "image": "Young Bronze Dragon - Image.png"
   },
   {
     "index": "young-copper-dragon",

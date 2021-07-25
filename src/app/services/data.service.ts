@@ -112,7 +112,6 @@ export class DataService {
                     console.log('Get - monsters');
                     const monsters = [...data[0], ...data[1]];
                     this.sort(monsters, 'name');
-                    console.log(monsters);
                     this.monsters.next(monsters);
                 }),
                 map(() => this.monsters.getValue()),
