@@ -155,7 +155,8 @@
                 "desc": "Ranged Weapon Attack:+4 to hit, range 80/ 320 ft., one target. Hit: 5 (ld6 + 2} piercing damage."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Bard - Image.png"
     },
     {
         "index": "carrion-crawler",
@@ -483,7 +484,9 @@
                 "desc": "If the target is a creature that is Medium or smaller, it must succeed on a DC 12 Strength saving throw or be moved up to 30 feet directly away from the gazer. If the target is an object weighting 10 pounds or less that isn't being worn or carried, the gazer moves it up to 30 feet in any direction. The gazer can also exert fine control on ovjects with this ray, such as manipulating a simple tool or opening a container."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Gazer - Image.png"
+
     },
     {
         "index": "grell",
@@ -649,7 +652,9 @@
                 "desc": "Ranged Weappon Attack: +5 to hit, range 80/320 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Kenku - Image.png"
+
     },
     {
         "index": "intellect-devourer",
@@ -733,7 +738,8 @@
                 "desc": "The intellect devourer initiates an Intelligence con­ test with an incapacitated humanoid within 5 feet of it that isn't protected by protectionfrom evil and good. If it wins the contest, the intellect devourer magically consumes the target's brain, teleports into the skull, and takes control ofthe body. While there, the intellect devourer has total cover against attacks and other effects originating outside its host. The intellect devourer retains its Intelligence, Wisdom, and Charisma scores, as well as its understanding ofDeep Speech, its telepathy, and its traits. It otherwise adopts the target's statistics. It knows ev­ erything the creature knew, including spells and languages. Ifthe host body dies, the intellect devourer must leave it. A protectionfrom evil and good spell cast on the body drives the intellect devourer out. The intellect devourer is also forced out ifthe target regains its devoured brain by means ofa wish. By spending 5 feet of its movement, the intellect devourer can vol­ untarily leave the body, teleporting to the nearest unoccupied space within 5 feet of it. The body then dies, unless its brain is restored within 1 round."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Intellect Devourer - Image.png"
     },
     {
         "index": "mind-flayer",
@@ -895,7 +901,8 @@
                 }
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Mind Flayer - Image.png"
     },
     {
         "index": "nimblewright",
@@ -1016,7 +1023,8 @@
                 "desc": "The nimblewright adds 2 to its AC against one melee attack that would hit it. To do so, the nimblewright must see the attacker and be wielding a melee weapon."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Nimblewright - Image.png"
     },
     {
         "index": "scarecrow",
@@ -1108,7 +1116,8 @@
                 "desc": "The scarecrow targets one creature it can see within 30 feet of it. Ifthe target can see the scarecrow, the target must succeed on a DC 11 Wisdom saving throw or be magically frightened until the end ofthe scarecrow's next turn. The frightened target is paralyzed."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Scarecrow - Image.png"
     },
     {
         "index": "troglodyte",
@@ -1178,6 +1187,7 @@
                 "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (ld4 + 2) slashing damage."
             }
         ],
-        "url": null
+        "url": null,
+        "image": "Troglodyte - Image.png"
     }
 ]
