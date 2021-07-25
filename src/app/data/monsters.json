@@ -7523,7 +7523,8 @@
         }
       }
     ],
-    "url": "/api/monsters/balor"
+    "url": "/api/monsters/balor",
+    "image": true
   },
   {
     "index": "bandit",
@@ -7925,7 +7926,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/barbed-devil"
+    "url": "/api/monsters/barbed-devil",
+    "image": true
   },
   {
     "index": "basilisk",
@@ -11597,7 +11599,8 @@
         "desc": "The couatl magically polymorphs into a humanoid or beast that has a challenge rating equal to or less than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the couatl's choice).\nIn a new form, the couatl retains its game statistics and ability to speak, but its AC, movement modes, Strength, Dexterity, and other actions are replaced by those of the new form, and it gains any statistics and capabilities (except class features, legendary actions, and lair actions) that the new form has but that it lacks. If the new form has a bite attack, the couatl can use its bite in that form."
       }
     ],
-    "url": "/api/monsters/couatl"
+    "url": "/api/monsters/couatl",
+    "image": true
   },
   {
     "index": "crab",
@@ -12126,7 +12129,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/death-dog"
+    "url": "/api/monsters/death-dog",
+    "image": true
   },
   {
     "index": "deep-gnome-svirfneblin",
@@ -18951,7 +18955,8 @@
         }
       }
     ],
-    "url": "/api/monsters/glabrezu"
+    "url": "/api/monsters/glabrezu",
+    "image": true
   },
   {
     "index": "gladiator",
@@ -20352,7 +20357,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/grimlock"
+    "url": "/api/monsters/grimlock",
+    "image": true
   },
   {
     "index": "guard",
@@ -21961,7 +21967,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/horned-devil"
+    "url": "/api/monsters/horned-devil",
+    "image": true
   },
   {
     "index": "hunter-shark",
@@ -23801,7 +23808,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/lemure"
+    "url": "/api/monsters/lemure",
+    "image": true
   },
   {
     "index": "lich",
@@ -24518,7 +24526,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/lizardfolk"
+    "url": "/api/monsters/lizardfolk",
+    "image": true
   },
   {
     "index": "mage",
@@ -24946,7 +24955,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/magmin"
+    "url": "/api/monsters/magmin",
+    "image": true
   },
   {
     "index": "mammoth",
@@ -25294,7 +25304,8 @@
         "desc": "The marilith adds 5 to its AC against one melee attack that would hit it. To do so, the marilith must see the attacker and be wielding a melee weapon."
       }
     ],
-    "url": "/api/monsters/marilith"
+    "url": "/api/monsters/marilith",
+    "image": true
   },
   {
     "index": "mastiff",
@@ -27147,7 +27158,8 @@
         "desc": "When a jelly that is Medium or larger is subjected to lightning or slashing damage, it splits into two new jellies if it has at least 10 hit points. Each new jelly has hit points equal to half the original jelly's, rounded down. New jellies are one size smaller than the original jelly."
       }
     ],
-    "url": "/api/monsters/ochre-jelly"
+    "url": "/api/monsters/ochre-jelly",
+    "image": true
   },
   {
     "index": "octopus",
@@ -27617,7 +27629,8 @@
         "desc": "The oni magically polymorphs into a Small or Medium humanoid, into a Large giant, or back into its true form. Other than its size, its statistics are the same in each form. The only equipment that is transformed is its glaive, which shrinks so that it can be wielded in humanoid form. If the oni dies, it reverts to its true form, and its glaive reverts to its normal size."
       }
     ],
-    "url": "/api/monsters/oni"
+    "url": "/api/monsters/oni",
+    "image": true
   },
   {
     "index": "orc",
@@ -30920,7 +30933,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/sahuagin"
+    "url": "/api/monsters/sahuagin",
+    "image": true
   },
   {
     "index": "salamander",
@@ -31058,7 +31072,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/salamander"
+    "url": "/api/monsters/salamander",
+    "image": true
   },
   {
     "index": "satyr",
@@ -35145,7 +35160,8 @@
         "desc": "The tarrasque makes one bite attack or uses its Swallow."
       }
     ],
-    "url": "/api/monsters/tarrasque"
+    "url": "/api/monsters/tarrasque",
+    "image": true
   },
   {
     "index": "thug",
@@ -36331,7 +36347,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/vampire-spawn"
+    "url": "/api/monsters/vampire-spawn",
+    "image": true
   },
   {
     "index": "veteran",
@@ -40006,7 +40023,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/xorn"
+    "url": "/api/monsters/xorn",
+    "image": true
   },
   {
     "index": "young-black-dragon",
