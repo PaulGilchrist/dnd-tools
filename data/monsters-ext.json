@@ -569,7 +569,8 @@
                 "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage."
             }
         ],
-        "url": null
+        "url": null,
+        "image":true
     },
     {
         "index": "kenku",

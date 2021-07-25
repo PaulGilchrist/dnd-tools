@@ -7976,7 +7976,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/basilisk"
+    "url": "/api/monsters/basilisk",
+    "image": true
   },
   {
     "index": "bat",
@@ -9754,7 +9755,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/bugbear"
+    "url": "/api/monsters/bugbear",
+    "image": true
   },
   {
     "index": "bulette",
@@ -10095,7 +10097,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/centaur"
+    "url": "/api/monsters/centaur",
+    "image": true
   },
   {
     "index": "chain-devil",
@@ -11857,7 +11860,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/cult-fanatic"
+    "url": "/api/monsters/cult-fanatic",
+    "image": true
   },
   {
     "index": "cultist",
@@ -12247,7 +12251,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/deep-gnome-svirfneblin"
+    "url": "/api/monsters/deep-gnome-svirfneblin",
+    "image": true
   },
   {
     "index": "deer",
@@ -12929,7 +12934,8 @@
         "desc": "The doppelganger magically reads the surface thoughts of one creature within 60 ft. of it. The effect can penetrate barriers, but 3 ft. of wood or dirt, 2 ft. of stone, 2 inches of metal, or a thin sheet of lead blocks it. While the target is in range, the doppelganger can continue reading its thoughts, as long as the doppelganger's concentration isn't broken (as if concentrating on a spell). While reading the target's mind, the doppelganger has advantage on Wisdom (Insight) and Charisma (Deception, Intimidation, and Persuasion) checks against the target."
       }
     ],
-    "url": "/api/monsters/doppelganger"
+    "url": "/api/monsters/doppelganger",
+    "image": true
   },
   {
     "index": "draft-horse",
@@ -13947,7 +13953,8 @@
         }
       }
     ],
-    "url": "/api/monsters/dryad"
+    "url": "/api/monsters/dryad",
+    "image": true
   },
   {
     "index": "duergar",
@@ -15165,7 +15172,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ettin"
+    "url": "/api/monsters/ettin",
+    "image": true
   },
   {
     "index": "fire-elemental",
@@ -15546,7 +15554,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/flesh-golem"
+    "url": "/api/monsters/flesh-golem",
+    "image": true
   },
   {
     "index": "flying-snake",
@@ -15719,7 +15728,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/flying-sword"
+    "url": "/api/monsters/flying-sword",
+    "image": true
   },
   {
     "index": "frog",
@@ -16012,7 +16022,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/gargoyle"
+    "url": "/api/monsters/gargoyle",
+    "image": true
   },
   {
     "index": "gelatinous-cube",
@@ -16126,7 +16137,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/gelatinous-cube"
+    "url": "/api/monsters/gelatinous-cube",
+    "image": true
   },
   {
     "index": "ghast",
@@ -16216,7 +16228,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ghast"
+    "url": "/api/monsters/ghast",
+    "image": true
   },
   {
     "index": "ghost",
@@ -16431,7 +16444,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ghoul"
+    "url": "/api/monsters/ghoul",
+    "image": true
   },
   {
     "index": "giant-ape",
@@ -19192,7 +19206,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/gnoll"
+    "url": "/api/monsters/gnoll",
+    "image": true
   },
   {
     "index": "goat",
@@ -20093,7 +20108,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/grick"
+    "url": "/api/monsters/grick",
+    "image": true
   },
   {
     "index": "griffon",
@@ -20195,7 +20211,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/griffon"
+    "url": "/api/monsters/griffon",
+    "image": true
   },
   {
     "index": "grimlock",
@@ -21056,7 +21073,8 @@
         "desc": "The harpy sings a magical melody. Every humanoid and giant within 300 ft. of the harpy that can hear the song must succeed on a DC 11 Wisdom saving throw or be charmed until the song ends. The harpy must take a bonus action on its subsequent turns to continue singing. It can stop singing at any time. The song ends if the harpy is incapacitated.\nWhile charmed by the harpy, a target is incapacitated and ignores the songs of other harpies. If the charmed target is more than 5 ft. away from the harpy, the must move on its turn toward the harpy by the most direct route. It doesn't avoid opportunity attacks, but before moving into damaging terrain, such as lava or a pit, and whenever it takes damage from a source other than the harpy, a target can repeat the saving throw. A creature can also repeat the saving throw at the end of each of its turns. If a creature's saving throw is successful, the effect ends on it.\nA target that successfully saves is immune to this harpy's song for the next 24 hours."
       }
     ],
-    "url": "/api/monsters/harpy"
+    "url": "/api/monsters/harpy",
+    "image": true
   },
   {
     "index": "hawk",
@@ -21226,7 +21244,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/hell-hound"
+    "url": "/api/monsters/hell-hound",
+    "image": true
   },
   {
     "index": "hezrou",
@@ -21565,7 +21584,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/hippogriff"
+    "url": "/api/monsters/hippogriff",
+    "image": true
   },
   {
     "index": "hobgoblin",
@@ -21650,7 +21670,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/hobgoblin"
+    "url": "/api/monsters/hobgoblin",
+    "image": true
   },
   {
     "index": "homunculus",
@@ -22594,7 +22615,8 @@
         "desc": "The imp magically turns invisible until it attacks, or until its concentration ends (as if concentrating on a spell). Any equipment the imp wears or carries is invisible with it."
       }
     ],
-    "url": "/api/monsters/imp"
+    "url": "/api/monsters/imp",
+    "image": true
   },
   {
     "index": "invisible-stalker",
@@ -25065,7 +25087,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/manticore"
+    "url": "/api/monsters/manticore",
+    "image": true
   },
   {
     "index": "marilith",
@@ -25291,7 +25314,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/mastiff"
+    "url": "/api/monsters/mastiff",
+    "image": true
   },
   {
     "index": "medusa",
@@ -25542,7 +25566,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/merfolk"
+    "url": "/api/monsters/merfolk",
+    "image": true
   },
   {
     "index": "merrow",
@@ -25780,7 +25805,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/mimic"
+    "url": "/api/monsters/mimic",
+    "image": true
   },
   {
     "index": "minotaur",
@@ -25868,7 +25894,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/minotaur"
+    "url": "/api/monsters/minotaur",
+    "image": true
   },
   {
     "index": "minotaur-skeleton",
@@ -26886,7 +26913,8 @@
         "desc": "The nightmare and up to three willing creatures within 5 feet of it magically enter the Ethereal Plane from the Material Plane, or vice versa."
       }
     ],
-    "url": "/api/monsters/nightmare"
+    "url": "/api/monsters/nightmare",
+    "image": true
   },
   {
     "index": "noble",
@@ -27228,7 +27256,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/ogre"
+    "url": "/api/monsters/ogre",
+    "image": true
   },
   {
     "index": "ogre-zombie",
@@ -27621,7 +27650,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/orc"
+    "url": "/api/monsters/orc",
+    "image": true
   },
   {
     "index": "otyugh",
@@ -27922,7 +27952,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/owlbear"
+    "url": "/api/monsters/owlbear",
+    "image": true
   },
   {
     "index": "panther",
@@ -28097,7 +28128,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/pegasus"
+    "url": "/api/monsters/pegasus",
+    "image": true
   },
   {
     "index": "phase-spider",
@@ -30437,7 +30469,8 @@
         "desc": "The roper pulls each creature grappled by it up to 25 ft. straight toward it."
       }
     ],
-    "url": "/api/monsters/roper"
+    "url": "/api/monsters/roper",
+    "image": true
   },
   {
     "index": "rug-of-smothering",
@@ -31085,7 +31118,8 @@
         "desc": "Gentle Lullaby. The creature falls asleep and is unconscious for 1 minute. The effect ends if the creature takes damage or if someone takes an action to shake the creature awake."
       }
     ],
-    "url": "/api/monsters/satyr"
+    "url": "/api/monsters/satyr",
+    "image": true
   },
   {
     "index": "scorpion",
@@ -31339,7 +31373,8 @@
         "desc": "The hag covers herself and anything she is wearing or carrying with a magical illusion that makes her look like an ugly creature of her general size and humanoid shape. The effect ends if the hag takes a bonus action to end it or if she dies.\nThe changes wrought by this effect fail to hold up to physical inspection. For example, the hag could appear to have no claws, but someone touching her hand might feel the claws. Otherwise, a creature must take an action to visually inspect the illusion and succeed on a DC 16 Intelligence (Investigation) check to discern that the hag is disguised."
       }
     ],
-    "url": "/api/monsters/sea-hag"
+    "url": "/api/monsters/sea-hag",
+    "image": true
   },
   {
     "index": "sea-horse",
@@ -31498,7 +31533,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/shadow"
+    "url": "/api/monsters/shadow",
+    "image": true
   },
   {
     "index": "shambling-mound",
@@ -31720,7 +31756,8 @@
         "desc": "When a creature makes an attack against the wearer of the guardian's amulet, the guardian grants a +2 bonus to the wearer's AC if the guardian is within 5 feet of the wearer."
       }
     ],
-    "url": "/api/monsters/shield-guardian"
+    "url": "/api/monsters/shield-guardian",
+    "image": true
   },
   {
     "index": "shrieker",
@@ -33777,7 +33814,8 @@
         "desc": "The fiend magically enters the Ethereal Plane from the Material Plane, or vice versa."
       }
     ],
-    "url": "/api/monsters/succubus-incubus"
+    "url": "/api/monsters/succubus-incubus",
+    "image": true
   },
   {
     "index": "swarm-of-bats",
@@ -35140,7 +35178,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/thug"
+    "url": "/api/monsters/thug",
+    "image": true
   },
   {
     "index": "tiger",
@@ -39146,7 +39185,8 @@
         ]
       }
     ],
-    "url": "/api/monsters/wight"
+    "url": "/api/monsters/wight",
+    "image": true
   },
   {
     "index": "will-o-wisp",
@@ -39272,7 +39312,8 @@
         "desc": "The will-o'-wisp and its light magically become invisible until it attacks or uses its Consume Life, or until its concentration ends (as if concentrating on a spell)."
       }
     ],
-    "url": "/api/monsters/will-o-wisp"
+    "url": "/api/monsters/will-o-wisp",
+    "image": true
   },
   {
     "index": "winter-wolf",
@@ -39635,7 +39676,8 @@
         "desc": "The wraith targets a humanoid within 10 feet of it that has been dead for no longer than 1 minute and died violently. The target's spirit rises as a specter in the space of its corpse or in the nearest unoccupied space. The specter is under the wraith's control. The wraith can have no more than seven specters under its control at one time."
       }
     ],
-    "url": "/api/monsters/wraith"
+    "url": "/api/monsters/wraith",
+    "image": true
   },
   {
     "index": "wyvern",
@@ -41872,6 +41914,7 @@
         ]
       }
     ],
-    "url": "/api/monsters/zombie"
+    "url": "/api/monsters/zombie",
+    "image": true
   }
 ]
