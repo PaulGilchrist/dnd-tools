@@ -1,7 +1,9 @@
 [
   {
     "index": "aboleth",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true,
     "reference": {
       "book": {
@@ -9,164 +11,250 @@
         "name": "Monster Manual"
       },
       "page": 13
-    },
-    "related_monsters": []
+    }
   },
   {
     "index": "acolyte",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "adult-black-dragon",
-    "environments": ["Swamp"],
+    "environments": [
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "adult-blue-dragon",
-    "environments": ["coastal","desert"],
+    "environments": [
+      "coastal",
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "adult-brass-dragon",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "adult-bronze-dragon",
-    "environments": ["coastal"],
+    "environments": [
+      "coastal"
+    ],
     "image": true
   },
   {
     "index": "adult-copper-dragon",
-    "environments": ["hill"],
+    "environments": [
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "adult-gold-dragon",
-    "environments": ["forest","grassland"],
+    "environments": [
+      "forest",
+      "grassland"
+    ],
     "image": true
   },
   {
     "index": "adult-green-dragon",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "adult-red-dragon",
-    "environments": ["hill"],
+    "environments": [
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "adult-silver-dragon",
-    "environments": ["mountain","urban"],
+    "environments": [
+      "mountain",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "adult-white-dragon",
-    "environments": ["arctic"],
+    "environments": [
+      "arctic"
+    ],
     "image": true
   },
   {
     "index": "air-elemental",
-    "environments": ["desert","mountain"],
+    "environments": [
+      "desert",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "ancient-black-dragon",
-    "environments": ["Swamp"],
+    "environments": [
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "ancient-blue-dragon",
-    "environments": ["coastal","desert"],
+    "environments": [
+      "coastal",
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "ancient-brass-dragon",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "ancient-bronze-dragon",
-    "environments": ["coastal"],
+    "environments": [
+      "coastal"
+    ],
     "image": true
   },
   {
     "index": "ancient-copper-dragon",
-    "environments": ["hill"],
+    "environments": [
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "ancient-gold-dragon",
-    "environments": ["forest","grassland"],
+    "environments": [
+      "forest",
+      "grassland"
+    ],
     "image": true
   },
   {
     "index": "ancient-green-dragon",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "ancient-red-dragon",
-    "environments": ["hill","mountain"],
+    "environments": [
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "ancient-silver-dragon",
-    "environments": ["mountain","urban"],
+    "environments": [
+      "mountain",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "ancient-white-dragon",
-    "environments": ["arctic"],
+    "environments": [
+      "arctic"
+    ],
     "image": true
   },
   {
     "index": "androsphinx",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "animated-armor"
   },
   {
     "index": "ankheg",
-    "environments": ["forest","grassland"],
+    "environments": [
+      "forest",
+      "grassland"
+    ],
     "image": true
   },
   {
     "index": "ape",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "archmage",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "assassin",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "awakened-shrub",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ],
+    "related_monsters": [
+      {
+        "index": "awakened-tree",
+        "name": "Awakened Tree"
+      }
+    ]
   },
   {
     "index": "awakened-tree",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ],
+    "related_monsters": [
+      {
+        "index": "awakened-shrub",
+        "name": "Awakened Shrub"
+      }
+    ]
   },
   {
     "index": "axe-beak",
-    "environments": ["grassland","hill"]
+    "environments": [
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "azer"
   },
   {
     "index": "baboon",
-    "environments": ["forest","hill"]
+    "environments": [
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "badger",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "balor",
@@ -174,11 +262,25 @@
   },
   {
     "index": "bandit",
-    "environments": ["arctic","coastal","desert","forest","hill","urban"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "hill",
+      "urban"
+    ]
   },
   {
     "index": "bandit-captain",
-    "environments": ["arctic","coastal","desert","forest","hill","urban"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "hill",
+      "urban"
+    ]
   },
   {
     "index": "barbed-devil",
@@ -186,49 +288,83 @@
   },
   {
     "index": "basilisk",
-    "environments": ["mountain"],
+    "environments": [
+      "mountain"
+    ],
     "image": true
   },
   {
-    "index": "bat"
+    "index": "bat",
+    "related_monsters": [
+      {
+        "index": "giant-bat",
+        "name": "Giant Bat"
+      }
+    ]
   },
   {
     "index": "bearded-devil"
   },
   {
     "index": "behir",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "berserker",
-    "environments": ["arctic","coastal","desert","forest","hill","mountain"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "black-bear",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "black-dragon-wyrmling"
   },
   {
     "index": "black-pudding",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "blink-dog",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "blood-hawk",
-    "environments": ["arctic","coastal","forest","grassland","hill","mountain"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "blue-dragon-wyrmling"
   },
   {
     "index": "boar",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "bone-devil"
@@ -241,28 +377,50 @@
   },
   {
     "index": "brown-bear",
-    "environments": ["arctic","forest","hill"]
+    "environments": [
+      "arctic",
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "bugbear",
-    "environments": ["forest","grassland","underdark"],
+    "environments": [
+      "forest",
+      "grassland",
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "bulette",
-    "environments": ["grassland","hill","mountain"]
+    "environments": [
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "camel",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "cat",
-    "environments": ["desert","forest","grassland","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "urban"
+    ]
   },
   {
     "index": "centaur",
-    "environments": ["forest","grassland"],
+    "environments": [
+      "forest",
+      "grassland"
+    ],
     "image": true
   },
   {
@@ -270,7 +428,12 @@
   },
   {
     "index": "chimera",
-    "environments": ["grassland","hill","mountain","underdark"],
+    "environments": [
+      "grassland",
+      "hill",
+      "mountain",
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -282,93 +445,148 @@
   },
   {
     "index": "cloaker",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "cloud-giant",
-    "environments": ["mountain"],
+    "environments": [
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "cockatrice",
-    "environments": ["grassland"],
+    "environments": [
+      "grassland"
+    ],
     "image": true
   },
   {
     "index": "commoner",
-    "environments": ["arctic","coastal","desert","forest","grassland","hill","urban"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "urban"
+    ]
   },
   {
     "index": "constrictor-snake",
-    "environments": ["desert","forest","Swamp","underwater"]
+    "environments": [
+      "desert",
+      "forest",
+      "Swamp",
+      "underwater"
+    ]
   },
   {
     "index": "copper-dragon-wyrmling"
   },
   {
     "index": "couatl",
-    "environments": ["desert","forest","grassland","urban"],
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "crab",
-    "environments": ["coastal"]
+    "environments": [
+      "coastal"
+    ]
   },
   {
     "index": "crocodile",
-    "environments": ["Swamp","urban"]
+    "environments": [
+      "Swamp",
+      "urban"
+    ]
   },
   {
     "index": "cult-fanatic",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "cultist",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "darkmantle",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "death-dog",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "deep-gnome-svirfneblin",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "deer",
-    "environments": ["forest","grassland"]
+    "environments": [
+      "forest",
+      "grassland"
+    ]
   },
   {
     "index": "deva"
   },
   {
     "index": "dire-wolf",
-    "environments": ["forest","hill"]
+    "environments": [
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "djinni",
-    "environments": ["coastal"],
+    "environments": [
+      "coastal"
+    ],
     "image": true
   },
   {
     "index": "doppelganger",
-    "environments": ["underdark","urban"],
+    "environments": [
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "draft-horse",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "dragon-turtle",
-    "environments": ["coastal","underwater"],
+    "environments": [
+      "coastal",
+      "underwater"
+    ],
     "image": true
   },
   {
@@ -376,73 +594,119 @@
   },
   {
     "index": "drider",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "drow",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "druid",
-    "environments": ["arctic","coastal","desert","forest","grassland","hill","mountain","Swamp","underdark"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark"
+    ]
   },
   {
     "index": "dryad",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "duergar",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "dust-mephit",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "eagle",
-    "environments": ["coastal","grassland","hill","mountain"]
+    "environments": [
+      "coastal",
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "earth-elemental",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "efreeti",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "elephant",
-    "environments": ["grassland"]
+    "environments": [
+      "grassland"
+    ]
   },
   {
     "index": "elk",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "erinyes"
   },
   {
     "index": "ettercap",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "ettin",
-    "environments": ["hill","mountain","underdark"],
+    "environments": [
+      "hill",
+      "mountain",
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "fire-elemental",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "fire-giant",
-    "environments": ["mountain","underdark"],
+    "environments": [
+      "mountain",
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -451,7 +715,12 @@
   },
   {
     "index": "flying-snake",
-    "environments": ["desert","forest","grassland","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "urban"
+    ]
   },
   {
     "index": "flying-sword",
@@ -462,153 +731,296 @@
   },
   {
     "index": "frost-giant",
-    "environments": ["arctic","mountain"],
+    "environments": [
+      "arctic",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "gargoyle",
-    "environments": ["underdark","urban"],
+    "environments": [
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "gelatinous-cube",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "ghast",
-    "environments": ["Swamp","underdark","urban"],
+    "environments": [
+      "Swamp",
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "ghost",
-    "environments": ["underdark","urban"],
+    "environments": [
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "ghoul",
-    "environments": ["Swamp","underdark","urban"],
+    "environments": [
+      "Swamp",
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "giant-ape",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "giant-badger",
-    "environments": ["forest"]
+    "environments": [
+      "forest"
+    ]
   },
   {
     "index": "giant-bat",
-    "environments": ["forest","underdark"]
+    "environments": [
+      "forest",
+      "underdark"
+    ],
+    "related_monsters": [
+      {
+        "index": "bat",
+        "name": "Bat"
+      },
+      {
+        "index": "swarm-of-bats",
+        "name": "Swarm of Bats"
+      }
+    ]
   },
   {
     "index": "giant-boar",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "giant-centipede",
-    "environments": ["underdark","urban"]
+    "environments": [
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "giant-constrictor-snake",
-    "environments": ["desert","forest","Swamp","underdark","underwater"]
+    "environments": [
+      "desert",
+      "forest",
+      "Swamp",
+      "underdark",
+      "underwater"
+    ]
   },
   {
     "index": "giant-crab",
-    "environments": ["coastal"]
+    "environments": [
+      "coastal"
+    ]
   },
   {
     "index": "giant-crocodile",
-    "environments": ["Swamp"]
+    "environments": [
+      "Swamp"
+    ]
   },
   {
     "index": "giant-eagle",
-    "environments": ["coastal","grassland","hill","mountain"]
+    "environments": [
+      "coastal",
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "giant-elk",
-    "environments": ["forest","grassland","hill","mountain"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "giant-fire-beetle",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "giant-frog",
-    "environments": ["forest","Swamp"]
+    "environments": [
+      "forest",
+      "Swamp"
+    ]
   },
   {
     "index": "giant-goat",
-    "environments": ["grassland","hill","mountain"]
+    "environments": [
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "giant-hyena",
-    "environments": ["desert","forest","grassland","hill"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "giant-lizard",
-    "environments": ["coastal","desert","forest","Swamp","underdark"]
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "Swamp",
+      "underdark"
+    ]
   },
   {
     "index": "giant-octopus",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "giant-owl",
-    "environments": ["arctic","forest","hill"]
+    "environments": [
+      "arctic",
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "giant-poisonous-snake",
-    "environments": ["desert","forest","grassland","Swamp","underdark","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "giant-rat",
-    "environments": ["forest","Swamp","underdark","urban"]
+    "environments": [
+      "forest",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "giant-rat-diseased",
-    "environments": ["forest","Swamp","underdark","urban"]
+    "environments": [
+      "forest",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "giant-scorpion",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "giant-sea-horse",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "giant-shark",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "giant-spider",
-    "environments": ["desert","forest","Swamp","underdark","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "giant-toad",
-    "environments": ["coastal","desert","forest","Swamp","underdark"]
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "Swamp",
+      "underdark"
+    ]
   },
   {
     "index": "giant-vulture",
-    "environments": ["desert","grassland"]
+    "environments": [
+      "desert",
+      "grassland"
+    ]
   },
   {
     "index": "giant-wasp",
-    "environments": ["forest","grassland","urban"]
+    "environments": [
+      "forest",
+      "grassland",
+      "urban"
+    ]
   },
   {
     "index": "giant-weasel",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "giant-wolf-spider",
-    "environments": ["coastal","desert","forest","grassland","hill"]
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "gibbering-mouther",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -617,34 +1029,70 @@
   },
   {
     "index": "gladiator",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "gnoll",
-    "environments": ["desert","forest","grassland","hill"],
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "goat",
-    "environments": ["grassland","hill","mountain","urban"]
+    "environments": [
+      "grassland",
+      "hill",
+      "mountain",
+      "urban"
+    ]
   },
   {
     "index": "goblin",
-    "environments": ["forest","grassland","hill","underdark"],
-    "image": true
+    "environments": [
+      "forest",
+      "grassland",
+      "hill",
+      "underdark"
+    ],
+    "image": true,
+    "related_monsters": [
+      {
+        "index": "hobgoblin",
+        "name": "Hobgoblin"
+      },
+      {
+        "index": "worg",
+        "name": "Worg"
+      }
+    ]
   },
   {
     "index": "gold-dragon-wyrmling",
-    "environments": ["forest","grassland"]
+    "environments": [
+      "forest",
+      "grassland"
+    ]
   },
   {
     "index": "gorgon",
-    "environments": ["forest","grassland","hill"],
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "gray-ooze",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -652,43 +1100,76 @@
   },
   {
     "index": "green-hag",
-    "environments": ["forest","hill","Swamp"],
+    "environments": [
+      "forest",
+      "hill",
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "grick",
-    "environments": ["forest","underdark"],
+    "environments": [
+      "forest",
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "griffon",
-    "environments": ["arctic","coastal","grassland","hill","mountain"],
+    "environments": [
+      "arctic",
+      "coastal",
+      "grassland",
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "grimlock",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "guard",
-    "environments": ["coastal","desert","forest","grassland","hill","mountain","urban"]
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "urban"
+    ]
   },
   {
     "index": "guardian-naga",
-    "environments": ["desert","forest"],
+    "environments": [
+      "desert",
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "gynosphinx",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "half-red-dragon-veteran"
   },
   {
     "index": "harpy",
-    "environments": ["coastal","forest","hill","mountain"],
+    "environments": [
+      "coastal",
+      "forest",
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
@@ -696,7 +1177,10 @@
   },
   {
     "index": "hell-hound",
-    "environments": ["mountain","underdark"],
+    "environments": [
+      "mountain",
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -705,18 +1189,40 @@
   },
   {
     "index": "hill-giant",
-    "environments": ["hill"],
+    "environments": [
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "hippogriff",
-    "environments": ["grassland","hill","mountain"],
+    "environments": [
+      "grassland",
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "hobgoblin",
-    "environments": ["desert","forest","grassland","hill","underdark"],
-    "image": true
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "underdark"
+    ],
+    "image": true,
+    "related_monsters": [
+      {
+        "index": "goblin",
+        "name": "Goblin"
+      },
+      {
+        "index": "worg",
+        "name": "Worg"
+      }
+    ]
   },
   {
     "index": "homunculus"
@@ -727,23 +1233,34 @@
   },
   {
     "index": "hunter-shark",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "hydra",
-    "environments": ["Swamp"],
+    "environments": [
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "hyena",
-    "environments": ["desert","forest","grassland","hill"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "ice-devil"
   },
   {
     "index": "ice-mephit",
-    "environments": ["arctic"]
+    "environments": [
+      "arctic"
+    ]
   },
   {
     "index": "imp",
@@ -751,7 +1268,9 @@
   },
   {
     "index": "invisible-stalker",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
@@ -760,29 +1279,50 @@
   },
   {
     "index": "jackal",
-    "environments": ["desert","grassland"]
+    "environments": [
+      "desert",
+      "grassland"
+    ]
   },
   {
     "index": "killer-whale",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "knight",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "kobold",
-    "environments": ["arctic","coastal","desert","forest","hill","mountain","Swamp","underdark","urban"],
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "kraken",
-    "environments": ["underwater"],
+    "environments": [
+      "underwater"
+    ],
     "image": true
   },
   {
     "index": "lamia",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "lemure",
@@ -794,23 +1334,34 @@
   },
   {
     "index": "lion",
-    "environments": ["grassland","hill","mountain"]
+    "environments": [
+      "grassland",
+      "hill",
+      "mountain"
+    ]
   },
   {
     "index": "lizard"
   },
   {
     "index": "lizardfolk",
-    "environments": ["forest","Swamp"],
+    "environments": [
+      "forest",
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "mage",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "magma-mephit",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "magmin",
@@ -818,11 +1369,19 @@
   },
   {
     "index": "mammoth",
-    "environments": ["arctic"]
+    "environments": [
+      "arctic"
+    ]
   },
   {
     "index": "manticore",
-    "environments": ["arctic","coastal","grassland","hill","mountain"],
+    "environments": [
+      "arctic",
+      "coastal",
+      "grassland",
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
@@ -831,49 +1390,76 @@
   },
   {
     "index": "mastiff",
-    "environments": ["forest","hill","urban"],
+    "environments": [
+      "forest",
+      "hill",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "medusa",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "merfolk",
-    "environments": ["coastal","underwater"],
+    "environments": [
+      "coastal",
+      "underwater"
+    ],
     "image": true
   },
   {
     "index": "merrow",
-    "environments": ["coastal","underwater"]
+    "environments": [
+      "coastal",
+      "underwater"
+    ]
   },
   {
     "index": "mimic",
-    "environments": ["underdark","urban"],
+    "environments": [
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "minotaur",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "minotaur-skeleton",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "mule",
-    "environments": ["desert","hill","urban"]
+    "environments": [
+      "desert",
+      "hill",
+      "urban"
+    ]
   },
   {
     "index": "mummy",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "mummy-lord",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "nalfeshnee"
@@ -888,20 +1474,36 @@
   },
   {
     "index": "noble",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "ochre-jelly",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "octopus",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "ogre",
-    "environments": ["arctic","coastal","desert","forest","grassland","hill","mountain","Swamp","underdark"],
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -909,39 +1511,72 @@
   },
   {
     "index": "oni",
-    "environments": ["forest","urban"],
+    "environments": [
+      "forest",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "orc",
-    "environments": ["arctic","forest","grassland","hill","mountain","Swamp","underdark"],
+    "environments": [
+      "arctic",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "otyugh",
-    "environments": ["underdark"]
+    "environments": [
+      "underdark"
+    ]
   },
   {
     "index": "owl",
-    "environments": ["arctic","forest"]
+    "environments": [
+      "arctic",
+      "forest"
+    ]
   },
   {
     "index": "owlbear",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "panther",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "pegasus",
-    "environments": ["forest","grassland","hill"],
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "phase-spider",
-    "environments": ["desert","forest","grassland","hill","underdark","urban"],
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
@@ -953,32 +1588,58 @@
   },
   {
     "index": "plesiosaurus",
-    "environments": ["coastal","underwater"]
+    "environments": [
+      "coastal",
+      "underwater"
+    ]
   },
   {
     "index": "poisonous-snake",
-    "environments": ["coastal","desert","forest","grassland","hill","Swamp"]
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "Swamp"
+    ]
   },
   {
     "index": "polar-bear",
-    "environments": ["arctic"]
+    "environments": [
+      "arctic"
+    ]
   },
   {
     "index": "pony",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "priest",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "pseudodragon",
-    "environments": ["coastal","desert","forest","hill","mountain","urban"],
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "hill",
+      "mountain",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "purple-worm",
-    "environments": ["desert","underdark"],
+    "environments": [
+      "desert",
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -987,47 +1648,75 @@
   },
   {
     "index": "quipper",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "rakshasa",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "rat",
-    "environments": ["Swamp","urban"]
+    "environments": [
+      "Swamp",
+      "urban"
+    ]
   },
   {
     "index": "raven",
-    "environments": ["hill","Swamp","urban"]
+    "environments": [
+      "hill",
+      "Swamp",
+      "urban"
+    ]
   },
   {
     "index": "red-dragon-wyrmling"
   },
   {
     "index": "reef-shark",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "remorhaz",
-    "environments": ["arctic"]
+    "environments": [
+      "arctic"
+    ]
   },
   {
     "index": "rhinoceros",
-    "environments": ["grassland"]
+    "environments": [
+      "grassland"
+    ]
   },
   {
     "index": "riding-horse",
-    "environments": ["grassland","urban"]
+    "environments": [
+      "grassland",
+      "urban"
+    ]
   },
   {
     "index": "roc",
-    "environments": ["arctic","coastal","desert","hill","mountain"],
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "roper",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -1035,39 +1724,66 @@
   },
   {
     "index": "rust-monster",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "saber-toothed-tiger",
-    "environments": ["arctic","mountain"]
+    "environments": [
+      "arctic",
+      "mountain"
+    ]
   },
   {
     "index": "sahuagin",
-    "environments": ["coastal","underwater"],
+    "environments": [
+      "coastal",
+      "underwater"
+    ],
     "image": true
   },
   {
     "index": "salamander",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "satyr",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "scorpion",
-    "environments": ["desert"]
+    "environments": [
+      "desert"
+    ]
   },
   {
     "index": "scout",
-    "environments": ["arctic","coastal","desert","forest","grassland","hill","mountain","Swamp","underdark"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark"
+    ]
   },
   {
     "index": "sea-hag",
-    "environments": ["coastal","underwater"],
+    "environments": [
+      "coastal",
+      "underwater"
+    ],
     "image": true
   },
   {
@@ -1075,22 +1791,32 @@
   },
   {
     "index": "shadow",
-    "environments": ["underdark","urban"],
+    "environments": [
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "shambling-mound",
-    "environments": ["forest","Swamp"],
+    "environments": [
+      "forest",
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "shield-guardian",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "shrieker",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -1098,7 +1824,9 @@
   },
   {
     "index": "skeleton",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
@@ -1106,7 +1834,9 @@
   },
   {
     "index": "specter",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -1114,30 +1844,52 @@
   },
   {
     "index": "spirit-naga",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "sprite",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "spy",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "steam-mephit",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "stirge",
-    "environments": ["coastal","desert","forest","grassland","hill","mountain","Swamp","underdark","urban"],
+    "environments": [
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "stone-giant",
-    "environments": ["hill","mountain","underdark"],
+    "environments": [
+      "hill",
+      "mountain",
+      "underdark"
+    ],
     "image": true
   },
   {
@@ -1146,45 +1898,98 @@
   },
   {
     "index": "storm-giant",
-    "environments": ["coastal","underwater"],
+    "environments": [
+      "coastal",
+      "underwater"
+    ],
     "image": true
   },
   {
     "index": "succubus-incubus",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "swarm-of-bats",
-    "environments": ["hill","mountain","underdark","urban"]
+    "environments": [
+      "hill",
+      "mountain",
+      "underdark",
+      "urban"
+    ],
+    "related_monsters": [
+      {
+        "index": "giant-bat",
+        "name": "Giant Bat"
+      }
+    ]
   },
   {
     "index": "swarm-of-beetles",
-    "environments": ["desert","forest","grassland","hill","Swamp","underdark","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "swarm-of-centipedes",
-    "environments": ["desert","forest","grassland","hill","Swamp","underdark","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "swarm-of-insects",
-    "environments": ["desert","forest","grassland","hill","Swamp","underdark","urban"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "swarm-of-poisonous-snakes",
-    "environments": ["forest","Swamp"]
+    "environments": [
+      "forest",
+      "Swamp"
+    ]
   },
   {
     "index": "swarm-of-quippers",
-    "environments": ["underwater"]
+    "environments": [
+      "underwater"
+    ]
   },
   {
     "index": "swarm-of-rats",
-    "environments": ["Swamp","urban"]
+    "environments": [
+      "Swamp",
+      "urban"
+    ]
   },
   {
     "index": "swarm-of-ravens",
-    "environments": ["forest","hill","Swamp","urban"]
+    "environments": [
+      "forest",
+      "hill",
+      "Swamp",
+      "urban"
+    ]
   },
   {
     "index": "swarm-of-spiders"
@@ -1194,58 +1999,104 @@
   },
   {
     "index": "tarrasque",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "thug",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "tiger",
-    "environments": ["forest","grassland"]
+    "environments": [
+      "forest",
+      "grassland"
+    ]
   },
   {
     "index": "treant",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "tribal-warrior",
-    "environments": ["arctic","coastal","desert","forest","grassland","hill","Swamp","underdark"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "desert",
+      "forest",
+      "grassland",
+      "hill",
+      "Swamp",
+      "underdark"
+    ]
   },
   {
     "index": "triceratops",
-    "environments": ["grassland"]
+    "environments": [
+      "grassland"
+    ]
   },
   {
     "index": "troll",
-    "environments": ["arctic","forest","hill","mountain","Swamp","underdark"],
+    "environments": [
+      "arctic",
+      "forest",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "tyrannosaurus-rex",
-    "environments": ["grassland"]
+    "environments": [
+      "grassland"
+    ]
   },
   {
     "index": "unicorn",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "vampire",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "vampire-spawn",
-    "environments": ["underdark","urban"],
+    "environments": [
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "veteran",
-    "environments": ["arctic","coastal","forest","grassland","hill","mountain","Swamp","underdark","urban"]
+    "environments": [
+      "arctic",
+      "coastal",
+      "forest",
+      "grassland",
+      "hill",
+      "mountain",
+      "Swamp",
+      "underdark",
+      "urban"
+    ]
   },
   {
     "index": "violet-fungus"
@@ -1255,19 +2106,31 @@
   },
   {
     "index": "vulture",
-    "environments": ["desert","grassland","hill"]
+    "environments": [
+      "desert",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "warhorse",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "warhorse-skeleton",
-    "environments": ["urban"]
+    "environments": [
+      "urban"
+    ]
   },
   {
     "index": "water-elemental",
-    "environments": ["coastal","Swamp","underwater"],
+    "environments": [
+      "coastal",
+      "Swamp",
+      "underwater"
+    ],
     "image": true
   },
   {
@@ -1275,161 +2138,277 @@
   },
   {
     "index": "werebear-bear",
-    "environments": ["arctic","forest","hill"]
+    "environments": [
+      "arctic",
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "werebear-human",
-    "environments": ["arctic","forest","hill"]
+    "environments": [
+      "arctic",
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "werebear-hybrid",
-    "environments": ["arctic","forest","hill"]
+    "environments": [
+      "arctic",
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "wereboar-boar",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "wereboar-human",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "wereboar-hybrid",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "wererat-human",
-    "environments": ["forest","urban"],
+    "environments": [
+      "forest",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "wererat-hybrid",
-    "environments": ["forest","urban"],
+    "environments": [
+      "forest",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "wererat-rat",
-    "environments": ["forest","urban"]
+    "environments": [
+      "forest",
+      "urban"
+    ]
   },
   {
     "index": "weretiger-human",
-    "environments": ["desert","forest","grassland"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland"
+    ]
   },
   {
     "index": "weretiger-hybrid",
-    "environments": ["desert","forest","grassland"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland"
+    ]
   },
   {
     "index": "weretiger-tiger",
-    "environments": ["desert","forest","grassland"]
+    "environments": [
+      "desert",
+      "forest",
+      "grassland"
+    ]
   },
   {
     "index": "werewolf-human",
-    "environments": ["forest","hill"],
+    "environments": [
+      "forest",
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "werewolf-hybrid",
-    "environments": ["forest","hill"]
+    "environments": [
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "werewolf-wolf",
-    "environments": ["forest","hill"]
+    "environments": [
+      "forest",
+      "hill"
+    ]
   },
   {
     "index": "white-dragon-wyrmling"
   },
   {
     "index": "wight",
-    "environments": ["desert","Swamp","underdark","urban"],
+    "environments": [
+      "desert",
+      "Swamp",
+      "underdark",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "will-o-wisp",
-    "environments": ["forest","Swamp","urban"],
+    "environments": [
+      "forest",
+      "Swamp",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "winter-wolf",
-    "environments": ["arctic"]
+    "environments": [
+      "arctic"
+    ]
   },
   {
     "index": "wolf",
-    "environments": ["forest","grassland","hill"]
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ]
   },
   {
     "index": "worg",
-    "environments": ["forest","grassland","hill"],
-    "image": true
+    "environments": [
+      "forest",
+      "grassland",
+      "hill"
+    ],
+    "image": true,
+    "related_monsters": [
+      {
+        "index": "goblin",
+        "name": "Goblin"
+      },
+      {
+        "index": "hobgoblin",
+        "name": "Hobgoblin"
+      }
+    ]
   },
   {
     "index": "wraith",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "wyvern",
-    "environments": ["hill","mountain"],
+    "environments": [
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "xorn",
-    "environments": ["underdark"],
+    "environments": [
+      "underdark"
+    ],
     "image": true
   },
   {
     "index": "young-black-dragon",
-    "environments": ["Swamp"],
+    "environments": [
+      "Swamp"
+    ],
     "image": true
   },
   {
     "index": "young-blue-dragon",
-    "environments": ["coastal","desert"],
+    "environments": [
+      "coastal",
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "young-brass-dragon",
-    "environments": ["desert"],
+    "environments": [
+      "desert"
+    ],
     "image": true
   },
   {
     "index": "young-bronze-dragon",
-    "environments": ["coastal"],
+    "environments": [
+      "coastal"
+    ],
     "image": true
   },
   {
     "index": "young-copper-dragon",
-    "environments": ["hill"],
+    "environments": [
+      "hill"
+    ],
     "image": true
   },
   {
     "index": "young-gold-dragon",
-    "environments": ["forest","grassland"],
+    "environments": [
+      "forest",
+      "grassland"
+    ],
     "image": true
   },
   {
     "index": "young-green-dragon",
-    "environments": ["forest"],
+    "environments": [
+      "forest"
+    ],
     "image": true
   },
   {
     "index": "young-red-dragon",
-    "environments": ["hill","mountain"],
+    "environments": [
+      "hill",
+      "mountain"
+    ],
     "image": true
   },
   {
     "index": "young-silver-dragon",
-    "environments": ["mountain","urban"],
+    "environments": [
+      "mountain",
+      "urban"
+    ],
     "image": true
   },
   {
     "index": "young-white-dragon",
-    "environments": ["arctic"],
+    "environments": [
+      "arctic"
+    ],
     "image": true
   },
   {
     "index": "zombie",
-    "environments": ["urban"],
+    "environments": [
+      "urban"
+    ],
     "image": true
   }
 ]

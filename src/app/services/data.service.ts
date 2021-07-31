@@ -120,7 +120,8 @@ export class DataService {
                         if(originalMonster) {
                             originalMonster.environments = extendedMonster.environments;
                             originalMonster.image = extendedMonster.image;
-                            // ToDo - Add reference and related_monsters
+                            originalMonster.related_monsters = extendedMonster.related_monsters;
+                            // ToDo - Add reference (book & page)
                         }                    
                     });
                     const monsters = [...originalMonsters, ...addedMonsters];

@@ -77,6 +77,9 @@
 			<div *ngIf="monster.environments.length > 0">
 				<b>Environments:</b>&nbsp;{{getEnvironments()}}<br />
 			</div>
+			<div *ngIf="monster.related_monsters">
+				<b>Related Monsters:</b>&nbsp;{{getRelatedMonsters()}}<br />
+			</div>
 			<b>Challenge:</b>&nbsp;{{monster.challenge_rating}} ({{monster.xp}} XP)<br />
             <hr>
 			<div class="removeExtraLine">

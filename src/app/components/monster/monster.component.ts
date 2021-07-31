@@ -56,6 +56,14 @@ export class MonsterComponent {
     return environments.substr(0, environments.length-2);
   }
   
+  getRelatedMonsters() {
+    let relatedMonsters = '';
+    this.monster.related_monsters.forEach((relatedMonster: any) => {
+      relatedMonsters += `${relatedMonster.name}, `;
+    });
+    return relatedMonsters.substr(0, relatedMonsters.length-2);
+  }
+  
   getSavingThrows() {
     let savingThrows = '';
     this.monster.proficiencies.forEach((o: any) => {
