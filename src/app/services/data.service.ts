@@ -86,7 +86,7 @@ export class DataService {
         if (this.magicItems.getValue().length===0) {
             return combineLatest([
                 this.http.get('./data/magic-items.json'),
-                this.http.get('./data/magic-items-ext.json')
+                this.http.get('./data/magic-items-add.json')
               ]).pipe(
                 tap((data: any[]) => {
                     console.log('Get - magic items');
@@ -106,13 +106,31 @@ export class DataService {
         if (this.monsters.getValue().length===0) {
             return combineLatest([
                 this.http.get('./data/monsters.json'),
-                this.http.get('./data/monsters-ext.json')
+                this.http.get('./data/monsters-ext.json'), // Add new properties to existing monsters
+                this.http.get('./data/monsters-add.json') // Add all new monsters
               ]).pipe(
                 tap((data: any[]) => {
                     console.log('Get - monsters');
-                    const monsters = [...data[0], ...data[1]];
+                    const originalMonsters: any[] = data[0];
+                    const extendedMonsters = data[1];
+                    const addedMonsters = data[2];
+                    // Add new properties to existing monsters
+                    extendedMonsters.forEach((extendedMonster: any) => {
+                        const originalMonster = originalMonsters.find(m => m.index==extendedMonster.index);
+                        if(originalMonster) {
+                            originalMonster.image = extendedMonster.image;
+                        }                    
+                    });
+                    const monsters = [...originalMonsters, ...addedMonsters];
                     this.sort(monsters, 'name');
                     this.monsters.next(monsters);
+                    // // One time build new Ext file
+                    // let monstersExt: any = [];
+                    // this.sort(data[0], 'name');
+                    // data[0].forEach((m: any) => {
+                    //     monstersExt.push({ index: m.index, image: m.image });
+                    // });
+                    // sessionStorage.setItem('monsters-ext', JSON.stringify(monstersExt));
                 }),
                 map(() => this.monsters.getValue()),
                 catchError(this.handleError)

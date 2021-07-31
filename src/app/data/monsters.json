@@ -202,8 +202,7 @@
         ]
       }
     ],
-    "url": "/api/monsters/aboleth",
-    "image": true
+    "url": "/api/monsters/aboleth"
   },
   {
     "index": "acolyte",
@@ -576,8 +575,7 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-black-dragon",
-    "image": true
+    "url": "/api/monsters/adult-black-dragon"
   },
   {
     "index": "adult-blue-dragon",
@@ -1107,8 +1105,7 @@
         ]
       }
     ],
-    "url": "/api/monsters/adult-brass-dragon",
-    "image": true
+    "url": "/api/monsters/adult-brass-dragon"
   },
   {
     "index": "adult-bronze-dragon",

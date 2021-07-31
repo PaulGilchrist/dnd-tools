@@ -28,8 +28,8 @@ export class MonstersComponent implements OnInit, OnDestroy {
     ]).subscribe((data: any) => {
       this.monsters = data[0];
       console.log(`${this.monsters.length} monsters`);
-      console.log('monsters missing images listed below:');
-      console.log(this.monsters.filter(m => m.image!=true));
+      // console.log('monsters missing images listed below:');
+      // console.log(this.monsters.filter(m => m.image!=true));
       // Set search filters
       let filter = localStorage.getItem('monsterFilter');
       if(filter) {
