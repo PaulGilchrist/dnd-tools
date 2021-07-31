@@ -118,7 +118,9 @@ export class DataService {
                     extendedMonsters.forEach((extendedMonster: any) => {
                         const originalMonster = originalMonsters.find(m => m.index==extendedMonster.index);
                         if(originalMonster) {
+                            originalMonster.environments = extendedMonster.environments;
                             originalMonster.image = extendedMonster.image;
+                            // ToDo - Add reference and related_monsters
                         }                    
                     });
                     const monsters = [...originalMonsters, ...addedMonsters];

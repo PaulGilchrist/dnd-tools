@@ -173,7 +173,7 @@
             }
         ],
         "url": null,
-        "environments": ["Desert"],
+        "environments": ["desert"],
         "image": true
     },
     {
@@ -236,7 +236,7 @@
             }
         ],
         "url": null,
-        "environments": ["Urban"]
+        "environments": ["urban"]
     },
     {
         "index": "banshee",
@@ -469,7 +469,7 @@
             }
         ],
         "url": null,
-        "environments": ["Urban"],
+        "environments": ["urban"],
         "image": true
     },
     {
@@ -720,7 +720,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -789,7 +789,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -843,7 +843,7 @@
             }
         ],
         "url": null,
-        "environments": ["Coastal","Desert","Grassland","Hill","Mountain","Underdark"],
+        "environments": ["coastal","desert","grassland","hill","mountain","underdark"],
         "image": true
     },
     {
@@ -1278,7 +1278,7 @@
             }
         ],
         "url": null,
-        "environments": ["Forest"],
+        "environments": ["forest"],
         "image": true
     },
     {
@@ -1385,7 +1385,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -1440,7 +1440,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -1556,7 +1556,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -1661,7 +1661,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -1868,7 +1868,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -1913,7 +1913,7 @@
             }
         ],
         "url": null,
-        "environments": ["Artic","Desert","Forest","Hill","Mountain","Underdark","Urban"],
+        "environments": ["arctic","desert","forest","hill","mountain","underdark","urban"],
         "image": true
     },
     {
@@ -1999,7 +1999,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -2087,7 +2087,7 @@
             }
         ],
         "url": null,
-        "environments": ["Forest","Urban"],
+        "environments": ["forest","urban"],
         "image": true
     },
     {
@@ -2170,7 +2170,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -2334,7 +2334,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -2609,7 +2609,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -2677,7 +2677,7 @@
             }
         ],
         "url": null,
-        "environments": ["Forest"],
+        "environments": ["forest"],
         "image": true
     },
     {
@@ -2771,7 +2771,7 @@
             }
         ],
         "url": null,
-        "environments": ["Grassland"],
+        "environments": ["grassland"],
         "image": true
     },
     {
@@ -2984,7 +2984,7 @@
             }
         ],
         "url": null,
-        "environments": ["Desert","Grassland"],
+        "environments": ["desert","grassland"],
         "image": true
     },
     {
@@ -3056,7 +3056,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -3117,7 +3117,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark"],
+        "environments": ["underdark"],
         "image": true
     },
     {
@@ -3193,7 +3193,7 @@
             }
         ],
         "url": null,
-        "environments": ["Forest"],
+        "environments": ["forest"],
         "image": true
     },
     {
@@ -3281,7 +3281,7 @@
             }
         ],
         "url": null,
-        "environments": ["Underdark","Urban"],
+        "environments": ["underdark","urban"],
         "image": true
     },
     {
@@ -3362,7 +3362,7 @@
             }
         ],
         "url": null,
-        "environments": ["Artic"],
+        "environments": ["arctic"],
         "image": true
     }
 ]

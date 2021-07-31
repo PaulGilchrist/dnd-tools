@@ -15,6 +15,7 @@ export class MonstersComponent implements OnInit, OnDestroy {
     bookmarked: 'All',
     challengeRatingMin: 0,
     challengeRatingMax: 25,
+    environment: 'All',
     name: '',
     size: 'All',
     type: 'All'
@@ -75,6 +76,10 @@ export class MonstersComponent implements OnInit, OnDestroy {
     }
     // Challenge Range
     if (monster.challenge_rating < this.filter.challengeRatingMin || monster.challenge_rating > this.filter.challengeRatingMax) {
+      return false;
+    }
+    // Environment filter
+    if (this.filter.environment != 'All' &&  (!monster.environments || !monster.environments.includes(this.filter.environment))) {
       return false;
     }
     // Name filter

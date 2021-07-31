@@ -20,6 +20,22 @@
 			Challenge RangeMinControl should be between 0 and 25
 		</div>
 	</div>
+	<!--Environment-->
+	<label for="environment" class="col-form-label">Environment</label>
+	<select name="environment" [(ngModel)]="filter.environment" #typeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option value="arctic">Arctic</option>
+		<option value="coastal">Coastal</option>
+		<option value="desert">Desert</option>
+		<option value="forest">Forest</option>
+		<option value="grassland">Grassland</option>
+		<option value="hill">Hill</option>
+		<option value="mountain">Mountain</option>
+		<option value="swamp">Swamp</option>
+		<option value="underdark">Underdark</option>
+		<option value="underwater">Underwater</option>
+		<option value="urban">Urban</option>
+	</select>
 	<!--Type-->
 	<label for="type" class="col-form-label">Type</label>
 	<select name="type" [(ngModel)]="filter.type" #typeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">

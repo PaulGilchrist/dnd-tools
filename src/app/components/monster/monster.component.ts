@@ -48,6 +48,14 @@ export class MonsterComponent {
     return damageVulnerabilities.substr(0, damageVulnerabilities.length-2);
   }
 
+  getEnvironments() {
+    let environments = '';
+    this.monster.environments.forEach((environment: string) => {
+      environments += `${environment}, `;
+    });
+    return environments.substr(0, environments.length-2);
+  }
+  
   getSavingThrows() {
     let savingThrows = '';
     this.monster.proficiencies.forEach((o: any) => {
