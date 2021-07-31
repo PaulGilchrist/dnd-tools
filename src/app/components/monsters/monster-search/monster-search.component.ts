@@ -1,14 +1,14 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
 
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'app-monsters',
-  styleUrls: ['./monsters.component.scss'],
-  templateUrl: './monsters.component.html'
+  selector: 'monster-search',
+  styleUrls: ['./monster-search.component.scss'],
+  templateUrl: './monster-search.component.html'
 })
-export class MonstersComponent implements OnInit, OnDestroy {
+export class MonsterSearchComponent implements OnInit, OnDestroy {
   monsters: any[] = [];
   subscriptions: Subscription[] = [];
   filter = {

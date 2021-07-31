@@ -1,24 +1,24 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
 
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'app-traits',
-  styleUrls: ['./traits.component.scss'],
-  templateUrl: './traits.component.html'
+  selector: 'app-races',
+  styleUrls: ['./races.component.scss'],
+  templateUrl: './races.component.html'
 })
-export class TraitsComponent implements OnInit, OnDestroy {
-  traits: any[] = [];
+export class RacesComponent implements OnInit, OnDestroy {
+  races: any[] = [];
   subscriptions: Subscription[] = [];
 
-  constructor(public dataService: DataService) {}
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
     this.subscriptions.push(combineLatest([
-      this.dataService.getTraits()
+      this.dataService.getRaces()
     ]).subscribe((data: any) => {
-      this.traits = data[0];
+      this.races = data[0];
     }));
   }
 

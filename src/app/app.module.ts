@@ -6,31 +6,31 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './components/app/app.component';
-import { AbilityScoreComponent } from './components/ability-score/ability-score.component';
-import { AbilityScoresComponent } from './components/ability-scores/ability-scores.component';
-import { ConditionComponent } from './components/condition/condition.component';
-import { ConditionsComponent } from './components/conditions/conditions.component';
-import { EncountersComponent } from './components/encounters/encounters.component';
+import { AbilityScoreComponent } from './components/rules/ability-score/ability-score.component';
+import { AbilityScoresComponent } from './components/rules/ability-scores/ability-scores.component';
+import { ConditionComponent } from './components/rules/condition/condition.component';
+import { ConditionsComponent } from './components/rules/conditions/conditions.component';
+import { EncountersComponent } from './components/monsters/encounters/encounters.component';
 import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
-import { ImageModalComponent } from './components/image-modal/image-modal.component';
+import { ImageModalComponent } from './components/monsters/image-modal/image-modal.component';
 import { MagicItemComponent } from './components/magic-item/magic-item.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
-import { MonsterComponent } from './components/monster/monster.component';
-import { MonstersComponent } from './components/monsters/monsters.component';
+import { MonsterComponent } from './components/monsters/monster/monster.component';
+import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
-import { PlayerClassComponent } from './components/player-class/player-class.component';
-import { PlayerClassesComponent } from './components/player-classes/player-classes.component';
-import { RaceComponent } from './components/race/race.component';
-import { RacesComponent } from './components/races/races.component';
-import { RuleComponent } from './components/rule/rule.component';
-import { RulesComponent } from './components/rules/rules.component';
-import { SkillComponent } from './components/skill/skill.component';
-import { SkillsComponent } from './components/skills/skills.component';
+import { PlayerClassComponent } from './components/rules/player-class/player-class.component';
+import { PlayerClassesComponent } from './components/rules/player-classes/player-classes.component';
+import { RaceComponent } from './components/rules/race/race.component';
+import { RacesComponent } from './components/rules/races/races.component';
+import { GeneralRuleComponent } from './components/rules/general-rule/general-rule.component';
+import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
+import { SkillComponent } from './components/rules/skill/skill.component';
+import { SkillsComponent } from './components/rules/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
-import { TraitComponent } from './components/trait/trait.component';
-import { TraitsComponent } from './components/traits/traits.component';
+import { TraitComponent } from './components/rules/trait/trait.component';
+import { TraitsComponent } from './components/rules/traits/traits.component';
 
 import { DataService } from './services/data.service';
 @NgModule({
@@ -44,17 +44,17 @@ import { DataService } from './services/data.service';
     EncountersComponent,
     EquipmentItemComponent,
     EquipmentItemsComponent,
+    GeneralRuleComponent,
+    GeneralRulesComponent,
     ImageModalComponent,
     MagicItemComponent,
     MagicItemsComponent,
     MonsterComponent,
-    MonstersComponent,
+    MonsterSearchComponent,
     PlayerClassComponent,
     PlayerClassesComponent,
     RaceComponent,
     RacesComponent,
-    RuleComponent,
-    RulesComponent,
     SkillComponent,
     SkillsComponent,
     SpellComponent,

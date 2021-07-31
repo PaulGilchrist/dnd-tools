@@ -1,24 +1,24 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
 
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'app-conditions',
-  styleUrls: ['./conditions.component.scss'],
-  templateUrl: './conditions.component.html'
+  selector: 'app-traits',
+  styleUrls: ['./traits.component.scss'],
+  templateUrl: './traits.component.html'
 })
-export class ConditionsComponent implements OnInit, OnDestroy {
-  conditions: any[] = [];
+export class TraitsComponent implements OnInit, OnDestroy {
+  traits: any[] = [];
   subscriptions: Subscription[] = [];
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService) {}
 
   ngOnInit(): void {
     this.subscriptions.push(combineLatest([
-      this.dataService.getConditions()
+      this.dataService.getTraits()
     ]).subscribe((data: any) => {
-      this.conditions = data[0];
+      this.traits = data[0];
     }));
   }
 

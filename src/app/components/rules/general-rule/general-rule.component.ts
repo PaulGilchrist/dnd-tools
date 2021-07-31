@@ -1,11 +1,11 @@
 ﻿import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-rule',
-  styleUrls: ['./rule.component.scss'],
-  templateUrl: './rule.component.html'
+  selector: 'general-rule',
+  styleUrls: ['./general-rule.component.scss'],
+  templateUrl: './general-rule.component.html'
 })
-export class RuleComponent {
+export class GeneralRuleComponent {
 
   @Input() rule: any = null;
 

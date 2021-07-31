@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading } from '@angular/router';
 
-import { AbilityScoresComponent } from './components/ability-scores/ability-scores.component';
-import { ConditionsComponent } from './components/conditions/conditions.component';
-import { EncountersComponent } from './components/encounters/encounters.component';
+import { AbilityScoresComponent } from './components/rules/ability-scores/ability-scores.component';
+import { ConditionsComponent } from './components/rules/conditions/conditions.component';
+import { EncountersComponent } from './components/monsters/encounters/encounters.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
-import { MonstersComponent } from './components/monsters/monsters.component';
-import { PlayerClassesComponent } from './components/player-classes/player-classes.component';
-import { RacesComponent } from './components/races/races.component';
-import { RulesComponent } from './components/rules/rules.component';
-import { SkillsComponent } from './components/skills/skills.component';
+import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
+import { PlayerClassesComponent } from './components/rules/player-classes/player-classes.component';
+import { RacesComponent } from './components/rules/races/races.component';
+import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
+import { SkillsComponent } from './components/rules/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
-import { TraitsComponent } from './components/traits/traits.component';
+import { TraitsComponent } from './components/rules/traits/traits.component';
 
 const routes: Routes = [
     // Static Loading
@@ -20,12 +20,12 @@ const routes: Routes = [
     { path: 'monster/encounters', component: EncountersComponent },
     { path: 'equipment-items', component: EquipmentItemsComponent },
     { path: 'magic-items', component: MagicItemsComponent },
-    { path: 'monster/search', component: MonstersComponent },
+    { path: 'monster/search', component: MonsterSearchComponent },
     { path: 'rules/ability-scores', component: AbilityScoresComponent },
     { path: 'rules/conditions', component: ConditionsComponent },
     { path: 'rules/classes', component: PlayerClassesComponent },
     { path: 'rules/races', component: RacesComponent },
-    { path: 'rules/general', component: RulesComponent },
+    { path: 'rules/general', component: GeneralRulesComponent },
     { path: 'rules/skills', component: SkillsComponent },
     { path: 'spells', component: SpellsComponent },
     { path: 'rules/traits', component: TraitsComponent },

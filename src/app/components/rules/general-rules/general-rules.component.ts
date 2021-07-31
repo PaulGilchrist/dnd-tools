@@ -1,24 +1,24 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
 
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'player-classes',
-  styleUrls: ['./player-classes.component.scss'],
-  templateUrl: './player-classes.component.html'
+  selector: 'general-rules',
+  styleUrls: ['./general-rules.component.scss'],
+  templateUrl: './general-rules.component.html'
 })
-export class PlayerClassesComponent implements OnInit, OnDestroy {
-  playerClasses: any[] = [];
+export class GeneralRulesComponent implements OnInit, OnDestroy {
+  rules: any[] = [];
   subscriptions: Subscription[] = [];
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService) {}
 
   ngOnInit(): void {
     this.subscriptions.push(combineLatest([
-      this.dataService.getPlayerClasses()
+      this.dataService.getRules()
     ]).subscribe((data: any) => {
-      this.playerClasses = data[0];
+      this.rules = data[0];
     }));
   }
 

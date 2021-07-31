@@ -1,24 +1,24 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, Subscription } from 'rxjs';
 
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'app-skills',
-  styleUrls: ['./skills.component.scss'],
-  templateUrl: './skills.component.html'
+  selector: 'app-conditions',
+  styleUrls: ['./conditions.component.scss'],
+  templateUrl: './conditions.component.html'
 })
-export class SkillsComponent implements OnInit, OnDestroy {
-  skills: any[] = [];
+export class ConditionsComponent implements OnInit, OnDestroy {
+  conditions: any[] = [];
   subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
     this.subscriptions.push(combineLatest([
-      this.dataService.getSkills()
+      this.dataService.getConditions()
     ]).subscribe((data: any) => {
-      this.skills = data[0];
+      this.conditions = data[0];
     }));
   }
 
