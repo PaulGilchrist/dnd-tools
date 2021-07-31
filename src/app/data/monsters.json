@@ -21438,7 +21438,8 @@
         }
       }
     ],
-    "url": "/api/monsters/hezrou"
+    "url": "/api/monsters/hezrou",
+    "image": true
   },
   {
     "index": "hill-giant",
