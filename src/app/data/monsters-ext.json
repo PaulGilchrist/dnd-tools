@@ -437,10 +437,12 @@
   },
   {
     "index": "fire-elemental",
+    "environments": ["Desert"],
     "image": true
   },
   {
     "index": "fire-giant",
+    "environments": ["Mountain","Underdark"],
     "image": true
   },
   {
@@ -448,7 +450,8 @@
     "image": true
   },
   {
-    "index": "flying-snake"
+    "index": "flying-snake",
+    "environments": ["Desert","Forest","Grassland","Urban"]
   },
   {
     "index": "flying-sword",
@@ -459,117 +462,153 @@
   },
   {
     "index": "frost-giant",
+    "environments": ["Arctic","Mountain"],
     "image": true
   },
   {
     "index": "gargoyle",
+    "environments": ["Underdark","Urban"],
     "image": true
   },
   {
     "index": "gelatinous-cube",
+    "environments": ["Underdark"],
     "image": true
   },
   {
     "index": "ghast",
+    "environments": ["Swamp","Underdark","Urban"],
     "image": true
   },
   {
     "index": "ghost",
+    "environments": ["Underdark","Urban"],
     "image": true
   },
   {
     "index": "ghoul",
+    "environments": ["Swamp","Underdark","Urban"],
     "image": true
   },
   {
-    "index": "giant-ape"
+    "index": "giant-ape",
+    "environments": ["Forest"]
   },
   {
-    "index": "giant-badger"
+    "index": "giant-badger",
+    "environments": ["Forest"]
   },
   {
-    "index": "giant-bat"
+    "index": "giant-bat",
+    "environments": ["Forest","Underdark"]
   },
   {
-    "index": "giant-boar"
+    "index": "giant-boar",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
-    "index": "giant-centipede"
+    "index": "giant-centipede",
+    "environments": ["Underdark","Urban"]
   },
   {
-    "index": "giant-constrictor-snake"
+    "index": "giant-constrictor-snake",
+    "environments": ["Desert","Forest","Swamp","Underdark","Underwater"]
   },
   {
-    "index": "giant-crab"
+    "index": "giant-crab",
+    "environments": ["Coastal"]
   },
   {
-    "index": "giant-crocodile"
+    "index": "giant-crocodile",
+    "environments": ["Swamp"]
   },
   {
-    "index": "giant-eagle"
+    "index": "giant-eagle",
+    "environments": ["Coastal","Grassland","Hill","Mountain"]
   },
   {
-    "index": "giant-elk"
+    "index": "giant-elk",
+    "environments": ["Forest","Grassland","Hill","Mountain"]
   },
   {
-    "index": "giant-fire-beetle"
+    "index": "giant-fire-beetle",
+    "environments": ["Underdark"]
   },
   {
-    "index": "giant-frog"
+    "index": "giant-frog",
+    "environments": ["Forest","Swamp"]
   },
   {
-    "index": "giant-goat"
+    "index": "giant-goat",
+    "environments": ["Grassland","Hill","Mountain"]
   },
   {
-    "index": "giant-hyena"
+    "index": "giant-hyena",
+    "environments": ["Desert","Forest","Grassland","Hill"]
   },
   {
-    "index": "giant-lizard"
+    "index": "giant-lizard",
+    "environments": ["Coastal","Desert","Forest","Swamp","Underdark"]
   },
   {
-    "index": "giant-octopus"
+    "index": "giant-octopus",
+    "environments": ["Underwater"]
   },
   {
-    "index": "giant-owl"
+    "index": "giant-owl",
+    "environments": ["Arctic","Forest","Hill"]
   },
   {
-    "index": "giant-poisonous-snake"
+    "index": "giant-poisonous-snake",
+    "environments": ["Desert","Forest","Grassland","Swamp","Underdark","Urban"]
   },
   {
-    "index": "giant-rat"
+    "index": "giant-rat",
+    "environments": ["Forest","Swamp","Underdark","Urban"]
   },
   {
-    "index": "giant-rat-diseased"
+    "index": "giant-rat-diseased",
+    "environments": ["Forest","Swamp","Underdark","Urban"]
   },
   {
-    "index": "giant-scorpion"
+    "index": "giant-scorpion",
+    "environments": ["Desert"]
   },
   {
-    "index": "giant-sea-horse"
+    "index": "giant-sea-horse",
+    "environments": ["Underwater"]
   },
   {
-    "index": "giant-shark"
+    "index": "giant-shark",
+    "environments": ["Underwater"]
   },
   {
-    "index": "giant-spider"
+    "index": "giant-spider",
+    "environments": ["Desert","Forest","Swamp","Underdark","Urban"]
   },
   {
-    "index": "giant-toad"
+    "index": "giant-toad",
+    "environments": ["Coastal","Desert","Forest","Swamp","Underdark"]
   },
   {
-    "index": "giant-vulture"
+    "index": "giant-vulture",
+    "environments": ["Desert","Grassland"]
   },
   {
-    "index": "giant-wasp"
+    "index": "giant-wasp",
+    "environments": ["Forest","Grassland","Urban"]
   },
   {
-    "index": "giant-weasel"
+    "index": "giant-weasel",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
-    "index": "giant-wolf-spider"
+    "index": "giant-wolf-spider",
+    "environments": ["Coastal","Desert","Forest","Grassland","Hill"]
   },
   {
     "index": "gibbering-mouther",
+    "environments": ["Underdark"],
     "image": true
   },
   {
@@ -577,28 +616,35 @@
     "image": true
   },
   {
-    "index": "gladiator"
+    "index": "gladiator",
+    "environments": ["Urban"]
   },
   {
     "index": "gnoll",
+    "environments": ["Desert","Forest","Grassland","Hill"],
     "image": true
   },
   {
-    "index": "goat"
+    "index": "goat",
+    "environments": ["Grassland","Hill","Mountain","Urban"]
   },
   {
     "index": "goblin",
+    "environments": ["Forest","Grassland","Hill","Underdark"],
     "image": true
   },
   {
-    "index": "gold-dragon-wyrmling"
+    "index": "gold-dragon-wyrmling",
+    "environments": ["Forest","Grassland"]
   },
   {
     "index": "gorgon",
+    "environments": ["Forest","Grassland","Hill"],
     "image": true
   },
   {
     "index": "gray-ooze",
+    "environments": ["Underdark"],
     "image": true
   },
   {
@@ -606,35 +652,43 @@
   },
   {
     "index": "green-hag",
+    "environments": ["Forest","Hill","Swamp"],
     "image": true
   },
   {
     "index": "grick",
+    "environments": ["Forest","Underdark"],
     "image": true
   },
   {
     "index": "griffon",
+    "environments": ["Arctic","Coastal","Grassland","Hill","Mountain"],
     "image": true
   },
   {
     "index": "grimlock",
+    "environments": ["Underdark"],
     "image": true
   },
   {
-    "index": "guard"
+    "index": "guard",
+    "environments": ["Coastal","Desert","Forest","Grassland","Hill","Mountain","Urban"]
   },
   {
     "index": "guardian-naga",
+    "environments": ["Desert","Forest"],
     "image": true
   },
   {
-    "index": "gynosphinx"
+    "index": "gynosphinx",
+    "environments": ["Desert"]
   },
   {
     "index": "half-red-dragon-veteran"
   },
   {
     "index": "harpy",
+    "environments": ["Coastal","Forest","Hill","Mountain"],
     "image": true
   },
   {
@@ -642,6 +696,7 @@
   },
   {
     "index": "hell-hound",
+    "environments": ["Mountain","Underdark"],
     "image": true
   },
   {
@@ -650,14 +705,17 @@
   },
   {
     "index": "hill-giant",
+    "environments": ["Hill"],
     "image": true
   },
   {
     "index": "hippogriff",
+    "environments": ["Grassland","Hill","Mountain"],
     "image": true
   },
   {
     "index": "hobgoblin",
+    "environments": ["Desert","Forest","Grassland","Hill","Underdark"],
     "image": true
   },
   {
@@ -668,20 +726,24 @@
     "image": true
   },
   {
-    "index": "hunter-shark"
+    "index": "hunter-shark",
+    "environments": ["Underwater"]
   },
   {
     "index": "hydra",
+    "environments": ["Swamp"],
     "image": true
   },
   {
-    "index": "hyena"
+    "index": "hyena",
+    "environments": ["Desert","Forest","Grassland","Hill"]
   },
   {
     "index": "ice-devil"
   },
   {
-    "index": "ice-mephit"
+    "index": "ice-mephit",
+    "environments": ["Arctic"]
   },
   {
     "index": "imp",
@@ -689,6 +751,7 @@
   },
   {
     "index": "invisible-stalker",
+    "environments": ["Urban"],
     "image": true
   },
   {
@@ -696,24 +759,30 @@
     "image": true
   },
   {
-    "index": "jackal"
+    "index": "jackal",
+    "environments": ["Desert","Grassland"]
   },
   {
-    "index": "killer-whale"
+    "index": "killer-whale",
+    "environments": ["Underwater"]
   },
   {
-    "index": "knight"
+    "index": "knight",
+    "environments": ["Urban"]
   },
   {
     "index": "kobold",
+    "environments": ["Arctic","Coastal","Desert","Forest","Hill","Mountain","Swamp","Underdark","Urban"],
     "image": true
   },
   {
     "index": "kraken",
+    "environments": ["Underwater"],
     "image": true
   },
   {
-    "index": "lamia"
+    "index": "lamia",
+    "environments": ["Desert"]
   },
   {
     "index": "lemure",
@@ -724,30 +793,36 @@
     "image": true
   },
   {
-    "index": "lion"
+    "index": "lion",
+    "environments": ["Grassland","Hill","Mountain"]
   },
   {
     "index": "lizard"
   },
   {
     "index": "lizardfolk",
+    "environments": ["Forest","Swamp"],
     "image": true
   },
   {
-    "index": "mage"
+    "index": "mage",
+    "environments": ["Urban"]
   },
   {
-    "index": "magma-mephit"
+    "index": "magma-mephit",
+    "environments": ["Underdark"]
   },
   {
     "index": "magmin",
     "image": true
   },
   {
-    "index": "mammoth"
+    "index": "mammoth",
+    "environments": ["Arctic"]
   },
   {
     "index": "manticore",
+    "environments": ["Arctic","Coastal","Grassland","Hill","Mountain"],
     "image": true
   },
   {
@@ -756,39 +831,49 @@
   },
   {
     "index": "mastiff",
+    "environments": ["Forest","Hill","Urban"],
     "image": true
   },
   {
     "index": "medusa",
+    "environments": ["Desert"],
     "image": true
   },
   {
     "index": "merfolk",
+    "environments": ["Coastal","Underwater"],
     "image": true
   },
   {
-    "index": "merrow"
+    "index": "merrow",
+    "environments": ["Coastal","Underwater"]
   },
   {
     "index": "mimic",
+    "environments": ["Underdark","Urban"],
     "image": true
   },
   {
     "index": "minotaur",
+    "environments": ["Underdark"],
     "image": true
   },
   {
-    "index": "minotaur-skeleton"
+    "index": "minotaur-skeleton",
+    "environments": ["Underdark"]
   },
   {
-    "index": "mule"
+    "index": "mule",
+    "environments": ["Desert","Hill","Urban"]
   },
   {
     "index": "mummy",
+    "environments": ["Desert"],
     "image": true
   },
   {
-    "index": "mummy-lord"
+    "index": "mummy-lord",
+    "environments": ["Desert"]
   },
   {
     "index": "nalfeshnee"
@@ -802,17 +887,21 @@
     "image": true
   },
   {
-    "index": "noble"
+    "index": "noble",
+    "environments": ["Urban"]
   },
   {
     "index": "ochre-jelly",
+    "environments": ["Underdark"],
     "image": true
   },
   {
-    "index": "octopus"
+    "index": "octopus",
+    "environments": ["Underwater"]
   },
   {
     "index": "ogre",
+    "environments": ["Arctic","Coastal","Desert","Forest","Grassland","Hill","Mountain","Swamp","Underdark"],
     "image": true
   },
   {
@@ -820,31 +909,39 @@
   },
   {
     "index": "oni",
+    "environments": ["Forest","Urban"],
     "image": true
   },
   {
     "index": "orc",
+    "environments": ["Arctic","Forest","Grassland","Hill","Mountain","Swamp","Underdark"],
     "image": true
   },
   {
-    "index": "otyugh"
+    "index": "otyugh",
+    "environments": ["Underdark"]
   },
   {
-    "index": "owl"
+    "index": "owl",
+    "environments": ["Arctic","Forest"]
   },
   {
     "index": "owlbear",
+    "environments": ["Forest"],
     "image": true
   },
   {
-    "index": "panther"
+    "index": "panther",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
     "index": "pegasus",
+    "environments": ["Forest","Grassland","Hill"],
     "image": true
   },
   {
     "index": "phase-spider",
+    "environments": ["Desert","Forest","Grassland","Hill","Underdark","Urban"],
     "image": true
   },
   {
@@ -855,26 +952,33 @@
     "index": "planetar"
   },
   {
-    "index": "plesiosaurus"
+    "index": "plesiosaurus",
+    "environments": ["Coastal","Underwater"]
   },
   {
-    "index": "poisonous-snake"
+    "index": "poisonous-snake",
+    "environments": ["Coastal","Desert","Forest","Grassland","Hill","Swamp"]
   },
   {
-    "index": "polar-bear"
+    "index": "polar-bear",
+    "environments": ["Arctic"]
   },
   {
-    "index": "pony"
+    "index": "pony",
+    "environments": ["Urban"]
   },
   {
-    "index": "priest"
+    "index": "priest",
+    "environments": ["Urban"]
   },
   {
     "index": "pseudodragon",
+    "environments": ["Coastal","Desert","Forest","Hill","Mountain","Urban"],
     "image": true
   },
   {
     "index": "purple-worm",
+    "environments": ["Desert","Underdark"],
     "image": true
   },
   {
@@ -882,38 +986,48 @@
     "image": true
   },
   {
-    "index": "quipper"
+    "index": "quipper",
+    "environments": ["Underwater"]
   },
   {
-    "index": "rakshasa"
+    "index": "rakshasa",
+    "environments": ["Urban"]
   },
   {
-    "index": "rat"
+    "index": "rat",
+    "environments": ["Swamp","Urban"]
   },
   {
-    "index": "raven"
+    "index": "raven",
+    "environments": ["Hill","Swamp","Urban"]
   },
   {
     "index": "red-dragon-wyrmling"
   },
   {
-    "index": "reef-shark"
+    "index": "reef-shark",
+    "environments": ["Underwater"]
   },
   {
-    "index": "remorhaz"
+    "index": "remorhaz",
+    "environments": ["Arctic"]
   },
   {
-    "index": "rhinoceros"
+    "index": "rhinoceros",
+    "environments": ["Grassland"]
   },
   {
-    "index": "riding-horse"
+    "index": "riding-horse",
+    "environments": ["Grassland","Urban"]
   },
   {
     "index": "roc",
+    "environments": ["Arctic","Coastal","Desert","Hill","Mountain"],
     "image": true
   },
   {
     "index": "roper",
+    "environments": ["Underdark"],
     "image": true
   },
   {
@@ -921,31 +1035,39 @@
   },
   {
     "index": "rust-monster",
+    "environments": ["Underdark"],
     "image": true
   },
   {
-    "index": "saber-toothed-tiger"
+    "index": "saber-toothed-tiger",
+    "environments": ["Arctic","Mountain"]
   },
   {
     "index": "sahuagin",
+    "environments": ["Coastal","Underwater"],
     "image": true
   },
   {
     "index": "salamander",
+    "environments": ["Underdark"],
     "image": true
   },
   {
     "index": "satyr",
+    "environments": ["Forest"],
     "image": true
   },
   {
-    "index": "scorpion"
+    "index": "scorpion",
+    "environments": ["Desert"]
   },
   {
-    "index": "scout"
+    "index": "scout",
+    "environments": ["Arctic","Coastal","Desert","Forest","Grassland","Hill","Mountain","Swamp","Underdark"]
   },
   {
     "index": "sea-hag",
+    "environments": ["Coastal","Underwater"],
     "image": true
   },
   {
@@ -953,18 +1075,22 @@
   },
   {
     "index": "shadow",
+    "environments": ["Underdark","Urban"],
     "image": true
   },
   {
     "index": "shambling-mound",
+    "environments": ["Forest","Swamp"],
     "image": true
   },
   {
     "index": "shield-guardian",
+    "environments": ["Urban"],
     "image": true
   },
   {
     "index": "shrieker",
+    "environments": ["Underdark"],
     "image": true
   },
   {
@@ -972,6 +1098,7 @@
   },
   {
     "index": "skeleton",
+    "environments": ["Urban"],
     "image": true
   },
   {
@@ -979,6 +1106,7 @@
   },
   {
     "index": "specter",
+    "environments": ["Underdark"],
     "image": true
   },
   {
@@ -986,24 +1114,30 @@
   },
   {
     "index": "spirit-naga",
+    "environments": ["Underdark"],
     "image": true
   },
   {
     "index": "sprite",
+    "environments": ["Forest"],
     "image": true
   },
   {
-    "index": "spy"
+    "index": "spy",
+    "environments": ["Urban"]
   },
   {
-    "index": "steam-mephit"
+    "index": "steam-mephit",
+    "environments": ["Underwater"]
   },
   {
     "index": "stirge",
+    "environments": ["Coastal","Desert","Forest","Grassland","Hill","Mountain","Swamp","Underdark","Urban"],
     "image": true
   },
   {
     "index": "stone-giant",
+    "environments": ["Hill","Mountain","Underdark"],
     "image": true
   },
   {
@@ -1012,35 +1146,45 @@
   },
   {
     "index": "storm-giant",
+    "environments": ["Coastal","Underwater"],
     "image": true
   },
   {
     "index": "succubus-incubus",
+    "environments": ["Urban"],
     "image": true
   },
   {
-    "index": "swarm-of-bats"
+    "index": "swarm-of-bats",
+    "environments": ["Hill","Mountain","Underdark","Urban"]
   },
   {
-    "index": "swarm-of-beetles"
+    "index": "swarm-of-beetles",
+    "environments": ["Desert","Forest","Grassland","Hill","Swamp","Underdark","Urban"]
   },
   {
-    "index": "swarm-of-centipedes"
+    "index": "swarm-of-centipedes",
+    "environments": ["Desert","Forest","Grassland","Hill","Swamp","Underdark","Urban"]
   },
   {
-    "index": "swarm-of-insects"
+    "index": "swarm-of-insects",
+    "environments": ["Desert","Forest","Grassland","Hill","Swamp","Underdark","Urban"]
   },
   {
-    "index": "swarm-of-poisonous-snakes"
+    "index": "swarm-of-poisonous-snakes",
+    "environments": ["Forest","Swamp"]
   },
   {
-    "index": "swarm-of-quippers"
+    "index": "swarm-of-quippers",
+    "environments": ["Underwater"]
   },
   {
-    "index": "swarm-of-rats"
+    "index": "swarm-of-rats",
+    "environments": ["Swamp","Urban"]
   },
   {
-    "index": "swarm-of-ravens"
+    "index": "swarm-of-ravens",
+    "environments": ["Forest","Hill","Swamp","Urban"]
   },
   {
     "index": "swarm-of-spiders"
@@ -1050,46 +1194,58 @@
   },
   {
     "index": "tarrasque",
+    "environments": ["Urban"],
     "image": true
   },
   {
     "index": "thug",
+    "environments": ["Urban"],
     "image": true
   },
   {
-    "index": "tiger"
+    "index": "tiger",
+    "environments": ["Forest","Grassland"]
   },
   {
     "index": "treant",
+    "environments": ["Forest"],
     "image": true
   },
   {
-    "index": "tribal-warrior"
+    "index": "tribal-warrior",
+    "environments": ["Arctic","Coastal","Desert","Forest","Grassland","Hill","Swamp","Underdark"]
   },
   {
-    "index": "triceratops"
+    "index": "triceratops",
+    "environments": ["Grassland"]
   },
   {
     "index": "troll",
+    "environments": ["Arctic","Forest","Hill","Mountain","Swamp","Underdark"],
     "image": true
   },
   {
-    "index": "tyrannosaurus-rex"
+    "index": "tyrannosaurus-rex",
+    "environments": ["Grassland"]
   },
   {
     "index": "unicorn",
+    "environments": ["Forest"],
     "image": true
   },
   {
     "index": "vampire",
+    "environments": ["Urban"],
     "image": true
   },
   {
     "index": "vampire-spawn",
+    "environments": ["Underdark","Urban"],
     "image": true
   },
   {
-    "index": "veteran"
+    "index": "veteran",
+    "environments": ["Arctic","Coastal","Forest","Grassland","Hill","Mountain","Swamp","Underdark","Urban"]
   },
   {
     "index": "violet-fungus"
@@ -1098,144 +1254,182 @@
     "index": "vrock"
   },
   {
-    "index": "vulture"
+    "index": "vulture",
+    "environments": ["Desert","Grassland","Hill"]
   },
   {
-    "index": "warhorse"
+    "index": "warhorse",
+    "environments": ["Urban"]
   },
   {
-    "index": "warhorse-skeleton"
+    "index": "warhorse-skeleton",
+    "environments": ["Urban"]
   },
   {
     "index": "water-elemental",
+    "environments": ["Coastal","Swamp","Underwater"],
     "image": true
   },
   {
     "index": "weasel"
   },
   {
-    "index": "werebear-bear"
+    "index": "werebear-bear",
+    "environments": ["Arctic","Forest","Hill"]
   },
   {
-    "index": "werebear-human"
+    "index": "werebear-human",
+    "environments": ["Arctic","Forest","Hill"]
   },
   {
-    "index": "werebear-hybrid"
+    "index": "werebear-hybrid",
+    "environments": ["Arctic","Forest","Hill"]
   },
   {
-    "index": "wereboar-boar"
+    "index": "wereboar-boar",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
-    "index": "wereboar-human"
+    "index": "wereboar-human",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
-    "index": "wereboar-hybrid"
+    "index": "wereboar-hybrid",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
     "index": "wererat-human",
+    "environments": ["Forest","Urban"],
     "image": true
   },
   {
     "index": "wererat-hybrid",
+    "environments": ["Forest","Urban"],
     "image": true
   },
   {
-    "index": "wererat-rat"
+    "index": "wererat-rat",
+    "environments": ["Forest","Urban"]
   },
   {
-    "index": "weretiger-human"
+    "index": "weretiger-human",
+    "environments": ["Desert","Forest","Grassland"]
   },
   {
-    "index": "weretiger-hybrid"
+    "index": "weretiger-hybrid",
+    "environments": ["Desert","Forest","Grassland"]
   },
   {
-    "index": "weretiger-tiger"
+    "index": "weretiger-tiger",
+    "environments": ["Desert","Forest","Grassland"]
   },
   {
     "index": "werewolf-human",
+    "environments": ["Forest","Hill"],
     "image": true
   },
   {
-    "index": "werewolf-hybrid"
+    "index": "werewolf-hybrid",
+    "environments": ["Forest","Hill"]
   },
   {
-    "index": "werewolf-wolf"
+    "index": "werewolf-wolf",
+    "environments": ["Forest","Hill"]
   },
   {
     "index": "white-dragon-wyrmling"
   },
   {
     "index": "wight",
+    "environments": ["Desert","Swamp","Underdark","Urban"],
     "image": true
   },
   {
     "index": "will-o-wisp",
+    "environments": ["Forest","Swamp","Urban"],
     "image": true
   },
   {
-    "index": "winter-wolf"
+    "index": "winter-wolf",
+    "environments": ["Arctic"]
   },
   {
-    "index": "wolf"
+    "index": "wolf",
+    "environments": ["Forest","Grassland","Hill"]
   },
   {
     "index": "worg",
+    "environments": ["Forest","Grassland","Hill"],
     "image": true
   },
   {
     "index": "wraith",
+    "environments": ["Underdark"],
     "image": true
   },
   {
     "index": "wyvern",
+    "environments": ["Hill","Mountain"],
     "image": true
   },
   {
     "index": "xorn",
+    "environments": ["Underdark"],
     "image": true
   },
   {
     "index": "young-black-dragon",
+    "environments": ["Swamp"],
     "image": true
   },
   {
     "index": "young-blue-dragon",
+    "environments": ["Coastal","Desert"],
     "image": true
   },
   {
     "index": "young-brass-dragon",
+    "environments": ["Desert"],
     "image": true
   },
   {
     "index": "young-bronze-dragon",
+    "environments": ["Coastal"],
     "image": true
   },
   {
     "index": "young-copper-dragon",
+    "environments": ["Hill"],
     "image": true
   },
   {
     "index": "young-gold-dragon",
+    "environments": ["Forest","Grassland"],
     "image": true
   },
   {
     "index": "young-green-dragon",
+    "environments": ["Forest"],
     "image": true
   },
   {
     "index": "young-red-dragon",
+    "environments": ["Hill","Mountain"],
     "image": true
   },
   {
     "index": "young-silver-dragon",
+    "environments": ["Mountain","Urban"],
     "image": true
   },
   {
     "index": "young-white-dragon",
+    "environments": ["Arctic"],
     "image": true
   },
   {
     "index": "zombie",
+    "environments": ["Urban"],
     "image": true
   }
 ]

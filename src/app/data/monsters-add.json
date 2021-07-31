@@ -235,7 +235,8 @@
                 "desc": "Melee or Ranged Weapon Attack: +2 to hit , reach 5 ft. or range 20/60 ft., one target. Hit: 2 (ld4) piercing damage."
             }
         ],
-        "url": null
+        "url": null,
+        "environments": ["Urban"]
     },
     {
         "index": "banshee",
@@ -468,6 +469,7 @@
             }
         ],
         "url": null,
+        "environments": ["Urban"],
         "image": true
     },
     {
@@ -718,6 +720,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -786,6 +789,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -839,6 +843,7 @@
             }
         ],
         "url": null,
+        "environments": ["Coastal","Desert","Grassland","Hill","Mountain","Underdark"],
         "image": true
     },
     {
@@ -1273,6 +1278,7 @@
             }
         ],
         "url": null,
+        "environments": ["Forest"],
         "image": true
     },
     {
@@ -1379,6 +1385,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -1433,6 +1440,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -1548,6 +1556,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -1652,6 +1661,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -1858,6 +1868,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -1902,6 +1913,7 @@
             }
         ],
         "url": null,
+        "environments": ["Artic","Desert","Forest","Hill","Mountain","Underdark","Urban"],
         "image": true
     },
     {
@@ -1987,6 +1999,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -2074,6 +2087,7 @@
             }
         ],
         "url": null,
+        "environments": ["Forest","Urban"],
         "image": true
     },
     {
@@ -2156,6 +2170,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -2319,6 +2334,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -2593,6 +2609,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -2660,6 +2677,7 @@
             }
         ],
         "url": null,
+        "environments": ["Forest"],
         "image": true
     },
     {
@@ -2753,6 +2771,7 @@
             }
         ],
         "url": null,
+        "environments": ["Grassland"],
         "image": true
     },
     {
@@ -2965,6 +2984,7 @@
             }
         ],
         "url": null,
+        "environments": ["Desert","Grassland"],
         "image": true
     },
     {
@@ -3036,6 +3056,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -3096,6 +3117,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark"],
         "image": true
     },
     {
@@ -3171,6 +3193,7 @@
             }
         ],
         "url": null,
+        "environments": ["Forest"],
         "image": true
     },
     {
@@ -3258,6 +3281,7 @@
             }
         ],
         "url": null,
+        "environments": ["Underdark","Urban"],
         "image": true
     },
     {
@@ -3338,6 +3362,7 @@
             }
         ],
         "url": null,
+        "environments": ["Artic"],
         "image": true
     }
 ]
