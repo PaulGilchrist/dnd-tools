@@ -18,7 +18,7 @@
 				<div>
 					<b>Armor Class:</b>&nbsp;{{monster.armor_class}}<br />
 					<b>Hit Points:</b>&nbsp;{{monster.hit_points}}&nbsp;({{monster.hit_dice}})<br />
-					<b>Speed:</b>&nbsp;{{monster.speed.walk}}<span *ngIf="monster.speed.burrow">, burrow {{monster.speed.burrow}}</span><span *ngIf="monster.speed.climb">, climb {{monster.speed.climb}}</span><span *ngIf="monster.speed.hover">, hover {{monster.speed.hover}}</span><span *ngIf="monster.speed.fly">, fly {{monster.speed.fly}}</span><span *ngIf="monster.speed.swim">, swim {{monster.speed.swim}}</span><br />
+					<b>Speed:</b>&nbsp;{{monster.speed.walk ? monster.speed.walk : '0 ft.'}}<span *ngIf="monster.speed.burrow">, burrow {{monster.speed.burrow}}</span><span *ngIf="monster.speed.climb">, climb {{monster.speed.climb}}</span><span *ngIf="monster.speed.fly">, fly {{monster.speed.fly}}</span><span *ngIf="monster.speed.hover"> (hover)</span><span *ngIf="monster.speed.swim">, swim {{monster.speed.swim}}</span><br />
 				</div>
 				<div>
 					<button *ngIf="monster.image==true" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">Image</button>
