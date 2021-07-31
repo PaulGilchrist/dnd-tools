@@ -1,7 +1,6 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
   <a class="navbar-brand ms-2" [routerLink]="['/']">D&D Tools</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,14 +11,20 @@
       <li class="nav-item" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <a class="nav-link" [routerLink]="['magic-items']">Magic Items</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-        <a class="nav-link" [routerLink]="['monsters']">Monsters</a>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Monsters
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="['monster/encounters']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Encounters</a></li>
+          <li><a class="dropdown-item" [routerLink]="['monster/search']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Search</a></li>
+        </ul>
       </li>
       <li class="nav-item dropdown" routerLinkActive="active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Rules
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu">
           <li><a class="dropdown-item" [routerLink]="['rules/general']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">General</a></li>
           <li><a class="dropdown-item" [routerLink]="['rules/ability-scores']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Abilities</a></li>
           <li><a class="dropdown-item" [routerLink]="['rules/classes']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Classes</a></li>

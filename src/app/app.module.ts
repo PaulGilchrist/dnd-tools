@@ -10,6 +10,7 @@ import { AbilityScoreComponent } from './components/ability-score/ability-score.
 import { AbilityScoresComponent } from './components/ability-scores/ability-scores.component';
 import { ConditionComponent } from './components/condition/condition.component';
 import { ConditionsComponent } from './components/conditions/conditions.component';
+import { EncountersComponent } from './components/encounters/encounters.component';
 import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { ImageModalComponent } from './components/image-modal/image-modal.component';
@@ -40,6 +41,7 @@ import { DataService } from './services/data.service';
     AbilityScoresComponent,
     ConditionComponent,
     ConditionsComponent,
+    EncountersComponent,
     EquipmentItemComponent,
     EquipmentItemsComponent,
     ImageModalComponent,

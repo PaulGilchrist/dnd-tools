@@ -18,7 +18,9 @@ export class MonstersComponent implements OnInit, OnDestroy {
     environment: 'All',
     name: '',
     size: 'All',
-    type: 'All'
+    type: 'All',
+    xpMin: 0,
+    xpMax: 50000,
   }
 
   constructor(public dataService: DataService) { }
@@ -92,6 +94,10 @@ export class MonstersComponent implements OnInit, OnDestroy {
     }
     // Type filter
     if (this.filter.type != 'All' && this.filter.type != monster.type) {
+      return false;
+    }
+    // XP
+    if (monster.xp < this.filter.xpMin || monster.xp > this.filter.xpMax) {
       return false;
     }
     return true;

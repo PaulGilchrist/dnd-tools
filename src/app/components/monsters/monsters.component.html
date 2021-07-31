@@ -17,7 +17,20 @@
 			<input type="number" class="column form-control" id="challengeRatingMax" name="challengeRatingMax" [(ngModel)]="filter.challengeRatingMax" #challengeRatingMaxControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="25" step="0.25" placeholder="max">
 		</div>
 		<div class="col alert alert-danger" [hidden]="challengeRatingMinControl.valid || challengeRatingMinControl.pristine || challengeRatingMaxControl.valid || challengeRatingMaxControl.pristine">
-			Challenge RangeMinControl should be between 0 and 25
+			Challenge Rating should be between 0 and 25
+		</div>
+	</div>
+	<!--XP-->
+	<label for="xpMin" class="col-form-label">XP</label>
+	<div class="row" [class.has-error]="xpMinControl.invalid && xpMinControl.dirty || xpMaxControl.invalid && xpMaxControl.dirty">
+		<div class="col">
+			<input type="number" class="column form-control" id="xpMin" name="xpMin" [(ngModel)]="filter.xpMin" #xpMinControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="50000" step="25" autofocus placeholder="min">
+		</div>
+		<div class="col">
+			<input type="number" class="column form-control" id="xpMax" name="xpMax" [(ngModel)]="filter.xpMax" #xpMaxControl="ngModel" (ngModelChange)="filterChanged()" min="0" max="50000" step="25" placeholder="max">
+		</div>
+		<div class="col alert alert-danger" [hidden]="xpMinControl.valid || xpMinControl.pristine || xpMaxControl.valid || xpMaxControl.pristine">
+			XP should be between 0 and 50000
 		</div>
 	</div>
 	<!--Environment-->

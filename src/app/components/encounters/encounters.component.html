@@ -1,0 +1,37 @@
+﻿<form #searchForm="ngForm" novalidate>
+	<!--Difficulty-->
+	<label for="difficulty" class="col-form-label">Difficulty</label>
+	<select name="difficulty" [(ngModel)]="filter.difficulty" #typeControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option value="0">Easy</option>
+		<option value="1">Medium</option>
+		<option value="2">Hard</option>
+		<option value="3">Deadly</option>
+	</select>
+	<div></div>
+	<div class="playerLevelButtons">
+		<button type="button" class="btn btn-primary" (click)="addPlayer()">Add Player</button>
+		<button type="button" class="btn btn-primary" (click)="removePlayer()">Remove Player</button>	
+	</div>
+	<ng-container *ngFor="let playerLevel of filter.playerLevels; let i=index">
+		<label [for]="'player'+i" class="col-form-label">Player {{i+1}} Level</label>
+		<input type="number" [name]="'player'+i" class="column form-control" [value]="filter.playerLevels[i]" (change)="onPlayerLevelChange(i, $event)" min="1" max="20" step="1" placeholder="level">
+	</ng-container>
+</form>
+<div>
+	<table class="table table-condensed table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Monsters</th>
+				<th>Recommended Total <br /> Monster XP</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><td>1</td><td>{{encounterThresholds[0]}}</td></tr>			
+			<tr><td>2</td><td>{{encounterThresholds[1]}}</td></tr>			
+			<tr><td>3-6</td><td>{{encounterThresholds[2]}}</td></tr>			
+			<tr><td>7-10</td><td>{{encounterThresholds[3]}}</td></tr>			
+			<tr><td>11-14</td><td>{{encounterThresholds[4]}}</td></tr>			
+			<tr><td>15+</td><td>{{encounterThresholds[5]}}</td></tr>			
+		</tbody>
+	</table>
+</div>
