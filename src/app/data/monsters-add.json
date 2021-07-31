@@ -115,8 +115,12 @@
         "xp": 18000,
         "special_abilities": [
             {
-                "name": "Legendary Resistance (3/Day)",
-                "desc": "If the dracolich fails a saving throw, it can choose to succeed instead."
+                "name": "Legendary Resistance",
+                "desc": "If the dracolich fails a saving throw, it can choose to succeed instead.",
+                "usage": {
+                  "type": "per day",
+                  "times": 3
+                }
             },
             {
                 "name": "Magic Resistance",
@@ -366,8 +370,12 @@
                 "desc": "Each non-undead creature within 60 feet of the banshee that can see her must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end ofeach ofits turns, with disadvantage ifthe banshee is within line ofsight, ending the effect on itselfon a success. If a target's saving throw is successful or the effect ends for it, the target is immune to the banshee's Horrifying Visage for the next 24 hours."
             },
             {
-                "name": "Wail (1/day)",
-                "desc": "The banshee releases a mournful wail, provided that she isn't in sunlight. This wail has no effect on constructs and undead. All other creatures within 30 feet of her that can hear her must make a DC 13 Constitution saving throw. On a failure, a creature drops to 0 hit points. On a success, a creature takes 10 (3d6) psychic damage."
+                "name": "Wail",
+                "desc": "The banshee releases a mournful wail, provided that she isn't in sunlight. This wail has no effect on constructs and undead. All other creatures within 30 feet of her that can hear her must make a DC 13 Constitution saving throw. On a failure, a creature drops to 0 hit points. On a success, a creature takes 10 (3d6) psychic damage.",
+                "usage": {
+                  "type": "per day",
+                  "times": 1
+                }
             }
         ],
         "url": null,
@@ -454,8 +462,12 @@
                 "desc": "The bard can perform a song while taking a short rest. Any ally who hears the song regains an extra ld6 hit points if it spends any Hit Dice to regain hit points at the end ofthat rest. The bard can confer this benefit on itself as well."
             },
             {
-                "name": "Taunt (2/Day)",
-                "desc": "The bard can use a bonus action on its turn to target one creature within 30 feet of it. Ifthe target can hear the bard, the target must succeed on a DC 12 Charisma saving throw or have disadvantage on ability checks, attack rolls, and saving throws until the start ofthe bard's next turn."
+                "name": "Taunt",
+                "desc": "The bard can use a bonus action on its turn to target one creature within 30 feet of it. Ifthe target can hear the bard, the target must succeed on a DC 12 Charisma saving throw or have disadvantage on ability checks, attack rolls, and saving throws until the start ofthe bard's next turn.",
+                "usage": {
+                  "type": "per day",
+                  "times": 2
+                }
             }
         ],
         "actions": [
@@ -1178,8 +1190,12 @@
                 "desc": "Ifthe demilich is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only halfdamage if it fails."
             },
             {
-                "name": "Legendary Resistance (3/Day)",
-                "desc": "If the demilich fails a saving throw, it can choose to succeed instead."
+                "name": "Legendary Resistance",
+                "desc": "If the demilich fails a saving throw, it can choose to succeed instead.",
+                "usage": {
+                  "type": "per day",
+                  "times": 3
+                }
             },
             {
                 "name": "Turn Immunity",
