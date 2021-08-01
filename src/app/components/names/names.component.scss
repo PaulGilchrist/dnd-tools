@@ -1,0 +1,24 @@
+form {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-gap: 10px;
+  max-width: 500px;
+  margin: auto;
+  padding-left: 5px;
+}
+.dualList {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  max-width: 1000px;
+  margin: auto;
+}
+table {
+  margin: auto;
+  margin-top: 20px;
+  max-width: 500px;
+}
+thead {
+  background-color: #262626;
+  color: white;
+}

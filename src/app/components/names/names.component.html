@@ -1,0 +1,63 @@
+﻿<form #searchForm="ngForm" novalidate>
+	<!--Race-->
+	<label for="race" class="col-form-label">Race</label>
+	<select name="race" [(ngModel)]="filter.race" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>Select</option>
+		<option value="dragonborn">Dragonborn</option>
+		<option value="dwarf">Dwarf</option>
+		<option value="elf">Elf</option>
+		<option value="gnome">Gnome</option>
+		<option value="halfling">Halfling</option>
+		<option value="half-orc">Half Orc</option>
+		<option value="tiefling">Tiefling</option>
+		<option value="human-celtic">Human (Celtic)</option>
+	</select>
+	<!--Sex-->
+	<label for="sex" class="col-form-label">Sex</label>
+	<select name="sex" [(ngModel)]="filter.sex" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>Select</option>
+		<option value="female">Female</option>
+		<option value="male">Male</option>
+	</select>
+	<!--Used-->
+	<label for="used" class="col-form-label">Used</label>
+	<select name="used" [(ngModel)]="filter.used" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<option selected>All</option>
+		<option value="available">Available</option>
+		<option value="used">Used</option>
+	</select>
+</form>
+<div *ngIf="shownNames.firstNames.length > 0" class="nameLists" [class.dualList]="shownNames.familyType != null">
+	<table class="table table-condensed table-striped table-hover">
+		<thead>
+			<tr>
+				<th>First Names</th>
+				<th>Used</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let name of shownNames.firstNames">
+				<td>{{name}}</td>
+				<td>
+					<input class="form-check-input" type="checkbox" (click)="toggleUsed(name)" [checked]="isNameUsed(name)">
+				</td>
+			</tr>			
+		</tbody>
+	</table>
+	<table class="table table-condensed table-striped table-hover" *ngIf="shownNames.familyType != null">
+		<thead>
+			<tr>
+				<th>{{shownNames.familyType}} Names</th>
+				<th>Used</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let name of shownNames.lastNames">
+				<td>{{name}}</td>
+				<td>
+					<input class="form-check-input" type="checkbox" (click)="toggleUsed(name)" [checked]="isNameUsed(name)">
+				</td>
+			</tr>			
+		</tbody>
+	</table>
+</div>

@@ -36,7 +36,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
       } else {
         localStorage.setItem('equipmentItemsFilter', JSON.stringify(this.filter));
       }
-      // Set bookmarked monsters
+      // Set bookmarked equipment
       let equipmentItemsBookmarkedJson = localStorage.getItem('equipmentItemsBookmarked');
       let equipmentItemsBookmarked: string[] = [];
       if(equipmentItemsBookmarkedJson != null) {

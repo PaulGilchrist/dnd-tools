@@ -18,6 +18,8 @@ export class DataService {
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
     monsters$ = this.monsters.asObservable();
+    private names = new BehaviorSubject<any>([]);
+    names$ = this.names.asObservable();
     private playerClasses = new BehaviorSubject<any>([]);
     playerClasses$ = this.playerClasses.asObservable();
     private races = new BehaviorSubject<any>([]);
@@ -143,6 +145,22 @@ export class DataService {
         }
     }
 
+    getNames(): Observable<any[]> {
+        if (this.names.getValue().length===0) {
+            return this.http.get('./data/names.json').pipe(
+                tap(data => {
+                    console.log('Get - names');
+                    this.sort(data, 'name');
+                    this.names.next(data);
+                }),
+                map(() => this.names.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.names$;
+        }
+    }
+    
     getPlayerClasses(): Observable<any[]> {
         if (this.playerClasses.getValue().length===0) {
             return combineLatest([
