@@ -35,10 +35,10 @@ export class DataService {
     private weaponProperties = new BehaviorSubject<any>([]);
     weaponProperties$ = this.weaponProperties.asObservable();
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     getAbilityScores(): Observable<any[]> {
-        if (this.abilityScores.getValue().length===0) {
+        if (this.abilityScores.getValue().length === 0) {
             return this.http.get('./data/ability-scores.json').pipe(
                 tap(data => {
                     console.log('Get - ability scores');
@@ -53,7 +53,7 @@ export class DataService {
     }
 
     getConditions(): Observable<any[]> {
-        if (this.conditions.getValue().length===0) {
+        if (this.conditions.getValue().length === 0) {
             return this.http.get('./data/conditions.json').pipe(
                 tap(data => {
                     console.log('Get - conditions');
@@ -69,7 +69,7 @@ export class DataService {
     }
 
     getEquipment(): Observable<any[]> {
-        if (this.equipment.getValue().length===0) {
+        if (this.equipment.getValue().length === 0) {
             return this.http.get('./data/equipment.json').pipe(
                 tap(data => {
                     console.log('Get - equipment');
@@ -83,13 +83,13 @@ export class DataService {
             return this.equipment$;
         }
     }
-    
+
     getMagicItems(): Observable<any[]> {
-        if (this.magicItems.getValue().length===0) {
+        if (this.magicItems.getValue().length === 0) {
             return combineLatest([
                 this.http.get('./data/magic-items.json'),
                 this.http.get('./data/magic-items-add.json')
-              ]).pipe(
+            ]).pipe(
                 tap((data: any[]) => {
                     console.log('Get - magic items');
                     const magicItems = [...data[0], ...data[1]];
@@ -105,12 +105,12 @@ export class DataService {
     }
 
     getMonsters(): Observable<any[]> {
-        if (this.monsters.getValue().length===0) {
+        if (this.monsters.getValue().length === 0) {
             return combineLatest([
                 this.http.get('./data/monsters.json'),
                 this.http.get('./data/monsters-ext.json'), // Add new properties to existing monsters
                 this.http.get('./data/monsters-add.json') // Add all new monsters
-              ]).pipe(
+            ]).pipe(
                 tap((data: any[]) => {
                     console.log('Get - monsters');
                     const originalMonsters: any[] = data[0];
@@ -118,13 +118,13 @@ export class DataService {
                     const addedMonsters = data[2];
                     // Add new properties to existing monsters
                     extendedMonsters.forEach((extendedMonster: any) => {
-                        const originalMonster = originalMonsters.find(m => m.index==extendedMonster.index);
-                        if(originalMonster) {
+                        const originalMonster = originalMonsters.find(m => m.index == extendedMonster.index);
+                        if (originalMonster) {
                             originalMonster.environments = extendedMonster.environments;
                             originalMonster.image = extendedMonster.image;
                             originalMonster.related_monsters = extendedMonster.related_monsters;
                             // ToDo - Add reference (book & page)
-                        }                    
+                        }
                     });
                     const monsters = [...originalMonsters, ...addedMonsters];
                     this.sort(monsters, 'name');
@@ -146,7 +146,7 @@ export class DataService {
     }
 
     getNames(): Observable<any[]> {
-        if (this.names.getValue().length===0) {
+        if (this.names.getValue().length === 0) {
             return this.http.get('./data/names.json').pipe(
                 tap(data => {
                     console.log('Get - names');
@@ -160,22 +160,22 @@ export class DataService {
             return this.names$;
         }
     }
-    
+
     getPlayerClasses(): Observable<any[]> {
-        if (this.playerClasses.getValue().length===0) {
+        if (this.playerClasses.getValue().length === 0) {
             return combineLatest([
                 this.http.get('./data/classes.json'),
                 this.http.get('./data/features.json'),
                 this.http.get('./data/levels.json')
-              ]).pipe(
+            ]).pipe(
                 tap(data => {
+                    console.log('Get - player classes');
                     // @ts-ignore
                     let playerClasses: any[] = data[0];
                     // @ts-ignore
                     let features: any[] = data[1];
                     // @ts-ignore
                     let levels: any[] = data[2];
-                    console.log('Get - Player Classes');
                     this.sort(playerClasses, 'name');
                     // Append levels to each class
                     playerClasses.forEach(playerClass => {
@@ -199,9 +199,9 @@ export class DataService {
             return this.playerClasses$;
         }
     }
-    
+
     getRaces(): Observable<any[]> {
-        if (this.races.getValue().length===0) {
+        if (this.races.getValue().length === 0) {
             return this.http.get('./data/races.json').pipe(
                 tap(data => {
                     console.log('Get - races');
@@ -218,28 +218,50 @@ export class DataService {
 
     getRules(): Observable<any[]> {
         let converter = new Showdown.Converter();
-        if (this.rules.getValue().length===0) {
+        if (this.rules.getValue().length === 0) {
             return combineLatest([
                 this.http.get('./data/rules.json'),
-                this.http.get('./data/rule-sections.json')
-              ]).pipe(
+                this.http.get('./data/rules-ext.json'),
+                this.http.get('./data/rules-add.json'),
+                this.http.get('./data/rule-sections.json'),
+                this.http.get('./data/rule-sections-add.json')
+            ]).pipe(
                 tap(data => {
-                    // @ts-ignore
-                    let rules: any[] = data[0];
-                    // @ts-ignore
-                    let ruleSections: any[] = data[1];
                     console.log('Get - rules');
+                    const originalRules: any = data[0];
+                    const extendedRules: any = data[1];
+                    const addedRules: any = data[2];
+                    const originalRuleSections: any = data[3];
+                    const addedRuleSections: any = data[4];
+                    // Add new properties to existing rules
+                    extendedRules.forEach((extendedRule: any) => {
+                        const originalRule: any = originalRules.find((m: any) => m.index == extendedRule.index);
+                        if (originalRule) {
+                            originalRule.book = extendedRule.book;
+                            if (extendedRule.subsections) {
+                                originalRule.subsections = [...originalRule.subsections, ...extendedRule.subsections];
+                            }
+                        }
+                    });
+                    const rules = [...originalRules, ...addedRules];
+                    this.sort(rules, 'name');
+                    const ruleSections = [...originalRuleSections, ...addedRuleSections];
                     // Append on each section
                     rules.forEach(rule => {
+                        this.sort(rule.subsections, 'name');
                         rule.desc = converter.makeHtml(rule.desc);
                         // Add subsection descriptions to rule.subsection
                         // @ts-ignore
                         rule.subsections.forEach(subsection => {
                             let foundSubSection = ruleSections.find(rs => rs.index == subsection.index);
-                            if(foundSubSection) {
-                                // Remove the first line as it just duplicates the name
-                                let index = foundSubSection.desc.indexOf("\n\n");
-                                subsection.desc = converter.makeHtml(foundSubSection.desc.substr(index+1,Number.MAX_SAFE_INTEGER));
+                            if (foundSubSection) {
+                                if (foundSubSection.html == true) {
+                                    subsection.desc = foundSubSection.desc;
+                                } else {
+                                    // Remove the first line as it just duplicates the name
+                                    let index = foundSubSection.desc.indexOf("\n\n");
+                                    subsection.desc = converter.makeHtml(foundSubSection.desc.substr(index + 1, Number.MAX_SAFE_INTEGER));
+                                }
                             }
                         });
                     });
@@ -252,9 +274,9 @@ export class DataService {
             return this.races$;
         }
     }
-    
+
     getSkills(): Observable<any[]> {
-        if (this.skills.getValue().length===0) {
+        if (this.skills.getValue().length === 0) {
             return this.http.get('./data/skills.json').pipe(
                 tap(data => {
                     console.log('Get - skills');
@@ -270,7 +292,7 @@ export class DataService {
     }
 
     getSpells(): Observable<any[]> {
-        if (this.spells.getValue().length===0) {
+        if (this.spells.getValue().length === 0) {
             return this.http.get('./data/spells.json').pipe(
                 tap(data => {
                     console.log('Get - spells');
@@ -286,7 +308,7 @@ export class DataService {
     }
 
     getTraits(): Observable<any[]> {
-        if (this.traits.getValue().length===0) {
+        if (this.traits.getValue().length === 0) {
             return this.http.get('./data/traits.json').pipe(
                 tap(data => {
                     console.log('Get - traits');
@@ -302,7 +324,7 @@ export class DataService {
     }
 
     getWeaponProperties(): Observable<any[]> {
-        if (this.weaponProperties.getValue().length===0) {
+        if (this.weaponProperties.getValue().length === 0) {
             return this.http.get('./data/weapon-properties.json').pipe(
                 tap(data => {
                     console.log('Get - weapon properties');
@@ -316,12 +338,12 @@ export class DataService {
             return this.weaponProperties$;
         }
     }
-    
+
     private handleError(error: Response) {
-		// In the future, we may send the server to some remote logging infrastructure
-		console.error(error);
-		return observableThrowError(error || 'Server error');
-	}
+        // In the future, we may send the server to some remote logging infrastructure
+        console.error(error);
+        return observableThrowError(error || 'Server error');
+    }
 
     private sort(inputObjectArray: any, propertyName: string, descending = false) {
         // Sort an array of objects (in place) by the value of a given propertyName either ascending (default) or descending

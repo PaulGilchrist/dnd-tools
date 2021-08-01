@@ -15,9 +15,9 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMonsters" role="button" data-bs-toggle="dropdown">
           Monsters
         </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['monster/encounters']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Encounters</a></li>
-          <li><a class="dropdown-item" [routerLink]="['monster/search']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Search</a></li>
+        <ul class="dropdown-menu" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['monster/encounters']">Encounters</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['monster/search']">Search</a></li>
         </ul>
       </li>
       <li class="nav-item" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -27,14 +27,14 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRules" role="button" data-bs-toggle="dropdown">
           Rules
         </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="['rules/general']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">General</a></li>
-          <li><a class="dropdown-item" [routerLink]="['rules/ability-scores']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Abilities</a></li>
-          <li><a class="dropdown-item" [routerLink]="['rules/classes']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Classes</a></li>
-          <li><a class="dropdown-item" [routerLink]="['rules/conditions']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Conditions</a></li>
-          <li><a class="dropdown-item" [routerLink]="['rules/races']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Races</a></li>
-          <li><a class="dropdown-item" [routerLink]="['rules/skills']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Skills</a></li>
-          <li><a class="dropdown-item" [routerLink]="['rules/traits']" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Traits</a></li>
+        <ul class="dropdown-menu" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/general']">General</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/ability-scores']">Abilities</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/classes']">Classes</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/conditions']">Conditions</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/races']">Races</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/skills']">Skills</a></li>
+          <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['rules/traits']">Traits</a></li>
         </ul>
       </li>
       <li class="nav-item" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">

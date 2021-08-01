@@ -1,4 +1,5 @@
 ﻿import { Component, Input } from '@angular/core';
+import { DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
   selector: 'general-rule',
@@ -10,6 +11,8 @@ export class GeneralRuleComponent {
   @Input() rule: any = null;
 
   shownSubsection: string = '';
+
+  constructor(public sanitizer: DomSanitizer) {}
 
   showSubsection(subsection: string) {
     if(this.shownSubsection == subsection) {
