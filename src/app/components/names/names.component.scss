@@ -10,8 +10,11 @@ form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
+}
+.list {
   max-width: 1000px;
   margin: auto;
+  padding-left: 5px;
 }
 table {
   margin: auto;
