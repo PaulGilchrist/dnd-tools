@@ -240,7 +240,10 @@
             }
         ],
         "url": null,
-        "environments": ["urban"]
+        "book": "Volo's Guide to Monsters",
+        "desc": "Apprentice wizards are novice arcane spellcasters who serve more experienced wizards or attend school. They perform menial work. such as cooking and cleaning, in exchange for education in the ways of magic.",
+        "environments": ["urban"],
+        "page": 209
     },
     {
         "index": "banshee",
@@ -481,8 +484,11 @@
             }
         ],
         "url": null,
+        "book": "Volo's Guide to Monsters",
+        "desc": "Bards are gifted poets, storytellers, and entertainers who travel far and wide, commonly found performing in taverns or in the company of jolly bands of adventurers, rough-and-tumble mercenaries, or wealthy patrons.",
         "environments": ["urban"],
-        "image": true
+        "image": true,
+        "page": 211
     },
     {
         "index": "barlgura",
@@ -801,8 +807,11 @@
             }
         ],
         "url": null,
+        "book": "Monster Manual",
+        "desc": "Carrion crawlers scour putrid flesh from carcasses and gobble the slimy bones that remain. They aggressively attack any creature that trespasses on their territory or disturbs their feasting.<br/><br/><b>Carrion Eaters.</b> A carrion crawler follows the scent of death to its food, but it prefers not to compete with other scavengers. These foul creatures thus hunker down in territories where death is plentiful and other carrion eaters have limited mobility. Caves, sewers, dungeons, and forested marshes are their favored lairs, but carrion crawlers are also drawn to battlefields and cemeteries.<br/>A carrion crawler roams on the hunt, its tentacles probing the air for the scent of blood or decay. In tunnels or ruins, carrion crawlers scurry across the ceiling as they move toward food. In this way, they avoid contact with oozes, otyughs, and other dangerous inhabitants of the darkness, even as they surprise potential meals that don't think to look up.<br/><br/><b>Patient Predators.</b> Whether in subterranean darkness or while hunting at night, light signals a potential meal. A carrion crawler might follow a light source from a distance for hours, hoping to pick up the scent of blood. Despite their great size, carrion crawlers can also easily set up ambushes by waiting around blind corners for prey to come to them.<br/>When facing potential prey or intruders, a carrion crawler lets its poison do the work. Once a victim goes rigid with paralysis, the carrion crawler wraps it with its tentacles and drags it away to a high ledge or isolated passageway, where it can be killed safely. The monster then resumes patrolling its territory while waiting for its meal to ripen.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 37
     },
     {
         "index": "cyclops",
@@ -1294,8 +1303,11 @@
             }
         ],
         "url": null,
+        "book": "Monster Manual",
+        "desc": "This monstrous predator takes its name from its ability to displace light so that it appears to be several feet away from its actual location. A displacer beast resembles a sleek great cat covered in blue-black fur. However, its otherworldly origins are clear in its six legs and the two tentacles sprouting from its shoulders, both ending in pads tipped with spiky protrusions. A displacer beast's eyes glow with an awful malevolence that persists even in death.<br/><br/><b>Unseelie Origins.</b> Displacer beasts roamed the twilight lands of the Feywild for ages, until they were captured and trained by the Unseelie Court. The warriors of the court selectively bred the beasts to reinforce their ferocious and predatory nature, using them to hunt unicorns, pegasi, and other wondrous prey. However, it didn't take long for the displacer beasts to use their malevolent intelligence to escape their masters.<br/>Running and breeding freely in the Feywild, the displacer beasts soon came to the attention of the Seelie Court. With blink dog companions at their side, fey hunters drove these predators to the fringes of the Feywild, where many crossed over to the Material Plane. To this day, displacer beasts and blink dogs attack each other on sight.<br/><br/><b>Love of the Kill.</b> Displacer beasts kill not just for food but also for sport. They target prey even when not hungry, often toying with their victims to entertain themselves until they are ready to eat. After killing its prey using its tentacles, a displacer beast drags the corpse to a quiet place where it can feed without distraction.<br/>Displacer beasts hunt alone or in small prides that demonstrate skill at setting ambushes. A single beast will strike and withdraw, luring prey into a densely wooded area where its packmates wait. Packs of displacer beasts hunting near trade roads recall the frequency and schedule of regular caravans, laying down ambushes to pick off those caravans.<br/><br/><b>Prized Guards and Pets.</b> Intelligent evil creatures favor displacer beasts as pets, but a displacer beast enters such an alliance only if it appears beneficial. A displacer beast might guard a vault or act as a bodyguard for a prominent individual.",
         "environments": ["forest"],
-        "image": true
+        "image": true,
+        "page": 81
     },
     {
         "index": "drow-gunslinger",
@@ -1401,8 +1413,11 @@
             }
         ],
         "url": null,
+        "book": "Waterdeep: Dragon Heist",
+        "desc": "Firearms aren't widely available in the North, but some members of Bregan O'aerthe are equipped with Lantanese pistols, bullets, and packets of smokepowder. These drow gunslingers are expert pistoleers, as skilled with their guns as the best archers are with their bows.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 201
     },
     {
         "index": "fire-snake",
@@ -1677,8 +1692,11 @@
             }
         ],
         "url": null,
+        "book": "Volo's Guide to Monsters",
+        "desc": "A gazer is a tiny manifestation of a beholder's dreams. It resembles the beholder who dreamed it into existence, but its body is only 8 inches wide, and it has only four eyestalks. It follows its creator like a devoted, aggressive puppy, and sometimes small packs of these creatures patrol their master's lair for vermin to kill and lone creatures to harass.<br/><br/><b>Nuisance Pet.</b> A gazer can't speak any languages but can approximate mimicking words and sentences in a high-pitched, mocking manner. Beholders find gazers amusing and tolerate their presence like spoiled pets. A gazer can't be tamed by anyone but its creator, except through the use of magic or by bonding with a spell- caster (see sidebar). Some beholders with wizard min- ions insist they take a gazer as a familiar because they can see through the eyes of these creatures.<br/><br/><b>Aggressive Vermin-Eater.</b> A wild gazer (one living separately from a beholder) is territorial, eats bugs and small animals, and is known for playing with its food. A lone gazer avoids picking fights with creatures that are Medium or larger, but a pack of them might take on larger prey. A gazer might follow humanoids in its territory, noisily mimicking their speech and generally being a nuisance, until they leave the area, but it flees if confronted by something it can't kill.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 126
     },
     {
         "index": "goristro",
@@ -1929,8 +1947,11 @@
             }
         ],
         "url": null,
+        "book": "Monster Manual",
+        "desc": "When an ogre mates with a human, hobgoblin, bugbear, or ore, the result is always a half-ogre. (Ogres don't mate with dwarves, halflings, or elves. They eat them.) Human mothers rarely survive the birth of a half-ogre offspring.<br/>The half-ogre offspring of an ogre and an ore is also called an ogrillon. An adult half-ogre or ogrillon stands 8 feet tall and weighs 450 pounds on average.",
         "environments": ["arctic","desert","forest","hill","mountain","underdark","urban"],
-        "image": true
+        "image": true,
+        "page": 238
     },
     {
         "index": "intellect-devourer",
@@ -2015,8 +2036,11 @@
             }
         ],
         "url": null,
+        "book": "Monster Manual",
+        "desc": "An intellect devourer resembles a walking brain protected by a crusty covering and set on bestial clawed legs. This foul aberration feeds on the intelligence of sentient creatures, taking over a victim's body on behalf of its mind flayer masters.<br/><br/><b>Illithid Creations.</b> Mind flayers breed intellect devourers to serve as roaming hunters of the Underdark, creating an intellect devourer by taking the brain of a thrall and subjecting it to a horrible ritual. As it sprouts legs, the brain becomes an intelligent predator as twisted and evil as its masters.<br/><br/><b>Deadly Puppet Masters.</b> An intellect devourer consumes a creature's mind and memories, then turns the host body into a puppet under its control. An intellect devourer typically uses its puppet host to lure others into the domain of the mind flayers to be enthralled or consumed.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 191
     },
     {
         "index": "kenku",
@@ -2356,8 +2380,11 @@
             }
         ],
         "url": null,
+        "book": "Monster Manual",
+        "desc": "Mind flayers, also called illithids, are the scourge of sentient creatures across countless worlds. Psionic tyrants, slavers, and interdimensional voyagers, they are insidious masterminds that harvest entire races for their own twisted ends. Four tentacles snake from their octopus-like heads, flexing in hungry anticipation when sentient creatures come near.<br/>In eons past, illithids controlled empires that spanned many worlds. They subjugated and consequently warped whole races of humanoid slaves, including the githyanki and githzerai, the grimlocks, and the kuo-toa. Conjoined by a collective consciousness, the illithids hatch plots as far-reaching and evil as their fathomless minds can conceive.<br/>Since the fall of their empires, illithid collectives on the Material Plane have resided in the Underdark.<br/><br/><b>Psionic Commanders.</b> Mind flayers possess psionic powers that enable them to control the minds of creatures such as troglodytes, grimlocks, quaggoths, and ogres. Illithids prefer to communicate via telepathy and use their telepathy when issuing commands to their thralls.<br/>When an illithid meets strong resistance, it avoids initial combat as it orders its thralls to attack. Like physical extensions of the illithid's thoughts, these thralls interpose themselves between the mind flayer and its foes, sacrificing their lives so that their master can escape.<br/><br/><b>Hive Mind Colonies.</b> Solitary mind flayers are likely rogues and outcasts. Most illithids belong to a colony of sibling mind flayers devoted to an elder brain-a massive brain-like being that resides in a briny pool near the center of a mind flayer community. From its pool, an elder brain telepathically dictates its desires to each individual mind flayer within 5 miles of it, for it is able to hold multiple mental conversations at once.<br/><br/><b>Hunger of the Mind.</b> Illithids subsist on the brains of humanoids. The brains provide enzymes, hormones, and psychic energy necessary for their survival. An illithid healthy from a brain-rich diet secretes a thin glaze of mucus that coats its mauve skin.<br/>An illithid experiences euphoria as it devours the brain of a humanoid, along with its memories, personality, and innermost fears. Mind flayers will sometimes harvest a brain rather than devour it, using it as part of some alien experiment or transforming it into an intellect devourer.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 222
     },
     {
         "index": "nimblewright",
@@ -2479,7 +2506,10 @@
             }
         ],
         "url": null,
-        "image": true
+        "book": "Waterdeep: Dragon Heist",
+        "desc": "A nimblewright is a magical construct created to serve as a guard or assassin. Composed predominantly of lightweight wood and powered by magic, it can pass for humanoid while wearing clothing. Some nimblewrights wear plain clothing, while others are clad in flashier attire. A nimblewright is emotionless, its face frozen in whatever expression was given to it by its creator.<br/><br/><b>Duelist.</b> A nimblewright moves like a dancer and fights like a swashbuckler, using dodges and parries to avoid damage while deftly skewering its foes.<br/><br/><b>Constructed Nature.</b> A nimblewright doesn't require air, food, drink, or sleep. Damage it takes can be re- paired with mending spells, but a nimblewright reduced to 0 hit points is permanently destroyed.",
+        "image": true,
+        "page": 212
     },
     {
         "index": "nothic",
@@ -2793,8 +2823,11 @@
             }
         ],
         "url": null,
+        "book": "Monster Manual",
+        "desc": "At harvest time, when death revisits the twilit world and summer's blossoms bow their withered heads, eerie scarecrows loom in silent vigil over empty fields. With immortal patience, these stoic sentinels hold their posts through wind, storm, and flood, bound to their master's command, eager to terrify prey with its sackcloth visage and rend victims with its razor-sharp claws.<br/><br/><b>Spirit-Powered Constructs.</b> A scarecrow is animated by the bound spirit of a slain evil creature, granting it purpose and mobility. It is this uncanny presence from beyond death that allows a scarecrow to inspire fear in those it gazes upon. Hags and witches often bind scarecrows with the spirits of demons, but any evil spirit will do. Although aspects of the spirit's personality might surface, a scarecrow's spirit doesn't recall the memories it had as a creature, and its will is focused solely on serving its creator. If its creator dies, the spirit inhabiting a scarecrow either continues to follow its last commands, seeks revenge for its creator's death, or destroys itself.<br/><br/><b>Construct Nature.</b> A scarecrow doesn't require air, food, drink, or sleep.",
         "environments": ["grassland"],
-        "image": true
+        "image": true,
+        "page": 268
     },
     {
         "index": "shadow-demon",
