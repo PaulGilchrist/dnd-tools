@@ -112,6 +112,14 @@
 					</span>
 				</div>
 			</div>
+			<div *ngIf="monster.desc">
+				<hr>
+				<h5>Description</h5>			
+				<div [innerHtml]="monster.desc">				
+				</div>
+				<br/>
+				<div *ngIf="monster.page">{{monster.book}} (page {{monster.page}})</div>
+			</div>
 		</div>
 	</div>
 </div>
