@@ -274,7 +274,7 @@ export class DataService {
                 catchError(this.handleError)
             );
         } else {
-            return this.races$;
+            return this.rules$;
         }
     }
 
