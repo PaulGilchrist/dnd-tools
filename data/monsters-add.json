@@ -1587,8 +1587,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "Blazing green flames and mad, echoing laughter follow a disembodied skull as it patrols its demesne. When the undead flameskull discovers trespassers, it blasts the intruders with fiery rays from its eyes and dreadful spells called up from the dark recesses of its memory.<br/>Dark spellcasters fashion flameskulls from the remains of dead wizards. When the ritual is complete, green flames erupt from the skull to complete its ghastly transformation.<br/><br/><b>Legacy of Life.</b> A flameskull only dimly recalls its former life. Though it might speak in its old voice and recount key events from its past, it is but an echo of its former self. However, its undead transformation grants it full access to the magic it wielded in life, letting it cast spells while ignoring the material and somatic components it can no longer employ.<br/><br/><b>Eternally Bound.</b> Intelligent and vigilant, a flameskull serves its creator by protecting a hidden treasure hoard, a secret chamber, or a specific individual. A flameskull carries out the directives given to it when it was created, and it interprets those commands to the letter. A flameskull's master must craft its instructions with care to ensure that the creature carries out its tasks properly.<br/><br/><b>Wreathed in Flame.</b> The fire wreathing a flameskull burns continually, giving off bright light that the creature controls. It uses those flames as a weapon, focusing them to loose them as fiery rays from its eye sockets.<br/><br/><b>Eldritch Rejuvenation.</b> A flameskull's shattered fragments reform unless they are splashed with holy water or subjected to a dispel magic or remove curse spell. If it can no longer fulfill its intended purpose, the re-formed flameskull is beholden to no one and becomes autonomous.<br/><br/><b>Undead Nature.</b> A flameskull doesn't require air, food, drink, or sleep.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 134
     },
     {
         "index": "gazer",
@@ -1902,8 +1905,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "A grell resembles a bulbous floating brain with a wide, sharp beak. Its ten long tentacles are made of hundreds of ring-shaped muscles sheathed in tough fibrous hide. Sharp barbs line the tip each tentacle and inject paralytic venom. The grell can partially retract its barbs into its tentacles to handle or manipulate objects it doesn't want to pierce or tear.<br/>Grells have no eyes and floats by means of a sort of levitation. They have keen hearing, however, and their skin is sensitive to vibrations and electrical fields, allowing them to detect the presence of creatures and objects in their immediate vicinity. The creature's ability to manipulate electricity to sense and move also allow it to absorb lightning without harm.<br/>Although solitary by nature, grells sometimes gather in small groups called covens.<br/><br/><b>Floating Ambushers.</b> A grell prefers to ambush lone creatures or stragglers, hovering silently near the ceiling of a passage or cavern until a suitable target passes below, whereupon it descends quickly and wraps its tentacles around its prey. It then floats away to its lair with the paralyzed creature in its clutches.<br/><br/><b>Alien Devourers.</b> Grell are alien predators that group other creatures into three categories: edibles, inedibles, and Great Eaters (those rare creatures that might prey on a grell). Grells have no compunction about attacking creatures they classify as edible, including humanoids. They tend to avoid bigger creatures that they have little hope of carrying away.<br/>A grell will sometimes allow adventurers to wage war on the other monstrous inhabitants of the dungeon complex it calls home, staying out of the adventurers' way as they dispose of larger threats while waiting for the right time to strike.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 172
     },
     {
         "index": "half-ogre",
@@ -2600,7 +2606,10 @@
             }
         ],
         "url": null,
-        "image": true
+        "book":"Monster Manual",
+        "desc": "A baleful eye peers out from the darkness, its gleam hinting at a weird intelligence and unnerving malevolence. Most times, a nothic is content to watch, weighing and assessing the creatures it encounters. When driven to violence, it uses its horrific gaze to rot the flesh from its enemies' bones.<br/><br/><b>Cursed Arcanists.</b> Rather than gaining the godlike supremacy they crave, some wizards who devote their lives to unearthing arcane secrets are reduced to creeping, tormented monsters by a dark curse left behind by Vecna, a powerful lich who, in some worlds, has transcended his undead existence to become a god of secrets. Nothics retain no awareness of their former selves, skulking amid the shadows and haunting places rich in magical knowledge, drawn by memories and impulses they can't quite understand. <br/><br/><b>Dark Oracles.</b> Nothics possess a strange magical insight that allows them to extract knowledge from other creatures. This grants them unique understanding of secret and forbidden lore, which they share for a price. A nothic covets magic items, greedily accepting such gifts from creatures that seek out its knowledge.<br/><br/><b>Lurkers in Magical Places.</b> Nothics are notorious for infiltrating arcane academies and other places rich in magical learning. They are driven by the vague knowledge that there exists a method to reverse their condition. This isn't a clear sense of purpose, but rather an obsessive tug at the end of the mind. Some nothics are clever enough to realize that this is merely part of the strange lesson for their folly, a false hope to drive them to seek out more arcane secrets.",
+        "image": true,
+        "page": 236
     },
     {
         "index": "piercer",
@@ -2661,8 +2670,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "Clinging to the ceilings of caverns and large subterranean passages, piercers blend in perfectly with natural rock, dropping in silence to impale unsuspecting foes on the ground below.<br/>A piercer is the larval form of a roper, and the two creatures often attack in tandem. A rock-like shell encases a piercer's body, giving it the look and texture of a stalactite. That shell protects a soft, slug-like upper body that lets the piercer move across cavern walls and ceilings to position itself for prey. With its eye and mouth closed, the piercer is difficult to distinguish from ordinary rock formations.<br/><br/><b>Patient Hunters.</b> Piercers can see, but they can also respond to noise and heat, waiting for Jiving creatures to pass beneath them, then falling to attack. A piercer that misses its chance to kill must make its slow way back to the ceiling. A fallen piercer excretes a foul-smelling slime when attacked, making most predators think twice about eating it.<br/>Piercers gather in colonies to maximize the effectiveness of their attacks, dropping simultaneously to increase the odds of striking prey. After a piercer successfully slays a creature, the others slowly creep toward the corpse to join in the feast.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 252
     },
     {
         "index": "pixie",
@@ -2729,8 +2741,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "Standing barely a foot tall, pixies resemble diminutive elves with gossamer wings like those of dragonflies or butterflies, bright as the clear dawn and as luminous as the full moonrise. Curious as cats and shy as deer, pixies go where they please. They like to spy on other creatures and can barely contain their excitement around them. The urge to introduce themselves and strike up a friendship is almost overwhelming; only a pixie's fear of being captured or attacked stays its hand. Those who wander through a pixie's glade might never see the creatures, yet hear the occasional giggle, gasp, or sigh.<br/>Pixies array themselves like princes and princesses of the fey, wearing flowing gowns and doublets of silk that sparkle like moonlight on a pond. Some dress in acorns, leaves, bark, and the pelts of tiny woodland beasts. They take great pride in their regalia and beam with joy when they are complimented on their ensembles.<br/><br/><b>Magical Faerie Folk.</b> With their innate power of invisibility, pixies rarely appear unless they wish to be seen. In the Feywild and on the Material Plane, pixies etch patterns of frost on winter ponds and rouse the buds in springtime. They cause flowers to sparkle with summer dew, and color the leaves with the blazing hues of autumn.<br/><br/><b>Pixie Dust.</b> When pixies fly visibly, a shower of sparkling dust follows in their wake like the glittering tail of a shooting star. A mere sprinkle of pixie dust is said to be able to grant the power of flight, confuse a creature hopelessly, or send foes into a magical slumber. Only pixies can use their dust to its full potential, but these fey are constantly sought out by mages and monsters seeking to study or master their power.<br/><br/><b>Tiny Tricksters.</b> While the arrival of visitors piques their curiosity, pixies are too shy to reveal themselves at first. They study the visitors from afar to gauge their temperament or play harmless tricks on them to measure their reactions. For example, pixies might tie a dwarf's boots together, create illusions of strange creatures or treasures, or use dancing lights to lead interlopers astray. I f the visitors respond with hostility, the pixies give them a wide berth. If the visitors are good natured, the pixies are likely to be emboldened and more friendly. The fey might even emerge and offer to guide their \"guests\" along a safe route or invite them to a tiny yet satisfying feast prepared in their honor.<br/><br/><b>Opposed to Violence.</b> Unlike their fey cousins, the sprites, pixies abhor weapons and would sooner flee than get into a physical altercation with any enemy.",
         "environments": ["forest"],
-        "image": true
+        "image": true,
+        "page": 253
     },
     {
         "index": "scarecrow",
@@ -2956,7 +2971,10 @@
             }
         ],
         "url": null,
-        "image": true
+        "book":"Monster Manual",
+        "desc": "When a demon's body is destroyed but the fiend is prevented from reforming in the Abyss, its essence sometimes takes on a vague physical form. These shadow demons exist outside the normal abyssal hierarchy, since their creation results most often from mortal magic, not from transformation or promotion.<br/>Shadow demons all but disappear in the darkness, and they can creep about without making a sound. A shadow demon uses its insubstantial claws to feast on its victim's fears, to taste its memories, and drink in its doubts. Bright light harries this fiend and shows its distinct shape, resolving it from a blur of darkness to a winged humanoid creature whose lower body trails off into nothing, and whose claws rend a victim's mind.<br/><br/><b>Shadowy Nature.</b> A shadow demon doesn't require air, food, drink, or sleep.",
+        "image": true,
+        "page": 64
     },
     {
         "index": "thri-kreen",
@@ -3039,8 +3057,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "Thri-kreen wander the deserts and savannas o f the world, avoiding all other races.<br/><br/><b>Thri-Kreen Communication.</b> Thri-kreen employ a language without words. To show emotion and reaction, a thri-kreen clacks its mandibles and waves its antennae, giving other thri-kreen a sense of what it is thinking and feeling. Other creatures find this manner of communication difficult to interpret and impossible to duplicate.<br/>When forced to interact with creatures of other intelligent species, thri-kreen employ alternative methods of communication, such as drawing pictures in sand or making pictures out of twigs or blades of grass.<br/><br/><b>Limited Emotions.</b> Thri-kreen experience the full range of emotions but aren't as prone to emotional outbursts as humans. Thri-kreen with psionic ability often demonstrate a wider range of emotions, particularly if they live near or interact with humans or other highly emotional creatures.<br/><br/><b>Isolationists and Wanderers.</b> Thri-kreen consider all other living creatures as potential nourishment, and they love the taste of elf flesh in particular. If a creature might be useful for something other than food, the thri­ kreen aren't likely to attack it on sight. Thri-kreen kill to survive, never for sport.<br/><br/><b>Sleepless.</b> Thri-kreen don't require sleep and can rest while remaining alert and performing light tasks. Their inability to sleep is thought to be the reason why thri­ kreen have such short lifespans, the average thri-kreen life expectancy being only thirty years.",
         "environments": ["desert","grassland"],
-        "image": true
+        "image": true,
+        "page": 288
     },
     {
         "index": "troglodyte",
@@ -3175,8 +3196,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "An abominable horror from deep beneath the earth, an umber hulk burrows into cave complexes, dungeons, or Underdark settlements in search of food. Those lucky enough to survive an umber hulk attack often remember precious little of the incident, thanks to the umber hulk's mind-scrambling gaze.<br/><br/><b>Devious Delvers.</b> Umber hulks can burrow through solid rock, forming new tunnels in their wake. The steel-hard chitin of its body can withstand the cave-ins, tunnel collapses, and rock falls that commonly follow it.<br/>Burrowing into the wall of a cavern or passageway, an umber hulk lies in wait for creatures to pass by on the other side, its hair-like feelers sensing any movement around it. When it explodes out in a shower of earth and rock, its unsuspecting quarry turns to face the oncoming threat-and is entranced by the umber hulk's bewildering eyes, forced to stand helpless as its mandibles snap shut.<br/><br/><b>Mind Scrambler.</b> Many survivors of an umber hulk encounter recollect little about the attack, because the monster's confusing gaze scrambles their memory of the event. Those who have fought and killed umber hulks recognize the signs. For other denizens of the Underdark, grisly tales of vanished explorers and wanton destruction speak of an unknown foe. Umber hulks take on supernatural status in these harrowing stories, many of which convey the same warning: once an umber hulk has been spotted, it is already too late to escape it.",
         "environments": ["underdark"],
-        "image": true
+        "image": true,
+        "page": 292
     },
     {
         "index": "vine-blight",
@@ -3251,8 +3275,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "Appearing a s masses o f slithering creepers, vine blights hide in undergrowth and wait for prey to draw near. By animating the plants around them, vine blights entangle and hinder their foes before attacking. Vine blights are the only blights capable of speech.<br/>Through its connection to the evil spirit of the Gulthias tree it serves, a vine blight speaks in a fractured version of its dead master's voice, taunting victims or bargaining with powerful foes.",
         "environments": ["forest"],
-        "image": true
+        "image": true,
+        "page": 31
     },
     {
         "index": "water-weird",
@@ -3339,8 +3366,11 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "A water weird is an elemental guardian bound to a specific water-filled location, such as a pool or fountain. Invisible while immersed in water, its serpentine shape becomes clear only when it emerges to attack, using its coils to crush any creature other than its summoner and those its summoner declares as off limits. When slain, a water weird becomes an inanimate pool of water.<br/><br/><b>Good and Evil Weirds.</b> Like most elementals, a water weird has no concept of good or evil. However, a water weird bound to a sacred or befouled source of water begins to take on the nature of that site, becoming neutral good or neutral evil.<br/>A neutral good water weird tries to frighten away interlopers rather than kill them, while a neutral evil water weird kills its victims for pleasure and might turn against its summoner. A water weird loses its evil alignment if its waters are cleansed with a purify food and drink spell.<br/><br/><b>Elemental Nature.</b> A water weird doesn't require air, food, drink, or sleep.",
         "environments": ["underdark","urban"],
-        "image": true
+        "image": true,
+        "page": 299
     },
     {
         "index": "yeti",
@@ -3420,7 +3450,10 @@
             }
         ],
         "url": null,
+        "book":"Monster Manual",
+        "desc": "A yeti's windborne howl sounds out across remote mountains, striking fear into the hearts of the scattered miners and herders that dwell there. These hulking creatures stalk alpine peaks in a ceaseless hunt for food. Their snow-white fur lets them move like ghosts against the frozen landscape. A yeti's icy simian eyes can freeze its prey in place.<br/><br/><b>Keen Hunters.</b> Folk of the high peaks travel in groups and go armed, knowing that yetis can smell living flesh from miles away. When it finds prey, a yeti moves quickly over ice and stone to claim its meal, howling to the thrill of the hunt. Even in a blizzard, the scent of its quarry draws the yeti through the cold and snow.<br/>Yetis hunt in solitude or in small family groups. When creatures flee from a yeti or engage it in battle, other yetis might catch the scent of blood and close in. The territorial yetis fight one another for the spoils of such battles, and yetis slain in the fight are also eaten, amid euphoric howls.<br/><br/><b>Terrifying Howlers.</b> Before an avalanche, a blizzard, or a deadly frost, the yetis' howls sweep down the mountain slopes on the icy wind. Some people of the alpine peaks believe that the voices of loved ones killed in avalanches and blizzards sound out in the wails of the yetis, crying warnings of ill omen. More pragmatic folk attest that the yeti's howl is a reminder that, despite the great accomplishments of civilization, the civilized become the hunted in nature's untamed domain.<br/><br/><b>Brutal Rampagers.</b> When mountain herds are abundant, yetis stay clear of humanoid realms. Driven by hunger, they attack humanoid settlements in waves, breaking down gates and stockade walls that once might have daunted them, then devouring the creatures within.<br/>Devious mountain folk sometimes use the yetis as unwitting weapons. A warlord might lay down slaughtered sheep or goats to draw yetis into an enemy's camp, sowing chaos and thinning the ranks before battle. Mountain clan chiefs, wanting to expand their territory, overhunt local game to diminish the yetis' food supplies, inspiring attacks on humanoid settlements that are swiftly annexed in the aftermath.<br/><br/><b>Abominable Yetis.</b> An abominable yeti is larger than a normal yeti, standing three times as tall as a human. It typically lives and hunts alone, though a pair of abominable yetis might live together long enough to raise young. These towering yetis are highly territorial and savage, attacking and devouring any warm-blooded creatures they encounter, then scattering the bones across the ice and snow.",
         "environments": ["arctic"],
-        "image": true
+        "image": true,
+        "page": 305
     }
 ]
