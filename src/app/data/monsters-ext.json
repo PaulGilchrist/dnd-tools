@@ -1422,7 +1422,10 @@
   },
   {
     "index": "imp",
-    "image": true
+    "book":"Monster Manual",
+    "desc": "Imps are found throughout the Lower Planes, either running errands for their infernal masters, spying on rivals, or misleading and waylaying mortals. An imp will proudly serve an evil master of any kind, but it can't be relied on to carry out tasks with any speed or efficiency.<br/>An imp can assume animal form at will, but in its natural state it resembles a diminutive red-skinned humanoid with a barbed tail, small horns, and leathery wings. It strikes while invisible, attacking with its poison stinger.",
+    "image": true,
+    "page": 76
   },
   {
     "index": "invisible-stalker",
@@ -1506,11 +1509,14 @@
   },
   {
     "index": "lizardfolk",
+    "book":"Monster Manual",
+    "desc": "Lizardfolk are primitive reptilian humanoids that lurk in the swamps and jungles of the world. Their hut villages thrive in forbidding grottos, half-sunken ruins, and watery caverns.<br/><br/><b>Territorial Xenophobes.</b> Lizardfolk deal and trade with other races only rarely. Fiercely territorial, they use camouflaged scouts to guard the perimeter of their domain. When unwelcome visitors are detected, a tribe sends a hunting band to harass or drive the trespassers off, or tricks them into blundering into the lairs of crocodiles and other dangerous creatures.<br/>Lizardfolk have no notion of traditional morality, and they find the concepts of good and evil utterly alien. Truly neutral creatures, they kill when it is expedient and do whatever it takes to survive.<br/>Lizardfolk rarely stray beyond their claimed hunting grounds. Any creature that enters their territory is fair game to be stalked, killed, and devoured. They make no distinction between humanoids, beasts, and monsters. Similarly, lizardfolk don't like reaching too far beyond their borders, where they could easily become the hunted instead of the hunters.<br/>Occasions might arise when lizardfolk will form alliances with their neighbors. These lizardfolk usually learn firsthand that humans, dwarves, halflings, and elves can sometimes prove helpful or trustworthy. Once lizardfolk forge ties with outsiders, they are steadfast and fierce allies.<br/><br/><b>Great Feasts and Sacrifices.</b> Lizardfolk are omnivorous, but they have a taste for humanoid flesh. Prisoners are often taken back to their camps to become the centerpieces of great feasts and rites involving dancing, storytelling, and ritual combat. Victims are either cooked and eaten by the tribe, or are sacrificed to Semuanya, the lizardfolk god.<br/><br/><b>Canny Crafters.</b> Though they aren't skilled artisans, lizardfolk craft tools and ornamental jewelry out of the bones of their kills, and they use the hides and shells of dead monsters to create shields.<br/><br/><b>Lizardfolk Leaders.</b> Lizardfolk respect and fear magic with a religious awe. Lizardfolk shamans lead their tribes, overseeing rites and ceremonies performed to honor Semuanya. From time to time, however, a lizardfolk tribe produces a powerful figure touched not by Semuanya but by Sess'inek-a reptilian demon lord who seeks to corrupt and control the lizardfolk.<br/>Lizardfolk born in Sess'inek's image are larger and more cunning than other lizardfolk, and are thoroughly evil. These lizard kings and queens dominate lizardfolk tribes, usurping a shaman's authority and inspiring uncharacteristic aggression among their subjects.<br/><br/><b>Dragon Worshipers.</b> Lizardfolk speak Draconic, which they are thought to have learned from dragons in ancient times. A tribe that wanders into the territory of a dragon will offer it tribute to win its favor. An evil dragon might exploit lizardfolk for its own vile ends, turning them into raiders and plunderers.",
     "environments": [
       "forest",
       "Swamp"
     ],
-    "image": true
+    "image": true,
+    "page": 204
   },
   {
     "index": "mage",
@@ -1526,7 +1532,10 @@
   },
   {
     "index": "magmin",
-    "image": true
+    "book":"Monster Manual",
+    "desc": "A grinning, mischievous magmin resembles a stumpy humanoid sculpted from a black shell of magma. Even when it isn't ablaze and radiating heat like a bonfire, small jets of flame erupt from its porous skin.<br/><br/><b>Summoned Pyromaniacs.</b> Magmins are fire elemental spirits bound into physical forms by magic, and they appear in the Material Plane only when summoned. They view flammable objects as kindling for a grand conflagration, and only the magical control exerted by their summoners keeps them from setting everything they touch ablaze. Their propensity for fire and havoc makes them ideal for spreading chaos and destruction. A mob of magmins summoned inside a castle can reduce it to a burning shell within minutes.<br/><br/><b>Fiery Destruction.</b> Although its flame is potent, the magmin's hard magma shell prevents it from instantly igniting everything it comes into contact with. However, like the fires inside them, magmins are capricious and unpredictable. Moreover, as simple elemental creations, they are oblivious to the harm their native element causes creatures of the Material Plane.<br/>If it has the opportunity while in service to its master, a magmin seeks out areas of great heat, such as forest fires or the bubbling magma of an active volcano. At other times, a magmin compulsively looses fire from its fingertips, delighting in setting objects ablaze.",
+    "image": true,
+    "page": 212
   },
   {
     "index": "mammoth",
@@ -1536,6 +1545,8 @@
   },
   {
     "index": "manticore",
+    "book":"Monster Manual",
+    "desc": "A monster in every sense o f the word, a manticore has a vaguely humanoid head, the body of a lion, and the wings of a dragon. A bristling mane stretches down the creature's back, and its long tail ends in a cluster of deadly spikes that can impale prey at impressive range.<br/><br/><b>Evil Predators.</b> Manticores are fierce killers that hunt far and wide for prey. They work together to take down particularly large or dangerous creatures, sharing the meal once a kill is made. A manticore begins its attack with a volley of tail spikes, then lands and uses its claws and bite. When outdoors and outnumbered, it uses its wings to stay aloft, attacking from a distance until its spikes are depleted.<br/>A manticore isn't particularly bright, but it possesses a malevolent nature and the ability to converse. In the course of attacking, it denigrates its foes and offers to kill them swiftly if they beg for their lives. If a manticore sees an advantage to be gained by sparing a creature's life, it does so, asking for a tribute or sacrifice equal to its loss of food.<br/><br/><b>Monstrous Relationships.</b> Manticores serve wicked masters that treat them well and provide regular prey. A manticore might provide aerial support for an ore horde or a hobgoblin army. Another could serve as a hunting companion for a hill giant -chief, or guard the entrance to a lamia's lair.<br/>The manticores' greatest territorial rivals include chimeras, griffons, perytons, and wyverns. Manticores hunting as a pack often have the advantage of greater numbers. In addition to these creatures, manticores fear dragons and avoid them.",
     "environments": [
       "arctic",
       "coastal",
@@ -1543,7 +1554,8 @@
       "hill",
       "mountain"
     ],
-    "image": true
+    "image": true,
+    "page": 213
   },
   {
     "index": "marilith",
@@ -1588,18 +1600,24 @@
   },
   {
     "index": "mimic",
+    "book":"Monster Manual",
+    "desc": "Mimics are shapeshifting predators able to take on the form of inanimate objects to lure creatures to their doom. In dungeons, these cunning creatures most often take the form of doors and chests, having learned that such forms attract a steady stream of prey.<br/><br/><b>Imitative Predators.</b> Mimics can alter their outward texture to resemble wood, stone, and other basic materials, and they have evolved to assume the appearance of objects that other creatures are likely to come into contact with. A mimic in its altered form is nearly unrecognizable until potential prey blunders into its reach, whereupon the monster sprouts pseudopods and attacks.<br/>When it changes shape, a mimic excretes an adhesive that helps it seize prey and weapons that touch it. The adhesive is absorbed when the mimic assumes its amorphous form and on parts the mimic uses to move itself.<br/><br/><b>Cunning Hunters.</b> Mimics live and hunt alone, though they occasionally share their feeding grounds with other creatures. Although most mimics have only predatory intelligence, a rare few evolve greater cunning and the ability to carry on simple conversations in Common or Undercommon. Such mimics might allow safe passage through their domains or provide useful information in exchange for food.",
     "environments": [
       "underdark",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 220
   },
   {
     "index": "minotaur",
+    "book":"Monster Manual",
+    "desc": "A minotaur's roar is a savage battle cry that most civilized creatures fear. Born into the mortal realm by demonic rites, minotaurs are savage conquerors and carnivores that live for the hunt. Their brown or black fur is stained with the blood of fallen foes, and they carry the stench of death.<br/><br/><b>The Beast Within.</b> Most minotaurs are solitary carnivores that roam labyrinthine dungeons, twisting caves, primeval woods, and the maze-like streets and passages of desolate ruins. A minotaur can visualize every route it might take to close the distance to its prey.<br/>The scent of blood, the tearing of flesh, and the cracking of bones spur a minotaur's lust for carnage, overwhelming all thought and reason. In a blood rage, a minotaur charges anything it sees, butting and goring like a battering ram, then chopping the fallen in twain. Apart from ambushing creatures that wander into its labyrinth, a minotaur cares little for strategy or tactics. Minotaurs seldom organize, they don't respect authority or hierarchy, and they are notoriously difficult to enslave, let alone control.<br/><br/><b>Cults of the Horned King.</b> Minotaurs are the dark descendants of humanoids transformed by the rituals of cults that reject the oppression of authority by returning to nature. Inductees often mistake these cults for druidic circles or totemic religions whose ceremonies involve entering a labyrinth while wearing a ceremonial animal mask.<br/>Within these bounded environments, cultists hunt, kill, and eat wild beasts, indulging their basest primal urges. In the end, however, sacrificial animals are exchanged for humanoid sacrifice-sometimes an inductee that tried to escape the cult after learning its secrets. These labyrinths become blood-soaked halls of slaughter, echoing to the cultists' savagery.<br/>Unknown to all but their highest-ranking leaders, these mystery cults are creations of the demon lord Baphomet, the Horned King, whose layer of the Abyss is a gigantic labyrinth. Some of his followers are fervent supplicants that plead for strength and power. Others come to the cult seeking a life free from authority's chains-and are liberated of their humanity instead as Baphomet transforms them into the minotaurs that echo his own savage form.<br/>Although they begin as creations of the Horned King, minotaurs can breed true with one another, giving rise to an independent race of Baphomet's savage children in the world.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 223
   },
   {
     "index": "minotaur-skeleton",
@@ -1617,10 +1635,13 @@
   },
   {
     "index": "mummy",
+    "book":"Monster Manual",
+    "desc": "Raised by dark funerary rituals, a mummy shambles from the shrouded stillness of a time-lost temple or tomb. Having been awoken from its rest, it punishes transgressors with the power of its unholy curse.<br/><br/><b>Preserved Wrath.</b> The long burial rituals that accompany a mummy's entombment help protect its body from rot. In the embalming process, the newly dead creature's organs are removed and placed in special jars, and its corpse is treated with preserving oils, herbs, and wrappings. After the body has been prepared, the corpse is typically wrapped in linen bandages.<br/><br/><b>The Will of Dark Gods.</b> An undead mummy is created when the priest of a death god or other dark deity ritually imbues a prepared corpse with necromantic magic. The mummy's linen wrappings are inscribed with necromantic markings before the burial ritual concludes with an invocation to darkness. As a mummy endures in undeath, it animates in response to conditions specified by the ritual. Most commonly, a transgression against its tomb, treasures, lands, or former loved ones will cause a mummy to rise.<br/><br/><b>The Punished.</b> Once deceased, an individual has no say in whether or not its body is made into a mummy. Some mummies were powerful individuals who displeased a high priest or pharaoh, or who committed crimes of treason, adultery, or murder. As punishment, they were cursed with eternal undeath, embalmed, mummified, and sealed away. Other times, mummies acting as tomb guardians are created from slaves put to death specifically to serve a greater purpose.<br/><br/><b>Creature of Ritual.</b> A mummy obeys the conditions and parameters laid down by the rituals that created it, driven only to punish transgressors. The overwhelming terror that foreshadows a mummy's attack can leave the intended victim paralyzed with fright. In the days following a mummy's touch, a victim's body rots from the outside in, until nothing but dust remains.<br/><br/><b>Ending a Mummy's Curse.</b> Rare magic can undo or dispel the ritual that gave rise to a mummy, allowing it to truly die. More commonly, a mummy can be sent back to its endless rest by undoing the transgression that caused it to rise. A sacred idol might be replaced in its niche, a stolen treasure could be returned to its tomb, or a temple might be purified of despoiling bloodshed.<br/>More ephemeral or permanent offenses, such as revealing a secret the mummy wished kept or killing an individual the mummy loved, can't be so easily remedied. In such cases, a mummy might slaughter all the creatures responsible and still not sate its wrath.<br/><br/><b>Undead Archives.</b> Though they seldom bother to do so, mummies can speak. As a result, some serve as undead repositories of lost lore, and can be consulted by the descendants of those who created them. Powerful individuals sometimes intentionally sequester mummies away for occasional consultation.<br/><br/><b>Undead Nature.</b> A mummy doesn't require air, food, drink, or sleep.",
     "environments": [
       "desert"
     ],
-    "image": true
+    "image": true,
+    "page": 227
   },
   {
     "index": "mummy-lord",
@@ -1633,11 +1654,17 @@
   },
   {
     "index": "night-hag",
-    "image": true
+    "book":"Monster Manual",
+    "desc": "Sly and subversive, night hags want t o see the virtuous turn to villainy: love turned into obsession, kindness turned to hate, devotion to disregard, and generosity to selfishness. Night hags take perverse joy in corrupting mortals.<br/>Night hags were once creatures of the Feywild, but their foulness saw them exiled to Hades long ago, where they degenerated into fiends. The night hags have long since spread across the Lower Planes.<br/><br/><b>Soulmongers.</b> While a humanoid sleeps, a night hag can straddle the person ethereally and intrude upon its dreams. Any creature with truesight can see the hag's spectral form straddling its prey. The ethereal hag fills her victim's head with doubts and fears, in the hope of tricking it into performing evil acts in the waking world. The hag continues her nightly visitations until the victim finally expires in its sleep. If the hag has driven her victim to commit evil deeds, she traps its corrupted soul in her soul bag (see the \"Night Hag Items\" sidebar) for transport to Hades.<br/><br/><b>Covens.</b> A night hag that is part of a coven (see the \"Hag Covens\" sidebar) has a challenge rating of 7 (2,900 XP).",
+    "image": true,
+    "page": 176
   },
   {
     "index": "nightmare",
-    "image": true
+    "book":"Monster Manual",
+    "desc": "A nightmare appears i n a cloud o f roiling smoke, its mane, tail, and hooves wreathed in flame. The creature's unearthly black form moves with supernatural speed, vanishing in a cloud of brimstone as quickly as it appeared.<br/><br/><b>Dread Steed.</b> Also called a \"demon horse\" or \"hell horse,\" the nightmare serves as a steed for creatures of exceptional evil, carrying demons, devils, death knights, liches, night hags, and other vile monsters. It resembles a fiendish horse, and a nightmare's fiery red eyes betray its malevolent intelligence.<br/>A nightmare can be summoned from the Lower Planes, but unless a worthy sacrifice is offered to it as food upon its arrival, the· nightmare displays no special loyalty to the creature it serves.<br/><br/><b>Creating a Nightmare.</b> Nightmares don't appear naturally in the multiverse. They must be created from pegasi. The ritual that creates a nightmare requires the torturous removal of a pegasus's wings, driving that noble creature to evil as it is transformed by dark magic.",
+    "image": true,
+    "page": 235
   },
   {
     "index": "noble",
@@ -1647,10 +1674,13 @@
   },
   {
     "index": "ochre-jelly",
+    "book": "Monster Manual",
+    "desc": "Ochre jellies are yellowish blobs that can slide under doors and through narrow cracks in pursuit of creatures to devour. They have enough bestial cunning to avoid large groups of enemies.<br/>An ochre jelly follows at a safe distance as it pursues its meal. Its digestive enzymes dissolve flesh quickly but have no effect on other substances such as bone, wood, and metal.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 240
   },
   {
     "index": "octopus",
@@ -1660,6 +1690,8 @@
   },
   {
     "index": "ogre",
+    "book":"Monster Manual",
+    "desc": "Ogres are as lazy of mind as they are strong of body. They live by raiding, scavenging, and killing for food and pleasure. The average adult specimen stands between 9 and 10 feet tall and weighs close to a thousand pounds.<br/><br/><b>Furious Tempers.</b> Ogres are notorious for their quick tempers, which flare at the smallest perceived offense. Insults and name-calling can rouse an ogre's wrath in an instant-as can stealing from it, bumping, jabbing, or prodding it, laughing, making faces, or simply looking at it the wrong way. When its rage is incited, an ogre lashes out in a frustrated tantrum until it runs out of objects or creatures to smash.<br/><br/><b>Gruesome Gluttons.</b> Ogres eat almost anything, but they especially enjoy the taste of dwarves, halfiings, and elves. When they can, they combine dinner with pleasure, chasing scurrying victims around before eating them raw. If enough of its victim remains after the ogre has gorged itself, it might make a loincloth from its quarry's skin and a necklace from its leftover bones. This macabre crafting is the height of ogre culture.<br/><br/><b>Greedy Collectors.</b> An ogre's eyes glitter with avarice when it sees the possessions of others. Ogres carry rough sacks on their raids, which they fill with fabulous \"treasure\" taken from their victims. This might include a collection of battered helmets, a moldy wheel of cheese, a rough patch of animal fur fastened like a cloak, or a squealing, mud-spattered pig. Ogres also delight in the gleam of gold and silver, and they will fight one another over small handfuls of coins. Smarter creatures can earn an ogre's trust by offering it gold or a weapon forged for a creature of its size.<br/><br/><b>Legendary Stupidity.</b> Few ogres can count to ten, even with their fingers in front of them. Most speak only a rudimentary form of Giant and know a smattering of Common words. Ogres believe what they are told and are easy to fool or confuse, but they break things they don't understand. Silver-tongued tricksters who test their talents on these savages typically end up eating their eloquent words-and then being eaten in turn.<br/><br/><b>Primitive Wanderers.</b> Ogres clothe themselves in animal pelts and uproot trees for use as crude tools and weapons. They create stone-tipped javelins for hunting. When they establish lairs, they settle near the rural edges of civilized lands, taking advantage of poorly protected livestock, undefended larders, and unwary farmers.<br/>An ogre sleeps in cave ;, animal dens, or under trees until it finds a cabin or isolated farmhouse, whereupon it kills the inhabitants and lairs there. Whenever it is bored or hungry, an ogre ventures out from its lair, attacking anything that crosses its path. Only after an ogre has depleted an area of food does it move on.",
     "environments": [
       "arctic",
       "coastal",
@@ -1671,7 +1703,8 @@
       "Swamp",
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 237
   },
   {
     "index": "ogre-zombie"
@@ -1686,6 +1719,8 @@
   },
   {
     "index": "orc",
+    "book":"Monster Manual",
+    "desc": "Ores are savage raiders and pillagers with stooped postures, low foreheads, and piggish faces with prominent lower canines that resemble tusks.<br/><br/><b>Gruumsh One-Eye.</b> Ores worship Gruumsh, the mightiest of the ore deities and their creator. The ores believe that in ancient days, the gods gathered to divide the world among their followers. When Gruumsh claimed the mountains, he learned they had been taken by the dwarves. He laid claim to the forests, but those had been settled by the elves. Each place that Gruumsh wanted had already been claimed. The other gods laughed at Gruumsh, but he responded with a furious bellow. Grasping his mighty spear, he laid waste to the mountains, set the forests aflame, and carved great furrows in the fields. Such was the role of the ores, he proclaimed, to take and destroy all that the other races would deny them. To this day, the ores wage an endless war on humans, elves, dwarves, and other folk.<br/>Ores hold a particular hatred for elves. The elven god Corellon Larethian half-blinded Gruumsh with a well­ placed arrow to the ore god's eye. Since then, the ores have taken particularjoy in slaughtering elves. Turning his injury into a baleful gift, Gruumsh grants divine might to any champion who willingly plucks out one of its eyes in his honor.<br/><br/><b>Tribes like Plagues.</b> Ores gather in tribes that exert their dominance and satisfy their bloodlust by plundering villages, devouring or driving off roaming herds, and slaying any humanoids that stand against them. After savaging a settlement, ores pick it clean of wealth and items usable in their own lands. They set the remains of villages and camps ablaze, then retreat whence they came, their bloodlust satisfied.<br/><br/><b>Ranging Scavengers.</b> Their lust for slaughter demands that ores dwell always within striking distance of new targets. As such, they seldom settle permanently, instead converting ruins, cavern complexes, and defeated foes' villages into fortified camps and strongholds. Ores build only for defense, making no innovation or improvement to their lairs beyond mounting the severed body parts of their victims on spiked stockade walls or pikes jutting up from moats and trenches.<br/>When an existing territory is depleted of food, an ore tribe divides into roving bands that scout for choice hunting grounds. When each party returns, it brings back trophies and news of targets ripe for attack, the richest of which is chosen. The tribe then sets out en masse to carve a bloody path to its new territory.<br/>On rare occasions, a tribe's leader chooses to hold onto a particularly defensible lair for decades. The ores of such a tribe must range far across the countryside to sate their appetites.<br/><br/><b>Leadership and Might.</b> Ore tribes are mostly patriarchal, flaunting such vivid or grotesque titles as Many-Arrows, Screaming Eye, and Elf Ripper. Occasionally, a powerful war chief unites scattered ore tribes into a single rampaging horde, which runs roughshod over other ore tribes and humanoid settlements from a position of overwhelming strength.<br/>Strength and power are the greatest of orcish virtues, and ores embrace all manner of mighty creatures in their tribes. Rejecting notions of racial purity, they proudly welcome ogres, trolls, half-ores, and orogs into their ranks. As well, ores respect and fear the size and power of evil giants, and often serve them as guards and soldiers.<br/><br/><b>Ore Crossbreeds.</b> Luthic, the ore goddess of fertility and wife of Gruumsh, demands that ores procreate often and indiscriminately so that ore hordes swell generation after generation. The ores' drive to reproduce runs stronger than any other humanoid race, and they readily crossbreed with other races. When an ore procreates with a non-ore humanoid of similar size and stature (such as a human or a dwarf), the resulting child is either an ore or a half-ore. When an ore produces young with an ogre, the child is a half-ogre of intimidating strength and brutish features called an ogrillon.",
     "environments": [
       "arctic",
       "forest",
@@ -1695,7 +1730,8 @@
       "Swamp",
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 244
   },
   {
     "index": "otyugh",
@@ -1950,11 +1986,14 @@
   },
   {
     "index": "sea-hag",
+    "book":"Monster Manual",
+    "desc": "Sea hags live in dismal and polluted underwater lairs, surrounded by merrow and other aquatic monsters. Beauty drives a sea hag to fits of anger. When confronted with something beautiful, the hag might simply attack it or deface it. If something beautiful gives hope, a sea hag wants it to cause despair. If it inspires courage, the sea hag wants it to cause fear.<br/><br/><b>Ugly Inside and Out.</b> Sea hags are by far the ugliest of all hags, with slimy scales covering their pallid skin. A sea hag's hair resembles seaweed and covers her emaciated body, and her glassy eyes seem as lifeless as a doll's. Although a sea hag can hide her true form under a veil of illusion, the hag is cursed to forever appear ugly. Her illusory form appears haggard at best.<br/><br/><b>Covens.</b> A sea hag that is part of a coven (see the \"Hag Covens\" sidebar) has a challenge rating of 4 (1,100 XP).",
     "environments": [
       "coastal",
       "underwater"
     ],
-    "image": true
+    "image": true,
+    "page": 176
   },
   {
     "index": "sea-horse"
