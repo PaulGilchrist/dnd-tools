@@ -1748,10 +1748,13 @@
   },
   {
     "index": "owlbear",
+    "book":"Monster Manual",
+    "desc": "An owlbear's screech echoes through dark valleys and benighted forests, piercing the quiet night to announce the death of its prey. Feathers cover the thick, shaggy coat of its bearlike body, and the limpid pupils of its great round eyes stare furiously from its owlish head.<br/><br/><b>Deadly Ferocity.</b> The owlbear's reputation for ferocity, aggression, stubbornness, and sheer ill temper makes it one of the most feared predators of the wild. There is little, if anything, that a hungry owlbear fears. Even monsters that outmatch an owlbear in size and strength avoid tangling with it, for this creature cares nothing about a foe's superior strength as it attacks without provocation.<br/><br/><b>Consummate Predators.</b> An owlbear emerges from its den around sunset and hunts into the darkest hours of the night, hooting or screeching to declare its territory, to search for a mate, or to flush prey into its hunting grounds. These are typically forests familiar to the owlbear, and dense enough to limit its quarry's escape routes.<br/>An owlbear makes its den in a cave or ruin littered with the bones of its prey. It drags partially devoured kills back to its den, storing portions of the carcass among the surrounding rocks, bushes, and trees. The scent of blood and rotting flesh hangs heavy near an owlbear's lair, attracting scavengers and thus luring more prey.<br/>Owlbears hunt alone or in mated pairs. If quarry is plentiful, a family of owlbears might remain together for longer than is required to rear offspring. Otherwise, they part ways as soon as the young are ready to hunt.<br/><br/><b>Savage Companions.</b> Although they are more intelligent than most animals, owlbears are difficult to tame. However, with enough time, food, and luck, an intelligent creature can train an owlbear to recognize it as a master, making it an unflinching guard or a fast and hardy mount. People of remote frontier settlements have even succeeded at racing owlbears, but spectators bet as often on which owlbear will attack its handler as they do on which will reach the finish line first.<br/>Elven communities encourage owlbears to den beneath their treetop villages, using the beasts as a natural defense during the night. Hobgoblins favor owlbears as war beasts, and hill giants and frost giants sometimes keep owlbears as pets. A starved owlbear might show up in a gladiatorial arena, ruthlessly eviscerating and devouring its foes before a bloodthirsty audience.<br/><br/><b>Owlbear Origins.</b> Scholars have long debated the origins ofthe owlbear. The most common theory is that a demented wizard created the first specimen by crossing a giant owl with a bear. However, venerable elves claim to have known these creatures for thousands ofyears, and some fey insist that owlbears have always existed in the Feywild.",
     "environments": [
       "forest"
     ],
-    "image": true
+    "image": true,
+    "page": 249
   },
   {
     "index": "panther",
@@ -1763,15 +1766,20 @@
   },
   {
     "index": "pegasus",
+    "book":"Monster Manual",
+    "desc": "The white winged horses known a s pegasi soar through the skies, a vision of grace and majesty. When they touch down on solid ground, they linger only for a moment, drinking from mountain springs and pristine lakes. Any sound or sign of another creature startles them, sending them off to fly once more among the clouds.<br/><br/><b>Noble Mounts.</b> Pegasi are highly prized as swift and reliable steeds, being faster and less temperamental than griffons, hippogriffs, and wyverns. However, these wild and shy creatures are as intelligent as humanoids, and so can't be traditionally broken and tamed. A pegasus must be persuaded to serve a good-aligned creature as a mount, but when it does so, it forges a life­ long bond with its new companion.<br/><br/><b>Born of the Planes.</b> Pegasi trace their origins to the Olympian Glades of Arborea, where they soar through the skies of that plane and serve as faithful mounts to the Seldarine, the pantheon of elven gods. These gods have been known to send pegasi to the Material Plane to aid those in need.<br/><br/><b>Pegasi Nests.</b> Pegasi mate for life, build their nests in hard-to-reach locations, and give birth to live young.",
     "environments": [
       "forest",
       "grassland",
       "hill"
     ],
-    "image": true
+    "image": true,
+    "page": 250
   },
   {
     "index": "phase-spider",
+    "book":"Monster Manual",
+    "desc": "A phase spider possesses the magical ability to phase in and out of the Ethereal Plane. It seems to appear out of nowhere and quickly vanishes after attacking. Its movement on the Ethereal Plane before coming back to the Material Plane makes it seem like it can teleport.",
     "environments": [
       "desert",
       "forest",
@@ -1780,7 +1788,8 @@
       "underdark",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 334
   },
   {
     "index": "pit-fiend",
@@ -1827,6 +1836,8 @@
   },
   {
     "index": "pseudodragon",
+    "book":"Monster Manual",
+    "desc": "The elusive pseudodragon dwells in the quiet places of the world, making its home in the hollows of trees and small caves. With its red-brown scales, horns, and a maw filled with sharp teeth, a pseudodragon resembles a tiny red dragon but its disposition is playful.<br/><br/><b>Quiet and Defensive.</b> Pseudodragons have little interest in other creatures, and they avoid them whenever possible. If it is attacked, a pseudodragon fights back using the poisonous stinger at the tip of its tail, one jab of which can put a creature into a catatonic state that can last for hours.<br/><br/><b>Draconic Familiars.</b> Mages often seek out pseudodragons, whose agreeable disposition, telepathic ability, and resistance to magic make them superior familiars. Pseudodragons are selective when it comes to choosing companions, but they can sometimes be won over with gifts of food or treasure. When a pseudodragon finds an agreeable companion, it bonds with that person as long as it is treated fairly. A pseudodragon puts up with no ill treatment, and it abandons a manipulative or abusive companion without warning.",
     "environments": [
       "coastal",
       "desert",
@@ -1835,7 +1846,8 @@
       "mountain",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 254
   },
   {
     "index": "purple-worm",
@@ -1847,7 +1859,10 @@
   },
   {
     "index": "quasit",
-    "image": true
+    "book":"Monster Manual",
+    "desc": "Quasits infest the Lower Planes. Physically weak, they keep to the shadows to plot mischief and wickedness. More powerful demons use quasits as spies and messengers when they aren't devouring them or pulling them apart to pass the time.<br/>A quasit can assume animal forms, but in its true form it looks like a 2-foot-tall green humanoid with a barbed tail and horns. The quasit has clawed fingers and toes, and these claws can deliver an irritating poison. It prefers to be invisible when it attacks.",
+    "image": true,
+    "page": 63
   },
   {
     "index": "quipper",
@@ -1920,20 +1935,29 @@
   },
   {
     "index": "roper",
+    "book":"Monster Manual",
+    "desc": "Living in caves and caverns throughout the Underdark, voracious ropers feast on whatever they can catch and seize. A roper eats any creature, from Underdark beasts to adventurers and their gear.<br/>A roper has the appearance of a stalagmite or c stalactite, which often allows it to attack with surprise. The creature can move slowly using thousands of sticky cilia beneath its base. It creeps up cave walls and along stone ceilings, finding the best position from which to attack.<br/><br/><b>Underdark Hunters.</b> The roper is an evolved, mature form of piercer, with which it shares its rock­ like appearance and hunting tactics. A roper can hold still for long hours, shutting its single eye to look like nothing more than a mundane formation of rock. Creatures that come too close are surprised when that eye snaps open and sticky tendrils shoot out to seize them. The roper then makes horrible guttural sounds as it reels in its struggling victims, drawing them close for the fatal bite of its stony teeth.<br/>A roper can digest anything it eats with the exception of platinum, gemstones, and magic items, which can sometimes be retrieved from the creature's gizzard after death. A roper's digestive juices are also valuable, fetching a high price from alchemists who use them as a solvent.<br/><br/><b>Weakening Tendrils.</b> A roper has six nubs set along its body, through which it extrudes sticky tendrils that bond to whatever they touch. Each tendril sends out hair-like growths that penetrate a creature's flesh and sap its strength, so the victim can struggle only weakly as the roper reels it in. If a tendril is cut through or broken, the roper produces a new one to replace it.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 261
   },
   {
-    "index": "rug-of-smothering"
+    "index": "rug-of-smothering",
+    "book":"Monster Manual",
+    "desc": "Would-be thieves and careless heroes arrive at the doorsteps of an enemy's abode, eyes and ears alert for traps, only to end their quest prematurely as the rugs beneath their feet animate and smother them to death.<br/>A rug of smothering can be made in many different forms, from a finely woven carpet fit for a queen to a coarse mat in a peasant's hovel. Creatures with the ability to sense magic detect the rug's false magical aura.<br/>In some cases, a rug of smothering is disguised as a carpet of flying or another beneficial magic item. However, a character who stands or sits on the rug, or who attempts to utter a word of command, is quickly trapped as the rug of smothering rolls itself tightly around its victim.",
+    "page": 21
   },
   {
     "index": "rust-monster",
+    "book":"Monster Manual",
+    "desc": "Most dwarves would rather face a squad o f ores than confront a single rust monster. These strange, normally docile creatures corrode ferrous metals, then gobble up the rust they create. In doing so, they have ruined the armor, shields, and weapons of countless adventurers.<br/>A rust monster's body is covered in thick, lumpy armor, its long tail ends in a bony protrusion, and two feathery antennae sprout from its insectile head.<br/><br/><b>Underground Scavengers.</b> Rust monsters roam subterranean passages in search of ferrous metals such as iron, steel, adamantine, and mithral to consume. They ignore creatures not carrying such metals, but can become aggressive toward those bearing steel weapons and armor. A rust monster can smell its food at a distance, immediately dashing toward the scent's source to corrode and consume the object.<br/>A rust monster doesn't care if the rust it consumes comes from a spike or a sword. Adventurers can distract the creature by dropping ferrous objects behind them.<br/><br/><b>Subterranean Wanderers.</b> Rust monsters are rarely found in large numbers, preferring to hunt alone or in small groups. They meander along tunnels, moving from cave to cave in their tireless search for ferrous metals to consume. Their wanderings often bring them into contact with other Underdark denizens that find them harmless or unappetizing. Thus, rust monsters may be found in close proximity to other subterranean monsters. If they are well treated and well fed, they can also become friendly companions or pets.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 262
   },
   {
     "index": "saber-toothed-tiger",
@@ -1944,25 +1968,34 @@
   },
   {
     "index": "sahuagin",
+    "book":"Monster Manual",
+    "desc": "Across fog-shrouded coasts or endless ocean swells, an ominous drone sounded on a conch shell chills the blood of all who hear it. This is the sound of the sahuagin hunting horn-a call to raid and battle. Coastal settlers refer to sahuagin as \"sea devils,\" for sahuagin have no compassion in them, slaughtering the crews of ships and decimating coastal villages.<br/><br/><b>Devils of the Deep.</b> Sahuagin are a predatory, piscine race that ventures from the ocean's black depths to hunt the creatures of the shallows and shore. Though they dwell in the deepest trenches of the ocean, sahuagin view the entire aquatic realm as their kingdom and the creatures in it as blood sport for their hunting parties.<br/>The self-styled rulers of sahuagin ocean domains are massive mutant males that grow second sets of arms. They are terrible foes in battle, and all sahuagin bow down before these powerful barons.<br/><br/><b>Way of the Shark.</b> Sahuagin worship the shark god Sekolah. Only female sahuagin are deemed worthy of channeling the god's power, and priestesses hold tremendous sway in sahuagin communities.<br/>Sahuagin are driven into a frenzy by the smell of fresh blood. As worshipers of Sekolah, they also have a special kinship with sharks, which they train as attack animals. Even untrained sharks recognize sahuagin as allies and don't prey on them.<br/><br/><b>Elven Enmity.</b> The sahuagin might control the oceans if not for the presence of their mortal enemies, the aquatic elves. Wars between the two races have raged for centuries across the coasts and seas of the world, disrupting maritime trade and drawing other races into the bloody conflict.<br/>So intense is sahuagin hatred for the aquatic elves that the sea devils have adapted to combat their ancient foes. A sahuagin born near enough to an aquatic elf community can enter the world as a malenti-a sahuagin that physically resembles an aquatic elf in every way. Sahuagin are prone to mutation, but whether this rare phenomenon is a result of the wars between the sahuagin and the aquatic elves-or whether it preceded or even began the conflict-none can say.<br/>The sahuagin put the malenti to good use as spies and assassins in aquatic elf cities and the societies of other creatures that pose a threat to sahuagin. The mere shadow of the malenti threat incites paranoia and suspicion among aquatic elves, whose resilience is weakened as the prelude to an actual sahuagin invasion.",
     "environments": [
       "coastal",
       "underwater"
     ],
-    "image": true
+    "image": true,
+    "page": 263
   },
   {
     "index": "salamander",
+    "book":"Monster Manual",
+    "desc": "Salamanders slither across the Sea of Ash on the Elemental Plane of Fire, their sinuous coils and jagged spines smoldering. Intense heat washes off their bodies, while their yellow eyes glow like candles in the deep-set hollows of their hawkish faces.<br/>Salamanders adore power, and they delight in setting fire to things. Outside their home plane, they play among the burning skeletons of charred trees as forest fires rage around them, or slither down the slopes of erupting volcanoes to linger in fire pits and magma floes.<br/><br/><b>Fire Snakes.</b> Salamanders hatch from eggs that are two-foot-diameter spheres of smoldering obsidian. When a salamander is ready to hatch, it melts its way through the egg's thick shell and emerges as a fire snake. A fire snake matures into a salamander adult within a year.<br/><br/><b>Slaves of the Efreet.</b> Long ago, the efreet hired azers to build the fabled City of Brass, but then failed in their attempt to enslave that mystical race when the azers' work was done. Turning instead to strike against the salamanders, the efreet had better luck in establishing a slave race, which they use to unleash war and destruction across the planes.<br/>Salamanders despise the azers, believing that if the efreet had succeeded in dominating that race of ' elemental crafters, the salamanders would still be free. The efreet use this enmity to their own advantage, stoking the salamanders' hatred and pitting them against the efreets' former servants.<br/>The efreet suffer salamanders to serve no other master; when efreet encounter salamanders dedicated to the cults of Elemental Evil, they slay them rather than taking them as slaves.<br/><br/><b>Domineering Nobles.</b> Although salamanders follow the destructive impulses of their fiery nature, slavery under the efreet has impacted the culture of free salamanders. They rule their own societies according to the efreet model, in which larger and stronger salamanders claim dominion over their lesser kin.<br/>As salamanders age, they increase in size and status, rising to positions of power as cruel nobles among their kind. Nobles rule wandering bands of salamanders, which move across the Elemental Plane of Fire like desert nomads, raiding other communities for treasure.<br/><br/><b>Living Forges.</b> Salamanders generate intense heat, and when they fight, their weapons glow red and sear the bodies of their enemies on contact. Even approaching a salamander is dangerous, since flesh blisters and burns in its proximity.<br/>This inherent heat is an asset to salamanders' skill as smiths, allowing them to soften and shape iron and steel with their bare hands. Although not as meticulous as azers, salamanders number among the greatest metalsmiths in all the planes. Powerful creatures summon them as warriors, but others enlist the salamanders for their crafting skills, or bind them to forges and ovens to generate limitless heat.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 265
   },
   {
     "index": "satyr",
+    "book":"Monster Manual",
+    "desc": "Satyrs are raucous fey that frolic in wild forests, driven by curiosity and hedonism in equal measure.<br/>Satyrs resemble stout male humans with the furry lower bodies and cloven hooves of goats. Horns sprout from their heads, ranging in shape from a pair of small nubs to large, curling rams' horns. They typically sport facial hair.<br/><br/><b>Hedonistic Revelers.</b> Satyrs crave the strongest drink, the most fragrant spices, and the most dizzying dances. A satyr feels starved when it can't indulge itself, and it goes to great lengths to sate its desires. It might kidnap a fine minstrel to hear lovely songs, sneak through a well-defended garden to gaze upon a beautiful lad or lass, or infiltrate a palace to taste the finest food in the land. Satyrs allow no festivity to pass them by. They partake in any holiday they've heard of. Civilizations of the world have enough festivals and holy days among them to justify nonstop celebration.<br/>Inebriated on drink and pleasure, satyrs give no thought to the consequences of the hedonism they incite in others. They leave such creatures mystified at their own behavior. Such revelers might have to scrounge for excuses to explain their disordered state to parents, employers, family, or friends.",
     "environments": [
       "forest"
     ],
-    "image": true
+    "image": true,
+    "page": 267
   },
   {
     "index": "scorpion",
@@ -2000,19 +2033,25 @@
   },
   {
     "index": "shadow",
+    "book":"Monster Manual",
+    "desc": "Shadows are undead that resemble dark exaggerations of humanoid shadows.<br/><br/><b>Dark Disposition.</b> From the darkness, the shadow reaches out to feed on living creatures' vitality. They can consume any living creature, but they are especially drawn to creatures untainted by evil. A creature that lives a life of goodness and piety consigns its basest impulses and strongest temptations to the darkness where the shadows hunger. As a shadow drains its victim's strength and physical form, the victim's shadow darkens and begins to move of its own volition. In death, the creature's shadow breaks free, becoming a new undead shadow hungry for more life to consume.<br/>If a creature from which a shadow has been created somehow returns to life, its undead shadow senses the return. The shadow might seek its \"parent\" to vex or slay. Whether the shadow pursues its living counterpart, the creature that birthed the shadow no longer casts one until the monster is destroyed.<br/><br/><b>Undead Nature.</b> A shadow doesn't require air, food, drink, or sleep.",
     "environments": [
       "underdark",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 269
   },
   {
     "index": "shambling-mound",
+    "book":"Monster Manual",
+    "desc": "A shambling mound, sometimes called a shambler, trudges ponderously through bleak swamps, dismal marshes, and rain forests, consuming any organic matter in its path. This rotting heap of animated vegetation looms up half again as tall as a human, tapering into a faceless \"head\" at its top.<br/><br/><b>All-Consuming Devourers.</b> A shambling mound feeds on any organic material, tirelessly consuming plants as it moves and devouring animals that can't escape it. Only the shambling mounds' rarity and plodding speed prevent them from overwhelming entire ecosystems. Even so, their presence leeches natural environments of plant and animal life, and an unsettling quiet pervades the swamps and woods haunted by these ever-hungry horrors.<br/><br/><b>Unseen Hunters.</b> Composed of decaying leaves, vines, roots, and other natural swamp and forest compost, shamblers can blend into their environs. Because they move slowly, they rarely attempt to pursue and catch creatures. Rather, they remain in place, sustaining themselves by absorbing nutrients from their surroundings as they wait for prey to come to them. When a creature passes near or alights upon a shambling mound, the monster comes to life, seizing and absorbing the unwary prey.<br/><br/><b>Spawned by Lightning.</b> A shambling mound results from a phenomenon in which lightning or fey magic invigorates an otherwise ordinary swamp plant. As the plant is reborn into its second life, it chokes the life from plants and animals around it, mulching their corpses in a heap around its roots. Those roots eventually give up their reliance on the soil, directing the shambling mound to seek out new sources of food.<br/><br/><b>The Weed that Walks.</b> The instinct that drives a shambling mound is its central root-stem, buried somewhere inside its ponderous form. The rest of a shambler consists of the rotting heap that it simultaneously accumulates and feeds on, which protects the root-stem and animates to smash and smother the life from any creature.<br/>The dense mass of a shambling mound's body shrugs off the effects of cold and fire. Lightning reinvigorates the root-stem, strengthening the shambling mound and bolstering its consumptive drive.<br/>Despite its monstrous form, the shambling mound is a living plant that requires air and nourishment. Although it doesn't sleep the way an animal does, it can lie dormant for days on end before rising to hunt for food.<br/><br/><b>A Resurgent Menace.</b> If a shambling mound faces defeat before an overwhelming foe, the root-stem can feign death, collapsing the remains of its mound. If not subsequently killed, the root-stem beds down in the shambler's remains to slowly regrow its full body, then once again sets out to consume all it can. In this way, shambling mound infestations long thought destroyed can recur time and again.",
     "environments": [
       "forest",
       "Swamp"
     ],
-    "image": true
+    "image": true,
+    "page": 270
   },
   {
     "index": "shield-guardian",
@@ -2023,10 +2062,13 @@
   },
   {
     "index": "shrieker",
+    "book":"Monster Manual",
+    "desc": "A shrieker i s a human-sized mushroom that emits a piercing screech to drive off creatures that disturb it. Other creatures use the fungi as an alarm to signal the approach of prey, and various intelligent races of the Underdark cultivate shriekers on the outskirts of their communities to discourage trespassers.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 139
   },
   {
     "index": "silver-dragon-wyrmling"
@@ -2066,10 +2108,13 @@
   },
   {
     "index": "sprite",
+    "book":"Monster Manual",
+    "desc": "In secret groves and shaded glens, tiny sprites with dragonfly wings flutter. For all their fey splendor, however, sprites lack warmth and compassion. They are aggressive and hardy warriors, taking severe measures to ward strangers away from their homes. Interlopers that come too close have their moral character judged, then are put to sleep or frightened off.<br/><br/><b>Forest Protectors.</b> Sprites build little villages in the boughs of trees and willing treants, in verdant glades brightened by moss, wild flowers, and toadstools. Wild nature thrives, and the sprites allow no trespassers. When intruders are spotted, the sprites lead them astray with ominous rustling from the bushes and distant snapping twigs. Creatures foolish enough to persist in intruding on a sprite's territory are stung with poisoned arrows and lulled into a senseless sleep. While they slumber, the sprites make good their escape, retreating to an even more secluded area of the forest.<br/><br/><b>Heart Seers.</b> Sprites can sense whether a creature is good or evil by the sound and feeling of its beating heart. Weighing the balance of a creature's past actions, a sprite can tell whether its heart beats rapidly in love or flags in sorrow, or whether it is darkened by hate or greed. The sprite's power to perceive the heart always shows the truth, because the heart can't lie.<br/><br/><b>Poison Brewers.</b> In their forest domains, sprites brew toxins, unguents, antidotes, and poisons, including the sleep poison with which they coat their arrows. They venture far into the woods to harvest rare flowers, mosses, and fungi, sometimes crossing dangerous territory to do so. If desperate, sprites even steal their ingredients from the gardens of hags.<br/><br/><b>Good-Hearted.</b> Because they are judges of the heart and favor good creatures, sprites oppose the will of evil fey and pledge to thwart evil archfey at every turn. If they encounter adventurers on a quest to rid their forest of an evil fey creature or goblinoid menace, they will pledge their support and even come to their aid when the adventurers least expect it.<br/>Unlike pixies, sprites rarely indulge in frivolous merriment and fun. They are firm warriors, protectors, and judges, and their stern bent causes other fey to consider them overly dour and serious. However, fey that respect the sprites' territory find them staunch allies in times of trouble.",
     "environments": [
       "forest"
     ],
-    "image": true
+    "image": true,
+    "page": 283
   },
   {
     "index": "spy",
@@ -2128,10 +2173,13 @@
   },
   {
     "index": "succubus-incubus",
+    "book":"Monster Manual",
+    "desc": "Succubi and incubi inhabit all of the Lower Planes, and the lascivious dark-winged fiends can be found in service to devils, demons, night hags, rakshasas, and yugoloths. Asmodeus, ruler of the Nine Hells, uses these fiends to tempt mortals to perform evil acts. The demon lord Graz'zt keeps succubi and incubi as advisers and consorts.<br/>Though legend speaks of them separately, any succubus can become an incubus, and vice versa. Most of these fiends do have a preference for one form or the other. Mortals only rarely see a succubus or incubus in its true form, however, for the fiend typically begins its corruption in veiled, insidious ways.<br/><br/><b>Beautiful Corrupters.</b> A succubus or incubus first appears in ethereal form, passing through walls like a ghost to lurk next to a mortal's bedside and whisper forbidden pleasures. Sleeping victims are tempted to give in to their darkest desires, indulge in taboos, and feed forbidden appetites. As the fiend fills the victim's dreams with debauched images, the victim becomes more susceptible to temptation in everyday life.<br/>Inevitably, the fiend enters the mortal realm in tempting form to directly influence a creature's actions. Appearing in the guise of a humanoid who has previously appeared only in the victim's dreams, the succubus or incubus seduces or befriends its victim, indulging all its desires so that it performs evil acts of its own free will.<br/>A mortal bequeaths its soul to the fiend not by formal pledge or contract. Instead, when a succubus or incubus has corrupted a creature completely-some say by causing the victim to commit the three betrayals of thought, word, and deed-the victim's soul belongs to the fiend. The more virtuous the fiend's prey, the longer the corruption takes, but the more rewarding the downfall. After successfully corrupting a victim, the succubus or incubus kills it, and the tainted soul descends into the Lower Planes.<br/>The succubus or incubus resorts to charming a victim magically only when necessary, usually as a form of self-defense. A charmed creature isn't responsible for its actions, so forcing it to behave against its will won't bring the fiend closer to the ultimate prize: the victim's soul.<br/><br/><b>Deadly Kiss.</b> The kiss of a succubus or incubus is an echo of the emptiness that is the fiend's longing for a corrupted soul. Likewise, the recipient of the fiend's kiss gains no satisfaction from it, experiencing only pain and the profound emptiness that the fiend imparts. The kiss is nothing short of an attack, usually delivered as a final farewell before the fiend escapes.<br/><br/><b>Fiendish Offspring.</b> Succubi and incubi can reproduce with one another to spawn more of their kind. Less commonly, a succubus or incubus reproduces with a humanoid. From this unholy union, a cambion child is conceived. Invariably, the fiendish offspring is as wicked as its fiendish parent.",
     "environments": [
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 285
   },
   {
     "index": "swarm-of-bats",
@@ -2295,10 +2343,13 @@
   },
   {
     "index": "unicorn",
+    "book":"Monster Manual",
+    "desc": "Unicorns dwell i n enchanted forests. Unrelated to the horses it resembles, a unicorn is a celestial creature that wanders sylvan realms, its white form glimmering like starlight.<br/>A unicorn's brow sports a single spiraling horn of ivory whose magical touch can heal the sick and the injured. Its ears catch the words and whispers of the creatures that share its domain, and it knows the tongues of elves and sylvan folk. Unicorns allow good-hearted creatures to enter their woods to hunt or gather food, but they hold evil ever at bay. Foul-hearted creatures seldom leave a unicorn's domain alive.<br/><br/><b>Divine Guardians.</b> Good deities placed unicorns on the Material Plane to ward away evil and preserve and protect sacred places. Most unicorns protect a bounded realm such as an enchanted forest. However, the gods sometimes send a unicorn to guard sacred artifacts or protect specific creatures. When the forces of darkness strike against an individual the gods wish to protect, they might send that individual to a unicorn's forest, where evil creatures pursue at their peril.<br/>Unicorns most often serve deities of the forest and woodlands, including the gods of benevolent fey. Although all unicorns have natural healing power, some serve the gods in greater capacities, performing miracles normally reserved for high priests.<br/><br/><b>Forest Lords.</b> A unicorn's forest is a celestial realm where nothing that occurs beneath the sun-dappled leaves escapes the creature's notice. A unicorn hears each breathy tune sung by the elves that reside amid the treetops. It senses where every caterpillar spins its cocoon, each leaf and branch upon which a bright butterfly rests its tired wings.<br/>In a unicorn's forest, a sense of calm pervades. From wolves and foxes to birds, squirrels, and tiny insects, the creatures of a unicorn's domain seem quite tame. Pixies, sprites, satyrs, dryads, and other normally mercurial fey loyally serve a unicorn when they dwell within its woods. Under a unicorn's protection, creatures feel safe from the threat of encroaching civilization and the insidious spread of evil.<br/>A unicorn roams its domain constantly, moving ever so carefully so as not to disturb other denizens. A creature might catch a passing glimpse of the unicorn then suddenly see nothing but the wild woods.<br/><br/><b>Sacred Horns.</b> A unicorn's horn is the focus of its power, a shard of divine magic wrought in spiraling ivory. Wands of unicorn horn channel powerful magic, while unicorn horn weapons strike with divine force. Wizards can work powdered unicorn horn into potent potions and scroll ink, or use it as a component in eldritch rituals. However, any creature that takes a role, no matter how small, in slaying a unicorn is likely to become the target of divine retribution.<br/><br/><b>Blessed Mounts.</b> When darkness and evil threaten to overwhelm the mortal world, the gods sometimes see fit to pair a unicorn mount with a champion. A paladin astride a unicorn is a sign of the gods' direct intervention in the affairs of the mortal realm. It is a holy alliance made to cleave the heads from demons and banish devils back to the Nine Hells.<br/>As long as the troubled times of darkness persist, the unicorn stays by the champion, its horn shining brightly to drive back the night. However, if the gods' champion falls from grace or turns from the cause of righteousness and good, the unicorn departs, never to return.",
     "environments": [
       "forest"
     ],
-    "image": true
+    "image": true,
+    "page": 293
   },
   {
     "index": "vampire",
@@ -2309,11 +2360,13 @@
   },
   {
     "index": "vampire-spawn",
+    "book":"Monster Manual",
     "environments": [
       "underdark",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 295
   },
   {
     "index": "veteran",
@@ -2360,12 +2413,15 @@
   },
   {
     "index": "water-elemental",
+    "book":"Monster Manual",
+    "desc": "A water elemental i s a cresting wave that rolls across the ground, becoming nearly invisible at it courses through a larger body of water. It engulfs creatures that stand against it, filling their mouths and lungs as easily as it smothers flame.",
     "environments": [
       "coastal",
       "Swamp",
       "underwater"
     ],
-    "image": true
+    "image": true,
+    "page": 125
   },
   {
     "index": "weasel"
@@ -2477,47 +2533,64 @@
   },
   {
     "index": "werewolf-human",
+    "book":"Monster Manual",
+    "desc": "A werewolf is a savage predator. In its humanoid form, a werewolf has heightened senses, a fiery temper, and a tendency to eat rare meat. Its wolf form is a fearsome predator, but its hybrid form is more terrifying by far-a furred and well-muscled humanoid body topped by a ravening wolf's head. A werewolf can wield weapons in hybrid form, though it prefers to tear foes apart with its powerful claws and bite.<br/>Most werewolves flee civilized lands not long after becoming afflicted. Those that reject the curse fear what will happen if they remain among their friends and family. Those that embrace the curse fear discovery and the consequences of their murderous acts. In the wild, werewolves form packs that also include wolves and dire wolves.",
     "environments": [
       "forest",
       "hill"
     ],
-    "image": true
+    "image": true,
+    "page": 211
   },
   {
     "index": "werewolf-hybrid",
+    "book":"Monster Manual",
+    "desc": "A werewolf is a savage predator. In its humanoid form, a werewolf has heightened senses, a fiery temper, and a tendency to eat rare meat. Its wolf form is a fearsome predator, but its hybrid form is more terrifying by far-a furred and well-muscled humanoid body topped by a ravening wolf's head. A werewolf can wield weapons in hybrid form, though it prefers to tear foes apart with its powerful claws and bite.<br/>Most werewolves flee civilized lands not long after becoming afflicted. Those that reject the curse fear what will happen if they remain among their friends and family. Those that embrace the curse fear discovery and the consequences of their murderous acts. In the wild, werewolves form packs that also include wolves and dire wolves.",
     "environments": [
       "forest",
       "hill"
-    ]
+    ],
+    "image": true,
+    "page": 211
   },
   {
     "index": "werewolf-wolf",
+    "book":"Monster Manual",
+    "desc": "A werewolf is a savage predator. In its humanoid form, a werewolf has heightened senses, a fiery temper, and a tendency to eat rare meat. Its wolf form is a fearsome predator, but its hybrid form is more terrifying by far-a furred and well-muscled humanoid body topped by a ravening wolf's head. A werewolf can wield weapons in hybrid form, though it prefers to tear foes apart with its powerful claws and bite.<br/>Most werewolves flee civilized lands not long after becoming afflicted. Those that reject the curse fear what will happen if they remain among their friends and family. Those that embrace the curse fear discovery and the consequences of their murderous acts. In the wild, werewolves form packs that also include wolves and dire wolves.",
     "environments": [
       "forest",
       "hill"
-    ]
+    ],
+    "image": true,
+    "page": 211
   },
   {
     "index": "white-dragon-wyrmling"
   },
   {
     "index": "wight",
+    "book":"Monster Manual",
+    "desc": "The word \"wight\" meant \"person\" in days ofyore, but the name now refers to evil undead who were once mortals driven by dark desire and great vanity. When death stills such a creature's heart and snuffs its living breath, its spirit cries out to the demon lord Orcus or some vile god of the underworld for a reprieve: undeath in return for eternal war on the living. If a dark power answers the call, the spirit is granted undeath so that it can pursue its own malevolent agenda.<br/>Wights possess the memories and drives of their formerly living selves. They will heed the call of whatever dark entity transformed them into undead, swearing oaths to appease their new lord while retaining their autonomy. Never tiring, a wight can pursue its goals relentlessly and without distraction.<br/><br/><b>Life Eaters.</b> Neither dead nor alive, a wight exists in a transitional state between one world and the next. The bright spark it possessed in life is gone, and in its place is a yearning to consume that spark in all living things. When a wight attacks, this life essence glows like white­ hot embers to its dark eyes, and the wight's cold touch can drain the spark through flesh, clothing, and armor.<br/><br/><b>Shadow of the Grave.</b> Wights flee from the world by day, away from the light of the sun, which they hate. They retreat to barrow mounds, crypts, and tombs where they dwell. Their lairs are silent, desolate places, surrounded by dead plants, noticeably blackened, and avoided by bird and beast.<br/>Humanoids slain by a wight can rise as zombies under its control. Motivated by hunger for living souls and driven by the same desire for power that awakened them in undeath, some wights serve as shock troops for evil leaders, including wraiths. As soldiers, they are able to plan but seldom do so, relying on their hunger for destruction to overwhelm any creature that stands before them.<br/><br/><b>Undead Nature.</b> A wight doesn't require air, food, drink, or sleep.",
     "environments": [
       "desert",
       "Swamp",
       "underdark",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 300
   },
   {
     "index": "will-o-wisp",
+    "book":"Monster Manual",
+    "desc": "Will-o'-wisps are malevolent, wispy balls of light that haunt lonely places and battlefields, bound by dark fate or dark magic to feed on fear and despair.<br/><br/><b>Hope and Doom.</b> Will-o'-wisps look like bobbing lantern lights in the distance, although they can choose to alter their colors, or wink out completely. When they activate their lights, will-o'-wisps offer hope, hinting of safety to creatures that follow them.<br/>Will-o'-wisps lure unwary creatures into quicksand pits, monster lairs, and other dangerous places so that they can feed on the suffering of their prey and revel in their death screams. An evil being that falls prey to a will-o'-wisp might become a wisp itself, its woeful spirit coalescing above its lifeless corpse like a flickering flame.<br/><br/><b>Consumed by Despair.</b> Will-o'-wisps are the souls of evil beings that perished in anguish or misery as they wandered forsaken lands permeated with powerful magic. They thrive in swampy bogs and bone-strewn battlefields where the oppressive weight of sorrow stoops even heavier than the low-hanging mist and fog. Trapped in these desolate places of lost hope and memory, will-o'-wisps lure other creatures toward dismal fates and feed on their misery.<br/><br/><b>Agents of Evil.</b> Will-o'-wisps rarely speak, but when they do, their voices sound like faint or distant whispers. In the miserable domains they haunt, will-o'-wisps sometimes form symbiotic relationships with their wicked neighbors. Hags, oni, black dragons, and evil cultists work with will-o'-wisps to draw creatures into ambush. As their evil allies surround and slaughter creatures, the wisps hover above them, drinking the agony of a last breath and savoring the sensation as the light of life goes out in a creature's eyes.<br/><br/><b>Undead Nature.</b> A will-o'-wisp doesn't require air, drink, or sleep.",
     "environments": [
       "forest",
       "Swamp",
       "urban"
     ],
-    "image": true
+    "image": true,
+    "page": 301
   },
   {
     "index": "winter-wolf",
@@ -2535,12 +2608,15 @@
   },
   {
     "index": "worg",
+    "book":"Monster Manual",
+    "desc": "A worg is an evil predator that delights in hunting and devouring creatures weaker than itself. Cunning and malevolent, worgs roam across the remote wilderness or are raised by goblins and hobgoblins. Those creatures use worgs as mounts, but a worg will turn on its rider if it feels mistreated or malnourished. Worgs speak in their own language and Goblin, and a few learn to speak Common as well.",
     "environments": [
       "forest",
       "grassland",
       "hill"
     ],
     "image": true,
+    "page": 341,
     "related_monsters": [
       {
         "index": "goblin",
@@ -2554,10 +2630,13 @@
   },
   {
     "index": "wraith",
+    "book":"Monster Manual",
+    "desc": "A wraith is malice incarnate, concentrated into an incorporeal form that seeks to quench all life. The creature is suffused with negative energy, and its mere passage through the world leaves nearby plants blackened and withered. Animals flee from its presence. Even small fires can be extinguished by the sucking oblivion ofthe wraith's horrifying existence.<br/><br/><b>Vile Oblivion.</b> When a mortal humanoid lives a debased life or enters into a fiendish pact, it consigns its soul to eternal damnation in the Lower Planes. However sometimes the soul becomes so suffused with negative energy that it collapses in on itself and ceases to exist the instant before it can shuffle off to some horrible afterlife. When this occurs, the spirit becomes a soulless wraith-a malevolent void trapped on the plane where it died. Almost nothing of the wraith's former existence is preserved; in this new form, it exists only to annihilate other life.<br/><br/><b>Bereft of Body.</b> A wraith can move through solid creatures and objects as easily as a mortal creature moves through fog.<br/>A wraith might retain a few memories of its mortal life as shadowy echoes. However, even the strongest events and emotions become little more than faint impressions, fleeting as half-remembered dreams. A wraith might pause to stare at something that fascinated it in life, or it might curb its wrath in acknowledgment of a past friendship. Such moments come rarely, however, because most wraiths despise what they were as a reminder of what they have become.<br/><br/><b>Undead Commanders.</b> A wraith can make an undead servant from the spirit of a humanoid creature that has recently suffered a violent death. Such a fragment of woe becomes a specter, spiteful of all that lives.<br/>Wraiths sometimes rule the legions of the dead, plotting the doom of living creatures. When they emerge from their tombs to do battle, life and hope shrivel before them. Even if a wraith's armies are forced to retreat, the lands its forces occupied are so blasted and withered that those who live there often starve and die.<br/><br/><b>Undead Nature.</b> A wraith doesn't require air, food, drink, or sleep.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 302
   },
   {
     "index": "wyvern",
@@ -2569,10 +2648,13 @@
   },
   {
     "index": "xorn",
+    "book":"Monster Manual",
+    "desc": "Bizarre creatures native to the Elemental Plane of Earth, xorn sniff out gemstones and precious metals, then tunnel through earth and rock to consume those treasures. On the Material Plane, xorn must range far and wide through the Underdark to sustain themselves, becoming aggressive toward miners and treasure hunters when the valuable minerals of their diet are scarce.<br/>A xorn's unnatural origins are suggested by its unusually heavy body and the large, powerful mouth sitting atop its head. Its three long arms are each tipped with sharp talons, and its three large, stone-lidded eyes see in all directions.<br/><br/><b>Elemental Travelers.</b> Possessed of the power of elemental earth, a xorn glides through stone and dirt as • easily as a fish swims through water. It doesn't displace earth or stone when it moves, but merges with and flows through it, leaving no tunnel, hole, or hint of its passage.<br/>Xorn prefer not to leave their home plane, where they easily eat their fill of gemstones and precious metals. When a xorn winds up on the Material Plane, whether by accident or from curiosity, it seeks sustenance and a way home.<br/><br/><b>Beggars and Thieves.</b> Xorn scour the depths of the earth for precious metal and stones. Because they are unable to consume organic material, they ignore most other creatures. However, a xorn's ability to sniff out metals and stones often draws its attention to adventurers carrying coins and gems. Because a xorn isn't evil, it pleads or bargains in the hope of convincing owners to give up their treasure, offering up information it has learned from its travels in exchange. A xorn whose requests are ignored might resort to threats and bullying. If starving or angered, it resorts to force.",
     "environments": [
       "underdark"
     ],
-    "image": true
+    "image": true,
+    "page": 304
   },
   {
     "index": "young-black-dragon",
