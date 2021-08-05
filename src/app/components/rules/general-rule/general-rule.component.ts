@@ -1,5 +1,5 @@
 ﻿import { Component, Input, OnChanges } from '@angular/core';
-import { DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeStyle} from '@angular/platform-browser';
 
 @Component({
   selector: 'general-rule',
@@ -10,13 +10,13 @@ export class GeneralRuleComponent implements OnChanges {
 
   @Input() rule: any = null;
 
+  shownSubsection: string = '';
+
+  constructor(public domSanitizer: DomSanitizer, public sanitizer: DomSanitizer) {}
+
   ngOnChanges() {
     // console.log(this.rule);
   }
-
-  shownSubsection: string = '';
-
-  constructor(public sanitizer: DomSanitizer) {}
 
   showSubsection(subsection: string) {
     if(this.shownSubsection == subsection) {
