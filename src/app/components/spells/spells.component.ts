@@ -78,7 +78,7 @@ export class SpellsComponent implements OnInit, OnDestroy {
     }
     // Class filter
     // @ts-ignore
-    if (this.filter.class != 'All' && !spell.classes.some(c => c.name == this.filter.class)) {
+    if (this.filter.class != 'All' && !spell.classes.some(c => c == this.filter.class)) {
       return false;
     }
     // Level filter

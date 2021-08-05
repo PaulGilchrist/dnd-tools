@@ -1,25 +1,29 @@
-﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
+﻿import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'app-monster',
   styleUrls: ['./monster.component.scss'],
   templateUrl: './monster.component.html'
 })
-export class MonsterComponent {
+export class MonsterComponent implements OnChanges {
 
   @Input() monster: any = null;
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the monster is bookmarked for the current session
 
   modalActive = true;
   
+  ngOnChanges() {
+    // console.log(this.monster);
+  }
+
   getAbilityModifier(abilityScore: number) {
     return Math.floor((abilityScore-10)/2);
   }
 
   getConditionImmunities() {
     let conditionImmunities = '';
-    this.monster.condition_immunities.forEach((conditionImmunity: any) => {
-      conditionImmunities += `${conditionImmunity.name.toLowerCase()}, `;
+    this.monster.condition_immunities.forEach((conditionImmunity: string) => {
+      conditionImmunities += `${conditionImmunity.toLowerCase()}, `;
     });
     return conditionImmunities.substr(0, conditionImmunities.length-2);
   }
@@ -66,9 +70,9 @@ export class MonsterComponent {
   
   getSavingThrows() {
     let savingThrows = '';
-    this.monster.proficiencies.forEach((o: any) => {
-      if(o.proficiency.index.startsWith('saving-throw')) {
-        savingThrows += `${o.proficiency.name.substr(14,3)} +${o.value}, `;
+    this.monster.proficiencies.forEach((proficiency: any) => {
+      if(proficiency.name.startsWith('Saving Throw:')) {
+        savingThrows += `${proficiency.name.substr(14,3)} +${proficiency.value}, `;
       }
     });
     return savingThrows.substr(0, savingThrows.length-2);
@@ -96,9 +100,9 @@ export class MonsterComponent {
 
   getSkills() {
     let skills = '';
-    this.monster.proficiencies.forEach((o: any) => {
-      if(o.proficiency.index.startsWith('skill')) {
-        skills += `${o.proficiency.name.substr(7,o.proficiency.name.length-7)} +${o.value}, `;
+    this.monster.proficiencies.forEach((proficiency: any) => {
+      if(proficiency.name.startsWith('Skill:')) {
+        skills += `${proficiency.name.substr(7,proficiency.name.length-7)} +${proficiency.value}, `;
       }
     });
     return skills.substr(0, skills.length-2);
@@ -106,8 +110,8 @@ export class MonsterComponent {
 
   hasSavingThrows() {
     let hasSavingThrows = false;
-    this.monster.proficiencies.forEach((o: any) => {
-      if(o.proficiency.index.startsWith('saving-throw')) {
+    this.monster.proficiencies.forEach((proficiency: any) => {
+      if(proficiency.name.startsWith('Saving Throw:')) {
         hasSavingThrows = true;
       }
     });
@@ -116,8 +120,8 @@ export class MonsterComponent {
 
   hasSkills() {
     let hasSkills = false;
-    this.monster.proficiencies.forEach((o: any) => {
-      if(o.proficiency.index.startsWith('skill')) {
+    this.monster.proficiencies.forEach((proficiency: any) => {
+      if(proficiency.name.startsWith('Skill:')) {
         hasSkills = true;
       }
     });

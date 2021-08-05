@@ -1,13 +1,17 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-skill',
   styleUrls: ['./skill.component.scss'],
   templateUrl: './skill.component.html'
 })
-export class SkillComponent {
+export class SkillComponent implements OnChanges {
 
   @Input() skill: any = null;
+
+  ngOnChanges() {
+    // console.log(this.skill);
+  }
 
   getAbilityFullName(name: string) {
     switch (name) {

@@ -11,8 +11,8 @@ export class AbilityScoreComponent {
 
   getSkills() {
     let skills = '';
-    this.abilityScore.skills.forEach((skill: any) => {
-      skills += `${skill.name}, `;
+    this.abilityScore.skills.forEach((skill: string) => {
+      skills += `${skill}, `;
     });
     return skills.substr(0, skills.length-2);
   }

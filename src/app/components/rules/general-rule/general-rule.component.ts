@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
@@ -6,9 +6,13 @@ import { DomSanitizer, SafeHtml} from '@angular/platform-browser';
   styleUrls: ['./general-rule.component.scss'],
   templateUrl: './general-rule.component.html'
 })
-export class GeneralRuleComponent {
+export class GeneralRuleComponent implements OnChanges {
 
   @Input() rule: any = null;
+
+  ngOnChanges() {
+    // console.log(this.rule);
+  }
 
   shownSubsection: string = '';
 

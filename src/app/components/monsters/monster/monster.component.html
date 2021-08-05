@@ -1,5 +1,5 @@
 ﻿<div *ngIf="monster != null" class="card w-100">
-	<div class="card-header">
+	<div class="card-header clickable">
 		<div (click)="toggleDetails(monster)">
 			<div class="card-title">{{monster.name}}</div>
 			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}},&nbsp;{{monster.alignment}}</i><br />

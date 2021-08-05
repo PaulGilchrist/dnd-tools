@@ -1,5 +1,5 @@
 ﻿<div *ngIf="magicItem != null" class="card w-100">
-	<div class="card-header">
+	<div class="card-header clickable">
 		<div (click)="toggleDetails(magicItem)">
 			<div class="card-title">{{magicItem.name}}</div>
 			<i>{{magicItem.desc[0]}}</i><br />

@@ -1,5 +1,5 @@
 ﻿<div *ngIf="trait != null" class="card w-100">
-	<div class="card-header" (click)="toggleDetails(trait)">
+	<div class="card-header clickable" (click)="toggleDetails(trait)">
 		<div class="card-title">{{trait.name}}</div>
 	</div>
 	<div *ngIf="trait.ui && trait.ui.show" class="card-body">

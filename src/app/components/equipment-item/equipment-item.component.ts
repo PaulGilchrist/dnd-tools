@@ -1,15 +1,19 @@
-﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
+﻿import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'equipment-item',
   styleUrls: ['./equipment-item.component.scss'],
   templateUrl: './equipment-item.component.html'
 })
-export class EquipmentItemComponent {
+export class EquipmentItemComponent implements OnChanges {
 
   @Input() equipmentItem: any = null;
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the equipment is bookmarked for the current session
-    
+  
+  ngOnChanges() {
+    // console.log(this.equipmentItem);
+  }
+
   getContents() {
     let contents = '';
     this.equipmentItem.contents.forEach((content: any) => {
@@ -20,8 +24,8 @@ export class EquipmentItemComponent {
 
   getProperties() {
     let properties = '';
-    this.equipmentItem.properties.forEach((property: any) => {
-      properties += `${property.name}, `;
+    this.equipmentItem.properties.forEach((property: string) => {
+      properties += `${property}, `;
     });
     return properties.substr(0, properties.length-2);
   }

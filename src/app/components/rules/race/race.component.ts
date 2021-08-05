@@ -1,18 +1,22 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-race',
   styleUrls: ['./race.component.scss'],
   templateUrl: './race.component.html'
 })
-export class RaceComponent {
+export class RaceComponent implements OnChanges {
 
   @Input() race: any = null;
+
+  ngOnChanges() {
+    // console.log(this.race);
+  }
 
   getAbilityBonuses() {
     let abilityBonuses = '';
     this.race.ability_bonuses.forEach((abilityBonus: any) => {
-      abilityBonuses += `+${abilityBonus.bonus} ${abilityBonus.ability_score.name}, `;
+      abilityBonuses += `+${abilityBonus.bonus} ${abilityBonus.ability_score}, `;
     });
     return abilityBonuses.substr(0, abilityBonuses.length-2);
   }
@@ -30,8 +34,8 @@ export class RaceComponent {
   
   getLanguages() {
     let languages = '';
-    this.race.languages.forEach((language: any) => {
-      languages += `${language.name}, `;
+    this.race.languages.forEach((language: string) => {
+      languages += `${language}, `;
     });
     return languages.substr(0, languages.length-2);
   }
@@ -49,8 +53,8 @@ export class RaceComponent {
   
   getStartingProficiencies() {
     let startingProficiencies = '';
-    this.race.starting_proficiencies.forEach((startingProficiency: any) => {
-      startingProficiencies += `${startingProficiency.name}, `;
+    this.race.starting_proficiencies.forEach((startingProficiency: string) => {
+      startingProficiencies += `${startingProficiency}, `;
     });
     return startingProficiencies.substr(0, startingProficiencies.length-2);
   }
@@ -59,8 +63,8 @@ export class RaceComponent {
     let startingProficiencyOptions = '';
     if(this.race.starting_proficiency_options) {
       startingProficiencyOptions += `Choose ${this.race.starting_proficiency_options.choose} - `;
-      this.race.starting_proficiency_options.from.forEach((startingProficiencyOption: any) => {
-        startingProficiencyOptions += `${startingProficiencyOption.name}, `;
+      this.race.starting_proficiency_options.from.forEach((startingProficiencyOption: string) => {
+        startingProficiencyOptions += `${startingProficiencyOption}, `;
       });
     }
     return startingProficiencyOptions.substr(0, startingProficiencyOptions.length-2);
@@ -68,8 +72,8 @@ export class RaceComponent {
 
   getTraits() {
     let traits = '';
-    this.race.traits.forEach((trait: any) => {
-      traits += `${trait.name}, `;
+    this.race.traits.forEach((trait: string) => {
+      traits += `${trait}, `;
     });
     return traits.substr(0, traits.length-2);
   }
@@ -78,8 +82,8 @@ export class RaceComponent {
     let traitOptions = '';
     if(this.race.trait_options) {
       traitOptions += `Choose ${this.race.language_options.choose} - `;
-      this.race.trait_options.from.forEach((traitOption: any) => {
-        traitOptions += `${traitOption.name}, `;
+      this.race.trait_options.from.forEach((traitOption: string) => {
+        traitOptions += `${traitOption}, `;
       });
     }
     return traitOptions.substr(0, traitOptions.length-2);

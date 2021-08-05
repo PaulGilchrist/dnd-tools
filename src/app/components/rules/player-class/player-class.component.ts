@@ -1,20 +1,24 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'player-class',
   styleUrls: ['./player-class.component.scss'],
   templateUrl: './player-class.component.html'
 })
-export class PlayerClassComponent {
+export class PlayerClassComponent implements OnChanges{
 
   @Input() playerClass: any = null;
 
   shownLevel: string = '';
 
+  ngOnChanges() {
+    // console.log(this.playerClass);
+  }
+
   getProficiencies() {
     let proficiencies = '';
-    this.playerClass.proficiencies.forEach((proficiency: any) => {
-      proficiencies += `${proficiency.name}, `;
+    this.playerClass.proficiencies.forEach((proficiency: string) => {
+      proficiencies += `${proficiency}, `;
     });
     return proficiencies.substr(0, proficiencies.length - 2);
   }
@@ -41,16 +45,16 @@ export class PlayerClassComponent {
 
   getProficiencyChoiceText(proficiencyChoice: any) {
     let proficiencyChoiceText = `Choose ${proficiencyChoice.choose} - `;
-    proficiencyChoice.from.forEach((from: any) => {
-      proficiencyChoiceText += `${from.name}, `;
+    proficiencyChoice.from.forEach((from: string) => {
+      proficiencyChoiceText += `${from}, `;
     });
     return proficiencyChoiceText.substr(0, proficiencyChoiceText.length - 2);
   }
 
   getSavingThrows() {
     let savingThrows = '';
-    this.playerClass.saving_throws.forEach((savingThrow: any) => {
-      savingThrows += `${savingThrow.name}, `;
+    this.playerClass.saving_throws.forEach((savingThrow: string) => {
+      savingThrows += `${savingThrow}, `;
     });
     return savingThrows.substr(0, savingThrows.length - 2);
   }

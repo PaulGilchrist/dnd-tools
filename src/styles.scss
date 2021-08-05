@@ -26,6 +26,9 @@ h6 { font-size: 1.0em; }
 .card-header {
     background-color: rgba(100, 100, 100, 0.10);
 }
+.clickable:hover {
+    cursor: pointer;
+}
 .toast-container {
     padding-top: var(--nav-padding-top);
     padding-left: 3px;

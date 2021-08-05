@@ -1,20 +1,24 @@
-﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
+﻿import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'app-spell',
   styleUrls: ['./spell.component.scss'],
   templateUrl: './spell.component.html'
 })
-export class SpellComponent {
+export class SpellComponent implements OnChanges {
 
   @Input() spell: any = null;
   @Output() readonly knownChanged = new EventEmitter<boolean>(); // Bubble up that the spell is known
   @Output() readonly preparedChanged = new EventEmitter<boolean>(); // Bubble up that the spell is prepared
 
+  ngOnChanges() {
+    // console.log(this.spell);
+  }
+
   getClasses() {
     let classes = '';
-    this.spell.classes.forEach((spellClass: any) => {
-      classes += `${spellClass.name}, `;
+    this.spell.classes.forEach((spellClass: string) => {
+      classes += `${spellClass}, `;
     });
     return classes.substr(0, classes.length-2);
   }

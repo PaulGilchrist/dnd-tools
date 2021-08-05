@@ -1,26 +1,31 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-trait',
   styleUrls: ['./trait.component.scss'],
   templateUrl: './trait.component.html'
 })
-export class TraitComponent {
+export class TraitComponent implements OnChanges {
 
   @Input() trait: any = null;
 
+  ngOnChanges() {
+    // console.log(this.trait);
+  }
+
+
   getProficiencies() {
     let proficiencies = '';
-    this.trait.proficiencies.forEach((proficiency: any) => {
-      proficiencies += `${proficiency.name}, `;
+    this.trait.proficiencies.forEach((proficiency: string) => {
+      proficiencies += `${proficiency}, `;
     });
     return proficiencies.substr(0, proficiencies.length-2);
   }
 
   getRaces() {
     let races = '';
-    this.trait.races.forEach((race: any) => {
-      races += `${race.name}, `;
+    this.trait.races.forEach((race: string) => {
+      races += `${race}, `;
     });
     return races.substr(0, races.length-2);
   }

@@ -1,8 +1,8 @@
 ﻿<div *ngIf="spell != null" class="card w-100">
-	<div class="card-header">
+	<div class="card-header clickable">
 		<div (click)="toggleDetails(spell)">
 			<div class="card-title">{{spell.name}}</div>
-			<i>{{getLevelText(this.spell.level)}}&nbsp;{{spell.school.name.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br />
+			<i>{{getLevelText(spell.level)}}&nbsp;{{spell.school.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br />
 		</div>
 		<div>
 			<div class="form-check">
@@ -35,10 +35,10 @@
 						<b>Area of Effect:</b>&nbsp;{{spell.area_of_effect.size}} foot {{spell.area_of_effect.type}}<br />
 					</div>
 					<div *ngIf="spell.damage">
-						<b>Damage Type:</b>&nbsp;{{spell.damage.damage_type.name}}<br />
+						<b>Damage Type:</b>&nbsp;{{spell.damage.damage_type}}<br />
 					</div>
 					<div *ngIf="spell.dc">
-						<b>DC:</b>&nbsp;{{spell.dc.dc_type.name}} ({{spell.dc.dc_success}})<br />
+						<b>DC:</b>&nbsp;{{spell.dc.dc_type}} ({{spell.dc.dc_success}})<br />
 					</div>
 				</div>
 			</div>

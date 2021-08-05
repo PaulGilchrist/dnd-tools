@@ -1,12 +1,12 @@
 ﻿<div class="component">
 	<div *ngIf="rule != null" class="card outer w-100">
-		<div class="card-header" (click)="toggleDetails(rule)">
+		<div class="card-header clickable" (click)="toggleDetails(rule)">
 			<div class="card-title">{{rule.name}}</div>
 		</div>
 		<div *ngIf="rule.ui && rule.ui.show" class="card-body">
 			<div *ngFor="let subsection of rule.subsections">
 				<div class="card inner w-100">
-					<div class="card-header" (click)="showSubsection(subsection.index)">
+					<div class="card-header clickable" (click)="showSubsection(subsection.index)">
 						<div class="card-title">{{subsection.name}}</div>
 					</div>
 					<div class="card-body hidden" [class.hidden]="shownSubsection != subsection.index" [innerHtml]="subsection.desc">

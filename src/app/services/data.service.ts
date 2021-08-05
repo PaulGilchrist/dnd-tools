@@ -57,7 +57,6 @@ export class DataService {
             return this.http.get('./data/conditions.json').pipe(
                 tap(data => {
                     console.log('Get - conditions');
-                    this.sort(data, 'name');
                     this.conditions.next(data);
                 }),
                 map(() => this.conditions.getValue()),
@@ -73,7 +72,6 @@ export class DataService {
             return this.http.get('./data/equipment.json').pipe(
                 tap(data => {
                     console.log('Get - equipment');
-                    this.sort(data, 'name');
                     this.equipment.next(data);
                 }),
                 map(() => this.equipment.getValue()),
@@ -86,15 +84,10 @@ export class DataService {
 
     getMagicItems(): Observable<any[]> {
         if (this.magicItems.getValue().length === 0) {
-            return combineLatest([
-                this.http.get('./data/magic-items.json'),
-                this.http.get('./data/magic-items-add.json')
-            ]).pipe(
-                tap((data: any[]) => {
+            return this.http.get('./data/magic-items.json').pipe(
+                tap((data) => {
                     console.log('Get - magic items');
-                    const magicItems = [...data[0], ...data[1]];
-                    this.sort(magicItems, 'name');
-                    this.magicItems.next(magicItems);
+                    this.magicItems.next(data);
                 }),
                 map(() => this.magicItems.getValue()),
                 catchError(this.handleError)
@@ -106,39 +99,10 @@ export class DataService {
 
     getMonsters(): Observable<any[]> {
         if (this.monsters.getValue().length === 0) {
-            return combineLatest([
-                this.http.get('./data/monsters.json'),
-                this.http.get('./data/monsters-ext.json'), // Add new properties to existing monsters
-                this.http.get('./data/monsters-add.json') // Add all new monsters
-            ]).pipe(
-                tap((data: any[]) => {
+            return this.http.get('./data/monsters.json').pipe(
+                tap((data) => {
                     console.log('Get - monsters');
-                    const originalMonsters: any[] = data[0];
-                    const extendedMonsters = data[1];
-                    const addedMonsters = data[2];
-                    // Add new properties to existing monsters
-                    extendedMonsters.forEach((extendedMonster: any) => {
-                        const originalMonster = originalMonsters.find(m => m.index == extendedMonster.index);
-                        if (originalMonster) {
-                            originalMonster.book = extendedMonster.book;
-                            originalMonster.desc = extendedMonster.desc;
-                            originalMonster.environments = extendedMonster.environments;
-                            originalMonster.image = extendedMonster.image;
-                            originalMonster.page = extendedMonster.page;
-                            originalMonster.related_monsters = extendedMonster.related_monsters;
-                            // ToDo - Add reference (book & page)
-                        }
-                    });
-                    const monsters = [...originalMonsters, ...addedMonsters];
-                    this.sort(monsters, 'name');
-                    this.monsters.next(monsters);
-                    // // One time build new Ext file
-                    // let monstersExt: any = [];
-                    // this.sort(data[0], 'name');
-                    // data[0].forEach((m: any) => {
-                    //     monstersExt.push({ index: m.index, image: m.image });
-                    // });
-                    // sessionStorage.setItem('monsters-ext', JSON.stringify(monstersExt));
+                    this.monsters.next(data);
                 }),
                 map(() => this.monsters.getValue()),
                 catchError(this.handleError)
@@ -166,34 +130,10 @@ export class DataService {
 
     getPlayerClasses(): Observable<any[]> {
         if (this.playerClasses.getValue().length === 0) {
-            return combineLatest([
-                this.http.get('./data/classes.json'),
-                this.http.get('./data/features.json'),
-                this.http.get('./data/levels.json')
-            ]).pipe(
+            return this.http.get('./data/classes.json').pipe(
                 tap(data => {
                     console.log('Get - player classes');
-                    // @ts-ignore
-                    let playerClasses: any[] = data[0];
-                    // @ts-ignore
-                    let features: any[] = data[1];
-                    // @ts-ignore
-                    let levels: any[] = data[2];
-                    this.sort(playerClasses, 'name');
-                    // Append levels to each class
-                    playerClasses.forEach(playerClass => {
-                        // Append feature that don't have a level
-                        playerClass.features = features.filter(feature => feature.class.index == playerClass.index && !feature.level);
-                        playerClass.class_levels = levels.filter(level => level.class.index == playerClass.index && level.ability_score_bonuses != null);
-                        // Add features to each level
-                        playerClass.class_levels.forEach((level: any) => {
-                            level.feature_choices = features.filter(feature => feature.class.index == playerClass.index && feature.level == level.level && level.feature_choices.find((f: any) => f.index == feature.index));
-                            this.sort(level.feature_choices, 'name');
-                            level.features = features.filter(feature => feature.class.index == playerClass.index && feature.level == level.level && level.features.find((f: any) => f.index == feature.index));
-                            this.sort(level.features, 'name');
-                        });
-                    });
-                    this.playerClasses.next(playerClasses);
+                    this.playerClasses.next(data);
                 }),
                 map(() => this.playerClasses.getValue()),
                 catchError(this.handleError)
@@ -208,7 +148,6 @@ export class DataService {
             return this.http.get('./data/races.json').pipe(
                 tap(data => {
                     console.log('Get - races');
-                    this.sort(data, 'name');
                     this.races.next(data);
                 }),
                 map(() => this.races.getValue()),
@@ -222,53 +161,10 @@ export class DataService {
     getRules(): Observable<any[]> {
         let converter = new Showdown.Converter();
         if (this.rules.getValue().length === 0) {
-            return combineLatest([
-                this.http.get('./data/rules.json'),
-                this.http.get('./data/rules-ext.json'),
-                this.http.get('./data/rules-add.json'),
-                this.http.get('./data/rule-sections.json'),
-                this.http.get('./data/rule-sections-add.json')
-            ]).pipe(
+            return this.http.get('./data/rules.json').pipe(
                 tap(data => {
                     console.log('Get - rules');
-                    const originalRules: any = data[0];
-                    const extendedRules: any = data[1];
-                    const addedRules: any = data[2];
-                    const originalRuleSections: any = data[3];
-                    const addedRuleSections: any = data[4];
-                    // Add new properties to existing rules
-                    extendedRules.forEach((extendedRule: any) => {
-                        const originalRule: any = originalRules.find((m: any) => m.index == extendedRule.index);
-                        if (originalRule) {
-                            originalRule.book = extendedRule.book;
-                            if (extendedRule.subsections) {
-                                originalRule.subsections = [...originalRule.subsections, ...extendedRule.subsections];
-                            }
-                        }
-                    });
-                    const rules = [...originalRules, ...addedRules];
-                    this.sort(rules, 'name');
-                    const ruleSections = [...originalRuleSections, ...addedRuleSections];
-                    // Append on each section
-                    rules.forEach(rule => {
-                        this.sort(rule.subsections, 'name');
-                        rule.desc = converter.makeHtml(rule.desc);
-                        // Add subsection descriptions to rule.subsection
-                        // @ts-ignore
-                        rule.subsections.forEach(subsection => {
-                            let foundSubSection = ruleSections.find(rs => rs.index == subsection.index);
-                            if (foundSubSection) {
-                                if (foundSubSection.html == true) {
-                                    subsection.desc = foundSubSection.desc;
-                                } else {
-                                    // Remove the first line as it just duplicates the name
-                                    let index = foundSubSection.desc.indexOf("\n\n");
-                                    subsection.desc = converter.makeHtml(foundSubSection.desc.substr(index + 1, Number.MAX_SAFE_INTEGER));
-                                }
-                            }
-                        });
-                    });
-                    this.rules.next(rules);
+                    this.rules.next(data);
                 }),
                 map(() => this.rules.getValue()),
                 catchError(this.handleError)
@@ -283,7 +179,6 @@ export class DataService {
             return this.http.get('./data/skills.json').pipe(
                 tap(data => {
                     console.log('Get - skills');
-                    this.sort(data, 'name');
                     this.skills.next(data);
                 }),
                 map(() => this.skills.getValue()),
@@ -299,7 +194,6 @@ export class DataService {
             return this.http.get('./data/spells.json').pipe(
                 tap(data => {
                     console.log('Get - spells');
-                    this.sort(data, 'name');
                     this.spells.next(data);
                 }),
                 map(() => this.spells.getValue()),
@@ -315,7 +209,6 @@ export class DataService {
             return this.http.get('./data/traits.json').pipe(
                 tap(data => {
                     console.log('Get - traits');
-                    this.sort(data, 'name');
                     this.traits.next(data);
                 }),
                 map(() => this.traits.getValue()),
@@ -331,7 +224,6 @@ export class DataService {
             return this.http.get('./data/weapon-properties.json').pipe(
                 tap(data => {
                     console.log('Get - weapon properties');
-                    this.sort(data, 'name');
                     this.weaponProperties.next(data);
                 }),
                 map(() => this.weaponProperties.getValue()),

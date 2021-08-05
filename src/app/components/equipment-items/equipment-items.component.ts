@@ -77,7 +77,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
       return false;
     }
     // Category filter
-    if (this.filter.category != 'All' && equipmentItem.equipment_category.name != this.filter.category) {
+    if (this.filter.category != 'All' && equipmentItem.equipment_category != this.filter.category) {
       return false;
     }
     // Property filter

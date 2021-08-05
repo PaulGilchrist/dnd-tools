@@ -1,5 +1,5 @@
 ﻿<div *ngIf="playerClass != null" class="card outer w-100">
-	<div class="card-header" (click)="toggleDetails(playerClass)">
+	<div class="card-header clickable" (click)="toggleDetails(playerClass)">
 		<div class="card-title">{{playerClass.name}}</div>
 	</div>
 	<div *ngIf="playerClass.ui && playerClass.ui.show" class="card-body">
@@ -9,15 +9,14 @@
 		</div>
 		<div *ngIf="playerClass.proficiency_choices.length > 0">
 			<div *ngFor="let proficiencyChoice of playerClass.proficiency_choices">
-				<b>{{proficiencyChoice.type.charAt(0).toUpperCase() +
-					proficiencyChoice.type.substr(1)}}:</b>&nbsp;{{getProficiencyChoiceText(proficiencyChoice)}}<br />
+				<b>Proficiencies:</b>&nbsp;{{getProficiencyChoiceText(proficiencyChoice)}}<br />
 			</div>
 		</div>
 		<div *ngIf="playerClass.saving_throws.length > 0">
 			<b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
 		</div>
 		<div *ngIf="playerClass.features.length > 0" class="card inner w-100">
-			<div class="card-header" (click)="showLevel('0')">
+			<div class="card-header clickable" (click)="showLevel('0')">
 				<div class="card-title">Features</div>
 			</div>
 			<div class="card-body removeExtraLine" [class.hidden]="shownLevel != '0'">
@@ -35,56 +34,56 @@
 			</div>
 		</div>
 		<div *ngFor="let level of playerClass.class_levels" class="card inner w-100">
-			<div class="card-header" (click)="showLevel(level.index)">
+			<div class="card-header clickable" (click)="showLevel(level.level)">
 				<div class="card-title">Level&nbsp;{{level.level}}</div>
 			</div>
-			<div class="card-body removeExtraLine" [class.hidden]="shownLevel != level.index">
+			<div class="card-body removeExtraLine" [class.hidden]="shownLevel != level.level">
 				<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
 				<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
-				<div *ngIf="level.class.index=='barbarian'">
+				<div *ngIf="playerClass.index=='barbarian'">
 					<b>Rage Count:</b>&nbsp;{{level.class_specific.rage_count}}<br />
 					<b>Rage Damage Bonus:</b>&nbsp;{{level.class_specific.rage_damage_bonus}}<br />
 					<b>Brutal Critical Dice:</b>&nbsp;{{level.class_specific.brutal_critical_dice}}<br />
 				</div>
-				<div *ngIf="level.class.index=='bard'">
+				<div *ngIf="playerClass.index=='bard'">
 					<b>Bardic Inspiration Die:</b>&nbsp;d{{level.class_specific.bardic_inspiration_die}}<br />
 					<b>Song of Rest Die:</b>&nbsp;d{{level.class_specific.song_of_rest_die}}<br />
 					<b>Magical Secrets Max 5:</b>&nbsp;{{level.class_specific.magical_secrets_max_5}}<br />
 					<b>Magical Secrets Max 7:</b>&nbsp;{{level.class_specific.magical_secrets_max_7}}<br />
 					<b>Magical Secrets Max 9:</b>&nbsp;{{level.class_specific.magical_secrets_max_9}}<br />
 				</div>
-				<div *ngIf="level.class.index=='cleric'">
+				<div *ngIf="playerClass.index=='cleric'">
 					<b>Channel Divinity Charges:</b>&nbsp;{{level.class_specific.channel_divinity_charges}}<br />
 					<b>Destroy Undead CR:</b>&nbsp;{{level.class_specific.destroy_undead_cr}}<br />
 				</div>
-				<div *ngIf="level.class.index=='druid'">
+				<div *ngIf="playerClass.index=='druid'">
 					<b>Wild Shape Max CR:</b>&nbsp;{{level.class_specific.wild_shape_max_cr}}<br />
 					<b>Wild Shape Swim:</b>&nbsp;{{level.class_specific.wild_shape_swim}}<br />
 					<b>Wild Shape Fly:</b>&nbsp;{{level.class_specific.wild_shape_fly}}<br />
 				</div>
-				<div *ngIf="level.class.index=='fighter'">
+				<div *ngIf="playerClass.index=='fighter'">
 					<b>Action Surges:</b>&nbsp;{{level.class_specific.action_surges}}<br />
 					<b>Indomitable Uses:</b>&nbsp;{{level.class_specific.indomitable_uses}}<br />
 					<b>Extra Attacks:</b>&nbsp;{{level.class_specific.extra_attacks}}<br />
 				</div>
-				<div *ngIf="level.class.index=='monk'">
+				<div *ngIf="playerClass.index=='monk'">
 					<b>Martial
 						Arts:</b>&nbsp;{{level.class_specific.martial_arts.dice_count}}d{{level.class_specific.martial_arts.dice_value}}<br />
 					<b>Ki Points:</b>&nbsp;{{level.class_specific.ki_points}}<br />
 					<b>Unarmored Movement:</b>&nbsp;{{level.class_specific.unarmored_movement}}<br />
 				</div>
-				<div *ngIf="level.class.index=='paladin'">
+				<div *ngIf="playerClass.index=='paladin'">
 					<b>Aura Range:</b>&nbsp;{{level.class_specific.aura_range}}<br />
 				</div>
-				<div *ngIf="level.class.index=='ranger'">
+				<div *ngIf="playerClass.index=='ranger'">
 					<b>Favored Enemies:</b>&nbsp;{{level.class_specific.favored_enemies}}<br />
 					<b>Favored Terrain:</b>&nbsp;{{level.class_specific.favored_terrain}}<br />
 				</div>
-				<div *ngIf="level.class.index=='rogue'">
+				<div *ngIf="playerClass.index=='rogue'">
 					<b>Sneak
 						Attack:</b>&nbsp;{{level.class_specific.sneak_attack.dice_count}}d{{level.class_specific.sneak_attack.dice_value}}<br />
 				</div>
-				<div *ngIf="level.class.index=='sorcerer'">
+				<div *ngIf="playerClass.index=='sorcerer'">
 					<b>Sorcery Points:</b>&nbsp;{{level.class_specific.sorcery_points}}<br />
 					<b>Metamagic Known:</b>&nbsp;{{level.class_specific.metamagic_known}}<br />
 					<div *ngIf="level.class_specific.creating_spell_slots.length > 0">
@@ -95,7 +94,7 @@
 						</span>
 					</div>
 				</div>
-				<div *ngIf="level.class.index=='warlock'">
+				<div *ngIf="playerClass.index=='warlock'">
 					<b>Invocations Known:</b>&nbsp;{{level.class_specific.invocations_known}}<br />
 					<div *ngIf="(level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) || (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) || (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) || (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0)">
 						<b>Mystic Arcanum:</b><br />
@@ -118,7 +117,7 @@
 					</div>
 
 				</div>
-				<div *ngIf="level.class.index=='wizard'">
+				<div *ngIf="playerClass.index=='wizard'">
 					<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
 				</div>
 				<div *ngIf="level.spellcasting">
