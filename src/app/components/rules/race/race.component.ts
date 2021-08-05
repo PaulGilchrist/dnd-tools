@@ -26,7 +26,7 @@ export class RaceComponent implements OnChanges {
     if(this.race.ability_bonus_options) {
       abilityBonusOptions += `Choose ${this.race.language_options.choose} - `;
       this.race.ability_bonus_options.from.forEach((abilityBonusOption: any) => {
-        abilityBonusOptions += `${abilityBonusOption.ability_score.name}, `;
+        abilityBonusOptions += `${abilityBonusOption.ability_score}, `;
       });
     }
     return abilityBonusOptions.substr(0, abilityBonusOptions.length-2);
@@ -44,8 +44,8 @@ export class RaceComponent implements OnChanges {
     let languageOptions = '';
     if(this.race.language_options) {
       languageOptions += `Choose ${this.race.language_options.choose} - `;
-      this.race.language_options.from.forEach((languageOption: any) => {
-        languageOptions += `${languageOption.name}, `;
+      this.race.language_options.from.forEach((languageOption: string) => {
+        languageOptions += `${languageOption}, `;
       });
     }
     return languageOptions.substr(0, languageOptions.length-2);
