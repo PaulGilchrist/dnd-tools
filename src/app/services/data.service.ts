@@ -26,8 +26,6 @@ export class DataService {
     races$ = this.races.asObservable();
     private rules = new BehaviorSubject<any>([]);
     rules$ = this.rules.asObservable();
-    private skills = new BehaviorSubject<any>([]);
-    skills$ = this.skills.asObservable();
     private spells = new BehaviorSubject<any>([]);
     spells$ = this.spells.asObservable();
     private traits = new BehaviorSubject<any>([]);
@@ -171,21 +169,6 @@ export class DataService {
             );
         } else {
             return this.rules$;
-        }
-    }
-
-    getSkills(): Observable<any[]> {
-        if (this.skills.getValue().length === 0) {
-            return this.http.get('./data/skills.json').pipe(
-                tap(data => {
-                    console.log('Get - skills');
-                    this.skills.next(data);
-                }),
-                map(() => this.skills.getValue()),
-                catchError(this.handleError)
-            );
-        } else {
-            return this.skills$;
         }
     }
 

@@ -26,8 +26,6 @@ import { RaceComponent } from './components/rules/race/race.component';
 import { RacesComponent } from './components/rules/races/races.component';
 import { GeneralRuleComponent } from './components/rules/general-rule/general-rule.component';
 import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
-import { SkillComponent } from './components/rules/skill/skill.component';
-import { SkillsComponent } from './components/rules/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
 import { TraitComponent } from './components/rules/trait/trait.component';
@@ -57,8 +55,6 @@ import { DataService } from './services/data.service';
     PlayerClassesComponent,
     RaceComponent,
     RacesComponent,
-    SkillComponent,
-    SkillsComponent,
     SpellComponent,
     SpellsComponent,
     TraitComponent,

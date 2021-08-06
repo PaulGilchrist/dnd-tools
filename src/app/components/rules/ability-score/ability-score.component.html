@@ -3,12 +3,7 @@
 		<span class="card-title">{{abilityScore.full_name}}</span><span *ngIf="getSkills() != ''" class="align-center">&nbsp;- {{getSkills()}}</span>
 	</div>
 	<div *ngIf="expand" class="card-body">
-		<div class="card-text">
-			<div class="removeExtraLine">
-				<span *ngFor="let desc of abilityScore.desc">
-					{{desc}}<br /><br />
-				</span>
-			</div>
+		<div class="card-text" [innerHtml]="abilityScore.desc">
 		</div>
 	</div>
 </div>

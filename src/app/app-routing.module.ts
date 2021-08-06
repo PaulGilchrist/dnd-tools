@@ -11,7 +11,6 @@ import { NamesComponent } from './components/names/names.component';
 import { PlayerClassesComponent } from './components/rules/player-classes/player-classes.component';
 import { RacesComponent } from './components/rules/races/races.component';
 import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
-import { SkillsComponent } from './components/rules/skills/skills.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { TraitsComponent } from './components/rules/traits/traits.component';
 
@@ -28,7 +27,6 @@ const routes: Routes = [
     { path: 'rules/classes', component: PlayerClassesComponent },
     { path: 'rules/races', component: RacesComponent },
     { path: 'rules/general', component: GeneralRulesComponent },
-    { path: 'rules/skills', component: SkillsComponent },
     { path: 'spells', component: SpellsComponent },
     { path: 'rules/traits', component: TraitsComponent },
 ];
