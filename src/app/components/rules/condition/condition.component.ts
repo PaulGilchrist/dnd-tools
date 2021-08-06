@@ -1,4 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-condition',
@@ -8,14 +8,12 @@
 export class ConditionComponent {
 
   @Input() condition: any = null;
+  @Input() expand = false;
+  @Output() expanded = new EventEmitter<boolean>();
 
-  toggleDetails(condition: any) {
-    if (condition.ui) {
-      condition.ui.show = !condition.ui.show;
-    } else {
-      condition.ui = {};
-      condition.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
 }

@@ -1,22 +1,20 @@
-﻿import { Component, Input, OnChanges } from '@angular/core';
-import { DomSanitizer, SafeHtml, SafeStyle} from '@angular/platform-browser';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'general-rule',
   styleUrls: ['./general-rule.component.scss'],
   templateUrl: './general-rule.component.html'
 })
-export class GeneralRuleComponent implements OnChanges {
+export class GeneralRuleComponent {
 
+  @Input() expand = false;
   @Input() rule: any = null;
+  @Output() expanded = new EventEmitter<boolean>();
 
   shownSubsection: string = '';
 
   constructor(public domSanitizer: DomSanitizer, public sanitizer: DomSanitizer) {}
-
-  ngOnChanges() {
-    // console.log(this.rule);
-  }
 
   showSubsection(subsection: string) {
     if(this.shownSubsection == subsection) {
@@ -26,13 +24,9 @@ export class GeneralRuleComponent implements OnChanges {
     }
   }
 
-  toggleDetails(rule: any) {
-    if (rule.ui) {
-      rule.ui.show = !rule.ui.show;
-    } else {
-      rule.ui = {};
-      rule.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
 }

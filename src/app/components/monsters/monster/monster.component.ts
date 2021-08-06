@@ -7,9 +7,10 @@
 })
 export class MonsterComponent implements OnChanges {
 
+  @Input() expand = false;
   @Input() monster: any = null;
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the monster is bookmarked for the current session
-
+  @Output() expanded = new EventEmitter<boolean>();
   modalActive = true;
   
   ngOnChanges() {
@@ -128,13 +129,9 @@ export class MonsterComponent implements OnChanges {
     return hasSkills;
   }
 
-  toggleDetails(monster: any) {
-    if (monster.ui) {
-      monster.ui.show = !monster.ui.show;
-    } else {
-      monster.ui = {};
-      monster.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
   toggleBookmark(monster: any) {

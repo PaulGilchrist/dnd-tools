@@ -1,8 +1,8 @@
 ﻿<div *ngIf="condition != null" class="card w-100">
-	<div class="card-header clickable" (click)="toggleDetails(condition)">
+	<div class="card-header clickable" (click)="toggleDetails()">
 		<div class="card-title">{{condition.name}}</div>
 	</div>
-	<div *ngIf="condition.ui && condition.ui.show" class="card-body">
+	<div *ngIf="expand" class="card-body">
 		<div class="card-text removeExtraLine">
 			<span *ngFor="let desc of condition.desc">
 				{{desc}}<br /><br />

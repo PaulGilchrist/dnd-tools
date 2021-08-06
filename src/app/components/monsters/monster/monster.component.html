@@ -1,6 +1,6 @@
 ﻿<div *ngIf="monster != null" class="card w-100">
 	<div class="card-header clickable">
-		<div (click)="toggleDetails(monster)">
+		<div (click)="toggleDetails()">
 			<div class="card-title">{{monster.name}}</div>
 			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}},&nbsp;{{monster.alignment}}</i><br />
 		</div>
@@ -11,7 +11,7 @@
 			</label>
 		</div>
 	</div>
-	<div *ngIf="monster.ui && monster.ui.show" class="card-body">
+	<div *ngIf="expand" class="card-body">
 		<image-modal *ngIf="monster.image==true" [image]="monster.index + '.jpg'"></image-modal>
 		<div class="card-text">
 			<div class="stats">

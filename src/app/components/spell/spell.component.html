@@ -1,6 +1,6 @@
 ﻿<div *ngIf="spell != null" class="card w-100">
 	<div class="card-header clickable">
-		<div (click)="toggleDetails(spell)">
+		<div (click)="toggleDetails()">
 			<div class="card-title">{{spell.name}}</div>
 			<i>{{getLevelText(spell.level)}}&nbsp;{{spell.school.toLowerCase()}}&nbsp;<span *ngIf="spell.ritual">(ritual)</span></i><br />
 		</div>
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 	</div>
-	<div *ngIf="spell.ui && spell.ui.show" class="card-body">
+	<div *ngIf="expand" class="card-body">
 		<div class="card-text">
 			<div class="stats">
 				<div>

@@ -1,26 +1,20 @@
-﻿import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'magic-item',
   styleUrls: ['./magic-item.component.scss'],
   templateUrl: './magic-item.component.html'
 })
-export class MagicItemComponent implements OnChanges {
+export class MagicItemComponent {
 
+  @Input() expand = false;
   @Input() magicItem: any = null;
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the magicItem is bookmarked for the current session
+  @Output() expanded = new EventEmitter<boolean>();
   
-  ngOnChanges() {
-    // console.log(this.magicItem);
-  }
-  
-  toggleDetails(magicItem: any) {
-    if (magicItem.ui) {
-      magicItem.ui.show = !magicItem.ui.show;
-    } else {
-      magicItem.ui = {};
-      magicItem.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
   toggleBookmark(magicItem: any) {

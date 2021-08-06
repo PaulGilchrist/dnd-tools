@@ -9,8 +9,6 @@ import { DataService } from '../../services/data.service';
   templateUrl: './magic-items.component.html'
 })
 export class MagicItemsComponent implements OnInit, OnDestroy {
-  magicItems: any[] = [];
-  subscriptions: Subscription[] = [];
   filter = {
     bookmarked: 'All',
     attunement: 'All',
@@ -18,6 +16,9 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
     rarity: 'All',
     type: 'All'
   }
+  magicItems: any[] = [];
+  shownCard = '';
+  subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
 
@@ -49,6 +50,12 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Unsubscribe all subscriptions to avoid memory leak
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  expandCard(index: string, expanded: boolean) {
+    if(expanded) {
+      this.shownCard=index;
+    }
   }
 
   filterChanged(): void {

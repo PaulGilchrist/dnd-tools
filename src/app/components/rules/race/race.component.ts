@@ -1,17 +1,15 @@
-﻿import { Component, Input, OnChanges } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-race',
   styleUrls: ['./race.component.scss'],
   templateUrl: './race.component.html'
 })
-export class RaceComponent implements OnChanges {
+export class RaceComponent {
 
+  @Input() expand = false;
   @Input() race: any = null;
-
-  ngOnChanges() {
-    // console.log(this.race);
-  }
+  @Output() expanded = new EventEmitter<boolean>();
 
   getAbilityBonuses() {
     let abilityBonuses = '';
@@ -89,13 +87,9 @@ export class RaceComponent implements OnChanges {
     return traitOptions.substr(0, traitOptions.length-2);
   }
 
-  toggleDetails(race: any) {
-    if (race.ui) {
-      race.ui.show = !race.ui.show;
-    } else {
-      race.ui = {};
-      race.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
 }

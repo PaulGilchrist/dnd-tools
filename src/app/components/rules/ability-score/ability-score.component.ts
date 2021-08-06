@@ -1,5 +1,4 @@
-﻿import { Component, Input } from '@angular/core';
-
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'ability-score',
   styleUrls: ['./ability-score.component.scss'],
@@ -8,22 +7,20 @@
 export class AbilityScoreComponent {
 
   @Input() abilityScore: any = null;
+  @Input() expand = false;
+  @Output() expanded = new EventEmitter<boolean>();
 
   getSkills() {
     let skills = '';
     this.abilityScore.skills.forEach((skill: string) => {
       skills += `${skill}, `;
     });
-    return skills.substr(0, skills.length-2);
+    return skills.substr(0, skills.length - 2);
   }
 
-  toggleDetails(abilityScore: any) {
-    if (abilityScore.ui) {
-      abilityScore.ui.show = !abilityScore.ui.show;
-    } else {
-      abilityScore.ui = {};
-      abilityScore.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
 }

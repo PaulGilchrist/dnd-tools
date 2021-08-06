@@ -51,5 +51,5 @@
 	</select>
 </form>
 <div *ngFor="let spell of spells" class="list">
-	<app-spell *ngIf="showSpell(spell)" [spell]="spell" (knownChanged)="saveKnown()" (preparedChanged)="savePrepared()"></app-spell>
+	<app-spell *ngIf="showSpell(spell)" [spell]="spell" (knownChanged)="saveKnown()" (preparedChanged)="savePrepared()" [expand]="shownCard==spell.index" (expanded)="expandCard(spell.index, $event)"></app-spell>
 </div>

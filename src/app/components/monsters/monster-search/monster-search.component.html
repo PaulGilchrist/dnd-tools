@@ -87,5 +87,5 @@
 	</select>
 </form>
 <div *ngFor="let monster of monsters" class="list">
-	<app-monster *ngIf="showMonster(monster)" [monster]="monster" (bookmarkChanged)="saveBookmark()"></app-monster>
+	<app-monster *ngIf="showMonster(monster)" [monster]="monster" (bookmarkChanged)="saveBookmark()" [expand]="shownCard==monster.index" (expanded)="expandCard(monster.index, $event)"></app-monster>
 </div>

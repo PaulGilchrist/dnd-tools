@@ -9,8 +9,6 @@ import { DataService } from '../../../services/data.service';
   templateUrl: './monster-search.component.html'
 })
 export class MonsterSearchComponent implements OnInit, OnDestroy {
-  monsters: any[] = [];
-  subscriptions: Subscription[] = [];
   filter = {
     bookmarked: 'All',
     challengeRatingMin: 0,
@@ -22,6 +20,9 @@ export class MonsterSearchComponent implements OnInit, OnDestroy {
     xpMin: 0,
     xpMax: 50000,
   }
+  monsters: any[] = [];
+  shownCard = '';
+  subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
 
@@ -57,6 +58,12 @@ export class MonsterSearchComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
+  expandCard(index: string, expanded: boolean) {
+    if(expanded) {
+      this.shownCard=index;
+    }
+  }
+  
   filterChanged(): void {
     localStorage.setItem('monsterFilter', JSON.stringify(this.filter));
   }

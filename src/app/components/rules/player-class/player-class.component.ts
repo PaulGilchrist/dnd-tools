@@ -1,19 +1,16 @@
-﻿import { Component, Input, OnChanges } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'player-class',
   styleUrls: ['./player-class.component.scss'],
   templateUrl: './player-class.component.html'
 })
-export class PlayerClassComponent implements OnChanges{
+export class PlayerClassComponent {
 
+  @Input() expand = false;
   @Input() playerClass: any = null;
-
+  @Output() expanded = new EventEmitter<boolean>();
   shownLevel: string = '';
-
-  ngOnChanges() {
-    // console.log(this.playerClass);
-  }
 
   getProficiencies() {
     let proficiencies = '';
@@ -67,13 +64,9 @@ export class PlayerClassComponent implements OnChanges{
     }
   }
 
-  toggleDetails(playerClass: any) {
-    if (playerClass.ui) {
-      playerClass.ui.show = !playerClass.ui.show;
-    } else {
-      playerClass.ui = {};
-      playerClass.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
 }

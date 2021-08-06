@@ -1,6 +1,6 @@
 ﻿<div *ngIf="equipmentItem != null" class="card w-100">
 	<div class="card-header clickable">
-		<div (click)="toggleDetails(equipmentItem)">
+		<div (click)="toggleDetails()">
 			<div class="card-title">{{equipmentItem.name}}</div>
 			<i>{{equipmentItem.equipment_category}}, cost {{equipmentItem.cost.quantity}} {{equipmentItem.cost.unit}}<span *ngIf="equipmentItem.weight">, weight {{equipmentItem.weight}} lb.</span></i><br />
 		</div>
@@ -11,7 +11,7 @@
 			</label>
 		</div>
 	</div>
-	<div *ngIf="equipmentItem.ui && equipmentItem.ui.show" class="card-body">
+	<div *ngIf="expand" class="card-body">
 		<div class="card-text">
 			<div *ngIf="equipmentItem.equipment_category == 'Adventuring Gear'">
 				<b>Category:</b>&nbsp;{{equipmentItem.gear_category}}<br />

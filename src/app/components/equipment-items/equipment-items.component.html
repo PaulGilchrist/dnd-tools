@@ -51,5 +51,5 @@
 	{{getWeaponPropertyDescription(filter.property)}}
 </div>
 <div *ngFor="let equipmentItem of equipmentItems" class="list">
-	<equipment-item *ngIf="showEquipmentItem(equipmentItem)" [equipmentItem]="equipmentItem" (bookmarkChanged)="saveBookmark()"></equipment-item>
+	<equipment-item *ngIf="showEquipmentItem(equipmentItem)" [equipmentItem]="equipmentItem" (bookmarkChanged)="saveBookmark()" [expand]="shownCard==equipmentItem.index" (expanded)="expandCard(equipmentItem.index, $event)"></equipment-item>
 </div>

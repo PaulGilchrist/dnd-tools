@@ -7,10 +7,12 @@
 })
 export class SpellComponent implements OnChanges {
 
+  @Input() expand = false;
   @Input() spell: any = null;
+  @Output() expanded = new EventEmitter<boolean>();
   @Output() readonly knownChanged = new EventEmitter<boolean>(); // Bubble up that the spell is known
   @Output() readonly preparedChanged = new EventEmitter<boolean>(); // Bubble up that the spell is prepared
-
+  
   ngOnChanges() {
     // console.log(this.spell);
   }
@@ -38,13 +40,9 @@ export class SpellComponent implements OnChanges {
     }
   }
 
-  toggleDetails(spell: any) {
-    if (spell.ui) {
-      spell.ui.show = !spell.ui.show;
-    } else {
-      spell.ui = {};
-      spell.ui.show = true;
-    }
+  toggleDetails() {
+    this.expand = !this.expand;
+    this.expanded.emit(this.expand);
   }
 
   toggleKnown(spell: any) {

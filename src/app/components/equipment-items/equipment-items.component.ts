@@ -17,6 +17,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
     property: 'All',
     range: 'All'
   }
+  shownCard = '';
   subscriptions: Subscription[] = [];
   weaponProperties: any[] = [];
 
@@ -51,6 +52,12 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Unsubscribe all subscriptions to avoid memory leak
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  expandCard(index: string, expanded: boolean) {
+    if(expanded) {
+      this.shownCard=index;
+    }
   }
 
   getWeaponPropertyDescription(name: string) {

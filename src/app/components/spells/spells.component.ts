@@ -17,8 +17,8 @@ export class SpellsComponent implements OnInit, OnDestroy {
     name: '',
     status: 'All'
   }
+  shownCard = '';
   spells: any[] = [];
-
   subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
@@ -57,6 +57,12 @@ export class SpellsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Unsubscribe all subscriptions to avoid memory leak
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  expandCard(index: string, expanded: boolean) {
+    if(expanded) {
+      this.shownCard=index;
+    }
   }
 
   filterChanged(): void {

@@ -10,6 +10,7 @@ import { DataService } from '../../../services/data.service';
 })
 export class PlayerClassesComponent implements OnInit, OnDestroy {
   playerClasses: any[] = [];
+  shownCard = '';
   subscriptions: Subscription[] = [];
 
   constructor(public dataService: DataService) { }
@@ -25,6 +26,12 @@ export class PlayerClassesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // Unsubscribe all subscriptions to avoid memory leak
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  expandCard(index: string, expanded: boolean) {
+    if(expanded) {
+      this.shownCard=index;
+    }
   }
 
 }
