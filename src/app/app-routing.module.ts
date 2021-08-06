@@ -12,7 +12,6 @@ import { PlayerClassesComponent } from './components/rules/player-classes/player
 import { RacesComponent } from './components/rules/races/races.component';
 import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
 import { SpellsComponent } from './components/spells/spells.component';
-import { TraitsComponent } from './components/rules/traits/traits.component';
 
 const routes: Routes = [
     // Static Loading
@@ -28,8 +27,7 @@ const routes: Routes = [
     { path: 'rules/races', component: RacesComponent },
     { path: 'rules/general', component: GeneralRulesComponent },
     { path: 'spells', component: SpellsComponent },
-    { path: 'rules/traits', component: TraitsComponent },
-];
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading, relativeLinkResolution: 'legacy' })

@@ -28,8 +28,6 @@ import { GeneralRuleComponent } from './components/rules/general-rule/general-ru
 import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
 import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
-import { TraitComponent } from './components/rules/trait/trait.component';
-import { TraitsComponent } from './components/rules/traits/traits.component';
 
 import { DataService } from './services/data.service';
 @NgModule({
@@ -56,9 +54,7 @@ import { DataService } from './services/data.service';
     RaceComponent,
     RacesComponent,
     SpellComponent,
-    SpellsComponent,
-    TraitComponent,
-    TraitsComponent
+    SpellsComponent
   ],
   imports: [
     AppRoutingModule,

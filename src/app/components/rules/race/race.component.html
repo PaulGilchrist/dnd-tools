@@ -3,30 +3,88 @@
 		<div class="card-title">{{race.name}}</div>
 	</div>
 	<div *ngIf="expand" class="card-body">
-		<b>Ability Bonuses:</b>&nbsp;{{getAbilityBonuses()}}<br />
+		<b>Ability Bonuses:</b>&nbsp;{{getAbilityBonuses(race.ability_bonuses)}}<br />
 		<div *ngIf="race.ability_bonus_options">
-			<b>Ability Bonus Options:</b>&nbsp;{{getAbilityBonusOptions()}}<br />
+			<b>Ability Bonus Options:</b>&nbsp;{{getAbilityBonusOptions(race.ability_bonus_options)}}<br />
 		</div>
 		<b>Speed:</b>&nbsp;{{race.speed}} feet<br />
 		<div *ngIf="race.starting_proficiencies.length > 0">
-			<b>Starting Proficiencies:</b>&nbsp;{{getStartingProficiencies()}}<br />
+			<b>Starting Proficiencies:</b>&nbsp;{{getNameString(race.starting_proficiencies)}}<br />
 		</div>
 		<div *ngIf="race.starting_proficiency_options">
-			<b>Starting Proficiency Options:</b>&nbsp;{{getStartingProficiencyOptions()}}<br />
-		</div>
-		<div *ngIf="race.traits.length > 0">
-			<b>Traits:</b>&nbsp;{{getTraits()}}<br />
-		</div>
-		<div *ngIf="race.trait_options">
-			<b>Trait Options:</b>&nbsp;{{getTraitOptions()}}<br />
+			<b>Starting Proficiency Options:</b>&nbsp;Choose {{race.starting_proficiency_options.choose}} - {{getNameString(race.starting_proficiency_options.from)}}<br />
 		</div>
 		<hr>
 		<b>Alignment:</b>&nbsp;{{race.alignment}}<br /><br />
 		<b>Age:</b>&nbsp;{{race.age}}<br /><br />
-		<b>Languages:</b>&nbsp;{{getLanguages()}} - {{race.language_desc}}<br /><br />
+		<b>Languages:</b>&nbsp;{{getNameString(race.languages)}} - {{race.language_desc}}<br /><br />
 		<div *ngIf="race.language_options">
-			<b>Language Options:</b>&nbsp;{{getLanguageOptions()}}<br /><br />
+			<b>Language Options:</b>&nbsp;Choose {{race.language_options.choose}} - {{getNameString(race.language_options.from)}}<br /><br />
 		</div>
 		<b>Size:</b>&nbsp;{{race.size}} - {{race.size_description}}<br />
+		<div *ngIf="race.traits && race.traits.length > 0" class="removeExtraLine">
+			<hr>
+			<h5>Traits</h5>
+			<div *ngFor="let trait of race.traits">
+				<b>{{trait.name}}</b> - {{trait.desc}}<br />
+				<div class="subtext">
+					<div *ngIf="trait.proficiencies.length > 0">
+						<b>Proficiencies:</b>&nbsp;{{getNameString(trait.proficiencies)}}<br />
+					</div>
+					<div *ngIf="trait.trait_specific && trait.trait_specific.subtrait_options">
+						<b>Options:</b>&nbsp;Choose {{trait.trait_specific.subtrait_options.choose}} - {{getNameString(trait.trait_specific.subtrait_options.from)}}<br />
+					</div>
+					<div *ngIf="trait.trait_specific && trait.trait_specific.spell_options">
+						<b>Spell Options:</b>&nbsp;Choose {{trait.trait_specific.spell_options.choose}} - {{getNameString(trait.trait_specific.spell_options.from)}}<br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="race.subraces && race.subraces.length > 0">
+			<hr>
+			<h5>Subraces</h5>
+			<div *ngFor="let subrace of race.subraces">
+				<b>{{subrace.name}}</b> - {{subrace.desc}}<br />
+				<div class="subtext">
+					<div *ngIf="subrace.ability_bonuses">
+						<b>Ability Bonuses:</b>&nbsp;{{getAbilityBonuses(subrace.ability_bonuses)}}<br />
+					</div>
+					<div *ngIf="subrace.ability_bonus_options">
+						<b>Ability Bonus Options:</b>&nbsp;{{getAbilityBonusOptions(subrace.ability_bonus_options)}}<br />
+					</div>
+					<div *ngIf="subrace.starting_proficiencies.length > 0">
+						<b>Starting Proficiencies:</b>&nbsp;{{getNameString(subrace.starting_proficiencies)}}<br />
+					</div>
+					<div *ngIf="subrace.starting_proficiency_options">
+						<b>Starting Proficiency Options:</b>&nbsp;Choose {{subrace.starting_proficiency_options.choose}} - {{getNameString(subrace.starting_proficiency_options.from)}}<br />
+					</div>
+					<div *ngIf="subrace.languages.length > 0">
+						<b>Languages:</b>&nbsp;{{getNameString(subrace.languages)}} - {{subrace.language_desc}}<br /><br />
+					</div>
+					<div *ngIf="subrace.language_options">
+						<b>Language Options:</b>&nbsp;Choose {{subrace.language_options.choose}} - {{getNameString(subrace.language_options.from)}}<br /><br />
+					</div>
+					<div *ngIf="subrace.traits && subrace.traits.length > 0">
+						<hr>
+						<h5>Traits</h5>
+						<div *ngFor="let trait of subrace.racial_traits">
+							<b>{{trait.name}}</b> - {{trait.desc}}<br />
+							<div class="subtext">
+								<div *ngIf="trait.proficiencies.length > 0">
+									<b>Proficiencies:</b>&nbsp;{{getNameString(trait.proficiencies)}}<br />
+								</div>
+								<div *ngIf="trait.trait_specific && trait.trait_specific.subtrait_options">
+									<b>Options:</b>&nbsp;Choose {{trait.trait_specific.subtrait_options.choose}} - {{getNameString(trait.trait_specific.subtrait_options.from)}}<br />
+								</div>
+								<div *ngIf="trait.trait_specific && trait.trait_specific.spell_options">
+									<b>Spell Options:</b>&nbsp;Choose {{trait.trait_specific.spell_options.choose}} - {{getNameString(trait.trait_specific.spell_options.from)}}<br />
+								</div>
+								<br />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
