@@ -12,7 +12,7 @@ export class RaceComponent implements OnChanges {
   @Output() expanded = new EventEmitter<boolean>();
 
   ngOnChanges() {
-    console.log(this.race);
+    // console.log(this.race);
   }
 
   getAbilityBonuses(ability_bonuses: any) {

@@ -1,4 +1,4 @@
-﻿<div *ngIf="abilityScore != null" class="card w-100">
+﻿<div *ngIf="abilityScore != null" class="card w-100" [class.active]="expand">
 	<div class="card-header clickable" (click)="toggleDetails()">
 		<span class="card-title">{{abilityScore.full_name}}</span><span *ngIf="getSkills() != ''" class="align-center">&nbsp;- {{getSkills()}}</span>
 	</div>

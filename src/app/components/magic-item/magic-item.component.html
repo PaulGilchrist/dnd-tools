@@ -1,4 +1,4 @@
-﻿<div *ngIf="magicItem != null" class="card w-100">
+﻿<div *ngIf="magicItem != null" class="card w-100" [class.active]="expand">
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{magicItem.name}}</div>

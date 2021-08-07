@@ -1,3 +1,4 @@
+
 .card {
   margin-top: 5px;
   width: 100%;
@@ -16,6 +17,13 @@
 .inner > .card-header {
   background-color: rgba(100, 100, 100, 1);
   color: white;
+  padding: 0 10px;
+}
+.inner > .card-header:hover {
+  background-color: rgb(41, 45, 56);
+}
+.active.inner > .card-header {
+  background-color: rgb(41, 45, 56);
 }
 .card-title {
   font-size: 1.5em;

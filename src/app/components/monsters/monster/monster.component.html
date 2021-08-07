@@ -1,7 +1,7 @@
 ﻿<div *ngIf="modalActive" class="cover" (click)="modalActive=false">
     <img [src]="'assets/monsters/' + monster.index + '.jpg'">
 </div>
-<div *ngIf="monster != null" class="card w-100">
+<div *ngIf="monster != null" class="card w-100" [class.active]="expand">
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{monster.name}}</div>

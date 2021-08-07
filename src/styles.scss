@@ -23,8 +23,11 @@ h6 { font-size: 1.0em; }
 .w-60 { width: 60%!important; }
 .w-70 { width: 70%!important; }
 
-.card-header {
-    background-color: rgba(100, 100, 100, 0.10);
+.card-header:hover {
+    background-color: rgb(164, 180, 223);  
+}
+.active > .card-header {
+    background-color: rgb(164, 180, 223);
 }
 .clickable:hover {
     cursor: pointer;

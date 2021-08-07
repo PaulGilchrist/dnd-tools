@@ -1,4 +1,4 @@
-﻿<div *ngIf="condition != null" class="card w-100">
+﻿<div *ngIf="condition != null" class="card w-100" [class.active]="expand">
 	<div class="card-header clickable" (click)="toggleDetails()">
 		<div class="card-title">{{condition.name}}</div>
 	</div>

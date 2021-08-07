@@ -1,4 +1,4 @@
-﻿<div *ngIf="playerClass != null" class="card outer w-100">
+﻿<div *ngIf="playerClass != null" class="card outer w-100" [class.active]="expand">
 	<div class="card-header clickable" (click)="toggleDetails()">
 		<div class="card-title">{{playerClass.name}}</div>
 	</div>
@@ -185,5 +185,7 @@
 				</div>
 			</div>
 		</div>
+		<br/>
+		<div *ngIf="playerClass.page">{{playerClass.book}} (page {{playerClass.page}})</div>
 	</div>
 </div>
