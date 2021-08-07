@@ -9,7 +9,9 @@
 					<div class="card-header clickable" (click)="showSubsection(subsection.index)">
 						<div class="card-title">{{subsection.name}}</div>
 					</div>
-					<div class="card-body hidden" [class.hidden]="shownSubsection != subsection.index" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(subsection.desc)">
+					<div class="card-body hidden" [class.hidden]="shownSubsection != subsection.index">
+						<div [innerHtml]="domSanitizer.bypassSecurityTrustHtml(subsection.desc)"></div>
+						<div *ngIf="subsection.page">{{subsection.book}} (page {{subsection.page}})</div>
 					</div>
 				</div>
 			</div>

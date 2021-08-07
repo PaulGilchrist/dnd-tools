@@ -27,6 +27,7 @@ export class MonsterSearchComponent implements OnInit, OnDestroy {
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+    window.history.forward();
     this.subscriptions.push(combineLatest([
       this.dataService.getMonsters()
     ]).subscribe((data: any) => {

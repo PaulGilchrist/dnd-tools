@@ -1,4 +1,4 @@
-﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./general-rule.component.scss'],
   templateUrl: './general-rule.component.html'
 })
-export class GeneralRuleComponent {
+export class GeneralRuleComponent implements OnChanges {
 
   @Input() expand = false;
   @Input() rule: any = null;
@@ -15,6 +15,10 @@ export class GeneralRuleComponent {
   shownSubsection: string = '';
 
   constructor(public domSanitizer: DomSanitizer, public sanitizer: DomSanitizer) {}
+
+  ngOnChanges() {
+    console.log(this.rule);
+  }
 
   showSubsection(subsection: string) {
     if(this.shownSubsection == subsection) {
