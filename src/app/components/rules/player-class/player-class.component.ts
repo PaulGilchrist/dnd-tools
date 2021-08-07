@@ -10,7 +10,7 @@ export class PlayerClassComponent {
   @Input() expand = false;
   @Input() playerClass: any = null;
   @Output() expanded = new EventEmitter<boolean>();
-  shownLevel: string = '';
+  shownLevel  = 1;
 
   getProficiencies() {
     let proficiencies = '';
@@ -54,14 +54,6 @@ export class PlayerClassComponent {
       savingThrows += `${savingThrow}, `;
     });
     return savingThrows.substr(0, savingThrows.length - 2);
-  }
-
-  showLevel(level: string) {
-    if(this.shownLevel == level) {
-      this.shownLevel = '';
-    } else {
-      this.shownLevel = level;
-    }
   }
 
   toggleDetails() {
