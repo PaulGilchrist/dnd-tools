@@ -40,11 +40,11 @@
 				</div>
 			</div>
 		</div>
-		<div *ngIf="race.subraces && race.subraces.length > 0">
+		<div *ngIf="race.subraces && race.subraces.length > 0" class="removeExtraLine">
 			<hr>
 			<h5>Subraces</h5>
 			<div *ngFor="let subrace of race.subraces">
-				<b>{{subrace.name}}</b> - {{subrace.desc}}<br />
+				<strong>{{subrace.name}}</strong> - {{subrace.desc}}<br />
 				<div class="subtext">
 					<div *ngIf="subrace.ability_bonuses">
 						<b>Ability Bonuses:</b>&nbsp;{{getAbilityBonuses(subrace.ability_bonuses)}}<br />
@@ -64,8 +64,7 @@
 					<div *ngIf="subrace.language_options">
 						<b>Language Options:</b>&nbsp;Choose {{subrace.language_options.choose}} - {{getNameString(subrace.language_options.from)}}<br /><br />
 					</div>
-					<div *ngIf="subrace.traits && subrace.traits.length > 0">
-						<hr>
+					<div *ngIf="subrace.racial_traits && subrace.racial_traits.length > 0">
 						<h5>Traits</h5>
 						<div *ngFor="let trait of subrace.racial_traits">
 							<b>{{trait.name}}</b> - {{trait.desc}}<br />
@@ -79,10 +78,10 @@
 								<div *ngIf="trait.trait_specific && trait.trait_specific.spell_options">
 									<b>Spell Options:</b>&nbsp;Choose {{trait.trait_specific.spell_options.choose}} - {{getNameString(trait.trait_specific.spell_options.from)}}<br />
 								</div>
-								<br />
 							</div>
 						</div>
 					</div>
+					<hr>
 				</div>
 			</div>
 		</div>
