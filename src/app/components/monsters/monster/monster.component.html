@@ -1,4 +1,7 @@
-﻿<div *ngIf="monster != null" class="card w-100">
+﻿<div *ngIf="modalActive" class="cover" (click)="modalActive=false">
+    <img [src]="'assets/monsters/' + monster.index + '.jpg'">
+</div>
+<div *ngIf="monster != null" class="card w-100">
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{monster.name}}</div>
@@ -12,7 +15,7 @@
 		</div>
 	</div>
 	<div *ngIf="expand" class="card-body">
-		<image-modal *ngIf="monster.image==true" [image]="monster.index + '.jpg'"></image-modal>
+		<!-- <image-modal *ngIf="monster.image==true" [image]="monster.index + '.jpg'"></image-modal> -->
 		<div class="card-text">
 			<div class="stats">
 				<div>
@@ -21,7 +24,7 @@
 					<b>Speed:</b>&nbsp;{{monster.speed.walk ? monster.speed.walk : '0 ft.'}}<span *ngIf="monster.speed.burrow">, burrow {{monster.speed.burrow}}</span><span *ngIf="monster.speed.climb">, climb {{monster.speed.climb}}</span><span *ngIf="monster.speed.fly">, fly {{monster.speed.fly}}</span><span *ngIf="monster.speed.hover"> (hover)</span><span *ngIf="monster.speed.swim">, swim {{monster.speed.swim}}</span><br />
 				</div>
 				<div>
-					<button *ngIf="monster.image==true" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#imageModal">Image</button>
+					<button *ngIf="monster.image==true" type="button" class="btn btn-primary" (click)="modalActive=true">Image</button>
 				</div>
 			</div>
             <hr>
