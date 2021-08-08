@@ -5,16 +5,16 @@
 	<div *ngIf="expand" class="card-body">
 		<b>Hit Die:</b>&nbsp;d{{playerClass.hit_die}}<br />
 		<div *ngIf="playerClass.proficiencies.length > 0">
-			<b>Proficiencies:</b>&nbsp;{{getProficiencies()}}<br />
+			<b>Proficiencies:</b>&nbsp;{{getNameString(playerClass.proficiencies)}}<br />
 		</div>
 		<div *ngIf="playerClass.proficiency_choices.length > 0">
-			<div *ngFor="let proficiencyChoice of playerClass.proficiency_choices">
-				<b>Proficiencies:</b>&nbsp;{{getProficiencyChoiceText(proficiencyChoice)}}<br />
-			</div>
+			<b>Proficiencies:</b>&nbsp;Choose {{playerClass.proficiency_choices[0].choose}} -
+			{{getNameString(playerClass.proficiency_choices[0].from)}}
 		</div>
 		<div *ngIf="playerClass.saving_throws.length > 0">
-			<b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
+			<b>Saving Throws:</b>&nbsp;{{getNameString(playerClass.saving_throws)}}<br />
 		</div>
+		<!-- Features that are not level specific -->
 		<div *ngIf="playerClass.features.length > 0" class="card inner w-100">
 			<div class="card-header clickable" (click)="shownLevel=0">
 				<div class="card-title">Features</div>
@@ -33,10 +33,74 @@
 				</div>
 			</div>
 		</div>
-		<br/>
+		<!-- subclasses -->
+		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0" class="removeExtraLine">
+			<hr>
+			<h5>Subclasses</h5>
+			<div *ngFor="let subclass of playerClass.subclasses" class="subtext removeExtraLine">
+				<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
+				<div class="subtext">
+					<!-- Features that are not level specific -->
+					<div *ngFor="let feature of subclass.features" class="removeExtraLine">
+						<b>{{feature.name}}:</b>&nbsp;
+						<span *ngFor="let desc of feature.desc">
+							{{desc}}<br /><br />
+						</span>
+						<div *ngIf="feature.prerequisites.length > 0">
+							<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+						</div>
+					</div>
+					<!-- Subclass Levels -->
+					<div *ngFor="let level of subclass.class_levels" class="removeExtraLine">
+						<!-- <strong>Level {{level.level}}</strong> -->
+						<div *ngIf="level.subclass_specific">
+							<div *ngIf="subclass.index=='devotion'">
+								<b>Aura Range:</b>&nbsp;{{level.subclass_specific.aura_range}}<br />
+							</div>
+							<!-- <div *ngIf="subclass.index=='lore'">
+								<b>Additional Magical Secrets Max Level:</b>&nbsp;{{level.subclass_specific.additional_magical_secrets_max_lvl}}<br />
+							</div> -->
+						</div>
+						<div *ngFor="let feature of level.features" class="removeExtraLine">
+							<div class="feature">
+								<b>{{feature.name}}</b>:&nbsp;
+								<span *ngFor="let desc of feature.desc">
+									{{desc}}&nbsp;
+								</span>
+							</div>
+							<div *ngIf="feature.prerequisites.length > 0">
+								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+							</div>
+						</div>
+						<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
+							<b>{{feature.name}}</b>:&nbsp;
+							<span *ngFor="let desc of feature.desc">
+								{{desc}}&nbsp;
+							</span><br /><br /><br />
+							<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options"
+								class="subtext">
+								<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> -
+								{{getNameString(feature.feature_specific.expertise_options.from)}}<br />
+							</div>
+							<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options"
+								class="subtext">
+								<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> -
+								{{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
+							</div>
+							<div *ngIf="feature.prerequisites.length > 0">
+								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+							</div>
+						</div>						
+					</div>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<!-- Levels -->
 		<div class="level-group">
 			<div *ngFor="let level of playerClass.class_levels" class="btn-group">
-				<button type="button" [class.active]="shownLevel==level.level" class="btn btn-outline-primary btn-level" (click)="shownLevel=level.level">{{level.level}}</button>
+				<button type="button" [class.active]="shownLevel==level.level" class="btn btn-outline-primary btn-level"
+					(click)="shownLevel=level.level">{{level.level}}</button>
 			</div>
 		</div>
 		<div *ngFor="let level of playerClass.class_levels">
@@ -103,7 +167,8 @@
 					</div>
 					<div *ngIf="playerClass.index=='warlock'">
 						<b>Invocations Known:</b>&nbsp;{{level.class_specific.invocations_known}}<br />
-						<div *ngIf="(level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) || (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) || (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) || (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0)">
+						<div
+							*ngIf="(level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) || (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) || (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) || (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0)">
 							<b>Mystic Arcanum:</b><br />
 							<div
 								*ngIf="level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0">
@@ -122,7 +187,6 @@
 								&nbsp;&nbsp;&nbsp;&nbsp;Level 9 = {{level.class_specific.mystic_arcanum_level_9}}<br />
 							</div>
 						</div>
-	
 					</div>
 					<div *ngIf="playerClass.index=='wizard'">
 						<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
@@ -133,37 +197,55 @@
 							<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
 						</div>
 						<b>Spell Slots:</b><br />
-						<div *ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 1 = {{level.spellcasting.spell_slots_level_1}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 1 =
+							{{level.spellcasting.spell_slots_level_1}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 2 = {{level.spellcasting.spell_slots_level_2}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 2 =
+							{{level.spellcasting.spell_slots_level_2}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 3 = {{level.spellcasting.spell_slots_level_3}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 3 =
+							{{level.spellcasting.spell_slots_level_3}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 4 = {{level.spellcasting.spell_slots_level_4}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 4 =
+							{{level.spellcasting.spell_slots_level_4}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 5 = {{level.spellcasting.spell_slots_level_5}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 5 =
+							{{level.spellcasting.spell_slots_level_5}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 6 = {{level.spellcasting.spell_slots_level_6}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 6 =
+							{{level.spellcasting.spell_slots_level_6}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 7 = {{level.spellcasting.spell_slots_level_7}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 7 =
+							{{level.spellcasting.spell_slots_level_7}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 8 = {{level.spellcasting.spell_slots_level_8}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 8 =
+							{{level.spellcasting.spell_slots_level_8}}<br />
 						</div>
-						<div *ngIf="level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 9 = {{level.spellcasting.spell_slots_level_9}}<br />
+						<div
+							*ngIf="level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0">
+							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 9 =
+							{{level.spellcasting.spell_slots_level_9}}<br />
 						</div>
 					</div>
 					<br />
 					<div *ngFor="let feature of level.features">
-						<h5>{{feature.name}}:</h5>
+						<h5>{{feature.name}}</h5>
 						<span *ngFor="let desc of feature.desc">
 							{{desc}}<br /><br />
 						</span>
@@ -173,10 +255,20 @@
 						</div>
 					</div>
 					<div *ngFor="let feature of level.feature_choices">
-						<h5>{{feature.name}}:</h5>
+						<h5>{{feature.name}}</h5>
 						<span *ngFor="let desc of feature.desc">
-							{{desc}}<br /><br />
+							{{desc}}<br />
 						</span>
+						<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options"
+							class="subtext">
+							<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> -
+							{{getNameString(feature.feature_specific.expertise_options.from)}}<br />
+						</div>
+						<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options"
+							class="subtext">
+							<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> -
+							{{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
+						</div>
 						<div *ngIf="feature.prerequisites.length > 0">
 							<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
 							<br />
@@ -185,7 +277,7 @@
 				</div>
 			</div>
 		</div>
-		<br/>
+		<br />
 		<div *ngIf="playerClass.page">{{playerClass.book}} (page {{playerClass.page}})</div>
 	</div>
 </div>
