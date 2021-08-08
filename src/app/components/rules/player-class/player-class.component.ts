@@ -44,6 +44,25 @@ export class PlayerClassComponent implements OnChanges {
     return prerequisitesText.substr(0, prerequisitesText.length - 2);
   }
 
+  getSpells(spells: any) {
+    let spellNames = '';
+    let lastLevel = '';
+    spells.forEach((spell: any) => {
+      let level = spell.prerequisites[0].index;
+      level = level.substr(level.length-1,1);
+      if(level != lastLevel) {
+        if(level != '1') {
+          spellNames += `<br/>`;
+        }
+        spellNames += `Level ${level}: ${spell.spell.name}`;
+      } else {
+        spellNames += `, ${spell.spell.name}`;
+      }
+      lastLevel = level;
+    });
+    return spellNames
+  }
+
   toggleDetails() {
     this.expand = !this.expand;
     this.expanded.emit(this.expand);
