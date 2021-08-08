@@ -79,20 +79,18 @@
 								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
 							</div>
 						</div>
-						<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
-							<b>{{feature.name}}</b>:&nbsp;
-							<span *ngFor="let desc of feature.desc">
-								{{desc}}&nbsp;
-							</span><br /><br /><br />
-							<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options"
-								class="subtext">
-								<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> -
-								{{getNameString(feature.feature_specific.expertise_options.from)}}<br />
-							</div>
-							<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options"
-								class="subtext">
-								<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> -
-								{{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
+						<div *ngFor="let feature of level.feature_choices">
+							<div class="feature">
+								<b>{{feature.name}}</b>:&nbsp;
+								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+									{{desc}}
+								</div>
+								<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options" class="subtext">
+									<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> - {{getNameString(feature.feature_specific.expertise_options.from)}}<br />
+								</div>
+								<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options" class="subtext">
+									<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> - {{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
+								</div>
 							</div>
 							<div *ngIf="feature.prerequisites.length > 0">
 								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
@@ -115,7 +113,7 @@
 				<div class="card-header clickable" (click)="shownLevel=level.level">
 					<div class="card-title">Level&nbsp;{{level.level}}</div>
 				</div>
-				<div class="card-body removeExtraLine" [class.hidden]="shownLevel != level.level">
+				<div class="card-body" [class.hidden]="shownLevel != level.level">
 					<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
 					<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
 					<div *ngIf="playerClass.index=='barbarian'">
@@ -200,7 +198,7 @@
 					</div>
 					<div *ngIf="level.spellcasting">
 						<b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
-						<div *ngIf="level.spellcasting.spells_know">
+						<div *ngIf="level.spellcasting.spells_known">
 							<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
 						</div>
 						<b>Spell Slots:</b><br />
