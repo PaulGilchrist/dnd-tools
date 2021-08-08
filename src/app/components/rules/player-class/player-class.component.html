@@ -71,10 +71,15 @@
 						<div *ngFor="let feature of level.features" class="removeExtraLine">
 							<div class="feature">
 								<b>{{feature.name}}</b>:&nbsp;
-								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-									{{desc}}
+								<div *ngIf="feature.html">
+									<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="desc">
+									</div>
 								</div>
-							</div>
+								<div *ngIf="!feature.html">
+									<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+										{{desc}}
+									</div>
+								</div>							</div>
 							<div *ngIf="feature.prerequisites.length > 0">
 								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
 							</div>
