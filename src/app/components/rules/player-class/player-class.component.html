@@ -40,19 +40,18 @@
 			<div *ngFor="let subclass of playerClass.subclasses" class="subtext removeExtraLine">
 				<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
 				<div class="subtext">
-					<div *ngIf="subclass.spells">
+					<div *ngIf="subclass.spells" class="margin-bottom-small">
 						<b>Spells:</b>
 						<div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
 						</div>
-						<br/>
 					</div>
 					<!-- Features that are not level specific -->
 					<div *ngFor="let feature of subclass.features">
 						<div class="feature">
 							<b>{{feature.name}}:</b>&nbsp;
-							<span *ngFor="let desc of feature.desc">
-								{{desc}}&nbsp;
-							</span>
+							<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+								{{desc}}
+							</div>
 						</div>
 						<div *ngIf="feature.prerequisites.length > 0">
 							<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
@@ -72,9 +71,9 @@
 						<div *ngFor="let feature of level.features" class="removeExtraLine">
 							<div class="feature">
 								<b>{{feature.name}}</b>:&nbsp;
-								<span *ngFor="let desc of feature.desc">
-									{{desc}}&nbsp;
-								</span>
+								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+									{{desc}}
+								</div>
 							</div>
 							<div *ngIf="feature.prerequisites.length > 0">
 								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
