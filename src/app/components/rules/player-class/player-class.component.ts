@@ -13,7 +13,7 @@ export class PlayerClassComponent implements OnChanges {
   shownLevel  = 1;
 
   ngOnChanges() {
-    // console.log(this.playerClass);
+    console.log(this.playerClass);
   }
 
   getNameString(names: string[]) {    
@@ -46,21 +46,33 @@ export class PlayerClassComponent implements OnChanges {
 
   getSpells(spells: any) {
     let spellNames = '';
+    let lastFeature = '';
     let lastLevel = '';
     spells.forEach((spell: any) => {
-      let level = spell.prerequisites[0].index;
+      let level = spell.prerequisites[0].name;
       level = level.substr(level.length-1,1);
+      let feature = '';
+      if(spell.prerequisites[1]) {
+        feature = spell.prerequisites[1].name;
+        if(feature != lastFeature) {
+          if(lastFeature != '') {
+            spellNames += `<br/><br/>`;
+          }
+          spellNames += `<b>${feature}</b>:<br/>`;
+        }
+      }
       if(level != lastLevel) {
-        if(level != '1') {
+        if(lastLevel != '' && feature == lastFeature) {
           spellNames += `<br/>`;
         }
         spellNames += `Level ${level}: ${spell.spell.name}`;
       } else {
         spellNames += `, ${spell.spell.name}`;
       }
+      lastFeature = feature;
       lastLevel = level;
     });
-    return spellNames
+    return spellNames;
   }
 
   toggleDetails() {
