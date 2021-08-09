@@ -10,7 +10,8 @@ export class PlayerClassComponent implements OnChanges {
   @Input() expand = false;
   @Input() playerClass: any = null;
   @Output() expanded = new EventEmitter<boolean>();
-  shownLevel  = 1;
+  shownLevel  = 0;
+  shownSubclass  = '';
 
   ngOnChanges() {
     // console.log(this.playerClass);
@@ -50,7 +51,8 @@ export class PlayerClassComponent implements OnChanges {
     let lastLevel = '';
     spells.forEach((spell: any) => {
       let level = spell.prerequisites[0].index;
-      level = level.substr(level.length-1,1);
+      const levelIndex = level.indexOf('-');
+      level = level.substr(levelIndex+1, 2);
       let feature = '';
       if(spell.prerequisites[1]) {
         feature = spell.prerequisites[1].name;
@@ -78,6 +80,21 @@ export class PlayerClassComponent implements OnChanges {
   toggleDetails() {
     this.expand = !this.expand;
     this.expanded.emit(this.expand);
+  }
+
+  showLevel(level: number) {
+    if(level == this.shownLevel) {
+      this.shownLevel = 0;
+    } else {
+      this.shownLevel = level;
+    }
+  }
+  showSubclass(subclass: string) {
+    if(subclass == this.shownSubclass) {
+      this.shownSubclass = '';
+    } else {
+      this.shownSubclass = subclass;
+    }
   }
 
 }

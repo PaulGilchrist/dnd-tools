@@ -34,91 +34,98 @@
 			</div>
 		</div>
 		<!-- subclasses -->
-		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0" class="removeExtraLine">
-			<hr>
-			<h5>Subclasses</h5>
-			<div *ngFor="let subclass of playerClass.subclasses" class="subtext removeExtraLine">
-				<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
-				<div class="subtext">
-					<div *ngIf="subclass.spells" class="margin-bottom-small">
-						<b>Spells:</b>
-						<div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
-						</div>
-					</div>
-					<!-- Features that are not level specific -->
-					<div *ngFor="let feature of subclass.features">
-						<div class="feature">
-							<b>{{feature.name}}:</b>&nbsp;
-							<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-								{{desc}}
+		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0">
+			<br/>
+			<b>Choose Subclass</b>:
+			<div class="subclass-group">
+				<div *ngFor="let subclass of playerClass.subclasses" class="btn-group">
+					<button type="button" [class.active]="shownSubclass==subclass.index" class="btn btn-outline-primary btn-subclass"
+						(click)="showSubclass(subclass.index)">{{subclass.name}}</button>
+				</div>
+			</div>
+			<div *ngFor="let subclass of playerClass.subclasses">
+				<div *ngIf="shownSubclass==subclass.index" class="subtext removeExtraLine">
+					<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
+					<div class="subtext">
+						<div *ngIf="subclass.spells" class="margin-bottom-small">
+							<b>Spells:</b>
+							<div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
 							</div>
 						</div>
-						<div *ngIf="feature.prerequisites.length > 0">
-							<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-						</div>
-					</div>
-					<!-- Subclass Levels -->
-					<div *ngFor="let level of subclass.class_levels" class="removeExtraLine">
-						<!-- <strong>Level {{level.level}}</strong> -->
-						<div *ngIf="level.subclass_specific">
-							<div *ngIf="subclass.index=='devotion'">
-								<b>Aura Range:</b>&nbsp;{{level.subclass_specific.aura_range}}<br />
-							</div>
-							<!-- <div *ngIf="subclass.index=='lore'">
-								<b>Additional Magical Secrets Max Level:</b>&nbsp;{{level.subclass_specific.additional_magical_secrets_max_lvl}}<br />
-							</div> -->
-						</div>
-						<div *ngFor="let feature of level.features" class="removeExtraLine">
+						<!-- Features that are not level specific -->
+						<div *ngFor="let feature of subclass.features">
 							<div class="feature">
-								<b>{{feature.name}}</b>:&nbsp;
-								<div *ngIf="feature.html">
-									<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="desc">
-									</div>
-								</div>
-								<div *ngIf="!feature.html">
-									<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-										{{desc}}
-									</div>
-								</div>							</div>
-							<div *ngIf="feature.prerequisites.length > 0">
-								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-							</div>
-						</div>
-						<div *ngFor="let feature of level.feature_choices">
-							<div class="feature">
-								<b>{{feature.name}}</b>:&nbsp;
+								<b>{{feature.name}}:</b>&nbsp;
 								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
 									{{desc}}
 								</div>
-								<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options" class="subtext">
-									<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> - {{getNameString(feature.feature_specific.expertise_options.from)}}<br />
-								</div>
-								<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options" class="subtext">
-									<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> - {{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
-								</div>
 							</div>
 							<div *ngIf="feature.prerequisites.length > 0">
-								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+								<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
 							</div>
-						</div>						
-					</div>
-					<hr>
+						</div>
+						<!-- Subclass Levels -->
+						<div *ngFor="let level of subclass.class_levels">						
+							<!-- <strong>Level {{level.level}}</strong> -->
+							<div *ngIf="level.subclass_specific">
+								<div *ngIf="subclass.index=='devotion'">
+									<b>Aura Range:</b>&nbsp;{{level.subclass_specific.aura_range}}<br />
+								</div>
+								<!-- <div *ngIf="subclass.index=='lore'">
+									<b>Additional Magical Secrets Max Level:</b>&nbsp;{{level.subclass_specific.additional_magical_secrets_max_lvl}}<br />
+								</div> -->
+							</div>
+							<div *ngFor="let feature of level.features" class="removeExtraLine">
+								<div class="feature">
+									<b>{{feature.name}}</b>:&nbsp;
+									<div *ngIf="feature.html">
+										<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="desc">
+										</div>
+									</div>
+									<div *ngIf="!feature.html">
+										<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+											{{desc}}
+										</div>
+									</div>							</div>
+								<div *ngIf="feature.prerequisites.length > 0">
+									<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+								</div>
+							</div>
+							<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
+								<div class="feature">
+									<b>{{feature.name}}</b>:&nbsp;
+									<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+										{{desc}}
+									</div>
+									<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options" class="subtext">
+										<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> - {{getNameString(feature.feature_specific.expertise_options.from)}}<br />
+									</div>
+									<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options" class="subtext">
+										<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> - {{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
+									</div>
+								</div>
+								<div *ngIf="feature.prerequisites.length > 0">
+									<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+								</div>
+							</div>						
+						</div>
+						<hr>
+					</div>	
 				</div>
-			</div>
+			</div>	
 		</div>
 		<!-- Levels -->
+		<br/>
+		<b>Choose Level</b>:
 		<div class="level-group">
 			<div *ngFor="let level of playerClass.class_levels" class="btn-group">
 				<button type="button" [class.active]="shownLevel==level.level" class="btn btn-outline-primary btn-level"
-					(click)="shownLevel=level.level">{{level.level}}</button>
+					(click)="showLevel(level.level)">{{level.level}}</button>
 			</div>
 		</div>
 		<div *ngFor="let level of playerClass.class_levels">
-			<div *ngIf="level.level==shownLevel" class="card inner w-100">
-				<div class="card-header clickable" (click)="shownLevel=level.level">
-					<div class="card-title">Level&nbsp;{{level.level}}</div>
-				</div>
-				<div class="card-body" [class.hidden]="shownLevel != level.level">
+			<div *ngIf="level.level==shownLevel">
+				<div class="subtext">
 					<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
 					<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
 					<div *ngIf="playerClass.index=='barbarian'">
