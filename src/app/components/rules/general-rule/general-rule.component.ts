@@ -14,7 +14,7 @@ export class GeneralRuleComponent implements OnChanges {
 
   shownSubsection: string = '';
 
-  constructor(public domSanitizer: DomSanitizer, public sanitizer: DomSanitizer) {}
+  constructor(public domSanitizer: DomSanitizer) {}
 
   ngOnChanges() {
     console.log(this.rule);

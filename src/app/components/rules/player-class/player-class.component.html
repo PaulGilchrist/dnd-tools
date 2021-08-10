@@ -36,7 +36,7 @@
 		<!-- subclasses -->
 		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0">
 			<br/>
-			<b>Choose Subclass</b>:
+			<b>Choose {{playerClass.subclasses[0].subclass_flavor}}</b>:
 			<div class="subclass-group">
 				<div *ngFor="let subclass of playerClass.subclasses" class="btn-group">
 					<button type="button" [class.active]="shownSubclass==subclass.index" class="btn btn-outline-primary btn-subclass"
@@ -66,20 +66,11 @@
 						</div>
 						<!-- Subclass Levels -->
 						<div *ngFor="let level of subclass.class_levels">						
-							<!-- <strong>Level {{level.level}}</strong> -->
-							<div *ngIf="level.subclass_specific">
-								<div *ngIf="subclass.index=='devotion'">
-									<b>Aura Range:</b>&nbsp;{{level.subclass_specific.aura_range}}<br />
-								</div>
-								<!-- <div *ngIf="subclass.index=='lore'">
-									<b>Additional Magical Secrets Max Level:</b>&nbsp;{{level.subclass_specific.additional_magical_secrets_max_lvl}}<br />
-								</div> -->
-							</div>
 							<div *ngFor="let feature of level.features" class="removeExtraLine">
 								<div class="feature">
 									<b>{{feature.name}}</b>:&nbsp;
 									<div *ngIf="feature.html">
-										<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="desc">
+										<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
 										</div>
 									</div>
 									<div *ngIf="!feature.html">
@@ -160,9 +151,9 @@
 						<b>Ki Points:</b>&nbsp;{{level.class_specific.ki_points}}<br />
 						<b>Unarmored Movement:</b>&nbsp;{{level.class_specific.unarmored_movement}}<br />
 					</div>
-					<div *ngIf="playerClass.index=='paladin'">
+					<!-- <div *ngIf="playerClass.index=='paladin'">
 						<b>Aura Range:</b>&nbsp;{{level.class_specific.aura_range}}<br />
-					</div>
+					</div> -->
 					<div *ngIf="playerClass.index=='ranger'">
 						<b>Favored Enemies:</b>&nbsp;{{level.class_specific.favored_enemies}}<br />
 						<b>Favored Terrain:</b>&nbsp;{{level.class_specific.favored_terrain}}<br />

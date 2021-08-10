@@ -1,4 +1,5 @@
 ﻿import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'player-class',
@@ -12,6 +13,8 @@ export class PlayerClassComponent implements OnChanges {
   @Output() expanded = new EventEmitter<boolean>();
   shownLevel  = 0;
   shownSubclass  = '';
+
+  constructor(public domSanitizer: DomSanitizer) {}
 
   ngOnChanges() {
     // console.log(this.playerClass);
