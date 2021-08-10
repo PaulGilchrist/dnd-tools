@@ -69,32 +69,25 @@
 						<div *ngFor="let level of subclass.class_levels">						
 							<div *ngFor="let feature of level.features" class="removeExtraLine">
 								<div class="feature">
-									<b>{{feature.name}}</b>:&nbsp;
-									<div *ngIf="feature.html">
-										<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
-										</div>
-									</div>
-									<div *ngIf="!feature.html">
-										<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-											{{desc}}
-										</div>
-									</div>							</div>
+									<b>{{feature.name}}</b>:&nbsp;									
+									<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+									</div>									
+								</div>
 								<div *ngIf="feature.prerequisites.length > 0">
 									<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
 								</div>
 							</div>
 							<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
 								<div class="feature">
-									<b>{{feature.name}}</b>:&nbsp;
-									<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-										{{desc}}
-									</div>
-									<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options" class="subtext">
+									<b>{{feature.name}}</b>:&nbsp;									
+									<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+									</div>									
+									<!-- <div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options" class="subtext">
 										<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> - {{getNameString(feature.feature_specific.expertise_options.from)}}<br />
 									</div>
 									<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options" class="subtext">
 										<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> - {{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
-									</div>
+									</div> -->
 								</div>
 								<div *ngIf="feature.prerequisites.length > 0">
 									<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
@@ -254,34 +247,31 @@
 						</div>
 					</div>
 					<br />
-					<div *ngFor="let feature of level.features">
-						<h5>{{feature.name}}</h5>
-						<span *ngFor="let desc of feature.desc">
-							{{desc}}<br /><br />
-						</span>
+					<div *ngFor="let feature of level.features" class="removeExtraLine">
+						<div class="feature">
+							<b>{{feature.name}}</b>:&nbsp;
+							<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+							</div>
+						</div>
 						<div *ngIf="feature.prerequisites.length > 0">
-							<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
-							<br />
+							<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
 						</div>
 					</div>
-					<div *ngFor="let feature of level.feature_choices">
-						<h5>{{feature.name}}</h5>
-						<span *ngFor="let desc of feature.desc">
-							{{desc}}<br />
-						</span>
-						<div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options"
-							class="subtext">
-							<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> -
-							{{getNameString(feature.feature_specific.expertise_options.from)}}<br />
-						</div>
-						<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options"
-							class="subtext">
-							<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> -
-							{{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
-						</div>
-						<div *ngIf="feature.prerequisites.length > 0">
-							<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
-							<br />
+					<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
+						<div class="feature">
+							<b>{{feature.name}}</b>:&nbsp;									
+							<div *ngFor="let desc of feature.desc" class="margin-bottom-small" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+							</div>									
+							<!-- <div *ngIf="feature.feature_specific && feature.feature_specific.expertise_options">
+								<b>Choose {{feature.feature_specific.expertise_options.choose}}</b> - {{getNameString(feature.feature_specific.expertise_options.from)}}<br />
+							</div>
+							<div *ngIf="feature.feature_specific && feature.feature_specific.subfeature_options">
+								<b>Choose {{feature.feature_specific.subfeature_options.choose}}</b> - {{getNameString(feature.feature_specific.subfeature_options.from)}}<br />
+							</div> -->
+							<div *ngIf="feature.prerequisites.length > 0">
+								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
+								<br />
+							</div>
 						</div>
 					</div>
 				</div>
