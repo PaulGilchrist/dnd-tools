@@ -3,6 +3,7 @@
 		<div class="card-title">{{playerClass.name}}</div>
 	</div>
 	<div *ngIf="expand" class="card-body">
+		{{playerClass.desc}}<br/><br/>
 		<b>Hit Die:</b>&nbsp;d{{playerClass.hit_die}}<br />
 		<div *ngIf="playerClass.proficiencies.length > 0">
 			<b>Proficiencies:</b>&nbsp;{{getNameString(playerClass.proficiencies)}}<br />
@@ -115,7 +116,7 @@
 			</div>
 		</div>
 		<div *ngFor="let level of playerClass.class_levels">
-			<div *ngIf="level.level==shownLevel">
+			<div *ngIf="level.level==shownLevel" class="removeExtraLine">
 				<div class="subtext">
 					<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
 					<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
@@ -200,13 +201,14 @@
 						<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
 					</div>
 					<div *ngIf="level.spellcasting">
-						<b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
+						<div *ngIf="level.spellcasting.cantrips_known">
+							<b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
+						</div>
 						<div *ngIf="level.spellcasting.spells_known">
 							<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
 						</div>
-						<b>Spell Slots:</b><br />
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
+						<div *ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
+							<b>Spell Slots:</b><br />							
 							&nbsp;&nbsp;&nbsp;&nbsp;Spell Slots Level 1 =
 							{{level.spellcasting.spell_slots_level_1}}<br />
 						</div>

@@ -3,6 +3,7 @@
 		<div class="card-title">{{race.name}}</div>
 	</div>
 	<div *ngIf="expand" class="card-body">
+		{{race.desc}}<br/><br/>
 		<b>Ability Bonuses:</b>&nbsp;{{getAbilityBonuses(race.ability_bonuses)}}<br />
 		<div *ngIf="race.ability_bonus_options">
 			<b>Ability Bonus Options:</b>&nbsp;{{getAbilityBonusOptions(race.ability_bonus_options)}}<br />
