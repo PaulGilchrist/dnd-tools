@@ -21,52 +21,52 @@ export class MonsterComponent implements OnChanges {
     return Math.floor((abilityScore-10)/2);
   }
 
-  getConditionImmunities() {
-    let conditionImmunities = '';
-    this.monster.condition_immunities.forEach((conditionImmunity: string) => {
-      conditionImmunities += `${conditionImmunity.toLowerCase()}, `;
-    });
-    return conditionImmunities.substr(0, conditionImmunities.length-2);
-  }
+  // getConditionImmunities() {
+  //   let conditionImmunities = '';
+  //   this.monster.condition_immunities.forEach((conditionImmunity: string) => {
+  //     conditionImmunities += `${conditionImmunity.toLowerCase()}, `;
+  //   });
+  //   return conditionImmunities.substr(0, conditionImmunities.length-2);
+  // }
 
-  getDamageImmunities() {
-    let damageImmunities = '';
-    this.monster.damage_immunities.forEach((damageImmunity: string) => {
-      damageImmunities += `${damageImmunity}, `;
-    });
-    return damageImmunities.substr(0, damageImmunities.length-2);
-  }
+  // getDamageImmunities() {
+  //   let damageImmunities = '';
+  //   this.monster.damage_immunities.forEach((damageImmunity: string) => {
+  //     damageImmunities += `${damageImmunity}, `;
+  //   });
+  //   return damageImmunities.substr(0, damageImmunities.length-2);
+  // }
 
-  getDamageResistances() {
-    let damageResistances = '';
-    this.monster.damage_resistances.forEach((damageResistance: string) => {
-      damageResistances += `${damageResistance}, `;
-    });
-    return damageResistances.substr(0, damageResistances.length-2);
-  }
+  // getDamageResistances() {
+  //   let damageResistances = '';
+  //   this.monster.damage_resistances.forEach((damageResistance: string) => {
+  //     damageResistances += `${damageResistance}, `;
+  //   });
+  //   return damageResistances.substr(0, damageResistances.length-2);
+  // }
 
-  getDamageVulnerabilities() {
-    let damageVulnerabilities = '';
-    this.monster.damage_vulnerabilities.forEach((damageVulnerability: string) => {
-      damageVulnerabilities += `${damageVulnerability}, `;
-    });
-    return damageVulnerabilities.substr(0, damageVulnerabilities.length-2);
-  }
+  // getDamageVulnerabilities() {
+  //   let damageVulnerabilities = '';
+  //   this.monster.damage_vulnerabilities.forEach((damageVulnerability: string) => {
+  //     damageVulnerabilities += `${damageVulnerability}, `;
+  //   });
+  //   return damageVulnerabilities.substr(0, damageVulnerabilities.length-2);
+  // }
 
-  getEnvironments() {
-    let environments = '';
-    this.monster.environments.forEach((environment: string) => {
-      environments += `${environment}, `;
-    });
-    return environments.substr(0, environments.length-2);
-  }
+  // getEnvironments() {
+  //   let environments = '';
+  //   this.monster.environments.forEach((environment: string) => {
+  //     environments += `${environment}, `;
+  //   });
+  //   return environments.substr(0, environments.length-2);
+  // }
   
-  getRelatedMonsters() {
-    let relatedMonsters = '';
-    this.monster.related_monsters.forEach((relatedMonster: any) => {
-      relatedMonsters += `${relatedMonster.name}, `;
+  getNameString(names: string[]) {    
+    let nameString = '';
+    names.forEach((name: string) => {
+      nameString += `${name}, `;
     });
-    return relatedMonsters.substr(0, relatedMonsters.length-2);
+    return nameString.substr(0, nameString.length-2);
   }
   
   getSavingThrows() {

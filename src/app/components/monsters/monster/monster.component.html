@@ -62,26 +62,29 @@
 				<b>Skills:</b>&nbsp;{{getSkills()}}<br />
 			</div>
 			<div *ngIf="monster.condition_immunities.length > 0">
-				<b>Condition Immunities:</b>&nbsp;{{getConditionImmunities()}}<br />
+				<b>Condition Immunities:</b>&nbsp;{{getNameString(monster.condition_immunities)}}<br />
 			</div>
 			<div *ngIf="monster.damage_immunities.length > 0">
-				<b>Damage Immunities:</b>&nbsp;{{getDamageImmunities()}}<br />
+				<b>Damage Immunities:</b>&nbsp;{{getNameString(monster.damage_immunities)}}<br />
 			</div>
 			<div *ngIf="monster.damage_resistances.length > 0">
-				<b>Damage Resistances:</b>&nbsp;{{getDamageResistances()}}<br />
+				<b>Damage Resistances:</b>&nbsp;{{getNameString(monster.damage_resistances)}}<br />
 			</div>
 			<div *ngIf="monster.damage_vulnerabilities.length > 0">
-				<b>Damage Vulnerabilities:</b>&nbsp;{{getDamageVulnerabilities()}}<br />
+				<b>Damage Vulnerabilities:</b>&nbsp;{{getNameString(monster.damage_vulnerabilities)}}<br />
 			</div>
 			<b>Senses:</b>&nbsp;{{getSenses()}}<br />
 			<div *ngIf="monster.languages">
 				<b>Languages:</b>&nbsp;{{monster.languages}}<br />
 			</div>
 			<div *ngIf="monster.environments">
-				<b>Environments:</b>&nbsp;{{getEnvironments()}}<br />
+				<b>Environments:</b>&nbsp;{{getNameString(monster.environments)}}<br />
 			</div>
-			<div *ngIf="monster.related_monsters">
-				<b>Related Monsters:</b>&nbsp;{{getRelatedMonsters()}}<br />
+			<div *ngIf="monster.allies">
+				<b>Allies:</b>&nbsp;{{getNameString(monster.allies)}}<br />
+			</div>
+			<div *ngIf="monster.enemies">
+				<b>Enemies:</b>&nbsp;{{getNameString(monster.enemies)}}<br />
 			</div>
 			<b>Challenge:</b>&nbsp;{{monster.challenge_rating}} ({{monster.xp}} XP)<br />
             <hr>
