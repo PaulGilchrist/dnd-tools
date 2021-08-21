@@ -118,6 +118,30 @@
 					</span>
 				</div>
 			</div>
+			<div *ngIf="monster.lair_actions != null">
+				<hr>
+				<h5>Lair Actions</h5>
+				{{monster.lair_actions.summary}}<br />
+				<ul>
+					<li *ngFor="let action of monster.lair_actions.actions">
+						{{action}}
+					</li>
+				</ul>
+				<div *ngIf="monster.lair_actions.usage!=null">
+					{{monster.lair_actions.usage}}<br />
+				</div>
+			</div>
+			<div *ngIf="monster.regional_effects != null">
+				<hr>
+				<h5>Regional Effects</h5>
+				{{monster.lair_actions.summary}}<br />
+				<ul>
+					<li *ngFor="let effect of monster.regional_effects.effects">
+						{{effect}}
+					</li>
+				</ul>
+				{{monster.regional_effects.usage}}<br />
+			</div>
 			<div *ngIf="monster.desc">
 				<hr>
 				<h5>Description</h5>			
