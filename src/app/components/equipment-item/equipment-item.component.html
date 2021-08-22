@@ -37,6 +37,30 @@
 				<div *ngIf="equipmentItem.capacity">
 					<b>Capacity:</b>&nbsp;{{equipmentItem.capacity}}<br />
 				</div>
+				<div *ngIf="equipmentItem.armor_class">
+					<b>Armor Class:</b>&nbsp;{{equipmentItem.armor_class}}<br />
+				</div>
+				<div *ngIf="equipmentItem.hit_points">
+					<b>Hit Points:</b>&nbsp;{{equipmentItem.hit_points}}<br />
+				</div>
+				<div *ngIf="equipmentItem.threshold">
+					<b>Damage Threshold:</b>&nbsp;{{equipmentItem.threshold}}<br />
+				</div>
+				<div *ngIf="equipmentItem.crew">
+					<b>Crew:</b>&nbsp;{{equipmentItem.crew}}<br />
+				</div>
+				<div *ngIf="equipmentItem.passengers">
+					<b>Passengers:</b>&nbsp;{{equipmentItem.passengers}}<br />
+				</div>
+				<div *ngIf="equipmentItem.cargo">
+					<b>Cargo:</b>&nbsp;{{equipmentItem.cargo.quantity}}&nbsp;{{equipmentItem.cargo.unit}}<br />
+				</div>				
+			</div>
+			<div *ngIf="equipmentItem.equipment_category == 'Property'">
+				<b>Construction Time:</b>&nbsp;{{equipmentItem.construction_time.quantity}} {{equipmentItem.construction_time.unit}}<br />
+				<b>Maintenance Cost:</b>&nbsp;{{equipmentItem.maintenance_cost.quantity}} {{equipmentItem.maintenance_cost.unit}} {{equipmentItem.maintenance_cost.interval}}<br />
+				<b>Skilled Hirelings:</b>&nbsp;{{equipmentItem.skilled_hirelings}}<br />
+				<b>Unskilled Hirelings:</b>&nbsp;{{equipmentItem.untrained_hirelings}}<br />
 			</div>
 			<div *ngIf="equipmentItem.equipment_category == 'Tools'">
 				<b>Category:</b>&nbsp;{{equipmentItem.tool_category}}<br />
