@@ -1,38 +1,55 @@
 ﻿<div class="names">
 	<form #searchForm="ngForm" novalidate>
-		<!--Race-->
-		<label for="race" class="col-form-label">Race</label>
-		<select name="race" [(ngModel)]="filter.race" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-			<option selected>Select</option>
-			<option value="dragonborn">Dragonborn</option>
-			<option value="dwarf">Dwarf</option>
-			<option value="elf">Elf</option>
-			<option value="gnome">Gnome</option>
-			<option value="halfling">Halfling</option>
-			<option value="half-orc">Half Orc</option>
-			<option value="tiefling">Tiefling</option>
-			<option value="human-celtic">Human (Celtic)</option>
+		<!--Type-->
+		<label for="type" class="col-form-label">Type</label>
+		<select name="type" [(ngModel)]="filter.type" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+			<option disabled>Select</option>
+			<option value="building">Building</option>
+			<option value="race">Race</option>
 		</select>
-		<!--Sex-->
-		<label for="sex" class="col-form-label">Sex</label>
-		<select name="sex" [(ngModel)]="filter.sex" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-			<option selected>Select</option>
-			<option value="female">Female</option>
-			<option value="male">Male</option>
+		<!--Index-->
+		<label for="index" class="col-form-label"><span *ngIf="filter.type=='building'">Building</span><span *ngIf="filter.type=='race'">Race</span></label>
+		<select name="index" [(ngModel)]="filter.index" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+			<option>Select</option>
+			<ng-container *ngIf="filter.type=='building'">
+				<option value="tavern">Tavern</option>						
+			</ng-container>
+			<ng-container *ngIf="filter.type=='race'">
+				<option value="dragonborn">Dragonborn</option>
+				<option value="dwarf">Dwarf</option>
+				<option value="elf">Elf</option>
+				<option value="gnome">Gnome</option>
+				<option value="halfling">Halfling</option>
+				<option value="half-orc">Half Orc</option>
+				<option value="tiefling">Tiefling</option>
+				<option value="human-celtic">Human (Celtic)</option>
+			</ng-container>
 		</select>
+		<ng-container *ngIf="filter.type=='race'">
+			<!--Sex-->
+			<label for="sex" class="col-form-label">Sex</label>
+			<select name="sex" [(ngModel)]="filter.sex" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+				<option disabled selected>Select</option>
+				<option value="female">Female</option>
+				<option value="male">Male</option>
+			</select>
+		</ng-container>
 		<!--Used-->
 		<label for="used" class="col-form-label">Used</label>
-		<select name="used" [(ngModel)]="filter.used" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+		<select name="used" [(ngModel)]="filter.used" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="typeChanged()">
 			<option selected>All</option>
 			<option value="available">Available</option>
 			<option value="used">Used</option>
 		</select>
 	</form>
-	<div *ngIf="shownNames.firstNames.length > 0" class="list" [class.dualList]="shownNames.familyType != null">
+	<div *ngIf="shownNames.firstNames && shownNames.firstNames.length > 0" class="list" [class.dualList]="filter.type=='building' || shownNames.familyType != null">
 		<table class="table table-condensed table-striped table-hover">
 			<thead>
 				<tr>
-					<th>First Names</th>
+					<th>
+						<span *ngIf="filter.type=='race'">First Names</span>
+						<span *ngIf="filter.type=='building'">First Part</span>
+					</th>
 					<th>Used</th>
 				</tr>
 			</thead>
@@ -45,10 +62,13 @@
 				</tr>			
 			</tbody>
 		</table>
-		<table class="table table-condensed table-striped table-hover" *ngIf="shownNames.familyType != null">
+		<table class="table table-condensed table-striped table-hover" *ngIf="filter.type=='building' || shownNames.familyType != null">
 			<thead>
 				<tr>
-					<th>{{shownNames.familyType}} Names</th>
+					<th>
+						<span *ngIf="filter.type=='race'">{{shownNames.familyType}} Names</span>
+						<span *ngIf="filter.type=='building'">Last Part</span>
+					</th>
 					<th>Used</th>
 				</tr>
 			</thead>

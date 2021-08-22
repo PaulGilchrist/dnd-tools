@@ -17,7 +17,8 @@ export class NamesComponent implements OnInit, OnDestroy {
     lastNames: []
   };
   filter = {
-    race: 'Select',
+    index: 'Select',
+    type: 'Select', // race or building
     sex: 'Select',
     used: 'All'
   }
@@ -52,6 +53,7 @@ export class NamesComponent implements OnInit, OnDestroy {
   }
 
   filterChanged(): void {
+    // if the index no longer matches the type, change it
     localStorage.setItem('namesFilter', JSON.stringify(this.filter));
     this.getNames();
   }
@@ -62,35 +64,43 @@ export class NamesComponent implements OnInit, OnDestroy {
       firstNames: [],
       lastNames: []
     };
-    if(this.filter.race != 'Select' && this.filter.sex != 'Select') {
-      const raceNames = this.names.find(n => n.index==this.filter.race);
-      if(raceNames) {
-        const firstNames = this.filter.sex=='female' ? raceNames.lists.females : raceNames.lists.males;
+    if(this.filter.index != 'Select') {
+      const availableNames = this.names.find(n => n.index==this.filter.index);
+      if(availableNames) {
+        let firstNames = [];
+        let lastNames = [];
+        switch(this.filter.type) {
+          case 'building':
+            firstNames = availableNames.lists.first;
+            lastNames = availableNames.lists.second;
+            break;
+          case 'race':
+            firstNames = this.filter.sex=='female' ? availableNames.lists.females : availableNames.lists.males;
+            if(availableNames.family_type) {
+              lastNames = availableNames.lists.family;
+              this.shownNames.familyType = availableNames.family_type;
+            }
+            break;
+          default:
+            firstNames = [];
+            lastNames = [];
+        }
         switch(this.filter.used){
           case 'available':        
             this.shownNames.firstNames = firstNames.filter((n: string) => !this.namesUsed.includes(n));
+            this.shownNames.lastNames = lastNames.filter((n: string) => !this.namesUsed.includes(n));
             break;
           case 'used':
             this.shownNames.firstNames = firstNames.filter((n: string) => this.namesUsed.includes(n));
+            this.shownNames.lastNames = lastNames.filter((n: string) => this.namesUsed.includes(n));
             break;
           default:
             this.shownNames.firstNames = firstNames;
-        }
-        if(raceNames.family_type) {
-          this.shownNames.familyType = raceNames.family_type;
-          switch(this.filter.used){
-            case 'available':        
-              this.shownNames.lastNames = raceNames.lists.family.filter((n: string) => !this.namesUsed.includes(n));
-              break;
-            case 'used':
-              this.shownNames.lastNames = raceNames.lists.family.filter((n: string) => this.namesUsed.includes(n));
-              break;
-            default:
-              this.shownNames.lastNames = raceNames.lists.family;
-          }
+            this.shownNames.lastNames = lastNames;
         }
       }
     }
+    console.log(this.shownNames);
   }
 
   isNameUsed(name: string): boolean {
@@ -106,6 +116,11 @@ export class NamesComponent implements OnInit, OnDestroy {
       this.namesUsed.splice(index, 1);
     }
     localStorage.setItem('namesUsed', JSON.stringify(this.namesUsed));
+  }
+
+  typeChanged(): void {
+    this.filter.index = 'Select';
+    this.filterChanged();
   }
 
 }
