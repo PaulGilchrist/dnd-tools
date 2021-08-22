@@ -43,6 +43,20 @@ img {
     font-weight: 600;
     margin-bottom: 0;
 }
+.inner > .card-body {
+    padding: 8px;
+}
+.inner > .card-header {
+    background-color: rgba(100, 100, 100, 1);
+    color: white;
+    padding: 0 10px;
+}
+.inner > .card-header:hover {
+    background-color: rgb(41, 45, 56);
+}
+.active.inner > .card-header {
+    background-color: rgb(41, 45, 56);
+}
 .removeExtraLine {
     margin-bottom: -20px;
 }

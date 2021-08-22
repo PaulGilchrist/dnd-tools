@@ -18,6 +18,7 @@ import { FeatsComponent } from './components/rules/feats/feats.component';
 import { MagicItemComponent } from './components/magic-item/magic-item.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonsterComponent } from './components/monsters/monster/monster.component';
+import { MonsterLoreComponent } from './components/monsters/monster-lore/monster-lore.component';
 import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
 import { NamesComponent } from './components/names/names.component';
 import { NavTopComponent } from './components/nav-top/nav-top.component';
@@ -49,6 +50,7 @@ import { DataService } from './services/data.service';
     MagicItemComponent,
     MagicItemsComponent,
     MonsterComponent,
+    MonsterLoreComponent,
     MonsterSearchComponent,
     NamesComponent,
     PlayerClassComponent,

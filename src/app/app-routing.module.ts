@@ -7,6 +7,7 @@ import { EncountersComponent } from './components/monsters/encounters/encounters
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { FeatsComponent } from './components/rules/feats/feats.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
+import { MonsterLoreComponent } from './components/monsters/monster-lore/monster-lore.component';
 import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
 import { NamesComponent } from './components/names/names.component';
 import { PlayerClassesComponent } from './components/rules/player-classes/player-classes.component';
@@ -17,9 +18,10 @@ import { SpellsComponent } from './components/spells/spells.component';
 const routes: Routes = [
     // Static Loading
     { path: '', redirectTo: '/spells', pathMatch: 'full' },
-    { path: 'monster/encounters', component: EncountersComponent },
     { path: 'equipment-items', component: EquipmentItemsComponent },
     { path: 'magic-items', component: MagicItemsComponent },
+    { path: 'monster/encounters', component: EncountersComponent },
+    { path: 'monster/lore', component: MonsterLoreComponent },
     { path: 'monster/search', component: MonsterSearchComponent },
     { path: 'names', component: NamesComponent },
     { path: 'rules/ability-scores', component: AbilityScoresComponent },

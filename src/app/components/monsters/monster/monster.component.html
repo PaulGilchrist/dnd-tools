@@ -1,13 +1,13 @@
 ﻿<div *ngIf="modalActive" class="cover" (click)="modalActive=false">
     <img [src]="'assets/monsters/' + monster.index + '.jpg'">
 </div>
-<div *ngIf="monster != null" class="card w-100" [class.active]="expand">
+<div *ngIf="monster != null" class="card w-100" [class.active]="expand" [class.inner]="cardType=='inner'">
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{monster.name}}</div>
 			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}}<span *ngIf="monster.subtype && monster.subtype!=monster.type">&nbsp;({{monster.subtype}})</span>,&nbsp;{{monster.alignment}}</i><br />
 		</div>
-		<div class="form-check">
+		<div *ngIf="cardType!='inner'" class="form-check">
 			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="monster.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(monster)">
 			<label class="form-check-label" for="bookmarked">
 				Bookmarked

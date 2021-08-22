@@ -20,6 +20,8 @@ export class DataService {
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
     monsters$ = this.monsters.asObservable();
+    private monsterSubtypes = new BehaviorSubject<any>([]);
+    monsterSubtypes$ = this.monsterSubtypes.asObservable();
     private names = new BehaviorSubject<any>([]);
     names$ = this.names.asObservable();
     private playerClasses = new BehaviorSubject<any>([]);
@@ -125,6 +127,20 @@ export class DataService {
         }
     }
 
+    getMonsterSubtypes(): Observable<any[]> {
+        if (this.monsterSubtypes.getValue().length === 0) {
+            return this.http.get('./data/monster-subtypes.json').pipe(
+                tap((data) => {
+                    console.log('Get - monster subtypes');
+                    this.monsterSubtypes.next(data);
+                }),
+                map(() => this.monsterSubtypes.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.monsterSubtypes$;
+        }
+    }
     getNames(): Observable<any[]> {
         if (this.names.getValue().length === 0) {
             return this.http.get('./data/names.json').pipe(

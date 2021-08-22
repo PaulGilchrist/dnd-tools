@@ -1,0 +1,18 @@
+﻿<div *ngFor="let subtype of monsterSubtypes" class="list">
+	<div class="card outer w-100" [class.active]="shownSubtype == subtype.index">
+		<div class="card-header clickable" (click)="showSubtype(subtype.index)">
+			<div class="card-title">{{subtype.name}}</div>
+		</div>
+		<div *ngIf="shownSubtype == subtype.index" class="card-body">
+			<div [innerHtml]="domSanitizer.bypassSecurityTrustHtml(subtype.desc)"></div>
+			<br/>
+			<h5>Monsters</h5>
+			<div *ngFor="let monster of monsters" class="list">
+				<app-monster *ngIf="subtype.monsters.includes(monster.index)" [monster]="monster" [expand]="shownCard==monster.index" (expanded)="expandCard(monster.index, $event)" [cardType]="'inner'"></app-monster>
+			</div>
+			<div class="card-footer">
+				Monster Manual (page 124)
+			</div>
+		</div>
+	</div>
+</div>
