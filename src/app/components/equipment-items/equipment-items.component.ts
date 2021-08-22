@@ -66,6 +66,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
 
   filterChanged(): void {
     localStorage.setItem('equipmentItemsFilter', JSON.stringify(this.filter));
+    //console.log(this.equipmentItems);
   }
 
   saveBookmark() {
@@ -89,7 +90,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
     }
     // Property filter
     // @ts-ignore
-    if (this.filter.category == 'Weapon' && this.filter.property != 'All' && !equipmentItem.properties.some(p => p.name == this.filter.property)) {
+    if (this.filter.category == 'Weapon' && this.filter.property != 'All' && !equipmentItem.properties.some(p => p == this.filter.property)) {
       return false;
     }
     // Name filter

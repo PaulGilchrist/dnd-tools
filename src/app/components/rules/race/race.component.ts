@@ -1,4 +1,5 @@
 ﻿import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-race',
@@ -10,6 +11,8 @@ export class RaceComponent implements OnChanges {
   @Input() expand = false;
   @Input() race: any = null;
   @Output() expanded = new EventEmitter<boolean>();
+
+  constructor(public domSanitizer: DomSanitizer) {}
 
   ngOnChanges() {
     // console.log(this.race);

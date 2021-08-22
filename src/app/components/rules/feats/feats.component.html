@@ -1,0 +1,3 @@
+﻿<div *ngFor="let feat of feats" class="list">
+	<app-feat [feat]="feat" [expand]="shownCard==feat.index" (expanded)="expandCard(feat.index, $event)"></app-feat>
+</div>

@@ -15,6 +15,7 @@
 		<div *ngIf="playerClass.saving_throws.length > 0">
 			<b>Saving Throws:</b>&nbsp;{{getNameString(playerClass.saving_throws)}}<br />
 		</div>
+		<b>Starting Wealth:</b>&nbsp;{{playerClass.starting_wealth}}<br />
 		<!-- Features that are not level specific -->
 		<div *ngIf="playerClass.features.length > 0" class="card inner w-100">
 			<div class="card-header clickable" (click)="shownLevel=0">

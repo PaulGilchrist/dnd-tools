@@ -5,6 +5,7 @@ import { AbilityScoresComponent } from './components/rules/ability-scores/abilit
 import { ConditionsComponent } from './components/rules/conditions/conditions.component';
 import { EncountersComponent } from './components/monsters/encounters/encounters.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
+import { FeatsComponent } from './components/rules/feats/feats.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
 import { NamesComponent } from './components/names/names.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     { path: 'rules/ability-scores', component: AbilityScoresComponent },
     { path: 'rules/conditions', component: ConditionsComponent },
     { path: 'rules/classes', component: PlayerClassesComponent },
+    { path: 'rules/feats', component: FeatsComponent },
     { path: 'rules/races', component: RacesComponent },
     { path: 'rules/general', component: GeneralRulesComponent },
     { path: 'spells', component: SpellsComponent },

@@ -13,6 +13,8 @@ import { ConditionsComponent } from './components/rules/conditions/conditions.co
 import { EncountersComponent } from './components/monsters/encounters/encounters.component';
 import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
+import { FeatComponent } from './components/rules/feat/feat.component';
+import { FeatsComponent } from './components/rules/feats/feats.component';
 import { MagicItemComponent } from './components/magic-item/magic-item.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonsterComponent } from './components/monsters/monster/monster.component';
@@ -40,6 +42,8 @@ import { DataService } from './services/data.service';
     EncountersComponent,
     EquipmentItemComponent,
     EquipmentItemsComponent,
+    FeatComponent,
+    FeatsComponent,
     GeneralRuleComponent,
     GeneralRulesComponent,
     MagicItemComponent,

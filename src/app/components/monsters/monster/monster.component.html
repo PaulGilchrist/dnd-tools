@@ -5,7 +5,7 @@
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{monster.name}}</div>
-			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}},&nbsp;{{monster.alignment}}</i><br />
+			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}}<span *ngIf="monster.subtype && monster.subtype!=monster.type">&nbsp;({{monster.subtype}})</span>,&nbsp;{{monster.alignment}}</i><br />
 		</div>
 		<div class="form-check">
 			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="monster.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(monster)">
@@ -97,7 +97,7 @@
 			<div class="removeExtraLine">
 				<h5>Actions</h5>
 				<div *ngFor="let action of monster.actions">
-					<b>{{action.name}}<span *ngIf="action.usage && action.usage.type == 'recharge on roll'">&nbsp;(Recharge {{action.usage.min_value}}-6)</span>:</b>&nbsp;{{action.desc}}<br /><br />
+					<b>{{action.name}}<span *ngIf="action.usage && action.usage.type == 'recharge on roll'">&nbsp;(Recharge {{action.usage.min_value}}-6)</span><span *ngIf="action.usage && action.usage.type == 'per day'">&nbsp;({{action.usage.times}}/Day)</span>:</b>&nbsp;{{action.desc}}<br /><br />
 				</div>
 			</div>
 			<div *ngIf="monster.reactions != null">

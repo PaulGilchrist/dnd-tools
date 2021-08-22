@@ -1,0 +1,18 @@
+﻿<div *ngIf="feat != null" class="card w-100" [class.active]="expand">
+	<div class="card-header clickable" (click)="toggleDetails()">
+		<div class="card-title">{{feat.name}}</div>
+	</div>
+	<div *ngIf="expand" class="card-body">
+		<div class="card-text removeExtraLine">
+			<div *ngIf="feat.prerequisite">
+				<b>Prerequisite</b>: {{feat.prerequisite}}<br /><br />
+			</div>
+			<span *ngFor="let desc of feat.desc">
+				{{desc}}<br /><br />
+			</span>
+			<ul *ngIf="feat.benefits">
+				<li *ngFor="let benefit of feat.benefits">{{benefit}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
