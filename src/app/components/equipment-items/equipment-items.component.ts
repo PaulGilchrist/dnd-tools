@@ -29,6 +29,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
       this.dataService.getWeaponProperties()
     ]).subscribe((data: any) => {
       this.equipmentItems = data[0];
+      console.log(`${this.equipmentItems.length} equipment items`);
       this.weaponProperties = data[1];
       // Set search filters
       let filter = localStorage.getItem('equipmentItemsFilter');
