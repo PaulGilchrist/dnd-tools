@@ -90,7 +90,7 @@
             <hr>
 			<div class="removeExtraLine">
 				<span *ngFor="let special_ability of monster.special_abilities">
-					<b>{{special_ability.name}}<span *ngIf="special_ability.usage && special_ability.usage.type=='per day'">&nbsp;({{special_ability.usage.times}}/day)</span>:</b>&nbsp;{{special_ability.desc}}<br /><br />
+					<b>{{special_ability.name}}<span *ngIf="special_ability.usage && special_ability.usage.type=='per day'">&nbsp;({{special_ability.usage.times}}/day)</span>:</b>&nbsp;<span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(special_ability.desc)"></span><br /><br />
 				</span>
 			</div>
 			<hr>

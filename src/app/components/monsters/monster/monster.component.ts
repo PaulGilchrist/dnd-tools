@@ -1,4 +1,5 @@
 ﻿import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-monster',
@@ -13,7 +14,9 @@ export class MonsterComponent implements OnChanges {
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the monster is bookmarked for the current session
   @Output() expanded = new EventEmitter<boolean>();
   modalActive = false;
-  
+
+  constructor(public domSanitizer: DomSanitizer) {}
+
   ngOnChanges() {
     // console.log(this.monster);
   }
