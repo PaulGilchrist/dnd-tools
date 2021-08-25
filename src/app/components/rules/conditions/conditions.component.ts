@@ -2,6 +2,7 @@
 import { combineLatest, Subscription } from 'rxjs';
 
 import { DataService } from '../../../services/data.service';
+declare const utils: any // Javascript utilities
 
 @Component({
   selector: 'app-conditions',
@@ -31,16 +32,7 @@ export class ConditionsComponent implements OnInit, OnDestroy {
   expandCard(index: string, expanded: boolean) {
     if(expanded) {
       this.shownCard=index;
-      setTimeout(() => {
-        // We have to wait until after the card has expanded before scrolling
-        // We don't need to wait any set amount of time, just want to place in queue so Angular goes first
-        const card = document.getElementById(index);
-        if(card) {        
-          card.scrollIntoView(true);
-          // Scroll down just enough to clear the header
-          window.scrollBy(0, -60);
-        }
-    }, 0);
+      utils.scrollIntoView(index);
     }
   }
 

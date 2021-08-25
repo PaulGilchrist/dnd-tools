@@ -1,5 +1,6 @@
 ﻿import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+declare const utils: any // Javascript utilities
 
 @Component({
   selector: 'player-class',
@@ -90,16 +91,7 @@ export class PlayerClassComponent implements OnChanges {
       this.shownLevel = 0;
     } else {
       this.shownLevel = level;
-      setTimeout(() => {
-        // We have to wait until after the card has expanded before scrolling
-        // We don't need to wait any set amount of time, just want to place in queue so Angular goes first
-        const card = document.getElementById(level);
-        if(card) {        
-          card.scrollIntoView(true);
-          // Scroll down just enough to clear the header
-          window.scrollBy(0, -120);
-        }
-    }, 0);
+      utils.scrollIntoView(level, 120);
     }
   }
   showSubclass(subclass: string) {
@@ -107,16 +99,7 @@ export class PlayerClassComponent implements OnChanges {
       this.shownSubclass = '';
     } else {
       this.shownSubclass = subclass;
-      setTimeout(() => {
-        // We have to wait until after the card has expanded before scrolling
-        // We don't need to wait any set amount of time, just want to place in queue so Angular goes first
-        const card = document.getElementById(subclass);
-        if(card) {        
-          card.scrollIntoView(true);
-          // Scroll down just enough to clear the header
-          window.scrollBy(0, -120);
-        }
-    }, 0);
+      utils.scrollIntoView(subclass, 120);
     }
   }
 
