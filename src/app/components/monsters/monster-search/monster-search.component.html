@@ -103,7 +103,7 @@
 		<option>Bookmarked</option>
 	</select>
 </form>
-<div *ngFor="let monster of monsters" class="list">
+<div *ngFor="let monster of monsters" class="list" [id]="monster.index">
 	<app-monster *ngIf="showMonster(monster)" [monster]="monster" (bookmarkChanged)="saveBookmark()"
 		[expand]="shownCard==monster.index" (expanded)="expandCard(monster.index, $event)"></app-monster>
 </div>

@@ -45,7 +45,7 @@
 						(click)="showSubclass(subclass.index)">{{subclass.name}}</button>
 				</div>
 			</div>
-			<div *ngFor="let subclass of playerClass.subclasses">
+			<div *ngFor="let subclass of playerClass.subclasses" [id]="subclass.index">
 				<div *ngIf="shownSubclass==subclass.index" class="subtext removeExtraLine">
 					<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
 					<div class="subtext">
@@ -109,7 +109,7 @@
 					(click)="showLevel(level.level)">{{level.level}}</button>
 			</div>
 		</div>
-		<div *ngFor="let level of playerClass.class_levels">
+		<div *ngFor="let level of playerClass.class_levels" [id]="shownLevel">
 			<div *ngIf="level.level==shownLevel" class="removeExtraLine">
 				<div class="subtext">
 					<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />

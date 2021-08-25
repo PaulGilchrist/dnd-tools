@@ -85,11 +85,21 @@ export class PlayerClassComponent implements OnChanges {
     this.expanded.emit(this.expand);
   }
 
-  showLevel(level: number) {
+  showLevel(level: any) {
     if(level == this.shownLevel) {
       this.shownLevel = 0;
     } else {
       this.shownLevel = level;
+      setTimeout(() => {
+        // We have to wait until after the card has expanded before scrolling
+        // We don't need to wait any set amount of time, just want to place in queue so Angular goes first
+        const card = document.getElementById(level);
+        if(card) {        
+          card.scrollIntoView(true);
+          // Scroll down just enough to clear the header
+          window.scrollBy(0, -120);
+        }
+    }, 0);
     }
   }
   showSubclass(subclass: string) {
@@ -97,6 +107,16 @@ export class PlayerClassComponent implements OnChanges {
       this.shownSubclass = '';
     } else {
       this.shownSubclass = subclass;
+      setTimeout(() => {
+        // We have to wait until after the card has expanded before scrolling
+        // We don't need to wait any set amount of time, just want to place in queue so Angular goes first
+        const card = document.getElementById(subclass);
+        if(card) {        
+          card.scrollIntoView(true);
+          // Scroll down just enough to clear the header
+          window.scrollBy(0, -120);
+        }
+    }, 0);
     }
   }
 

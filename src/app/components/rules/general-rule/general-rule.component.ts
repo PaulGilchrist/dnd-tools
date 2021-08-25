@@ -25,6 +25,16 @@ export class GeneralRuleComponent implements OnChanges {
       this.shownSubsection = '';
     } else {
       this.shownSubsection = subsection;
+      setTimeout(() => {
+        // We have to wait until after the card has expanded before scrolling
+        // We don't need to wait any set amount of time, just want to place in queue so Angular goes first
+        const card = document.getElementById(subsection);
+        if(card) {        
+          card.scrollIntoView(true);
+          // Scroll down just enough to clear the header
+          window.scrollBy(0, -60);
+        }
+    }, 0);
     }
   }
 
