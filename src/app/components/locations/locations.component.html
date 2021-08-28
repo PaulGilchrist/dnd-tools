@@ -1,5 +1,5 @@
 ﻿<div *ngIf="image!=''" class="cover" (click)="image=''">
-    <img [src]="'assets/' + image">
+    <img [src]="'assets/locations/' + image">
 </div>
 <div *ngFor="let location of locations" class="list">
 	<div class="card outer w-100" [class.active]="shownLocation==location.index" [id]="location.index">
