@@ -16,6 +16,8 @@ export class DataService {
     equipment$ = this.equipment.asObservable();
     private feats = new BehaviorSubject<any>([]);
     feats$ = this.feats.asObservable();
+    private locations = new BehaviorSubject<any>([]);
+    locations$ = this.locations.asObservable();
     private magicItems = new BehaviorSubject<any>([]);
     magicItems$ = this.magicItems.asObservable();
     private monsters = new BehaviorSubject<any>([]);
@@ -94,6 +96,21 @@ export class DataService {
             );
         } else {
             return this.feats$;
+        }
+    }
+
+    getLocations(): Observable<any[]> {
+        if (this.locations.getValue().length === 0) {
+            return this.http.get('./data/locations.json').pipe(
+                tap(data => {
+                    console.log('Get - locations');
+                    this.locations.next(data);
+                }),
+                map(() => this.locations.getValue()),
+                catchError(this.handleError)
+            );
+        } else {
+            return this.locations$;
         }
     }
     

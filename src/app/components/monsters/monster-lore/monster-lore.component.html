@@ -11,7 +11,7 @@
 				<app-monster *ngIf="subtype.monsters.includes(monster.index)" [monster]="monster" [expand]="shownCard==monster.index" (expanded)="expandCard(monster.index, $event)" [cardType]="'inner'"></app-monster>
 			</div>
 			<div class="card-footer">
-				Monster Manual (page 124)
+				{{subtype.book}} (page {{subtype.page}})
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,42 @@
+img {
+  max-height: 100vh;
+  width: auto;
+  margin: auto;
+  max-width:100%;
+  z-index: 200;
+}
+.card {
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 100%;
+}
+.card-header {
+  align-content: center;
+  display: grid;
+  grid-template-columns: auto 110px;
+}
+.card-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.cover{
+  background-color: black;
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 100;
+}
+.removeExtraLine {
+  margin-bottom: -20px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: auto 70px;
+  margin-bottom: 10px;
+}

@@ -6,6 +6,7 @@ import { ConditionsComponent } from './components/rules/conditions/conditions.co
 import { EncountersComponent } from './components/monsters/encounters/encounters.component';
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { FeatsComponent } from './components/rules/feats/feats.component';
+import { LocationsComponent } from './components/locations/locations.component';
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonsterLoreComponent } from './components/monsters/monster-lore/monster-lore.component';
 import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
     // Static Loading
     { path: '', redirectTo: '/spells', pathMatch: 'full' },
     { path: 'equipment-items', component: EquipmentItemsComponent },
+    { path: 'locations', component: LocationsComponent },
     { path: 'magic-items', component: MagicItemsComponent },
     { path: 'monster/encounters', component: EncountersComponent },
     { path: 'monster/lore', component: MonsterLoreComponent },
