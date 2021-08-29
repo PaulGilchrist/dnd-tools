@@ -32,7 +32,7 @@
 			<div *ngIf="equipmentItem.equipment_category == 'Mounts and Vehicles'">
 				<b>Category:</b>&nbsp;{{equipmentItem.vehicle_category}}<br />
 				<div *ngIf="equipmentItem.speed">
-					<b>Speed:</b>&nbsp;{{equipmentItem.speed.quantity}} {{equipmentItem.speed.unit}}<br />
+					<b>Speed:</b>&nbsp;{{equipmentItem.speed.quantity}} {{equipmentItem.speed.unit}} ({{equipmentItem.speed.quantity*24}} miles per day)<br />
 				</div>
 				<div *ngIf="equipmentItem.capacity">
 					<b>Capacity:</b>&nbsp;{{equipmentItem.capacity}}<br />
