@@ -1,4 +1,4 @@
-﻿<div *ngIf="modalActive" class="cover" (click)="modalActive=false">
+﻿<div *ngIf="imageActive" class="cover" (click)="imageActive=false">
     <img [src]="'assets/monsters/' + monster.index + '.jpg'">
 </div>
 <div *ngIf="monster != null" class="card w-100" [class.active]="expand" [class.inner]="cardType=='inner'">
@@ -24,7 +24,7 @@
 					<b>Speed:</b>&nbsp;{{monster.speed.walk ? monster.speed.walk : '0 ft.'}}<span *ngIf="monster.speed.burrow">, burrow {{monster.speed.burrow}}</span><span *ngIf="monster.speed.climb">, climb {{monster.speed.climb}}</span><span *ngIf="monster.speed.fly">, fly {{monster.speed.fly}}</span><span *ngIf="monster.speed.hover"> (hover)</span><span *ngIf="monster.speed.swim">, swim {{monster.speed.swim}}</span><br />
 				</div>
 				<div>
-					<button *ngIf="monster.image==true" type="button" class="btn btn-primary" (click)="modalActive=true">Image</button>
+					<button *ngIf="monster.image==true" type="button" class="btn btn-primary" (click)="imageActive=true">Image</button>
 				</div>
 			</div>
             <hr>

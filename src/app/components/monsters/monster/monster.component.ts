@@ -13,7 +13,7 @@ export class MonsterComponent implements OnChanges {
   @Input() monster: any = null;
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the monster is bookmarked for the current session
   @Output() expanded = new EventEmitter<boolean>();
-  modalActive = false;
+  imageActive = false;
 
   constructor(public domSanitizer: DomSanitizer) {}
 
