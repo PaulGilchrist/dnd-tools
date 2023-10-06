@@ -1,3 +1,4 @@
+# helm upgrade --install dnd-tools helm -n apps --create-namespace --dry-run --debug 
 apiVersion: v2
 name: dnd-tools
 description: Quick reference tools for Dungeons & Dragons 5th Edition
