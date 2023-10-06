@@ -1,4 +1,4 @@
-# ng build --prod
+# npm run build
 # docker build --rm -f "Dockerfile" -t paulgilchrist/dnd-tools:latest .
 # docker push paulgilchrist/dnd-tools
 FROM nginx:alpine

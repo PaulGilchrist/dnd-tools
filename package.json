@@ -7,11 +7,12 @@
   "license": "MIT",
   "version": "1.0.0",
   "scripts": {
-    "build": "ng build --base-href /dnd-tools/",
+    "build": "ng build --configuration production",
+    "build-for-github": "ng build --configuration production --base-href /dnd-tools/",
     "deploy": "ng deploy dnd-tools --base-href=/dnd-tools/",
     "lint": "npx ng lint dnd-tools",
     "ng": "ng",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build-for-github",
     "start": "ng serve",
     "test": "ng test",
     "watch": "ng build --watch --configuration development"
