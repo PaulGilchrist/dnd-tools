@@ -1,0 +1,8 @@
+# docker-compose up -d
+version: '3'
+services:
+  dnd-tools:
+    image: paulgilchrist/dnd-tools
+    ports:
+      - "8080:80"
+    container_name: dnd-tools
