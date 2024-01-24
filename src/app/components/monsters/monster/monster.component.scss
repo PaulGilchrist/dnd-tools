@@ -35,18 +35,10 @@ img {
     padding: 8px;
 }
 .inner > .card-header {
-    background-color: rgba(100, 100, 100, 1);
-    color: white;
     padding: 0 10px;
 }
-.inner > .card-header:hover {
-    background-color: rgb(41, 45, 56);
-}
-.active.inner > .card-header {
-    background-color: rgb(41, 45, 56);
-}
 .cover{
-    background-color: black;
+    background-color: var(--background-color-main);
     position:fixed;
     top: 0;
     left: 0;

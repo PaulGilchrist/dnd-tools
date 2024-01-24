@@ -21,6 +21,6 @@ table {
   max-width: 500px;
 }
 thead {
-  background-color: #262626;
-  color: white;
+  background-color: var(--background-color-header);
+  color: var(--color-header);
 }
