@@ -36,9 +36,14 @@
     display: none;
 }
 
+.inner-list {
+    max-width: 1000px;
+    margin-right: 10px;
+}
+
 .list {
     max-width: 1000px;
-    margin: auto;
+    margin-left: 10px;
 }
 
 .removeExtraLine {
