@@ -5,7 +5,6 @@ Try and keep global SCSS and CSS to a minimum and mainly to global variables.  T
 */
 :root {
     --nav-padding-top: 61px;
-    --color-link-active: lightgreen;
     --color-highlight: lightgreen;
     --background-color-main: #111;
     --color-main: #eee;
@@ -159,6 +158,5 @@ thead {
         --color-header-body: #000;
         --background-color-header-inner: #ddd;
         --color-header-inner: #070;
-        --color-link-active: lightgreen;
     }
 }
