@@ -46,11 +46,11 @@
 		<table class="table table-condensed table-striped table-hover">
 			<thead>
 				<tr>
-					<th>
+					<th class="col-form-label">
 						<span *ngIf="filter.type=='race'">First Names</span>
 						<span *ngIf="filter.type=='building'">First Part</span>
 					</th>
-					<th>Used</th>
+					<th class="col-form-label">Used</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,11 +65,11 @@
 		<table class="table table-condensed table-striped table-hover" *ngIf="filter.type=='building' || shownNames.familyType != null">
 			<thead>
 				<tr>
-					<th>
+					<th class="col-form-label">
 						<span *ngIf="filter.type=='race'">{{shownNames.familyType}} Names</span>
 						<span *ngIf="filter.type=='building'">Last Part</span>
 					</th>
-					<th>Used</th>
+					<th class="col-form-label">Used</th>
 				</tr>
 			</thead>
 			<tbody>

@@ -5,15 +5,20 @@ Try and keep global SCSS and CSS to a minimum and mainly to global variables.  T
 */
 :root {
     --nav-padding-top: 61px;
-    --background-color-main: #111;
-    --color-main: #ddd;
-    --background-color-header: #121;
-    --color-header: #eee;
-    --background-color-body: #222;
-    --color-header-body: #fff;
-    --background-color-header-inner: #232;
-    --color-header-inner: #fff;
     --color-link-active: lightgreen;
+    --color-highlight: lightgreen;
+    --background-color-main: #111;
+    --color-main: #eee;
+    --background-color-header: #202020;
+    --color-header: #fff;
+    --background-color-body: #111;
+    --color-header-body: #eee;
+    --background-color-header-inner: #202320;
+    --color-header-inner: #fff;
+}
+
+b {
+    color: var(--color-highlight);
 }
 
 body {
@@ -21,7 +26,7 @@ body {
     color: var(--color-main);
     color-scheme: light dark;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     font-synthesis: none;
     font-weight: 400;
     line-height: 1.5;
@@ -40,9 +45,18 @@ body {
     color: var(--color-body);
 }
 
+.card-title {
+    color: var(--color-highlight);
+}
+
+.col-form-label {
+    color: var(--color-highlight);
+    font-weight: 600;
+}
+
 .inner>.card-header {
     background-color: var(--background-color-header-inner);
-    color: var(--color-header-inner);
+    color: var(--color-header-body);
     padding: 0 10px;
 }
 
@@ -62,26 +76,32 @@ body {
 }
 
 h1 {
+    color: var(--color-highlight);
     font-size: 2.5em;
 }
 
 h2 {
+    color: var(--color-highlight);
     font-size: 2.0em;
 }
 
 h3 {
+    color: var(--color-highlight);
     font-size: 1.75em;
 }
 
 h4 {
+    color: var(--color-highlight);
     font-size: 1.5em;
 }
 
 h5 {
+    color: var(--color-highlight);
     font-size: 1.25em;
 }
 
 h6 {
+    color: var(--color-highlight);
     font-size: 1.0em;
 }
 
@@ -130,10 +150,11 @@ thead {
 
 @media (prefers-color-scheme: light) {
     :root {
+        --color-highlight: darkgreen;
         --background-color-main: #fff;
         --color-main: #333;
         --background-color-header: #bbb;
-        --color-header: #060;
+        --color-header: #111;
         --background-color-body: #eee;
         --color-header-body: #000;
         --background-color-header-inner: #ddd;

@@ -2,7 +2,7 @@
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{equipmentItem.name}}</div>
-			<i>{{equipmentItem.equipment_category}}, cost {{equipmentItem.cost.quantity}} {{equipmentItem.cost.unit}}<span *ngIf="equipmentItem.weight">, weight {{equipmentItem.weight}} lb.</span></i><br />
+			<div><i>{{equipmentItem.equipment_category}}, cost {{equipmentItem.cost.quantity}} {{equipmentItem.cost.unit}}<span *ngIf="equipmentItem.weight">, weight {{equipmentItem.weight}} lb.</span></i></div>
 		</div>
 		<div class="form-check">
 			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="equipmentItem.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(equipmentItem)">
