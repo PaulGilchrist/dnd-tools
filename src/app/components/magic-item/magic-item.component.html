@@ -15,6 +15,5 @@
         <span *ngFor="let desc of magicItem.desc; let i = index">
             <span *ngIf="i > 0" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
         </span>
-        <br />
 	</div>
 </div>
