@@ -19,7 +19,20 @@ Try and keep global SCSS and CSS to a minimum and mainly to global variables.  T
 b {
     color: var(--color-highlight);
 }
-
+.btn-outline-primary {
+    border-color: var(--color-highlight);
+    color: var(--color-highlight);
+}
+.btn-outline-primary.active {
+    background-color: var(--color-highlight);
+    border-color: var(--color-header);
+    color: var(--color-header);
+}
+.btn-outline-primary:hover {
+    background-color: var(--color-highlight);
+    border-color: var(--color-header);
+    color: var(--color-header);
+}
 body {
     background-color: var(--background-color-main);
     color: var(--color-main);
