@@ -20,18 +20,18 @@ b {
     color: var(--color-highlight);
 }
 .btn-outline-primary {
-    border-color: var(--color-highlight);
-    color: var(--color-highlight);
+    border-color: var(--color-header-body);
+    color: var(--color-header-body);
 }
 .btn-outline-primary.active {
-    background-color: var(--color-highlight);
-    border-color: var(--color-header);
-    color: var(--color-header);
+    background-color: var(--color-header-body);
+    border-color: var(--background-color-body);
+    color: var(--background-color-body);
 }
 .btn-outline-primary:hover {
-    background-color: var(--color-highlight);
-    border-color: var(--color-header);
-    color: var(--color-header);
+    background-color: var(--color-header-body);
+    border-color: var(--background-color-body);
+    color: var(--background-color-body);
 }
 body {
     background-color: var(--background-color-main);
@@ -160,7 +160,7 @@ thead {
     cursor: pointer;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     :root {
         --color-highlight: darkgreen;
         --background-color-main: #fff;
