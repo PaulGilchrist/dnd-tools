@@ -1,4 +1,5 @@
 ﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'magic-item',
@@ -12,6 +13,8 @@ export class MagicItemComponent {
   @Output() readonly bookmarkChanged = new EventEmitter<boolean>(); // Bubble up that the magicItem is bookmarked for the current session
   @Output() expanded = new EventEmitter<boolean>();
   
+  constructor(public domSanitizer: DomSanitizer) {}
+
   toggleDetails() {
     this.expand = !this.expand;
     this.expanded.emit(this.expand);

@@ -12,12 +12,9 @@
 		</div>
 	</div>
 	<div *ngIf="expand" class="card-body">
-		<div class="card-text removeExtraLine">
-			<span *ngFor="let desc of magicItem.desc; let i = index">
-				<span *ngIf="i > 0">
-					{{desc}}<br /><br />
-				</span>
-			</span>
-		</div>
+        <span *ngFor="let desc of magicItem.desc; let i = index">
+            <span *ngIf="i > 0" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
+        </span>
+        <br />
 	</div>
 </div>
