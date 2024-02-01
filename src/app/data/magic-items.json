@@ -340,12 +340,7 @@
         "name": "Cloak of Arachnida",
         "desc": [
             "Wondrous item, very rare (requires attunement)",
-            "This fine garment is made of black silk interwoven with faint silvery threads. While wearing it, you gain the following benefits:",
-            "* You have resistance to poison damage.",
-            "* You have a climbing speed equal to your walking speed.",
-            "* You can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free.",
-            "* You can't be caught in webs of any sort and can move through webs as if they were difficult terrain.",
-            "* You can use an action to cast the web spell (save DC 13). The web created by the spell fills twice its normal area. Once used, this property of the cloak can't be used again until the next dawn."
+            "This fine garment is made of black silk interwoven with faint silvery threads. While wearing it, you gain the following benefits:<br/><br/><ul><li>You have resistance to poison damage.</li><li>You have a climbing speed equal to your walking speed.</li><li>You can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free.</li><li>You can't be caught in webs of any sort and can move through webs as if they were difficult terrain.</li><li>You can use an action to cast the web spell (save DC 13). The web created by the spell fills twice its normal area. Once used, this property of the cloak can't be used again until the next dawn.</li></ul>"
         ]
     },
     {
@@ -417,26 +412,7 @@
         "name": "Cube of Force",
         "desc": [
             "Wondrous item, rare (requires attunement)",
-            "This cube is about an inch across. Each face has a distinct marking on it that can be pressed. The cube starts with 36 charges, and it regains 1d20 expended charges daily at dawn.",
-            "You can use an action to press one of the cube's faces, expending a number of charges based on the chosen face, as shown in the Cube of Force Faces table. Each face has a different effect. If the cube has insufficient charges remaining, nothing happens. Otherwise, a barrier of invisible force springs into existence, forming a cube 15 feet on a side. The barrier is centered on you, moves with you, and lasts for 1 minute, until you use an action to press the cube's sixth face, or the cube runs out of charges. You can change the barrier's effect by pressing a different face of the cube and expending the requisite number of charges, resetting the duration.",
-            "If your movement causes the barrier to come into contact with a solid object that can't pass through the cube, you can't move any closer to that object as long as the barrier remains.",
-            "Cube of Force Faces",
-            "| Face | Charges | Effect |",
-            "|---|---|---|",
-            "| 1 | 1 | Gases, wind, and fog can't pass through the barrier.",
-            "| 2 | 2 | Nonliving matter can't pass through the barrier. Walls, floors, and ceilings can pass through at your discretion.",
-            "| 3 | 3 | Living matter can't pass through the barrier.",
-            "| 4 | 4 | Spell effects can't pass through the barrier.",
-            "| 5 | 5 | Nothing can pass through the barrier. Walls, floors, and ceilings can pass through at your discretion.",
-            "| 6 | 0 | The barrier deactivates.",
-            "The cube loses charges when the barrier is targeted by certain spells or comes into contact with certain spell or magic item effects, as shown in the table below.",
-            "| Spell or Item | Charges Lost |",
-            "|---|---|",
-            "| Disintegrate | 1d12 |",
-            "| Horn of blasting | 1d10 |",
-            "| Passwall | 1d6 |",
-            "| Prismatic spray | 1d20 |",
-            "| Wall of fire | 1d4 |"
+            "This cube is about an inch across. Each face has a distinct marking on it that can be pressed. The cube starts with 36 charges, and it regains 1d20 expended charges daily at dawn.<br/><br/>You can use an action to press one of the cube's faces, expending a number of charges based on the chosen face, as shown in the Cube of Force Faces table. Each face has a different effect. If the cube has insufficient charges remaining, nothing happens. Otherwise, a barrier of invisible force springs into existence, forming a cube 15 feet on a side. The barrier is centered on you, moves with you, and lasts for 1 minute, until you use an action to press the cube's sixth face, or the cube runs out of charges. You can change the barrier's effect by pressing a different face of the cube and expending the requisite number of charges, resetting the duration.<br/><br/>If your movement causes the barrier to come into contact with a solid object that can't pass through the cube, you can't move any closer to that object as long as the barrier remains.<br/><br/><b></b>Cube of Force Faces<br/><table class='table table-condensed table-striped table-hover'><thead><tr><th>Face</th><th>Charges</th><th>Effect</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>Gases, wind, and fog can't pass through the barrier.</td></tr><tr><td>2</td><td>2</td><td>Nonliving matter can't pass through the barrier. Walls, floors, and ceilings can pass through at your discretion.</td></tr><tr><td>3</td><td>3</td><td>Living matter can't pass through the barrier.</td></tr><tr><td>4</td><td>4</td><td>Spell effects can't pass through the barrier.</td></tr><tr><td>5</td><td>5</td><td>Nothing can pass through the barrier. Walls, floors, and ceilings can pass through at your discretion.</td></tr><tr><td>6</td><td>0</td><td>The barrier deactivates.</td></tr></tbody></table>The cube loses charges when the barrier is targeted by certain spells or comes into contact with certain spell or magic item effects, as shown in the table below.<br/><br/><table class='table table-condensed table-striped table-hover' style='width:250px;text-align:center;line-height:0px;'><thead><tr><th>Spell or Item</th><th>Charges Lost</th></tr></thead><tbody><tr><td>Disintegrate</td><td>1d12</td></tr><tr><td>Horn of blasting</td><td>1d10</td></tr><tr><td>Passwall</td><td>1d6</td></tr><tr><td>Prismatic spray</td><td>1d20</td></tr><tr><td>Wall of fire</td><td>1d4</td></tr></tbody></table>"
         ]
     },
     {
@@ -468,11 +444,7 @@
         "name": "Decanter of Endless Water",
         "desc": [
             "Wondrous item, uncommon",
-            "This stoppered flask sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.",
-            "You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:",
-            "\"Stream\" produces 1 gallon of water.",
-            "\"Fountain\" produces 5 gallons of water.",
-            "\"Geyser\" produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you."
+            "This stoppered flask sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.<br/><br/>You can use an action to remove the stopper and speak one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following options:<br/><br/><table class='table table-condensed table-hover'><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>Stream</td><td>Produces 1 gallon of water</td></tr><tr><td>Fountain</td><td>Produces 5 gallons of water</td></tr><tr><td>Geyser</td><td>Produces 30 gallons of water that gushes forth in a geyser 30 feet long and 1 foot wide. As a bonus action while holding the decanter, you can aim the geyser at a creature you can see within 30 feet of you. The target must succeed on a DC 13 Strength saving throw or take 1d4 bludgeoning damage and fall prone. Instead of a creature, you can target an object that isn't being worn or carried and that weighs no more than 200 pounds. The object is either knocked over or pushed up to 15 feet away from you.</td></tr></tbody></table>"
         ]
     },
     {
@@ -480,45 +452,7 @@
         "name": "Deck of Illusions",
         "desc": [
             "Wondrous item, uncommon",
-            "This box contains a set of parchment cards. A full deck has 34 cards. A deck found as treasure is usually missing 1d20 - 1 cards.",
-            "The magic of the deck functions only if cards are drawn at random (you can use an altered deck of playing cards to simulate the deck). You can use an action to draw a card at random from the deck and throw it to the ground at a point within 30 feet of you.",
-            "An illusion of one or more creatures forms over the thrown card and remains until dispelled. An illusory creature appears real, of the appropriate size, and behaves as if it were a real creature except that it can do no harm. While you are within 120 feet of the illusory creature and can see it, you can use an action to move it magically anywhere within 30 feet of its card. Any physical interaction with the illusory creature reveals it to be an illusion, because objects pass through it. Someone who uses an action to visually inspect the creature identifies it as illusory with a successful DC 15 Intelligence (Investigation) check. The creature then appears translucent.",
-            "The illusion lasts until its card is moved or the illusion is dispelled. When the illusion ends, the image on its card disappears, and that card can't be used again.",
-            "| Playing Card | Illusion |",
-            "|---|---|",
-            "| Ace of hearts | Red dragon |",
-            "| King of hearts | Knight and four guards |",
-            "| Queen of hearts | Succubus or incubus |",
-            "| Jack of hearts | Druid |",
-            "| Ten of hearts | Cloud giant |",
-            "| Nine of hearts | Ettin |",
-            "| Eight of hearts | Bugbear |",
-            "| Two of hearts | Goblin |",
-            "| Ace of diamonds | Beholder |",
-            "| King of diamonds | Archmage and mage apprentice |",
-            "| Queen of diamonds | Night hag |",
-            "| Jack of diamonds | Assassin |",
-            "| Ten of diamonds | Fire giant |",
-            "| Nine of diamonds | Ogre mage |",
-            "| Eight of diamonds | Gnoll |",
-            "| Two of diamonds | Kobold |",
-            "| Ace of spades | Lich |",
-            "| King of spades | Priest and two acolytes |",
-            "| Queen of spades | Medusa |",
-            "| Jack of spades | Veteran |",
-            "| Ten of spades | Frost giant |",
-            "| Nine of spades | Troll |",
-            "| Eight of spades | Hobgoblin |",
-            "| Two of spades | Goblin |",
-            "| Ace of clubs | Iron golem |",
-            "| King of clubs | Bandit captain and three bandits |",
-            "| Queen of clubs | Erinyes |",
-            "| Jack of clubs | Berserker |",
-            "| Ten of clubs | Hill giant |",
-            "| Nine of clubs | Ogre |",
-            "| Eight of clubs | Orc |",
-            "| Two of clubs | Kobold |",
-            "| Jokers (2) | You (the deck's owner) |"
+            "This box contains a set of parchment cards. A full deck has 34 cards. A deck found as treasure is usually missing 1d20 - 1 cards.<br/><br/>The magic of the deck functions only if cards are drawn at random (you can use an altered deck of playing cards to simulate the deck). You can use an action to draw a card at random from the deck and throw it to the ground at a point within 30 feet of you.<br/><br/>An illusion of one or more creatures forms over the thrown card and remains until dispelled. An illusory creature appears real, of the appropriate size, and behaves as if it were a real creature except that it can do no harm. While you are within 120 feet of the illusory creature and can see it, you can use an action to move it magically anywhere within 30 feet of its card. Any physical interaction with the illusory creature reveals it to be an illusion, because objects pass through it. Someone who uses an action to visually inspect the creature identifies it as illusory with a successful DC 15 Intelligence (Investigation) check. The creature then appears translucent.<br/><br/>The illusion lasts until its card is moved or the illusion is dispelled. When the illusion ends, the image on its card disappears, and that card can't be used again.<br/><br/><table class='table table-condensed table-striped table-hover' style='width:400px;text-align:center;line-height:0px;'><thead><tr><th>Playing Card</th><th>Illusion</th></tr></thead><tbody><tr><td>Ace of hearts</td><td>Red dragon</td></tr><tr><td>King of hearts</td><td>Knight and four guards</td></tr><tr><td>Queen of hearts</td><td>Succubus or incubus</td></tr><tr><td>Jack of hearts</td><td>Druid</td></tr><tr><td>Ten of hearts</td><td>Cloud giant</td></tr><tr><td>Nine of hearts</td><td>Ettin</td></tr><tr><td>Eight of hearts</td><td>Bugbear</td></tr><tr><td>Two of hearts</td><td>Goblin</td></tr><tr><td>Ace of diamonds</td><td>Beholder</td></tr><tr><td>King of diamonds</td><td>Archmage and mage apprentice</td></tr><tr><td>Queen of diamonds</td><td>Night hag</td></tr><tr><td>Jack of diamonds</td><td>Assassin</td></tr><tr><td>Ten of diamonds</td><td>Fire giant</td></tr><tr><td>Nine of diamonds</td><td>Ogre mage</td></tr><tr><td>Eight of diamonds</td><td>Gnoll</td></tr><tr><td>Two of diamonds</td><td>Kobold</td></tr><tr><td>Ace of spades</td><td>Lich</td></tr><tr><td>King of spades</td><td>Priest and two acolytes</td></tr><tr><td>Queen of spades</td><td>Medusa</td></tr><tr><td>Jack of spades</td><td>Veteran</td></tr><tr><td>Ten of spades</td><td>Frost giant</td></tr><tr><td>Nine of spades</td><td>Troll</td></tr><tr><td>Eight of spades</td><td>Hobgoblin</td></tr><tr><td>Two of spades</td><td>Goblin</td></tr><tr><td>Ace of clubs</td><td>Iron golem</td></tr><tr><td>King of clubs</td><td>Bandit captain and three bandits</td></tr><tr><td>Queen of clubs</td><td>Erinyes</td></tr><tr><td>Jack of clubs</td><td>Berserker</td></tr><tr><td>Ten of clubs</td><td>Hill giant</td></tr><tr><td>Nine of clubs</td><td>Ogre</td></tr><tr><td>Eight of clubs</td><td>Orc</td></tr><tr><td>Two of clubs</td><td>Kobold</td></tr><tr><td>Jokers (2)</td><td>You (the deck's owner)</td></tr></tbody></table>"
         ]
     },
     {
@@ -526,50 +460,7 @@
         "name": "Deck of Many Things",
         "desc": [
             "Wondrous item, legendary",
-            "Usually found in a box or pouch, this deck contains a number of cards made of ivory or vellum. Most (75 percent) of these decks have only thirteen cards, but the rest have twenty-two.",
-            "Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly (you can use an altered deck of playing cards to simulate the deck). Any cards drawn in excess of this number have no effect. Otherwise, as soon as you draw a card from the deck, its magic takes effect. You must draw each card no more than 1 hour after the previous draw. If you fail to draw the chosen number, the remaining number of cards fly from the deck on their own and take effect all at once.",
-            "Once a card is drawn, it fades from existence. Unless the card is the Fool or the Jester, the card reappears in the deck, making it possible to draw the same card twice.",
-            "| Playing Card | Card |",
-            "|---|---|",
-            "| Ace of diamonds | Vizier |",
-            "| King of diamonds | Sun |",
-            "| Queen of diamonds | Moon |",
-            "| Jack of diamonds | Star |",
-            "| Two of diamonds | Comet |",
-            "| Ace of hearts | The Fates |",
-            "| King of hearts | Throne |",
-            "| Queen of hearts | Key |",
-            "| Jack of hearts | Knight |",
-            "| Two of hearts | Gem |",
-            "| Ace of clubs | Talons |",
-            "| King of clubs | The Void |",
-            "| Queen of clubs | Flames |",
-            "| Jack of clubs | Skull |",
-            "| Two of clubs | Idiot |",
-            "| Ace of spades | Donjon |",
-            "| King of spades | Ruin |",
-            "| Queen of spades | Euryale |",
-            "| Jack of spades | Rogue |",
-            "| Two of spades | Balance |",
-            "| Joker (with TM) | Fool |",
-            "| Joker (without TM) | Jester |",
-            "\\Found only in a deck with twenty-two cards",
-            "Balance. Your mind suffers a wrenching alteration, causing your alignment to change. Lawful becomes chaotic, good becomes evil, and vice versa. If you are true neutral or unaligned, this card has no effect on you.",
-            "Comet. If you single-handedly defeat the next hostile monster or group of monsters you encounter, you gain experience points enough to gain one level. Otherwise, this card has no effect.",
-            "Donjon. You disappear and become entombed in a state of suspended animation in an extradimensional sphere. Everything you were wearing and carrying stays behind in the space you occupied when you disappeared. You remain imprisoned until you are found and removed from the sphere. You can't be located by any divination magic, but a wish spell can reveal the location of your prison. You draw no more cards.",
-            "Euryale. The card's medusa-like visage curses you. You take a -2 penalty on saving throws while cursed in this way. Only a god or the magic of The Fates card can end this curse.",
-            "The Fates. Reality's fabric unravels and spins anew, allowing you to avoid or erase one event as if it never happened. You can use the card's magic as soon as you draw the card or at any other time before you die.",
-            "Flames. A powerful devil becomes your enemy. The devil seeks your ruin and plagues your life, savoring your suffering before attempting to slay you. This enmity lasts until either you or the devil dies.",
-            "Fool. You lose 10,000 XP, discard this card, and draw from the deck again, counting both draws as one of your declared draws. If losing that much XP would cause you to lose a level, you instead lose an amount that leaves you with just enough XP to keep your level.",
-            "Gem. Twenty-five pieces of jewelry worth 2,000 gp each or fifty gems worth 1,000 gp each appear at your feet.",
-            "Idiot. Permanently reduce your Intelligence by 1d4 + 1 (to a minimum score of 1). You can draw one additional card beyond your declared draws.",
-            "Jester. You gain 10,000 XP, or you can draw two additional cards beyond your declared draws.",
-            "Key. A rare or rarer magic weapon with which you are proficient appears in your hands. The GM chooses the weapon.",
-            "Knight. You gain the service of a 4th-level fighter who appears in a space you choose within 30 feet of you. The fighter is of the same race as you and serves you loyally until death, believing the fates have drawn him or her to you. You control this character.",
-            "Moon. You are granted the ability to cast the wish spell 1d3 times.",
-            "Rogue. A nonplayer character of the GM's choice becomes hostile toward you. The identity of your new enemy isn't known until the NPC or someone else reveals it. Nothing less than a wish spell or divine intervention can end the NPC's hostility toward you.",
-            "Ruin. All forms of wealth that you carry or own, other than magic items, are lost to you. Portable property vanishes. Businesses, buildings, and land you own are lost in a way that alters reality the least. Any documentation that proves you should own something lost to this card also disappears.",
-            "Skull. You summon an avatar of death-a ghostly humanoid skeleton clad in a tattered black robe and carrying a spectral scythe. It appears in a space of the GM's choice within 10 feet of you and attacks you, warning all others that you must win the battle alone. The avatar fights until you die or it drops to 0 hit points, whereupon it disappears. If anyone tries to help you, the helper summons its own avatar of death. A creature slain by an avatar of death can't be restored to life."
+            "Usually found in a box or pouch, this deck contains a number of cards made of ivory or vellum. Most (75 percent) of these decks have only thirteen cards, but the rest have twenty-two.<br/><br/>Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly (you can use an altered deck of playing cards to simulate the deck). Any cards drawn in excess of this number have no effect. Otherwise, as soon as you draw a card from the deck, its magic takes effect. You must draw each card no more than 1 hour after the previous draw. If you fail to draw the chosen number, the remaining number of cards fly from the deck on their own and take effect all at once.<br/><br/>Once a card is drawn, it fades from existence. Unless the card is the Fool or the Jester, the card reappears in the deck, making it possible to draw the same card twice.<br/><br/><table class='table table-condensed table-striped table-hover' style='width:230px;text-align:center;line-height:0px;'><thead><tr><th>Playing Card</th><th>Card</th></tr></thead><tbody><tr><td>Ace of diamonds</td><td>Vizier</td></tr><tr><td>King of diamonds</td><td>Sun</td></tr><tr><td>Queen of diamonds</td><td>Moon</td></tr><tr><td>Jack of diamonds</td><td>Star</td></tr><tr><td>Two of diamonds</td><td>Comet</td></tr><tr><td>Ace of hearts</td><td>The Fates</td></tr><tr><td>King of hearts</td><td>Throne</td></tr><tr><td>Queen of hearts</td><td>Key</td></tr><tr><td>Jack of hearts</td><td>Knight</td></tr><tr><td>Two of hearts</td><td>Gem</td></tr><tr><td>Ace of clubs</td><td>Talons</td></tr><tr><td>King of clubs</td><td>The Void</td></tr><tr><td>Queen of clubs</td><td>Flames</td></tr><tr><td>Jack of clubs</td><td>Skull</td></tr><tr><td>Two of clubs</td><td>Idiot</td></tr><tr><td>Ace of spades</td><td>Donjon</td></tr><tr><td>King of spades</td><td>Ruin</td></tr><tr><td>Queen of spades</td><td>Euryale</td></tr><tr><td>Jack of spades</td><td>Rogue</td></tr><tr><td>Two of spades</td><td>Balance</td></tr><tr><td>Joker (with TM)</td><td>Fool</td></tr><tr><td>Joker (without TM)</td><td>Jester</td></tr></tbody></table><br/>Found only in a deck with twenty-two cards<br/><table class='table table-condensed table-striped table-hover'><thead><tr><th style='width:80px;'>Name</th><th>Description</th></tr></thead><tbody><tr><td>Balance</td><td>Your mind suffers a wrenching alteration, causing your alignment to change. Lawful becomes chaotic, good becomes evil, and vice versa. If you are true neutral or unaligned, this card has no effect on you.</td></tr><tr><td>Comet</td><td>If you single-handedly defeat the next hostile monster or group of monsters you encounter, you gain experience points enough to gain one level. Otherwise, this card has no effect.</td></tr><tr><td>Donjon</td><td>You disappear and become entombed in a state of suspended animation in an extradimensional sphere. Everything you were wearing and carrying stays behind in the space you occupied when you disappeared. You remain imprisoned until you are found and removed from the sphere. You can't be located by any divination magic, but a wish spell can reveal the location of your prison. You draw no more cards.</td></tr><tr><td>Euryale</td><td>The card's medusa-like visage curses you. You take a -2 penalty on saving throws while cursed in this way. Only a god or the magic of The Fates card can end this curse.</td></tr><tr><td>The Fates</td><td>Reality's fabric unravels and spins anew, allowing you to avoid or erase one event as if it never happened. You can use the card's magic as soon as you draw the card or at any other time before you die.</td></tr><tr><td>Flames</td><td>A powerful devil becomes your enemy. The devil seeks your ruin and plagues your life, savoring your suffering before attempting to slay you. This enmity lasts until either you or the devil dies.</td></tr><tr><td>Fool</td><td>You lose 10,000 XP, discard this card, and draw from the deck again, counting both draws as one of your declared draws. If losing that much XP would cause you to lose a level, you instead lose an amount that leaves you with just enough XP to keep your level.</td></tr><tr><td>Gem</td><td>Twenty-five pieces of jewelry worth 2,000 gp each or fifty gems worth 1,000 gp each appear at your feet.</td></tr><tr><td>Idiot</td><td>Permanently reduce your Intelligence by 1d4 + 1 (to a minimum score of 1). You can draw one additional card beyond your declared draws.</td></tr><tr><td>Jester</td><td>You gain 10,000 XP, or you can draw two additional cards beyond your declared draws.</td></tr><tr><td>Key</td><td>A rare or rarer magic weapon with which you are proficient appears in your hands. The GM chooses the weapon.</td></tr><tr><td>Knight</td><td>You gain the service of a 4th-level fighter who appears in a space you choose within 30 feet of you. The fighter is of the same race as you and serves you loyally until death, believing the fates have drawn him or her to you. You control this character.</td></tr><tr><td>Moon</td><td>You are granted the ability to cast the wish spell 1d3 times.</td></tr><tr><td>Rogue</td><td>A nonplayer character of the GM's choice becomes hostile toward you. The identity of your new enemy isn't known until the NPC or someone else reveals it. Nothing less than a wish spell or divine intervention can end the NPC's hostility toward you.</td></tr><tr><td>Ruin</td><td>All forms of wealth that you carry or own, other than magic items, are lost to you. Portable property vanishes. Businesses, buildings, and land you own are lost in a way that alters reality the least. Any documentation that proves you should own something lost to this card also disappears.</td></tr><tr><td>Skull</td><td>You summon an avatar of death-a ghostly humanoid skeleton clad in a tattered black robe and carrying a spectral scythe. It appears in a space of the GM's choice within 10 feet of you and attacks you, warning all others that you must win the battle alone. The avatar fights until you die or it drops to 0 hit points, whereupon it disappears. If anyone tries to help you, the helper summons its own avatar of death. A creature slain by an avatar of death can't be restored to life.</td></tr></tbody></table>"
         ]
     },
     {
