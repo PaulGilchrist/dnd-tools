@@ -1,131 +1,145 @@
 ﻿import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 
 import { DataService } from '../../services/data.service';
 declare const utils: any // Javascript utilities
 
 @Component({
-  selector: 'app-spells',
-  styleUrls: ['./spells.component.scss'],
-  templateUrl: './spells.component.html'
+    selector: 'app-spells',
+    styleUrls: ['./spells.component.scss'],
+    templateUrl: './spells.component.html'
 })
 export class SpellsComponent implements OnInit, OnDestroy {
-  filter = {
-    castingTime: 'All',
-    class: 'All',
-    levelMin: 0,
-    levelMax: 9,
-    name: '',
-    status: 'All'
-  }
-  shownCard = '';
-  spells: any[] = [];
-  subscriptions: Subscription[] = [];
+    filter = {
+        castingTime: 'All',
+        class: 'All',
+        levelMin: 0,
+        levelMax: 9,
+        name: '',
+        status: 'All'
+    }
+    shownCard = '';
+    spells: any[] = [];
+    subscriptions: Subscription[] = [];
 
-  constructor(public dataService: DataService) { }
+    constructor(private route: ActivatedRoute, private router: Router, public dataService: DataService) { }
 
-  ngOnInit(): void {
-    this.subscriptions.push(combineLatest([
-      this.dataService.getSpells()
-    ]).subscribe((data: any) => {
-      this.spells = data[0];
-      console.log(`${this.spells.length} spells`);
-      // Set search filters
-      let filter = localStorage.getItem('spellFilter');
-      if(filter) {
-        this.filter = JSON.parse(filter);
-      } else {
+    ngOnInit(): void {
+        this.subscriptions.push(combineLatest([
+            this.dataService.getSpells()
+        ]).subscribe((data: any) => {
+            this.spells = data[0];
+            console.log(`${this.spells.length} spells`);
+            const index = this.route.snapshot.queryParamMap.get('index');
+            if (index) {
+                const spell = this.spells.find((spell) => spell.index === index);
+                if (spell) {
+                    this.expandCard(index, true);
+                    utils.scrollIntoView(spell.index);
+                }
+            } else {
+                // Set search filters
+                let filter = localStorage.getItem('spellFilter');
+                if (filter) {
+                    this.filter = JSON.parse(filter);
+                } else {
+                    localStorage.setItem('spellFilter', JSON.stringify(this.filter));
+                }
+            }
+            // Set known and prepared spells
+            let knownSpellsJson = localStorage.getItem('spellsKnown');
+            let knownSpells: string[] = [];
+            if (knownSpellsJson != null) {
+                knownSpells = JSON.parse(knownSpellsJson);
+            }
+            let preparedSpellsJson = localStorage.getItem('spellsPrepared');
+            let preparedSpells: string[] = [];
+            if (preparedSpellsJson != null) {
+                preparedSpells = JSON.parse(preparedSpellsJson);
+            }
+            this.spells.forEach(spell => {
+                spell.known = knownSpells.includes(spell.index);
+                spell.prepared = preparedSpells.includes(spell.index);
+            })
+        }));
+    }
+
+    ngOnDestroy(): void {
+        // Unsubscribe all subscriptions to avoid memory leak
+        this.subscriptions.forEach(subscription => subscription.unsubscribe());
+    }
+
+    expandCard(index: string, expanded: boolean) {
+        if (expanded) {
+            this.shownCard = index;
+            utils.scrollIntoView(index);
+        }
+        this.router.navigate([], {
+            queryParams: { index: index },
+            queryParamsHandling: 'merge',
+        });
+    }
+
+    filterChanged(): void {
         localStorage.setItem('spellFilter', JSON.stringify(this.filter));
-      }
-      // Set known and prepared spells
-      let knownSpellsJson = localStorage.getItem('spellsKnown');
-      let knownSpells: string[] = [];
-      if(knownSpellsJson != null) {
-        knownSpells = JSON.parse(knownSpellsJson);
-      }
-      let preparedSpellsJson = localStorage.getItem('spellsPrepared');
-      let preparedSpells: string[] = [];
-      if(preparedSpellsJson != null) {
-        preparedSpells = JSON.parse(preparedSpellsJson);
-      }
-      this.spells.forEach(spell => {
-        spell.known = knownSpells.includes(spell.index);
-        spell.prepared = preparedSpells.includes(spell.index);
-      })
-    }));
-  }
-
-  ngOnDestroy(): void {
-    // Unsubscribe all subscriptions to avoid memory leak
-    this.subscriptions.forEach(subscription => subscription.unsubscribe());
-  }
-
-  expandCard(index: string, expanded: boolean) {
-    if(expanded) {
-      this.shownCard=index;
-      utils.scrollIntoView(index);
     }
-  }
 
-  filterChanged(): void {
-    localStorage.setItem('spellFilter', JSON.stringify(this.filter));
-  }
+    showSpell(spell: any) {
+        // Casting Time filter
+        if (this.filter.castingTime != 'All'
+            && (
+                (this.filter.castingTime == 'Action' && !(spell.casting_time == '1 action'))
+                || (this.filter.castingTime == 'Bonus Action' && !(spell.casting_time == '1 bonus action'))
+                || (this.filter.castingTime == 'Non-Ritual, Long Cast Time' && (spell.ritual || spell.casting_time == '1 action' || spell.casting_time == '1 bonus action' || spell.casting_time == '1 reaction'))
+                || (this.filter.castingTime == 'Reaction' && !(spell.casting_time == '1 reaction'))
+                || (this.filter.castingTime == 'Ritual' && !spell.ritual)
+            )
+        ) {
+            return false;
+        }
+        // Class filter
+        // @ts-ignore
+        if (this.filter.class != 'All' && !spell.classes.some(c => c == this.filter.class)) {
+            return false;
+        }
+        // Level filter
+        if (spell.level < this.filter.levelMin || spell.level > this.filter.levelMax) {
+            return false;
+        }
+        // Name filter
+        if (this.filter.name != '' && !spell.name.toLowerCase().includes(this.filter.name.toLowerCase())) {
+            return false;
+        }
+        // Status filter
+        if (this.filter.status != 'All'
+            && (
+                (this.filter.status == 'Known' && !spell.known)
+                || (this.filter.status == 'Prepared or Known Ritual' && (!spell.known || (!spell.prepared && !spell.ritual)))
+            )
+        ) {
+            return false;
+        }
+        return true;
+    }
 
-  showSpell(spell: any) {
-    // Casting Time filter
-    if (this.filter.castingTime != 'All'
-        && (
-              (this.filter.castingTime == 'Action' && !(spell.casting_time == '1 action'))
-              || (this.filter.castingTime == 'Bonus Action' && !(spell.casting_time == '1 bonus action'))
-              || (this.filter.castingTime == 'Non-Ritual, Long Cast Time' && (spell.ritual || spell.casting_time == '1 action' || spell.casting_time == '1 bonus action' || spell.casting_time == '1 reaction' ))      
-              || (this.filter.castingTime == 'Reaction' && !(spell.casting_time == '1 reaction'))
-              || (this.filter.castingTime == 'Ritual' && !spell.ritual)
-          )
-    ) {
-      return false;
+    saveKnown() {
+        let spellsKnown: string[] = [];
+        this.spells.forEach(spell => {
+            if (spell.known == true) {
+                spellsKnown.push(spell.index);
+            }
+        })
+        localStorage.setItem('spellsKnown', JSON.stringify(spellsKnown));
     }
-    // Class filter
-    // @ts-ignore
-    if (this.filter.class != 'All' && !spell.classes.some(c => c == this.filter.class)) {
-      return false;
-    }
-    // Level filter
-    if (spell.level < this.filter.levelMin || spell.level > this.filter.levelMax) {
-      return false;
-    }
-    // Name filter
-    if (this.filter.name != '' && !spell.name.toLowerCase().includes(this.filter.name.toLowerCase())) {
-      return false;
-    }    
-    // Status filter
-    if (this.filter.status != 'All'
-        && (
-              (this.filter.status == 'Known' && !spell.known)
-              || (this.filter.status == 'Prepared or Known Ritual' && (!spell.known || (!spell.prepared && !spell.ritual)))
-          )
-    ) {
-      return false;
-    }
-    return true;
-  }
 
-  saveKnown() {
-    let spellsKnown: string[] = [];
-    this.spells.forEach(spell => {
-      if(spell.known == true) {
-        spellsKnown.push(spell.index);
-      }
-    })
-    localStorage.setItem('spellsKnown', JSON.stringify(spellsKnown));
-  }
-
-  savePrepared() {
-    let spellsPrepared: string[] = [];
-    this.spells.forEach(spell => {
-      if(spell.prepared == true) {
-        spellsPrepared.push(spell.index);
-      }
-    })
-    localStorage.setItem('spellsPrepared', JSON.stringify(spellsPrepared));
-  }
+    savePrepared() {
+        let spellsPrepared: string[] = [];
+        this.spells.forEach(spell => {
+            if (spell.prepared == true) {
+                spellsPrepared.push(spell.index);
+            }
+        })
+        localStorage.setItem('spellsPrepared', JSON.stringify(spellsPrepared));
+    }
 }

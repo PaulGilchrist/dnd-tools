@@ -40,5 +40,5 @@
 	</select>
 </form>
 <div *ngFor="let magicItem of magicItems" class="list" [id]="magicItem.index">
-	<magic-item *ngIf="showMagicItem(magicItem)" [magicItem]="magicItem" (bookmarkChanged)="saveBookmark()" [expand]="shownCard==magicItem.index" (expanded)="expandCard(magicItem.index, $event)"></magic-item>
+    <magic-item *ngIf="showMagicItem(magicItem)" [magicItem]="magicItem" (bookmarkChanged)="saveBookmark()" [expand]="shownCard==magicItem.index" (expanded)="expandCard(magicItem.index, $event)"></magic-item>
 </div>

@@ -1,15 +1,15 @@
 ﻿<div *ngIf="image!=''" class="cover" (click)="image=''">
     <img [src]="'assets/locations/' + image">
 </div>
-<div *ngFor="let location of locations" class="list">
-	<div class="card outer w-100" [class.active]="shownLocation==location.index" [id]="location.index">
-		<div class="card-header clickable" (click)="showLocation(location.index)">
+<div *ngFor="let location of locations" class="list" [id]="location.index">
+	<div class="card outer w-100" [class.active]="shownCard==location.index" [id]="location.index">
+		<div class="card-header clickable" (click)="expandCard(location.index)">
 			<div>
 				<div class="card-title">{{location.name}}</div>
 				<i>{{location.type}}</i><br />
 			</div>
 		</div>
-		<div *ngIf="shownLocation == location.index" class="card-body">
+		<div *ngIf="shownCard == location.index" class="card-body">
 			<div class="stats">
 				<div>
 					<!-- no stats -->
