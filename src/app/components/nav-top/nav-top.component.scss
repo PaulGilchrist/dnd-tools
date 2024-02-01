@@ -1,9 +1,9 @@
 .active > .nav-link {
     background-color: var(--background-color-inverse);
     border-radius: 5px;
-    color: var(--color-highlight) !important;
+    color: var(--color-header) !important;
 }
 .navbar-brand {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-weight: 900;
 }

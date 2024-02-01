@@ -5,11 +5,10 @@ Try and keep global SCSS and CSS to a minimum and mainly to global variables.  T
 */
 :root {
     --nav-padding-top: 61px;
-    --color-highlight: lightgreen;
-    --background-color-main: #111;
-    --color-main: #eee;
-    --background-color-header: #202020;
-    --color-header: #fff;
+    --background-color-main: #000;
+    --color-main: #ddd;
+    --background-color-header: #232;
+    --color-header: lightgreen;
     --background-color-body: #111;
     --color-header-body: #eee;
     --background-color-header-inner: #202320;
@@ -17,7 +16,7 @@ Try and keep global SCSS and CSS to a minimum and mainly to global variables.  T
 }
 
 b {
-    color: var(--color-highlight);
+    color: var(--color-header);
 }
 .btn-outline-primary {
     border-color: var(--color-header-body);
@@ -58,11 +57,11 @@ body {
 }
 
 .card-title {
-    color: var(--color-highlight);
+    color: var(--color-header);
 }
 
 .col-form-label {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-weight: 600;
 }
 
@@ -88,32 +87,32 @@ body {
 }
 
 h1 {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-size: 2.5em;
 }
 
 h2 {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-size: 2.0em;
 }
 
 h3 {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-size: 1.75em;
 }
 
 h4 {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-size: 1.5em;
 }
 
 h5 {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-size: 1.25em;
 }
 
 h6 {
-    color: var(--color-highlight);
+    color: var(--color-header);
     font-size: 1.0em;
 }
 
@@ -160,13 +159,12 @@ thead {
     cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     :root {
-        --color-highlight: darkgreen;
         --background-color-main: #fff;
         --color-main: #333;
         --background-color-header: #bbb;
-        --color-header: #111;
+        --color-header: #070;
         --background-color-body: #eee;
         --color-header-body: #000;
         --background-color-header-inner: #ddd;
