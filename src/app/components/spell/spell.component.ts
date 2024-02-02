@@ -1,4 +1,5 @@
 ﻿import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-spell',
@@ -13,6 +14,8 @@ export class SpellComponent implements OnChanges {
   @Output() readonly knownChanged = new EventEmitter<boolean>(); // Bubble up that the spell is known
   @Output() readonly preparedChanged = new EventEmitter<boolean>(); // Bubble up that the spell is prepared
   
+  constructor(public domSanitizer: DomSanitizer) {}
+
   ngOnChanges() {
     // console.log(this.spell);
   }

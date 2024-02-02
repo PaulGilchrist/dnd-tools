@@ -43,12 +43,12 @@
 				</div>
 			</div>
 			<hr>
-			<span *ngFor="let desc of spell.desc">
-				{{desc}}<br /><br />
-			</span>
-			<span *ngIf="spell.higher_level != null">
-				<b>At higher levels.</b>&nbsp;{{spell.higher_level}}<br />
-			</span>
+			<div *ngFor="let desc of spell.desc">
+                <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
+            </div>            
+			<div *ngIf="spell.higher_level != null">
+                <br/><b>At higher levels.</b>&nbsp;{{spell.higher_level}}<br />
+            </div>
 		</div>
 	</div>
 </div>
