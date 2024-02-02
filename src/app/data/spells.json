@@ -7220,23 +7220,7 @@
         "index": "prismatic-spray",
         "name": "Prismatic Spray",
         "desc": [
-            "Eight multicolored rays of light flash from your hand. Each ray is a different color and has a different power and purpose. Each creature in a 60-foot cone must make a dexterity saving throw. For each target, roll a d8 to determine which color ray affects it.",
-            "1. Red.",
-            "The target takes 10d6 fire damage on a failed save, or half as much damage on a successful one.",
-            "2. Orange.",
-            "The target takes 10d6 acid damage on a failed save, or half as much damage on a successful one.",
-            "3. Yellow.",
-            "The target takes 10d6 lightning damage on a failed save, or half as much damage on a successful one.",
-            "4. Green.",
-            "The target takes 10d6 poison damage on a failed save, or half as much damage on a successful one.",
-            "5. Blue.",
-            "The target takes 10d6 cold damage on a failed save, or half as much damage on a successful one.",
-            "6. Indigo.",
-            "On a failed save, the target is restrained. It must then make a constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don't need to be consecutive; keep track of both until the target collects three of a kind.",
-            "7. Violet.",
-            "On a failed save, the target is blinded. It must then make a wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of existence of the DM's choosing and is no longer blinded. (Typically, a creature that is on a plane that isn't its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes.)",
-            "8. Special.",
-            "The target is struck by two rays. Roll twice more, rerolling any 8."
+            "Eight multicolored rays of light flash from your hand. Each ray is a different color and has a different power and purpose. Each creature in a 60-foot cone must make a dexterity saving throw. For each target, roll a d8 to determine which color ray affects it.<br/><br/><table class='table table-condensed table-striped table-hover'><thead><tr><th>Roll</th><th>Color</th><th>Effect</th></tr></thead><tbody><tr><td>1</td><td>Red</td><td>The target takes 10d6 fire damage on a failed save, or half as much damage on a successful one.</td></tr><tr><td>2</td><td>Orange</td><td>The target takes 10d6 acid damage on a failed save, or half as much damage on a successful one.</td></tr><tr><td>3</td><td>Yellow</td><td>The target takes 10d6 lightning damage on a failed save, or half as much damage on a successful one.</td></tr><tr><td>4</td><td>Green</td><td>The target takes 10d6 poison damage on a failed save, or half as much damage on a successful one.</td></tr><tr><td>5</td><td>Blue</td><td>The target takes 10d6 cold damage on a failed save, or half as much damage on a successful one.</td></tr><tr><td>6</td><td>Indigo</td><td>On a failed save, the target is restrained. It must then make a constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don't need to be consecutive; keep track of both until the target collects three of a kind.</td></tr><tr><td>7</td><td>Violet</td><td>On a failed save, the target is blinded. It must then make a wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of existence of the DM's choosing and is no longer blinded. (Typically, a creature that is on a plane that isn't its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes).</td></tr><tr><td>8</td><td>Special</td><td>The target is struck by two rays. Roll twice more, rerolling any 8.</td></tr></tbody></table>"
         ],
         "range": "Self",
         "components": [
@@ -7273,25 +7257,7 @@
         "index": "prismatic-wall",
         "name": "Prismatic Wall",
         "desc": [
-            "A shimmering, multicolored plane of light forms a vertical opaque wall (up to 90 feet long, 30 feet high, and 1 inch thick) centered on a point you can see within range. Alternatively, you can shape the wall into a sphere up to 30 feet in diameter centered on a point you choose within range. The wall remains in place for the duration. If you position the wall so that it passes through a space occupied by a creature, the spell fails, and your action and the spell slot are wasted.",
-            "The wall sheds bright light out to a range of 100 feet and dim light for an additional 100 feet. You and creatures you designate at the time you cast the spell can pass through and remain near the wall without harm. If another creature that can see the wall moves to within 20 feet of it or starts its turn there, the creature must succeed on a constitution saving throw or become blinded for 1 minute.",
-            "The wall consists of seven layers, each with a different color. When a creature attempts to reach into or pass through the wall, it does so one layer at a time through all the wall's layers. As it passes or reaches through each layer, the creature must make a dexterity saving throw or be affected by that layer's properties as described below.",
-            "The wall can be destroyed, also one layer at a time, in order from red to violet, by means specific to each layer. Once a layer is destroyed, it remains so for the duration of the spell. A rod of cancellation destroys a prismatic wall, but an antimagic field has no effect on it.",
-            "1. Red.",
-            "The creature takes 10d6 fire damage on a failed save, or half as much damage on a successful one. While this layer is in place, nonmagical ranged attacks can't pass through the wall. The layer can be destroyed by dealing at least 25 cold damage to it.",
-            "2. Orange.",
-            "The creature takes 10d6 acid damage on a failed save, or half as much damage on a successful one. While this layer is in place, magical ranged attacks can't pass through the wall. The layer is destroyed by a strong wind.",
-            "3. Yellow.",
-            "The creature takes 10d6 lightning damage on a failed save, or half as much damage on a successful one. This layer can be destroyed by dealing at least 60 force damage to it.",
-            "4. Green.",
-            "The creature takes 10d6 poison damage on a failed save, or half as much damage on a successful one. A passwall spell, or another spell of equal or greater level that can open a portal on a solid surface, destroys this layer.",
-            "5. Blue.",
-            "The creature takes 10d6 cold damage on a failed save, or half as much damage on a successful one. This layer can be destroyed by dealing at least 25 fire damage to it.",
-            "6. Indigo.",
-            "On a failed save, the creature is restrained. It must then make a constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don't need to be consecutive; keep track of both until the creature collects three of a kind.",
-            "While this layer is in place, spells can't be cast through the wall. The layer is destroyed by bright light shed by a daylight spell or a similar spell of equal or higher level.",
-            "7. Violet.",
-            "On a failed save, the creature is blinded. It must then make a wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of the DM's choosing and is no longer blinded. (Typically, a creature that is on a plane that isn't its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes.) This layer is destroyed by a dispel magic spell or a similar spell of equal or higher level that can end spells and magical effects."
+            "A shimmering, multicolored plane of light forms a vertical opaque wall (up to 90 feet long, 30 feet high, and 1 inch thick) centered on a point you can see within range. Alternatively, you can shape the wall into a sphere up to 30 feet in diameter centered on a point you choose within range. The wall remains in place for the duration. If you position the wall so that it passes through a space occupied by a creature, the spell fails, and your action and the spell slot are wasted.<br/><br/>The wall sheds bright light out to a range of 100 feet and dim light for an additional 100 feet. You and creatures you designate at the time you cast the spell can pass through and remain near the wall without harm. If another creature that can see the wall moves to within 20 feet of it or starts its turn there, the creature must succeed on a constitution saving throw or become blinded for 1 minute.<br/><br/>The wall consists of seven layers, each with a different color. When a creature attempts to reach into or pass through the wall, it does so one layer at a time through all the wall's layers. As it passes or reaches through each layer, the creature must make a dexterity saving throw or be affected by that layer's properties as described below.<br/><br/>The wall can be destroyed, also one layer at a time, in order from red to violet, by means specific to each layer. Once a layer is destroyed, it remains so for the duration of the spell. A rod of cancellation destroys a prismatic wall, but an antimagic field has no effect on it.<br/><br/><table class='table table-condensed table-striped table-hover'><thead><tr><th>Roll</th><th>Color</th><th>Effect</th></tr></thead><tbody><tr><td>1</td><td>Red</td><td>The creature takes 10d6 fire damage on a failed save, or half as much damage on a successful one. While this layer is in place, nonmagical ranged attacks can't pass through the wall. The layer can be destroyed by dealing at least 25 cold damage to it.</td></tr><tr><td>2</td><td>Orange</td><td>The creature takes 10d6 acid damage on a failed save, or half as much damage on a successful one. While this layer is in place, magical ranged attacks can't pass through the wall. The layer is destroyed by a strong wind.</td></tr><tr><td>3</td><td>Yellow</td><td>The creature takes 10d6 lightning damage on a failed save, or half as much damage on a successful one. This layer can be destroyed by dealing at least 60 force damage to it.</td></tr><tr><td>4</td><td>Green</td><td>The creature takes 10d6 poison damage on a failed save, or half as much damage on a successful one. A passwall spell, or another spell of equal or greater level that can open a portal on a solid surface, destroys this layer.</td></tr><tr><td>5</td><td>Blue</td><td>The creature takes 10d6 cold damage on a failed save, or half as much damage on a successful one. This layer can be destroyed by dealing at least 25 fire damage to it.</td></tr><tr><td>6</td><td>Indigo</td><td>On a failed save, the creature is restrained. It must then make a constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don't need to be consecutive; keep track of both until the creature collects three of a kind. While this layer is in place, spells can't be cast through the wall. The layer is destroyed by bright light shed by a daylight spell or a similar spell of equal or higher level.</td></tr><tr><td>7</td><td>Violet</td><td>On a failed save, the creature is blinded. It must then make a wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of the DM's choosing and is no longer blinded. (Typically, a creature that is on a plane that isn't its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes.) This layer is destroyed by a dispel magic spell or a similar spell of equal or higher level that can end spells and magical effects.</td></tr></tbody></table>"
         ],
         "range": "60 feet",
         "components": [
@@ -7317,15 +7283,7 @@
         "index": "private-sanctum",
         "name": "Private Sanctum",
         "desc": [
-            "You make an area within range magically secure. The area is a cube that can be as small as 5 feet to as large as 100 feet on each side. The spell lasts for the duration or until you use an action to dismiss it.",
-            "When you cast the spell, you decide what sort of security the spell provides, choosing any or all of the following properties:",
-            "- Sound can't pass through the barrier at the edge of the warded area.",
-            "- The barrier of the warded area appears dark and foggy, preventing vision (including darkvision) through it.",
-            "- Sensors created by divination spells can't appear inside the protected area or pass through the barrier at its perimeter.",
-            "- Creatures in the area can't be targeted by divination spells.",
-            "- Nothing can teleport into or out of the warded area.",
-            "- Planar travel is blocked within the warded area.",
-            "Casting this spell on the same spot every day for a year makes this effect permanent."
+            "You make an area within range magically secure. The area is a cube that can be as small as 5 feet to as large as 100 feet on each side. The spell lasts for the duration or until you use an action to dismiss it.<br/><br/>When you cast the spell, you decide what sort of security the spell provides, choosing any or all of the following properties:<br/><br/><ul><li>Sound can't pass through the barrier at the edge of the warded area.</li><li>The barrier of the warded area appears dark and foggy, preventing vision (including darkvision) through it.</li><li>Sensors created by divination spells can't appear inside the protected area or pass through the barrier at its perimeter.</li><li>Creatures in the area can't be targeted by divination spells.</li><li>Nothing can teleport into or out of the warded area.</li><li>Planar travel is blocked within the warded area.</li></ul>Casting this spell on the same spot every day for a year makes this effect permanent."
         ],
         "higher_level": [
             "When you cast this spell using a spell slot of 5th level or higher, you can increase the size of the cube by 100 feet for each slot level beyond 4th. Thus you could protect a cube that can be up to 200 feet on one side by using a spell slot of 5th level."
@@ -7679,37 +7637,7 @@
         "index": "reincarnate",
         "name": "Reincarnate",
         "desc": [
-            "You touch a dead humanoid or a piece of a dead humanoid. Provided that the creature has been dead no longer than 10 days, the spell forms a new adult body for it and then calls the soul to enter that body. If the target's soul isn't free or willing to do so, the spell fails.",
-            "The magic fashions a new body for the creature to inhabit, which likely causes the creature's race to change. The DM rolls a d 100 and consults the following table to determine what form the creature takes when restored to life, or the DM chooses a form.",
-            "01-04",
-            "Dragonborn",
-            "05-13",
-            "Dwarf, hill",
-            "14-21",
-            "Dwarf, mountain",
-            "22-25",
-            "Elf, dark",
-            "26-34",
-            "Elf, high",
-            "35-42",
-            "Elf, wood",
-            "43-46",
-            "Gnome, forest",
-            "47-52",
-            "Gnome, rock",
-            "53-56",
-            "Half-elf",
-            "57-60",
-            "Half-orc",
-            "61-68",
-            "Halfling, lightfoot",
-            "69-76",
-            "Halfling, stout",
-            "77-96",
-            "Human",
-            "97-00",
-            "Tiefling",
-            "The reincarnated creature recalls its former life and experiences. It retains the capabilities it had in its original form, except it exchanges its original race for the new one and changes its racial traits accordingly."
+            "You touch a dead humanoid or a piece of a dead humanoid. Provided that the creature has been dead no longer than 10 days, the spell forms a new adult body for it and then calls the soul to enter that body. If the target's soul isn't free or willing to do so, the spell fails.<br/><br/>The magic fashions a new body for the creature to inhabit, which likely causes the creature's race to change. The DM rolls a d 100 and consults the following table to determine what form the creature takes when restored to life, or the DM chooses a form.<br/><br/><table class='table table-condensed table-striped table-hover' style='width:200px;text-align:center;line-height:1px;'><thead><tr><th>Roll</th><th>Race</th></tr></thead><tbody><tr><td>01-04</td><td>Dragonborn</td></tr><tr><td>05-13</td><td>Dwarf, hill</td></tr><tr><td>14-21</td><td>Dwarf, mountain</td></tr><tr><td>22-25</td><td>Elf, dark</td></tr><tr><td>26-34</td><td>Elf, high</td></tr><tr><td>35-42</td><td>Elf, wood</td></tr><tr><td>43-46</td><td>Gnome, forest</td></tr><tr><td>47-52</td><td>Gnome, rock</td></tr><tr><td>53-56</td><td>Half-elf</td></tr><tr><td>57-60</td><td>Half-orc</td></tr><tr><td>61-68</td><td>Halfling, lightfoot</td></tr><tr><td>69-76</td><td>Halfling, stout</td></tr><tr><td>77-96</td><td>Human</td></tr><tr><td>97-00</td><td>Tiefling</td></tr></tbody></table>The reincarnated creature recalls its former life and experiences. It retains the capabilities it had in its original form, except it exchanges its original race for the new one and changes its racial traits accordingly."
         ],
         "range": "Touch",
         "components": [
@@ -8029,18 +7957,7 @@
         "index": "scrying",
         "name": "Scrying",
         "desc": [
-            "You can see and hear a particular creature you choose that is on the same plane of existence as you. The target must make a wisdom saving throw, which is modified by how well you know the target and the sort of physical connection you have to it. If a target knows you're casting this spell, it can fail the saving throw voluntarily if it wants to be observed.",
-            "Knowledge & Save Modifier",
-            "Secondhand (you have heard of the target) +5",
-            "Firsthand (you have met the target) +0",
-            "Familiar (you know the target well) -5",
-            "Connection & Save Modifier",
-            "Likeness or picture -2",
-            "Possession or garment -4",
-            "Body part, lock of hair, bit of nail, or the like -10",
-            "On a successful save, the target isn't affected, and you can't use this spell against it again for 24 hours.",
-            "On a failed save, the spell creates an invisible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the duration. A creature that can see invisible objects sees the sensor as a luminous orb about the size of your fist.",
-            "Instead of targeting a creature, you can choose a location you have seen before as the target of this spell. When you do, the sensor appears at that location and doesn't move."
+            "You can see and hear a particular creature you choose that is on the same plane of existence as you. The target must make a wisdom saving throw, which is modified by how well you know the target and the sort of physical connection you have to it. If a target knows you're casting this spell, it can fail the saving throw voluntarily if it wants to be observed.<br/><br/><table class='table table-condensed table-striped table-hover' style='width:420px;text-align:center;line-height:1px;'><thead><tr><th>Knowledge</th><th>Save Modifier</th></tr></thead><tbody><tr><td>Secondhand (you have heard of the target)</td><td>+5</td></tr><tr><td>Firsthand (you have met the target)</td><td>+0</td></tr><tr><td>Familiar (you know the target well)</td><td>-5</td></tr></tbody></table><br/><table class='table table-condensed table-striped table-hover' style='width:420px;text-align:center;line-height:1px;'><thead><tr><th>Connection</th><th>Save Modifier</th></tr></thead><tbody><tr><td>Likeness or picture</td><td>-2</td></tr><tr><td>Possession or garment</td><td>-4</td></tr><tr><td>Body part, lock of hair, bit of nail, or the like</td><td>-10</td></tr></tbody></table>On a successful save, the target isn't affected, and you can't use this spell against it again for 24 hours.<br/><br/>On a failed save, the spell creates an invisible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the duration. A creature that can see invisible objects sees the sensor as a luminous orb about the size of your fist.<br/><br/>Instead of targeting a creature, you can choose a location you have seen before as the target of this spell. When you do, the sensor appears at that location and doesn't move."
         ],
         "range": "Self",
         "components": [
