@@ -35,67 +35,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- subclasses -->
-		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0">
-			<br />
-			<b>Choose {{playerClass.subclasses[0].subclass_flavor}}</b>:
-			<div class="subclass-group">
-				<div *ngFor="let subclass of playerClass.subclasses" class="btn-group">
-					<button type="button" [class.active]="shownSubclass==subclass.index"
-						class="btn btn-outline-primary btn-subclass"
-						(click)="showSubclass(subclass.index)">{{subclass.name}}</button>
-				</div>
-			</div>
-			<div *ngFor="let subclass of playerClass.subclasses" [id]="subclass.index">
-				<div *ngIf="shownSubclass==subclass.index" class="subtext removeExtraLine">
-					<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
-					<div class="subtext">
-						<div *ngIf="subclass.spells" class="margin-bottom-small">
-							<b>Spells:</b>
-							<div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
-							</div>
-						</div>
-						<!-- Features that are not level specific -->
-						<div *ngFor="let feature of subclass.features">
-							<div class="feature">
-								<b>{{feature.name}}:</b>&nbsp;
-								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-									{{desc}}
-								</div>
-							</div>
-							<div *ngIf="feature.prerequisites.length > 0">
-								<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-							</div>
-						</div>
-						<!-- Subclass Features by Level -->
-						<div *ngFor="let level of subclass.class_levels">
-							<div *ngFor="let feature of level.features" class="removeExtraLine">
-								<div class="feature">
-									<b>{{feature.name}}</b>:&nbsp;
-									<div *ngFor="let desc of feature.desc" class="margin-bottom-small"
-										[innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
-									</div>
-								</div>
-								<div *ngIf="feature.prerequisites.length > 0">
-									<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-								</div>
-							</div>
-							<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
-								<div class="feature">
-									<b>{{feature.name}}</b>:&nbsp;
-									<div *ngFor="let desc of feature.desc" class="margin-bottom-small"
-										[innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
-									</div>
-								</div>
-								<div *ngIf="feature.prerequisites.length > 0">
-									<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<br />
 		<b>Choose Level</b>:
 		<div class="level-group">
@@ -331,36 +270,62 @@
 			</div>
 		</div>
 		<!-- Class features by Level -->
-		<div *ngFor="let level of playerClass.class_levels" [id]="shownLevel">
-			<div *ngIf="level.level==shownLevel">
-				<div class="subtext">
-					<div *ngFor="let feature of level.features" class="removeExtraLine">
-						<div class="feature">
-							<b>{{feature.name}}</b>:&nbsp;
-							<div *ngFor="let desc of feature.desc" class="margin-bottom-small feature-desc"
-								[innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+        <div class="subtext">
+            <div *ngFor="let feature of classFeatures" class="removeExtraLine">
+                <div class="feature">
+                    <b>{{feature.name}}</b>:&nbsp;
+                    <div *ngFor="let desc of feature.description" class="margin-bottom-small feature-desc"
+                        [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- subclasses -->
+		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0">
+			<br />
+			<b>Choose {{playerClass.subclasses[0].subclass_flavor}}</b>:
+			<div class="subclass-group">
+				<div *ngFor="let subclass of playerClass.subclasses" class="btn-group">
+					<button type="button" [class.active]="shownSubclass==subclass.index"
+						class="btn btn-outline-primary btn-subclass"
+						(click)="showSubclass(subclass.index)">{{subclass.name}}</button>
+				</div>
+			</div>
+			<div *ngFor="let subclass of playerClass.subclasses" [id]="subclass.index">
+				<div *ngIf="shownSubclass==subclass.index" class="subtext removeExtraLine">
+					<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
+					<div class="subtext">
+						<div *ngIf="subclass.spells" class="margin-bottom-small">
+							<b>Spells:</b>
+							<div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
 							</div>
 						</div>
-						<div *ngIf="feature.prerequisites.length > 0">
-							<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-						</div>
-					</div>
-					<div *ngFor="let feature of level.feature_choices" class="removeExtraLine">
-						<div class="feature">
-							<b>{{feature.name}}</b>:&nbsp;
-							<div *ngFor="let desc of feature.desc" class="margin-bottom-small"
-								[innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+						<!-- Features that are not level specific -->
+						<div *ngFor="let feature of subclass.features">
+							<div class="feature">
+								<b>{{feature.name}}:</b>&nbsp;
+								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
+									{{desc}}
+								</div>
 							</div>
 							<div *ngIf="feature.prerequisites.length > 0">
-								<b>{{Prerequisites}:</b>&nbsp;{{getPrerequisites(feature)}}<br /><br />
-								<br />
+								<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
 							</div>
 						</div>
+                        <!-- Subclass Features by Level -->
+                        <div *ngFor="let feature of subclassFeatures" class="removeExtraLine">
+                            <div class="feature">
+                                <b>{{feature.name}}</b>:&nbsp;
+                                <div *ngFor="let desc of feature.description" class="margin-bottom-small feature-desc"
+                                    [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+                                </div>
+                            </div>
+                        </div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<br />
+        <br/>
 		<div *ngIf="playerClass.page">{{playerClass.book}} (page {{playerClass.page}})</div>
 	</div>
 </div>
