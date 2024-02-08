@@ -274,8 +274,9 @@
             <div *ngFor="let feature of classFeatures" class="removeExtraLine">
                 <div class="feature">
                     <b>{{feature.name}}</b>:&nbsp;
-                    <div *ngFor="let desc of feature.description" class="margin-bottom-small feature-desc"
-                        [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+                    <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.description[0])"></span>
+                    <div *ngIf="feature.details">
+                        <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.details)"></span>
                     </div>
                 </div>
             </div>
@@ -316,8 +317,9 @@
                         <div *ngFor="let feature of subclassFeatures" class="removeExtraLine">
                             <div class="feature">
                                 <b>{{feature.name}}</b>:&nbsp;
-                                <div *ngFor="let desc of feature.description" class="margin-bottom-small feature-desc"
-                                    [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)">
+                                <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.description[0])"></span>
+                                <div *ngIf="feature.details">
+                                    <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.details)"></span>
                                 </div>
                             </div>
                         </div>

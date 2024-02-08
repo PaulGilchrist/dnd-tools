@@ -28,6 +28,9 @@
 			<h5>Traits</h5>
 			<div *ngFor="let trait of race.traits">
 				<b>{{trait.name}}</b> - <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(trait.desc)"></span><br />
+                <div *ngIf="trait.details">
+                    <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(trait.details)"></span><br />
+                </div>
 				<div class="subtext">
 					<div *ngIf="trait.proficiencies.length > 0">
 						<b>Proficiencies:</b>&nbsp;{{getNameString(trait.proficiencies)}}<br />

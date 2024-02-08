@@ -95,7 +95,8 @@ export class PlayerClassComponent implements OnChanges {
             classLevels[i].features.forEach((feature: any) => {
                 const featureSummary = {
                     name: feature.name,
-                    description: feature.desc
+                    description: feature.desc,
+                    details: feature.details
                 };
                 if (!this.classFeatures.some((classFeature: any) => classFeature.name == feature.name)) {
                     this.classFeatures.push(featureSummary);
@@ -109,7 +110,8 @@ export class PlayerClassComponent implements OnChanges {
                 subclassLevels[i].features.forEach((feature: any) => {
                     const featureSummary = {
                         name: feature.name,
-                        description: feature.desc
+                        description: feature.desc,
+                        details: feature.details
                     };
                     if (!this.subclassFeatures.some((subclassFeature: any) => subclassFeature.name == feature.name)) {
                         this.subclassFeatures.push(featureSummary);
