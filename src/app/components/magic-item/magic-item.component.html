@@ -2,7 +2,7 @@
 	<div class="card-header clickable">
 		<div (click)="toggleDetails()">
 			<div class="card-title">{{magicItem.name}}</div>
-			<i>{{magicItem.desc[0]}}</i><br />
+			<i>{{magicItem.type}}<span *ngIf="magicItem.subtype"> ({{magicItem.subtype}})</span>, {{magicItem.rarity}} <span *ngIf="magicItem.requiresAttunement && !magicItem.attunementRequirements"> (requires attunement)</span><span *ngIf="magicItem.requiresAttunement && magicItem.attunementRequirements"> ({{magicItem.attunementRequirements}})</span></i><br />
 		</div>
 		<div class="form-check">
 			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="magicItem.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(magicItem)">
