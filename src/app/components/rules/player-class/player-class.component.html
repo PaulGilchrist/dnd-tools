@@ -1,333 +1,511 @@
-﻿<div *ngIf="playerClass != null" class="card outer w-100" [class.active]="expand">
-	<div class="card-header clickable" (click)="toggleDetails()">
-		<div class="card-title">{{playerClass.name}}</div>
-	</div>
-	<div *ngIf="expand" class="card-body">
-		{{playerClass.desc}}<br /><br />
-		<b>Hit Die:</b>&nbsp;d{{playerClass.hit_die}}<br />
-		<div *ngIf="playerClass.proficiencies.length > 0">
-			<b>Proficiencies:</b>&nbsp;{{getNameString(playerClass.proficiencies)}}<br />
-		</div>
-		<div *ngIf="playerClass.proficiency_choices.length > 0">
-			<b>Proficiencies:</b>&nbsp;Choose {{playerClass.proficiency_choices[0].choose}} -
-			{{getNameString(playerClass.proficiency_choices[0].from)}}
-		</div>
-		<div *ngIf="playerClass.saving_throws.length > 0">
-			<b>Saving Throws:</b>&nbsp;{{getNameString(playerClass.saving_throws)}}<br />
-		</div>
-		<b>Starting Wealth:</b>&nbsp;{{playerClass.starting_wealth}}<br />
-		<!-- Features that are not level specific -->
-		<div *ngIf="playerClass.features.length > 0" class="card inner w-100">
-			<div class="card-header clickable" (click)="shownLevel=0">
-				<div class="card-title">Features</div>
-			</div>
-			<div class="card-body removeExtraLine" [class.hidden]="shownLevel != 0">
-				<div *ngFor="let feature of playerClass.features" class="removeExtraLine">
-					<b>{{feature.name}}:</b>&nbsp;
-					<span *ngFor="let desc of feature.desc">
-						{{desc}}<br />
-					</span>
-					<div *ngIf="feature.prerequisites.length > 0">
-						<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-						<br />
-					</div>
-					<br />
-				</div>
-			</div>
-		</div>
-		<br />
-		<b>Choose Level</b>:
-		<div class="level-group">
-			<div *ngFor="let level of playerClass.class_levels" class="btn-group">
-				<button type="button" [class.active]="shownLevel==level.level" class="btn btn-outline-primary btn-level"
-					(click)="showLevel(level.level)">{{level.level}}</button>
-			</div>
-		</div>
-		<div class="subtext">
-			<!-- Class Stats by Level -->
-			<div *ngFor="let level of playerClass.class_levels" [id]="shownLevel">
-				<div *ngIf="level.level==shownLevel">
-					<div *ngIf="level.ability_score_bonuses > 0">
-						<b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
-					</div>
-					<b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
-					<div *ngIf="playerClass.index=='barbarian'">
-						<b>Rage Count:</b>&nbsp;{{level.class_specific.rage_count}}<br />
-						<b>Rage Damage Bonus:</b>&nbsp;{{level.class_specific.rage_damage_bonus}}<br />
-						<div *ngIf="level.class_specific.brutal_critical_dice > 0">
-							<b>Brutal Critical Dice:</b>&nbsp;{{level.class_specific.brutal_critical_dice}}<br />
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='bard'">
-						<b>Bardic Inspiration Die:</b>&nbsp;d{{level.class_specific.bardic_inspiration_die}}<br />
-						<div *ngIf="level.class_specific.song_of_rest_die > 0">
-							<b>Song of Rest Die:</b>&nbsp;d{{level.class_specific.song_of_rest_die}}<br />
-						</div>
-						<div *ngIf="level.class_specific.magical_secrets_max_5 > 0">
-							<b>Magical Secrets:</b><br />
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.class_specific.magical_secrets_max_5}} of level 5 or
-							below<br />
-						</div>
-						<div *ngIf="level.class_specific.magical_secrets_max_7 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.class_specific.magical_secrets_max_7}} of level 7 or
-							below<br />
-						</div>
-						<div *ngIf="level.class_specific.magical_secrets_max_9 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.class_specific.magical_secrets_max_9}} of level 9 or
-							below<br />
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='cleric'">
-						<div *ngIf="level.class_specific.channel_divinity_charges > 0">
-							<b>Channel Divinity
-								Charges:</b>&nbsp;{{level.class_specific.channel_divinity_charges}}<br />
-						</div>
-						<div *ngIf="level.class_specific.destroy_undead_cr > 0">
-							<b>Destroy Undead CR:</b>&nbsp;{{level.class_specific.destroy_undead_cr}}<br />
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='druid' && level.class_specific.wild_shape_max_cr > 0">
-						<b>Wild Shape Max CR:</b>&nbsp;{{level.class_specific.wild_shape_max_cr}}
-						<span *ngIf="!level.class_specific.wild_shape_swim">&nbsp;(no flying of swimming speed)</span>
-						<span
-							*ngIf="level.class_specific.wild_shape_swim && !level.class_specific.wild_shape_fly">&nbsp;(no
-							flying speed)</span>
-						<br />
-					</div>
-					<div *ngIf="playerClass.index=='fighter'">
-						<div *ngIf="level.class_specific.action_surges > 0">
-							<b>Action Surges:</b>&nbsp;{{level.class_specific.action_surges}}<br />
-						</div>
-						<div *ngIf="level.class_specific.indomitable_uses > 0">
-							<b>Indomitable Uses:</b>&nbsp;{{level.class_specific.indomitable_uses}}<br />
-						</div>
-						<div *ngIf="level.class_specific.extra_attacks > 0">
-							<b>Extra Attacks:</b>&nbsp;{{level.class_specific.extra_attacks}}<br />
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='monk'">
-						<b>Martial
-							Arts:</b>&nbsp;{{level.class_specific.martial_arts.dice_count}}d{{level.class_specific.martial_arts.dice_value}}<br />
-						<div *ngIf="level.class_specific.ki_points > 0">
-							<b>Ki Points:</b>&nbsp;{{level.class_specific.ki_points}}<br />
-						</div>
-						<div *ngIf="level.class_specific.unarmored_movement > 0">
-							<b>Unarmored Movement:</b>&nbsp;{{level.class_specific.unarmored_movement}}<br />
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='paladin' && level.class_specific.aura_range > 0">
-						<b>Aura Range:</b>&nbsp;{{level.class_specific.aura_range}}<br />
-					</div>
-					<div *ngIf="playerClass.index=='ranger'">
-						<b>Favored Enemies:</b>&nbsp;{{level.class_specific.favored_enemies}}<br />
-						<b>Favored Terrain:</b>&nbsp;{{level.class_specific.favored_terrain}}<br />
-					</div>
-					<div *ngIf="playerClass.index=='rogue'">
-						<b>Sneak
-							Attack:</b>&nbsp;{{level.class_specific.sneak_attack.dice_count}}d{{level.class_specific.sneak_attack.dice_value}}<br />
-					</div>
-					<div *ngIf="playerClass.index=='sorcerer'">
-						<div *ngIf="level.class_specific.sorcery_points > 0">
-							<b>Sorcery Points:</b>&nbsp;{{level.class_specific.sorcery_points}}<br />
-						</div>
-						<div *ngIf="level.class_specific.metamagic_known > 0">
-							<b>Metamagic Known:</b>&nbsp;{{level.class_specific.metamagic_known}}<br />
-						</div>
-						<div *ngIf="level.class_specific.creating_spell_slots.length > 0">
-							<b>Creating Spell Slots:</b><br />
-							<span *ngFor="let spellSlot of level.class_specific.creating_spell_slots">
-								&nbsp;&nbsp;&nbsp;&nbsp;Level {{spellSlot.spell_slot_level}} Point Cost =
-								{{spellSlot.sorcery_point_cost}}<br />
-							</span>
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='warlock'">
-						<div *ngIf="level.class_specific.invocations_known > 0">
-							<b>Invocations Known:</b>&nbsp;{{level.class_specific.invocations_known}}<br />
-						</div>
-						<div
-							*ngIf="(level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) || (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) || (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) || (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0)">
-							<b>Mystic Arcanum:</b><br />
-							<div
-								*ngIf="level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;Level 6 = {{level.class_specific.mystic_arcanum_level_6}}<br />
-							</div>
-							<div
-								*ngIf="level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;Level 7 = {{level.class_specific.mystic_arcanum_level_7}}<br />
-							</div>
-							<div
-								*ngIf="level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;Level 8 = {{level.class_specific.mystic_arcanum_level_8}}<br />
-							</div>
-							<div
-								*ngIf="level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;Level 9 = {{level.class_specific.mystic_arcanum_level_9}}<br />
-							</div>
-						</div>
-					</div>
-					<div *ngIf="playerClass.index=='wizard'">
-						<b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
-					</div>
-					<div *ngIf="level.spellcasting">
-						<div *ngIf="level.spellcasting.cantrips_known">
-							<b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
-						</div>
-						<div *ngIf="level.spellcasting.spells_known">
-							<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
-							<b>Spell Slots:</b><br />
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_1}} of level 1<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_2}} of level 2<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_3}} of level 3<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_4}} of level 4<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_5}} of level 5<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_6}} of level 6<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_7}} of level 7<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_8}} of level 8<br />
-						</div>
-						<div
-							*ngIf="level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0">
-							&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_9}} of level 9<br />
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Subclass Stats by Level -->
-			<div *ngFor="let subclass of playerClass.subclasses">
-				<div *ngIf="shownSubclass==subclass.index">
-					<div *ngFor="let level of subclass.class_levels">
-						<div *ngIf="level.spellcasting && level.level==shownLevel">
-							<div *ngIf="level.spellcasting.cantrips_known">
-								<b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
-							</div>
-							<div *ngIf="level.spellcasting.spells_known">
-								<b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0">
-								<b>Spell Slots:</b><br />
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_1}} of level 1<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_2}} of level 2<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_3}} of level 3<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_4}} of level 4<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_5}} of level 5<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_6}} of level 6<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_7}} of level 7<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_8}} of level 8<br />
-							</div>
-							<div
-								*ngIf="level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0">
-								&nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_9}} of level 9<br />
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Class features by Level -->
-        <div class="subtext">
-            <div *ngFor="let feature of classFeatures" class="removeExtraLine">
-                <div class="feature">
-                    <b>{{feature.name}}</b>:&nbsp;
-                    <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.description[0])"></span>
-                    <div *ngIf="feature.details">
-                        <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.details)"></span>
-                    </div>
-                </div>
+﻿@if (playerClass != null) {
+  <div class="card outer w-100" [class.active]="expand">
+    <div class="card-header clickable" (click)="toggleDetails()">
+      <div class="card-title">{{playerClass.name}}</div>
+    </div>
+    @if (expand) {
+      <div class="card-body">
+        {{playerClass.desc}}<br /><br />
+        <b>Hit Die:</b>&nbsp;d{{playerClass.hit_die}}<br />
+        @if (playerClass.proficiencies.length > 0) {
+          <div>
+            <b>Proficiencies:</b>&nbsp;{{getNameString(playerClass.proficiencies)}}<br />
+          </div>
+        }
+        @if (playerClass.proficiency_choices.length > 0) {
+          <div>
+            <b>Proficiencies:</b>&nbsp;Choose {{playerClass.proficiency_choices[0].choose}} -
+            {{getNameString(playerClass.proficiency_choices[0].from)}}
+          </div>
+        }
+        @if (playerClass.saving_throws.length > 0) {
+          <div>
+            <b>Saving Throws:</b>&nbsp;{{getNameString(playerClass.saving_throws)}}<br />
+          </div>
+        }
+        <b>Starting Wealth:</b>&nbsp;{{playerClass.starting_wealth}}<br />
+        <!-- Features that are not level specific -->
+        @if (playerClass.features.length > 0) {
+          <div class="card inner w-100">
+            <div class="card-header clickable" (click)="shownLevel=0">
+              <div class="card-title">Features</div>
             </div>
+            <div class="card-body removeExtraLine" [class.hidden]="shownLevel != 0">
+              @for (feature of playerClass.features; track feature) {
+                <div class="removeExtraLine">
+                  <b>{{feature.name}}:</b>&nbsp;
+                  @for (desc of feature.desc; track desc) {
+                    <span>
+                      {{desc}}<br />
+                    </span>
+                  }
+                  @if (feature.prerequisites.length > 0) {
+                    <div>
+                      <b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+                      <br />
+                    </div>
+                  }
+                  <br />
+                </div>
+              }
+            </div>
+          </div>
+        }
+        <br />
+        <b>Choose Level</b>:
+        <div class="level-group">
+          @for (level of playerClass.class_levels; track level) {
+            <div class="btn-group">
+              <button type="button" [class.active]="shownLevel==level.level" class="btn btn-outline-primary btn-level"
+              (click)="showLevel(level.level)">{{level.level}}</button>
+            </div>
+          }
+        </div>
+        <div class="subtext">
+          <!-- Class Stats by Level -->
+          @for (level of playerClass.class_levels; track level) {
+            <div [id]="shownLevel">
+              @if (level.level==shownLevel) {
+                <div>
+                  @if (level.ability_score_bonuses > 0) {
+                    <div>
+                      <b>Ability Score Bonuses:</b>&nbsp;{{level.ability_score_bonuses}}<br />
+                    </div>
+                  }
+                  <b>Proficiency Bonus:</b>&nbsp;{{level.prof_bonus}}<br />
+                  @if (playerClass.index=='barbarian') {
+                    <div>
+                      <b>Rage Count:</b>&nbsp;{{level.class_specific.rage_count}}<br />
+                      <b>Rage Damage Bonus:</b>&nbsp;{{level.class_specific.rage_damage_bonus}}<br />
+                      @if (level.class_specific.brutal_critical_dice > 0) {
+                        <div>
+                          <b>Brutal Critical Dice:</b>&nbsp;{{level.class_specific.brutal_critical_dice}}<br />
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='bard') {
+                    <div>
+                      <b>Bardic Inspiration Die:</b>&nbsp;d{{level.class_specific.bardic_inspiration_die}}<br />
+                      @if (level.class_specific.song_of_rest_die > 0) {
+                        <div>
+                          <b>Song of Rest Die:</b>&nbsp;d{{level.class_specific.song_of_rest_die}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.magical_secrets_max_5 > 0) {
+                        <div>
+                          <b>Magical Secrets:</b><br />
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.class_specific.magical_secrets_max_5}} of level 5 or
+                          below<br />
+                        </div>
+                      }
+                      @if (level.class_specific.magical_secrets_max_7 > 0) {
+                        <div>
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.class_specific.magical_secrets_max_7}} of level 7 or
+                          below<br />
+                        </div>
+                      }
+                      @if (level.class_specific.magical_secrets_max_9 > 0) {
+                        <div>
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.class_specific.magical_secrets_max_9}} of level 9 or
+                          below<br />
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='cleric') {
+                    <div>
+                      @if (level.class_specific.channel_divinity_charges > 0) {
+                        <div>
+                          <b>Channel Divinity
+                          Charges:</b>&nbsp;{{level.class_specific.channel_divinity_charges}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.destroy_undead_cr > 0) {
+                        <div>
+                          <b>Destroy Undead CR:</b>&nbsp;{{level.class_specific.destroy_undead_cr}}<br />
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='druid' && level.class_specific.wild_shape_max_cr > 0) {
+                    <div>
+                      <b>Wild Shape Max CR:</b>&nbsp;{{level.class_specific.wild_shape_max_cr}}
+                      @if (!level.class_specific.wild_shape_swim) {
+                        <span>&nbsp;(no flying of swimming speed)</span>
+                      }
+                      @if (level.class_specific.wild_shape_swim && !level.class_specific.wild_shape_fly) {
+                        <span
+                          >&nbsp;(no
+                        flying speed)</span>
+                      }
+                      <br />
+                    </div>
+                  }
+                  @if (playerClass.index=='fighter') {
+                    <div>
+                      @if (level.class_specific.action_surges > 0) {
+                        <div>
+                          <b>Action Surges:</b>&nbsp;{{level.class_specific.action_surges}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.indomitable_uses > 0) {
+                        <div>
+                          <b>Indomitable Uses:</b>&nbsp;{{level.class_specific.indomitable_uses}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.extra_attacks > 0) {
+                        <div>
+                          <b>Extra Attacks:</b>&nbsp;{{level.class_specific.extra_attacks}}<br />
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='monk') {
+                    <div>
+                      <b>Martial
+                      Arts:</b>&nbsp;{{level.class_specific.martial_arts.dice_count}}d{{level.class_specific.martial_arts.dice_value}}<br />
+                      @if (level.class_specific.ki_points > 0) {
+                        <div>
+                          <b>Ki Points:</b>&nbsp;{{level.class_specific.ki_points}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.unarmored_movement > 0) {
+                        <div>
+                          <b>Unarmored Movement:</b>&nbsp;{{level.class_specific.unarmored_movement}}<br />
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='paladin' && level.class_specific.aura_range > 0) {
+                    <div>
+                      <b>Aura Range:</b>&nbsp;{{level.class_specific.aura_range}}<br />
+                    </div>
+                  }
+                  @if (playerClass.index=='ranger') {
+                    <div>
+                      <b>Favored Enemies:</b>&nbsp;{{level.class_specific.favored_enemies}}<br />
+                      <b>Favored Terrain:</b>&nbsp;{{level.class_specific.favored_terrain}}<br />
+                    </div>
+                  }
+                  @if (playerClass.index=='rogue') {
+                    <div>
+                      <b>Sneak
+                      Attack:</b>&nbsp;{{level.class_specific.sneak_attack.dice_count}}d{{level.class_specific.sneak_attack.dice_value}}<br />
+                    </div>
+                  }
+                  @if (playerClass.index=='sorcerer') {
+                    <div>
+                      @if (level.class_specific.sorcery_points > 0) {
+                        <div>
+                          <b>Sorcery Points:</b>&nbsp;{{level.class_specific.sorcery_points}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.metamagic_known > 0) {
+                        <div>
+                          <b>Metamagic Known:</b>&nbsp;{{level.class_specific.metamagic_known}}<br />
+                        </div>
+                      }
+                      @if (level.class_specific.creating_spell_slots.length > 0) {
+                        <div>
+                          <b>Creating Spell Slots:</b><br />
+                          @for (spellSlot of level.class_specific.creating_spell_slots; track spellSlot) {
+                            <span>
+                              &nbsp;&nbsp;&nbsp;&nbsp;Level {{spellSlot.spell_slot_level}} Point Cost =
+                              {{spellSlot.sorcery_point_cost}}<br />
+                            </span>
+                          }
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='warlock') {
+                    <div>
+                      @if (level.class_specific.invocations_known > 0) {
+                        <div>
+                          <b>Invocations Known:</b>&nbsp;{{level.class_specific.invocations_known}}<br />
+                        </div>
+                      }
+                      @if ((level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) || (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) || (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) || (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0)) {
+                        <div
+                          >
+                          <b>Mystic Arcanum:</b><br />
+                          @if (level.class_specific.mystic_arcanum_level_6 && level.class_specific.mystic_arcanum_level_6 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;Level 6 = {{level.class_specific.mystic_arcanum_level_6}}<br />
+                            </div>
+                          }
+                          @if (level.class_specific.mystic_arcanum_level_7 && level.class_specific.mystic_arcanum_level_7 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;Level 7 = {{level.class_specific.mystic_arcanum_level_7}}<br />
+                            </div>
+                          }
+                          @if (level.class_specific.mystic_arcanum_level_8 && level.class_specific.mystic_arcanum_level_8 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;Level 8 = {{level.class_specific.mystic_arcanum_level_8}}<br />
+                            </div>
+                          }
+                          @if (level.class_specific.mystic_arcanum_level_9 && level.class_specific.mystic_arcanum_level_9 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;Level 9 = {{level.class_specific.mystic_arcanum_level_9}}<br />
+                            </div>
+                          }
+                        </div>
+                      }
+                    </div>
+                  }
+                  @if (playerClass.index=='wizard') {
+                    <div>
+                      <b>Arcane Recovery Levels:</b>&nbsp;{{level.class_specific.arcane_recovery_levels}}<br />
+                    </div>
+                  }
+                  @if (level.spellcasting) {
+                    <div>
+                      @if (level.spellcasting.cantrips_known) {
+                        <div>
+                          <b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spells_known) {
+                        <div>
+                          <b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0) {
+                        <div
+                          >
+                          <b>Spell Slots:</b><br />
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_1}} of level 1<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_2}} of level 2<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_3}} of level 3<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_4}} of level 4<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_5}} of level 5<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_6}} of level 6<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_7}} of level 7<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_8}} of level 8<br />
+                        </div>
+                      }
+                      @if (level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0) {
+                        <div
+                          >
+                          &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_9}} of level 9<br />
+                        </div>
+                      }
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          }
+          <!-- Subclass Stats by Level -->
+          @for (subclass of playerClass.subclasses; track subclass) {
+            <div>
+              @if (shownSubclass==subclass.index) {
+                <div>
+                  @for (level of subclass.class_levels; track level) {
+                    <div>
+                      @if (level.spellcasting && level.level==shownLevel) {
+                        <div>
+                          @if (level.spellcasting.cantrips_known) {
+                            <div>
+                              <b>Cantrips Known:</b>&nbsp;{{level.spellcasting.cantrips_known}}<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spells_known) {
+                            <div>
+                              <b>Spells Known:</b>&nbsp;{{level.spellcasting.spells_known}}<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_1 && level.spellcasting.spell_slots_level_1 > 0) {
+                            <div
+                              >
+                              <b>Spell Slots:</b><br />
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_1}} of level 1<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_2 && level.spellcasting.spell_slots_level_2 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_2}} of level 2<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_3 && level.spellcasting.spell_slots_level_3 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_3}} of level 3<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_4 && level.spellcasting.spell_slots_level_4 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_4}} of level 4<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_5 && level.spellcasting.spell_slots_level_5 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_5}} of level 5<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_6 && level.spellcasting.spell_slots_level_6 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_6}} of level 6<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_7 && level.spellcasting.spell_slots_level_7 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_7}} of level 7<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_8 && level.spellcasting.spell_slots_level_8 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_8}} of level 8<br />
+                            </div>
+                          }
+                          @if (level.spellcasting.spell_slots_level_9 && level.spellcasting.spell_slots_level_9 > 0) {
+                            <div
+                              >
+                              &nbsp;&nbsp;&nbsp;&nbsp;{{level.spellcasting.spell_slots_level_9}} of level 9<br />
+                            </div>
+                          }
+                        </div>
+                      }
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          }
+        </div>
+        <!-- Class features by Level -->
+        <div class="subtext">
+          @for (feature of classFeatures; track feature) {
+            <div class="removeExtraLine">
+              <div class="feature">
+                <b>{{feature.name}}</b>:&nbsp;
+                <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.description[0])"></span>
+                @if (feature.details) {
+                  <div>
+                    <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.details)"></span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
         </div>
         <!-- subclasses -->
-		<div *ngIf="playerClass.subclasses && playerClass.subclasses.length > 0">
-			<br />
-			<b>Choose {{playerClass.subclasses[0].subclass_flavor}}</b>:
-			<div class="subclass-group">
-				<div *ngFor="let subclass of playerClass.subclasses" class="btn-group">
-					<button type="button" [class.active]="shownSubclass==subclass.index"
-						class="btn btn-outline-primary btn-subclass"
-						(click)="showSubclass(subclass.index)">{{subclass.name}}</button>
-				</div>
-			</div>
-			<div *ngFor="let subclass of playerClass.subclasses" [id]="subclass.index">
-				<div *ngIf="shownSubclass==subclass.index" class="subtext removeExtraLine">
-					<strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
-					<div class="subtext">
-						<div *ngIf="subclass.spells" class="margin-bottom-small">
-							<b>Spells:</b>
-							<div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
-							</div>
-						</div>
-						<!-- Features that are not level specific -->
-						<div *ngFor="let feature of subclass.features">
-							<div class="feature">
-								<b>{{feature.name}}:</b>&nbsp;
-								<div *ngFor="let desc of feature.desc" class="margin-bottom-small">
-									{{desc}}
-								</div>
-							</div>
-							<div *ngIf="feature.prerequisites.length > 0">
-								<b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
-							</div>
-						</div>
-                        <!-- Subclass Features by Level -->
-                        <div *ngFor="let feature of subclassFeatures" class="removeExtraLine">
-                            <div class="feature">
-                                <b>{{feature.name}}</b>:&nbsp;
-                                <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.description[0])"></span>
-                                <div *ngIf="feature.details">
-                                    <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.details)"></span>
-                                </div>
-                            </div>
+        @if (playerClass.subclasses && playerClass.subclasses.length > 0) {
+          <div>
+            <br />
+            <b>Choose {{playerClass.subclasses[0].subclass_flavor}}</b>:
+            <div class="subclass-group">
+              @for (subclass of playerClass.subclasses; track subclass) {
+                <div class="btn-group">
+                  <button type="button" [class.active]="shownSubclass==subclass.index"
+                    class="btn btn-outline-primary btn-subclass"
+                  (click)="showSubclass(subclass.index)">{{subclass.name}}</button>
+                </div>
+              }
+            </div>
+            @for (subclass of playerClass.subclasses; track subclass) {
+              <div [id]="subclass.index">
+                @if (shownSubclass==subclass.index) {
+                  <div class="subtext removeExtraLine">
+                    <strong>{{subclass.subclass_flavor}} - {{subclass.name}}</strong> - {{subclass.desc}}<br />
+                    <div class="subtext">
+                      @if (subclass.spells) {
+                        <div class="margin-bottom-small">
+                          <b>Spells:</b>
+                          <div [innerHtml]="getSpells(subclass.spells)" class="spell-list">
+                          </div>
                         </div>
-					</div>
-				</div>
-			</div>
-		</div>
+                      }
+                      <!-- Features that are not level specific -->
+                      @for (feature of subclass.features; track feature) {
+                        <div>
+                          <div class="feature">
+                            <b>{{feature.name}}:</b>&nbsp;
+                            @for (desc of feature.desc; track desc) {
+                              <div class="margin-bottom-small">
+                                {{desc}}
+                              </div>
+                            }
+                          </div>
+                          @if (feature.prerequisites.length > 0) {
+                            <div>
+                              <b>Prerequisites:</b>&nbsp;{{getPrerequisites(feature)}}<br />
+                            </div>
+                          }
+                        </div>
+                      }
+                      <!-- Subclass Features by Level -->
+                      @for (feature of subclassFeatures; track feature) {
+                        <div class="removeExtraLine">
+                          <div class="feature">
+                            <b>{{feature.name}}</b>:&nbsp;
+                            <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.description[0])"></span>
+                            @if (feature.details) {
+                              <div>
+                                <br /><span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(feature.details)"></span>
+                              </div>
+                            }
+                          </div>
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
         <br/>
-		<div *ngIf="playerClass.page">{{playerClass.book}} (page {{playerClass.page}})</div>
-	</div>
-</div>
+        @if (playerClass.page) {
+          <div>{{playerClass.book}} (page {{playerClass.page}})</div>
+        }
+      </div>
+    }
+  </div>
+}

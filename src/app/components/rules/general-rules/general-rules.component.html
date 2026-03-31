@@ -1,4 +1,6 @@
-﻿<div *ngFor="let rule of rules" class="list">
-	<general-rule [rule]="rule" [expand]="shownCard==rule.index" (expanded)="expandCard(rule.index, $event)">
-	</general-rule>
-</div>
+﻿@for (rule of rules; track rule) {
+  <div class="list">
+    <general-rule [rule]="rule" [expand]="shownCard==rule.index" (expanded)="expandCard(rule.index, $event)">
+    </general-rule>
+  </div>
+}

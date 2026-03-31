@@ -1,85 +1,105 @@
 ﻿<div class="names">
-	<form #searchForm="ngForm" novalidate>
-		<!--Type-->
-		<label for="type" class="col-form-label">Type</label>
-		<select name="type" [(ngModel)]="filter.type" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-			<option disabled>Select</option>
-			<option value="building">Building</option>
-			<option value="race">Race</option>
-		</select>
-		<!--Index-->
-		<label for="index" class="col-form-label"><span *ngIf="filter.type=='building'">Building</span><span *ngIf="filter.type=='race'">Race</span></label>
-		<select name="index" [(ngModel)]="filter.index" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-			<option>Select</option>
-			<ng-container *ngIf="filter.type=='building'">
-				<option value="tavern">Tavern</option>						
-			</ng-container>
-			<ng-container *ngIf="filter.type=='race'">
-				<option value="dragonborn">Dragonborn</option>
-				<option value="dwarf">Dwarf</option>
-				<option value="elf">Elf</option>
-				<option value="gnome">Gnome</option>
-				<option value="halfling">Halfling</option>
-				<option value="half-orc">Half Orc</option>
-				<option value="tiefling">Tiefling</option>
-				<option value="human-celtic">Human (Celtic)</option>
-			</ng-container>
-		</select>
-		<ng-container *ngIf="filter.type=='race'">
-			<!--Sex-->
-			<label for="sex" class="col-form-label">Sex</label>
-			<select name="sex" [(ngModel)]="filter.sex" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
-				<option disabled selected>Select</option>
-				<option value="female">Female</option>
-				<option value="male">Male</option>
-			</select>
-		</ng-container>
-		<!--Used-->
-		<label for="used" class="col-form-label">Used</label>
-		<select name="used" [(ngModel)]="filter.used" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="typeChanged()">
-			<option selected>All</option>
-			<option value="available">Available</option>
-			<option value="used">Used</option>
-		</select>
-	</form>
-	<div *ngIf="shownNames.firstNames && shownNames.firstNames.length > 0" class="list" [class.dualList]="filter.type=='building' || shownNames.familyType != null">
-		<table class="table table-condensed table-striped table-hover">
-			<thead>
-				<tr>
-					<th class="col-form-label">
-						<span *ngIf="filter.type=='race'">First Names</span>
-						<span *ngIf="filter.type=='building'">First Part</span>
-					</th>
-					<th class="col-form-label">Used</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let name of shownNames.firstNames">
-					<td>{{name}}</td>
-					<td>
-						<input class="form-check-input" type="checkbox" (click)="toggleUsed(name)" [checked]="isNameUsed(name)">
-					</td>
-				</tr>			
-			</tbody>
-		</table>
-		<table class="table table-condensed table-striped table-hover" *ngIf="filter.type=='building' || shownNames.familyType != null">
-			<thead>
-				<tr>
-					<th class="col-form-label">
-						<span *ngIf="filter.type=='race'">{{shownNames.familyType}} Names</span>
-						<span *ngIf="filter.type=='building'">Last Part</span>
-					</th>
-					<th class="col-form-label">Used</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr *ngFor="let name of shownNames.lastNames">
-					<td>{{name}}</td>
-					<td>
-						<input class="form-check-input" type="checkbox" (click)="toggleUsed(name)" [checked]="isNameUsed(name)">
-					</td>
-				</tr>			
-			</tbody>
-		</table>
-	</div>
+  <form #searchForm="ngForm" novalidate>
+    <!--Type-->
+    <label for="type" class="col-form-label">Type</label>
+    <select name="type" [(ngModel)]="filter.type" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+      <option disabled>Select</option>
+      <option value="building">Building</option>
+      <option value="race">Race</option>
+    </select>
+    <!--Index-->
+    <label for="index" class="col-form-label">@if (filter.type=='building') {
+      <span>Building</span>
+      }@if (filter.type=='race') {
+      <span>Race</span>
+    }</label>
+    <select name="index" [(ngModel)]="filter.index" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+      <option>Select</option>
+      @if (filter.type=='building') {
+        <option value="tavern">Tavern</option>
+      }
+      @if (filter.type=='race') {
+        <option value="dragonborn">Dragonborn</option>
+        <option value="dwarf">Dwarf</option>
+        <option value="elf">Elf</option>
+        <option value="gnome">Gnome</option>
+        <option value="halfling">Halfling</option>
+        <option value="half-orc">Half Orc</option>
+        <option value="tiefling">Tiefling</option>
+        <option value="human-celtic">Human (Celtic)</option>
+      }
+    </select>
+    @if (filter.type=='race') {
+      <!--Sex-->
+      <label for="sex" class="col-form-label">Sex</label>
+      <select name="sex" [(ngModel)]="filter.sex" #categoryControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
+        <option disabled selected>Select</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
+    }
+    <!--Used-->
+    <label for="used" class="col-form-label">Used</label>
+    <select name="used" [(ngModel)]="filter.used" #bookmarkedControl="ngModel" class="form-control" (ngModelChange)="typeChanged()">
+      <option selected>All</option>
+      <option value="available">Available</option>
+      <option value="used">Used</option>
+    </select>
+  </form>
+  @if (shownNames.firstNames && shownNames.firstNames.length > 0) {
+    <div class="list" [class.dualList]="filter.type=='building' || shownNames.familyType != null">
+      <table class="table table-condensed table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="col-form-label">
+              @if (filter.type=='race') {
+                <span>First Names</span>
+              }
+              @if (filter.type=='building') {
+                <span>First Part</span>
+              }
+            </th>
+            <th class="col-form-label">Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (name of shownNames.firstNames; track name) {
+            <tr>
+              <td>{{name}}</td>
+              <td>
+                <input class="form-check-input" type="checkbox" (click)="toggleUsed(name)" [checked]="isNameUsed(name)">
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      @if (filter.type=='building' || shownNames.familyType != null) {
+        <table class="table table-condensed table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="col-form-label">
+                @if (filter.type=='race') {
+                  <span>{{shownNames.familyType}} Names</span>
+                }
+                @if (filter.type=='building') {
+                  <span>Last Part</span>
+                }
+              </th>
+              <th class="col-form-label">Used</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (name of shownNames.lastNames; track name) {
+              <tr>
+                <td>{{name}}</td>
+                <td>
+                  <input class="form-check-input" type="checkbox" (click)="toggleUsed(name)" [checked]="isNameUsed(name)">
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </div>
+  }
 </div>

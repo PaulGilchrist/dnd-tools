@@ -1,3 +1,5 @@
-﻿<div *ngFor="let condition of conditions" class="list" [id]="condition.index">
-	<app-condition [condition]="condition" [expand]="shownCard==condition.index" (expanded)="expandCard(condition.index, $event)"></app-condition>
-</div>
+﻿@for (condition of conditions; track condition) {
+  <div class="list" [id]="condition.index">
+    <app-condition [condition]="condition" [expand]="shownCard==condition.index" (expanded)="expandCard(condition.index, $event)"></app-condition>
+  </div>
+}

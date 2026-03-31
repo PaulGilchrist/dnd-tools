@@ -1,18 +1,30 @@
-﻿<div *ngIf="feat != null" class="card w-100" [class.active]="expand">
-	<div class="card-header clickable" (click)="toggleDetails()">
-		<div class="card-title">{{feat.name}}</div>
-	</div>
-	<div *ngIf="expand" class="card-body">
-		<div class="card-text removeExtraLine">
-			<div *ngIf="feat.prerequisite">
-				<b>Prerequisite</b>: {{feat.prerequisite}}<br /><br />
-			</div>
-			<span *ngFor="let desc of feat.desc">
-				{{desc}}<br /><br />
-			</span>
-			<ul *ngIf="feat.benefits">
-				<li *ngFor="let benefit of feat.benefits">{{benefit}}</li>
-			</ul>
-		</div>
-	</div>
-</div>
+﻿@if (feat != null) {
+  <div class="card w-100" [class.active]="expand">
+    <div class="card-header clickable" (click)="toggleDetails()">
+      <div class="card-title">{{feat.name}}</div>
+    </div>
+    @if (expand) {
+      <div class="card-body">
+        <div class="card-text removeExtraLine">
+          @if (feat.prerequisite) {
+            <div>
+              <b>Prerequisite</b>: {{feat.prerequisite}}<br /><br />
+            </div>
+          }
+          @for (desc of feat.desc; track desc) {
+            <span>
+              {{desc}}<br /><br />
+            </span>
+          }
+          @if (feat.benefits) {
+            <ul>
+              @for (benefit of feat.benefits; track benefit) {
+                <li>{{benefit}}</li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    }
+  </div>
+}

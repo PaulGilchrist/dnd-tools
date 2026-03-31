@@ -1,4 +1,6 @@
-﻿<div *ngFor="let abilityScore of abilityScores" class="list" [id]="abilityScore.index">
-	<ability-score [abilityScore]="abilityScore" [expand]="shownCard==abilityScore.index"
-		(expanded)="expandCard(abilityScore.index, $event)"></ability-score>
-</div>
+﻿@for (abilityScore of abilityScores; track abilityScore) {
+  <div class="list" [id]="abilityScore.index">
+    <ability-score [abilityScore]="abilityScore" [expand]="shownCard==abilityScore.index"
+    (expanded)="expandCard(abilityScore.index, $event)"></ability-score>
+  </div>
+}

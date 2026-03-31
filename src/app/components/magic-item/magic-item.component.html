@@ -1,19 +1,33 @@
-﻿<div *ngIf="magicItem != null" class="card w-100" [class.active]="expand">
-	<div class="card-header clickable">
-		<div (click)="toggleDetails()">
-			<div class="card-title">{{magicItem.name}}</div>
-			<i>{{magicItem.type}}<span *ngIf="magicItem.subtype"> ({{magicItem.subtype}})</span>, {{magicItem.rarity}} <span *ngIf="magicItem.requiresAttunement && !magicItem.attunementRequirements"> (requires attunement)</span><span *ngIf="magicItem.requiresAttunement && magicItem.attunementRequirements"> ({{magicItem.attunementRequirements}})</span></i><br />
-		</div>
-		<div class="form-check">
-			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="magicItem.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(magicItem)">
-			<label class="form-check-label" for="bookmarked">
-				Bookmarked
-			</label>
-		</div>
-	</div>
-	<div *ngIf="expand" class="card-body">
-        <span *ngFor="let desc of magicItem.desc; let i = index">
-            <span *ngIf="i > 0" [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
-        </span>
-	</div>
-</div>
+﻿@if (magicItem != null) {
+  <div class="card w-100" [class.active]="expand">
+    <div class="card-header clickable">
+      <div (click)="toggleDetails()">
+        <div class="card-title">{{magicItem.name}}</div>
+        <i>{{magicItem.type}}@if (magicItem.subtype) {
+          <span> ({{magicItem.subtype}})</span>
+          }, {{magicItem.rarity}} @if (magicItem.requiresAttunement && !magicItem.attunementRequirements) {
+          <span> (requires attunement)</span>
+          }@if (magicItem.requiresAttunement && magicItem.attunementRequirements) {
+          <span> ({{magicItem.attunementRequirements}})</span>
+        }</i><br />
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="magicItem.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(magicItem)">
+        <label class="form-check-label" for="bookmarked">
+          Bookmarked
+        </label>
+      </div>
+    </div>
+    @if (expand) {
+      <div class="card-body">
+        @for (desc of magicItem.desc; track desc; let i = $index) {
+          <span>
+            @if (i > 0) {
+              <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
+            }
+          </span>
+        }
+      </div>
+    }
+  </div>
+}

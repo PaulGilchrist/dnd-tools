@@ -1,26 +1,34 @@
-﻿<div *ngIf="image!=''" class="cover" (click)="image=''">
+﻿@if (image!='') {
+  <div class="cover" (click)="image=''">
     <img [src]="'assets/locations/' + image">
-</div>
-<div *ngFor="let location of locations" class="list" [id]="location.index">
-	<div class="card outer w-100" [class.active]="shownCard==location.index" [id]="location.index">
-		<div class="card-header clickable" (click)="expandCard(location.index)">
-			<div>
-				<div class="card-title">{{location.name}}</div>
-				<i>{{location.type}}</i><br />
-			</div>
-		</div>
-		<div *ngIf="shownCard == location.index" class="card-body">
-			<div class="stats">
-				<div>
-					<!-- no stats -->
-				</div>
-				<div>
-					<button *ngIf="location.image" type="button" class="btn btn-primary" (click)="image=location.image">Image</button>
-				</div>
-			</div>
-			<div [innerHtml]="domSanitizer.bypassSecurityTrustHtml(location.desc)"></div>
-			<br/>
-			{{location.book}} (page {{location.page}})
-		</div>
-	</div>
-</div>
+  </div>
+}
+@for (location of locations; track location) {
+  <div class="list" [id]="location.index">
+    <div class="card outer w-100" [class.active]="shownCard==location.index" [id]="location.index">
+      <div class="card-header clickable" (click)="expandCard(location.index)">
+        <div>
+          <div class="card-title">{{location.name}}</div>
+          <i>{{location.type}}</i><br />
+        </div>
+      </div>
+      @if (shownCard == location.index) {
+        <div class="card-body">
+          <div class="stats">
+            <div>
+              <!-- no stats -->
+            </div>
+            <div>
+              @if (location.image) {
+                <button type="button" class="btn btn-primary" (click)="image=location.image">Image</button>
+              }
+            </div>
+          </div>
+          <div [innerHtml]="domSanitizer.bypassSecurityTrustHtml(location.desc)"></div>
+          <br/>
+          {{location.book}} (page {{location.page}})
+        </div>
+      }
+    </div>
+  </div>
+}

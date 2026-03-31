@@ -25,17 +25,17 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^20.3.18",
-    "@angular/animations": "^20.3.18",
-    "@angular/cli": "^20.3.18",
-    "@angular/common": "^20.3.18",
-    "@angular/compiler": "^20.3.18",
-    "@angular/compiler-cli": "^20.3.18",
-    "@angular/core": "^20.3.18",
-    "@angular/forms": "^20.3.18",
-    "@angular/platform-browser": "^20.3.18",
-    "@angular/platform-browser-dynamic": "^20.3.18",
-    "@angular/router": "^20.3.18",
+    "@angular-devkit/build-angular": "^21.2.5",
+    "@angular/animations": "^21.2.6",
+    "@angular/cli": "^21.2.5",
+    "@angular/common": "^21.2.6",
+    "@angular/compiler": "^21.2.6",
+    "@angular/compiler-cli": "^21.2.6",
+    "@angular/core": "^21.2.6",
+    "@angular/forms": "^21.2.6",
+    "@angular/platform-browser": "^21.2.6",
+    "@angular/platform-browser-dynamic": "^21.2.6",
+    "@angular/router": "^21.2.6",
     "@types/jasmine": "~3.6.0",
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.19.37",
@@ -49,6 +49,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "showdown": "^2.1.0",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.3"
   }
 }

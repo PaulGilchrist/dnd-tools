@@ -1,3 +1,5 @@
-﻿<div *ngFor="let race of races" class="list" [id]="race.index">
-	<app-race [race]="race" [expand]="shownCard==race.index" (expanded)="expandCard(race.index, $event)"></app-race>
-</div>
+﻿@for (race of races; track race) {
+  <div class="list" [id]="race.index">
+    <app-race [race]="race" [expand]="shownCard==race.index" (expanded)="expandCard(race.index, $event)"></app-race>
+  </div>
+}

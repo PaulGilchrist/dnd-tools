@@ -1,4 +1,6 @@
-﻿<div *ngFor="let playerClass of playerClasses" class="list" [id]="playerClass.index">
-	<player-class [playerClass]="playerClass" [expand]="shownCard==playerClass.index"
-		(expanded)="expandCard(playerClass.index, $event)"></player-class>
-</div>
+﻿@for (playerClass of playerClasses; track playerClass) {
+  <div class="list" [id]="playerClass.index">
+    <player-class [playerClass]="playerClass" [expand]="shownCard==playerClass.index"
+    (expanded)="expandCard(playerClass.index, $event)"></player-class>
+  </div>
+}

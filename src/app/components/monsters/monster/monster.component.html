@@ -1,155 +1,229 @@
-﻿<div *ngIf="imageActive" class="cover" (click)="imageActive=false">
+﻿@if (imageActive) {
+  <div class="cover" (click)="imageActive=false">
     <img [src]="'assets/monsters/' + monster.index + '.jpg'">
-</div>
-<div *ngIf="monster != null" class="card w-100" [class.active]="expand" [class.inner]="cardType=='inner'">
-	<div class="card-header clickable">
-		<div (click)="toggleDetails()">
-			<div class="card-title">{{monster.name}}</div>
-			<i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}}<span *ngIf="monster.subtype && monster.subtype!=monster.type">&nbsp;({{monster.subtype}})</span>,&nbsp;{{monster.alignment}}</i><br />
-		</div>
-		<div *ngIf="cardType!='inner'" class="form-check">
-			<input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="monster.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(monster)">
-			<label class="form-check-label" for="bookmarked">
-				Bookmarked
-			</label>
-		</div>
-	</div>
-	<div *ngIf="expand" class="card-body">
-		<!-- <image-modal *ngIf="monster.image==true" [image]="monster.index + '.jpg'"></image-modal> -->
-		<div class="card-text">
-			<div class="stats">
-				<div>
-					<b>Armor Class:</b>&nbsp;{{monster.armor_class}}<br />
-					<b>Hit Points:</b>&nbsp;{{monster.hit_points}}&nbsp;({{monster.hit_dice}})<br />
-					<b>Speed:</b>&nbsp;{{monster.speed.walk ? monster.speed.walk : '0 ft.'}}<span *ngIf="monster.speed.burrow">, burrow {{monster.speed.burrow}}</span><span *ngIf="monster.speed.climb">, climb {{monster.speed.climb}}</span><span *ngIf="monster.speed.fly">, fly {{monster.speed.fly}}</span><span *ngIf="monster.speed.hover"> (hover)</span><span *ngIf="monster.speed.swim">, swim {{monster.speed.swim}}</span><br />
-				</div>
-				<div>
-					<button *ngIf="monster.image==true" type="button" class="btn btn-primary" (click)="imageActive=true">Image</button>
-				</div>
-			</div>
+  </div>
+}
+@if (monster != null) {
+  <div class="card w-100" [class.active]="expand" [class.inner]="cardType=='inner'">
+    <div class="card-header clickable">
+      <div (click)="toggleDetails()">
+        <div class="card-title">{{monster.name}}</div>
+        <i>{{monster.size}}&nbsp;{{monster.type.toLowerCase()}}@if (monster.subtype && monster.subtype!=monster.type) {
+          <span>&nbsp;({{monster.subtype}})</span>
+        },&nbsp;{{monster.alignment}}</i><br />
+      </div>
+      @if (cardType!='inner') {
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="bookmarked" name="bookmarked" [(ngModel)]="monster.bookmarked" #bookmarkedControl="ngModel" (click)="toggleBookmark(monster)">
+          <label class="form-check-label" for="bookmarked">
+            Bookmarked
+          </label>
+        </div>
+      }
+    </div>
+    @if (expand) {
+      <div class="card-body">
+        <!-- <image-modal *ngIf="monster.image==true" [image]="monster.index + '.jpg'"></image-modal> -->
+        <div class="card-text">
+          <div class="stats">
+            <div>
+              <b>Armor Class:</b>&nbsp;{{monster.armor_class}}<br />
+              <b>Hit Points:</b>&nbsp;{{monster.hit_points}}&nbsp;({{monster.hit_dice}})<br />
+              <b>Speed:</b>&nbsp;{{monster.speed.walk ? monster.speed.walk : '0 ft.'}}@if (monster.speed.burrow) {
+              <span>, burrow {{monster.speed.burrow}}</span>
+              }@if (monster.speed.climb) {
+              <span>, climb {{monster.speed.climb}}</span>
+              }@if (monster.speed.fly) {
+              <span>, fly {{monster.speed.fly}}</span>
+              }@if (monster.speed.hover) {
+              <span> (hover)</span>
+              }@if (monster.speed.swim) {
+              <span>, swim {{monster.speed.swim}}</span>
+              }<br />
+            </div>
+            <div>
+              @if (monster.image==true) {
+                <button type="button" class="btn btn-primary" (click)="imageActive=true">Image</button>
+              }
+            </div>
+          </div>
+          <hr>
+            <div class="abilities">
+              <div class="ability">
+                <div class="ability-name">STR</div>
+                <div>{{monster.strength}} ({{getAbilityModifier(monster.strength)}})</div>
+              </div>
+              <div class="ability">
+                <div class="ability-name">DEX</div>
+                <div>{{monster.dexterity}} ({{getAbilityModifier(monster.dexterity)}})</div>
+              </div>
+              <div class="ability">
+                <div class="ability-name">CON</div>
+                <div>{{monster.constitution}} ({{getAbilityModifier(monster.constitution)}})</div>
+              </div>
+              <div class="ability">
+                <div class="ability-name">INT</div>
+                <div>{{monster.intelligence}} ({{getAbilityModifier(monster.intelligence)}})</div>
+              </div>
+              <div class="ability">
+                <div class="ability-name">WIS</div>
+                <div>{{monster.wisdom}} ({{getAbilityModifier(monster.wisdom)}})</div>
+              </div>
+              <div class="ability">
+                <div class="ability-name">CHA</div>
+                <div>{{monster.charisma}} ({{getAbilityModifier(monster.charisma)}})</div>
+              </div>
+            </div>
             <hr>
-			<div class="abilities">
-				<div class="ability">
-					<div class="ability-name">STR</div>
-					<div>{{monster.strength}} ({{getAbilityModifier(monster.strength)}})</div>
-				</div>
-				<div class="ability">
-					<div class="ability-name">DEX</div>
-					<div>{{monster.dexterity}} ({{getAbilityModifier(monster.dexterity)}})</div>
-				</div>
-				<div class="ability">
-					<div class="ability-name">CON</div>
-					<div>{{monster.constitution}} ({{getAbilityModifier(monster.constitution)}})</div>
-				</div>
-				<div class="ability">
-					<div class="ability-name">INT</div>
-					<div>{{monster.intelligence}} ({{getAbilityModifier(monster.intelligence)}})</div>
-				</div>
-				<div class="ability">
-					<div class="ability-name">WIS</div>
-					<div>{{monster.wisdom}} ({{getAbilityModifier(monster.wisdom)}})</div>
-				</div>
-				<div class="ability">
-					<div class="ability-name">CHA</div>
-					<div>{{monster.charisma}} ({{getAbilityModifier(monster.charisma)}})</div>
-				</div>
-			</div>
-			<hr>
-			<div *ngIf="hasSavingThrows()">
-				<b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
-			</div>
-			<div *ngIf="hasSkills()">
-				<b>Skills:</b>&nbsp;{{getSkills()}}<br />
-			</div>
-			<div *ngIf="monster.condition_immunities.length > 0">
-				<b>Condition Immunities:</b>&nbsp;{{getNameString(monster.condition_immunities)}}<br />
-			</div>
-			<div *ngIf="monster.damage_immunities.length > 0">
-				<b>Damage Immunities:</b>&nbsp;{{getNameString(monster.damage_immunities)}}<br />
-			</div>
-			<div *ngIf="monster.damage_resistances.length > 0">
-				<b>Damage Resistances:</b>&nbsp;{{getNameString(monster.damage_resistances)}}<br />
-			</div>
-			<div *ngIf="monster.damage_vulnerabilities.length > 0">
-				<b>Damage Vulnerabilities:</b>&nbsp;{{getNameString(monster.damage_vulnerabilities)}}<br />
-			</div>
-			<b>Senses:</b>&nbsp;{{getSenses()}}<br />
-			<div *ngIf="monster.languages">
-				<b>Languages:</b>&nbsp;{{monster.languages}}<br />
-			</div>
-			<div *ngIf="monster.environments">
-				<b>Environments:</b>&nbsp;{{getNameString(monster.environments)}}<br />
-			</div>
-			<div *ngIf="monster.allies">
-				<b>Allies:</b>&nbsp;{{getNameString(monster.allies)}}<br />
-			</div>
-			<div *ngIf="monster.enemies">
-				<b>Enemies:</b>&nbsp;{{getNameString(monster.enemies)}}<br />
-			</div>
-			<b>Challenge:</b>&nbsp;{{monster.challenge_rating}} ({{monster.xp}} XP)<br />
-            <hr>
-			<div class="removeExtraLine">
-				<span *ngFor="let special_ability of monster.special_abilities">
-					<b>{{special_ability.name}}<span *ngIf="special_ability.usage && special_ability.usage.type=='per day'">&nbsp;({{special_ability.usage.times}}/day)</span>:</b>&nbsp;<span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(special_ability.desc)"></span><br /><br />
-				</span>
-			</div>
-			<hr>
-			<div class="removeExtraLine">
-				<h5>Actions</h5>
-				<div *ngFor="let action of monster.actions">
-					<b>{{action.name}}<span *ngIf="action.usage && action.usage.type == 'recharge on roll'">&nbsp;(Recharge {{action.usage.min_value}}-6)</span><span *ngIf="action.usage && action.usage.type == 'per day'">&nbsp;({{action.usage.times}}/Day)</span>:</b>&nbsp;{{action.desc}}<br /><br />
-				</div>
-			</div>
-			<div *ngIf="monster.reactions != null">
-				<hr>
-				<div class="removeExtraLine">
-					<h5>Reactions</h5>
-					<span *ngFor="let reaction of monster.reactions">
-						<b>{{reaction.name}}:</b>&nbsp;{{reaction.desc}}<br /><br />
-					</span>
-				</div>
-			</div>
-			<div *ngIf="monster.legendary_actions != null">
-				<hr>
-				<div class="removeExtraLine">
-					<h5>Legendary Actions</h5>
-					<span *ngFor="let legendary_action of monster.legendary_actions">
-						<b>{{legendary_action.name}}:</b>&nbsp;{{legendary_action.desc}}<br /><br />
-					</span>
-				</div>
-			</div>
-			<div *ngIf="monster.lair_actions != null">
-				<hr>
-				<h5>Lair Actions</h5>
-				{{monster.lair_actions.summary}}<br />
-				<ul>
-					<li *ngFor="let action of monster.lair_actions.actions">
-						{{action}}
-					</li>
-				</ul>
-				<div *ngIf="monster.lair_actions.usage!=null">
-					{{monster.lair_actions.usage}}<br />
-				</div>
-			</div>
-			<div *ngIf="monster.regional_effects != null">
-				<hr>
-				<h5>Regional Effects</h5>
-				{{monster.lair_actions.summary}}<br />
-				<ul>
-					<li *ngFor="let effect of monster.regional_effects.effects">
-						{{effect}}
-					</li>
-				</ul>
-				{{monster.regional_effects.usage}}<br />
-			</div>
-			<div *ngIf="monster.desc">
-				<hr>
-				<h5>Description</h5>			
-				<div [innerHtml]="monster.desc">				
-				</div>
-				<br/>
-				<div *ngIf="monster.page">{{monster.book}} (page {{monster.page}})</div>
-			</div>
-		</div>
-	</div>
-</div>
+              @if (hasSavingThrows()) {
+                <div>
+                  <b>Saving Throws:</b>&nbsp;{{getSavingThrows()}}<br />
+                </div>
+              }
+              @if (hasSkills()) {
+                <div>
+                  <b>Skills:</b>&nbsp;{{getSkills()}}<br />
+                </div>
+              }
+              @if (monster.condition_immunities.length > 0) {
+                <div>
+                  <b>Condition Immunities:</b>&nbsp;{{getNameString(monster.condition_immunities)}}<br />
+                </div>
+              }
+              @if (monster.damage_immunities.length > 0) {
+                <div>
+                  <b>Damage Immunities:</b>&nbsp;{{getNameString(monster.damage_immunities)}}<br />
+                </div>
+              }
+              @if (monster.damage_resistances.length > 0) {
+                <div>
+                  <b>Damage Resistances:</b>&nbsp;{{getNameString(monster.damage_resistances)}}<br />
+                </div>
+              }
+              @if (monster.damage_vulnerabilities.length > 0) {
+                <div>
+                  <b>Damage Vulnerabilities:</b>&nbsp;{{getNameString(monster.damage_vulnerabilities)}}<br />
+                </div>
+              }
+              <b>Senses:</b>&nbsp;{{getSenses()}}<br />
+              @if (monster.languages) {
+                <div>
+                  <b>Languages:</b>&nbsp;{{monster.languages}}<br />
+                </div>
+              }
+              @if (monster.environments) {
+                <div>
+                  <b>Environments:</b>&nbsp;{{getNameString(monster.environments)}}<br />
+                </div>
+              }
+              @if (monster.allies) {
+                <div>
+                  <b>Allies:</b>&nbsp;{{getNameString(monster.allies)}}<br />
+                </div>
+              }
+              @if (monster.enemies) {
+                <div>
+                  <b>Enemies:</b>&nbsp;{{getNameString(monster.enemies)}}<br />
+                </div>
+              }
+              <b>Challenge:</b>&nbsp;{{monster.challenge_rating}} ({{monster.xp}} XP)<br />
+              <hr>
+                <div class="removeExtraLine">
+                  @for (special_ability of monster.special_abilities; track special_ability) {
+                    <span>
+                      <b>{{special_ability.name}}@if (special_ability.usage && special_ability.usage.type=='per day') {
+                        <span>&nbsp;({{special_ability.usage.times}}/day)</span>
+                        }:</b>&nbsp;<span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(special_ability.desc)"></span><br /><br />
+                      </span>
+                    }
+                  </div>
+                  <hr>
+                    <div class="removeExtraLine">
+                      <h5>Actions</h5>
+                      @for (action of monster.actions; track action) {
+                        <div>
+                          <b>{{action.name}}@if (action.usage && action.usage.type == 'recharge on roll') {
+                            <span>&nbsp;(Recharge {{action.usage.min_value}}-6)</span>
+                            }@if (action.usage && action.usage.type == 'per day') {
+                            <span>&nbsp;({{action.usage.times}}/Day)</span>
+                          }:</b>&nbsp;{{action.desc}}<br /><br />
+                        </div>
+                      }
+                    </div>
+                    @if (monster.reactions != null) {
+                      <div>
+                        <hr>
+                          <div class="removeExtraLine">
+                            <h5>Reactions</h5>
+                            @for (reaction of monster.reactions; track reaction) {
+                              <span>
+                                <b>{{reaction.name}}:</b>&nbsp;{{reaction.desc}}<br /><br />
+                              </span>
+                            }
+                          </div>
+                        </div>
+                      }
+                      @if (monster.legendary_actions != null) {
+                        <div>
+                          <hr>
+                            <div class="removeExtraLine">
+                              <h5>Legendary Actions</h5>
+                              @for (legendary_action of monster.legendary_actions; track legendary_action) {
+                                <span>
+                                  <b>{{legendary_action.name}}:</b>&nbsp;{{legendary_action.desc}}<br /><br />
+                                </span>
+                              }
+                            </div>
+                          </div>
+                        }
+                        @if (monster.lair_actions != null) {
+                          <div>
+                            <hr>
+                              <h5>Lair Actions</h5>
+                              {{monster.lair_actions.summary}}<br />
+                              <ul>
+                                @for (action of monster.lair_actions.actions; track action) {
+                                  <li>
+                                    {{action}}
+                                  </li>
+                                }
+                              </ul>
+                              @if (monster.lair_actions.usage!=null) {
+                                <div>
+                                  {{monster.lair_actions.usage}}<br />
+                                </div>
+                              }
+                            </div>
+                          }
+                          @if (monster.regional_effects != null) {
+                            <div>
+                              <hr>
+                                <h5>Regional Effects</h5>
+                                {{monster.lair_actions.summary}}<br />
+                                <ul>
+                                  @for (effect of monster.regional_effects.effects; track effect) {
+                                    <li>
+                                      {{effect}}
+                                    </li>
+                                  }
+                                </ul>
+                                {{monster.regional_effects.usage}}<br />
+                              </div>
+                            }
+                            @if (monster.desc) {
+                              <div>
+                                <hr>
+                                  <h5>Description</h5>
+                                  <div [innerHtml]="monster.desc">
+                                  </div>
+                                  <br/>
+                                  @if (monster.page) {
+                                    <div>{{monster.book}} (page {{monster.page}})</div>
+                                  }
+                                </div>
+                              }
+                            </div>
+                          </div>
+                        }
+                      </div>
+                    }

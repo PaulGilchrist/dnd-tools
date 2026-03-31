@@ -1,9 +1,15 @@
-﻿<div *ngIf="abilityScore != null" class="card w-100" [class.active]="expand">
-	<div class="card-header clickable" (click)="toggleDetails()">
-		<span class="card-title">{{abilityScore.full_name}}</span><span *ngIf="getSkills() != ''" class="align-center">&nbsp;- {{getSkills()}}</span>
-	</div>
-	<div *ngIf="expand" class="card-body">
-		<div class="card-text" [innerHtml]="abilityScore.desc">
-		</div>
-	</div>
+﻿@if (abilityScore != null) {
+  <div class="card w-100" [class.active]="expand">
+    <div class="card-header clickable" (click)="toggleDetails()">
+      <span class="card-title">{{abilityScore.full_name}}</span>@if (getSkills() != '') {
+      <span class="align-center">&nbsp;- {{getSkills()}}</span>
+    }
+  </div>
+  @if (expand) {
+    <div class="card-body">
+      <div class="card-text" [innerHtml]="abilityScore.desc">
+      </div>
+    </div>
+  }
 </div>
+}
