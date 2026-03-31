@@ -20,9 +20,12 @@
     </div>
     @if (expand) {
       <div class="card-body">
-        @for (desc of magicItem.desc; track desc; let i = $index) {
+        @let descArray = magicItem.desc || (magicItem.description ? [magicItem.description] : []);
+        @for (desc of descArray; track desc; let i = $index) {
           <span>
             @if (i > 0) {
+              <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
+            } @else {
               <span [innerHtml]="domSanitizer.bypassSecurityTrustHtml(desc)"></span>
             }
           </span>

@@ -10,3 +10,6 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule, { applicationProviders: [provideZoneChangeDetection()], })
   .catch(err => console.error(err));
+
+// Bootstrap 5 dropdowns work automatically with data-bs-toggle="dropdown"
+

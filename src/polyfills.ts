@@ -63,3 +63,7 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// Bootstrap 5 JS
+import 'bootstrap/js/dist/dropdown';
+
