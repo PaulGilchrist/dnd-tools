@@ -4,9 +4,10 @@ import { combineLatest, Subscription } from 'rxjs';
 import { DataService } from '../../services/data.service';
 
 @Component({
-  selector: 'race-names',
-  styleUrls: ['./names.component.scss'],
-  templateUrl: './names.component.html'
+    selector: 'race-names',
+    styleUrls: ['./names.component.css'],
+    templateUrl: './names.component.html',
+    standalone: false
 })
 export class NamesComponent implements OnInit, OnDestroy {
   names: any[] = [];

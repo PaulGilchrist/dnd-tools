@@ -5,8 +5,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'player-class',
-    styleUrls: ['./player-class.component.scss'],
-    templateUrl: './player-class.component.html'
+    styleUrls: ['./player-class.component.css'],
+    templateUrl: './player-class.component.html',
+    standalone: false
 })
 export class PlayerClassComponent implements OnChanges {
 

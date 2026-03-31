@@ -1,9 +1,10 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-condition',
-  styleUrls: ['./condition.component.scss'],
-  templateUrl: './condition.component.html'
+    selector: 'app-condition',
+    styleUrls: ['./condition.component.css'],
+    templateUrl: './condition.component.html',
+    standalone: false
 })
 export class ConditionComponent {
 

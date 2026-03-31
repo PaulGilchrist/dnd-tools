@@ -1,9 +1,10 @@
 ﻿import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'equipment-item',
-  styleUrls: ['./equipment-item.component.scss'],
-  templateUrl: './equipment-item.component.html'
+    selector: 'equipment-item',
+    styleUrls: ['./equipment-item.component.css'],
+    templateUrl: './equipment-item.component.html',
+    standalone: false
 })
 export class EquipmentItemComponent {
 

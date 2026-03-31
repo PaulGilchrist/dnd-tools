@@ -2,9 +2,10 @@
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-race',
-  styleUrls: ['./race.component.scss'],
-  templateUrl: './race.component.html'
+    selector: 'app-race',
+    styleUrls: ['./race.component.css'],
+    templateUrl: './race.component.html',
+    standalone: false
 })
 export class RaceComponent implements OnChanges {
 

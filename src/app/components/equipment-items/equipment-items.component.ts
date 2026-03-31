@@ -7,8 +7,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'equipment-items',
-    styleUrls: ['./equipment-items.component.scss'],
-    templateUrl: './equipment-items.component.html'
+    styleUrls: ['./equipment-items.component.css'],
+    templateUrl: './equipment-items.component.html',
+    standalone: false
 })
 export class EquipmentItemsComponent implements OnInit, OnDestroy {
     equipmentItems: any[] = [];

@@ -8,8 +8,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'monster-lore',
-    styleUrls: ['./monster-lore.component.scss'],
-    templateUrl: './monster-lore.component.html'
+    styleUrls: ['./monster-lore.component.css'],
+    templateUrl: './monster-lore.component.html',
+    standalone: false
 })
 export class MonsterLoreComponent implements OnInit, OnDestroy {
     monsters: any[] = [];

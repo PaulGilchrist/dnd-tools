@@ -2,9 +2,10 @@
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-monster',
-  styleUrls: ['./monster.component.scss'],
-  templateUrl: './monster.component.html'
+    selector: 'app-monster',
+    styleUrls: ['./monster.component.css'],
+    templateUrl: './monster.component.html',
+    standalone: false
 })
 export class MonsterComponent implements OnChanges {
 

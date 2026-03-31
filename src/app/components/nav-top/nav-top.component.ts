@@ -4,8 +4,9 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'nav-top',
-    styleUrls: ['./nav-top.component.scss'],
-    templateUrl: './nav-top.component.html'
+    styleUrls: ['./nav-top.component.css'],
+    templateUrl: './nav-top.component.html',
+    standalone: false
 })
 export class NavTopComponent implements OnInit {
 

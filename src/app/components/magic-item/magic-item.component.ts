@@ -2,9 +2,10 @@
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'magic-item',
-  styleUrls: ['./magic-item.component.scss'],
-  templateUrl: './magic-item.component.html'
+    selector: 'magic-item',
+    styleUrls: ['./magic-item.component.css'],
+    templateUrl: './magic-item.component.html',
+    standalone: false
 })
 export class MagicItemComponent {
 

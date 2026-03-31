@@ -5,9 +5,10 @@ import { DataService } from '../../../services/data.service';
 declare const utils: any // Javascript utilities
 
 @Component({
-  selector: 'app-feats',
-  styleUrls: ['./feats.component.scss'],
-  templateUrl: './feats.component.html'
+    selector: 'app-feats',
+    styleUrls: ['./feats.component.css'],
+    templateUrl: './feats.component.html',
+    standalone: false
 })
 export class FeatsComponent implements OnInit, OnDestroy {
   feats: any[] = [];

@@ -1,5 +1,4 @@
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
-
+@import 'bootstrap/dist/css/bootstrap.css';
 /*
 Try and keep global SCSS and CSS to a minimum and mainly to global variables.  This prevents components from breaking when used in other projects
 */
@@ -150,7 +149,7 @@ tfoot,
 tr,
 td,
 th {
-    border-color: #888; // Works for both light and dark themes
+    border-color: #888;
     border-style: solid;
     border-width: 0;
 }
@@ -194,4 +193,9 @@ th {
         --background-color-header-inner: #ddd;
         --color-header-inner: #070;
     }
+}
+
+/* Fix Bootstrap color-adjust deprecation warning */
+* {
+  print-color-adjust: exact;
 }

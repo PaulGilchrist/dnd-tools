@@ -1,9 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'monster-encounters',
-  styleUrls: ['./encounters.component.scss'],
-  templateUrl: './encounters.component.html'
+    selector: 'monster-encounters',
+    styleUrls: ['./encounters.component.css'],
+    templateUrl: './encounters.component.html',
+    standalone: false
 })
 export class EncountersComponent implements OnInit {
   filter = {

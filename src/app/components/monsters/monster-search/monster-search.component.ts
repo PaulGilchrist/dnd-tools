@@ -7,8 +7,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'monster-search',
-    styleUrls: ['./monster-search.component.scss'],
-    templateUrl: './monster-search.component.html'
+    styleUrls: ['./monster-search.component.css'],
+    templateUrl: './monster-search.component.html',
+    standalone: false
 })
 export class MonsterSearchComponent implements OnInit, OnDestroy {
     filter = {

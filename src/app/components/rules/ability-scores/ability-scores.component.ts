@@ -5,9 +5,10 @@ import { DataService } from '../../../services/data.service';
 declare const utils: any // Javascript utilities
 
 @Component({
-  selector: 'ability-scores',
-  styleUrls: ['./ability-scores.component.scss'],
-  templateUrl: './ability-scores.component.html'
+    selector: 'ability-scores',
+    styleUrls: ['./ability-scores.component.css'],
+    templateUrl: './ability-scores.component.html',
+    standalone: false
 })
 export class AbilityScoresComponent implements OnInit, OnDestroy {
   abilityScores: any[] = [];

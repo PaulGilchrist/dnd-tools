@@ -1,8 +1,9 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
-  selector: 'ability-score',
-  styleUrls: ['./ability-score.component.scss'],
-  templateUrl: './ability-score.component.html'
+    selector: 'ability-score',
+    styleUrls: ['./ability-score.component.css'],
+    templateUrl: './ability-score.component.html',
+    standalone: false
 })
 export class AbilityScoreComponent {
 

@@ -5,9 +5,10 @@ import { DataService } from '../../../services/data.service';
 declare const utils: any // Javascript utilities
 
 @Component({
-  selector: 'player-classes',
-  styleUrls: ['./player-classes.component.scss'],
-  templateUrl: './player-classes.component.html'
+    selector: 'player-classes',
+    styleUrls: ['./player-classes.component.css'],
+    templateUrl: './player-classes.component.html',
+    standalone: false
 })
 export class PlayerClassesComponent implements OnInit, OnDestroy {
   playerClasses: any[] = [];

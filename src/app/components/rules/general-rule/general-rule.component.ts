@@ -3,9 +3,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 declare const utils: any // Javascript utilities
 
 @Component({
-  selector: 'general-rule',
-  styleUrls: ['./general-rule.component.scss'],
-  templateUrl: './general-rule.component.html'
+    selector: 'general-rule',
+    styleUrls: ['./general-rule.component.css'],
+    templateUrl: './general-rule.component.html',
+    standalone: false
 })
 export class GeneralRuleComponent implements OnChanges {
 

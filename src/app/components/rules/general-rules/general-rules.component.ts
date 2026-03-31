@@ -4,9 +4,10 @@ import { combineLatest, Subscription } from 'rxjs';
 import { DataService } from '../../../services/data.service';
 
 @Component({
-  selector: 'general-rules',
-  styleUrls: ['./general-rules.component.scss'],
-  templateUrl: './general-rules.component.html'
+    selector: 'general-rules',
+    styleUrls: ['./general-rules.component.css'],
+    templateUrl: './general-rules.component.html',
+    standalone: false
 })
 export class GeneralRulesComponent implements OnInit, OnDestroy {
   rules: any[] = [];

@@ -2,9 +2,10 @@
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-spell',
-  styleUrls: ['./spell.component.scss'],
-  templateUrl: './spell.component.html'
+    selector: 'app-spell',
+    styleUrls: ['./spell.component.css'],
+    templateUrl: './spell.component.html',
+    standalone: false
 })
 export class SpellComponent implements OnChanges {
 

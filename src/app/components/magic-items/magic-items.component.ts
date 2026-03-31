@@ -7,8 +7,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'magic-items',
-    styleUrls: ['./magic-items.component.scss'],
-    templateUrl: './magic-items.component.html'
+    styleUrls: ['./magic-items.component.css'],
+    templateUrl: './magic-items.component.html',
+    standalone: false
 })
 export class MagicItemsComponent implements OnInit, OnDestroy {
     filter = {

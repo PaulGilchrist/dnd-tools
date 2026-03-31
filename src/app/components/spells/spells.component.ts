@@ -7,8 +7,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'app-spells',
-    styleUrls: ['./spells.component.scss'],
-    templateUrl: './spells.component.html'
+    styleUrls: ['./spells.component.css'],
+    templateUrl: './spells.component.html',
+    standalone: false
 })
 export class SpellsComponent implements OnInit, OnDestroy {
     filter = {

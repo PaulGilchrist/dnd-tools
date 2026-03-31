@@ -8,8 +8,9 @@ declare const utils: any // Javascript utilities
 
 @Component({
     selector: 'locations-lore',
-    styleUrls: ['./locations.component.scss'],
-    templateUrl: './locations.component.html'
+    styleUrls: ['./locations.component.css'],
+    templateUrl: './locations.component.html',
+    standalone: false
 })
 export class LocationsComponent implements OnInit, OnDestroy {
     image = '';

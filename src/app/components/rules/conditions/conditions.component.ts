@@ -5,9 +5,10 @@ import { DataService } from '../../../services/data.service';
 declare const utils: any // Javascript utilities
 
 @Component({
-  selector: 'app-conditions',
-  styleUrls: ['./conditions.component.scss'],
-  templateUrl: './conditions.component.html'
+    selector: 'app-conditions',
+    styleUrls: ['./conditions.component.css'],
+    templateUrl: './conditions.component.html',
+    standalone: false
 })
 export class ConditionsComponent implements OnInit, OnDestroy {
   conditions: any[] = [];

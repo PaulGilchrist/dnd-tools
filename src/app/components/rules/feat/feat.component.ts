@@ -1,9 +1,10 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-feat',
-  styleUrls: ['./feat.component.scss'],
-  templateUrl: './feat.component.html'
+    selector: 'app-feat',
+    styleUrls: ['./feat.component.css'],
+    templateUrl: './feat.component.html',
+    standalone: false
 })
 export class FeatComponent {
 
