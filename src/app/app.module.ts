@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -33,42 +33,35 @@ import { SpellsComponent } from './components/spells/spells.component';
 import { SpellComponent } from './components/spell/spell.component';
 
 import { DataService } from './services/data.service';
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavTopComponent,
-    AbilityScoreComponent,
-    AbilityScoresComponent,
-    ConditionComponent,
-    ConditionsComponent,
-    EncountersComponent,
-    EquipmentItemComponent,
-    EquipmentItemsComponent,
-    FeatComponent,
-    FeatsComponent,
-    GeneralRuleComponent,
-    GeneralRulesComponent,
-    LocationsComponent,
-    MagicItemComponent,
-    MagicItemsComponent,
-    MonsterComponent,
-    MonsterLoreComponent,
-    MonsterSearchComponent,
-    NamesComponent,
-    PlayerClassComponent,
-    PlayerClassesComponent,
-    RaceComponent,
-    RacesComponent,
-    SpellComponent,
-    SpellsComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        NavTopComponent,
+        AbilityScoreComponent,
+        AbilityScoresComponent,
+        ConditionComponent,
+        ConditionsComponent,
+        EncountersComponent,
+        EquipmentItemComponent,
+        EquipmentItemsComponent,
+        FeatComponent,
+        FeatsComponent,
+        GeneralRuleComponent,
+        GeneralRulesComponent,
+        LocationsComponent,
+        MagicItemComponent,
+        MagicItemsComponent,
+        MonsterComponent,
+        MonsterLoreComponent,
+        MonsterSearchComponent,
+        NamesComponent,
+        PlayerClassComponent,
+        PlayerClassesComponent,
+        RaceComponent,
+        RacesComponent,
+        SpellComponent,
+        SpellsComponent
+    ],
+    bootstrap: [AppComponent], imports: [AppRoutingModule,
+        BrowserModule,
+        FormsModule], providers: [DataService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

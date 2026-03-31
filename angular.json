@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dnd-tools:build:production"
+              "buildTarget": "dnd-tools:build:production"
             },
             "development": {
-              "browserTarget": "dnd-tools:build:development"
+              "buildTarget": "dnd-tools:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dnd-tools:build"
+            "buildTarget": "dnd-tools:build"
           }
         },
         "test": {
