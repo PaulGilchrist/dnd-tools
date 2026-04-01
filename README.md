@@ -84,5 +84,5 @@ Follow these steps to convert an Angular component to a plain JavaScript web com
 
 10. **Commit and document the conversion**
     - Use a descriptive commit message: `feat: convert [ComponentName] to plain JavaScript`
-    - Update this README with any improvements to the process
+    - Update this README with any improvements to the process making sure not to truncate this file
     - Document any known issues or limitations

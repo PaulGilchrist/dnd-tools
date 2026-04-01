@@ -64,7 +64,7 @@
 @for (equipmentItem of equipmentItems; track equipmentItem) {
   <div class="list" [id]="equipmentItem.index">
     @if (showEquipmentItem(equipmentItem)) {
-      <equipment-item [equipmentItem]="equipmentItem" (bookmarkChanged)="saveBookmark()" [expand]="shownCard==equipmentItem.index" (expanded)="expandCard(equipmentItem.index, $event)"></equipment-item>
+      <equipment-item-js [equipmentItem]="equipmentItem" [attr.expand]="shownCard==equipmentItem.index" (bookmarkChanged)="saveBookmark($event)" (expanded)="expandCard(equipmentItem.index, $any($event).detail.expanded)"></equipment-item-js>
     }
   </div>
 }

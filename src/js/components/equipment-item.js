@@ -1,19 +1,17 @@
 class EquipmentItemJs extends HTMLElement {
-  connectedCallback() {
-    // Get attributes/properties
-    const equipmentItemStr = this.getAttribute('equipment-item');
-    const expand = this.hasAttribute('expand');
-    
-    // Parse equipmentItem if provided
-    let equipmentItem = null;
-    if (equipmentItemStr) {
-      try {
-        equipmentItem = JSON.parse(equipmentItemStr);
-      } catch (e) {
-        console.error('Failed to parse equipment-item:', e);
-      }
-    }
+  constructor() {
+    super();
+    this._equipmentItem = null;
+  }
 
+  static get observedAttributes() {
+    return ['expand'];
+  }
+
+  connectedCallback() {
+    // Get expand attribute - Angular converts boolean to string "true" or "false"
+    const expand = this.getAttribute('expand') === 'true';
+    
     // Apply template
     this.innerHTML = `
       ${this.getStyle()}
@@ -32,27 +30,73 @@ class EquipmentItemJs extends HTMLElement {
       </div>
     `;
 
-    if (equipmentItem) {
-      this.populateData(equipmentItem, expand);
+    if (this._equipmentItem) {
+      this.populateData(this._equipmentItem, expand);
     }
 
     // Setup event dispatching
     const toggleDetailsEl = this.querySelector('.clickable');
     if (toggleDetailsEl) {
       toggleDetailsEl.addEventListener('click', () => {
-        this.dispatchEvent(new CustomEvent('expanded'));
+        const cardBody = this.querySelector('#item-details');
+        
+        // Toggle the display state
+        const isCurrentlyExpanded = cardBody && cardBody.style.display !== 'none';
+        const newExpandState = !isCurrentlyExpanded;
+        
+        // Update the display
+        cardBody.style.display = newExpandState ? 'block' : 'none';
+        
+        // Update the expand attribute so Angular knows the new state
+        this.setAttribute('expand', String(newExpandState));
+        
+        // Get the equipment item index from the data
+        const index = this._equipmentItem?.index || '';
+        
+        // Dispatch event with the NEW expanded state (not the old one)
+        this.dispatchEvent(new CustomEvent('expanded', { 
+          detail: { expanded: newExpandState, index: index },
+          bubbles: true,
+          composed: true
+        }));
       });
     }
 
     const bookmarkCheckbox = this.querySelector('#bookmarked');
     if (bookmarkCheckbox) {
-      bookmarkCheckbox.addEventListener('click', () => {
+      bookmarkCheckbox.addEventListener('click', (event) => {
+        // Prevent the click from bubbling up to the card-header and toggling the card
+        event.stopPropagation();
+        
         const isBookmarked = bookmarkCheckbox.checked;
-        this.dispatchEvent(new CustomEvent('bookmark-changed', { 
-          detail: { bookmarked: isBookmarked } 
+        
+        // Update the equipment item's bookmarked property so Angular sees the change
+        if (this._equipmentItem) {
+          this._equipmentItem.bookmarked = isBookmarked;
+        }
+        
+        // Get the equipment item index from the data
+        const index = this._equipmentItem?.index || '';
+        
+        this.dispatchEvent(new CustomEvent('bookmarkChanged', { 
+          detail: { bookmarked: isBookmarked, index: index },
+          bubbles: true,
+          composed: true
         }));
       });
     }
+  }
+
+  set equipmentItem(value) {
+    this._equipmentItem = value;
+    const expand = this.getAttribute('expand') === 'true';
+    if (value) {
+      this.populateData(value, expand);
+    }
+  }
+
+  get equipmentItem() {
+    return this._equipmentItem;
   }
 
   populateData(equipmentItem, expand) {
@@ -293,17 +337,11 @@ class EquipmentItemJs extends HTMLElement {
     `;
   }
 
-  static get observedAttributes() {
-    return ['equipment-item', 'expand'];
-  }
-
   attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue && name === 'equipment-item') {
-      try {
-        const equipmentItem = JSON.parse(newValue);
-        this.populateData(equipmentItem, this.hasAttribute('expand'));
-      } catch (e) {
-        console.error('Failed to update equipment-item:', e);
+    if (oldValue !== newValue && name === 'expand') {
+      const expand = this.getAttribute('expand') === 'true';
+      if (this._equipmentItem) {
+        this.populateData(this._equipmentItem, expand);
       }
     }
   }

@@ -87,7 +87,7 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
         //console.log(this.equipmentItems);
     }
 
-    saveBookmark() {
+    saveBookmark(event?: any) {
         let equipmentItemsBookmarked: string[] = [];
         this.equipmentItems.forEach(equipmentItem => {
             if (equipmentItem.bookmarked == true) {
@@ -123,3 +123,4 @@ export class EquipmentItemsComponent implements OnInit, OnDestroy {
     }
 
 }
+

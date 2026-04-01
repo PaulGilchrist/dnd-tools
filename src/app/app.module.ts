@@ -11,7 +11,7 @@ import { AbilityScoresComponent } from './components/rules/ability-scores/abilit
 import { ConditionComponent } from './components/rules/condition/condition.component';
 import { ConditionsComponent } from './components/rules/conditions/conditions.component';
 import { EncountersComponent } from './components/monsters/encounters/encounters.component';
-import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component';
+// import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component'; // Removed - replaced with plain JS component <equipment-item-js>
 import { EquipmentItemsComponent } from './components/equipment-items/equipment-items.component';
 import { FeatComponent } from './components/rules/feat/feat.component';
 import { FeatsComponent } from './components/rules/feats/feats.component';
@@ -41,7 +41,7 @@ import { DataService } from './services/data.service';
         ConditionComponent,
         ConditionsComponent,
         EncountersComponent,
-        EquipmentItemComponent,
+        // EquipmentItemComponent, // Removed - replaced with plain JS component <equipment-item-js>
         EquipmentItemsComponent,
         FeatComponent,
         FeatsComponent,
