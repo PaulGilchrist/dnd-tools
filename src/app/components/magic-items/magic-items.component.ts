@@ -76,7 +76,7 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
     }
 
     filterChanged(): void {
-        localStorage.setItem('magicItemsFilter', JSON.stringify(this.filter));
+        // localStorage.setItem('magicItemsFilter', JSON.stringify(this.filter));
     }
 
     saveBookmark() {
@@ -93,8 +93,8 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
         // Attunement filter
         if (this.filter.attunement != 'All'
             && (
-                (this.filter.attunement == 'Required' && !magicItem.desc[0].includes('(requires attunement)'))
-                || (this.filter.attunement == 'Not Required' && magicItem.desc[0].includes('(requires attunement)'))
+                (this.filter.attunement == 'Required' && !magicItem.requiresAttunement)
+                || (this.filter.attunement == 'Not Required' && magicItem.requiresAttunement)
             )
         ) {
             return false;
@@ -108,11 +108,11 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
             return false;
         }
         // Rarity filter
-        if (this.filter.rarity != 'All' && !magicItem.desc[0].includes(this.filter.rarity)) {
+        if (this.filter.rarity != 'All' && magicItem.rarity != this.filter.rarity) {
             return false;
         }
         // Type filter
-        if (this.filter.type != 'All' && !magicItem.desc[0].startsWith(this.filter.type)) {
+        if (this.filter.type != 'All' && magicItem.type != this.filter.type) {
             return false;
         }
         return true;

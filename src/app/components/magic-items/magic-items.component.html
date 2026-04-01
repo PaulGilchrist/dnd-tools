@@ -11,11 +11,11 @@
   <label for="rarity" class="col-form-label">Rarity</label>
   <select name="rarity" [(ngModel)]="filter.rarity" #rarityControl="ngModel" class="form-control" (ngModelChange)="filterChanged()">
     <option selected>All</option>
-    <option value=", common">Common</option>
-    <option value=", uncommon">Uncommon</option>
-    <option value=", rare">Rare</option>
-    <option value=", very rare">Very Rare</option>
-    <option value=", legendary">Legendary</option>
+    <option value="common">Common</option>
+    <option value="uncommon">Uncommon</option>
+    <option value="rare">Rare</option>
+    <option value="very rare">Very Rare</option>
+    <option value="legendary">Legendary</option>
   </select>
   <!--Type-->
   <label for="type" class="col-form-label">Type</label>

@@ -107,7 +107,12 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "dir": "dist/dnd-tools",
+            "baseHref": "/dnd-tools/",
+            "repo": "https://github.com/PaulGilchrist/dnd-tools.git",
+            "branch": "gh-pages"
+          }
         }
       }
     }
