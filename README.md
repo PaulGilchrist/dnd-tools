@@ -13,13 +13,19 @@ This project is being migrated incrementally from Angular to plain JavaScript wi
 - **Target Architecture**: Plain JavaScript using Web Components
 - **Migration Approach**: Incremental - one component at a time
 - **Framework Replacement**: No external frameworks (React, Vue, etc.)
+- **Current Components**:
+  - ✅ NavTop Component: Converted to `<nav-top-js>`
+  - ✅ EquipmentItem Component: Converted to `<equipment-item-js>`
+  - ✅ Condition Component: Converted to `<condition-js>`
 
 #### Converting Angular Components to Plain JavaScript
 
 Follow these steps to convert an Angular component to a plain JavaScript web component:
 
 1. **Create a new branch for the migration**
-
+   ```bash
+   git checkout -b feature/js-migration
+   ```
 
 2. **Identify the Angular component to convert**
    - Locate the component in `src/app/components/`
@@ -51,11 +57,19 @@ Follow these steps to convert an Angular component to a plain JavaScript web com
        "output": "/assets/"
      }
      ```
+   - Or use glob pattern for all JS files:
+     ```json
+     {
+       "glob": "*.js",
+       "input": "src/js/components",
+       "output": "/assets/js/components"
+     }
+     ```
 
 7. **Update `src/index.html` to import the Web Component**
    - Add a script tag before closing `</body>`:
      ```html
-     <script src="assets/nav-top.js"></script>
+     <script src="assets/js/components/nav-top.js"></script>
      ```
 
 8. **Test the component**

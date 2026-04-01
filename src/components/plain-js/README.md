@@ -3,7 +3,17 @@
 This directory contains components converted from Angular to plain JavaScript.
 
 ## Current Status
-- **NavTop Component**: Converted from Angular to plain JavaScript ✅
+- ✅ NavTop Component: Converted to `<nav-top-js>`
+  - Original: `src/app/components/nav-top/nav-top.component.ts`
+  - Features: Dropdown selection tracking, URL redirect handling via localStorage
+
+- ✅ EquipmentItem Component: Converted to `<equipment-item-js>`
+  - Original: `src/app/components/equipment-item/equipment-item.component.ts`
+  - Features: Item display with bookmarking, expandable details for various equipment types
+
+- ✅ Condition Component: Converted to `<condition-js>`
+  - Original: `src/app/components/condition/condition.component.ts`
+  - Features: Condition display with description
 
 ## Conversion Strategy
 
@@ -13,21 +23,6 @@ The goal is to remove all Angular dependencies first:
 - Remove Angular-specific features (dependency injection, decorators, etc.)
 - Keep the same functionality and behavior
 - Maintain CSS styling from original components
-
-## NavTop Component Details
-
-### Original Angular Implementation
-- File: `src/app/components/nav-top/nav-top.component.ts`
-- Features:
-  - Dropdown selection tracking
-  - URL redirect handling via localStorage
-
-### Plain JavaScript Implementation
-- File: `src/js/components/nav-top.js`
-- Features:
-  - Same dropdown selection tracking
-  - Same URL redirect handling
-  - No framework dependencies
 
 ## Files Structure
 
