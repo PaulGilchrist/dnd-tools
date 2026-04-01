@@ -20,3 +20,55 @@ Follow these steps to convert an Angular component to a plain JavaScript web com
 
 1. **Create a new branch for the migration**
 
+
+2. **Identify the Angular component to convert**
+   - Locate the component in `src/app/components/`
+   - Note its selector (e.g., `<app-nav-top>`)
+   - Document its HTML template, CSS styles, and TypeScript logic
+
+3. **Create the plain JavaScript Web Component**
+   - Create a new file in `src/js/components/` named after the component (e.g., `nav-top.js`)
+   - Implement a class extending `HTMLElement`
+   - Use the `connectedCallback()` lifecycle method to render content
+   - Inject HTML via `innerHTML` and styles via `<style>` tags
+
+4. **Register the custom element**
+   - Add at the end of the file:
+     ```javascript
+     customElements.define('component-selector', ComponentClass);
+     ```
+   - Example: `customElements.define('nav-top-js', NavTopJs);`
+
+5. **Update Angular template to use the new Web Component**
+   - Replace the Angular selector with the custom element selector
+   - Example: `<app-nav-top>` → `<nav-top-js>`
+
+6. **Update `angular.json` to include the plain JavaScript file**
+   - Add the path to the assets section:
+     ```json
+     {
+       "input": "src/js/components/nav-top.js",
+       "output": "/assets/"
+     }
+     ```
+
+7. **Update `src/index.html` to import the Web Component**
+   - Add a script tag before closing `</body>`:
+     ```html
+     <script src="assets/nav-top.js"></script>
+     ```
+
+8. **Test the component**
+   - Run `ng serve` and verify the component renders correctly
+   - Check for console errors in browser DevTools
+   - Verify interactivity and styling match the original Angular component
+
+9. **Remove the original Angular component files**
+   - Delete the component directory in `src/app/components/`
+   - Remove the module import if no longer needed
+   - Update any other references to the Angular component
+
+10. **Commit and document the conversion**
+    - Use a descriptive commit message: `feat: convert [ComponentName] to plain JavaScript`
+    - Update this README with any improvements to the process
+    - Document any known issues or limitations
