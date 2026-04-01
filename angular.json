@@ -33,6 +33,11 @@
                 "glob": "*.json",
                 "input": "src/app/data",
                 "output": "data"
+              },
+              {
+                "glob": "**/*.js",
+                "input": "src/js/components",
+                "output": "/assets/js/components"
               }
             ],
             "styles": [
@@ -118,3 +123,4 @@
     }
   }
 }
+
