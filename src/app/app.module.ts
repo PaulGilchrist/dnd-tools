@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
@@ -22,7 +22,7 @@ import { MonsterComponent } from './components/monsters/monster/monster.componen
 import { MonsterLoreComponent } from './components/monsters/monster-lore/monster-lore.component';
 import { MonsterSearchComponent } from './components/monsters/monster-search/monster-search.component';
 import { NamesComponent } from './components/names/names.component';
-import { NavTopComponent } from './components/nav-top/nav-top.component';
+// import { NavTopComponent } from './components/nav-top/nav-top.component'; // Removed - replaced with plain JS component
 import { PlayerClassComponent } from './components/rules/player-class/player-class.component';
 import { PlayerClassesComponent } from './components/rules/player-classes/player-classes.component';
 import { RaceComponent } from './components/rules/race/race.component';
@@ -35,7 +35,7 @@ import { SpellComponent } from './components/spell/spell.component';
 import { DataService } from './services/data.service';
 @NgModule({ declarations: [
         AppComponent,
-        NavTopComponent,
+        // NavTopComponent, // Removed - replaced with plain JS component
         AbilityScoreComponent,
         AbilityScoresComponent,
         ConditionComponent,
@@ -63,5 +63,6 @@ import { DataService } from './services/data.service';
     ],
     bootstrap: [AppComponent], imports: [AppRoutingModule,
         BrowserModule,
-        FormsModule], providers: [DataService, provideHttpClient(withInterceptorsFromDi())] })
+        FormsModule], providers: [DataService, provideHttpClient(withInterceptorsFromDi())], schemas: [CUSTOM_ELEMENTS_SCHEMA] })
 export class AppModule { }
+
