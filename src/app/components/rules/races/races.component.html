@@ -1,5 +1,5 @@
 ﻿@for (race of races; track race) {
   <div class="list" [id]="race.index">
-    <app-race [race]="race" [expand]="shownCard==race.index" (expanded)="expandCard(race.index, $event)"></app-race>
+    <race-js [race]="race" [expand]="shownCard==race.index" (expanded)="onRaceExpanded($event, race)"></race-js>
   </div>
 }

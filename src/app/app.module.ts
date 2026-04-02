@@ -25,7 +25,7 @@ import { NamesComponent } from './components/names/names.component';
 // import { NavTopComponent } from './components/nav-top/nav-top.component'; // Removed - replaced with plain JS component
 import { PlayerClassComponent } from './components/rules/player-class/player-class.component';
 import { PlayerClassesComponent } from './components/rules/player-classes/player-classes.component';
-import { RaceComponent } from './components/rules/race/race.component';
+// import { RaceComponent } from './components/rules/race/race.component'; // Removed - replaced with plain JS component <race-js>
 import { RacesComponent } from './components/rules/races/races.component';
 import { GeneralRuleComponent } from './components/rules/general-rule/general-rule.component';
 import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
@@ -56,7 +56,7 @@ import { DataService } from './services/data.service';
         NamesComponent,
         PlayerClassComponent,
         PlayerClassesComponent,
-        RaceComponent,
+        // RaceComponent, // Removed - replaced with plain JS component <race-js>
         RacesComponent,
         // SpellComponent, , // Removed - replaced with plain JS component <spell-js>
         SpellsComponent
@@ -65,4 +65,5 @@ import { DataService } from './services/data.service';
         BrowserModule,
         FormsModule], providers: [DataService, provideHttpClient(withInterceptorsFromDi())], schemas: [CUSTOM_ELEMENTS_SCHEMA] })
 export class AppModule { }
+
 

@@ -18,6 +18,7 @@ This project is being migrated incrementally from Angular to plain JavaScript wi
   - ✅ EquipmentItem Component: Converted to `<equipment-item-js>`
   - ✅ Spell Component: Converted to `<spell-js>`
   - ✅ Condition Component: Converted to `<condition-js>`
+  - ✅ Race Component: Converted to `<race-js>`
 
 #### Converting Angular Components to Plain JavaScript
 
@@ -96,3 +97,4 @@ Follow these steps to convert an Angular component to a plain JavaScript web com
     - Use a descriptive commit message: `feat: convert [ComponentName] to plain JavaScript`
     - Use single_find_and_replace to update this README with any improvements to the process.
     - Document any known issues or limitations
+

@@ -30,11 +30,20 @@ export class RacesComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
-  expandCard(index: string, expanded: boolean) {
-    if(expanded) {
+  expandCard(index: string, expanded: any) {
+    // Handle both boolean (Angular event) and CustomEvent (Web Component)
+    const isExpanded = typeof expanded === 'boolean' ? expanded : expanded.detail?.expanded;
+    if (isExpanded) {
       this.shownCard=index;
       utils.scrollIntoView(index);
+    } else {
+      this.shownCard = '';
     }
   }
 
+  onRaceExpanded(event: any, race: any) {
+    this.expandCard(race.index, event);
+  }
+
 }
+
