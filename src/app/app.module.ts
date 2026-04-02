@@ -30,7 +30,7 @@ import { RacesComponent } from './components/rules/races/races.component';
 import { GeneralRuleComponent } from './components/rules/general-rule/general-rule.component';
 import { GeneralRulesComponent } from './components/rules/general-rules/general-rules.component';
 import { SpellsComponent } from './components/spells/spells.component';
-import { SpellComponent } from './components/spell/spell.component';
+// import { SpellComponent } from './components/spell/spell.component';
 
 import { DataService } from './services/data.service';
 @NgModule({ declarations: [
@@ -58,7 +58,7 @@ import { DataService } from './services/data.service';
         PlayerClassesComponent,
         RaceComponent,
         RacesComponent,
-        SpellComponent,
+        // SpellComponent, , // Removed - replaced with plain JS component <spell-js>
         SpellsComponent
     ],
     bootstrap: [AppComponent], imports: [AppRoutingModule,

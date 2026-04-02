@@ -71,15 +71,50 @@ export class SpellsComponent implements OnInit, OnDestroy {
         this.subscriptions.forEach(subscription => subscription.unsubscribe());
     }
 
-    expandCard(index: string, expanded: boolean) {
-        if (expanded) {
+    expandCard(index: string, expanded: any) {
+        // Handle both boolean (Angular event) and CustomEvent (Web Component)
+        const isExpanded = typeof expanded === 'boolean' ? expanded : expanded.detail?.expanded;
+        
+        if (isExpanded) {
             this.shownCard = index;
             utils.scrollIntoView(index);
+        } else {
+            this.shownCard = '';
         }
+        
+        // Only set query param if expanding
+        const queryParams: any = {};
+        if (isExpanded) {
+            queryParams.index = index;
+        }
+        
         this.router.navigate([], {
-            queryParams: { index: index },
+            queryParams: queryParams,
             queryParamsHandling: 'merge',
         });
+    }
+
+    // Event handlers for Web Component events
+    onSpellExpanded(spellIndex: string, event: any) {
+        this.expandCard(spellIndex, event);
+    }
+
+    onSpellKnownChanged(event: any) {
+        const detail = event.detail || event;
+        const spell = this.spells.find(s => s.index === detail.index);
+        if (spell) {
+            spell.known = detail.known;
+            this.saveKnown();
+        }
+    }
+
+    onSpellPreparedChanged(event: any) {
+        const detail = event.detail || event;
+        const spell = this.spells.find(s => s.index === detail.index);
+        if (spell) {
+            spell.prepared = detail.prepared;
+            this.savePrepared();
+        }
     }
 
     filterChanged(): void {
