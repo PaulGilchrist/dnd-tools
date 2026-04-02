@@ -16,7 +16,7 @@ This project is being migrated incrementally from Angular to plain JavaScript wi
 - **Current Components**:
   - ✅ NavTop Component: Converted to `<nav-top-js>`
   - ✅ EquipmentItem Component: Converted to `<equipment-item-js>`
-  - ✅ Condition Component: Converted to `<condition-js>`
+  - ✅ Spell Component: Converted to `<spell-js>`
 
 #### Converting Angular Components to Plain JavaScript
 
@@ -82,7 +82,17 @@ Follow these steps to convert an Angular component to a plain JavaScript web com
    - Remove the module import if no longer needed
    - Update any other references to the Angular component
 
-10. **Commit and document the conversion**
+10. **Update parent components**
+    - Modify parent components to work with the new Web Component
+    - Update event handlers for CustomEvents (they may be received as objects with `detail` property)
+    - Update template syntax for attribute bindings
+
+11. **Remove obsolete components**
+    - Check if any existing Web Components are no longer needed
+    - Remove old JavaScript files and their references in `index.html`
+
+12. **Commit and document the conversion**
     - Use a descriptive commit message: `feat: convert [ComponentName] to plain JavaScript`
-    - Update this README with any improvements to the process making sure not to truncate this file
+    - Use single_find_and_replace to update this README with any improvements to the process.  Do not use edit_existing_file as it will truncate the file
     - Document any known issues or limitations
+
