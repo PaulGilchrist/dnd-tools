@@ -30,7 +30,8 @@ export class ConditionsComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
-  expandCard(index: string, expanded: boolean) {
+  expandCard(index: string, event: any) {
+    const expanded = event.detail?.expanded ?? false;
     if(expanded) {
       this.shownCard=index;
       utils.scrollIntoView(index);
@@ -38,3 +39,4 @@ export class ConditionsComponent implements OnInit, OnDestroy {
   }
 
 }
+

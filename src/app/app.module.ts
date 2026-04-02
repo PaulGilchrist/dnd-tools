@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { AbilityScoreComponent } from './components/rules/ability-score/ability-score.component';
 import { AbilityScoresComponent } from './components/rules/ability-scores/ability-scores.component';
-import { ConditionComponent } from './components/rules/condition/condition.component';
+// import { ConditionComponent } from './components/rules/condition/condition.component'; // Removed - replaced with plain JS component <condition-js>
 import { ConditionsComponent } from './components/rules/conditions/conditions.component';
 import { EncountersComponent } from './components/monsters/encounters/encounters.component';
 // import { EquipmentItemComponent } from './components/equipment-item/equipment-item.component'; // Removed - replaced with plain JS component <equipment-item-js>
@@ -38,7 +38,7 @@ import { DataService } from './services/data.service';
         // NavTopComponent, // Removed - replaced with plain JS component
         AbilityScoreComponent,
         AbilityScoresComponent,
-        ConditionComponent,
+        // ConditionComponent, // Removed - replaced with plain JS component <condition-js>
         ConditionsComponent,
         EncountersComponent,
         // EquipmentItemComponent, // Removed - replaced with plain JS component <equipment-item-js>

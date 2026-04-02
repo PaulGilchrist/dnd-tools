@@ -1,5 +1,5 @@
 ﻿@for (condition of conditions; track condition) {
   <div class="list" [id]="condition.index">
-    <app-condition [condition]="condition" [expand]="shownCard==condition.index" (expanded)="expandCard(condition.index, $event)"></app-condition>
+    <condition-js [condition]="condition" [expand]="shownCard==condition.index" (expanded)="expandCard(condition.index, $event)"></condition-js>
   </div>
 }
