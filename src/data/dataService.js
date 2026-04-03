@@ -84,59 +84,59 @@ function useDataCache(key, url) {
 
 // Individual hooks for each data type
 export function useAbilityScores() {
-    return useDataCache('abilityScores', './data/ability-scores.json');
+    return useDataCache('abilityScores', '/data/ability-scores.json');
 }
 
 export function useConditions() {
-    return useDataCache('conditions', './data/conditions.json');
+    return useDataCache('conditions', '/data/conditions.json');
 }
 
 export function useEquipment() {
-    return useDataCache('equipment', './data/equipment.json');
+    return useDataCache('equipment', '/data/equipment.json');
 }
 
 export function useFeats() {
-    return useDataCache('feats', './data/feats.json');
+    return useDataCache('feats', '/data/feats.json');
 }
 
 export function useLocations() {
-    return useDataCache('locations', './data/locations.json');
+    return useDataCache('locations', '/data/locations.json');
 }
 
 export function useMagicItems() {
-    return useDataCache('magicItems', './data/magic-items.json');
+    return useDataCache('magicItems', '/data/magic-items.json');
 }
 
 export function useMonsters() {
-    return useDataCache('monsters', './data/monsters.json');
+    return useDataCache('monsters', '/data/monsters.json');
 }
 
 export function useMonsterSubtypes() {
-    return useDataCache('monsterSubtypes', './data/monster-subtypes.json');
+    return useDataCache('monsterSubtypes', '/data/monster-subtypes.json');
 }
 
 export function useNames() {
-    return useDataCache('names', './data/names.json');
+    return useDataCache('names', '/data/names.json');
 }
 
 export function usePlayerClasses() {
-    return useDataCache('playerClasses', './data/classes.json');
+    return useDataCache('playerClasses', '/data/classes.json');
 }
 
 export function useRaces() {
-    return useDataCache('races', './data/races.json');
+    return useDataCache('races', '/data/races.json');
 }
 
 export function useRules() {
-    return useDataCache('rules', './data/rules.json');
+    return useDataCache('rules', '/data/rules.json');
 }
 
 export function useSpells() {
-    return useDataCache('spells', './data/spells.json');
+    return useDataCache('spells', '/data/spells.json');
 }
 
 export function useWeaponProperties() {
-    return useDataCache('weaponProperties', './data/weapon-properties.json');
+    return useDataCache('weaponProperties', '/data/weapon-properties.json');
 }
 
 // Alternative: Create a DataService class for non-React usage or compatibility
@@ -148,7 +148,7 @@ export class DataService {
     async getAbilityScores() {
         if (this.cache.abilityScores.length === 0) {
             try {
-                const response = await fetch('./data/ability-scores.json');
+                const response = await fetch('/data/ability-scores.json');
                 const data = await response.json();
                 this.cache.abilityScores = data;
                 console.log('Get - ability scores');
@@ -162,7 +162,7 @@ export class DataService {
     async getConditions() {
         if (this.cache.conditions.length === 0) {
             try {
-                const response = await fetch('./data/conditions.json');
+                const response = await fetch('/data/conditions.json');
                 const data = await response.json();
                 this.cache.conditions = data;
                 console.log('Get - conditions');
@@ -176,7 +176,7 @@ export class DataService {
     async getEquipment() {
         if (this.cache.equipment.length === 0) {
             try {
-                const response = await fetch('./data/equipment.json');
+                const response = await fetch('/data/equipment.json');
                 const data = await response.json();
                 this.cache.equipment = data;
                 console.log('Get - equipment');
@@ -190,7 +190,7 @@ export class DataService {
     async getFeats() {
         if (this.cache.feats.length === 0) {
             try {
-                const response = await fetch('./data/feats.json');
+                const response = await fetch('/data/feats.json');
                 const data = await response.json();
                 this.cache.feats = data;
                 console.log('Get - feats');
@@ -204,7 +204,7 @@ export class DataService {
     async getLocations() {
         if (this.cache.locations.length === 0) {
             try {
-                const response = await fetch('./data/locations.json');
+                const response = await fetch('/data/locations.json');
                 const data = await response.json();
                 this.cache.locations = data;
                 console.log('Get - locations');
@@ -218,7 +218,7 @@ export class DataService {
     async getMagicItems() {
         if (this.cache.magicItems.length === 0) {
             try {
-                const response = await fetch('./data/magic-items.json');
+                const response = await fetch('/data/magic-items.json');
                 const data = await response.json();
                 this.cache.magicItems = data;
                 console.log('Get - magic items');
@@ -232,7 +232,7 @@ export class DataService {
     async getMonsters() {
         if (this.cache.monsters.length === 0) {
             try {
-                const response = await fetch('./data/monsters.json');
+                const response = await fetch('/data/monsters.json');
                 const data = await response.json();
                 this.cache.monsters = data;
                 console.log('Get - monsters');
@@ -246,7 +246,7 @@ export class DataService {
     async getMonsterSubtypes() {
         if (this.cache.monsterSubtypes.length === 0) {
             try {
-                const response = await fetch('./data/monster-subtypes.json');
+                const response = await fetch('/data/monster-subtypes.json');
                 const data = await response.json();
                 this.cache.monsterSubtypes = data;
                 console.log('Get - monster subtypes');
@@ -260,7 +260,7 @@ export class DataService {
     async getNames() {
         if (this.cache.names.length === 0) {
             try {
-                const response = await fetch('./data/names.json');
+                const response = await fetch('/data/names.json');
                 const data = await response.json();
                 sort(data, 'name');
                 this.cache.names = data;
@@ -275,7 +275,7 @@ export class DataService {
     async getPlayerClasses() {
         if (this.cache.playerClasses.length === 0) {
             try {
-                const response = await fetch('./data/classes.json');
+                const response = await fetch('/data/classes.json');
                 const data = await response.json();
                 this.cache.playerClasses = data;
                 console.log('Get - player classes');
@@ -289,7 +289,7 @@ export class DataService {
     async getRaces() {
         if (this.cache.races.length === 0) {
             try {
-                const response = await fetch('./data/races.json');
+                const response = await fetch('/data/races.json');
                 const data = await response.json();
                 this.cache.races = data;
                 console.log('Get - races');
@@ -303,7 +303,7 @@ export class DataService {
     async getRules() {
         if (this.cache.rules.length === 0) {
             try {
-                const response = await fetch('./data/rules.json');
+                const response = await fetch('/data/rules.json');
                 const data = await response.json();
                 this.cache.rules = data;
                 console.log('Get - rules');
@@ -317,7 +317,7 @@ export class DataService {
     async getSpells() {
         if (this.cache.spells.length === 0) {
             try {
-                const response = await fetch('./data/spells.json');
+                const response = await fetch('/data/spells.json');
                 const data = await response.json();
                 this.cache.spells = data;
                 console.log('Get - spells');
@@ -331,7 +331,7 @@ export class DataService {
     async getWeaponProperties() {
         if (this.cache.weaponProperties.length === 0) {
             try {
-                const response = await fetch('./data/weapon-properties.json');
+                const response = await fetch('/data/weapon-properties.json');
                 const data = await response.json();
                 this.cache.weaponProperties = data;
                 console.log('Get - weapon properties');

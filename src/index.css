@@ -1,4 +1,4 @@
-@import 'bootstrap/dist/css/bootstrap.css';
+@i, Import 'bootstrap/dist/css/bootstrap.css';
 
 /*
 Try and keep global SCSS and CSS to a minimum and mainly to global variables.  This prevents components from breaking when used in other projects
@@ -52,6 +52,7 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: var(--nav-padding-top, 61px); /* Account for fixed navbar */
 }
 
 .card-header {
@@ -200,3 +201,4 @@ th {
 * {
   print-color-adjust: exact;
 }
+
