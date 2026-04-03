@@ -15,7 +15,20 @@ function NavTop() {
 
         // Update selected state based on current route
         const updateSelected = () => {
-            if (location.pathname.includes('monster')) {
+            if (location.pathname.includes('monsters/lore') || 
+                location.pathname.includes('monsters/encounters') || 
+                location.pathname.includes('monsters/search')) {
+                // We're on a submenu page, clear selection to collapse menu
+                setSelected('');
+            } else if (location.pathname.includes('rules/general') || 
+                       location.pathname.includes('rules/ability-scores') || 
+                       location.pathname.includes('rules/classes') || 
+                       location.pathname.includes('rules/conditions') || 
+                       location.pathname.includes('rules/feats') || 
+                       location.pathname.includes('rules/races')) {
+                // We're on a submenu page, clear selection to collapse menu
+                setSelected('');
+            } else if (location.pathname.includes('monsters')) {
                 setSelected('monsters');
             } else if (location.pathname.includes('rules')) {
                 setSelected('rules');
@@ -99,7 +112,7 @@ function NavTop() {
                         >
                             <li>
                                 <NavLink 
-                                    to="/monster/encounters" 
+                                    to="/monsters/encounters" 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
@@ -108,7 +121,7 @@ function NavTop() {
                             </li>
                             <li>
                                 <NavLink 
-                                    to="/monster/lore" 
+                                    to="/monsters/lore" 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
@@ -117,7 +130,7 @@ function NavTop() {
                             </li>
                             <li>
                                 <NavLink 
-                                    to="/monster/search" 
+                                    to="/monsters/search" 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
