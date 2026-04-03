@@ -79,7 +79,7 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
         // localStorage.setItem('magicItemsFilter', JSON.stringify(this.filter));
     }
 
-    saveBookmark() {
+    saveBookmark(event?: any) {
         let magicItemsBookmarked: string[] = [];
         this.magicItems.forEach(magicItem => {
             if (magicItem.bookmarked == true) {
@@ -119,3 +119,4 @@ export class MagicItemsComponent implements OnInit, OnDestroy {
     }
 
 }
+

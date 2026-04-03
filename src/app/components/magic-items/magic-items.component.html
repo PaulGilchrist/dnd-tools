@@ -42,7 +42,8 @@
 @for (magicItem of magicItems; track magicItem) {
   <div class="list" [id]="magicItem.index">
     @if (showMagicItem(magicItem)) {
-      <magic-item [magicItem]="magicItem" (bookmarkChanged)="saveBookmark()" [expand]="shownCard==magicItem.index" (expanded)="expandCard(magicItem.index, $event)"></magic-item>
+      <magic-item-js [magicItem]="magicItem" (bookmarkChanged)="saveBookmark($event)" [expand]="shownCard==magicItem.index" (expanded)="expandCard(magicItem.index, $any($event).detail.expanded)"></magic-item-js>
     }
   </div>
 }
+

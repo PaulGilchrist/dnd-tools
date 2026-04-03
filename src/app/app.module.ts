@@ -16,7 +16,7 @@ import { EquipmentItemsComponent } from './components/equipment-items/equipment-
 import { FeatComponent } from './components/rules/feat/feat.component';
 import { FeatsComponent } from './components/rules/feats/feats.component';
 import { LocationsComponent } from './components/locations/locations.component';
-import { MagicItemComponent } from './components/magic-item/magic-item.component';
+// import { MagicItemComponent } from './components/magic-item/magic-item.component'; // Removed - replaced with plain JS component <magic-item-js>
 import { MagicItemsComponent } from './components/magic-items/magic-items.component';
 import { MonsterComponent } from './components/monsters/monster/monster.component';
 import { MonsterLoreComponent } from './components/monsters/monster-lore/monster-lore.component';
@@ -48,7 +48,7 @@ import { DataService } from './services/data.service';
         GeneralRuleComponent,
         GeneralRulesComponent,
         LocationsComponent,
-        MagicItemComponent,
+        // MagicItemComponent, // Removed - replaced with plain JS component <magic-item-js>
         MagicItemsComponent,
         MonsterComponent,
         MonsterLoreComponent,
@@ -65,5 +65,6 @@ import { DataService } from './services/data.service';
         BrowserModule,
         FormsModule], providers: [DataService, provideHttpClient(withInterceptorsFromDi())], schemas: [CUSTOM_ELEMENTS_SCHEMA] })
 export class AppModule { }
+
 
 
