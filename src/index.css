@@ -1,111 +1,202 @@
+@import 'bootstrap/dist/css/bootstrap.css';
+
+/*
+Try and keep global SCSS and CSS to a minimum and mainly to global variables.  This prevents components from breaking when used in other projects
+*/
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    --nav-padding-top: 61px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+    --background-color-main: #000;
+    --color-main: #ddd;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --background-color-body: #111;
+    --color-body: #eee;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+    --background-color-header: #232;
+    --color-header: lightgreen;
+
+    --background-color-header-inner: #202320;
+    --color-header-inner: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+b {
+    color: var(--color-header);
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+.btn-outline-primary {
+    border-color: var(--color-body);
+    color: var(--color-body);
+}
+
+.btn-outline-primary.active {
+    background-color: var(--color-body);
+    border-color: var(--background-color-body);
+    color: var(--background-color-body);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-body);
+    border-color: var(--background-color-body);
+    color: var(--background-color-body);
 }
 
 body {
-  margin: 0;
+    background-color: var(--background-color-main);
+    color: var(--color-main);
+    color-scheme: light dark;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-synthesis: none;
+    font-weight: 400;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+.card-header {
+    background-color: var(--background-color-header);
+    color: var(--color-header);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+.card-body {
+    background-color: var(--background-color-body);
+    color: var(--color-body);
+}
+
+.card-title {
+    color: var(--color-header);
+}
+
+.col-form-label {
+    color: var(--color-header);
+    font-weight: 600;
+}
+
+.inner>.card-header {
+    background-color: var(--background-color-header-inner);
+    color: var(--color-body);
+    padding: 0 10px;
+}
+
+.inner>.card-header:hover {
+    background-color: var(--background-color-header);
+    color: var(--color-header);
+}
+
+.active.inner>.card-header {
+    background-color: var(--background-color-header);
+    color: var(--color-header);
+}
+
+.form-control {
+    background-color: var(--background-color-body);
+    color: var(--color-body);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+    color: var(--color-header);
+    font-size: 2.5em;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+    color: var(--color-header);
+    font-size: 2.0em;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+h3 {
+    color: var(--color-header);
+    font-size: 1.75em;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+h4 {
+    color: var(--color-header);
+    font-size: 1.5em;
+}
+
+h5 {
+    color: var(--color-header);
+    font-size: 1.25em;
+}
+
+h6 {
+    color: var(--color-header);
+    font-size: 1.0em;
+}
+
+tbody {
+    background-color: var(--background-color-body);
+    color: var(--color-body);
+}
+
+thead {
+    background-color: var(--background-color-header);
+    color: var(--color-header);
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: var(--background-color-header-inner);
+    color: var(--color-header-inner);
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: var(--background-color-main);
+    color: var(--color-main);
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+    border-color: #888;
+    border-style: solid;
+    border-width: 0;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.w-45 {
+    width: 45% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.w-70 {
+    width: 70% !important;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color-main: #fff;
+        --color-main: #333;
+        --background-color-header: #bbb;
+        --color-header: #070;
+        --background-color-body: #eee;
+        --color-body: #000;
+        --background-color-header-inner: #ddd;
+        --color-header-inner: #070;
+    }
+}
+
+/* Fix Bootstrap color-adjust deprecation warning */
+* {
+  print-color-adjust: exact;
 }

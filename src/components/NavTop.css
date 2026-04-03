@@ -1,0 +1,19 @@
+.navbar .navbar-brand {
+    color: var(--color-header) !important;
+    font-weight: 900 !important;
+}
+
+.navbar-brand:hover {
+    color: var(--color-header) !important;
+}
+
+.active > .nav-link {
+    background-color: var(--background-color-inverse);
+    border-radius: 5px;
+    color: var(--color-header) !important;
+}
+
+/* Custom dropdown handling for React */
+.dropdown-menu.show {
+    display: block;
+}
