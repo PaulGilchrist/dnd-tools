@@ -1,0 +1,28 @@
+/* MagicItems.css */
+
+.filter-form {
+    margin-bottom: 20px;
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.list .card {
+    margin-bottom: 15px;
+}
+
+.card-header.clickable {
+    cursor: pointer;
+}
+
+.card-header.clickable:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-form label {
+        margin-top: 10px;
+    }
+}
