@@ -1,17 +1,19 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NavTop from './components/NavTop'
 import EquipmentItems from './components/EquipmentItems'
+import Locations from './components/Locations'
 import './App.css'
 
 function App() {
   return (
     <Router>
       <NavTop />
-      <Routes>
+      <div className="main-content">
         {/* Redirect root to spells, matching Angular routing */}
+        <Routes>
         <Route path="/" element={<Navigate to="/spells" replace />} />
         <Route path="/equipment-items" element={<EquipmentItems />} />
-        <Route path="/locations" element={<div>Locations Component</div>} />
+        <Route path="/locations" element={<Locations />} />
         <Route path="/magic-items" element={<div>Magic Items Component</div>} />
         <Route path="/monster/encounters" element={<div>Encounters Component</div>} />
         <Route path="/monster/lore" element={<div>Monster Lore Component</div>} />
@@ -25,8 +27,10 @@ function App() {
         <Route path="/rules/races" element={<div>Races Component</div>} />
         <Route path="/spells" element={<div>Spells Component</div>} />
       </Routes>
+      </div>
     </Router>
   )
 }
 
 export default App
+

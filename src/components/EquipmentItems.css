@@ -10,7 +10,6 @@
 .list {
   max-width: 1000px;
   margin: auto;
-    padding-top: var(--nav-padding-top, 61px); /* Bootstrap default navbar height */
 }
 
 .weapon-property-description {
@@ -43,4 +42,3 @@
 .removeExtraLine {
     margin-bottom: -20px;
 }
-

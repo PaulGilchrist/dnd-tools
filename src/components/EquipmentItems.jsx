@@ -96,8 +96,8 @@ function EquipmentItems() {
         return wp ? wp.desc : '';
     };
 
-    const filterChanged = () => {
-        localStorage.setItem('equipmentItemsFilter', JSON.stringify(filter));
+    const filterChanged = (newFilter) => {
+        localStorage.setItem('equipmentItemsFilter', JSON.stringify(newFilter));
     };
 
     const saveBookmark = () => {
@@ -186,7 +186,7 @@ function EquipmentItems() {
                         onChange={(e) => {
                             const newFilter = { ...filter, name: e.target.value };
                             setFilter(newFilter);
-                            filterChanged();
+                            filterChanged(newFilter);
                         }}
                         pattern="[A-Za-z ]+" 
                         maxLength="50"
@@ -207,7 +207,7 @@ function EquipmentItems() {
                     onChange={(e) => {
                         const newFilter = { ...filter, category: e.target.value };
                         setFilter(newFilter);
-                        filterChanged();
+                        filterChanged(newFilter);
                     }}
                 >
                     <option>All</option>
@@ -230,7 +230,7 @@ function EquipmentItems() {
                             onChange={(e) => {
                                 const newFilter = { ...filter, range: e.target.value };
                                 setFilter(newFilter);
-                                filterChanged();
+                                filterChanged(newFilter);
                             }}
                         >
                             <option>All</option>
@@ -251,7 +251,7 @@ function EquipmentItems() {
                             onChange={(e) => {
                                 const newFilter = { ...filter, property: e.target.value };
                                 setFilter(newFilter);
-                                filterChanged();
+                                filterChanged(newFilter);
                             }}
                         >
                             <option>All</option>
@@ -278,10 +278,10 @@ function EquipmentItems() {
                     onChange={(e) => {
                         const newFilter = { ...filter, bookmarked: e.target.value };
                         setFilter(newFilter);
-                        filterChanged();
+                        filterChanged(newFilter);
                     }}
                 >
-                    <option>All</option>
+                    <option selected>All</option>
                     <option>Bookmarked</option>
                 </select>
             </form>

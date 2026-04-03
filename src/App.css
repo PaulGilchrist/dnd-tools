@@ -1,3 +1,18 @@
+/* Main content container - applies consistent padding to all pages */
+.main-content {
+  padding: 10px;
+}
+
+/* Main app container */
+.app-container {
+  padding: 20px;
+}
+
+/* Override any default Bootstrap or framework spacing */
+.list {
+  margin-top: 0;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -182,3 +197,6 @@
     border-right-color: var(--border);
   }
 }
+
+
+
