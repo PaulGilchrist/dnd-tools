@@ -34,11 +34,13 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
                 <span className="card-title">
                     {abilityScore.full_name}
                 </span>
-                {skills && (
-                    <span className="align-center">
-                        &nbsp;- {skills}
-                    </span>
-                )}
+                <div className="skills-column">
+                    {skills && (
+                        <span>
+                            &nbsp;- {skills}
+                        </span>
+                    )}
+                </div>
             </div>
             {isExpanded && (
                 <div className="card-body">
@@ -53,3 +55,4 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
 }
 
 export default AbilityScore;
+

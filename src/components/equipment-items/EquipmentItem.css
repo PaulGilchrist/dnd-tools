@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-.card-header {
+.card .card-header.clickable {
     align-content: center;
     display: grid;
     grid-template-columns: auto 110px;
