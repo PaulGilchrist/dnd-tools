@@ -8,16 +8,11 @@ import MonsterSearch from './components/monsters/MonsterSearch'
 import MonsterLore from './components/monsters/MonsterLore'
 import Names from './components/Names'
 import Rules from './components/rules/Rules'
-import RulesItem from './components/rules/RulesItem'
 import AbilityScores from './components/rules/AbilityScores'
-// import GeneralRules from './components/rules/general-rules/GeneralRules'
 import PlayerClasses from './components/rules/player-classes/PlayerClasses'
 import Conditions from './components/rules/Conditions'
-import ConditionItem from './components/rules/ConditionItem'
-import AbilityScore from './components/rules/AbilityScore'
-import MagicItem from './components/magic-items/MagicItem'
-import Monster from './components/monsters/Monster'
 import Feats from './components/rules/Feats'
+import Races from './components/rules/Races'
 import './App.css'
 
 function App() {
@@ -40,7 +35,7 @@ function App() {
         <Route path="/rules/classes" element={<PlayerClasses />} />
         <Route path="/rules/conditions" element={<Conditions />} />
         <Route path="/rules/feats" element={<Feats />} />
-        <Route path="/rules/races" element={<div>Races Component</div>} />
+        <Route path="/rules/races" element={<Races />} />
         <Route path="/spells" element={<div>Spells Component</div>} />
       </Routes>
       </div>
