@@ -17,6 +17,7 @@ import ConditionItem from './components/rules/ConditionItem'
 import AbilityScore from './components/rules/AbilityScore'
 import MagicItem from './components/magic-items/MagicItem'
 import Monster from './components/monsters/Monster'
+import Feats from './components/rules/Feats'
 import './App.css'
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
         <Route path="/rules/ability-scores" element={<AbilityScores />} />
         <Route path="/rules/classes" element={<PlayerClasses />} />
         <Route path="/rules/conditions" element={<Conditions />} />
-        <Route path="/rules/feats" element={<div>Feats Component</div>} />
+        <Route path="/rules/feats" element={<Feats />} />
         <Route path="/rules/races" element={<div>Races Component</div>} />
         <Route path="/spells" element={<div>Spells Component</div>} />
       </Routes>

@@ -1,0 +1,55 @@
+import { useState, useEffect } from 'react';
+import './Feat.css';
+
+function Feat({ feat, expand, onExpand }) {
+    const [isExpanded, setIsExpanded] = useState(expand);
+
+    // Update local state when prop changes
+    useEffect(() => {
+        if (expand !== isExpanded) {
+            setIsExpanded(expand);
+        }
+    }, [expand]);
+
+    const toggleDetails = () => {
+        setIsExpanded(!isExpanded);
+        onExpand(!isExpanded);
+    };
+
+    if (!feat) {
+        return null;
+    }
+
+    return (
+        <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={feat.index}>
+            <div className="card-header clickable" onClick={toggleDetails}>
+                <div className="card-title">{feat.name}</div>
+            </div>
+            {isExpanded && (
+                <div className="card-body">
+                    <div className="card-text removeExtraLine">
+                        {feat.prerequisite && (
+                            <div>
+                                <b>Prerequisite</b>: {feat.prerequisite}<br /><br />
+                            </div>
+                        )}
+                        {feat.desc && feat.desc.map((desc, index) => (
+                            <span key={index}>
+                                {desc}<br /><br />
+                            </span>
+                        ))}
+                        {feat.benefits && feat.benefits.length > 0 && (
+                            <ul>
+                                {feat.benefits.map((benefit, index) => (
+                                    <li key={index}>{benefit}</li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default Feat;
