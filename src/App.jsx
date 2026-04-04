@@ -9,7 +9,7 @@ import MonsterLore from './components/MonsterLore'
 import Names from './components/Names'
 import Rules from './components/Rules'
 import RulesItem from './components/RulesItem'
-import GeneralRules from './components/rules/general-rules/GeneralRules'
+// import GeneralRules from './components/rules/general-rules/GeneralRules'
 import './App.css'
 
 function App() {
