@@ -1,22 +1,7 @@
-.card {
-    margin-top: 5px;
-    width: 100%;
-}
-
-.inner>.card-body {
-    padding: 8px;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.outer>.card-body {
-    padding: 8px;
-}
-
 .card-header {
     align-content: center;
     display: grid;
-    grid-template-columns: auto 110px;
+    grid-template-columns: 1fr auto;
 }
 
 .inner>.card-header {    
@@ -56,4 +41,3 @@
 .inner>.card {
     width: 100%;
 }
-
