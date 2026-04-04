@@ -1,0 +1,52 @@
+import { useEffect } from 'react';
+
+// Javascript utilities (matching Angular)
+const utils = {
+    scrollIntoView: function(index, offset = 0) {
+        const element = document.getElementById(index);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+};
+
+function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
+    useEffect(() => {
+        if (shownLevel === 0) {
+            utils.scrollIntoView(0);
+        }
+    }, [shownLevel]);
+
+    if (!features || features.length === 0) return null;
+
+    return (
+        <div className="card inner w-100">
+            <div className="card-header clickable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <div className="card-title">Features</div>
+            </div>
+            <div className="card-body removeExtraLine" style={{ display: shownLevel !== 0 ? 'none' : 'block' }}>
+                {features.map((feature, index) => (
+                    <div key={index} className="removeExtraLine">
+                        <b>{feature.name}:</b>&nbsp;
+                        {feature.desc && feature.desc.map((desc, descIndex) => (
+                            <span key={descIndex}>
+                                {desc}<br />
+                            </span>
+                        ))}
+
+                        {feature.prerequisites && feature.prerequisites.length > 0 && (
+                            <div>
+                                <b>Prerequisites:</b>&nbsp;{getPrerequisites(feature.prerequisites)}<br />
+                                <br />
+                            </div>
+                        )}
+
+                        <br />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default PlayerClassFeatures;

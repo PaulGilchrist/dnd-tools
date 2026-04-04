@@ -1,0 +1,82 @@
+.level-group {
+    width: 370px;
+}
+
+.btn-level {
+    padding: 3px;
+    width: 37px;
+}
+
+.subclass-group {
+    padding-top: 10px;
+    width: 370px;
+}
+
+.btn-subclass {
+    padding: 3px;
+    width: 185px;
+}
+
+.card {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 100%;
+}
+
+.inner > .card-body {
+    padding: 8px;
+}
+
+.outer > .card-body {
+    padding: 4px;
+}
+
+.card-header {
+    align-content: center;
+    display: grid;
+    grid-template-columns: auto 110px;
+}
+
+.inner > .card-header {
+    padding: 0px 10px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.component {
+    margin-left: 5px;
+    margin-right: -5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.removeExtraLine {
+    margin-bottom: -20px;
+}
+
+.feature {
+    margin-bottom: 26px;
+}
+
+.feature-desc {
+    padding-left: 10px;
+}
+
+.margin-bottom-small {
+    margin-bottom: 6px;
+}
+
+.spell-list {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.subtext {
+    padding: 6px 20px;
+}

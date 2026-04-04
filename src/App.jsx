@@ -11,6 +11,7 @@ import Rules from './components/Rules'
 import RulesItem from './components/RulesItem'
 import AbilityScores from './components/AbilityScores'
 // import GeneralRules from './components/rules/general-rules/GeneralRules'
+import PlayerClasses from './components/rules/player-classes/PlayerClasses'
 import './App.css'
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <Route path="/names" element={<Names />} />
         <Route path="/rules/general" element={<Rules />} />
         <Route path="/rules/ability-scores" element={<AbilityScores />} />
-        <Route path="/rules/classes" element={<div>Player Classes Component</div>} />
+        <Route path="/rules/classes" element={<PlayerClasses />} />
         <Route path="/rules/conditions" element={<div>Conditions Component</div>} />
         <Route path="/rules/feats" element={<div>Feats Component</div>} />
         <Route path="/rules/races" element={<div>Races Component</div>} />
@@ -42,4 +43,3 @@ function App() {
 }
 
 export default App
-
