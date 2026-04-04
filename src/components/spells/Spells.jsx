@@ -3,6 +3,8 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { useSpells } from '../../data/dataService';
 import Spell from './Spell';
 import SpellFilter from './SpellFilter';
+import { useSpellFilter } from '../../hooks/useSpellFilter';
+import { useSpellPersistence } from '../../hooks/useSpellPersistence';
 import './Spells.css';
 
 // Javascript utilities (matching Angular)
@@ -32,6 +34,9 @@ function Spells() {
     // Fetch data
     const { data: spellsData, loading: spellsLoading } = useSpells();
 
+    // Use extracted hooks
+    const { knownSpells, preparedSpells } = useSpellPersistence();
+
     useEffect(() => {
         if (spellsData && spellsData.length > 0) {
             setSpells(spellsData);
@@ -55,19 +60,6 @@ function Spells() {
                 }
             }
 
-            // Set known and prepared spells from localStorage
-            let knownSpellsJson = localStorage.getItem('spellsKnown');
-            let knownSpells = [];
-            if (knownSpellsJson != null) {
-                knownSpells = JSON.parse(knownSpellsJson);
-            }
-
-            let preparedSpellsJson = localStorage.getItem('spellsPrepared');
-            let preparedSpells = [];
-            if (preparedSpellsJson != null) {
-                preparedSpells = JSON.parse(preparedSpellsJson);
-            }
-
             // Update spells with known and prepared status
             const updatedSpells = spellsData.map(spell => ({
                 ...spell,
@@ -76,7 +68,8 @@ function Spells() {
             }));
             setSpells(updatedSpells);
         }
-    }, [spellsData]);
+    }, [spellsData, knownSpells, preparedSpells]);
+
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -98,65 +91,6 @@ function Spells() {
         localStorage.setItem('spellFilter', JSON.stringify(newFilter));
     };
 
-    const saveKnown = () => {
-        let spellsKnown = [];
-        spells.forEach(spell => {
-            if (spell.known === true) {
-                spellsKnown.push(spell.index);
-            }
-        });
-        localStorage.setItem('spellsKnown', JSON.stringify(spellsKnown));
-    };
-
-    const savePrepared = () => {
-        let spellsPrepared = [];
-        spells.forEach(spell => {
-            if (spell.prepared === true) {
-                spellsPrepared.push(spell.index);
-            }
-        });
-        localStorage.setItem('spellsPrepared', JSON.stringify(spellsPrepared));
-    };
-
-    const showSpell = (spell) => {
-        // Casting Time filter
-        if (filter.castingTime !== 'All' && (
-            (filter.castingTime === 'Action' && !(spell.casting_time === '1 action')) ||
-            (filter.castingTime === 'Bonus Action' && !(spell.casting_time === '1 bonus action')) ||
-            (filter.castingTime === 'Non-Ritual, Long Cast Time' && 
-                !(spell.ritual || spell.casting_time === '1 action' || spell.casting_time === '1 bonus action' || spell.casting_time === '1 reaction')) ||
-            (filter.castingTime === 'Reaction' && !(spell.casting_time === '1 reaction')) ||
-            (filter.castingTime === 'Ritual' && !spell.ritual)
-        )) {
-            return false;
-        }
-
-        // Class filter
-        if (filter.class !== 'All' && !spell.classes.some(c => c === filter.class)) {
-            return false;
-        }
-
-        // Level filter
-        if (spell.level < filter.levelMin || spell.level > filter.levelMax) {
-            return false;
-        }
-
-        // Name filter
-        if (filter.name !== '' && !spell.name.toLowerCase().includes(filter.name.toLowerCase())) {
-            return false;
-        }
-
-        // Status filter
-        if (filter.status !== 'All' && (
-            (filter.status === 'Known' && !spell.known) ||
-            (filter.status === 'Prepared or Known Ritual' && (!spell.known || (!spell.prepared && !spell.ritual)))
-        )) {
-            return false;
-        }
-
-        return true;
-    };
-
     const handleKnownChange = (index, isKnown) => {
         // Update local state immediately so UI reflects the change
         setSpells(prevSpells => 
@@ -165,29 +99,17 @@ function Spells() {
             )
         );
 
-        // Save to localStorage - get current known spells from state
-        const spellsKnown = spells
-            .filter(spell => spell.known)
-            .map(spell => spell.index);
-
+        // Save to localStorage using the knownSpells from hook
         if (isKnown) {
-            // Add to known list
-            spellsKnown.push(index);
+            localStorage.setItem('spellsKnown', JSON.stringify([...knownSpells, index]));
         } else {
-            // Remove from known list
-            const filtered = spellsKnown.filter(i => i !== index);
-            localStorage.setItem('spellsKnown', JSON.stringify(filtered));
-        }
-
-        if (isKnown) {
-            localStorage.setItem('spellsKnown', JSON.stringify(spellsKnown));
+            localStorage.setItem('spellsKnown', JSON.stringify(knownSpells.filter(i => i !== index)));
         }
 
         // Also save prepared if needed
         const updatedSpell = spells.find(s => s.index === index);
         if (updatedSpell && !isKnown && updatedSpell.prepared) {
             updatedSpell.prepared = false;
-            savePrepared();
         }
     };
 
@@ -199,29 +121,18 @@ function Spells() {
             )
         );
 
-        // Save to localStorage - get current prepared spells from state
-        const spellsPrepared = spells
-            .filter(spell => spell.prepared)
-            .map(spell => spell.index);
-
+        // Save to localStorage using the preparedSpells from hook
         if (isPrepared) {
-            // Add to prepared list
-            spellsPrepared.push(index);
+            localStorage.setItem('spellsPrepared', JSON.stringify([...preparedSpells, index]));
         } else {
-            // Remove from prepared list
-            const filtered = spellsPrepared.filter(i => i !== index);
-            localStorage.setItem('spellsPrepared', JSON.stringify(filtered));
-        }
-
-        if (isPrepared) {
-            localStorage.setItem('spellsPrepared', JSON.stringify(spellsPrepared));
+            localStorage.setItem('spellsPrepared', JSON.stringify(preparedSpells.filter(i => i !== index)));
         }
 
         // If not prepared, ensure it's known
         const updatedSpell = spells.find(s => s.index === index);
         if (updatedSpell && isPrepared && !updatedSpell.known) {
             updatedSpell.known = true;
-            handleKnownChange(index, true);
+            localStorage.setItem('spellsKnown', JSON.stringify([...knownSpells, index]));
         }
     };
 
@@ -229,7 +140,7 @@ function Spells() {
         return <div className="list"><div>Loading spells...</div></div>;
     }
 
-    const filteredSpells = spells.filter(showSpell);
+    const filteredSpells = spells.filter((spell) => useSpellFilter(filter, spell));
 
     return (
         <>
@@ -239,7 +150,7 @@ function Spells() {
             <div className="list">
                 {filteredSpells.map((spell) => (
                     <div key={spell.index} id={spell.index}>
-                        {showSpell(spell) && (
+                        {useSpellFilter(filter, spell) && (
                             <Spell 
                                 spell={spell}
                                 expand={shownCard === spell.index}
