@@ -7,6 +7,7 @@ import Encounters from './components/Encounters'
 import MonsterSearch from './components/MonsterSearch'
 import MonsterLore from './components/MonsterLore'
 import Names from './components/Names'
+import GeneralRules from './components/rules/general-rules/GeneralRules'
 import './App.css'
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         <Route path="/monsters/lore" element={<MonsterLore />} />
         <Route path="/monsters/search" element={<MonsterSearch />} />
         <Route path="/names" element={<Names />} />
-        <Route path="/rules/general" element={<div>General Rules Component</div>} />
+        <Route path="/rules/general" element={<GeneralRules />} />
         <Route path="/rules/ability-scores" element={<div>Ability Scores Component</div>} />
         <Route path="/rules/classes" element={<div>Player Classes Component</div>} />
         <Route path="/rules/conditions" element={<div>Conditions Component</div>} />
@@ -38,5 +39,4 @@ function App() {
 }
 
 export default App
-
 
