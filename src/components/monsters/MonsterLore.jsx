@@ -1,18 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useMonsters, useMonsterSubtypes } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import Monster from './Monster';
 import './MonsterLore.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function MonsterLore() {
     const [monsters, setMonsters] = useState([]);
@@ -35,7 +26,7 @@ function MonsterLore() {
                 const monsterSubtype = monsterSubtypesData.find(subtype => subtype.index === index);
                 if (monsterSubtype) {
                     showSubtype(index, false);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
@@ -55,7 +46,7 @@ function MonsterLore() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }
@@ -70,7 +61,7 @@ function MonsterLore() {
             }
         } else {
             setShownSubtype(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
             if (updateUrl) {
                 setSearchParams({ index });
             }

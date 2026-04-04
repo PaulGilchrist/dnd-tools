@@ -1,18 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { usePlayerClasses } from '../../../data/dataService';
+import { scrollIntoView } from '../../../data/utils';
 import PlayerClass from './PlayerClass';
 import './PlayerClasses.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index, offset = 0) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function PlayerClasses() {
     const [playerClasses, setPlayerClasses] = useState([]);
@@ -33,7 +24,7 @@ function PlayerClasses() {
                 const playerClass = playerClassesData.find(item => item.index === index);
                 if (playerClass) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             }
         }
@@ -42,7 +33,7 @@ function PlayerClasses() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

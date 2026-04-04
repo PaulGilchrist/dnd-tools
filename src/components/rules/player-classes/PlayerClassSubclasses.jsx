@@ -1,19 +1,10 @@
 import { useEffect } from 'react';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index, offset = 0) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
+import { scrollIntoView } from '../../../data/utils';
 
 function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowSubclass, getSpells, classFeatures, subclassFeatures }) {
     useEffect(() => {
         if (shownSubclass) {
-            utils.scrollIntoView(shownSubclass, 120);
+            scrollIntoView(shownSubclass);
         }
     }, [shownSubclass]);
 

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { scrollIntoView } from '../../../data/utils';
 import './PlayerClass.css';
 import LevelSelector from './LevelSelector';
 import AbilityScoreBonuses from './AbilityScoreBonuses';
@@ -17,20 +18,10 @@ import WarlockStats from './WarlockStats';
 import WizardStats from './WizardStats';
 import SpellcastingInfo from './SpellcastingInfo';
 
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index, offset = 0) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
-
 function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
     useEffect(() => {
         if (shownLevel > 0) {
-            utils.scrollIntoView(shownLevel, 120);
+            scrollIntoView(shownLevel);
         }
     }, [shownLevel]);
 

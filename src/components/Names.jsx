@@ -4,16 +4,6 @@ import './Names.css';
 import NameFilterForm from './NameFilterForm';
 import NameListTable from './NameListTable';
 
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
-
 function Names() {
     const [names, setNames] = useState([]);
     const [namesUsed, setNamesUsed] = useState([]);

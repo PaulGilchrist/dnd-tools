@@ -1,17 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useAbilityScores } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import AbilityScore from './AbilityScore';
 import './AbilityScores.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function AbilityScores() {
     const [abilityScores, setAbilityScores] = useState([]);
@@ -29,7 +20,7 @@ function AbilityScores() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

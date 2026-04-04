@@ -1,17 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useRaces } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import RaceItem from './RaceItem';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function Races() {
     const [races, setRaces] = useState([]);
@@ -33,7 +24,7 @@ function Races() {
                 const race = racesData.find(race => race.index === index);
                 if (race) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
@@ -50,7 +41,7 @@ function Races() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

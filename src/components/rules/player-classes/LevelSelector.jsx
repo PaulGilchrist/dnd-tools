@@ -1,20 +1,11 @@
 import { useEffect } from 'react';
+import { scrollIntoView } from '../../../data/utils';
 import './PlayerClass.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index, offset = 0) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function LevelSelector({ playerClass, shownLevel, onShowLevel }) {
     useEffect(() => {
         if (shownLevel > 0) {
-            utils.scrollIntoView(shownLevel, 120);
+            scrollIntoView(shownLevel);
         }
     }, [shownLevel]);
 

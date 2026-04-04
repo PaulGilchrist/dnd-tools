@@ -1,20 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useLocations } from '../data/dataService';
+import { scrollIntoView } from '../data/utils';
 import './Locations.css';
 
 // Import all location images dynamically
 const locationImages = import.meta.glob('../assets/locations/*.jpg', { eager: true });
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function Locations() {
     const [locations, setLocations] = useState([]);
@@ -35,7 +26,7 @@ function Locations() {
                 const location = locationsData.find(loc => loc.index === index);
                 if (location) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             }
         }
@@ -48,7 +39,7 @@ function Locations() {
         } else {
             // Open the card
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         }
 
         // Update URL query params using setSearchParams
@@ -132,3 +123,4 @@ function Locations() {
 }
 
 export default Locations;
+

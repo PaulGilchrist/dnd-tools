@@ -7,15 +7,7 @@ import { useSpellFilter } from '../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../hooks/useSpellPersistence';
 import './Spells.css';
 
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
+import { scrollIntoView } from '../../data/utils';
 
 function Spells() {
     const [spells, setSpells] = useState([]);
@@ -48,7 +40,7 @@ function Spells() {
                 const spell = spellsData.find(spell => spell.index === index);
                 if (spell) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             } else {
                 // Set search filters from localStorage
@@ -74,7 +66,7 @@ function Spells() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

@@ -1,17 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useConditions } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import ConditionItem from './ConditionItem';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function Conditions() {
     const [conditions, setConditions] = useState([]);
@@ -33,7 +24,7 @@ function Conditions() {
                 const condition = conditionsData.find(condition => condition.index === index);
                 if (condition) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             } else {
                 // No filter needed for conditions - just display all
@@ -44,7 +35,7 @@ function Conditions() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

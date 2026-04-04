@@ -1,16 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useRules } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import RulesItem from './RulesItem';
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function GeneralRules() {
     const [rules, setRules] = useState([]);
@@ -32,7 +24,7 @@ function GeneralRules() {
                 const rule = rulesData.find(rule => rule.index === index);
                 if (rule) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
@@ -49,7 +41,7 @@ function GeneralRules() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

@@ -1,15 +1,6 @@
 import { useState } from 'react';
+import { scrollIntoView } from '../../data/utils';
 import './RulesItem.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function RulesItem({ rule, expand = false, onExpand }) {
     const [shownSubsection, setShownSubsection] = useState('');
@@ -19,7 +10,7 @@ function RulesItem({ rule, expand = false, onExpand }) {
             setShownSubsection('');
         } else {
             setShownSubsection(subsection);
-            utils.scrollIntoView(subsection);
+            scrollIntoView(subsection);
         }
     };
 

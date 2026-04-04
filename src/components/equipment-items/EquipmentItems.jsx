@@ -1,18 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useEquipment, useWeaponProperties } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import EquipmentItem from './EquipmentItem';
 import './EquipmentItems.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function EquipmentItems() {
     const [equipmentItems, setEquipmentItems] = useState([]);
@@ -43,7 +34,7 @@ function EquipmentItems() {
                 const equipmentItem = equipmentData.find(item => item.index === index);
                 if (equipmentItem) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             } else {
                 // Set search filters from localStorage
@@ -78,7 +69,7 @@ function EquipmentItems() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

@@ -1,18 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useMagicItems } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import MagicItem from './MagicItem';
 import './MagicItems.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function MagicItems() {
     const [magicItems, setMagicItems] = useState([]);
@@ -51,7 +42,7 @@ function MagicItems() {
                 const magicItem = magicItemsData.find(item => item.index === index);
                 if (magicItem) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             }
 
@@ -78,7 +69,7 @@ function MagicItems() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }

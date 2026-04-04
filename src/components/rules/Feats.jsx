@@ -1,18 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useFeats } from '../../data/dataService';
+import { scrollIntoView } from '../../data/utils';
 import Feat from './Feat';
 import './Feats.css';
-
-// Javascript utilities (matching Angular)
-const utils = {
-    scrollIntoView: function(index) {
-        const element = document.getElementById(index);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }
-};
 
 function Feats() {
     const [shownCard, setShownCard] = useState('');
@@ -29,7 +20,7 @@ function Feats() {
                 const feat = featsData.find(item => item.index === index);
                 if (feat) {
                     setShownCard(index);
-                    utils.scrollIntoView(index);
+                    scrollIntoView(index);
                 }
             }
         }
@@ -38,7 +29,7 @@ function Feats() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            utils.scrollIntoView(index);
+            scrollIntoView(index);
         } else {
             setShownCard('');
         }
