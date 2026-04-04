@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useMagicItems } from '../data/dataService';
+import { useMagicItems } from '../../data/dataService';
 import MagicItem from './MagicItem';
 import './MagicItems.css';
 

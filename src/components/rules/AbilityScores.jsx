@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAbilityScores } from '../data/dataService';
+import { useAbilityScores } from '../../data/dataService';
 import AbilityScore from './AbilityScore';
 
 // Javascript utilities (matching Angular)

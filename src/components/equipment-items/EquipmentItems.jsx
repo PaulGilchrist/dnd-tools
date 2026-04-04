@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useEquipment, useWeaponProperties } from '../data/dataService';
+import { useEquipment, useWeaponProperties } from '../../data/dataService';
 import EquipmentItem from './EquipmentItem';
 import './EquipmentItems.css';
 

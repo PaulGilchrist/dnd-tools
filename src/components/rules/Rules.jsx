@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useRules } from '../data/dataService';
+import { useRules } from '../../data/dataService';
 import RulesItem from './RulesItem';
 // Javascript utilities (matching Angular)
 const utils = {

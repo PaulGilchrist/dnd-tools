@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useMonsters } from '../data/dataService';
+import { useMonsters } from '../../data/dataService';
 import Monster from './Monster';
 
 // Javascript utilities (matching Angular)

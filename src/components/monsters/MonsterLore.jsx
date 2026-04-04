@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useMonsters, useMonsterSubtypes } from '../data/dataService';
+import { useMonsters, useMonsterSubtypes } from '../../data/dataService';
 import Monster from './Monster';
 import './MonsterLore.css';
 
