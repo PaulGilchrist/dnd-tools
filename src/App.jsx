@@ -13,6 +13,7 @@ import PlayerClasses from './components/rules/player-classes/PlayerClasses'
 import Conditions from './components/rules/Conditions'
 import Feats from './components/rules/Feats'
 import Races from './components/rules/Races'
+import Spells from './components/spells/Spells'
 import './App.css'
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
         <Route path="/rules/conditions" element={<Conditions />} />
         <Route path="/rules/feats" element={<Feats />} />
         <Route path="/rules/races" element={<Races />} />
-        <Route path="/spells" element={<div>Spells Component</div>} />
+        <Route path="/spells" element={<Spells />} />
       </Routes>
       </div>
     </Router>
@@ -44,4 +45,3 @@ function App() {
 }
 
 export default App
-
