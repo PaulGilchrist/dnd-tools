@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNames } from '../data/dataService';
 import './Names.css';
+import NameFilterForm from './NameFilterForm';
+import NameListTable from './NameListTable';
 
 // Javascript utilities (matching Angular)
 const utils = {
@@ -171,170 +173,12 @@ function Names() {
         return <div className="list"><div>Loading names...</div></div>;
     }
 
-    const renderFirstTable = () => (
-        <table className="table table-condensed table-striped table-hover">
-            <thead>
-                <tr>
-                    <th className="col-form-label">
-                        {filter.type === 'race' ? (
-                            <span>First Names</span>
-                        ) : (
-                            <span>First Part</span>
-                        )}
-                    </th>
-                    <th className="col-form-label">Used</th>
-                </tr>
-            </thead>
-            <tbody>
-                {shownNames.firstNames.map(name => (
-                    <tr key={name}>
-                        <td>{name}</td>
-                        <td>
-                            <input 
-                                className="form-check-input" 
-                                type="checkbox" 
-                                onChange={() => toggleUsed(name)}
-                                checked={isNameUsed(name)}
-                            />
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    );
-
-    const renderSecondTable = () => (
-        <table className="table table-condensed table-striped table-hover">
-            <thead>
-                <tr>
-                    <th className="col-form-label">
-                        {filter.type === 'race' ? (
-                            <span>{shownNames.familyType} Names</span>
-                        ) : (
-                            <span>Last Part</span>
-                        )}
-                    </th>
-                    <th className="col-form-label">Used</th>
-                </tr>
-            </thead>
-            <tbody>
-                {shownNames.lastNames.map(name => (
-                    <tr key={name}>
-                        <td>{name}</td>
-                        <td>
-                            <input 
-                                className="form-check-input" 
-                                type="checkbox" 
-                                onChange={() => toggleUsed(name)}
-                                checked={isNameUsed(name)}
-                            />
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    );
-
     return (
         <div className="names">
-            <form className="filter-form">
-                {/* Type */}
-                <label htmlFor="type" className="col-form-label">Type</label>
-                <select 
-                    name="type" 
-                    className="form-control"
-                    value={filter.type}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, type: e.target.value, index: 'Select' };
-                        setFilter(newFilter);
-                        localStorage.setItem('namesFilter', JSON.stringify(newFilter));
-                    }}
-                >
-                    <option disabled>Select</option>
-                    <option value="building">Building</option>
-                    <option value="race">Race</option>
-                </select>
-
-                {/* Index */}
-                <label htmlFor="index" className="col-form-label">
-                    {filter.type === 'building' && <span>Building</span>}
-                    {filter.type === 'race' && <span>Race</span>}
-                </label>
-                <select 
-                    name="index" 
-                    className="form-control"
-                    value={filter.index}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, index: e.target.value };
-                        setFilter(newFilter);
-                        filterChanged(newFilter);
-                    }}
-                >
-                    {filter.type === 'building' && (
-                        <>
-                            <option disabled>Select</option>
-                            <option value="tavern">Tavern</option>
-                        </>
-                    )}
-                    {filter.type === 'race' && (
-                        <>
-                            <option disabled>Select</option>
-                            <option value="dragonborn">Dragonborn</option>
-                            <option value="dwarf">Dwarf</option>
-                            <option value="elf">Elf</option>
-                            <option value="gnome">Gnome</option>
-                            <option value="halfling">Halfling</option>
-                            <option value="half-orc">Half Orc</option>
-                            <option value="tiefling">Tiefling</option>
-                            <option value="human-celtic">Human (Celtic)</option>
-                        </>
-                    )}
-                </select>
-
-                {/* Sex (only for race) */}
-                {filter.type === 'race' && (
-                    <>
-                        <label htmlFor="sex" className="col-form-label">Sex</label>
-                        <select 
-                            name="sex" 
-                            className="form-control"
-                            value={filter.sex}
-                            onChange={(e) => {
-                                const newFilter = { ...filter, sex: e.target.value };
-                                setFilter(newFilter);
-                                filterChanged(newFilter);
-                            }}
-                        >
-                            <option disabled>Select</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                        </select>
-                    </>
-                )}
-
-                {/* Used */}
-                <label htmlFor="used" className="col-form-label">Used</label>
-                <select 
-                    name="used" 
-                    className="form-control"
-                    value={filter.used}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, used: e.target.value };
-                        setFilter(newFilter);
-                        filterChanged(newFilter);
-                    }}
-                >
-                    <option value="All">All</option>
-                    <option value="available">Available</option>
-                    <option value="used">Used</option>
-                </select>
-            </form>
+            <NameFilterForm filter={filter} setFilter={setFilter} filterChanged={filterChanged} />
 
             {shownNames.firstNames && shownNames.firstNames.length > 0 && (
-                <div className={`list ${filter.type === 'building' || shownNames.familyType != null ? 'dualList' : ''}`}>
-                    {renderFirstTable()}
-                    {(filter.type === 'building' || shownNames.familyType != null) && renderSecondTable()}
-                </div>
+                <NameListTable filter={filter} shownNames={shownNames} isNameUsed={isNameUsed} toggleUsed={toggleUsed} />
             )}
         </div>
     );
