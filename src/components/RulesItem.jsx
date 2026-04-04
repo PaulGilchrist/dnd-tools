@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './GeneralRule.css';
+import './RulesItem.css';
 
 // Javascript utilities (matching Angular)
 const utils = {
@@ -11,7 +11,7 @@ const utils = {
     }
 };
 
-function GeneralRule({ rule, expand = false, onExpand }) {
+function RulesItem({ rule, expand = false, onExpand }) {
     const [shownSubsection, setShownSubsection] = useState('');
 
     const showSubsection = (subsection) => {
@@ -71,5 +71,5 @@ function GeneralRule({ rule, expand = false, onExpand }) {
     );
 }
 
-export default GeneralRule;
+export default RulesItem;
 

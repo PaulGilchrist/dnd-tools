@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useRules } from '../../../data/dataService';
-import GeneralRule from '../general-rule/GeneralRule';
-import './GeneralRules.css';
-
+import { useRules } from '../data/dataService';
+import RulesItem from './RulesItem';
 // Javascript utilities (matching Angular)
 const utils = {
     scrollIntoView: function(index) {
@@ -73,7 +71,7 @@ function GeneralRules() {
             <div className="list">
                 {rules.map((rule) => (
                     <div key={rule.index} id={rule.index}>
-                        <GeneralRule 
+                        <RulesItem
                             rule={rule}
                             expand={shownCard === rule.index}
                             onExpand={(expanded) => expandCard(rule.index, expanded)}
