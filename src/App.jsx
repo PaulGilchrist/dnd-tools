@@ -3,6 +3,7 @@ import NavTop from './components/NavTop'
 import EquipmentItems from './components/EquipmentItems'
 import Locations from './components/Locations'
 import MagicItems from './components/MagicItems'
+import Encounters from './components/Encounters'
 import MonsterSearch from './components/MonsterSearch'
 import MonsterLore from './components/MonsterLore'
 import './App.css'
@@ -18,7 +19,7 @@ function App() {
         <Route path="/equipment-items" element={<EquipmentItems />} />
         <Route path="/locations" element={<Locations />} />
         <Route path="/magic-items" element={<MagicItems />} />
-        <Route path="/monsters/encounters" element={<div>Encounters Component</div>} />
+        <Route path="/monsters/encounters" element={<Encounters />} />
         <Route path="/monsters/lore" element={<MonsterLore />} />
         <Route path="/monsters/search" element={<MonsterSearch />} />
         <Route path="/names" element={<div>Names Component</div>} />
