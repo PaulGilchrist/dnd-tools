@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAbilityScores } from '../../data/dataService';
 import AbilityScore from './AbilityScore';
+import './AbilityScores.css';
 
 // Javascript utilities (matching Angular)
 const utils = {
@@ -54,4 +55,3 @@ function AbilityScores() {
 }
 
 export default AbilityScores;
-

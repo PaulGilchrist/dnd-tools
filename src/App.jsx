@@ -1,17 +1,22 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NavTop from './components/NavTop'
-import EquipmentItems from './components/EquipmentItems'
+import EquipmentItems from './components/equipment-items/EquipmentItems'
 import Locations from './components/Locations'
-import MagicItems from './components/MagicItems'
-import Encounters from './components/Encounters'
-import MonsterSearch from './components/MonsterSearch'
-import MonsterLore from './components/MonsterLore'
+import MagicItems from './components/magic-items/MagicItems'
+import Encounters from './components/monsters/Encounters'
+import MonsterSearch from './components/monsters/MonsterSearch'
+import MonsterLore from './components/monsters/MonsterLore'
 import Names from './components/Names'
-import Rules from './components/Rules'
-import RulesItem from './components/RulesItem'
-import AbilityScores from './components/AbilityScores'
+import Rules from './components/rules/Rules'
+import RulesItem from './components/rules/RulesItem'
+import AbilityScores from './components/rules/AbilityScores'
 // import GeneralRules from './components/rules/general-rules/GeneralRules'
 import PlayerClasses from './components/rules/player-classes/PlayerClasses'
+import Conditions from './components/rules/Conditions'
+import ConditionItem from './components/rules/ConditionItem'
+import AbilityScore from './components/rules/AbilityScore'
+import MagicItem from './components/magic-items/MagicItem'
+import Monster from './components/monsters/Monster'
 import './App.css'
 
 function App() {
@@ -32,7 +37,7 @@ function App() {
         <Route path="/rules/general" element={<Rules />} />
         <Route path="/rules/ability-scores" element={<AbilityScores />} />
         <Route path="/rules/classes" element={<PlayerClasses />} />
-        <Route path="/rules/conditions" element={<div>Conditions Component</div>} />
+        <Route path="/rules/conditions" element={<Conditions />} />
         <Route path="/rules/feats" element={<div>Feats Component</div>} />
         <Route path="/rules/races" element={<div>Races Component</div>} />
         <Route path="/spells" element={<div>Spells Component</div>} />
@@ -43,3 +48,4 @@ function App() {
 }
 
 export default App
+

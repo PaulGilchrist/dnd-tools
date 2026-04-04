@@ -4,48 +4,21 @@
     width: 100%;
 }
 
-.card-header {
-.card-header {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-
-.card {
-    margin-top: 5px;
-    margin-left: 5px;
-    width: 100%;
+.card-header.clickable {
+    display: flex !important;
+    align-items: center;
 }
 
-.card-header {
-    display: flex;
-    align-items: center;
+.card-header.clickable > .align-center {
+    margin-left: auto !important;
 }
 
 .card-title {
     font-size: 1.5em;
     font-weight: 600;
+    margin-bottom: 0;
 }
 
-.card-header .align-center {
-    margin-left: 10px;
-}
-    align-items: center;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-}
-
-.card-header .align-center {
-    margin-left: 10px;
-    align-items: center;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-}
-
-.card-header .align-center {
-    margin-left: 10px;
+.removeExtraLine {
+    margin-bottom: -20px;
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './AbilityScore.css';
 
 function AbilityScore({ abilityScore, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
@@ -52,4 +53,3 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
 }
 
 export default AbilityScore;
-
