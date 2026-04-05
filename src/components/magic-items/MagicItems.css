@@ -9,7 +9,7 @@
 }
 
 .list .card {
-    margin-bottom: 15px;
+    margin-bottom: 2px;
 }
 
 .card-header.clickable {
@@ -26,4 +26,5 @@
         margin-top: 10px;
     }
 }
+
 
