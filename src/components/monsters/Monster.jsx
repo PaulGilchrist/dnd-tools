@@ -11,7 +11,7 @@ import MonsterLairActions from './MonsterLairActions';
 import MonsterRegionalEffects from './MonsterRegionalEffects';
 
 // Import all monster images dynamically
-const monsterImages = import.meta.glob('../assets/monsters/*.jpg', { eager: true });
+const monsterImages = import.meta.glob('../../assets/monsters/*.jpg', { eager: true });
 
 function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChange }) {
     const [isExpanded, setIsExpanded] = useState(expand);
