@@ -29,11 +29,19 @@ function Locations() {
                 const location = locationsData.find(loc => loc.index === index);
                 if (location) {
                     setShownCard(index);
-                    scrollIntoView(index);
+                    // Scroll into view after a small delay to ensure element is rendered
+                    setTimeout(() => scrollIntoView(index), 100);
                 }
             }
         }
     }, [locationsData]);
+
+    // Scroll into view when card is expanded
+    useEffect(() => {
+        if (shownCard) {
+            setTimeout(() => scrollIntoView(shownCard), 100);
+        }
+    }, [shownCard]);
 
     const expandCard = (index) => {
         if (shownCard === index) {
@@ -42,7 +50,6 @@ function Locations() {
         } else {
             // Open the card
             setShownCard(index);
-            scrollIntoView(index);
         }
 
         // Update URL query params using setSearchParams

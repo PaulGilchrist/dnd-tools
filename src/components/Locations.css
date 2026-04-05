@@ -50,3 +50,7 @@ img {
   justify-self: end;
 }
 
+.card.outer .card-body {
+  padding: 10px;
+}
+
