@@ -17,7 +17,7 @@
 }
 
 .card-header.clickable:hover {
-    background-color: #f8f9fa;
+    /* Removed background-color to use global styles from index.css */
 }
 
 /* Responsive adjustments */
@@ -26,3 +26,4 @@
         margin-top: 10px;
     }
 }
+

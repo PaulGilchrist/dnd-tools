@@ -58,6 +58,11 @@ body {
     color: var(--color-header);
 }
 
+.card-header:hover {
+    background-color: var(--background-color-header);
+    color: var(--color-header);
+}
+
 .card-body {
     background-color: var(--background-color-body);
     color: var(--color-body);
@@ -199,4 +204,5 @@ th {
 * {
   print-color-adjust: exact;
 }
+
 
