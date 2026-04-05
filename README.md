@@ -1,16 +1,67 @@
-# React + Vite
+# D&D Tools React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive **Dungeons & Dragons 5th Edition reference application** built with React and Vite. This tool provides D&D Dungeon Masters and players with quick access to game rules, spells, monsters, magic items, equipment, locations, and character naming resources.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 📜 Spells
+- Browse all spells by level, casting time, and class
+- Filter spells by various criteria (level range, casting time, class)
+- Mark spells as **known** or **prepared** (persisted locally)
+- Expandable spell cards with full details
 
-## React Compiler
+### 👾 Monsters & Encounters
+- Search and filter monsters by:
+  - Challenge Rating (CR)
+  - Size and Type
+  - Environment
+  - XP value
+- Bookmark favorite monsters for quick access
+- Build encounters with CR and XP range filters
+- Detailed monster stat blocks with actions, reactions, and special abilities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎒 Magic Items
+- Browse magic items by rarity and type
+- Filter by attunement requirements
+- Bookmark favorite items
+- Quick reference for item effects
 
-## Expanding the ESLint configuration
+### ⚔️ Equipment & Weapons
+- Comprehensive equipment database
+- Filter by category, weapon properties, and range
+- Bookmark frequently used items
+- Weapon property descriptions included
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🗺️ Locations
+- D&D locations with descriptions and source references
+- Full-screen map images for each location
+- Filterable location list
+
+### 👤 Names Generator
+- Generate character names by race and sex
+- Generate building names for world-building
+- Track used names to avoid repetition
+- Family name support for certain races
+
+### 📚 Rules Reference
+- **Ability Scores**: Complete rules for all six ability scores
+- **Conditions**: All status effects and their mechanics
+- **Feats**: Available feats with full descriptions
+- **Races & Subraces**: All playable races and their traits
+- **Player Classes**: Detailed class information including:
+  - Level progression
+  - Class features
+  - Spellcasting information
+  - Race-specific ability score bonuses
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
