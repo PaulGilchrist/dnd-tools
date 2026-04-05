@@ -1,4 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+
+// Get the base path - Vite sets BASE_URL based on vite.config.js 'base' option
+// For GitHub Pages at https://PaulGilchrist.github.io/dnd-tools-react/, 
+// BASE_URL will be '/dnd-tools-react/'
+const base = import.meta.env.BASE_URL || '/'
+
 import NavTop from './components/NavTop'
 import EquipmentItems from './components/equipment-items/EquipmentItems'
 import Locations from './components/Locations'
@@ -18,7 +24,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
+    <Router basename={base}>
       <NavTop />
       <div className="main-content">
         {/* Redirect root to spells, matching Angular routing */}

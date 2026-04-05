@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// Get the base path from package.json homepage
+const packageJson = await import('./package.json', { assert: { type: 'json' } })
+const homepage = packageJson.default.homepage || ''
+const base = homepage ? new URL(homepage).pathname : '/'
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: base,
   optimizeDeps: {
     include: ['lodash']
   },
@@ -21,6 +26,9 @@ export default defineConfig({
           return 'assets/[name].[ext]';
         }
       }
-    }
+    },
+    copyPublicDir: true,
+    outDir: 'dist',
+    emptyOutDir: true
   }
 })

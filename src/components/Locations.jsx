@@ -4,6 +4,9 @@ import { useLocations } from '../data/dataService';
 import { scrollIntoView } from '../data/utils';
 import './Locations.css';
 
+// Get the base URL from Vite's environment variables (set by vite.config.js)
+const BASE_URL = import.meta.env.BASE_URL || '';
+
 // Import all location images dynamically
 const locationImages = import.meta.glob('../assets/locations/*.jpg', { eager: true });
 
@@ -56,8 +59,8 @@ function Locations() {
         // Show full-screen image when clicking the Image button
         const location = locations.find(loc => loc.index === locationIndex);
         if (location && location.image) {
-            // Get the image from our dynamically imported images
-            const imagePath = `../assets/locations/${location.image}`;
+            // Use BASE_URL to construct absolute path for GitHub Pages
+            const imagePath = `${BASE_URL}assets/locations/${location.image}`;
             setImage(locationImages[imagePath]?.default || '');
         }
     };
@@ -123,4 +126,3 @@ function Locations() {
 }
 
 export default Locations;
-

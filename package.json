@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulGilchrist/dnd-tools-react.git"
+  },
+  "homepage": "https://PaulGilchrist.github.io/dnd-tools-react/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -29,4 +34,3 @@
     "vite": "^8.0.1"
   }
 }
-

@@ -10,6 +10,9 @@ import MonsterLegendaryActions from './MonsterLegendaryActions';
 import MonsterLairActions from './MonsterLairActions';
 import MonsterRegionalEffects from './MonsterRegionalEffects';
 
+// Get the base URL from Vite's environment variables (set by vite.config.js)
+const BASE_URL = import.meta.env.BASE_URL || '';
+
 // Import all monster images dynamically
 const monsterImages = import.meta.glob('../../assets/monsters/*.jpg', { eager: true });
 
@@ -59,7 +62,8 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
     const handleImageClick = (e) => {
         e.stopPropagation();
         if (monster && monster.image) {
-            const imagePath = `../assets/monsters/${monster.index}.jpg`;
+            // Use BASE_URL to construct absolute path for GitHub Pages
+            const imagePath = `${BASE_URL}assets/monsters/${monster.index}.jpg`;
             setMonsterImage(monsterImages[imagePath]?.default || '');
             setImageActive(true);
         }
@@ -139,6 +143,9 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                             {monster.lair_actions && (
                                 <div>
                                     <hr />
+                                    <div className="removeExtraLine">
+                                        <h5>Lair Actions</h5>
+                                    </div>
                                     <MonsterLairActions monster={monster} />
                                 </div>
                             )}
@@ -168,4 +175,3 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
 }
 
 export default Monster;
-
