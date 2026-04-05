@@ -62,8 +62,8 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
     const handleImageClick = (e) => {
         e.stopPropagation();
         if (monster && monster.image) {
-            // Use BASE_URL to construct absolute path for GitHub Pages
-            const imagePath = `${BASE_URL}assets/monsters/${monster.index}.jpg`;
+            // Use relative path to look up in monsterImages object
+            const imagePath = `../../assets/monsters/${monster.index}.jpg`;
             setMonsterImage(monsterImages[imagePath]?.default || '');
             setImageActive(true);
         }
@@ -73,7 +73,9 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
         <>
             {imageActive && (
                 <div className="cover" onClick={() => setImageActive(false)}>
-                    <img src={monsterImage} alt={monster.name} />
+                    {monsterImage && (
+                        <img src={monsterImage} alt={monster.name} />
+                    )}
                 </div>
             )}
             <div className={`card w-100 ${isExpanded ? 'active' : ''} ${cardType === 'inner' ? 'inner' : ''}`} id={monster.index}>

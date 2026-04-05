@@ -31,8 +31,12 @@ function MonsterSearch() {
                 const monster = updatedMonsters.find((monster) => monster.index === index);
                 if (monster) {
                     setShownCard(index);
-                    monster.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                    // Get the DOM element by ID and scroll it into view
+            const element = document.getElementById(index);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
             }
 
             // Set search filters from localStorage, only defaulting to "All" when there's no saved data
@@ -53,7 +57,14 @@ function MonsterSearch() {
             const element = document.getElementById(index);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+        }
+
+            // Update URL query params using setSearchParams
+            if (expanded) {
+                setSearchParams({ index });
+            } else {
+                setSearchParams({});
+        }
         }
 
         // Update URL query params using setSearchParams

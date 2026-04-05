@@ -59,8 +59,8 @@ function Locations() {
         // Show full-screen image when clicking the Image button
         const location = locations.find(loc => loc.index === locationIndex);
         if (location && location.image) {
-            // Use BASE_URL to construct absolute path for GitHub Pages
-            const imagePath = `${BASE_URL}assets/locations/${location.image}`;
+            // Use relative path to look up in locationImages object
+            const imagePath = `../assets/locations/${location.image}`;
             setImage(locationImages[imagePath]?.default || '');
         }
     };
@@ -73,7 +73,9 @@ function Locations() {
         <>
             {image && (
                 <div className="cover" onClick={() => setImage('')}>
-                    <img src={image} alt="Location map" />
+                    {image && (
+                        <img src={image} alt="Location map" />
+                    )}
                 </div>
             )}
             
