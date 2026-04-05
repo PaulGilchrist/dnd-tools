@@ -1,13 +1,13 @@
 {
-  "name": "dnd-tools-react",
+  "name": "dnd-tools",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PaulGilchrist/dnd-tools-react.git"
+    "url": "https://github.com/PaulGilchrist/dnd-tools.git"
   },
-  "homepage": "https://PaulGilchrist.github.io/dnd-tools-react/",
+  "homepage": "https://PaulGilchrist.github.io/dnd-tools/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

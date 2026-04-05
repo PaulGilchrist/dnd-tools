@@ -1,15 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Get the base path from package.json homepage
-const packageJson = await import('./package.json')
-const homepage = packageJson.default?.homepage || ''
-const base = homepage ? new URL(homepage).pathname : '/'
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/dnd-tools-react/',
+  base: '/dnd-tools/',
   optimizeDeps: {
     include: ['lodash']
   },

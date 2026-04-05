@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 // Get the base path - Vite sets BASE_URL based on vite.config.js 'base' option
-// For GitHub Pages at https://PaulGilchrist.github.io/dnd-tools-react/, 
+// For GitHub Pages at https://PaulGilchrist.github.io/dnd-tools/, 
 const base = import.meta.env.BASE_URL || '/'
 
 import NavTop from './components/NavTop'
