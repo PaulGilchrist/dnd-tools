@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './NameListTable.css';
 
 function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
     const renderFirstTable = () => (
