@@ -42,5 +42,11 @@ img {
 .stats {
   display: grid;
   grid-template-columns: auto 70px;
+  grid-template-areas: "text right";
   margin-bottom: 10px;
 }
+
+.stats > div:last-child {
+  justify-self: end;
+}
+

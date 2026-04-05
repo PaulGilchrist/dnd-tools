@@ -51,6 +51,11 @@
 .stats {
     display: grid;
     grid-template-columns: 1fr auto;
+    grid-template-areas: "text right";
+}
+
+.stats > div:last-child {
+  justify-self: end;
 }
 
 .cover {
@@ -74,4 +79,5 @@
 .inner {
     margin-left: 20px;
 }
+
 
