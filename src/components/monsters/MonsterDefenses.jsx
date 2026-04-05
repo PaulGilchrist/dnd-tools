@@ -1,4 +1,5 @@
 import { getNameString } from '../../utils/monsterUtils';
+import './MonsterDefenses.css';
 
 function MonsterDefenses({ monster }) {
     if (!monster) {
@@ -71,61 +72,66 @@ function MonsterDefenses({ monster }) {
     };
 
     return (
-        <>
+        <div className="monster-defenses">
             {hasSavingThrows() && (
                 <div>
-                    <b>Saving Throws:</b>&nbsp;{getSavingThrows()}<br />
+                    <b>Saving Throws:</b>&nbsp;{getSavingThrows()}
                 </div>
             )}
             {hasSkills() && (
                 <div>
-                    <b>Skills:</b>&nbsp;{getSkills()}<br />
+                    <b>Skills:</b>&nbsp;{getSkills()}
                 </div>
             )}
             {monster.condition_immunities && monster.condition_immunities.length > 0 && (
                 <div>
-                    <b>Condition Immunities:</b>&nbsp;{getNameString(monster.condition_immunities)}<br />
+                    <b>Condition Immunities:</b>&nbsp;{getNameString(monster.condition_immunities)}
                 </div>
             )}
             {monster.damage_immunities && monster.damage_immunities.length > 0 && (
                 <div>
-                    <b>Damage Immunities:</b>&nbsp;{getNameString(monster.damage_immunities)}<br />
+                    <b>Damage Immunities:</b>&nbsp;{getNameString(monster.damage_immunities)}
                 </div>
             )}
             {monster.damage_resistances && monster.damage_resistances.length > 0 && (
                 <div>
-                    <b>Damage Resistances:</b>&nbsp;{getNameString(monster.damage_resistances)}<br />
+                    <b>Damage Resistances:</b>&nbsp;{getNameString(monster.damage_resistances)}
                 </div>
             )}
             {monster.damage_vulnerabilities && monster.damage_vulnerabilities.length > 0 && (
                 <div>
-                    <b>Damage Vulnerabilities:</b>&nbsp;{getNameString(monster.damage_vulnerabilities)}<br />
+                    <b>Damage Vulnerabilities:</b>&nbsp;{getNameString(monster.damage_vulnerabilities)}
                 </div>
             )}
-            <b>Senses:</b>&nbsp;{getSenses()}<br />
+            <div>
+                <b>Senses:</b>&nbsp;{getSenses()}
+            </div>
             {monster.languages && (
                 <div>
-                    <b>Languages:</b>&nbsp;{monster.languages}<br />
+                    <b>Languages:</b>&nbsp;{monster.languages}
                 </div>
             )}
             {monster.environments && monster.environments.length > 0 && (
                 <div>
-                    <b>Environments:</b>&nbsp;{getNameString(monster.environments)}<br />
+                    <b>Environments:</b>&nbsp;{getNameString(monster.environments)}
                 </div>
             )}
             {monster.allies && monster.allies.length > 0 && (
                 <div>
-                    <b>Allies:</b>&nbsp;{getNameString(monster.allies)}<br />
+                    <b>Allies:</b>&nbsp;{getNameString(monster.allies)}
                 </div>
             )}
             {monster.enemies && monster.enemies.length > 0 && (
                 <div>
-                    <b>Enemies:</b>&nbsp;{getNameString(monster.enemies)}<br />
+                    <b>Enemies:</b>&nbsp;{getNameString(monster.enemies)}
                 </div>
             )}
-            <b>Challenge:</b>&nbsp;{monster.challenge_rating}&nbsp;({monster.xp} XP)<br />
-        </>
+            <div>
+                <b>Challenge:</b>&nbsp;{monster.challenge_rating}&nbsp;({monster.xp} XP)
+            </div>
+        </div>
     );
 }
 
 export default MonsterDefenses;
+

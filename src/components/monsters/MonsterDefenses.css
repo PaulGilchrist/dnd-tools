@@ -1,0 +1,14 @@
+.monster-defenses {
+    display: flex;
+    flex-direction: column;
+}
+
+.monster-defenses > div {
+    margin: 0;
+    padding: 0;
+}
+
+.monster-defenses > b {
+    margin: 0;
+    padding: 0;
+}
