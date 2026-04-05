@@ -7,7 +7,6 @@ function MonsterLairActions({ monster }) {
 
     return (
         <div>
-            <h5>Lair Actions</h5>
             {monster.lair_actions.summary}<br />
             <ul>
                 {monster.lair_actions.actions.map((action, index) => (

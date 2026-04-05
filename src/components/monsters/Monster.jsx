@@ -64,7 +64,7 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
         if (monster && monster.image) {
             // Use relative path to look up in monsterImages object
             const imagePath = `../../assets/monsters/${monster.index}.jpg`;
-            setMonsterImage(monsterImages[imagePath]?.default || '');
+            setMonsterImage(monsterImages[imagePath] || '');
             setImageActive(true);
         }
     };
@@ -136,7 +136,7 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                             {monster.legendary_actions && (
                                 <div>
                                     <hr />
-                                    <div className="removeExtraLine">
+                                    <div>
                                         <h5>Legendary Actions</h5>
                                     </div>
                                     <MonsterLegendaryActions monster={monster} />
@@ -145,7 +145,7 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                             {monster.lair_actions && (
                                 <div>
                                     <hr />
-                                    <div className="removeExtraLine">
+                                    <div>
                                         <h5>Lair Actions</h5>
                                     </div>
                                     <MonsterLairActions monster={monster} />
