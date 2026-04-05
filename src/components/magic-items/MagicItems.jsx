@@ -3,6 +3,8 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { useMagicItems } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import MagicItem from './MagicItem';
+import MagicItemsFilterForm from './MagicItemsFilterForm';
+import MagicItemList from './MagicItemList';
 import './MagicItems.css';
 
 function MagicItems() {
@@ -86,13 +88,6 @@ function MagicItems() {
         localStorage.setItem('magicItemsFilter', JSON.stringify(newFilter));
     };
 
-    const saveBookmark = () => {
-        const magicItemsBookmarked = magicItems
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-        localStorage.setItem('magicItemsBookmarked', JSON.stringify(magicItemsBookmarked));
-    };
-
     const showMagicItem = (magicItem) => {
         // Attunement filter
         if (filter.attunement !== 'All' && (
@@ -155,124 +150,22 @@ function MagicItems() {
 
     return (
         <>
-            <form className="filter-form">
-                {/* Name */}
-                <label htmlFor="name" className="col-form-label">Name</label>
-                <div className={`has-error ${filter.name && filter.name.length >= 50 ? 'invalid' : ''}`}>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        id="name" 
-                        name="name"
-                        value={filter.name}
-                        onChange={(e) => {
-                            const newFilter = { ...filter, name: e.target.value };
-                            setFilter(newFilter);
-                            filterChanged(newFilter);
-                        }}
-                        pattern="[A-Za-z ]+" 
-                        maxLength="50"
-                    />
-                    {filter.name && filter.name.length >= 50 && (
-                        <div className="alert alert-danger">
-                            Name should be less than 50 characters
-                        </div>
-                    )}
-                </div>
+            <MagicItemsFilterForm
+                filter={filter}
+                setFilter={setFilter}
+                onFilterChange={filterChanged}
+            />
 
-                {/* Rarity */}
-                <label htmlFor="rarity" className="col-form-label">Rarity</label>
-                <select 
-                    name="rarity" 
-                    className="form-control"
-                    value={filter.rarity}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, rarity: e.target.value };
-                        setFilter(newFilter);
-                        filterChanged(newFilter);
-                    }}
-                >
-                    <option>All</option>
-                    <option value="common">Common</option>
-                    <option value="uncommon">Uncommon</option>
-                    <option value="rare">Rare</option>
-                    <option value="very rare">Very Rare</option>
-                    <option value="legendary">Legendary</option>
-                </select>
-
-                {/* Type */}
-                <label htmlFor="type" className="col-form-label">Type</label>
-                <select 
-                    name="type" 
-                    className="form-control"
-                    value={filter.type}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, type: e.target.value };
-                        setFilter(newFilter);
-                        filterChanged(newFilter);
-                    }}
-                >
-                    <option>All</option>
-                    <option>Armor</option>
-                    <option>Potion</option>
-                    <option>Ring</option>
-                    <option>Scroll</option>
-                    <option>Wand</option>
-                    <option>Weapon</option>
-                    <option>Wondrous item</option>
-                </select>
-
-                {/* Attunement */}
-                <label htmlFor="attunement" className="col-form-label">Attunement</label>
-                <select 
-                    name="attunement" 
-                    className="form-control"
-                    value={filter.attunement}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, attunement: e.target.value };
-                        setFilter(newFilter);
-                        filterChanged(newFilter);
-                    }}
-                >
-                    <option>All</option>
-                    <option>Required</option>
-                    <option>Not Required</option>
-                </select>
-
-                {/* Bookmarked */}
-                <label htmlFor="bookmarked" className="col-form-label">Bookmarked</label>
-                <select 
-                    name="bookmarked" 
-                    className="form-control"
-                    value={filter.bookmarked}
-                    onChange={(e) => {
-                        const newFilter = { ...filter, bookmarked: e.target.value };
-                        setFilter(newFilter);
-                        filterChanged(newFilter);
-                    }}
-                >
-                    <option selected>All</option>
-                    <option>Bookmarked</option>
-                </select>
-            </form>
-
-            {/* Magic Items List */}
-            <div className="list">
-                {filteredItems.map((magicItem) => (
-                    <div key={magicItem.index} id={magicItem.index}>
-                        {showMagicItem(magicItem) && (
-                            <MagicItem 
-                                magicItem={magicItem}
-                                expand={shownCard === magicItem.index}
-                                onExpand={(expanded) => expandCard(magicItem.index, expanded)}
-                                onBookmarkChange={handleBookmarkChange}
-                            />
-                        )}
-                    </div>
-                ))}
-            </div>
+            <MagicItemList
+                filteredItems={filteredItems}
+                showMagicItem={showMagicItem}
+                shownCard={shownCard}
+                expandCard={expandCard}
+                handleBookmarkChange={handleBookmarkChange}
+            />
         </>
     );
 }
 
 export default MagicItems;
+
