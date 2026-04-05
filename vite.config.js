@@ -9,7 +9,7 @@ const base = homepage ? new URL(homepage).pathname : '/'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: base,
+  base: '/dnd-tools-react/',
   optimizeDeps: {
     include: ['lodash']
   },

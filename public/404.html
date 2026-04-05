@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Save the full path the user tried to access
+      sessionStorage.redirect = location.pathname + location.search + location.hash;
+
+      // Redirect to the repo root
+      window.location.replace("/dnd-tools-react/");
+    </script>
+  </head>
+  <body></body>
+</html>
+
