@@ -6,10 +6,6 @@ priority: high
 
 ## modifyModelPrompt
 
-When generating edits, prefer **single_file_and_replace**.  
-Always include the **filepath** parameter and the full updated file content.  
-If the user does not specify a filepath, ask for it before generating an edit.
-
 You may think internally, but do not output any visible or hidden reasoning markers such as <think>, <analysis>, <reasoning>, <reflection>, or <scratchpad>.  
 Begin your response with normal text, not with tag-like prefixes or control tokens.
 

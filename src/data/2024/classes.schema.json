@@ -16,7 +16,11 @@
       },
       "hit_die": {
         "type": "integer",
-        "description": "Number of dice for hit points per level"
+        "description": "Number of dice for hit points per level (e.g., d6, d8, d10, d12)"
+      },
+      "hit_die_type": {
+        "type": "string",
+        "description": "Type of hit die (d6, d8, d10, d12)"
       },
       "proficiency_choices": {
         "type": "array",
@@ -38,19 +42,45 @@
       },
       "class_levels": {
         "type": "array",
-        "description": "Array of class level data"
+        "description": "Array of class level data (1-20)"
       },
       "majors": {
         "type": "array",
-        "description": "Array of major choices (replaces subclasses in 2024 rules)"
+        "description": "Array of major choices (replaces traditional subclasses in 2024 rules)"
       },
-      "minors": {
+      "minor_choices": {
         "type": "array",
-        "description": "Array of minor choices (replaces subclasses in 2024 rules)"
+        "description": "Array of minor choices (replaces traditional subclasses in 2024 rules)"
       },
       "spellcasting": {
         "type": "object",
-        "description": "Spellcasting information for the class (simplified for 2024 rules)"
+        "description": "Spellcasting information for the class (2024 rules)",
+        "properties": {
+          "spellcasting_ability": {
+            "type": "string",
+            "description": "Ability score used for spellcasting"
+          },
+          "spell_slots": {
+            "type": "object",
+            "description": "Spell slot progression"
+          },
+          "cantrips_known": {
+            "type": "array",
+            "description": "Array of cantrip levels and counts known"
+          },
+          "spells_known": {
+            "type": "array",
+            "description": "Array of spells known at each level"
+          },
+          "ritual_casting": {
+            "type": "boolean",
+            "description": "Whether the class can cast rituals"
+          },
+          "spellcasting_level": {
+            "type": "string",
+            "description": "Spellcasting level (full, half, or none)"
+          }
+        }
       },
       "hit_points_at_higher_levels": {
         "type": "string",
@@ -59,6 +89,54 @@
       "proficiency_bonus_scaling": {
         "type": "array",
         "description": "How proficiency bonus scales with level (2024 rules)"
+      },
+      "martial_choices": {
+        "type": "array",
+        "description": "Array of martial choices (combat styles, fighting styles)"
+      },
+      "starting_equipment": {
+        "type": "array",
+        "description": "Starting equipment for the class"
+      },
+      "equipment_options": {
+        "type": "array",
+        "description": "Equipment choices available at character creation"
+      },
+      "feature_levels": {
+        "type": "array",
+        "description": "Class features gained at each level"
+      },
+      "archetypes": {
+        "type": "array",
+        "description": "Archetype options (alternative subclass system)"
+      },
+      "multiclassing": {
+        "type": "object",
+        "description": "Multiclassing requirements and rules"
+      },
+      "level_1_features": {
+        "type": "array",
+        "description": "Features gained at 1st level"
+      },
+      "level_2_features": {
+        "type": "array",
+        "description": "Features gained at 2nd level"
+      },
+      "level_6_features": {
+        "type": "array",
+        "description": "Features gained at 6th level"
+      },
+      "level_10_features": {
+        "type": "array",
+        "description": "Features gained at 10th level"
+      },
+      "level_14_features": {
+        "type": "array",
+        "description": "Features gained at 14th level"
+      },
+      "level_18_features": {
+        "type": "array",
+        "description": "Features gained at 18th level"
       }
     }
   }
