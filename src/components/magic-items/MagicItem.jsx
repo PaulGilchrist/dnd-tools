@@ -74,7 +74,7 @@ function MagicItem({ magicItem, expand, onExpand, onBookmarkChange }) {
                         {magicItem.description && (
                             <div className="removeExtraLine">
                                 <b>Description:</b><br />
-                                {magicItem.description}
+                                <div dangerouslySetInnerHTML={{ __html: magicItem.description }} />
                             </div>
                         )}
 
@@ -92,3 +92,4 @@ function MagicItem({ magicItem, expand, onExpand, onBookmarkChange }) {
 }
 
 export default MagicItem;
+
