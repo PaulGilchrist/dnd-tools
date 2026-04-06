@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Martial Choices Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name", "desc"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the martial choice"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the martial choice"
+      },
+      "desc": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Description of the martial choice benefits"
+      },
+      "benefits": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of benefits from the martial choice"
+      },
+      "prerequisite": {
+        "type": "string",
+        "description": "Prerequisites for taking the martial choice"
+      },
+      "type": {
+        "type": "string",
+        "description": "Type of martial choice (major, minor, general)"
+      },
+      "level_requirement": {
+        "type": "integer",
+        "description": "Minimum level to select this choice"
+      }
+    }
+  }
+}

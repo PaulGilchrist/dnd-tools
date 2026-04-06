@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Spells Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the spell"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the spell"
+      },
+      "desc": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Description of the spell"
+      },
+      "higher_level": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Spell effects at higher levels"
+      },
+      "range": {
+        "type": "string",
+        "description": "Range of the spell"
+      },
+      "components": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Spell components (V, S, M)"
+      },
+      "material": {
+        "type": "string",
+        "description": "Material components required"
+      },
+      "ritual": {
+        "type": "boolean",
+        "description": "Whether the spell is a ritual"
+      },
+      "duration": {
+        "type": "string",
+        "description": "Duration of the spell"
+      },
+      "concentration": {
+        "type": "boolean",
+        "description": "Whether the spell requires concentration"
+      },
+      "casting_time": {
+        "type": "string",
+        "description": "Time required to cast the spell"
+      },
+      "level": {
+        "type": "integer",
+        "description": "Spell level"
+      },
+      "attack_type": {
+        "type": "string",
+        "description": "Type of attack (melee, ranged)"
+      },
+      "damage": {
+        "type": "object",
+        "properties": {
+          "damage_type": {
+            "type": "string"
+          },
+          "damage_at_slot_level": {
+            "type": "object",
+            "description": "Damage at different spell slot levels"
+          }
+        },
+        "description": "Damage information"
+      },
+      "school": {
+        "type": "string",
+        "description": "School of magic"
+      },
+      "classes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Classes that can cast this spell (updated for 2024 rules)"
+      },
+      "subclasses": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Subclasses that can cast this spell (majors/minors in 2024)"
+      },
+      "area_of_effect": {
+        "type": "object",
+        "description": "Area of effect information"
+      },
+      "saving_throw": {
+        "type": "object",
+        "description": "Saving throw information"
+      },
+      "status_effects": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Status effects the spell can impose"
+      },
+      "spell_list_order": {
+        "type": "integer",
+        "description": "Order in spell list (2024 rules)"
+      },
+      "cantrip_scaling": {
+        "type": "object",
+        "description": "How cantrips scale with level (2024 rules)"
+      }
+    }
+  }
+}

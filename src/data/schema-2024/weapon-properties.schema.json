@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Weapon Properties Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name", "desc"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the property"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the property"
+      },
+      "desc": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Description of the property rules (updated for 2024 rules)"
+      },
+      "category": {
+        "type": "string",
+        "description": "Category of weapon property"
+      },
+      "requires_proficiency": {
+        "type": "string",
+        "description": "Proficiency requirement for the property (2024 rules)"
+      }
+    }
+  }
+}

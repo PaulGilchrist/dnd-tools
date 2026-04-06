@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Species Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the species"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the species (replaces 'race' in 2024 rules)"
+      },
+      "type": {
+        "type": "string",
+        "description": "Type of species entry"
+      },
+      "family_type": {
+        "type": "string",
+        "description": "Type of family structure"
+      },
+      "lists": {
+        "type": "object",
+        "description": "Name lists for the species"
+      },
+      "speed": {
+        "type": "integer",
+        "description": "Base walking speed"
+      },
+      "ability_score_increase": {
+        "type": "object",
+        "description": "Ability score increases (2024 rules - simplified from ability_bonuses)"
+      },
+      "ability_score_options": {
+        "type": "array",
+        "description": "Options for ability score increases (2024 rules)"
+      },
+      "alignment": {
+        "type": "string",
+        "description": "Typical alignment of the species"
+      },
+      "age": {
+        "type": "string",
+        "description": "Aging information"
+      },
+      "size": {
+        "type": "string",
+        "description": "Size category"
+      },
+      "size_description": {
+        "type": "string",
+        "description": "Description of size"
+      },
+      "starting_proficiencies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Starting proficiencies"
+      },
+      "starting_proficiency_options": {
+        "type": "object",
+        "description": "Options for starting proficiencies"
+      },
+      "languages": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Languages spoken"
+      },
+      "language_desc": {
+        "type": "string",
+        "description": "Description of languages"
+      },
+      "language_options": {
+        "type": "object",
+        "description": "Options for additional languages"
+      },
+      "traits": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Species traits"
+        },
+        "description": "Array of species traits (updated for 2024 rules)"
+      },
+      "subspecies": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Subspecies information (replaces subraces)"
+        },
+        "description": "Array of subspecies"
+      },
+      "book": {
+        "type": "string",
+        "description": "Source book"
+      },
+      "desc": {
+        "type": "string",
+        "description": "General description"
+      },
+      "page": {
+        "type": "integer",
+        "description": "Page number"
+      },
+      "size_category": {
+        "type": "string",
+        "description": "Size category (2024 rules)"
+      },
+      "movement_options": {
+        "type": "array",
+        "description": "Movement options like climbing, swimming (2024 rules)"
+      }
+    }
+  }
+}

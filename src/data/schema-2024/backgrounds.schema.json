@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Backgrounds Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the background"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the background"
+      },
+      "description": {
+        "type": "string",
+        "description": "Description of the background"
+      },
+      "skill_proficiencies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Skill proficiencies granted by the background"
+      },
+      "tool_proficiencies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Tool proficiencies granted by the background"
+      },
+      "languages": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Languages granted by the background"
+      },
+      "feature": {
+        "type": "string",
+        "description": "Special feature granted by the background"
+      },
+      "feature_description": {
+        "type": "string",
+        "description": "Detailed description of the background feature"
+      },
+      "equipment": {
+        "type": "array",
+        "description": "Equipment included with the background"
+      },
+      "book": {
+        "type": "string",
+        "description": "Source book"
+      },
+      "page": {
+        "type": "integer",
+        "description": "Page number"
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Classes Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the class"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the class"
+      },
+      "hit_die": {
+        "type": "integer",
+        "description": "Number of dice for hit points per level"
+      },
+      "proficiency_choices": {
+        "type": "array",
+        "description": "Array of proficiency choices"
+      },
+      "proficiencies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of proficiencies granted by the class"
+      },
+      "saving_throws": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of saving throw proficiencies"
+      },
+      "class_levels": {
+        "type": "array",
+        "description": "Array of class level data"
+      },
+      "majors": {
+        "type": "array",
+        "description": "Array of major choices (replaces subclasses in 2024 rules)"
+      },
+      "minors": {
+        "type": "array",
+        "description": "Array of minor choices (replaces subclasses in 2024 rules)"
+      },
+      "spellcasting": {
+        "type": "object",
+        "description": "Spellcasting information for the class (simplified for 2024 rules)"
+      },
+      "hit_points_at_higher_levels": {
+        "type": "string",
+        "description": "Hit point calculation for higher levels (2024 rules)"
+      },
+      "proficiency_bonus_scaling": {
+        "type": "array",
+        "description": "How proficiency bonus scales with level (2024 rules)"
+      }
+    }
+  }
+}

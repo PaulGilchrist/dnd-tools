@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Conditions Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name", "desc"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the condition"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the condition"
+      },
+      "desc": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Array of description points for the condition (updated for 2024 rules)"
+      },
+      "duration": {
+        "type": "string",
+        "description": "Duration of the condition (2024 rules)"
+      },
+      "end_state": {
+        "type": "string",
+        "description": "What happens when the condition ends (2024 rules)"
+      }
+    }
+  }
+}
