@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Feats Schema (2024 Rules)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["index", "name", "desc"],
+    "properties": {
+      "index": {
+        "type": "string",
+        "description": "Short identifier for the feat"
+      },
+      "name": {
+        "type": "string",
+        "description": "Full name of the feat"
+      },
+      "desc": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Description of the feat benefits (2024 rules)"
+      },
+      "prerequisite": {
+        "type": "string",
+        "description": "Prerequisites for taking the feat"
+      },
+      "source": {
+        "type": "string",
+        "description": "Source book or publication"
+      },
+      "level": {
+        "type": "integer",
+        "description": "Minimum level to take the feat"
+      },
+      "ability_score": {
+        "type": "string",
+        "description": "Ability score the feat is based on"
+      },
+      "category": {
+        "type": "string",
+        "description": "Category of feat (combat, skill, general)"
+      }
+    }
+  }
+}
