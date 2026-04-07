@@ -1,0 +1,1108 @@
+[
+    {
+        "index": "adamantine-armor",
+        "name": "Adamantine Armor",
+        "description": "This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Armor",
+        "subtype": "Any Medium or Heavy, Except Hide Armor",
+        "properties": [
+            "Critical hits against you become normal hits"
+        ]
+    },
+    {
+        "index": "adamantine-weapon",
+        "name": "Adamantine Weapon",
+        "description": "This weapon or piece of ammunition is made of adamantine, one of the hardest substances in existence. Whenever this weapon or piece of ammunition hits an object, the hit is a Critical Hit.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Weapon",
+        "subtype": "Any Ammunition or Melee Weapon",
+        "properties": [
+            "Hits to objects are Critical Hits"
+        ]
+    },
+    {
+        "index": "alchemy-jug",
+        "name": "Alchemy Jug",
+        "description": "This ceramic jug appears to be able to hold a gallon of liquid and weighs 12 pounds whether full or empty. The jug sloshes when it is shaken, even if the jug is empty. You can take a Magic action and name one liquid from the Alchemy Jug Liquids table to cause the jug to produce the chosen liquid. Afterward, you can uncork the jug as a Utilize action and pour that liquid out, up to 2 gallons per minute.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Produces named liquids",
+            "Maximum 2 gallons per minute"
+        ]
+    },
+    {
+        "index": "alchemy-jug-liquids",
+        "name": "Alchemy Jug Liquids",
+        "description": "Various liquids the Alchemy Jug can produce.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Table",
+        "properties": [
+            "Acid 8 ounces",
+            "Basic Poison 4 ounces",
+            "Honey 1 gallon",
+            "Mayonnaise 2 gallons",
+            "Oil 1 quart",
+            "Vinegar 2 gallons",
+            "Water 2 gallons",
+            "Water, salt 12 gallons",
+            "Wine 1 gallon"
+        ]
+    },
+    {
+        "index": "ammunition-of-slaying",
+        "name": "Ammunition of Slaying",
+        "description": "This magic ammunition is meant to slay creatures of a particular type, which the DM chooses or determines randomly. If a creature of that type takes damage from the ammunition, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 Force damage on a failed save or half as much extra damage on a successful one. After dealing its extra damage to a creature, the ammunition becomes nonmagical.",
+        "rarity": "very rare",
+        "requiresAttunement": false,
+        "type": "Weapon",
+        "subtype": "Any Ammunition",
+        "properties": [
+            "Extra 6d10 Force damage vs target creature type",
+            "Ammunition becomes nonmagical after use"
+        ]
+    },
+    {
+        "index": "amulet-of-health",
+        "name": "Amulet of Health",
+        "description": "Your Constitution is 19 while you wear this amulet. It has no effect on you if your Constitution is 19 or higher without it.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Constitution score becomes 19"
+        ]
+    },
+    {
+        "index": "amulet-of-proof-against-detection-and-location",
+        "name": "Amulet of Proof Against Detection and Location",
+        "description": "While wearing this amulet, you can't be targeted by Divination spells or perceived through magical scrying sensors unless you allow it.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Immune to Divination spells",
+            "Cannot be scryed"
+        ]
+    },
+    {
+        "index": "amulet-of-the-planes",
+        "name": "Amulet of the Planes",
+        "description": "While wearing this amulet, you can take a Magic action to name a location that you are familiar with on another plane of existence. Then make a DC 15 Intelligence (Arcana) check. On a successful check, you cast Plane Shift.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Plane Shift on successful check",
+            "Random destination on failed check"
+        ]
+    },
+    {
+        "index": "amulet-of-the-animateshield",
+        "name": "Amulet of the Animated Shield",
+        "description": "While holding this Shield, you can take a Bonus Action to cause it to animate. The Shield leaps into the air and hovers in your space to protect you as if you were wielding it, leaving your hands free. The Shield remains animate for 1 minute.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Armor",
+        "subtype": "Shield",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Shield can animate and hover",
+            "Protects as if wielded"
+        ]
+    },
+    {
+        "index": "apparatus-of-kwalish",
+        "name": "Apparatus of Kwalish",
+        "description": "This item first appears to be a sealed iron barrel weighing 500 pounds. The barrel has a hidden catch, which can be found with a successful DC 20 Intelligence (Investigation) check. Ten levers control its transformation and functions.",
+        "rarity": "legendary",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "AC 20, HP 200",
+            "Speed 30 ft., Swim 30 ft.",
+            "Immunity to Poison and Psychic damage",
+            "10 levers control functions",
+            "Holds 2 Medium creatures",
+            "Air for 10 hours of breathing"
+        ]
+    },
+    {
+        "index": "armor-1-2-3",
+        "name": "Armor, +1, +2, or +3",
+        "description": "You have a bonus to Armor Class while wearing this armor. The bonus is determined by its rarity.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Armor",
+        "subtype": "Any Light, Medium, or Heavy",
+        "properties": [
+            "+1 AC (rare)",
+            "+2 AC (very rare)",
+            "+3 AC (legendary)"
+        ]
+    },
+    {
+        "index": "armor-of-gleaming",
+        "name": "Armor of Gleaming",
+        "description": "This armor never gets dirty.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Armor",
+        "subtype": "Any Light, Medium, or Heavy",
+        "properties": [
+            "Never gets dirty"
+        ]
+    },
+    {
+        "index": "armor-of-invulnerability",
+        "name": "Armor of Invulnerability",
+        "description": "You have Resistance to Bludgeoning, Piercing, and Slashing damage while you wear this armor. You can take a Magic action to give yourself Immunity to Bludgeoning, Piercing, and Slashing damage for 10 minutes or until you are no longer wearing the armor. Once this property is used, it can't be used again until the next dawn.",
+        "rarity": "legendary",
+        "requiresAttunement": true,
+        "type": "Armor",
+        "subtype": "Plate Armor",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Resistance to Bludgeoning, Piercing, Slashing",
+            "Immunity for 10 minutes (dawn recharge)"
+        ]
+    },
+    {
+        "index": "armor-of-resistance",
+        "name": "Armor of Resistance",
+        "description": "You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Armor",
+        "subtype": "Any Light, Medium, or Heavy",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Resistance to one damage type (DM choice)"
+        ]
+    },
+    {
+        "index": "armor-of-vulnerability",
+        "name": "Armor of Vulnerability",
+        "description": "While wearing this armor, you have Resistance to one of the following damage types: Bludgeoning, Piercing, or Slashing. Curse. This armor is cursed. While cursed, you have Vulnerability to two of the three damage types associated with the armor.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Armor",
+        "subtype": "Any Light, Medium, or Heavy",
+        "attunement_requirements": "Requires Attunement (cursed)",
+        "properties": [
+            "Resistance to one damage type",
+            "Vulnerability to two types when cursed"
+        ]
+    },
+    {
+        "index": "arrow-catching-shield",
+        "name": "Arrow-Catching Shield",
+        "description": "You gain a +2 bonus to Armor Class against ranged attack rolls while you wield this Shield. Whenever an attacker makes a ranged attack roll against a target within 5 feet of you, you can take a Reaction to become the target of the attack instead.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Armor",
+        "subtype": "Shield",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "+2 AC vs ranged attacks",
+            "Can redirect ranged attacks"
+        ]
+    },
+    {
+        "index": "axe-of-the-dwarvish-lords",
+        "name": "Axe of the Dwarvish Lords",
+        "description": "An Artifact. Magic Weapon. Grants +3 bonus to attack and damage rolls. On a natural 20, deals extra 20 Slashing damage. Has the Thrown property. While attuned, you gain Darkvision, Fortitude of Stone (Con +2), tool proficiencies, Immunity to Poison, Resistance to Fire, and can Conjure Earth Elemental.",
+        "rarity": "artifact",
+        "requiresAttunement": true,
+        "type": "Weapon",
+        "subtype": "Battleaxe",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "+3 attack and damage",
+            "Extra 20 Slashing on natural 20",
+            "Thrown (20/60 ft.)",
+            "Darkvision 60 ft.",
+            "Con +2 (max 20)",
+            "Tool proficiencies",
+            "Immunity to Poison",
+            "Resistance to Fire",
+            "Conjure Earth Elemental"
+        ]
+    },
+    {
+        "index": "babayagas-dancing-broom",
+        "name": "Baba Yaga's Dancing Broom",
+        "description": "While holding the broom, you can take a Magic action to transform it into an Animated Broom under your control. The broom remains animate until you take a Bonus Action to end the effect.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Transform to animated broom",
+            "Control broom within 30 ft.",
+            "Regains HP if reverted before destruction"
+        ]
+    },
+    {
+        "index": "bag-of-beans",
+        "name": "Bag of Beans",
+        "description": "This heavy cloth bag contains 3d4 dry beans. If you dump one or more beans out of the bag, they explode in a 10-foot-radius sphere, dealing 5d4 Force damage. Each bean produces a different effect when planted and watered.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "3d4 dry beans",
+            "Explosion effect",
+            "Planting produces various effects"
+        ]
+    },
+    {
+        "index": "bag-of-devouring",
+        "name": "Bag of Devouring",
+        "description": "This bag resembles a Bag of Holding but is a feeding orifice for a gigantic extradimensional creature. When part of a living creature is placed in the bag, there is a 50 percent chance the creature is pulled inside.",
+        "rarity": "very rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Devours living creatures",
+            "DC 15 Athletics to escape",
+            "Swallows objects once per day"
+        ]
+    },
+    {
+        "index": "bag-of-holding",
+        "name": "Bag of Holding",
+        "description": "This bag has an interior space considerably larger than its outside dimensions. The bag can hold up to 500 pounds, not exceeding a volume of 64 cubic feet. The bag weighs 5 pounds, regardless of its contents.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "500 lbs capacity",
+            "64 cubic feet volume",
+            "5 pounds weight",
+            "Air for 10 minutes"
+        ]
+    },
+    {
+        "index": "bag-of-tricks",
+        "name": "Bag of Tricks",
+        "description": "This bag made from gray, rust, or tan cloth appears empty. You can take a Magic action to pull a fuzzy object from the bag and throw it. When the object lands, it transforms into a creature.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Gray: Weasel, Giant Rat, Badger, Boar, Panther, Giant Badger, Dire Wolf, Giant Elk",
+            "Rust: Rat, Owl, Mastiff, Goat, Giant Goat, Giant Boar, Lion, Brown Bear",
+            "Tan: Jackal, Ape, Baboon, Axe Beak, Black Bear, Giant Weasel, Giant Hyena, Tiger"
+        ]
+    },
+    {
+        "index": "bead-of-force",
+        "name": "Bead of Force",
+        "description": "This small black sphere measures 3/4 of an inch in diameter and weighs an ounce. You can take a Magic action to throw the bead up to 60 feet. The bead explodes in a 10-foot-radius Sphere, dealing 5d4 Force damage.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "5d4 Force damage",
+            "Creates force sphere",
+            "Traps creatures in sphere"
+        ]
+    },
+    {
+        "index": "bead-of-nourishment",
+        "name": "Bead of Nourishment",
+        "description": "This flavorless, gelatinous bead dissolves on your tongue and provides as much nourishment as 1 day of Rations.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Provides 1 day of nourishment"
+        ]
+    },
+    {
+        "index": "bead-of-refreshment",
+        "name": "Bead of Refreshment",
+        "description": "This flavorless, gelatinous bead dissolves in liquid, transforming up to a pint of the liquid into fresh, cold drinking water.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Transforms water to fresh drinking water"
+        ]
+    },
+    {
+        "index": "belt-of-dwarvenkind",
+        "name": "Belt of Dwarvenkind",
+        "description": "While wearing this belt, you know Dwarvish, have Advantage on Charisma (Persuasion) checks with dwarves and duergar, and your Constitution increases by 2. Non-dwarves also gain Darkvision 60 ft. and Resistance to Poison.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Know Dwarvish",
+            "Advantage vs dwarves/duergar",
+            "Con +2 (max 20)",
+            "Non-dwarves: Darkvision 60 ft., Poison Resistance"
+        ]
+    },
+    {
+        "index": "belt-of-giant-strength",
+        "name": "Belt of Giant Strength",
+        "description": "While wearing this belt, your Strength changes to a score granted by the belt. The type of giant determines the score.",
+        "rarity": "varies",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Hill: 21 (rare)",
+            "Frost/Stone: 23 (very rare)",
+            "Fire: 25 (very rare)",
+            "Cloud: 27 (legendary)",
+            "Storm: 29 (legendary)"
+        ]
+    },
+    {
+        "index": "berserker-axe",
+        "name": "Berserker Axe",
+        "description": "You gain a +1 bonus to attack rolls and damage rolls. While attuned, your Hit Point maximum increases by 1 for each level. This weapon is cursed. While berserk, you must attack the nearest creature.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Weapon",
+        "subtype": "Battleaxe, Greataxe, or Halberd",
+        "attunement_requirements": "Requires Attunement (cursed)",
+        "properties": [
+            "+1 attack and damage",
+            "HP max +1 per level",
+            "Cursed - unwilling to part with weapon",
+            "Berserk state on failed save"
+        ]
+    },
+    {
+        "index": "blackrazor",
+        "name": "Blackrazor",
+        "description": "An Artifact. You gain a +3 bonus to attack and damage rolls. If you hit an Undead, you take 1d10 Necrotic damage and the target regains 1d10 Hit Points. Devours souls on killing hits.",
+        "rarity": "artifact",
+        "requiresAttunement": true,
+        "type": "Weapon",
+        "subtype": "Greatsword",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "+3 attack and damage",
+            "Immunity to Charmed and Frightened",
+            "Blindsight 30 ft.",
+            "Devours souls",
+            "Can cast Haste"
+        ]
+    },
+    {
+        "index": "book-of-exalted-deeds",
+        "name": "Book of Exalted Deeds",
+        "description": "An Artifact. A heavy clasp keeps the book secure. Only a creature attuned to the book can release the clasp. After 80 hours of reading, you gain various benefits.",
+        "rarity": "artifact",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Immunity to Charmed and Frightened",
+            "Resistance to Psychic damage",
+            "Wisdom +2 (max 24)",
+            "Spell slots count one level higher",
+            "Protective halo"
+        ]
+    },
+    {
+        "index": "book-of-vile-darkness",
+        "name": "Book of Vile Darkness",
+        "description": "An Artifact. Contains knowledge so horrid that to even glimpse the scrawled pages invites doom. One ability score increases by 2 (max 24), another decreases by 2 (min 3).",
+        "rarity": "artifact",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Ability scores adjusted",
+            "Immunity to Exhaustion",
+            "Can cast Animate Dead, Circle of Death, Dominate Monster, Finger of Death"
+        ]
+    },
+    {
+        "index": "boots-of-elvenkind",
+        "name": "Boots of Elvenkind",
+        "description": "While you wear these boots, your steps make no sound. You also have Advantage on Dexterity (Stealth) checks.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Silent movement",
+            "Advantage on Stealth checks"
+        ]
+    },
+    {
+        "index": "boots-of-false-tracks",
+        "name": "Boots of False Tracks",
+        "description": "While wearing these boots, you can have them leave tracks like those of any kind of Humanoid of your size.",
+        "rarity": "common",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Leave tracks of chosen Humanoid type"
+        ]
+    },
+    {
+        "index": "boots-of-levitation",
+        "name": "Boots of Levitation",
+        "description": "While you wear these boots, you can cast Levitate on yourself.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Cast Levitate on self"
+        ]
+    },
+    {
+        "index": "boots-of-speed",
+        "name": "Boots of Speed",
+        "description": "While you wear these boots, you can take a Bonus Action to click the boots' heels together. If you do, the boots double your Speed, and any creature that makes an Opportunity Attack against you has Disadvantage.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Double Speed (10 minutes total)",
+            "Disadvantage on Opportunity Attacks against you"
+        ]
+    },
+    {
+        "index": "boots-of-striding-and-springing",
+        "name": "Boots of Striding and Springing",
+        "description": "While you wear these boots, your Speed becomes 30 feet unless your Speed is higher, and your Speed isn't reduced by carrying excess weight or wearing Heavy Armor.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Speed becomes 30 ft.",
+            "Not reduced by weight or Heavy Armor",
+            "Jump 30 ft. for 10 ft. of movement"
+        ]
+    },
+    {
+        "index": "boots-of-the-winterlands",
+        "name": "Boots of the Winterlands",
+        "description": "While wearing them, you have Resistance to Cold damage and can tolerate temperatures of 0 degrees Fahrenheit or lower. You ignore Difficult Terrain created by ice or snow.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Cold Resistance",
+            "Tolerate 0°F or lower",
+            "Ignore ice/snow Difficult Terrain"
+        ]
+    },
+    {
+        "index": "bowl-of-commanding-water-elementals",
+        "name": "Bowl of Commanding Water Elementals",
+        "description": "While this bowl is filled with water and you are within 5 feet of it, you can take a Magic action to summon a Water Elemental.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Summon Water Elemental",
+            "Elemental disappears after 1 hour",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "bracers-of-archery",
+        "name": "Bracers of Archery",
+        "description": "While wearing these bracers, you have proficiency with the Longbow and Shortbow, and you gain a +2 bonus to damage rolls made with such weapons.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Proficiency with Longbow and Shortbow",
+            "+2 damage with bows"
+        ]
+    },
+    {
+        "index": "bracers-of-defense",
+        "name": "Bracers of Defense",
+        "description": "While wearing these bracers, you gain a +2 bonus to Armor Class if you are wearing no armor and using no Shield.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "+2 AC (no armor, no shield)"
+        ]
+    },
+    {
+        "index": "brazier-of-commanding-fire-elementals",
+        "name": "Brazier of Commanding Fire Elementals",
+        "description": "While you are within 5 feet of this brazier, you can take a Magic action to summon a Fire Elemental.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Summon Fire Elemental",
+            "Elemental disappears after 1 hour",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "brooch-of-shielding",
+        "name": "Brooch of Shielding",
+        "description": "While wearing this brooch, you have Resistance to Force damage, and you have Immunity to damage from the Magic Missile spell.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Resistance to Force damage",
+            "Immunity to Magic Missile damage"
+        ]
+    },
+    {
+        "index": "broom-of-flying",
+        "name": "Broom of Flying",
+        "description": "This wooden broom functions like a mundane broom until you stand astride it and take a Magic action to make it hover beneath you. It has a Fly Speed of 50 feet. It can carry up to 400 pounds.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Fly Speed 50 ft. (30 ft. over 200 lbs)",
+            "Can carry 400 lbs",
+            "Can send broom to named location within 1 mile"
+        ]
+    },
+    {
+        "index": "candle-of-invocation",
+        "name": "Candle of Invocation",
+        "description": "After burning for 4 hours, the candle is destroyed. While lit, the candle sheds Dim Light in a 30-foot radius. While you are within that light, you have Advantage on D20 Tests.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Advantage on D20 Tests in light",
+            "Cleric/Druid can cast prepared spells without slots",
+            "Can cast Gate (destroys candle)"
+        ]
+    },
+    {
+        "index": "candle-of-the-deep",
+        "name": "Candle of the Deep",
+        "description": "The flame of this candle isn't extinguished when immersed in water. It gives off light and heat like a normal candle.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Flame not extinguished underwater",
+            "Gives off light and heat"
+        ]
+    },
+    {
+        "index": "cape-of-the-mountebank",
+        "name": "Cape of the Mountebank",
+        "description": "While wearing it, you can use it to cast Dimension Door as a Magic action. This property can't be used again until the next dawn.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Cast Dimension Door",
+            "Leaves cloud of smoke",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "cape-of-water-breathing",
+        "name": "Cape of Water Breathing",
+        "description": "While wearing this cap underwater, you can take a Magic action to create a bubble of air around your head. This bubble allows you to breathe normally underwater.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Create air bubble underwater"
+        ]
+    },
+    {
+        "index": "carpet-of-flying",
+        "name": "Carpet of Flying",
+        "description": "You can make this carpet hover and fly by taking a Magic action. Four sizes exist: 3x5 ft (200 lbs, 80 ft), 4x6 ft (400 lbs, 60 ft), 5x7 ft (600 lbs, 40 ft), 6x9 ft (800 lbs, 30 ft).",
+        "rarity": "very rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Fly Speed varies by size",
+            "Capacity varies by size"
+        ]
+    },
+    {
+        "index": "cast-off-armor",
+        "name": "Cast-off Armor",
+        "description": "You can doff this armor as a Magic action.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Armor",
+        "subtype": "Any Light, Medium, or Heavy",
+        "properties": [
+            "Doff as Magic action"
+        ]
+    },
+    {
+        "index": "cauldron-of-rebirth",
+        "name": "Cauldron of Rebirth",
+        "description": "This Tiny pot bears relief scenes of heroes on its cast-iron sides. You can use the cauldron as a Spellcasting Focus for your spells.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement by a Druid or Warlock",
+        "properties": [
+            "Spellcasting Focus",
+            "Brew Potion of Healing (greater)",
+            "Raise Dead (7 day cooldown)"
+        ]
+    },
+    {
+        "index": "censer-of-controlling-air-elementals",
+        "name": "Censer of Controlling Air Elementals",
+        "description": "While gently swinging this censer, you can take a Magic action to summon an Air Elemental.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Summon Air Elemental",
+            "Elemental disappears after 1 hour",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "charlatans-die",
+        "name": "Charlatan's Die",
+        "description": "Whenever you roll this six-sided die, you can control which number it rolls.",
+        "rarity": "common",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Control die roll result"
+        ]
+    },
+    {
+        "index": "chime-of-opening",
+        "name": "Chime of Opening",
+        "description": "As a Magic action, you can strike the chime to cast Knock. The spell's customary knocking sound is replaced by the clear, ringing tone of the chime, which is audible out to 300 feet.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Cast Knock",
+            "10 uses before destruction",
+            "Audible to 300 ft"
+        ]
+    },
+    {
+        "index": "circlet-of-blasting",
+        "name": "Circlet of Blasting",
+        "description": "While wearing this circlet, you can cast Scorching Ray with it (+5 to hit). The circlet can't cast this spell again until the next dawn.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Cast Scorching Ray (+5 to hit)",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "cloak-of-arachnida",
+        "name": "Cloak of Arachnida",
+        "description": "While wearing it, you have Resistance to Poison damage, Spider Climb (Climb Speed equal to your Speed), and Spider Walk (immune to webs). You can cast Web (save DC 13).",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Poison Resistance",
+            "Spider Climb",
+            "Spider Walk",
+            "Cast Web (doubled area)"
+        ]
+    },
+    {
+        "index": "cloak-of-billowing",
+        "name": "Cloak of Billowing",
+        "description": "While wearing this cloak, you can take a Bonus Action to make it billow dramatically for 1 minute.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Billow dramatically for 1 minute"
+        ]
+    },
+    {
+        "index": "cloak-of-displacement",
+        "name": "Cloak of Displacement",
+        "description": "While you wear this cloak, it magically projects an illusion that makes you appear to be standing in a place near your actual location, causing any creature to have Disadvantage on attack rolls against you.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Attacks against you have Disadvantage",
+            "Suppressed when taking damage",
+            "Suppressed when Speed is 0"
+        ]
+    },
+    {
+        "index": "cloak-of-elvenkind",
+        "name": "Cloak of Elvenkind",
+        "description": "While you wear this cloak, Wisdom (Perception) checks made to perceive you have Disadvantage, and you have Advantage on Dexterity (Stealth) checks.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Disadvantage on Perception checks to notice you",
+            "Advantage on Stealth checks"
+        ]
+    },
+    {
+        "index": "cloak-of-invisibility",
+        "name": "Cloak of Invisibility",
+        "description": "This cloak has 3 charges and regains 1d3 expended charges daily at dawn. While wearing the cloak, you can take a Magic action to pull its hood over your head and expend 1 charge to give yourself the Invisible condition for 1 hour.",
+        "rarity": "legendary",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "3 charges (regains 1d3 at dawn)",
+            "Become Invisible for 1 hour"
+        ]
+    },
+    {
+        "index": "cloak-of-many-fashions",
+        "name": "Cloak of Many Fashions",
+        "description": "While wearing this cloak, you can take a Bonus Action to change the style, color, and apparent quality of the garment.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Change appearance as Bonus Action"
+        ]
+    },
+    {
+        "index": "cloak-of-protection",
+        "name": "Cloak of Protection",
+        "description": "You gain a +1 bonus to Armor Class and saving throws while you wear this cloak.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "+1 to AC and saving throws"
+        ]
+    },
+    {
+        "index": "cloak-of-the-bat",
+        "name": "Cloak of the Bat",
+        "description": "While wearing this cloak, you have Advantage on Dexterity (Stealth) checks. In Dim Light or Darkness, you can gain a Fly Speed of 40 feet. You can cast Polymorph on yourself, shape-shifting into a Bat.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Advantage on Stealth",
+            "Fly Speed 40 ft. in Dim Light/Darkness",
+            "Cast Polymorph (as Bat)"
+        ]
+    },
+    {
+        "index": "cloak-of-the-manta-ray",
+        "name": "Cloak of the Manta Ray",
+        "description": "While wearing this cloak, you can breathe underwater, and you have a Swim Speed of 60 feet.",
+        "rarity": "uncommon",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Breathe underwater",
+            "Swim Speed 60 ft"
+        ]
+    },
+    {
+        "index": "clockwork-amulet",
+        "name": "Clockwork Amulet",
+        "description": "When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used, this property can't be used again until the next dawn.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Replace attack roll with 10",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "clothes-of-mending",
+        "name": "Clothes of Mending",
+        "description": "This elegant outfit magically mends itself to counteract daily wear and tear. Pieces of the outfit that are destroyed can't be repaired in this way.",
+        "rarity": "common",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Self-mending"
+        ]
+    },
+    {
+        "index": "crystal-ball",
+        "name": "Crystal Ball",
+        "description": "While touching this crystal orb, you can cast Scrying (save DC 17) with it.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Cast Scrying (DC 17)"
+        ]
+    },
+    {
+        "index": "crystal-ball-of-mind-reading",
+        "name": "Crystal Ball of Mind Reading",
+        "description": "While touching this crystal orb, you can cast Scrying (save DC 17) with it. In addition, you can cast Detect Thoughts (save DC 17) targeting creatures you can see within 30 feet.",
+        "rarity": "legendary",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Cast Scrying (DC 17)",
+            "Cast Detect Thoughts (DC 17)"
+        ]
+    },
+    {
+        "index": "crystal-ball-of-telepathy",
+        "name": "Crystal Ball of Telepathy",
+        "description": "While touching this crystal orb, you can cast Scrying (save DC 17) with it. In addition, you can communicate telepathically with creatures you can see within 30 feet of the spell's sensor.",
+        "rarity": "legendary",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Cast Scrying (DC 17)",
+            "Telepathic communication",
+            "Cast Suggestion (DC 17)"
+        ]
+    },
+    {
+        "index": "crystal-ball-of-true-seeing",
+        "name": "Crystal Ball of True Seeing",
+        "description": "While touching this crystal orb, you can cast Scrying (save DC 17) with it. In addition, you have Truesight with a range of 120 feet centered on the spell's sensor.",
+        "rarity": "legendary",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Cast Scrying (DC 17)",
+            "Truesight 120 ft."
+        ]
+    },
+    {
+        "index": "cube-of-force",
+        "name": "Cube of Force",
+        "description": "This cube is about an inch across. Each face has a distinct marking. You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "10 charges (regains 1d6 at dawn)",
+            "Mage Armor (1 charge)",
+            "Shield (1 charge)",
+            "Leomund's Tiny Hut (2 charges)",
+            "Mordenkainen's Private Sanctum (3 charges)",
+            "Otiluke's Resilient Sphere (4 charges)",
+            "Wall of Force (5 charges)"
+        ]
+    },
+    {
+        "index": "cube-of-summoning",
+        "name": "Cube of Summoning",
+        "description": "This Tiny cube looks like a jack-in-the-box. When you wind its crank as a Magic action, a creature appears in the nearest unoccupied space.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Summons creatures via spells",
+            "Spell cast at level 5",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "cube-of-gate",
+        "name": "Cube of Gate",
+        "description": "This cube is 3 inches across and radiates palpable magical energy. The six sides of the cube are each keyed to a different plane of existence.",
+        "rarity": "legendary",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "3 charges (regains 1d3 at dawn)",
+            "Cast Gate",
+            "Cast Plane Shift (to keyed plane)"
+        ]
+    },
+    {
+        "index": "daerns-instant-fortress",
+        "name": "Daern's Instant Fortress",
+        "description": "As a Magic action, you can place this 1-inch adamantine statuette on the ground and, using a command word, cause it to grow rapidly into a square adamantine tower.",
+        "rarity": "rare",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "20 ft x 20 ft x 30 ft tower",
+            "AC 20, HP 100",
+            "Immunity to Bludgeoning, Piercing, Slashing",
+            "Resistance to all other damage"
+        ]
+    },
+    {
+        "index": "dagger-of-venom",
+        "name": "Dagger of Venom",
+        "description": "You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. You can take a Bonus Action to magically coat the blade with poison.",
+        "rarity": "rare",
+        "requiresAttunement": false,
+        "type": "Weapon",
+        "subtype": "Dagger",
+        "properties": [
+            "+1 attack and damage",
+            "Coat blade with poison (2d10 Poison damage)",
+            "Poisoned condition for 1 minute",
+            "Dawn recharge"
+        ]
+    },
+    {
+        "index": "dancing-sword",
+        "name": "Dancing Sword",
+        "description": "You can take a Bonus Action to toss this magic weapon into the air. When you do so, the weapon begins to hover, flies up to 30 feet, and attacks one creature of your choice within 5 feet of itself.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Weapon",
+        "subtype": "Greatsword, Longsword, Rapier, Scimitar, or Shortsword",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Hovers and attacks",
+            "Fly up to 30 ft",
+            "Returns to owner after 4 attacks"
+        ]
+    },
+    {
+        "index": "dark-shard-amulet",
+        "name": "Dark-Shard Amulet",
+        "description": "This amulet is fashioned from a shard of resilient material originating from an otherworldly realm. While you are wearing it, you gain the following benefits.",
+        "rarity": "common",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement by a Warlock",
+        "properties": [
+            "Spellcasting Focus for Warlock spells",
+            "Cast unknown Warlock cantrip (DC 10 Intelligence check)"
+        ]
+    },
+    {
+        "index": "decanter-of-endless-water",
+        "name": "Decanter of Endless Water",
+        "description": "This stoppered flask sloshes when shaken, as if it contains water. You can take a Magic action to remove the stopper and issue one of three command words.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Splash: 1 gallon",
+            "Fountain: 5 gallons",
+            "Geyser: 30 gallons (1d4 Bludgeoning damage)"
+        ]
+    },
+    {
+        "index": "deck-of-illusions",
+        "name": "Deck of Illusions",
+        "description": "This box contains a set of cards. A full deck has 34 cards: 32 depicting specific creatures and two with a mirrored surface.",
+        "rarity": "uncommon",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "Creates illusory creatures",
+            "32 different creature illusions",
+            "Cards disappear after use"
+        ]
+    },
+    {
+        "index": "deck-of-many-things",
+        "name": "Deck of Many Things",
+        "description": "Usually found in a box or pouch, this deck contains a number of cards made of ivory or vellum. Most (75 percent) of these decks have thirteen cards, but some have twenty-two.",
+        "rarity": "legendary",
+        "requiresAttunement": false,
+        "type": "Wondrous Item",
+        "properties": [
+            "13-card or 22-card deck",
+            "Various powerful effects",
+            "Balance, Comet, Donjon, Euryale, Fates, Flames, Fool, Gem, Jester, Key, Knight, Moon, Puzzle, Rogue, Ruin, Sage, Skull, Star, Sun, Talons, Throne, Void"
+        ]
+    },
+    {
+        "index": "defender",
+        "name": "Defender",
+        "description": "You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. The first time you attack with the weapon on each of your turns, you can transfer some or all of the weapon's bonus to your Armor Class.",
+        "rarity": "legendary",
+        "requiresAttunement": true,
+        "type": "Weapon",
+        "subtype": "Any Melee Weapon",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "+3 attack and damage",
+            "Can transfer bonus to AC"
+        ]
+    },
+    {
+        "index": "demon-armor",
+        "name": "Demon Armor",
+        "description": "While wearing this armor, you gain a +1 bonus to Armor Class, and you know Abyssal. The armor's clawed gauntlets allow your Unarmed Strikes to deal 1d8 Slashing damage.",
+        "rarity": "very rare",
+        "requiresAttunement": true,
+        "type": "Armor",
+        "subtype": "Any Light, Medium, or Heavy",
+        "attunement_requirements": "Requires Attunement (cursed)",
+        "properties": [
+            "+1 AC",
+            "Know Abyssal",
+            "Unarmed Strikes deal 1d8 Slashing",
+            "Cursed - can't doff without Remove Curse",
+            "Disadvantage vs demons"
+        ]
+    },
+    {
+        "index": "demonomicon-of-iggwilv",
+        "name": "Demonomicon of Iggwilv",
+        "description": "An Artifact. This treatise, composed by Iggwilv the archmage, documents the Abyss's layers and inhabitants.",
+        "rarity": "artifact",
+        "requiresAttunement": true,
+        "type": "Wondrous Item",
+        "attunement_requirements": "Requires Attunement",
+        "properties": [
+            "Advantage on checks about demons/Abyss",
+            "Can trap Fiends in book",
+            "Ensnarement bonus vs Fiends",
+            "Fiendish Scourging",
+            "8 charges for spells"
+        ]
+    }
+]
