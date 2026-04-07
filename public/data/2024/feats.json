@@ -1,0 +1,353 @@
+[
+  {
+    "index": "actor",
+    "name": "Actor",
+    "desc": [
+      "You gain a +1 bonus to your Strength, Dexterity, and Constitution scores.",
+      "You can use a bonus action to make an unarmed strike or attack with a simple weapon you are holding."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 4,
+    "ability_score": "Strength, Dexterity, Constitution",
+    "category": "general"
+  },
+  {
+    "index": "alert",
+    "name": "Alert",
+    "desc": [
+      "You gain a +5 bonus to your initiative rolls.",
+      "You cannot be surprised while you are conscious.",
+      "Other creatures have disadvantage on attack rolls against you while you are unconscious."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "general"
+  },
+  {
+    "index": "athlete",
+    "name": "Athlete",
+    "desc": [
+      "You gain a +1 bonus to your Strength score.",
+      "When you make a Strength check to climb or jump, you can treat any d20 roll of 9 or lower as a 10."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Strength",
+    "category": "general"
+  },
+  {
+    "index": "crusher",
+    "name": "Crusher",
+    "desc": [
+      "You gain a +1 bonus to your Strength score.",
+      "When you hit a creature with an attack using a Strength-based weapon, you can push the target up to 10 feet away from you."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Strength",
+    "category": "combat"
+  },
+  {
+    "index": "dual-wielder",
+    "name": "Dual Wielder",
+    "desc": [
+      "You gain a +1 bonus to your AC while wielding a melee weapon in each hand.",
+      "You can use a bonus action to make an attack with the weapon you are holding in your off hand."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "durable",
+    "name": "Durable",
+    "desc": [
+      "You gain a +1 bonus to your Constitution score.",
+      "When you roll Hit Dice to regain hit points, you can reroll any number of those dice and use the new rolls."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Constitution",
+    "category": "general"
+  },
+  {
+    "index": "dexterous",
+    "name": "Dexterous",
+    "desc": [
+      "You gain a +1 bonus to your Dexterity score.",
+      "When you make a Dexterity check, you can treat any d20 roll of 9 or lower as a 10."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "general"
+  },
+  {
+    "index": "fortified",
+    "name": "Fortified",
+    "desc": [
+      "You gain a +1 bonus to your Constitution score.",
+      "When you make a Constitution saving throw, you can treat any d20 roll of 9 or lower as a 10."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Constitution",
+    "category": "general"
+  },
+  {
+    "index": "grappler",
+    "name": "Grappler",
+    "desc": [
+      "You gain a +1 bonus to your Strength score.",
+      "When you make an attack roll against a grappled creature, you have advantage on the roll."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Strength",
+    "category": "combat"
+  },
+  {
+    "index": "heavy-armor-master",
+    "name": "Heavy Armor Master",
+    "desc": [
+      "You gain a +1 bonus to your Strength score.",
+      "While wearing heavy armor, you have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks."
+    ],
+    "prerequisite": "Proficiency with heavy armor",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Strength",
+    "category": "combat"
+  },
+  {
+    "index": "insightful",
+    "name": "Insightful",
+    "desc": [
+      "You gain a +1 bonus to your Wisdom score.",
+      "When you make a Wisdom check, you can treat any d20 roll of 9 or lower as a 10."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Wisdom",
+    "category": "general"
+  },
+  {
+    "index": "intelligent",
+    "name": "Intelligent",
+    "desc": [
+      "You gain a +1 bonus to your Intelligence score.",
+      "When you make an Intelligence check, you can treat any d20 roll of 9 or lower as a 10."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Intelligence",
+    "category": "general"
+  },
+  {
+    "index": "keen",
+    "name": "Keen",
+    "desc": [
+      "You gain a +1 bonus to your Dexterity score.",
+      "When you make an attack roll with a finesse or ranged weapon, you can treat any d20 roll of 9 or lower as a 10."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "lucky",
+    "name": "Lucky",
+    "desc": [
+      "You gain three luck points. When you make an attack roll, ability check, or saving throw, you can spend one luck point to reroll the d20 and use the new roll.",
+      "You regain all expended luck points when you finish a long rest."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "None",
+    "category": "general"
+  },
+  {
+    "index": "mobile",
+    "name": "Mobile",
+    "desc": [
+      "You gain a +1 bonus to your Dexterity score.",
+      "When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of your turn."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "observant",
+    "name": "Observant",
+    "desc": [
+      "You gain a +1 bonus to your Wisdom score.",
+      "You gain proficiency in one skill of your choice."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Wisdom",
+    "category": "general"
+  },
+  {
+    "index": "polearm-master",
+    "name": "Polearm Master",
+    "desc": [
+      "You gain a +1 bonus to your Strength score.",
+      "When you make an attack with a polearm, you can use a bonus action to make a melee attack with the opposite end of the weapon."
+    ],
+    "prerequisite": "Proficiency with a polearm",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Strength",
+    "category": "combat"
+  },
+  {
+    "index": "resilient",
+    "name": "Resilient",
+    "desc": [
+      "You gain a +1 bonus to one ability score of your choice.",
+      "You gain proficiency in saving throws using that ability score."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Any",
+    "category": "general"
+  },
+  {
+    "index": "resilient-con",
+    "name": "Resilient (Constitution)",
+    "desc": [
+      "You gain a +1 bonus to your Constitution score.",
+      "You gain proficiency in Constitution saving throws."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Constitution",
+    "category": "general"
+  },
+  {
+    "index": "resilient-dex",
+    "name": "Resilient (Dexterity)",
+    "desc": [
+      "You gain a +1 bonus to your Dexterity score.",
+      "You gain proficiency in Dexterity saving throws."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "general"
+  },
+  {
+    "index": "resilient-wis",
+    "name": "Resilient (Wisdom)",
+    "desc": [
+      "You gain a +1 bonus to your Wisdom score.",
+      "You gain proficiency in Wisdom saving throws."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Wisdom",
+    "category": "general"
+  },
+  {
+    "index": "savage-attacker",
+    "name": "Savage Attacker",
+    "desc": [
+      "You gain a +1 bonus to your Strength score.",
+      "When you roll damage for a melee attack using Strength, you can reroll the weapon's damage dice and use the new roll."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Strength",
+    "category": "combat"
+  },
+  {
+    "index": "shield-master",
+    "name": "Shield Master",
+    "desc": [
+      "You gain a +1 bonus to your Dexterity score.",
+      "If you are wielding a shield, you can use a reaction to add your shield's AC bonus to Dexterity saving throws against effects that target only you."
+    ],
+    "prerequisite": "Proficiency with a shield",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "sharpshooter",
+    "name": "Sharpshooter",
+    "desc": [
+      "You gain a +1 bonus to your Dexterity score.",
+      "When you make an attack roll with a ranged weapon, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "spellcaster",
+    "name": "Spellcaster",
+    "desc": [
+      "You gain a +1 bonus to your spellcasting ability score.",
+      "You learn one cantrip of your choice from any class's spell list."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Intelligence, Wisdom, or Charisma",
+    "category": "general"
+  },
+  {
+    "index": "tough",
+    "name": "Tough",
+    "desc": [
+      "Your hit point maximum increases by 2 for each level you have."
+    ],
+    "prerequisite": "None",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Constitution",
+    "category": "general"
+  },
+  {
+    "index": "war-caster",
+    "name": "War Caster",
+    "desc": [
+      "You gain proficiency with Constitution saving throws to maintain concentration on spells.",
+      "When a creature provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature instead of making an opportunity attack."
+    ],
+    "prerequisite": "Proficiency with a spellcasting focus",
+    "source": "2024 Rules",
+    "level": 1,
+    "ability_score": "Constitution",
+    "category": "combat"
+  }
+]

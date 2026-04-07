@@ -1,0 +1,222 @@
+Adamantine Armor
+Adamantine Weapon
+Alchemy Jug
+Ammunition, +1
+Ammunition, +2
+Ammunition, +3
+Amulet of Health
+Amulet of Proof Against Detection and Location
+Amulet of the Planes
+Animated Shield
+Apparatus of Kwalish
+Bag of Beans
+Bag of Devouring
+Bag of Holding
+Bag of Tricks (Gray)
+Bag of Tricks (Rust)
+Bag of Tricks (Tan)
+Bead of Force
+Belt of Dwarvenkind
+Belt of Giant Strength (Hill)
+Belt of Giant Strength (Stone)
+Belt of Giant Strength (Frost)
+Belt of Giant Strength (Fire)
+Belt of Giant Strength (Cloud)
+Belt of Giant Strength (Storm)
+Candle of Invocation
+Cape of the Mountebank
+Carpet of Flying
+Censer of Controlling Air Elementals
+Chime of Opening
+Circlet of Blasting
+Cloak of Arachnida
+Cloak of Displacement
+Cloak of Elvenkind
+Cloak of Invisibility
+Cloak of Protection
+Cloak of the Bat
+Cloak of the Manta Ray
+Dagger of Venom
+Dancing Sword
+Decanter of Endless Water
+Deck of Illusions
+Deck of Many Things
+Defender
+Demon Armor
+Dimensional Shackles
+Dragon Scale Mail
+Driftglobe
+Dust of Disappearance
+Dust of Dryness
+Dust of Sneezing and Choking
+Efreeti Bottle
+Elemental Gem
+Elven Chain
+Eversmoking Bottle
+Eyes of Charming
+Eyes of Minute Seeing
+Eyes of the Eagle
+Figurine of Wondrous Power (all variants)
+Flame Tongue
+Folding Boat
+Frost Brand
+Gauntlets of Ogre Power
+Gem of Brightness
+Gem of Seeing
+Giant Slayer
+Glamoured Studded Leather
+Gloves of Missile Snaring
+Gloves of Swimming and Climbing
+Gloves of Thievery
+Goggles of Night
+Golem Manual
+Grappling Hook of the Deep
+Greatsword of Sharpness
+Guardian Emblem
+Hammer of Thunderbolts
+Handy Haversack
+Hat of Disguise
+Headband of Intellect
+Helm of Brilliance
+Helm of Comprehending Languages
+Helm of Telepathy
+Helm of Underwater Action
+Holy Avenger
+Horn of Blasting
+Horn of Valhalla (all types)
+Horseshoes of Speed
+Horseshoes of a Zephyr
+Immovable Rod
+Instrument of the Bards (all types)
+Ioun Stone (all types)
+Iron Bands of Bilarro
+Javelin of Lightning
+Jewel of Three Prayers
+Keoghtom’s Ointment
+Kite Shield of the Sentinel
+Lantern of Revealing
+Luck Blade
+Mace of Disruption
+Mace of Smiting
+Mace of Terror
+Mantle of Spell Resistance
+Manual of Bodily Health
+Manual of Gainful Exercise
+Manual of Golems
+Manual of Quickness of Action
+Marvelous Pigments
+Medallion of Thoughts
+Mirror of Life Trapping
+Moonblade
+Mithral Armor
+Necklace of Adaptation
+Necklace of Fireballs
+Necklace of Prayer Beads
+Nine Lives Stealer
+Nolzur's Marvelous Pigments
+Oathbow
+Oil of Etherealness
+Oil of Sharpness
+Orb of Dragonkind
+Pearl of Power
+Periapt of Health
+Periapt of Proof Against Poison
+Periapt of Wound Closure
+Philter of Love
+Pipes of Haunting
+Pipes of the Sewers
+Plate Armor of Etherealness
+Portable Hole
+Potion of (all types)
+Potion of Giant Strength (all types)
+Potion of Healing (all types)
+Potion of Heroism
+Potion of Invisibility
+Potion of Speed
+Potion of Vitality
+Quaal's Feather Token (all types)
+Ring of Animal Influence
+Ring of Djinni Summoning
+Ring of Elemental Command (all types)
+Ring of Evasion
+Ring of Feather Falling
+Ring of Free Action
+Ring of Invisibility
+Ring of Jumping
+Ring of Mind Shielding
+Ring of Protection
+Ring of Regeneration
+Ring of Resistance (all types)
+Ring of Shooting Stars
+Ring of Spell Storing
+Ring of Spell Turning
+Ring of Swimming
+Ring of Telekinesis
+Ring of Three Wishes
+Ring of Warmth
+Ring of Water Walking
+Robe of Eyes
+Robe of Scintillating Colors
+Robe of Stars
+Robe of the Archmagi
+Rod of Absorption
+Rod of Alertness
+Rod of Lordly Might
+Rod of Resurrection
+Rope of Climbing
+Rope of Entanglement
+Saddle of the Cavalier
+Scarab of Protection
+Scimitar of Speed
+Scroll of (all spell levels)
+Sending Stones
+Sentinel Shield
+Shadowfell Brand Tattoo
+Shield of Missile Attraction
+Slippers of Spider Climbing
+Sovereign Glue
+Spellguard Shield
+Sphere of Annihilation
+Staff of Charming
+Staff of Fire
+Staff of Frost
+Staff of Healing
+Staff of Power
+Staff of Striking
+Staff of Swarming Insects
+Staff of the Magi
+Stone of Controlling Earth Elementals
+Stone of Good Luck
+Sun Blade
+Sword of Answering
+Sword of Life Stealing
+Sword of Sharpness
+Sword of Wounding
+Talisman of Pure Good
+Talisman of the Sphere
+Talisman of Ultimate Evil
+Tome of Clear Thought
+Tome of Leadership and Influence
+Tome of Understanding
+Trident of Fish Command
+Universal Solvent
+Vicious Weapon
+Vorpal Sword
+Wand of Binding
+Wand of Enemy Detection
+Wand of Fear
+Wand of Fireballs
+Wand of Lightning Bolts
+Wand of Magic Detection
+Wand of Magic Missiles
+Wand of Paralysis
+Wand of Polymorph
+Wand of Secrets
+Wand of the War Mage (all bonuses)
+Weapon, +1
+Weapon, +2
+Weapon, +3
+Well of Many Worlds
+Winged Boots
+Wings of Flying
+Yklwa of the Ancients
