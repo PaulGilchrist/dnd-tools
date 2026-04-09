@@ -16,7 +16,8 @@
       },
       "size": {
         "type": "string",
-        "description": "Size of the monster"
+        "description": "Size of the monster",
+        "enum": ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"]
       },
       "type": {
         "type": "string",
@@ -29,6 +30,14 @@
       "alignment": {
         "type": "string",
         "description": "Alignment of the monster"
+      },
+      "initiative": {
+        "type": "integer",
+        "description": "Initiative modifier of the monster"
+      },
+      "initiative_details": {
+        "type": "string",
+        "description": "Full initiative display (e.g., '+4 (14)')"
       },
       "armor_class": {
         "type": "integer",
@@ -52,23 +61,72 @@
       },
       "speed": {
         "type": "object",
-        "description": "Speed values for the monster"
+        "description": "Speed values for the monster",
+        "properties": {
+          "walk": {"type": "string"},
+          "fly": {"type": "string"},
+          "swim": {"type": "string"},
+          "climb": {"type": "string"},
+          "burrow": {"type": "string"},
+          "other": {"type": "array"}
+        }
       },
       "ability_scores": {
         "type": "object",
-        "description": "Ability scores of the monster"
+        "description": "Ability scores of the monster",
+        "properties": {
+          "str": {"type": "integer"},
+          "dex": {"type": "integer"},
+          "con": {"type": "integer"},
+          "int": {"type": "integer"},
+          "wis": {"type": "integer"},
+          "cha": {"type": "integer"}
+        }
+      },
+      "ability_score_modifiers": {
+        "type": "object",
+        "description": "Ability score modifiers of the monster",
+        "properties": {
+          "str": {"type": "integer"},
+          "dex": {"type": "integer"},
+          "con": {"type": "integer"},
+          "int": {"type": "integer"},
+          "wis": {"type": "integer"},
+          "cha": {"type": "integer"}
+        }
       },
       "saving_throws": {
         "type": "object",
-        "description": "Saving throw proficiencies"
+        "description": "Saving throw proficiencies",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "modifier": {"type": "integer"},
+            "bonus": {"type": "integer"}
+          }
+        }
       },
       "skills": {
         "type": "object",
-        "description": "Skill proficiencies"
+        "description": "Skill proficiencies",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "modifier": {"type": "integer"},
+            "bonus": {"type": "integer"}
+          }
+        }
       },
       "senses": {
         "type": "object",
-        "description": "Senses of the monster"
+        "description": "Senses of the monster",
+        "properties": {
+          "darkvision": {"type": "integer"},
+          "blindsight": {"type": "integer"},
+          "truesight": {"type": "integer"},
+          "tremorsense": {"type": "integer"},
+          "passive_perception": {"type": "integer"}
+        }
       },
       "languages": {
         "type": "string",
@@ -78,29 +136,95 @@
         "type": "string",
         "description": "Challenge rating of the monster"
       },
+      "xp": {
+        "type": "integer",
+        "description": "Experience points value"
+      },
+      "proficiency_bonus": {
+        "type": "integer",
+        "description": "Monster's proficiency bonus"
+      },
       "actions": {
         "type": "array",
-        "description": "List of actions the monster can take"
+        "description": "List of actions the monster can take",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "attack_bonus": {"type": "integer"},
+            "damage": {"type": "string"},
+            "damage_dice": {"type": "string"},
+            "damage_bonus": {"type": "integer"},
+            "save_dc": {"type": "integer"},
+            "save_type": {"type": "string"},
+            "save_effect": {"type": "string"},
+            "range": {"type": "string"},
+            "reach": {"type": "string"},
+            "recharge": {"type": "string"}
+          }
+        }
       },
       "bonus_actions": {
         "type": "array",
-        "description": "Bonus actions available"
+        "description": "Bonus actions available",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "save_dc": {"type": "integer"},
+            "save_type": {"type": "string"}
+          }
+        }
       },
       "reactions": {
         "type": "array",
-        "description": "Reactions available"
+        "description": "Reactions available",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "trigger": {"type": "string"},
+            "description": {"type": "string"}
+          }
+        }
       },
       "legendary_actions": {
         "type": "array",
-        "description": "Legendary actions"
+        "description": "Legendary actions",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "uses": {"type": "integer"},
+            "recharge": {"type": "boolean"}
+          }
+        }
       },
       "lair_actions": {
         "type": "array",
-        "description": "Lair actions"
+        "description": "Lair actions",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "save_dc": {"type": "integer"}
+          }
+        }
       },
       "traits": {
         "type": "array",
-        "description": "Special traits of the monster"
+        "description": "Special traits of the monster",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"}
+          }
+        }
       },
       "book": {
         "type": "string",
@@ -116,16 +240,37 @@
       },
       "immunities": {
         "type": "array",
-        "description": "Damage and condition immunities (2024 rules)"
+        "description": "Damage and condition immunities (2024 rules)",
+        "items": {"type": "string"}
       },
       "vulnerabilities": {
         "type": "array",
-        "description": "Damage vulnerabilities (2024 rules)"
+        "description": "Damage vulnerabilities (2024 rules)",
+        "items": {"type": "string"}
       },
       "resistances": {
         "type": "array",
-        "description": "Damage resistances (2024 rules)"
+        "description": "Damage resistances (2024 rules)",
+        "items": {"type": "string"}
+      },
+      "equipment": {
+        "type": "array",
+        "description": "Equipment or gear the monster carries",
+        "items": {"type": "string"}
+      },
+      "habitat": {
+        "type": "string",
+        "description": "Habitat or environment"
+      },
+      "treasure": {
+        "type": "string",
+        "description": "Treasure type"
+      },
+      "artist": {
+        "type": "string",
+        "description": "Artist who created the monster art"
       }
-    }
+    },
+    "additionalProperties": true
   }
 }
