@@ -2,2119 +2,2601 @@
   {
     "index": "barbarian",
     "name": "Barbarian",
-    "hit_die": 12,
+    "hit_die": "d12",
     "hit_die_type": "d12",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Acrobatics", "index": "acrobatics"},
-            {"item": "Animal Handling", "index": "animal-handling"},
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Performance", "index": "performance"},
-            {"item": "Persuasion", "index": "persuasion"},
-            {"item": "Religion", "index": "religion"},
-            {"item": "Sleight of Hand", "index": "sleight-of-hand"},
-            {"item": "Stealth", "index": "stealth"},
-            {"item": "Survival", "index": "survival"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Strength saving throws",
-      "Constitution saving throws",
-      "Simple weapons",
-      "Martial weapons",
-      "Light armor",
-      "Medium armor"
+      "simple weapons",
+      "martial weapons",
+      "light armor",
+      "medium armor",
+      "shields"
     ],
     "saving_throws": [
-      "Strength",
-      "Constitution"
+      "strength",
+      "constitution"
     ],
-    "class_levels": [],
+    "skills": [
+      "animal handling",
+      "athletics",
+      "intimidation",
+      "nature",
+      "perception",
+      "survival"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "primal-path",
-        "name": "Primal Path",
-        "desc": "Choose a Primal Path that shapes your rage."
-      }
-    ],
-    "minor_choices": [
+        "index": "path-of-the-berserker",
+        "name": "Path of the Berserker"
+      },
       {
-        "index": "reaving-reason",
-        "name": "Reaving Reason",
-        "desc": "Choose your Reaving Reason, which defines how you channel your rage."
+        "index": "path-of-the-wild-heart",
+        "name": "Path of the Wild Heart"
+      },
+      {
+        "index": "path-of-the-world-tree",
+        "name": "Path of the World Tree"
+      },
+      {
+        "index": "path-of-the-zealot",
+        "name": "Path of the Zealot"
       }
     ],
-    "spellcasting": null,
-    "hit_points_at_higher_levels": "1d12 + your Constitution modifier per Barbarian level after 1st",
-    "proficiency_bonus_scaling": [],
+    "minor_choices": [],
     "martial_choices": [
       {
-        "index": "unarmored-defense",
-        "name": "Unarmored Defense",
-        "desc": "While you are not wearing armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier."
+        "index": "axe-mastery",
+        "name": "Axe Mastery"
+      },
+      {
+        "index": "mace-mastery",
+        "name": "Mace Mastery"
       }
     ],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Greataxe",
-        "index": "greataxe"
+        "item": "greataxe",
+        "quantity": 1
       },
       {
-        "quantity": 2,
-        "item": "Handaxe",
-        "index": "handaxe"
+        "item": "handaxe",
+        "quantity": 4
       },
       {
-        "quantity": 5,
-        "item": "Explorer's Pack",
-        "index": "explorer's-pack"
-      }
-    ],
-    "equipment_options": [
+        "item": "explorer's pack",
+        "quantity": 1
+      },
       {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Shield", "index": "shield"},
-            {"item": "Simple weapon", "index": "simple-weapon"}
-          ]
-        }
+        "item": "gp",
+        "quantity": 15
       }
     ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "greataxe and 4 handaxes OR 75 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Strength", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Simple weapons",
-        "Martial weapons"
+      "prerequisite": "strength 13",
+      "proficiencies": [
+        "martial weapons",
+        "shields"
       ]
     },
-    "level_1_features": [
+    "spellcasting": null,
+    "hit_points_at_higher_levels": "1d12 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "rage",
-        "name": "Rage",
-        "desc": "As a bonus action, you can enter a rage. While raging, you have advantage on Strength checks and Strength saving throws, you gain +2 to melee damage rolls using Strength weapons, and you have resistance to bludgeoning, piercing, and slashing damage. Your rage lasts for 1 minute or until you fall unconscious or end it early. You can rage a number of times equal to 1 + your Constitution modifier."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "unarmored-defense",
-        "name": "Unarmored Defense",
-        "desc": "While you are not wearing armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier."
+        "level": 5,
+        "bonus": 3
+      },
+      {
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_2_features": [
+    "feature_levels": [
       {
-        "index": "reaving-reason",
-        "name": "Reaving Reason",
-        "desc": "Choose your Reaving Reason, which determines how your rage manifests and what benefits you gain while raging."
-      }
-    ],
-    "level_6_features": [
+        "level": 1,
+        "features": [
+          "rage",
+          "unarmored defense",
+          "weapon mastery"
+        ]
+      },
       {
-        "index": "relentless-rage",
-        "name": "Relentless Rage",
-        "desc": "When you drop to 0 hit points while raging, you make a DC 10 Constitution saving throw. On a success, you drop to 1 hit point instead."
-      }
-    ],
-    "level_10_features": [
+        "level": 2,
+        "features": [
+          "danger sense",
+          "reckless attack"
+        ]
+      },
       {
-        "index": "persistent-rage",
-        "name": "Persistent Rage",
-        "desc": "Your rage is so powerful that it ends early only if you fall unconscious or if you choose to end it."
-      }
-    ],
-    "level_14_features": [
+        "level": 3,
+        "features": [
+          "barbarian subclass",
+          "primal knowledge"
+        ]
+      },
       {
-        "index": "invincible",
-        "name": "Invincible",
-        "desc": "While raging, you have resistance to all damage except psychic damage."
-      }
-    ],
-    "level_18_features": [
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
       {
-        "index": "primal-champion",
-        "name": "Primal Champion",
-        "desc": "Your Strength and Constitution scores increase by 4, and your maximum for both increases by 4."
+        "level": 5,
+        "features": [
+          "extra attack",
+          "fast movement"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "feral instinct",
+          "instinctive pounce"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "brutal strike"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "relentless rage"
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          "improved brutal strike"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "persistent rage"
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          "improved brutal strike"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "indomitable might"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "primal champion"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "bard",
     "name": "Bard",
-    "hit_die": 8,
+    "hit_die": "d8",
     "hit_die_type": "d8",
-    "proficiency_choices": [
-      {
-        "choose": 3,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Acrobatics", "index": "acrobatics"},
-            {"item": "Animal Handling", "index": "animal-handling"},
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Performance", "index": "performance"},
-            {"item": "Persuasion", "index": "persuasion"},
-            {"item": "Religion", "index": "religion"},
-            {"item": "Sleight of Hand", "index": "sleight-of-hand"},
-            {"item": "Stealth", "index": "stealth"},
-            {"item": "Survival", "index": "survival"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Dexterity saving throws",
-      "Charisma saving throws",
-      "Light armor",
-      "Simple weapons",
-      "Handcrossbows",
-      "Daggers",
-      "Darts",
-      "Shortswords",
-      "Rapiers",
-      "Longswords",
-      "Shortbows",
-      "Winds",
-      "Flutes",
-      "Lutes",
-      "Drums"
+      "simple weapons",
+      "light armor",
+      "hand crossbows",
+      "longswords",
+      "rapiers",
+      "shortswords"
     ],
     "saving_throws": [
-      "Dexterity",
-      "Charisma"
+      "dexterity",
+      "charisma"
     ],
-    "class_levels": [],
+    "skills": [
+      "choose any 3 skills"
+    ],
+    "skill_choices": 3,
     "majors": [
       {
-        "index": "magical-secrets",
-        "name": "Magical Secrets",
-        "desc": "Choose your Magical Secrets, which allows you to learn spells from any class list."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "inspiration",
-        "name": "Inspiration",
-        "desc": "Choose your Inspiration style, which determines how you inspire allies."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Charisma",
-      "spell_slots": {
-        "1st": [2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "3rd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        "7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8],
-        "8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6],
-        "9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4]
+        "index": "college-of-dance",
+        "name": "College of Dance"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 2},
-        {"level": 5, "count": 3},
-        {"level": 10, "count": 4}
-      ],
-      "spells_known": [],
-      "ritual_casting": true,
-      "spellcasting_level": "full"
-    },
-    "hit_points_at_higher_levels": "1d8 + your Charisma modifier per Bard level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "bardic-inspiration",
-        "name": "Bardic Inspiration",
-        "desc": "You can inspire others through words or music. As a bonus action, you can give one creature within 60 feet a Bardic Inspiration die (d6). The creature can roll the die and add the number rolled to any ability check, attack roll, or saving throw it makes within the next 10 minutes."
+        "index": "college-of-glamour",
+        "name": "College of Glamour"
+      },
+      {
+        "index": "college-of-lore",
+        "name": "College of Lore"
+      },
+      {
+        "index": "college-of-valor",
+        "name": "College of Valor"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Rapier",
-        "index": "rapier"
+        "item": "leather armor",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Diplomatic Pack",
-        "index": "diplomatic-pack"
+        "item": "two daggers",
+        "quantity": 2
       },
       {
-        "quantity": 1,
-        "item": "Lute",
-        "index": "lute"
-      }
-    ],
-    "equipment_options": [
+        "item": "musical instrument",
+        "quantity": 1
+      },
       {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Shortsword", "index": "shortsword"},
-            {"item": "Simple weapon", "index": "simple-weapon"}
-          ]
-        }
+        "item": "entertainer's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 19
       }
     ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "leather armor, 2 daggers, musical instrument, entertainer's pack, 19 gp OR 90 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Charisma", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Simple weapons"
+      "prerequisite": "charisma 13",
+      "proficiencies": [
+        "light armor",
+        "one skill",
+        "musical instrument"
       ]
     },
-    "level_1_features": [
+    "spellcasting": {
+      "spellcasting_ability": "charisma",
+      "spellcasting_level": "full",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        2,
+        3,
+        4
+      ],
+      "spells_known": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        16,
+        17,
+        17,
+        18,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
+    "hit_points_at_higher_levels": "1d8 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "bardic-inspiration",
-        "name": "Bardic Inspiration",
-        "desc": "You can inspire others through words or music. As a bonus action, you can give one creature within 60 feet a Bardic Inspiration die (d6). The creature can roll the die and add the number rolled to any ability check, attack roll, or saving throw it makes within the next 10 minutes."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Charisma as your spellcasting ability. You know four 1st-level spells of your choice from the bard spell list."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "jack-of-all-trades",
-        "name": "Jack of All Trades",
-        "desc": "You can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "song-of-rest",
-        "name": "Song of Rest",
-        "desc": "You can use your bonus action to sing a song that grants creatures within 60 feet temporary hit points equal to your Bard level + your Charisma modifier when they roll Hit Dice."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "expert-diplomacy",
-        "name": "Expert Diplomacy",
-        "desc": "Your Bardic Inspiration die increases to d12, and you can use it on ability checks without proficiency."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "bardic inspiration",
+          "spellcasting"
+        ]
+      },
       {
-        "index": "magical-secrets",
-        "name": "Magical Secrets",
-        "desc": "You learn two spells of your choice from any class list. These spells count as bard spells for you."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "expertise",
+          "jack of all trades"
+        ]
+      },
       {
-        "index": "counter-charm",
-        "name": "Counter-Charm",
-        "desc": "You can use your reaction to counter a charm or fear effect targeting one creature within 30 feet."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "bard subclass"
+        ]
+      },
       {
-        "index": "superior-inspiration",
-        "name": "Superior Inspiration",
-        "desc": "When you roll initiative and have no uses of Bardic Inspiration left, you regain one use."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "font of inspiration"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "countercharm"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "magical secrets"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "superior inspiration"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "words of creation"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "cleric",
     "name": "Cleric",
-    "hit_die": 8,
+    "hit_die": "d8",
     "hit_die_type": "d8",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Persuasion", "index": "persuasion"},
-            {"item": "Religion", "index": "religion"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Wisdom saving throws",
-      "Light armor",
-      "Medium armor",
-      "Shields",
-      "Simple weapons"
+      "simple weapons",
+      "light armor",
+      "medium armor",
+      "shields"
     ],
     "saving_throws": [
-      "Wisdom",
-      "Charisma"
+      "wisdom",
+      "charisma"
     ],
-    "class_levels": [],
+    "skills": [
+      "history",
+      "insight",
+      "medicine",
+      "persuasion",
+      "religion"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "divine-domain",
-        "name": "Divine Domain",
-        "desc": "Choose your Divine Domain, which shapes your divine magic and grants you additional features."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "channel-divinity",
-        "name": "Channel Divinity",
-        "desc": "Choose how you channel your divine power."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Wisdom",
-      "spell_slots": {
-        "1st": [2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "3rd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        "7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8],
-        "8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6],
-        "9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4]
+        "index": "life-domain",
+        "name": "Life Domain"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 3}
-      ],
-      "spells_known": [],
-      "ritual_casting": true,
-      "spellcasting_level": "full"
-    },
-    "hit_points_at_higher_levels": "1d8 + your Wisdom modifier per Cleric level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "divine-fury",
-        "name": "Divine Fury",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can deal extra radiant damage equal to your Cleric level."
+        "index": "light-domain",
+        "name": "Light Domain"
+      },
+      {
+        "index": "trickery-domain",
+        "name": "Trickery Domain"
+      },
+      {
+        "index": "war-domain",
+        "name": "War Domain"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Mace",
-        "index": "mace"
+        "item": "chain shirt",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Scale Mail",
-        "index": "scale-mail"
+        "item": "shield",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Holy Symbol",
-        "index": "holy-symbol"
+        "item": "mace",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Priest's Pack",
-        "index": "priest's-pack"
+        "item": "holy symbol",
+        "quantity": 1
+      },
+      {
+        "item": "priest's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 7
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Mace", "index": "mace"},
-            {"item": "Simple weapon", "index": "simple-weapon"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "chain shirt, shield, mace, holy symbol, priest's pack, 7 gp OR 110 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Wisdom", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Shields"
+      "prerequisite": "wisdom 13",
+      "proficiencies": [
+        "light armor",
+        "medium armor",
+        "shields"
       ]
     },
-    "level_1_features": [
+    "spellcasting": {
+      "spellcasting_ability": "wisdom",
+      "spellcasting_level": "full",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        3,
+        4,
+        5
+      ],
+      "spells_known": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        16,
+        17,
+        17,
+        18,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
+    "hit_points_at_higher_levels": "1d8 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Wisdom as your spellcasting ability. You prepare a number of spells equal to your Wisdom modifier + your Cleric level."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "divine-domain",
-        "name": "Divine Domain",
-        "desc": "Choose your Divine Domain, which grants you domain spells and additional features at 1st level."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "channel-divinity",
-        "name": "Channel Divinity",
-        "desc": "You can channel divine energy to produce one of two effects chosen from your Divine Domain."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "divine-fury",
-        "name": "Divine Fury",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can deal extra radiant damage equal to your Cleric level."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "divine-strike",
-        "name": "Divine Strike",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can deal extra damage to the target."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "spellcasting",
+          "divine order"
+        ]
+      },
       {
-        "index": "divine-intervention",
-        "name": "Divine Intervention",
-        "desc": "You can call upon your deity to intervene on your behalf. When you use this feature, roll a d20. On a 10 or higher, your deity intervenes."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "channel divinity"
+        ]
+      },
       {
-        "index": "portent-of-the-gods",
-        "name": "Portent of the Gods",
-        "desc": "You can use your reaction to force a creature within 60 feet to reroll an attack roll, ability check, or saving throw."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "cleric subclass"
+        ]
+      },
       {
-        "index": "divine-champion",
-        "name": "Divine Champion",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can deal extra force damage equal to your Cleric level."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "sear undead"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "blessed strikes"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "divine intervention"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "improved blessed strikes"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "greater divine intervention"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "druid",
     "name": "Druid",
-    "hit_die": 8,
+    "hit_die": "d8",
     "hit_die_type": "d8",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Animal Handling", "index": "animal-handling"},
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Religion", "index": "religion"},
-            {"item": "Survival", "index": "survival"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Wisdom saving throws",
-      "Light armor",
-      "Medium armor",
-      "Shields (non-metal)",
-      "Clubs",
-      "Daggers",
-      "Darts",
-      "Javelins",
-      "Maces",
-      "Quarterstaffs",
-      "Scimitars",
-      "Sickles",
-      "Slings",
-      "Spears"
+      "simple weapons"
     ],
     "saving_throws": [
-      "Wisdom",
-      "Intelligence"
+      "intelligence",
+      "wisdom"
     ],
-    "class_levels": [],
+    "skills": [
+      "arcana",
+      "animal handling",
+      "insight",
+      "medicine",
+      "nature",
+      "perception",
+      "religion",
+      "survival"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "circle",
-        "name": "Circle",
-        "desc": "Choose your Circle, which shapes your druidic magic and grants you additional features."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "wild-shape",
-        "name": "Wild Shape",
-        "desc": "Choose how you transform into beasts."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Wisdom",
-      "spell_slots": {
-        "1st": [2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "3rd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        "7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8],
-        "8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6],
-        "9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4]
+        "index": "circle-of-the-land",
+        "name": "Circle of the Land"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 2}
-      ],
-      "spells_known": [],
-      "ritual_casting": true,
-      "spellcasting_level": "full"
-    },
-    "hit_points_at_higher_levels": "1d8 + your Wisdom modifier per Druid level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "druidic-sense",
-        "name": "Druidic Sense",
-        "desc": "You can sense the presence of beasts, plants, and natural phenomena within 30 feet."
+        "index": "circle-of-the-moon",
+        "name": "Circle of the Moon"
+      },
+      {
+        "index": "circle-of-the-sea",
+        "name": "Circle of the Sea"
+      },
+      {
+        "index": "circle-of-the-stars",
+        "name": "Circle of the Stars"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Wooden Shield",
-        "index": "wooden-shield"
+        "item": "leather armor",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Scimitar",
-        "index": "scimitar"
+        "item": "shield",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Leather Armor",
-        "index": "leather-armor"
+        "item": "sickle",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Druidic Pack",
-        "index": "druidic-pack"
+        "item": "druidic focus (quarterstaff)",
+        "quantity": 1
+      },
+      {
+        "item": "explorer's pack",
+        "quantity": 1
+      },
+      {
+        "item": "herbalism kit",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 9
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Club", "index": "club"},
-            {"item": "Simple weapon", "index": "simple-weapon"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "leather armor, shield, sickle, druidic focus (quarterstaff), explorer's pack, herbalism kit, 9 gp OR 50 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Wisdom", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Shields (non-metal)"
+      "prerequisite": "wisdom 13",
+      "proficiencies": [
+        "light armor",
+        "shields"
       ]
     },
-    "level_1_features": [
+    "spellcasting": {
+      "spellcasting_ability": "wisdom",
+      "spellcasting_level": "full",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        2,
+        3,
+        4
+      ],
+      "spells_known": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        16,
+        17,
+        17,
+        18,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
+    "hit_points_at_higher_levels": "1d8 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Wisdom as your spellcasting ability. You prepare a number of spells equal to your Wisdom modifier + your Druid level."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "druidic",
-        "name": "Druidic",
-        "desc": "You know the Druidic language and can communicate with other druids using it."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "wild-shape",
-        "name": "Wild Shape",
-        "desc": "You can use your action to transform into a beast you have seen, with a CR of 1 or lower (no flying or swimming speeds)."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "druidic-sense",
-        "name": "Druidic Sense",
-        "desc": "You can sense the presence of beasts, plants, and natural phenomena within 30 feet."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "wild-shape-improvement",
-        "name": "Wild Shape Improvement",
-        "desc": "Your Wild Shape now allows beasts with flying or swimming speeds, and you can maintain your spellcasting ability while transformed."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "spellcasting",
+          "druidic",
+          "primal order"
+        ]
+      },
       {
-        "index": "timeless-body",
-        "name": "Timeless Body",
-        "desc": "You can't age, and you have resistance to poison damage."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "wild shape",
+          "wild companion"
+        ]
+      },
       {
-        "index": "wild-magic",
-        "name": "Wild Magic",
-        "desc": "Your spells cast through Wild Shape have enhanced effects, and you can cast spells while in beast form."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "druid subclass"
+        ]
+      },
       {
-        "index": "archdruid",
-        "name": "Archdruid",
-        "desc": "You can use Wild Shape an unlimited number of times, and you can cast spells while transformed."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "wild resurgence"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "elemental fury"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "improved elemental fury"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "beast spells"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "archdruid"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "fighter",
     "name": "Fighter",
-    "hit_die": 10,
+    "hit_die": "d10",
     "hit_die_type": "d10",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Acrobatics", "index": "acrobatics"},
-            {"item": "Animal Handling", "index": "animal-handling"},
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Survival", "index": "survival"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Strength saving throws",
-      "Constitution saving throws",
-      "All armor",
-      "Shields",
-      "Simple weapons",
-      "Martial weapons"
+      "simple weapons",
+      "martial weapons",
+      "light armor",
+      "medium armor",
+      "heavy armor",
+      "shields"
     ],
     "saving_throws": [
-      "Strength",
-      "Constitution"
+      "strength",
+      "constitution"
     ],
-    "class_levels": [],
+    "skills": [
+      "acrobatics",
+      "animal handling",
+      "athletics",
+      "history",
+      "insight",
+      "intimidation",
+      "persuasion",
+      "perception",
+      "survival"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "combat-archetype",
-        "name": "Combat Archetype",
-        "desc": "Choose your Combat Archetype, which defines your fighting style and grants additional features."
-      }
-    ],
-    "minor_choices": [
+        "index": "battle-master",
+        "name": "Battle Master"
+      },
       {
-        "index": "second-wind",
-        "name": "Second Wind",
-        "desc": "Choose how you use your Second Wind ability."
-      }
-    ],
-    "spellcasting": null,
-    "hit_points_at_higher_levels": "1d10 + your Constitution modifier per Fighter level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
+        "index": "champion",
+        "name": "Champion"
+      },
       {
-        "index": "fighting-style",
-        "name": "Fighting Style",
-        "desc": "Choose your Fighting Style, which enhances your combat abilities."
+        "index": "eldritch-knight",
+        "name": "Eldritch Knight"
+      },
+      {
+        "index": "psi-warrior",
+        "name": "Psi Warrior"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Chain Mail",
-        "index": "chain-mail"
+        "item": "chain mail",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Martial weapon",
-        "index": "martial-weapon"
+        "item": "greatsword",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Shield",
-        "index": "shield"
+        "item": "flail",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Explorer's Pack",
-        "index": "explorer's-pack"
+        "item": "javelins",
+        "quantity": 8
+      },
+      {
+        "item": "dungeoneer's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 4
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Light crossbow", "index": "light-crossbow"},
-            {"item": "Two martial weapons", "index": "martial-weapon"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "chain mail, greatsword, flail, 8 javelins, dungeoneer's pack, 4 gp OR studded leather armor, scimitar, shortsword, longbow, 20 arrows, quiver, dungeoneer's pack, 11 gp OR 155 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Strength", "minimum_score": 13},
-        {"ability_score": "Dexterity", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "All armor",
-        "Shields",
-        "Simple weapons",
-        "Martial weapons"
+      "prerequisite": "strength or dexterity 13",
+      "proficiencies": [
+        "martial weapons",
+        "light armor",
+        "medium armor",
+        "shields"
       ]
     },
-    "level_1_features": [
+    "spellcasting": null,
+    "hit_points_at_higher_levels": "1d10 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "second-wind",
-        "name": "Second Wind",
-        "desc": "As a bonus action, you can regain hit points equal to 1d10 + your Fighter level."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "fighting-style",
-        "name": "Fighting Style",
-        "desc": "Choose your Fighting Style, which enhances your combat abilities."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "combat-archetype",
-        "name": "Combat Archetype",
-        "desc": "Choose your Combat Archetype, which defines your fighting style and grants additional features at 2nd level."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "action-surges",
-        "name": "Action Surge",
-        "desc": "You can push yourself beyond your normal limits. Once on each of your turns, you can take one additional action."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "martial-advantage",
-        "name": "Martial Advantage",
-        "desc": "When you hit a creature with an attack roll, you can grant advantage on the next attack roll against that creature before the end of your next turn."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "fighting style",
+          "second wind",
+          "weapon mastery"
+        ]
+      },
       {
-        "index": "indomitable",
-        "name": "Indomitable",
-        "desc": "When you fail a saving throw, you can use your reaction to reroll it."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "action surge (one use)",
+          "tactical mind"
+        ]
+      },
       {
-        "index": "superior-indomitable",
-        "name": "Superior Indomitable",
-        "desc": "You can use Indomitable twice before needing to finish a long rest."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "fighter subclass"
+        ]
+      },
       {
-        "index": "archfighter",
-        "name": "Archfighter",
-        "desc": "Your Action Surge can be used twice before needing to finish a long rest, and your Second Wind heals an additional 1d10 hit points."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "extra attack",
+          "tactical shift"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "indomitable (one use)",
+          "tactical master"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "two extra attacks"
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          "indomitable (two uses)",
+          "studied attacks"
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          "action surge (two uses)",
+          "indomitable (three uses)"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "three extra attacks"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "monk",
     "name": "Monk",
-    "hit_die": 8,
+    "hit_die": "d8",
     "hit_die_type": "d8",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Acrobatics", "index": "acrobatics"},
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Religion", "index": "religion"},
-            {"item": "Sleight of Hand", "index": "sleight-of-hand"},
-            {"item": "Stealth", "index": "stealth"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Strength saving throws",
-      "Dexterity saving throws",
-      "Simple weapons",
-      "Shortswords"
+      "simple weapons",
+      "martial weapons with light property"
     ],
     "saving_throws": [
-      "Strength",
-      "Dexterity"
+      "strength",
+      "dexterity"
     ],
-    "class_levels": [],
+    "skills": [
+      "acrobatics",
+      "athletics",
+      "history",
+      "insight",
+      "religion",
+      "stealth"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "monastic-order",
-        "name": "Monastic Order",
-        "desc": "Choose your Monastic Order, which shapes your martial arts and grants additional features."
-      }
-    ],
-    "minor_choices": [
+        "index": "warrior-of-mercy",
+        "name": "Warrior of Mercy"
+      },
       {
-        "index": "ki",
-        "name": "Ki",
-        "desc": "Choose how you channel your ki energy."
-      }
-    ],
-    "spellcasting": null,
-    "hit_points_at_higher_levels": "1d8 + your Dexterity modifier per Monk level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
+        "index": "warrior-of-shadow",
+        "name": "Warrior of Shadow"
+      },
       {
-        "index": "unarmored-defense",
-        "name": "Unarmored Defense",
-        "desc": "While you are not wearing armor or wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier."
+        "index": "warrior-of-the-elements",
+        "name": "Warrior of the Elements"
+      },
+      {
+        "index": "warrior-of-the-open-hand",
+        "name": "Warrior of the Open Hand"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Shortsword",
-        "index": "shortsword"
+        "item": "spear",
+        "quantity": 1
       },
       {
-        "quantity": 10,
-        "item": "Dart",
-        "index": "dart"
+        "item": "daggers",
+        "quantity": 5
       },
       {
-        "quantity": 1,
-        "item": "Monk's Pack",
-        "index": "monk's-pack"
-      }
-    ],
-    "equipment_options": [
+        "item": "artisan's tools or musical instrument",
+        "quantity": 1
+      },
       {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Simple weapon", "index": "simple-weapon"},
-            {"item": "Shortsword", "index": "shortsword"}
-          ]
-        }
+        "item": "explorer's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 11
       }
     ],
-    "feature_levels": [],
-    "archetypes": [],
-    "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Dexterity", "minimum_score": 13},
-        {"ability_score": "Wisdom", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Simple weapons",
-        "Shortswords"
-      ]
+    "equipment_options": {
+      "weapon_choice": "spear, 5 daggers, artisan's tools or musical instrument, explorer's pack, 11 gp OR 50 gp"
     },
-    "level_1_features": [
+    "multiclassing": {
+      "prerequisite": "dexterity 13 and wisdom 13",
+      "proficiencies": []
+    },
+    "spellcasting": null,
+    "hit_points_at_higher_levels": "1d8 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "unarmored-defense",
-        "name": "Unarmored Defense",
-        "desc": "While you are not wearing armor or wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "martial-arts",
-        "name": "Martial Arts",
-        "desc": "You can use Dexterity instead of Strength for attack and damage rolls with monk weapons. Your unarmed strike damage die becomes a d4."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "ki",
-        "name": "Ki",
-        "desc": "You have ki points equal to your Monk level. You can spend ki points to enhance your martial abilities."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "monastic-order",
-        "name": "Monastic Order",
-        "desc": "Choose your Monastic Order, which grants additional features at 2nd level."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "slow-fall",
-        "name": "Slow Fall",
-        "desc": "You can use your reaction to reduce falling damage by an amount equal to your Monk level + your Dexterity modifier."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "martial arts",
+          "unarmored defense"
+        ]
+      },
       {
-        "index": "diamond-soul",
-        "name": "Diamond Soul",
-        "desc": "You have advantage on saving throws against spells, and you can use your reaction to add your Monk level to an ability check."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "monk's focus",
+          "unarmored movement",
+          "uncanny metabolism"
+        ]
+      },
       {
-        "index": "empty-body",
-        "name": "Empty Body",
-        "desc": "You can use your action to become invisible and immune to nonmagical damage for 1 minute."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "deflect attacks",
+          "monk subclass"
+        ]
+      },
       {
-        "index": "timeless-body",
-        "name": "Timeless Body",
-        "desc": "You can't age, and you have resistance to poison damage."
+        "level": 4,
+        "features": [
+          "ability score improvement",
+          "slow fall"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "extra attack",
+          "stunning strike"
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          "empowered strikes",
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "evasion"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "acrobatic movement"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "heightened focus",
+          "self-restoration"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          "deflect energy"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "disciplined survivor"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "perfect focus"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "superior defense"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "body and mind"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "paladin",
     "name": "Paladin",
-    "hit_die": 10,
+    "hit_die": "d10",
     "hit_die_type": "d10",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Persuasion", "index": "persuasion"},
-            {"item": "Religion", "index": "religion"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Wisdom saving throws",
-      "Charisma saving throws",
-      "All armor",
-      "Shields",
-      "Simple weapons",
-      "Martial weapons"
+      "simple weapons",
+      "martial weapons",
+      "light armor",
+      "medium armor",
+      "heavy armor",
+      "shields"
     ],
     "saving_throws": [
-      "Wisdom",
-      "Charisma"
+      "wisdom",
+      "charisma"
     ],
-    "class_levels": [],
+    "skills": [
+      "athletics",
+      "insight",
+      "intimidation",
+      "medicine",
+      "persuasion",
+      "religion"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "oath",
-        "name": "Oath",
-        "desc": "Choose your Oath, which defines your paladinic duties and grants additional features."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "divine-sense",
-        "name": "Divine Sense",
-        "desc": "Choose how you use your Divine Sense ability."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Charisma",
-      "spell_slots": {
-        "1st": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "2nd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "3rd": [0, 0, 0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        "4th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        "index": "oath-of-devotion",
+        "name": "Oath of Devotion"
       },
-      "cantrips_known": [],
-      "spells_known": [],
-      "ritual_casting": false,
-      "spellcasting_level": "half"
-    },
-    "hit_points_at_higher_levels": "1d10 + your Charisma modifier per Paladin level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "divine-sense",
-        "name": "Divine Sense",
-        "desc": "As an action, you can detect celestials, fiends, and undead within 30 feet."
+        "index": "oath-of-glory",
+        "name": "Oath of Glory"
+      },
+      {
+        "index": "oath-of-the-ancients",
+        "name": "Oath of the Ancients"
+      },
+      {
+        "index": "oath-of-vengeance",
+        "name": "Oath of Vengeance"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Chain Mail",
-        "index": "chain-mail"
+        "item": "chain mail",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Martial weapon",
-        "index": "martial-weapon"
+        "item": "shield",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Shield",
-        "index": "shield"
+        "item": "longsword",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Holy Symbol",
-        "index": "holy-symbol"
+        "item": "javelins",
+        "quantity": 6
       },
       {
-        "quantity": 1,
-        "item": "Priest's Pack",
-        "index": "priest's-pack"
+        "item": "holy symbol",
+        "quantity": 1
+      },
+      {
+        "item": "priest's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 9
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Simple weapon", "index": "simple-weapon"},
-            {"item": "Martial weapon", "index": "martial-weapon"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "chain mail, shield, longsword, 6 javelins, holy symbol, priest's pack, 9 gp OR 150 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Strength", "minimum_score": 13},
-        {"ability_score": "Charisma", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "All armor",
-        "Shields"
+      "prerequisite": "strength 13 and charisma 13",
+      "proficiencies": [
+        "martial weapons",
+        "light armor",
+        "medium armor",
+        "shields"
       ]
     },
-    "level_1_features": [
+    "spellcasting": {
+      "spellcasting_ability": "charisma",
+      "spellcasting_level": "half",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        2,
+        3,
+        4
+      ],
+      "spells_known": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        6,
+        7,
+        7,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12,
+        14,
+        14,
+        15,
+        15
+      ]
+    },
+    "hit_points_at_higher_levels": "1d10 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "divine-sense",
-        "name": "Divine Sense",
-        "desc": "As an action, you can detect celestials, fiends, and undead within 30 feet."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "lay-on-hands",
-        "name": "Lay on Hands",
-        "desc": "You have a pool of healing power equal to 5 × your Paladin level. You can use an action to restore hit points to a creature."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "fighting-style",
-        "name": "Fighting Style",
-        "desc": "Choose your Fighting Style, which enhances your combat abilities."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Charisma as your spellcasting ability. You prepare a number of spells equal to half your Paladin level + your Charisma modifier."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "aura-of-protection",
-        "name": "Aura of Protection",
-        "desc": "You and friendly creatures within 10 feet gain a bonus to saving throws equal to your Charisma modifier."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "lay on hands",
+          "spellcasting",
+          "weapon mastery"
+        ]
+      },
       {
-        "index": "aura-of-courage",
-        "name": "Aura of Courage",
-        "desc": "You and friendly creatures within 10 feet have advantage on saving throws against being frightened."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "fighting style",
+          "paladin's smite"
+        ]
+      },
       {
-        "index": "improved-divine-smite",
-        "name": "Improved Divine Smite",
-        "desc": "When you hit a creature with a melee weapon attack, the target takes an extra 1d8 radiant damage."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "channel divinity",
+          "paladin subclass"
+        ]
+      },
       {
-        "index": "divine-champion",
-        "name": "Divine Champion",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can deal extra radiant damage equal to your Paladin level."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "extra attack",
+          "faithful steed"
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          "aura of protection"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "abjure foes"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "aura of courage"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "radiant strikes"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "restoring touch"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "aura expansion"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "subclass feature"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "ranger",
     "name": "Ranger",
-    "hit_die": 10,
+    "hit_die": "d10",
     "hit_die_type": "d10",
-    "proficiency_choices": [
-      {
-        "choose": 3,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Animal Handling", "index": "animal-handling"},
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Stealth", "index": "stealth"},
-            {"item": "Survival", "index": "survival"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Strength saving throws",
-      "Dexterity saving throws",
-      "Light armor",
-      "Medium armor",
-      "Shields (non-metal)",
-      "Simple weapons",
-      "Martial weapons"
+      "simple weapons",
+      "martial weapons",
+      "light armor",
+      "medium armor",
+      "shields"
     ],
     "saving_throws": [
-      "Strength",
-      "Dexterity"
+      "strength",
+      "dexterity"
     ],
-    "class_levels": [],
+    "skills": [
+      "animal handling",
+      "athletics",
+      "insight",
+      "investigation",
+      "nature",
+      "perception",
+      "stealth",
+      "survival"
+    ],
+    "skill_choices": 3,
     "majors": [
       {
-        "index": "ranger-concept",
-        "name": "Ranger Concept",
-        "desc": "Choose your Ranger Concept, which defines your approach to survival and combat."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "favored-enemy",
-        "name": "Favored Enemy",
-        "desc": "Choose your Favored Enemy, which grants you special abilities against specific creature types."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Wisdom",
-      "spell_slots": {
-        "1st": [0, 2, 3, 4, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "3rd": [0, 0, 0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-        "4th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        "index": "beast-master",
+        "name": "Beast Master"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 2}
-      ],
-      "spells_known": [],
-      "ritual_casting": true,
-      "spellcasting_level": "half"
-    },
-    "hit_points_at_higher_levels": "1d10 + your Wisdom modifier per Ranger level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "fighting-style",
-        "name": "Fighting Style",
-        "desc": "Choose your Fighting Style, which enhances your combat abilities."
+        "index": "fey-wanderer",
+        "name": "Fey Wanderer"
+      },
+      {
+        "index": "gloom-stalker",
+        "name": "Gloom Stalker"
+      },
+      {
+        "index": "hunter",
+        "name": "Hunter"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Scale Mail",
-        "index": "scale-mail"
+        "item": "studded leather armor",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Simple weapon",
-        "index": "simple-weapon"
+        "item": "scimitar",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Explorer's Pack",
-        "index": "explorer's-pack"
-      }
-    ],
-    "equipment_options": [
+        "item": "shortsword",
+        "quantity": 1
+      },
       {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Shortbow", "index": "shortbow"},
-            {"item": "Two shortswords", "index": "shortsword"}
-          ]
-        }
+        "item": "longbow",
+        "quantity": 1
+      },
+      {
+        "item": "arrows",
+        "quantity": 20
+      },
+      {
+        "item": "quiver",
+        "quantity": 1
+      },
+      {
+        "item": "druidic focus (sprig of mistletoe)",
+        "quantity": 1
+      },
+      {
+        "item": "explorer's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 7
       }
     ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "studded leather armor, scimitar, shortsword, longbow, 20 arrows, quiver, druidic focus (sprig of mistletoe), explorer's pack, 7 gp OR 150 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Dexterity", "minimum_score": 13},
-        {"ability_score": "Wisdom", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Medium armor",
-        "Shields (non-metal)"
+      "prerequisite": "dexterity 13 and wisdom 13",
+      "proficiencies": [
+        "martial weapons",
+        "one skill",
+        "light armor",
+        "medium armor",
+        "shields"
       ]
     },
-    "level_1_features": [
+    "spellcasting": {
+      "spellcasting_ability": "wisdom",
+      "spellcasting_level": "half",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        2,
+        3,
+        4
+      ],
+      "spells_known": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        6,
+        7,
+        7,
+        9,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12,
+        14,
+        14,
+        15,
+        15
+      ]
+    },
+    "hit_points_at_higher_levels": "1d10 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "favored-enemy",
-        "name": "Favored Enemy",
-        "desc": "Choose your Favored Enemy, which grants you special abilities against specific creature types."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "natural-explorer",
-        "name": "Natural Explorer",
-        "desc": "You gain special abilities based on your chosen terrain type."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "fighting-style",
-        "name": "Fighting Style",
-        "desc": "Choose your Fighting Style, which enhances your combat abilities."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Wisdom as your spellcasting ability. You prepare a number of spells equal to half your Ranger level + your Wisdom modifier."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "primeval-awareness",
-        "name": "Primeval Awareness",
-        "desc": "You can use your action to sense the presence of beasts, plants, and natural phenomena within 30 feet."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "spellcasting",
+          "favored enemy",
+          "weapon mastery"
+        ]
+      },
       {
-        "index": "hide-in-plain-sight",
-        "name": "Hide in Plain Sight",
-        "desc": "You can use your action to become invisible and immune to nonmagical damage for 1 minute."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "deft explorer",
+          "fighting style"
+        ]
+      },
       {
-        "index": "soul-of-the-wild",
-        "name": "Soul of the Wild",
-        "desc": "You can cast spells while in beast form, and your Wild Shape duration is doubled."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "ranger subclass"
+        ]
+      },
       {
-        "index": "vanishing",
-        "name": "Vanishing",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can use your reaction to become invisible until the start of your next turn."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "extra attack"
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          "roving"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "expertise"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "tireless"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          "relentless hunter"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "nature's veil"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          "precise hunter"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "feral senses"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "foe slayer"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "rogue",
     "name": "Rogue",
-    "hit_die": 8,
+    "hit_die": "d8",
     "hit_die_type": "d8",
-    "proficiency_choices": [
-      {
-        "choose": 4,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Acrobatics", "index": "acrobatics"},
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Athletics", "index": "athletics"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Investigation", "index": "investigation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Perception", "index": "perception"},
-            {"item": "Performance", "index": "performance"},
-            {"item": "Persuasion", "index": "persuasion"},
-            {"item": "Religion", "index": "religion"},
-            {"item": "Sleight of Hand", "index": "sleight-of-hand"},
-            {"item": "Stealth", "index": "stealth"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Dexterity saving throws",
-      "Intelligence saving throws",
-      "Light armor",
-      "Simple weapons",
-      "Handcrossbows",
-      "Rapiers",
-      "Shortswords"
+      "simple weapons",
+      "martial weapons with finesse or light property"
     ],
     "saving_throws": [
-      "Dexterity",
-      "Intelligence"
+      "dexterity",
+      "intelligence"
     ],
-    "class_levels": [],
+    "skills": [
+      "acrobatics",
+      "athletics",
+      "deception",
+      "insight",
+      "intimidation",
+      "investigation",
+      "perception",
+      "persuasion",
+      "sleight of hand",
+      "stealth"
+    ],
+    "skill_choices": 4,
     "majors": [
       {
-        "index": "rogue-archetype",
-        "name": "Rogue Archetype",
-        "desc": "Choose your Rogue Archetype, which defines your specialty and grants additional features."
-      }
-    ],
-    "minor_choices": [
+        "index": "arcane-trickster",
+        "name": "Arcane Trickster"
+      },
       {
-        "index": "sneak-attack",
-        "name": "Sneak Attack",
-        "desc": "Choose how you use your Sneak Attack ability."
-      }
-    ],
-    "spellcasting": null,
-    "hit_points_at_higher_levels": "1d8 + your Dexterity modifier per Rogue level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
+        "index": "assassin",
+        "name": "Assassin"
+      },
       {
-        "index": "sneak-attack",
-        "name": "Sneak Attack",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll using a finesse or ranged weapon, you can deal extra damage equal to 3d6."
+        "index": "soulknife",
+        "name": "Soulknife"
+      },
+      {
+        "index": "thief",
+        "name": "Thief"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Leather Armor",
-        "index": "leather-armor"
+        "item": "leather armor",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Rapier",
-        "index": "rapier"
+        "item": "daggers",
+        "quantity": 2
       },
       {
-        "quantity": 1,
-        "item": "Shortbow",
-        "index": "shortbow"
+        "item": "shortsword",
+        "quantity": 1
       },
       {
-        "quantity": 2,
-        "item": "Dagger",
-        "index": "dagger"
+        "item": "shortbow",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Thieves' Tools",
-        "index": "thieves'-tools"
+        "item": "arrows",
+        "quantity": 20
       },
       {
-        "quantity": 1,
-        "item": "Burglar's Pack",
-        "index": "burglar's-pack"
+        "item": "quiver",
+        "quantity": 1
+      },
+      {
+        "item": "thieves' tools",
+        "quantity": 1
+      },
+      {
+        "item": "burglar's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 8
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Shortsword", "index": "shortsword"},
-            {"item": "Two handcrossbows", "index": "handcrossbow"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "leather armor, 2 daggers, shortsword, shortbow, 20 arrows, quiver, thieves' tools, burglar's pack, 8 gp OR 100 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Dexterity", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Simple weapons",
-        "Handcrossbows",
-        "Rapiers",
-        "Shortswords"
+      "prerequisite": "dexterity 13",
+      "proficiencies": [
+        "one skill",
+        "thieves' tools",
+        "light armor"
       ]
     },
-    "level_1_features": [
+    "spellcasting": null,
+    "hit_points_at_higher_levels": "1d8 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "sneak-attack",
-        "name": "Sneak Attack",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll using a finesse or ranged weapon, you can deal extra damage equal to 3d6."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "thieves'-cant",
-        "name": "Thieves' Cant",
-        "desc": "You know the thieves' cant, a secret language used by rogues."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "rogue-archetype",
-        "name": "Rogue Archetype",
-        "desc": "Choose your Rogue Archetype, which grants additional features at 2nd level."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "cunning-action",
-        "name": "Cunning Action",
-        "desc": "You can use your bonus action to take the Dash, Disengage, or Hide action."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "reliable-blunder",
-        "name": "Reliable Blunder",
-        "desc": "When you roll a 1 on an attack roll, you can treat it as a 2 instead."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "expertise",
+          "sneak attack",
+          "thieves' cant",
+          "weapon mastery"
+        ]
+      },
       {
-        "index": "elusive",
-        "name": "Elusive",
-        "desc": "No ability check or saving throw can give advantage against you, and you have resistance to all damage."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "cunning action"
+        ]
+      },
       {
-        "index": "stroke-of-luck",
-        "name": "Stroke of Luck",
-        "desc": "Once on each of your turns when you miss with an attack roll or fail an ability check, you can use your reaction to add your Rogue level to the d20 roll."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "rogue subclass",
+          "steady aim"
+        ]
+      },
       {
-        "index": "unfair-advantage",
-        "name": "Unfair Advantage",
-        "desc": "When you have advantage on an attack roll, you can use your reaction to force the target to make a Dexterity saving throw or be stunned until the end of your next turn."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "cunning strike",
+          "uncanny dodge"
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          "expertise"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "evasion",
+          "reliable talent"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "improved cunning strike"
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "devious strikes"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "slippery mind"
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "elusive"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "stroke of luck"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "sorcerer",
     "name": "Sorcerer",
-    "hit_die": 6,
+    "hit_die": "d6",
     "hit_die_type": "d6",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Persuasion", "index": "persuasion"},
-            {"item": "Religion", "index": "religion"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Constitution saving throws",
-      "Charisma saving throws",
-      "Light armor",
-      "Simple weapons"
+      "simple weapons"
     ],
     "saving_throws": [
-      "Constitution",
-      "Charisma"
+      "constitution",
+      "charisma"
     ],
-    "class_levels": [],
+    "skills": [
+      "arcana",
+      "deception",
+      "insight",
+      "intimidation",
+      "persuasion",
+      "religion"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "sorcerous-origin",
-        "name": "Sorcerous Origin",
-        "desc": "Choose your Sorcerous Origin, which defines the source of your magical power."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "metamagic",
-        "name": "Metamagic",
-        "desc": "Choose how you modify your spells."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Charisma",
-      "spell_slots": {
-        "1st": [2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "3rd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        "7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8],
-        "8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6],
-        "9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4]
+        "index": "aberrant-sorcery",
+        "name": "Aberrant Sorcery"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 2},
-        {"level": 5, "count": 3},
-        {"level": 10, "count": 4}
-      ],
-      "spells_known": [],
-      "ritual_casting": false,
-      "spellcasting_level": "full"
-    },
-    "hit_points_at_higher_levels": "1d6 + your Charisma modifier per Sorcerer level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "sorcerous-power",
-        "name": "Sorcerous Power",
-        "desc": "You can use your Charisma to enhance your spellcasting abilities."
+        "index": "clockwork-sorcery",
+        "name": "Clockwork Sorcery"
+      },
+      {
+        "index": "draconic-sorcery",
+        "name": "Draconic Sorcery"
+      },
+      {
+        "index": "wild-magic-sorcery",
+        "name": "Wild Magic Sorcery"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Dagger",
-        "index": "dagger"
+        "item": "spear",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Component Pouch",
-        "index": "component-pouch"
+        "item": "daggers",
+        "quantity": 2
       },
       {
-        "quantity": 1,
-        "item": "Explorer's Pack",
-        "index": "explorer's-pack"
-      }
-    ],
-    "equipment_options": [
+        "item": "arcane focus (crystal)",
+        "quantity": 1
+      },
       {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Dagger", "index": "dagger"},
-            {"item": "Simple weapon", "index": "simple-weapon"}
-          ]
-        }
+        "item": "dungeoneer's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 28
       }
     ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "spear, 2 daggers, arcane focus (crystal), dungeoneer's pack, 28 gp OR 50 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Charisma", "minimum_score": 13}
+      "prerequisite": "charisma 13",
+      "proficiencies": []
+    },
+    "spellcasting": {
+      "spellcasting_ability": "charisma",
+      "spellcasting_level": "full",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        4,
+        5,
+        6
       ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Simple weapons"
+      "spells_known": [
+        2,
+        4,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        16,
+        17,
+        17,
+        18,
+        18,
+        19,
+        19,
+        20,
+        20,
+        21,
+        22
       ]
     },
-    "level_1_features": [
+    "hit_points_at_higher_levels": "1d6 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "sorcerous-origin",
-        "name": "Sorcerous Origin",
-        "desc": "Choose your Sorcerous Origin, which defines the source of your magical power."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Charisma as your spellcasting ability. You know four 1st-level spells of your choice from the sorcerer spell list."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "metamagic",
-        "name": "Metamagic",
-        "desc": "You can use Metamagic to modify your spells. You know two Metamagic options."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "sorcerous-restoration",
-        "name": "Sorcerous Restoration",
-        "desc": "You regain expended spell slots when you finish a short rest."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "empowered-spell",
-        "name": "Empowered Spell",
-        "desc": "When you roll damage for a spell, you can use your reaction to reroll up to 3 of the dice."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "spellcasting",
+          "innate sorcery"
+        ]
+      },
       {
-        "index": "sorcerous-strength",
-        "name": "Sorcerous Strength",
-        "desc": "You can use your Charisma modifier instead of your spellcasting ability modifier for spell attack rolls and spell save DC."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "font of magic",
+          "metamagic"
+        ]
+      },
       {
-        "index": "twin-spell",
-        "name": "Twin Spell",
-        "desc": "When you cast a spell that targets only one creature, you can use your reaction to target another creature with the same spell."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "sorcerer subclass"
+        ]
+      },
       {
-        "index": "magical-origins",
-        "name": "Magical Origins",
-        "desc": "You can use your Metamagic without expending sorcery points, and your spell slots recover on a short rest."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "sorcerous restoration"
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 7,
+        "features": [
+          "sorcery incarnate"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "metamagic"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          "metamagic"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "arcane apotheosis"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "warlock",
     "name": "Warlock",
-    "hit_die": 8,
+    "hit_die": "d8",
     "hit_die_type": "d8",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "Deception", "index": "deception"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Intimidation", "index": "intimidation"},
-            {"item": "Investigation", "index": "investigation"},
-            {"item": "Nature", "index": "nature"},
-            {"item": "Religion", "index": "religion"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Wisdom saving throws",
-      "Charisma saving throws",
-      "Light armor",
-      "Simple weapons"
+      "simple weapons"
     ],
     "saving_throws": [
-      "Wisdom",
-      "Charisma"
+      "wisdom",
+      "charisma"
     ],
-    "class_levels": [],
+    "skills": [
+      "arcana",
+      "deception",
+      "history",
+      "intimidation",
+      "investigation",
+      "nature",
+      "religion"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "pact-of-the-patron",
-        "name": "Pact of the Patron",
-        "desc": "Choose your Patron, which defines your warlock magic and grants additional features."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "eldritch-blast",
-        "name": "Eldritch Blast",
-        "desc": "Choose how you use your Eldritch Blast cantrip."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Charisma",
-      "spell_slots": {
-        "1st": [2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "3rd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+        "index": "archfey-patron",
+        "name": "Archfey Patron"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 2},
-        {"level": 5, "count": 3},
-        {"level": 10, "count": 4}
-      ],
-      "spells_known": [],
-      "ritual_casting": true,
-      "spellcasting_level": "half"
-    },
-    "hit_points_at_higher_levels": "1d8 + your Charisma modifier per Warlock level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "eldritch-blast",
-        "name": "Eldritch Blast",
-        "desc": "Your Eldritch Blast cantrip is your signature attack. You can enhance it with invocations."
+        "index": "celestial-patron",
+        "name": "Celestial Patron"
+      },
+      {
+        "index": "fiend-patron",
+        "name": "Fiend Patron"
+      },
+      {
+        "index": "great-old-one-patron",
+        "name": "Great Old One Patron"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Light Crossbow",
-        "index": "light-crossbow"
+        "item": "leather armor",
+        "quantity": 1
       },
       {
-        "quantity": 20,
-        "item": "Crossbow Bolts",
-        "index": "crossbow-bolts"
+        "item": "sickle",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Component Pouch",
-        "index": "component-pouch"
+        "item": "daggers",
+        "quantity": 2
       },
       {
-        "quantity": 1,
-        "item": "Scholar's Pack",
-        "index": "scholar's-pack"
+        "item": "arcane focus (orb)",
+        "quantity": 1
+      },
+      {
+        "item": "book (occult lore)",
+        "quantity": 1
+      },
+      {
+        "item": "scholar's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 15
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Simple weapon", "index": "simple-weapon"},
-            {"item": "Light Crossbow", "index": "light-crossbow"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "leather armor, sickle, 2 daggers, arcane focus (orb), book (occult lore), scholar's pack, 15 gp OR 100 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Charisma", "minimum_score": 13}
-      ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Simple weapons"
+      "prerequisite": "charisma 13",
+      "proficiencies": [
+        "light armor"
       ]
     },
-    "level_1_features": [
+    "spellcasting": {
+      "spellcasting_ability": "charisma",
+      "spellcasting_level": "pact magic",
+      "spell_slots": {
+        "1st": 1,
+        "2nd": 1,
+        "3rd": 2,
+        "4th": 2,
+        "5th": 2
+      },
+      "cantrips_known": [
+        2,
+        3,
+        4
+      ],
+      "spells_known": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        10,
+        11,
+        11,
+        12,
+        12,
+        13,
+        13,
+        14,
+        14,
+        15,
+        15
+      ]
+    },
+    "hit_points_at_higher_levels": "1d8 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "pact-of-the-patron",
-        "name": "Pact of the Patron",
-        "desc": "Choose your Patron, which defines your warlock magic and grants additional features."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Charisma as your spellcasting ability. You know four 1st-level spells of your choice from the warlock spell list."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "eldritch-blast",
-        "name": "Eldritch Blast",
-        "desc": "Your Eldritch Blast cantrip is your signature attack. You can enhance it with invocations."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "pact-boon",
-        "name": "Pact Boon",
-        "desc": "Choose your Pact Boon, which grants you additional abilities."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "mystic-arcana",
-        "name": "Mystic Arcana",
-        "desc": "You can use your reaction to force a creature within 60 feet to reroll an attack roll, ability check, or saving throw."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "eldritch invocations",
+          "pact magic"
+        ]
+      },
       {
-        "index": "eldritch-mastery",
-        "name": "Eldritch Mastery",
-        "desc": "You can use your Charisma modifier instead of your spellcasting ability modifier for spell attack rolls and spell save DC."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "magical cunning"
+        ]
+      },
       {
-        "index": "celestial-presence",
-        "name": "Celestial Presence",
-        "desc": "Once on each of your turns when you hit a creature with an attack roll, you can use your reaction to force the target to make a Charisma saving throw or be charmed until the end of your next turn."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "warlock subclass"
+        ]
+      },
       {
-        "index": "divine-pact",
-        "name": "Divine Pact",
-        "desc": "Your spell slots recover on a short rest, and you can use your Pact Boon an unlimited number of times."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 9,
+        "features": [
+          "contact patron"
+        ]
+      },
+      {
+        "level": 11,
+        "features": [
+          "mystic arcanum (level 6 spell)"
+        ]
+      },
+      {
+        "level": 13,
+        "features": [
+          "mystic arcanum (level 7 spell)"
+        ]
+      },
+      {
+        "level": 15,
+        "features": [
+          "mystic arcanum (level 8 spell)"
+        ]
+      },
+      {
+        "level": 17,
+        "features": [
+          "mystic arcanum (level 9 spell)"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "eldritch master"
+        ]
       }
     ]
-  }
-]
-[
+  },
   {
     "index": "wizard",
     "name": "Wizard",
-    "hit_die": 6,
+    "hit_die": "d6",
     "hit_die_type": "d6",
-    "proficiency_choices": [
-      {
-        "choose": 2,
-        "type": "skills",
-        "from": {
-          "option_set_type": "skills",
-          "options": [
-            {"item": "Arcana", "index": "arcana"},
-            {"item": "History", "index": "history"},
-            {"item": "Insight", "index": "insight"},
-            {"item": "Investigation", "index": "investigation"},
-            {"item": "Medicine", "index": "medicine"},
-            {"item": "Religion", "index": "religion"}
-          ]
-        }
-      }
-    ],
     "proficiencies": [
-      "Intelligence saving throws",
-      "Wisdom saving throws",
-      "Light armor",
-      "Simple weapons"
+      "simple weapons"
     ],
     "saving_throws": [
-      "Intelligence",
-      "Wisdom"
+      "intelligence",
+      "wisdom"
     ],
-    "class_levels": [],
+    "skills": [
+      "arcana",
+      "history",
+      "insight",
+      "investigation",
+      "medicine",
+      "nature",
+      "religion"
+    ],
+    "skill_choices": 2,
     "majors": [
       {
-        "index": "school-of-magic",
-        "name": "School of Magic",
-        "desc": "Choose your School of Magic, which defines your magical specialty and grants additional features."
-      }
-    ],
-    "minor_choices": [
-      {
-        "index": "spellbook",
-        "name": "Spellbook",
-        "desc": "Choose how you organize your spellbook."
-      }
-    ],
-    "spellcasting": {
-      "spellcasting_ability": "Intelligence",
-      "spell_slots": {
-        "1st": [2, 3, 4, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-        "2nd": [0, 0, 2, 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
-        "3rd": [0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-        "4th": [0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-        "5th": [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-        "6th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        "7th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6, 7, 8],
-        "8th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4, 5, 6],
-        "9th": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 3, 4]
+        "index": "abjurer",
+        "name": "Abjurer"
       },
-      "cantrips_known": [
-        {"level": 1, "count": 3},
-        {"level": 5, "count": 4},
-        {"level": 10, "count": 5}
-      ],
-      "spells_known": [],
-      "ritual_casting": true,
-      "spellcasting_level": "full"
-    },
-    "hit_points_at_higher_levels": "1d6 + your Intelligence modifier per Wizard level after 1st",
-    "proficiency_bonus_scaling": [],
-    "martial_choices": [
       {
-        "index": "arcane-recovery",
-        "name": "Arcane Recovery",
-        "desc": "Once on each of your turns when you cast a spell, you can use your reaction to regain spell slots."
+        "index": "diviner",
+        "name": "Diviner"
+      },
+      {
+        "index": "evoker",
+        "name": "Evoker"
+      },
+      {
+        "index": "illusionist",
+        "name": "Illusionist"
       }
     ],
+    "minor_choices": [],
+    "martial_choices": [],
     "starting_equipment": [
       {
-        "quantity": 1,
-        "item": "Quarterstaff",
-        "index": "quarterstaff"
+        "item": "daggers",
+        "quantity": 2
       },
       {
-        "quantity": 1,
-        "item": "Component Pouch",
-        "index": "component-pouch"
+        "item": "arcane focus (quarterstaff)",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Scholar's Pack",
-        "index": "scholar's-pack"
+        "item": "robe",
+        "quantity": 1
       },
       {
-        "quantity": 1,
-        "item": "Spellbook",
-        "index": "spellbook"
+        "item": "spellbook",
+        "quantity": 1
+      },
+      {
+        "item": "scholar's pack",
+        "quantity": 1
+      },
+      {
+        "item": "gp",
+        "quantity": 5
       }
     ],
-    "equipment_options": [
-      {
-        "choose": 1,
-        "type": "equipment",
-        "from": {
-          "option_set_type": "equipment",
-          "options": [
-            {"item": "Quarterstaff", "index": "quarterstaff"},
-            {"item": "Simple weapon", "index": "simple-weapon"}
-          ]
-        }
-      }
-    ],
-    "feature_levels": [],
-    "archetypes": [],
+    "equipment_options": {
+      "weapon_choice": "2 daggers, arcane focus (quarterstaff), robe, spellbook, scholar's pack, 5 gp OR 55 gp"
+    },
     "multiclassing": {
-      "prerequisites": [
-        {"ability_score": "Intelligence", "minimum_score": 13}
+      "prerequisite": "intelligence 13",
+      "proficiencies": []
+    },
+    "spellcasting": {
+      "spellcasting_ability": "intelligence",
+      "spellcasting_level": "full",
+      "spell_slots": {
+        "1st": 2,
+        "2nd": 0,
+        "3rd": 0,
+        "4th": 0,
+        "5th": 0
+      },
+      "cantrips_known": [
+        3,
+        4,
+        5
       ],
-      "proficiencies_gained": [
-        "Light armor",
-        "Simple weapons"
+      "spells_known": [
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        16,
+        17,
+        18,
+        19,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25
       ]
     },
-    "level_1_features": [
+    "hit_points_at_higher_levels": "1d6 + constitution modifier",
+    "proficiency_bonus_scaling": [
       {
-        "index": "spellcasting",
-        "name": "Spellcasting",
-        "desc": "You can cast spells using Intelligence as your spellcasting ability. You prepare a number of spells equal to your Intelligence modifier + your Wizard level."
+        "level": 1,
+        "bonus": 2
       },
       {
-        "index": "arcane-recovery",
-        "name": "Arcane Recovery",
-        "desc": "Once on each of your turns when you cast a spell, you can use your reaction to regain spell slots."
-      }
-    ],
-    "level_2_features": [
-      {
-        "index": "school-of-magic",
-        "name": "School of Magic",
-        "desc": "Choose your School of Magic, which grants additional features at 2nd level."
+        "level": 5,
+        "bonus": 3
       },
       {
-        "index": "spellbook",
-        "name": "Spellbook",
-        "desc": "You have a spellbook containing all your wizard spells. You can add spells to your spellbook by copying them from other sources."
+        "level": 9,
+        "bonus": 4
+      },
+      {
+        "level": 13,
+        "bonus": 5
+      },
+      {
+        "level": 17,
+        "bonus": 6
       }
     ],
-    "level_6_features": [
+    "feature_levels": [
       {
-        "index": "arcane-ward",
-        "name": "Arcane Ward",
-        "desc": "You can use your reaction to create a ward that absorbs damage for you and your allies."
-      }
-    ],
-    "level_10_features": [
+        "level": 1,
+        "features": [
+          "spellcasting",
+          "ritual adept",
+          "arcane recovery"
+        ]
+      },
       {
-        "index": "spell-storing-reservoir",
-        "name": "Spell-Storing Reservoir",
-        "desc": "You can store spells in your spellbook and cast them later without preparing them."
-      }
-    ],
-    "level_14_features": [
+        "level": 2,
+        "features": [
+          "scholar"
+        ]
+      },
       {
-        "index": "signature-spells",
-        "name": "Signature Spells",
-        "desc": "You can choose two spells from your spellbook to be signature spells. You can cast them using a bonus action."
-      }
-    ],
-    "level_18_features": [
+        "level": 3,
+        "features": [
+          "wizard subclass"
+        ]
+      },
       {
-        "index": "archmage",
-        "name": "Archmage",
-        "desc": "You can cast spells without expending spell slots, and your spell save DC increases by 2."
+        "level": 4,
+        "features": [
+          "ability score improvement"
+        ]
+      },
+      {
+        "level": 5,
+        "features": [
+          "memorize spell"
+        ]
+      },
+      {
+        "level": 6,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 10,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 14,
+        "features": [
+          "subclass feature"
+        ]
+      },
+      {
+        "level": 18,
+        "features": [
+          "spell mastery"
+        ]
+      },
+      {
+        "level": 19,
+        "features": [
+          "epic boon"
+        ]
+      },
+      {
+        "level": 20,
+        "features": [
+          "signature spells"
+        ]
       }
     ]
   }

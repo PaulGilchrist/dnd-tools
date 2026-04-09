@@ -1,0 +1,334 @@
+[
+  {
+    "index": "acolyte",
+    "name": "Acolyte",
+    "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods.",
+    "skill_proficiencies": [
+      "insight",
+      "religion"
+    ],
+    "tool_proficiencies": [],
+    "languages": [
+      "two of your choice"
+    ],
+    "feature": "Shelter of the Faithful",
+    "feature_description": "As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity.",
+    "equipment": [
+      "a holy symbol",
+      "a prayer book or prayer wheel",
+      "5 sticks of incense",
+      "vestments",
+      "a set of common clothes",
+      "a pouch containing 15 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 152
+  },
+  {
+    "index": "artisan",
+    "name": "Artisan",
+    "description": "You are skilled in the creation and repair of objects, whether tools, weapons, or art.",
+    "skill_proficiencies": [
+      "insight",
+      "perception"
+    ],
+    "tool_proficiencies": [
+      "one type of artisan's tools"
+    ],
+    "languages": [],
+    "feature": "Artisan's Tools",
+    "feature_description": "You have a set of artisan's tools that you can use to create fine objects.",
+    "equipment": [
+      "your artisan's tools",
+      "a letter of introduction from your former guild",
+      "a set of fine clothes",
+      "a pouch containing 15 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 155
+  },
+  {
+    "index": "charlatan",
+    "name": "Charlatan",
+    "description": "You have always enjoyed playing the role of someone else, and you're adept at slipping into a new persona.",
+    "skill_proficiencies": [
+      "deception",
+      "sleight of hand"
+    ],
+    "tool_proficiencies": [],
+    "languages": [],
+    "feature": "False Identity",
+    "feature_description": "You have created a second identity that includes a name, occupation, and supporting documentation.",
+    "equipment": [
+      "a set of fine clothes",
+      "a disguise kit",
+      "tools of the con you used (such as forgery supplies, gaming sets, or musical instruments)",
+      "a pouch containing 15 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 158
+  },
+  {
+    "index": "criminal",
+    "name": "Criminal",
+    "description": "You are an experienced criminal with a history of breaking the law.",
+    "skill_proficiencies": [
+      "deception",
+      "stealth"
+    ],
+    "tool_proficiencies": [
+      "thieves' tools"
+    ],
+    "languages": [],
+    "feature": "Criminal Contact",
+    "feature_description": "You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals.",
+    "equipment": [
+      "a crowbar",
+      "a set of dark common clothes including a hood",
+      "a pouch containing 15 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 161
+  },
+  {
+    "index": "entertainer",
+    "name": "Entertainer",
+    "description": "You thrive in front of an audience. You are a skilled performer who knows how to captivate and entertain.",
+    "skill_proficiencies": [
+      "acrobatics",
+      "performance"
+    ],
+    "tool_proficiencies": [
+      "one type of musical instrument"
+    ],
+    "languages": [],
+    "feature": "By Popular Demand",
+    "feature_description": "You can always find a place to perform, usually in a tavern, inn, or other establishment that caters to an audience.",
+    "equipment": [
+      "your instrument",
+      "a costume",
+      "a trinket that belonged to your first patron",
+      "a pouch containing 15 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 164
+  },
+  {
+    "index": "farmer",
+    "name": "Farmer",
+    "description": "You grew up working the land, tending to crops and livestock.",
+    "skill_proficiencies": [
+      "animal handling",
+      "survival"
+    ],
+    "tool_proficiencies": [],
+    "languages": [],
+    "feature": "Farmer's Luck",
+    "feature_description": "You have a good understanding of the seasons and can predict the weather.",
+    "equipment": [
+      "a farming tool",
+      "a set of traveler's clothes",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 167
+  },
+  {
+    "index": "guide",
+    "name": "Guide",
+    "description": "You are an expert at navigating through difficult terrain and finding your way through the wilderness.",
+    "skill_proficiencies": [
+      "nature",
+      "survival"
+    ],
+    "tool_proficiencies": [],
+    "languages": [],
+    "feature": "Trailblazer",
+    "feature_description": "You can travel at a fast pace without suffering the usual penalties.",
+    "equipment": [
+      "a map of the region",
+      "a set of traveler's clothes",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 170
+  },
+  {
+    "index": "hermit",
+    "name": "Hermit",
+    "description": "You have spent most of your life in seclusion, apart from the clamor and\u5bb4 of society.",
+    "skill_proficiencies": [
+      "medicine",
+      "religion"
+    ],
+    "tool_proficiencies": [],
+    "languages": [],
+    "feature": "Discovery",
+    "feature_description": "The seclusion of your chosen hermitage gave you access to a unique and powerful discovery.",
+    "equipment": [
+      "a scroll case stuffed full of notes from your studies or contemplation",
+      "an inert scroll as a relic from your past life",
+      "a set of common clothes",
+      "a pouch containing 5 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 173
+  },
+  {
+    "index": "merchant",
+    "name": "Merchant",
+    "description": "You are a skilled trader who has traveled far and wide, dealing in goods and services.",
+    "skill_proficiencies": [
+      "insight",
+      "persuasion"
+    ],
+    "tool_proficiencies": [],
+    "languages": [
+      "two of your choice"
+    ],
+    "feature": "Merchant's Guild",
+    "feature_description": "You have a membership in a merchant's guild that gives you access to resources and contacts.",
+    "equipment": [
+      "a set of traveler's clothes",
+      "a set of merchant's scales",
+      "a pouch containing 15 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 176
+  },
+  {
+    "index": "noble",
+    "name": "Noble",
+    "description": "You understand wealth, power, and privilege. You have been raised in a life of luxury.",
+    "skill_proficiencies": [
+      "history",
+      "persuasion"
+    ],
+    "tool_proficiencies": [],
+    "languages": [],
+    "feature": "Position of Privilege",
+    "feature_description": "Your noble status gives you access to high society, and you can expect to receive special treatment in many circumstances.",
+    "equipment": [
+      "a signet ring",
+      "a scroll of pedigree",
+      "a set of fine clothes",
+      "a pouch containing 25 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 179
+  },
+  {
+    "index": "sage",
+    "name": "Sage",
+    "description": "You have spent years in study, acquiring knowledge of the arcane and the natural world.",
+    "skill_proficiencies": [
+      "arcana",
+      "history"
+    ],
+    "tool_proficiencies": [],
+    "languages": [
+      "two of your choice"
+    ],
+    "feature": "Researcher",
+    "feature_description": "You can find information about the arcane and the natural world through research and study.",
+    "equipment": [
+      "a bottle of black ink",
+      "a quill",
+      "a small knife",
+      "a letter from your favorite colleague",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 182
+  },
+  {
+    "index": "sailor",
+    "name": "Sailor",
+    "description": "You have spent most of your life on the water, whether a ship, a boat, or a dock.",
+    "skill_proficiencies": [
+      "animal handling",
+      "perception"
+    ],
+    "tool_proficiencies": [
+      "one type of water vehicle"
+    ],
+    "languages": [],
+    "feature": "Ship's Passage",
+    "feature_description": "You can arrange for free passage on a ship, either as a passenger or as a member of the crew.",
+    "equipment": [
+      "a trinket that belonged to your ship",
+      "a set of traveler's clothes",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 185
+  },
+  {
+    "index": "scribe",
+    "name": "Scribe",
+    "description": "You are skilled in the art of writing and record-keeping.",
+    "skill_proficiencies": [
+      "insight",
+      "persuasion"
+    ],
+    "tool_proficiencies": [
+      "calligrapher's supplies"
+    ],
+    "languages": [
+      "two of your choice"
+    ],
+    "feature": "Scribe's Hand",
+    "feature_description": "You can quickly and accurately copy documents and texts.",
+    "equipment": [
+      "a quill",
+      "a bottle of ink",
+      "a set of fine clothes",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 188
+  },
+  {
+    "index": "soldier",
+    "name": "Soldier",
+    "description": "You have served in the military, either as a soldier, an officer, or a mercenary.",
+    "skill_proficiencies": [
+      "athletics",
+      "intimidation"
+    ],
+    "tool_proficiencies": [],
+    "languages": [],
+    "feature": "Military Rank",
+    "feature_description": "You have a military rank that gives you authority over other soldiers.",
+    "equipment": [
+      "your insignia of rank",
+      "a trophy taken from a fallen enemy",
+      "a set of common clothes",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 191
+  },
+  {
+    "index": "wayfarer",
+    "name": "Wayfarer",
+    "description": "You are a wanderer who has traveled far and wide, experiencing many cultures and places.",
+    "skill_proficiencies": [
+      "insight",
+      "survival"
+    ],
+    "tool_proficiencies": [],
+    "languages": [
+      "three of your choice"
+    ],
+    "feature": "Traveler's Friend",
+    "feature_description": "You have a network of friends in many places who can provide you with information and assistance.",
+    "equipment": [
+      "a map of the world",
+      "a set of traveler's clothes",
+      "a pouch containing 10 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 194
+  }
+]

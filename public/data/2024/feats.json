@@ -1,353 +1,300 @@
 [
   {
-    "index": "actor",
-    "name": "Actor",
+    "index": "ability-score-improvement",
+    "name": "Ability Score Improvement",
     "desc": [
-      "You gain a +1 bonus to your Strength, Dexterity, and Constitution scores.",
-      "You can use a bonus action to make an unarmed strike or attack with a simple weapon you are holding."
+      "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1.",
+      "You can't increase an ability score above 20 using this feat."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 4,
-    "ability_score": "Strength, Dexterity, Constitution",
+    "ability_score": "any",
     "category": "general"
   },
   {
     "index": "alert",
     "name": "Alert",
     "desc": [
-      "You gain a +5 bonus to your initiative rolls.",
-      "You cannot be surprised while you are conscious.",
-      "Other creatures have disadvantage on attack rolls against you while you are unconscious."
+      "You gain the following benefits:",
+      "\u2022 You can't be surprised while you are conscious.",
+      "\u2022 You have a +5 bonus to Initiative."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Dexterity",
+    "ability_score": "dexterity",
     "category": "general"
   },
   {
-    "index": "athlete",
-    "name": "Athlete",
+    "index": "athletic",
+    "name": "Athletic",
     "desc": [
-      "You gain a +1 bonus to your Strength score.",
-      "When you make a Strength check to climb or jump, you can treat any d20 roll of 9 or lower as a 10."
+      "You gain the following benefits:",
+      "\u2022 You have proficiency in the Athletics skill.",
+      "\u2022 You can add double your proficiency bonus to any Strength (Athletics) check you make."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Strength",
+    "ability_score": "strength",
     "category": "general"
   },
   {
-    "index": "crusher",
-    "name": "Crusher",
+    "index": "backstabber",
+    "name": "Backstabber",
     "desc": [
-      "You gain a +1 bonus to your Strength score.",
-      "When you hit a creature with an attack using a Strength-based weapon, you can push the target up to 10 feet away from you."
+      "You gain the following benefits:",
+      "\u2022 You have proficiency in the Stealth skill.",
+      "\u2022 When you hit a creature that is unaware of you, you deal an extra 1d6 damage of the weapon's type."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Strength",
+    "ability_score": "dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "crossbow-expert",
+    "name": "Crossbow Expert",
+    "desc": [
+      "You gain the following benefits:",
+      "\u2022 You ignore the loading property of crossbows.",
+      "\u2022 Being within 5 feet of a hostile creature doesn't impose Disadvantage on your ranged attack rolls.",
+      "\u2022 You can use a bonus action to fire a hand crossbow you are holding."
+    ],
+    "prerequisite": "None",
+    "source": "Player's Handbook 2024",
+    "level": 1,
+    "ability_score": "dexterity",
     "category": "combat"
   },
   {
     "index": "dual-wielder",
     "name": "Dual Wielder",
     "desc": [
-      "You gain a +1 bonus to your AC while wielding a melee weapon in each hand.",
-      "You can use a bonus action to make an attack with the weapon you are holding in your off hand."
+      "You gain the following benefits:",
+      "\u2022 You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.",
+      "\u2022 You can use two-weapon fighting even when the melee weapons you are wielding aren't light.",
+      "\u2022 You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Dexterity",
+    "ability_score": "dexterity",
     "category": "combat"
   },
   {
     "index": "durable",
     "name": "Durable",
     "desc": [
-      "You gain a +1 bonus to your Constitution score.",
-      "When you roll Hit Dice to regain hit points, you can reroll any number of those dice and use the new rolls."
+      "You gain the following benefits:",
+      "\u2022 Your hit point maximum increases by 1, and it increases by 1 again whenever you gain this feat.",
+      "\u2022 You have proficiency in Constitution saving throws."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Constitution",
+    "ability_score": "constitution",
     "category": "general"
   },
   {
-    "index": "dexterous",
-    "name": "Dexterous",
+    "index": "healer",
+    "name": "Healer",
     "desc": [
-      "You gain a +1 bonus to your Dexterity score.",
-      "When you make a Dexterity check, you can treat any d20 roll of 9 or lower as a 10."
+      "You gain the following benefits:",
+      "\u2022 You can use a bonus action to heal a creature that has 0 hit points.",
+      "\u2022 The creature regains hit points equal to 5 + your proficiency bonus.",
+      "\u2022 You can use this feat a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Dexterity",
+    "ability_score": "wisdom",
     "category": "general"
-  },
-  {
-    "index": "fortified",
-    "name": "Fortified",
-    "desc": [
-      "You gain a +1 bonus to your Constitution score.",
-      "When you make a Constitution saving throw, you can treat any d20 roll of 9 or lower as a 10."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Constitution",
-    "category": "general"
-  },
-  {
-    "index": "grappler",
-    "name": "Grappler",
-    "desc": [
-      "You gain a +1 bonus to your Strength score.",
-      "When you make an attack roll against a grappled creature, you have advantage on the roll."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Strength",
-    "category": "combat"
-  },
-  {
-    "index": "heavy-armor-master",
-    "name": "Heavy Armor Master",
-    "desc": [
-      "You gain a +1 bonus to your Strength score.",
-      "While wearing heavy armor, you have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks."
-    ],
-    "prerequisite": "Proficiency with heavy armor",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Strength",
-    "category": "combat"
   },
   {
     "index": "insightful",
     "name": "Insightful",
     "desc": [
-      "You gain a +1 bonus to your Wisdom score.",
-      "When you make a Wisdom check, you can treat any d20 roll of 9 or lower as a 10."
+      "You gain the following benefits:",
+      "\u2022 You gain a +2 bonus to Wisdom (Insight) checks.",
+      "\u2022 You can use your Insight to discern when a creature is lying or hiding its true intentions."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Wisdom",
+    "ability_score": "wisdom",
     "category": "general"
   },
   {
-    "index": "intelligent",
-    "name": "Intelligent",
+    "index": "keen-sighted",
+    "name": "Keen-Sighted",
     "desc": [
-      "You gain a +1 bonus to your Intelligence score.",
-      "When you make an Intelligence check, you can treat any d20 roll of 9 or lower as a 10."
+      "You gain the following benefits:",
+      "\u2022 Your darkvision range increases by 30 feet.",
+      "\u2022 You have Advantage on Wisdom (Perception) checks that rely on sight."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Intelligence",
+    "ability_score": "wisdom",
     "category": "general"
   },
   {
-    "index": "keen",
-    "name": "Keen",
+    "index": "light-armor-master",
+    "name": "Light Armor Master",
     "desc": [
-      "You gain a +1 bonus to your Dexterity score.",
-      "When you make an attack roll with a finesse or ranged weapon, you can treat any d20 roll of 9 or lower as a 10."
+      "You gain the following benefits:",
+      "\u2022 You have a +1 bonus to AC while wearing light armor.",
+      "\u2022 You can use your Dexterity modifier instead of your Strength modifier for the damage roll of a light weapon."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Dexterity",
+    "ability_score": "dexterity",
     "category": "combat"
   },
   {
-    "index": "lucky",
-    "name": "Lucky",
+    "index": "metamagic-adept",
+    "name": "Metamagic Adept",
     "desc": [
-      "You gain three luck points. When you make an attack roll, ability check, or saving throw, you can spend one luck point to reroll the d20 and use the new roll.",
-      "You regain all expended luck points when you finish a long rest."
+      "You gain the following benefits:",
+      "\u2022 You learn two Metamagic options of your choice from the sorcerer class feature.",
+      "\u2022 You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source).",
+      "\u2022 You regain all spent sorcery points when you finish a long rest."
     ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
+    "prerequisite": "Sorcerer level or higher",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "None",
+    "ability_score": "charisma",
     "category": "general"
-  },
-  {
-    "index": "mobile",
-    "name": "Mobile",
-    "desc": [
-      "You gain a +1 bonus to your Dexterity score.",
-      "When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of your turn."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Dexterity",
-    "category": "combat"
   },
   {
     "index": "observant",
     "name": "Observant",
     "desc": [
-      "You gain a +1 bonus to your Wisdom score.",
-      "You gain proficiency in one skill of your choice."
+      "You gain the following benefits:",
+      "\u2022 Your Intelligence (Investigation) and Wisdom (Perception) checks increase by +5.",
+      "\u2022 You can read lips.",
+      "\u2022 You recognize a creature you have seen before."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Wisdom",
+    "ability_score": "intelligence",
     "category": "general"
-  },
-  {
-    "index": "polearm-master",
-    "name": "Polearm Master",
-    "desc": [
-      "You gain a +1 bonus to your Strength score.",
-      "When you make an attack with a polearm, you can use a bonus action to make a melee attack with the opposite end of the weapon."
-    ],
-    "prerequisite": "Proficiency with a polearm",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Strength",
-    "category": "combat"
   },
   {
     "index": "resilient",
     "name": "Resilient",
     "desc": [
-      "You gain a +1 bonus to one ability score of your choice.",
-      "You gain proficiency in saving throws using that ability score."
+      "Choose one ability score. You gain the following benefits:",
+      "\u2022 You gain proficiency in saving throws using that ability.",
+      "\u2022 Your proficiency bonus is doubled for any saving throw that uses the chosen ability score."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Any",
+    "ability_score": "any",
     "category": "general"
-  },
-  {
-    "index": "resilient-con",
-    "name": "Resilient (Constitution)",
-    "desc": [
-      "You gain a +1 bonus to your Constitution score.",
-      "You gain proficiency in Constitution saving throws."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Constitution",
-    "category": "general"
-  },
-  {
-    "index": "resilient-dex",
-    "name": "Resilient (Dexterity)",
-    "desc": [
-      "You gain a +1 bonus to your Dexterity score.",
-      "You gain proficiency in Dexterity saving throws."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Dexterity",
-    "category": "general"
-  },
-  {
-    "index": "resilient-wis",
-    "name": "Resilient (Wisdom)",
-    "desc": [
-      "You gain a +1 bonus to your Wisdom score.",
-      "You gain proficiency in Wisdom saving throws."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Wisdom",
-    "category": "general"
-  },
-  {
-    "index": "savage-attacker",
-    "name": "Savage Attacker",
-    "desc": [
-      "You gain a +1 bonus to your Strength score.",
-      "When you roll damage for a melee attack using Strength, you can reroll the weapon's damage dice and use the new roll."
-    ],
-    "prerequisite": "None",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Strength",
-    "category": "combat"
-  },
-  {
-    "index": "shield-master",
-    "name": "Shield Master",
-    "desc": [
-      "You gain a +1 bonus to your Dexterity score.",
-      "If you are wielding a shield, you can use a reaction to add your shield's AC bonus to Dexterity saving throws against effects that target only you."
-    ],
-    "prerequisite": "Proficiency with a shield",
-    "source": "2024 Rules",
-    "level": 1,
-    "ability_score": "Dexterity",
-    "category": "combat"
   },
   {
     "index": "sharpshooter",
     "name": "Sharpshooter",
     "desc": [
-      "You gain a +1 bonus to your Dexterity score.",
-      "When you make an attack roll with a ranged weapon, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage."
+      "You gain the following benefits:",
+      "\u2022 You can make ranged attacks without penalty for being within 5 feet of a hostile creature.",
+      "\u2022 You can ignore cover when making ranged attacks.",
+      "\u2022 You can choose to take a -5 penalty to the attack roll to deal an extra +10 damage on a hit."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Dexterity",
+    "ability_score": "dexterity",
     "category": "combat"
   },
   {
-    "index": "spellcaster",
-    "name": "Spellcaster",
+    "index": "skulker",
+    "name": "Skulker",
     "desc": [
-      "You gain a +1 bonus to your spellcasting ability score.",
-      "You learn one cantrip of your choice from any class's spell list."
+      "You gain the following benefits:",
+      "\u2022 You can try to hide when you are lightly obscured from the creature from which you are hiding.",
+      "\u2022 When you are hidden from a creature, you can try to make a Stealth check to remain hidden even after you make an attack.",
+      "\u2022 You have Advantage on Wisdom (Perception) checks that rely on hearing."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Intelligence, Wisdom, or Charisma",
+    "ability_score": "dexterity",
     "category": "general"
   },
   {
     "index": "tough",
     "name": "Tough",
     "desc": [
-      "Your hit point maximum increases by 2 for each level you have."
+      "Your hit point maximum increases by 2 per level you have attained."
     ],
     "prerequisite": "None",
-    "source": "2024 Rules",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Constitution",
+    "ability_score": "constitution",
     "category": "general"
   },
   {
-    "index": "war-caster",
-    "name": "War Caster",
+    "index": "warcaster",
+    "name": "Warcaster",
     "desc": [
-      "You gain proficiency with Constitution saving throws to maintain concentration on spells.",
-      "When a creature provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature instead of making an opportunity attack."
+      "You gain the following benefits:",
+      "\u2022 You have Advantage on Constitution saving throws that you make to maintain your concentration on a spell.",
+      "\u2022 You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.",
+      "\u2022 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature."
     ],
-    "prerequisite": "Proficiency with a spellcasting focus",
-    "source": "2024 Rules",
+    "prerequisite": "None",
+    "source": "Player's Handbook 2024",
     "level": 1,
-    "ability_score": "Constitution",
+    "ability_score": "constitution",
+    "category": "combat"
+  },
+  {
+    "index": "defensive-duelist",
+    "name": "Defensive Duelist",
+    "desc": [
+      "When you are wielding a finesse weapon and are targeted by a melee attack, you can use your reaction to add your proficiency bonus to your AC, potentially causing the attack to miss."
+    ],
+    "prerequisite": "Finesse weapon proficiency",
+    "source": "Player's Handbook 2024",
+    "level": 1,
+    "ability_score": "dexterity",
+    "category": "combat"
+  },
+  {
+    "index": "grappled",
+    "name": "Grappler",
+    "desc": [
+      "You gain the following benefits:",
+      "\u2022 You have Advantage on Strength (Athletics) checks made to grapple or shove a creature.",
+      "\u2022 You can grapple a creature that is two sizes larger than you."
+    ],
+    "prerequisite": "None",
+    "source": "Player's Handbook 2024",
+    "level": 1,
+    "ability_score": "strength",
+    "category": "combat"
+  },
+  {
+    "index": "mobile",
+    "name": "Mobile",
+    "desc": [
+      "You gain the following benefits:",
+      "\u2022 Difficult terrain doesn't cost you extra movement while you're moving.",
+      "\u2022 When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, even if you hit.",
+      "\u2022 When you hit a creature with a melee attack, you can move up to 10 feet without provoking opportunity attacks from that creature."
+    ],
+    "prerequisite": "None",
+    "source": "Player's Handbook 2024",
+    "level": 1,
+    "ability_score": "dexterity",
     "category": "combat"
   }
 ]

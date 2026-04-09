@@ -1,0 +1,303 @@
+[
+  {
+    "index": "aberration",
+    "name": "Aberration",
+    "book": "Monster Manual 2024",
+    "desc": "Aberrations are creatures of unnatural origin, often from the Far Realm or other planes of existence. They are typically mindless or incomprehensible in their motives.",
+    "monsters": [
+      "astral-devourer",
+      "beholder",
+      "changeling",
+      "gibbering-mouther",
+      "mind-flayer",
+      "ochre-jelly",
+      "ochre-jelly",
+      "ochre-jelly"
+    ],
+    "page": 200,
+    "trait_modifiers": [
+      "immune to poison",
+      "resistant to nonmagical weapons"
+    ]
+  },
+  {
+    "index": "beast",
+    "name": "Beast",
+    "book": "Monster Manual 2024",
+    "desc": "Beasts are animals and magical beasts that inhabit the Material Plane. They range from tiny creatures to massive dragons and other legendary beasts.",
+    "monsters": [
+      "ape",
+      "bear",
+      "boar",
+      "cat",
+      "crow",
+      "dog",
+      "eagle",
+      "equine",
+      "giant-insect",
+      "giant-spider",
+      "owl",
+      "poisonous-snake",
+      "rat",
+      "scorpion",
+      "shark",
+      "snake",
+      "spider",
+      "wolf"
+    ],
+    "page": 201,
+    "trait_modifiers": []
+  },
+  {
+    "index": "celestial",
+    "name": "Celestial",
+    "book": "Monster Manual 2024",
+    "desc": "Celestials are creatures of pure good that hail from the Upper Planes. They serve as messengers and warriors for the gods of good.",
+    "monsters": [
+      "couatl",
+      "deva",
+      "elemental",
+      "eternal",
+      "fire-newt",
+      "guardian",
+      "planetar",
+      "sun-elemental"
+    ],
+    "page": 202,
+    "trait_modifiers": [
+      "immune to poison",
+      "resistant to nonmagical weapons",
+      "darkvision"
+    ]
+  },
+  {
+    "index": "construct",
+    "name": "Construct",
+    "book": "Monster Manual 2024",
+    "desc": "Constructs are animated objects or machines created through magic. They have no self-awareness and follow their programming or the will of their creator.",
+    "monsters": [
+      "animated-armor",
+      "clockwork-bullywug",
+      "clockwork-golem",
+      "golem",
+      "iron-golem",
+      "stone-golem",
+      "warder"
+    ],
+    "page": 203,
+    "trait_modifiers": [
+      "immune to poison",
+      "immune to disease",
+      "resistant to nonmagical weapons",
+      "no need to breathe"
+    ]
+  },
+  {
+    "index": "dragon",
+    "name": "Dragon",
+    "book": "Monster Manual 2024",
+    "desc": "Dragons are powerful, intelligent reptilian creatures with innate magical abilities. They are among the most dangerous creatures in the multiverse.",
+    "monsters": [
+      "ancient-drake",
+      "ancient-red-dragon",
+      "blue-dragon",
+      "brass-dragon",
+      "bronze-dragon",
+      "chromatic-dragon",
+      "cloud-dragon",
+      "gold-dragon",
+      "green-dragon",
+      "metallic-dragon",
+      "red-dragon",
+      "silver-dragon",
+      "white-dragon",
+      "young-red-dragon"
+    ],
+    "page": 204,
+    "trait_modifiers": [
+      "darkvision",
+      "fire resistance",
+      "breath weapon"
+    ]
+  },
+  {
+    "index": "elemental",
+    "name": "Elemental",
+    "book": "Monster Manual 2024",
+    "desc": "Elementals are creatures composed of one of the four elements: air, earth, fire, or water. They are native to the Elemental Planes.",
+    "monsters": [
+      "air-elemental",
+      "earth-elemental",
+      "fire-elemental",
+      "water-elemental",
+      "mephits"
+    ],
+    "page": 205,
+    "trait_modifiers": [
+      "immune to poison",
+      "resistant to nonmagical weapons",
+      "no need to breathe"
+    ]
+  },
+  {
+    "index": "fey",
+    "name": "Fey",
+    "book": "Monster Manual 2024",
+    "desc": "Fey are creatures from the Feywild, a plane of existence filled with magic, wonder, and danger. They are often capricious and unpredictable.",
+    "monsters": [
+      "faerie-dragon",
+      "pixie",
+      "sprite",
+      "dryad",
+      "satyr",
+      "centaur",
+      "pegasus",
+      "griffin"
+    ],
+    "page": 206,
+    "trait_modifiers": [
+      "immune to poison",
+      "resistant to nonmagical weapons"
+    ]
+  },
+  {
+    "index": "giant",
+    "name": "Giant",
+    "book": "Monster Manual 2024",
+    "desc": "Giants are large, powerful humanoids with varying degrees of intelligence. They can be found in many different environments.",
+    "monsters": [
+      "cloud-giant",
+      "fire-giant",
+      "frost-giant",
+      "hill-giant",
+      "stone-giant",
+      "storm-giant",
+      "ogre",
+      "troll"
+    ],
+    "page": 207,
+    "trait_modifiers": []
+  },
+  {
+    "index": "humanoid",
+    "name": "Humanoid",
+    "book": "Monster Manual 2024",
+    "desc": "Humanoids are the most common creatures in the multiverse, including humans and their many kin and cousins.",
+    "monsters": [
+      "bandit",
+      "cultural-group",
+      "guard",
+      "mercenary",
+      "noble",
+      "peasant",
+      "pirate",
+      "sage",
+      "skeleton",
+      "zombie",
+      "orc",
+      "goblin",
+      "kobold",
+      "gnoll",
+      "bugbear",
+      "goblin",
+      "kobold",
+      "orc"
+    ],
+    "page": 208,
+    "trait_modifiers": []
+  },
+  {
+    "index": "monstrosity",
+    "name": "Monstrosity",
+    "book": "Monster Manual 2024",
+    "desc": "Monstrosities are creatures of unnatural origin or monstrous appearance. They are often the result of magical experimentation or corruption.",
+    "monsters": [
+      "chimera",
+      "hydra",
+      "minotaur",
+      "ochre-jelly",
+      "owlbear",
+      "tarrasque"
+    ],
+    "page": 209,
+    "trait_modifiers": []
+  },
+  {
+    "index": "plant",
+    "name": "Plant",
+    "book": "Monster Manual 2024",
+    "desc": "Plants are creatures with the characteristics of plants, often animated by magic or natural forces.",
+    "monsters": [
+      "buzzard",
+      "blight",
+      "floating-eye",
+      "shambling-mound",
+      "will-o-wisp"
+    ],
+    "page": 210,
+    "trait_modifiers": [
+      "immune to poison",
+      "resistant to nonmagical weapons",
+      "no need to breathe"
+    ]
+  },
+  {
+    "index": "undead",
+    "name": "Undead",
+    "book": "Monster Manual 2024",
+    "desc": "Undead are creatures that have been returned to a form of life after death, often through necromantic magic.",
+    "monsters": [
+      "ghast",
+      "ghost",
+      "ghoul",
+      "lich",
+      "mummy",
+      "specter",
+      "vampire",
+      "wight",
+      "wraith",
+      "zombie"
+    ],
+    "page": 211,
+    "trait_modifiers": [
+      "immune to poison",
+      "immune to disease",
+      "resistant to nonmagical weapons",
+      "no need to breathe"
+    ]
+  },
+  {
+    "index": "fiend",
+    "name": "Fiend",
+    "book": "Monster Manual 2024",
+    "desc": "Fiends are creatures from the Lower Planes, including demons and devils. They are inherently evil and seek to corrupt and destroy.",
+    "monsters": [
+      "balor",
+      "babau",
+      "baboon",
+      "demon",
+      "devil",
+      "erinyes",
+      "glabrezu",
+      "hezar",
+      "ice-devil",
+      "imp",
+      "lemure",
+      "manes",
+      "nalfeshnee",
+      "nycaloth",
+      "quasit",
+      "spectator",
+      "succubus",
+      "tanar'ri",
+      "yugoloth"
+    ],
+    "page": 212,
+    "trait_modifiers": [
+      "immune to poison",
+      "resistant to nonmagical weapons",
+      "darkvision",
+      "fire resistance"
+    ]
+  }
+]
