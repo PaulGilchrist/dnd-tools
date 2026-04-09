@@ -4,6 +4,7 @@ import './NavTop.css';
 
 function NavTop() {
     const [selected, setSelected] = useState('');
+    const [spellRuleVersion, setSpellRuleVersion] = useState('5e');
     const location = useLocation();
 
     useEffect(() => {
@@ -48,6 +49,12 @@ function NavTop() {
     const handleSetSelected = (name) => {
         setSelected(prev => prev === name ? '' : name);
     };
+
+    const handleSpellRuleChange = (e) => {
+        setSpellRuleVersion(e.target.value);
+    };
+
+    const spellLink = spellRuleVersion === '2024' ? '/2024/spells' : '/spells';
 
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
@@ -175,16 +182,28 @@ function NavTop() {
                     </li>
                     <li className="nav-item">
                         <NavLink 
-                            to="/spells" 
+                            to={spellLink} 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Spells
                         </NavLink>
                     </li>
                 </ul>
+                <div className="dropdown-spell-version">
+                    <select 
+                        className="form-select form-select-sm"
+                        value={spellRuleVersion}
+                        onChange={handleSpellRuleChange}
+                        aria-label="Select spell rule version"
+                    >
+                        <option value="5e">5e</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
             </div>
         </nav>
     );
 }
 
 export default NavTop;
+

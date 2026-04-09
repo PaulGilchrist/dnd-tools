@@ -1,5 +1,151 @@
 [
   {
+    "index": "aid",
+    "name": "Aid",
+    "desc": [
+      "Your spell bolsters your allies with toughness and resolve.",
+      "Choose up to three creatures within range.",
+      "Each target's hit point maximum and current hit points increase by 5 for the duration."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "8 hours",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "paladin",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "animate-objects",
+    "name": "Animate Objects",
+    "desc": [
+      "You bring objects to life under your control."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 5,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "bludgeoning",
+      "damage_at_slot_level": {
+        "5": "5d10",
+        "6": "7d10",
+        "7": "9d10",
+        "8": "11d10",
+        "9": "13d10"
+      }
+    },
+    "school": "transmutation",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "antipathy-sympathy",
+    "name": "Antipathy/Sympathy",
+    "desc": [
+      "You cause an object or creature to radiate either antipathy or sympathy."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 days",
+    "concentration": false,
+    "casting_time": "1 hour",
+    "level": 8,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "banishment",
+    "name": "Banishment",
+    "desc": [
+      "You attempt to banish a creature you can see within range to another plane."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "paladin",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "charisma"
+    },
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
     "index": "blade-ward",
     "name": "Blade Ward",
     "desc": [
@@ -25,643 +171,6 @@
       "sorcerer",
       "warlock",
       "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "dancing-lights",
-    "name": "Dancing Lights",
-    "desc": [
-      "You create a light source or sound effect.",
-      "Light: You create up to four torch-sized lights within range. They appear within 10 feet of each other in an area you choose. Each light sheds dim light in a 10-foot radius. As a bonus action, you can move the lights to new locations within range.",
-      "Sound: You create a sound no louder than a whisper from an area no larger than 5 feet on a side within range. The sound is produced by a source you choose, such as a drum, a flute, or a humanoid voice. The sound lasts for 1 minute."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "a bit of phosphorus or wychwood",
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "fire-bolt",
-    "name": "Fire Bolt",
-    "desc": [
-      "You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target.",
-      "On a hit, the target takes 1d10 fire damage.",
-      "The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": "ranged",
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "1": "1d10",
-        "5": "2d10",
-        "11": "3d10",
-        "17": "4d10"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "guidance",
-    "name": "Guidance",
-    "desc": [
-      "You touch a willing creature. Until the spell ends, the creature can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell ends if you cast it again."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": true,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "divination",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 4
-  },
-  {
-    "index": "light",
-    "name": "Light",
-    "desc": [
-      "You touch an object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you choose.",
-      "The spell ends if you cast this spell again or dismiss it as an action."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "evocation",
-    "classes": [
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 5
-  },
-  {
-    "index": "mage-hand",
-    "name": "Mage Hand",
-    "desc": [
-      "A spectral, floating hand appears at a point you choose within range and lasts for the duration.",
-      "The hand vanishes if it is ever more than 30 feet away from you.",
-      "You can use your action to control the hand.",
-      "You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open bag or pouch, or pour out the contents of a vial."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 6
-  },
-  {
-    "index": "mending",
-    "name": "Mending",
-    "desc": [
-      "This spell repairs a single object or creature, restoring 1d4 + 1 hit points.",
-      "The spell can mend a broken object, such as a chain, a vase, or a sword.",
-      "The spell can also mend a wounded creature, but only if the creature has at least 1 hit point."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "charcoal, dust, and grease",
-    "ritual": true,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 7
-  },
-  {
-    "index": "message",
-    "name": "Message",
-    "desc": [
-      "You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.",
-      "You can cast this spell through solid objects if you are familiar with the target and know it is behind the obstacle."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "a small copper piece",
-    "ritual": false,
-    "duration": "1 round",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 8
-  },
-  {
-    "index": "minor-illusion",
-    "name": "Minor Illusion",
-    "desc": [
-      "You create a sound or an image of an object within range.",
-      "Sound: You create a sound, such as a whisper, a roar, or a knock, that can be heard up to 30 feet away.",
-      "Image: You create a visual image of an object, creature, or other phenomenon within range that can be no larger than a 5-foot cube. The image lasts for the duration or until you use your action to cast this spell again."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "S",
-      "M"
-    ],
-    "material": "a bit of fleece",
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 9
-  },
-  {
-    "index": "prestidigitation",
-    "name": "Prestidigitation",
-    "desc": [
-      "You perform a simple magical trick before the eyes of the target.",
-      "The trick can be a minor effect, such as lighting a candle, making a small object float, or cleaning an object.",
-      "The spell can also create a minor sensory effect, such as a gust of wind, a faint odor, or a soft sound."
-    ],
-    "higher_level": [],
-    "range": "10 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 10
-  },
-  {
-    "index": "true-strike",
-    "name": "True Strike",
-    "desc": [
-      "You extend your hand and point a finger at a target in range. Your magic grants you a brief vision of the future and whether your attack would be successful.",
-      "The next time you make an attack roll against the target before the spell ends, you have Advantage on the roll."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 round",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "divination",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 11
-  },
-  {
-    "index": "vicious-mockery",
-    "name": "Vicious Mockery",
-    "desc": [
-      "You create a verbal disparagement of the target.",
-      "The target must make a Wisdom saving throw.",
-      "On a failed save, the target has Disadvantage on the next attack roll before the end of your next turn."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "bard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 12
-  },
-  {
-    "index": "guidance-cleric",
-    "name": "Guidance",
-    "desc": [
-      "You touch a willing creature. Until the spell ends, the creature can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell ends if you cast it again."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": true,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "divination",
-    "classes": [
-      "cleric",
-      "druid"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "sacred-flame",
-    "name": "Sacred Flame",
-    "desc": [
-      "You invoke the power of your deity to call down a beam of radiant energy on a creature you can see within range.",
-      "The target must succeed on a Wisdom saving throw or take 1d8 radiant damage.",
-      "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "radiant",
-      "damage_at_slot_level": {
-        "1": "1d8",
-        "5": "2d8",
-        "11": "3d8",
-        "17": "4d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "cleric"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "thaumaturgy",
-    "name": "Thaumaturgy",
-    "desc": [
-      "You manifest a minor wonder, such as a sudden gust of wind, a small flame flaring to life, or a soft voice echoing from a nearby surface.",
-      "The effect lasts for 1 minute or until you use your action to cast this spell again."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "cleric"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "druidcraft",
-    "name": "Druidcraft",
-    "desc": [
-      "You create a minor magical effect such as a sudden gust of wind, a small flame to flicker, or a color to shift. The effect has no volume and lasts for 1 round.",
-      "You can cast this spell an unlimited number of times."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 round",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "druid"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "produce-flame",
-    "name": "Produce Flame",
-    "desc": [
-      "You create a flickering flame in your hand. The flame illuminates a 10-foot radius and sheds dim light for an additional 10 feet.",
-      "While the flame persists, you can use it as a spellcasting focus for your Druid spells.",
-      "The flame also deals 1d8 fire damage to any creature that hits you with a melee attack while the flame is in your hand. The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "1": "1d8",
-        "5": "2d8",
-        "11": "3d8",
-        "17": "4d8"
-      }
-    },
-    "school": "conjuration",
-    "classes": [
-      "druid"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "sorcerous-burst",
-    "name": "Sorcerous Burst",
-    "desc": [
-      "You unleash a bolt of arcane energy at a creature within range. Make a ranged spell attack against the target.",
-      "On a hit, the target takes 1d8 force damage.",
-      "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": "ranged",
-    "damage": {
-      "damage_type": "force",
-      "damage_at_slot_level": {
-        "1": "1d8",
-        "5": "2d8",
-        "11": "3d8",
-        "17": "4d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "sorcerer"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "eldritch-blast",
-    "name": "Eldritch Blast",
-    "desc": [
-      "You create a beam of crackling energy. Make a ranged spell attack against a creature within range.",
-      "On a hit, the target takes 1d10 force damage.",
-      "The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different targets."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 0,
-    "attack_type": "ranged",
-    "damage": {
-      "damage_type": "force",
-      "damage_at_slot_level": {
-        "1": "1d10",
-        "5": "2d10",
-        "11": "3d10",
-        "17": "4d10"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "warlock"
     ],
     "subclasses": [],
     "area_of_effect": null,
@@ -702,80 +211,46 @@
     "spell_list_order": 1
   },
   {
-    "index": "command",
-    "name": "Command",
+    "index": "blindness-deafness",
+    "name": "Blindness/Deafness",
     "desc": [
-      "You speak a one-word command to a creature you can see within range.",
-      "The target must succeed on a Wisdom saving throw or follow the command on its next turn."
+      "One creature you can see within range must make a Constitution saving throw."
     ],
     "higher_level": [],
-    "range": "60 feet",
+    "range": "30 feet",
     "components": [
       "V"
     ],
     "material": null,
     "ritual": false,
-    "duration": "1 round",
+    "duration": "1 minute",
     "concentration": false,
     "casting_time": "1 action",
-    "level": 1,
+    "level": 2,
     "attack_type": null,
     "damage": null,
-    "school": "enchantment",
+    "school": "transmutation",
     "classes": [
       "bard",
       "cleric",
-      "paladin",
-      "warlock"
+      "druid",
+      "sorcerer",
+      "wizard"
     ],
     "subclasses": [],
     "area_of_effect": null,
     "saving_throw": {
-      "ability": "wisdom"
+      "ability": "constitution"
     },
     "status_effects": [],
     "spell_list_order": 2
   },
   {
-    "index": "cure-wounds",
-    "name": "Cure Wounds",
+    "index": "burning-hands",
+    "name": "Burning Hands",
     "desc": [
-      "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 1,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "detect-magic",
-    "name": "Detect Magic",
-    "desc": [
-      "For the duration, you sense the presence of magic within 30 feet of you.",
-      "If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you know its school of magic."
+      "Flames scorch the air in a 15-foot cone.",
+      "Each creature in the area must make a Dexterity saving throw."
     ],
     "higher_level": [],
     "range": "Self",
@@ -784,108 +259,126 @@
       "S"
     ],
     "material": null,
-    "ritual": true,
-    "duration": "10 minutes",
-    "concentration": true,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
     "casting_time": "1 action",
     "level": 1,
     "attack_type": null,
-    "damage": null,
-    "school": "divination",
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "1": "3d6",
+        "2": "4d6",
+        "3": "5d6",
+        "4": "6d6",
+        "5": "7d6"
+      }
+    },
+    "school": "evocation",
     "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
+      "sorcerer",
       "warlock",
       "wizard"
     ],
     "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
+    "area_of_effect": {
+      "type": "cone",
+      "size": 15
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
     "status_effects": [],
-    "spell_list_order": 4
+    "spell_list_order": 20
   },
   {
-    "index": "guiding-bolt",
-    "name": "Guiding Bolt",
+    "index": "calm-emotions",
+    "name": "Calm Emotions",
     "desc": [
-      "A flaring, radiant bolt of energy springs forth from your hand and races toward a creature within range.",
-      "Make a ranged spell attack against the target.",
-      "On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has Advantage."
+      "You attempt to suppress strong emotions in a group of creatures.",
+      "Each humanoid in a 20-foot cube must make a Charisma saving throw."
     ],
     "higher_level": [],
-    "range": "120 feet",
+    "range": "60 feet",
     "components": [
       "V",
       "S"
     ],
     "material": null,
     "ritual": false,
-    "duration": "1 round",
-    "concentration": false,
+    "duration": "1 minute",
+    "concentration": true,
     "casting_time": "1 action",
-    "level": 1,
-    "attack_type": "ranged",
-    "damage": {
-      "damage_type": "radiant",
-      "damage_at_slot_level": {
-        "1": "4d6",
-        "2": "5d6",
-        "3": "6d6",
-        "4": "7d6",
-        "5": "8d6"
-      }
-    },
-    "school": "evocation",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
     "classes": [
-      "cleric"
+      "bard",
+      "cleric",
+      "druid",
+      "sorcerer",
+      "warlock"
     ],
     "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
+    "area_of_effect": {
+      "type": "cube",
+      "size": 20
+    },
+    "saving_throw": {
+      "ability": "charisma"
+    },
     "status_effects": [],
-    "spell_list_order": 5
+    "spell_list_order": 3
   },
   {
-    "index": "healing-word",
-    "name": "Healing Word",
+    "index": "chain-lightning",
+    "name": "Chain Lightning",
     "desc": [
-      "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier."
+      "You create a bolt of lightning that arcs toward a target of your choice."
     ],
     "higher_level": [],
-    "range": "60 feet",
+    "range": "150 feet",
     "components": [
-      "V"
+      "V",
+      "S",
+      "M"
     ],
     "material": null,
     "ritual": false,
     "duration": "Instantaneous",
     "concentration": false,
-    "casting_time": "1 bonus action",
-    "level": 1,
+    "casting_time": "1 action",
+    "level": 6,
     "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
+    "damage": {
+      "damage_type": "lightning",
+      "damage_at_slot_level": {
+        "6": "8d8",
+        "7": "9d8",
+        "8": "10d8",
+        "9": "11d8"
+      }
+    },
+    "school": "evocation",
     "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger"
+      "sorcerer",
+      "wizard"
     ],
     "subclasses": [],
     "area_of_effect": null,
-    "saving_throw": null,
+    "saving_throw": {
+      "ability": "dexterity"
+    },
     "status_effects": [],
-    "spell_list_order": 6
+    "spell_list_order": 5
   },
   {
-    "index": "shield-of-faith",
-    "name": "Shield of Faith",
+    "index": "charm-monster",
+    "name": "Charm Monster",
     "desc": [
-      "A shimmering field appears and surrounds a creature of your choice within range, granting a +2 bonus to AC for the duration."
+      "You attempt to charm a creature you can see within range."
     ],
     "higher_level": [],
     "range": "60 feet",
@@ -895,22 +388,25 @@
     ],
     "material": null,
     "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "1 bonus action",
-    "level": 1,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 4,
     "attack_type": null,
     "damage": null,
-    "school": "abjuration",
+    "school": "enchantment",
     "classes": [
-      "cleric",
-      "paladin"
+      "bard",
+      "sorcerer",
+      "wizard"
     ],
     "subclasses": [],
     "area_of_effect": null,
-    "saving_throw": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
     "status_effects": [],
-    "spell_list_order": 7
+    "spell_list_order": 8
   },
   {
     "index": "charm-person",
@@ -950,6 +446,52 @@
     "spell_list_order": 8
   },
   {
+    "index": "circle-of-death",
+    "name": "Circle of Death",
+    "desc": [
+      "A dark purple sphere of negative energy spreads from a point you choose within range."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 6,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "necrotic",
+      "damage_at_slot_level": {
+        "6": "15d8",
+        "7": "16d8",
+        "8": "17d8",
+        "9": "18d8"
+      }
+    },
+    "school": "necromancy",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 30
+    },
+    "saving_throw": {
+      "ability": "constitution"
+    },
+    "status_effects": [],
+    "spell_list_order": 6
+  },
+  {
     "index": "color-spray",
     "name": "Color Spray",
     "desc": [
@@ -987,6 +529,447 @@
     },
     "status_effects": [],
     "spell_list_order": 9
+  },
+  {
+    "index": "command",
+    "name": "Command",
+    "desc": [
+      "You speak a one-word command to a creature you can see within range.",
+      "The target must succeed on a Wisdom saving throw or follow the command on its next turn."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 round",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "bard",
+      "cleric",
+      "paladin",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "cone-of-cold",
+    "name": "Cone of Cold",
+    "desc": [
+      "A blast of cold air erupts from your hands."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 5,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "cold",
+      "damage_at_slot_level": {
+        "5": "8d8",
+        "6": "9d8",
+        "7": "10d8",
+        "8": "11d8",
+        "9": "12d8"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "druid",
+      "sorcerer"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cone",
+      "size": 60
+    },
+    "saving_throw": {
+      "ability": "constitution"
+    },
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "confusion",
+    "name": "Confusion",
+    "desc": [
+      "This spell causes confusion in a group of creatures."
+    ],
+    "higher_level": [],
+    "range": "90 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cube",
+      "size": 15
+    },
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 9
+  },
+  {
+    "index": "counterspell",
+    "name": "Counterspell",
+    "desc": [
+      "You attempt to interrupt a creature in the process of casting a spell."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 reaction",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 9
+  },
+  {
+    "index": "cure-wounds",
+    "name": "Cure Wounds",
+    "desc": [
+      "A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "paladin",
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "dancing-lights",
+    "name": "Dancing Lights",
+    "desc": [
+      "You create a light source or sound effect.",
+      "Light: You create up to four torch-sized lights within range. They appear within 10 feet of each other in an area you choose. Each light sheds dim light in a 10-foot radius. As a bonus action, you can move the lights to new locations within range.",
+      "Sound: You create a sound no louder than a whisper from an area no larger than 5 feet on a side within range. The sound is produced by a source you choose, such as a drum, a flute, or a humanoid voice. The sound lasts for 1 minute."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a bit of phosphorus or wychwood",
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "illusion",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "darkness",
+    "name": "Darkness",
+    "desc": [
+      "Magical darkness spreads from a point you choose within range."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "M"
+    ],
+    "material": "bat guano and a drop of pitch",
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 15
+    },
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 19
+  },
+  {
+    "index": "delayed-blast-fireball",
+    "name": "Delayed Blast Fireball",
+    "desc": [
+      "A bead of fire springs forth from your hand and zooms toward a point you choose within range."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 7,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "7": "12d6",
+        "8": "13d6",
+        "9": "14d6"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 30
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "detect-magic",
+    "name": "Detect Magic",
+    "desc": [
+      "For the duration, you sense the presence of magic within 30 feet of you.",
+      "If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you know its school of magic."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": true,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "paladin",
+      "ranger",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "dimension-door",
+    "name": "Dimension Door",
+    "desc": [
+      "You teleport yourself from your current location to any other spot within range."
+    ],
+    "higher_level": [],
+    "range": "500 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": null,
+    "school": "conjuration",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "disintegrate",
+    "name": "Disintegrate",
+    "desc": [
+      "A thin green ray springs from your pointing finger."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 6,
+    "attack_type": "ranged",
+    "damage": {
+      "damage_type": "force",
+      "damage_at_slot_level": {
+        "6": "10d10+40",
+        "7": "11d10+42",
+        "8": "12d10+44",
+        "9": "13d10+46"
+      }
+    },
+    "school": "transmutation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "constitution"
+    },
+    "status_effects": [],
+    "spell_list_order": 7
+  },
+  {
+    "index": "dispel-magic",
+    "name": "Dispel Magic",
+    "desc": [
+      "Choose one creature, object, or magical effect within range."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "paladin",
+      "ranger",
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
   },
   {
     "index": "dissonant-whispers",
@@ -1030,128 +1013,6 @@
     },
     "status_effects": [],
     "spell_list_order": 10
-  },
-  {
-    "index": "faerie-fire",
-    "name": "Faerie Fire",
-    "desc": [
-      "Each object in a 20-foot cube within range is outlined in blue, green, or violet light.",
-      "Any creature in the area when the spell is cast is also surrounded by this light if it makes a Dexterity saving throw."
-    ],
-    "higher_level": [],
-    "range": "20 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 1,
-    "attack_type": null,
-    "damage": null,
-    "school": "evocation",
-    "classes": [
-      "bard",
-      "druid"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 20
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 11
-  },
-  {
-    "index": "entangle",
-    "name": "Entangle",
-    "desc": [
-      "You cause sensitive plants in a 20-foot square to sprout and reach for creatures within it.",
-      "Each creature in that area must make a Strength saving throw."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 1,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "druid",
-      "ranger"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "square",
-      "size": 20
-    },
-    "saving_throw": {
-      "ability": "strength"
-    },
-    "status_effects": [],
-    "spell_list_order": 12
-  },
-  {
-    "index": "thunderwave",
-    "name": "Thunderwave",
-    "desc": [
-      "A wave of thunderous force sweeps out from you.",
-      "Each creature in a 15-foot cube originating from you must make a Constitution saving throw."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 1,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "thunder",
-      "damage_at_slot_level": {
-        "1": "2d8",
-        "2": "3d8",
-        "3": "4d8",
-        "4": "5d8",
-        "5": "6d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 15
-    },
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 13
   },
   {
     "index": "divine-favor",
@@ -1233,256 +1094,183 @@
     "spell_list_order": 15
   },
   {
-    "index": "searing-smite",
-    "name": "Searing Smite",
+    "index": "dominate-beast",
+    "name": "Dominate Beast",
     "desc": [
-      "The next time you hit with a weapon attack before the spell ends, your weapon flares with fire.",
-      "The target takes an extra 1d6 fire damage, and it must succeed on a Constitution saving throw or take an extra 1d6 fire damage at the start of each of its turns."
+      "You attempt to beguile a beast that you can see within range."
     ],
     "higher_level": [],
-    "range": "Self",
+    "range": "60 feet",
     "components": [
       "V",
       "S"
     ],
     "material": null,
     "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 bonus action",
-    "level": 1,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "1": "1d6",
-        "2": "2d6",
-        "3": "3d6",
-        "4": "4d6",
-        "5": "5d6"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "paladin"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 16
-  },
-  {
-    "index": "ensnaring-strike",
-    "name": "Ensnaring Strike",
-    "desc": [
-      "The next time you hit with a weapon attack before this spell ends, the attack deals extra damage.",
-      "The target must also succeed on a Strength saving throw or be restrained by thorny vines until the spell ends."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 bonus action",
-    "level": 1,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "piercing",
-      "damage_at_slot_level": {
-        "1": "1d6",
-        "2": "2d6",
-        "3": "3d6",
-        "4": "4d6",
-        "5": "5d6"
-      }
-    },
-    "school": "conjuration",
-    "classes": [
-      "ranger"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "strength"
-    },
-    "status_effects": [],
-    "spell_list_order": 17
-  },
-  {
-    "index": "hunters-mark",
-    "name": "Hunter's Mark",
-    "desc": [
-      "You choose a creature you can see within range and mark it.",
-      "Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack."
-    ],
-    "higher_level": [],
-    "range": "90 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
     "duration": "1 hour",
     "concentration": true,
-    "casting_time": "1 bonus action",
-    "level": 1,
+    "casting_time": "1 action",
+    "level": 4,
     "attack_type": null,
-    "damage": {
-      "damage_type": "any",
-      "damage_at_slot_level": {
-        "1": "1d6",
-        "2": "2d6",
-        "3": "3d6",
-        "4": "4d6",
-        "5": "5d6"
-      }
-    },
-    "school": "divination",
-    "classes": [
-      "ranger"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 18
-  },
-  {
-    "index": "hex",
-    "name": "Hex",
-    "desc": [
-      "You place a curse on a creature you can see within range.",
-      "Until the spell ends, the target has Disadvantage on ability checks made with the ability score you choose.",
-      "One other effect of your choice also applies."
-    ],
-    "higher_level": [],
-    "range": "90 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "a cuttlebone or a piece of bone from a dead human",
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 bonus action",
-    "level": 1,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "psychic",
-      "damage_at_slot_level": {
-        "1": "1d6",
-        "2": "2d6",
-        "3": "3d6",
-        "4": "4d6",
-        "5": "5d6"
-      }
-    },
+    "damage": null,
     "school": "enchantment",
     "classes": [
-      "warlock"
+      "druid",
+      "ranger",
+      "sorcerer"
     ],
     "subclasses": [],
     "area_of_effect": null,
-    "saving_throw": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
     "status_effects": [],
-    "spell_list_order": 19
+    "spell_list_order": 10
   },
   {
-    "index": "burning-hands",
-    "name": "Burning Hands",
+    "index": "dominate-monster",
+    "name": "Dominate Monster",
     "desc": [
-      "Flames scorch the air in a 15-foot cone.",
-      "Each creature in the area must make a Dexterity saving throw."
+      "You attempt to beguile a creature that you can see within range."
     ],
     "higher_level": [],
-    "range": "Self",
+    "range": "60 feet",
     "components": [
       "V",
       "S"
     ],
     "material": null,
     "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
+    "duration": "1 hour",
+    "concentration": true,
     "casting_time": "1 action",
-    "level": 1,
+    "level": 8,
     "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "1": "3d6",
-        "2": "4d6",
-        "3": "5d6",
-        "4": "6d6",
-        "5": "7d6"
-      }
-    },
-    "school": "evocation",
+    "damage": null,
+    "school": "enchantment",
     "classes": [
       "sorcerer",
       "warlock",
       "wizard"
     ],
     "subclasses": [],
-    "area_of_effect": {
-      "type": "cone",
-      "size": 15
-    },
+    "area_of_effect": null,
     "saving_throw": {
-      "ability": "dexterity"
+      "ability": "wisdom"
     },
     "status_effects": [],
-    "spell_list_order": 20
+    "spell_list_order": 3
   },
   {
-    "index": "mage-armor",
-    "name": "Mage Armor",
+    "index": "dominate-person",
+    "name": "Dominate Person",
     "desc": [
-      "You touch a willing creature who isn't wearing armor.",
-      "A shimmering field appears around the target, granting it a base AC of 13 + its Dexterity modifier."
+      "You attempt to beguile a humanoid that you can see within range."
     ],
     "higher_level": [],
-    "range": "Touch",
+    "range": "60 feet",
     "components": [
       "V",
-      "S",
-      "M"
+      "S"
     ],
-    "material": "a piece of cured leather",
+    "material": null,
     "ritual": false,
-    "duration": "8 hours",
-    "concentration": false,
+    "duration": "1 hour",
+    "concentration": true,
     "casting_time": "1 action",
-    "level": 1,
+    "level": 5,
     "attack_type": null,
     "damage": null,
-    "school": "abjuration",
+    "school": "enchantment",
     "classes": [
+      "bard",
       "sorcerer",
       "wizard"
     ],
     "subclasses": [],
     "area_of_effect": null,
-    "saving_throw": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
     "status_effects": [],
-    "spell_list_order": 21
+    "spell_list_order": 3
   },
   {
-    "index": "magic-missile",
-    "name": "Magic Missile",
+    "index": "druidcraft",
+    "name": "Druidcraft",
     "desc": [
-      "You create three glowing darts of force.",
-      "Each dart hits a creature of your choice that you can see within range."
+      "You create a minor magical effect such as a sudden gust of wind, a small flame to flicker, or a color to shift. The effect has no volume and lasts for 1 round.",
+      "You can cast this spell an unlimited number of times."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 round",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "druid"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "earthquake",
+    "name": "Earthquake",
+    "desc": [
+      "An earthquake strikes the ground in a square area you choose within range."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 8,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "cleric",
+      "druid",
+      "sorcerer",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "square",
+      "size": 100
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "eldritch-blast",
+    "name": "Eldritch Blast",
+    "desc": [
+      "You create a beam of crackling energy. Make a ranged spell attack against a creature within range.",
+      "On a hit, the target takes 1d10 force damage.",
+      "The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different targets."
     ],
     "higher_level": [],
     "range": "120 feet",
@@ -1495,171 +1283,26 @@
     "duration": "Instantaneous",
     "concentration": false,
     "casting_time": "1 action",
-    "level": 1,
-    "attack_type": null,
+    "level": 0,
+    "attack_type": "ranged",
     "damage": {
       "damage_type": "force",
       "damage_at_slot_level": {
-        "1": "1d4+1",
-        "2": "2d4+2",
-        "3": "3d4+3",
-        "4": "4d4+4",
-        "5": "5d4+5"
+        "1": "1d10",
+        "5": "2d10",
+        "11": "3d10",
+        "17": "4d10"
       }
     },
     "school": "evocation",
     "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 22
-  },
-  {
-    "index": "sleep",
-    "name": "Sleep",
-    "desc": [
-      "This spell sends a soothing force to creatures you can see within range.",
-      "Roll 5d8; the total is how many hit points of creatures this spell affects."
-    ],
-    "higher_level": [],
-    "range": "90 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 1,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 23
-  },
-  {
-    "index": "aid",
-    "name": "Aid",
-    "desc": [
-      "Your spell bolsters your allies with toughness and resolve.",
-      "Choose up to three creatures within range.",
-      "Each target's hit point maximum and current hit points increase by 5 for the duration."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "8 hours",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "bard",
-      "cleric",
-      "paladin",
-      "warlock",
-      "wizard"
+      "warlock"
     ],
     "subclasses": [],
     "area_of_effect": null,
     "saving_throw": null,
     "status_effects": [],
     "spell_list_order": 1
-  },
-  {
-    "index": "blindness-deafness",
-    "name": "Blindness/Deafness",
-    "desc": [
-      "One creature you can see within range must make a Constitution saving throw."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "calm-emotions",
-    "name": "Calm Emotions",
-    "desc": [
-      "You attempt to suppress strong emotions in a group of creatures.",
-      "Each humanoid in a 20-foot cube must make a Charisma saving throw."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "sorcerer",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 20
-    },
-    "saving_throw": {
-      "ability": "charisma"
-    },
-    "status_effects": [],
-    "spell_list_order": 3
   },
   {
     "index": "enhance-ability",
@@ -1736,10 +1379,488 @@
     "spell_list_order": 5
   },
   {
-    "index": "lesser-restoration",
-    "name": "Lesser Restoration",
+    "index": "ensnaring-strike",
+    "name": "Ensnaring Strike",
     "desc": [
-      "You touch a creature and can end one of the following conditions on it: blinded, deafened, paralyzed, or poisoned."
+      "The next time you hit with a weapon attack before this spell ends, the attack deals extra damage.",
+      "The target must also succeed on a Strength saving throw or be restrained by thorny vines until the spell ends."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 bonus action",
+    "level": 1,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "piercing",
+      "damage_at_slot_level": {
+        "1": "1d6",
+        "2": "2d6",
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6"
+      }
+    },
+    "school": "conjuration",
+    "classes": [
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "strength"
+    },
+    "status_effects": [],
+    "spell_list_order": 17
+  },
+  {
+    "index": "entangle",
+    "name": "Entangle",
+    "desc": [
+      "You cause sensitive plants in a 20-foot square to sprout and reach for creatures within it.",
+      "Each creature in that area must make a Strength saving throw."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "conjuration",
+    "classes": [
+      "druid",
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "square",
+      "size": 20
+    },
+    "saving_throw": {
+      "ability": "strength"
+    },
+    "status_effects": [],
+    "spell_list_order": 12
+  },
+  {
+    "index": "etherealness",
+    "name": "Etherealness",
+    "desc": [
+      "You step into the border region between the Material Plane and the Ethereal Plane."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 7,
+    "attack_type": null,
+    "damage": null,
+    "school": "conjuration",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "eyebite",
+    "name": "Eyebite",
+    "desc": [
+      "You close your eyes and tap into a well of dark magic."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 6,
+    "attack_type": null,
+    "damage": null,
+    "school": "necromancy",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "faerie-fire",
+    "name": "Faerie Fire",
+    "desc": [
+      "Each object in a 20-foot cube within range is outlined in blue, green, or violet light.",
+      "Any creature in the area when the spell is cast is also surrounded by this light if it makes a Dexterity saving throw."
+    ],
+    "higher_level": [],
+    "range": "20 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "evocation",
+    "classes": [
+      "bard",
+      "druid"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cube",
+      "size": 20
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 11
+  },
+  {
+    "index": "feign-death",
+    "name": "Feign Death",
+    "desc": [
+      "You touch a willing creature and place it in a stasis-like state."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": true,
+    "duration": "1 hour per level",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "necromancy",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "ranger",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "finger-of-death",
+    "name": "Finger of Death",
+    "desc": [
+      "You create a necrotic wave of energy in a line 30 feet long and 5 feet wide."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 7,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "necrotic",
+      "damage_at_slot_level": {
+        "7": "7d8+20",
+        "8": "8d8+24",
+        "9": "9d8+28"
+      }
+    },
+    "school": "necromancy",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "line",
+      "size": 30,
+      "width": 5
+    },
+    "saving_throw": {
+      "ability": "constitution"
+    },
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "fire-bolt",
+    "name": "Fire Bolt",
+    "desc": [
+      "You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target.",
+      "On a hit, the target takes 1d10 fire damage.",
+      "The spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10)."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": "ranged",
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "1": "1d10",
+        "5": "2d10",
+        "11": "3d10",
+        "17": "4d10"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "fire-shield",
+    "name": "Fire Shield",
+    "desc": [
+      "Flaming or icy energy shrouds your body for the duration."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": false,
+    "casting_time": "1 bonus action",
+    "level": 4,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "4": "2d8",
+        "5": "3d8",
+        "6": "4d8",
+        "7": "5d8",
+        "8": "6d8"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "druid",
+      "sorcerer"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 11
+  },
+  {
+    "index": "fly",
+    "name": "Fly",
+    "desc": [
+      "You touch a willing creature."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 10
+  },
+  {
+    "index": "forcecage",
+    "name": "Forcecage",
+    "desc": [
+      "An immobile, invisible, cube-shaped prison composed of force springs into existence."
+    ],
+    "higher_level": [],
+    "range": "100 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 7,
+    "attack_type": null,
+    "damage": null,
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cube",
+      "size": 20
+    },
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "gate",
+    "name": "Gate",
+    "desc": [
+      "You tap into the planes of existence and tear open a gateway."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 round",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 9,
+    "attack_type": null,
+    "damage": null,
+    "school": "conjuration",
+    "classes": [
+      "cleric",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "greater-invisibility",
+    "name": "Greater Invisibility",
+    "desc": [
+      "You or a creature you touch becomes invisible until the spell ends."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": null,
+    "school": "illusion",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "greater-restoration",
+    "name": "Greater Restoration",
+    "desc": [
+      "You imbue a creature you touch with positive energy to undo a powerful effect."
     ],
     "higher_level": [],
     "range": "Touch",
@@ -1752,7 +1873,209 @@
     "duration": "Instantaneous",
     "concentration": false,
     "casting_time": "1 action",
-    "level": 2,
+    "level": 5,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "paladin",
+      "ranger",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "guards-and-wards",
+    "name": "Guards and Wards",
+    "desc": [
+      "You design a system of magical traps and wards to protect an area."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "24 hours",
+    "concentration": false,
+    "casting_time": "10 minutes",
+    "level": 6,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "guidance",
+    "name": "Guidance",
+    "desc": [
+      "You touch a willing creature. Until the spell ends, the creature can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell ends if you cast it again."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": true,
+    "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "cleric",
+      "druid"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "guidance-cleric",
+    "name": "Guidance",
+    "desc": [
+      "You touch a willing creature. Until the spell ends, the creature can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell ends if you cast it again."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": true,
+    "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "cleric",
+      "druid"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "guiding-bolt",
+    "name": "Guiding Bolt",
+    "desc": [
+      "A flaring, radiant bolt of energy springs forth from your hand and races toward a creature within range.",
+      "Make a ranged spell attack against the target.",
+      "On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has Advantage."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 round",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": "ranged",
+    "damage": {
+      "damage_type": "radiant",
+      "damage_at_slot_level": {
+        "1": "4d6",
+        "2": "5d6",
+        "3": "6d6",
+        "4": "7d6",
+        "5": "8d6"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "cleric"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 5
+  },
+  {
+    "index": "haste",
+    "name": "Haste",
+    "desc": [
+      "Choose a creature you can see within range."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 11
+  },
+  {
+    "index": "healing-word",
+    "name": "Healing Word",
+    "desc": [
+      "A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 bonus action",
+    "level": 1,
     "attack_type": null,
     "damage": null,
     "school": "abjuration",
@@ -1770,14 +2093,55 @@
     "spell_list_order": 6
   },
   {
-    "index": "mirror-image",
-    "name": "Mirror Image",
+    "index": "hex",
+    "name": "Hex",
     "desc": [
-      "Three illusory duplicates of yourself appear in your space.",
-      "Until the spell ends, the duplicates move with you and mimic your actions."
+      "You place a curse on a creature you can see within range.",
+      "Until the spell ends, the target has Disadvantage on ability checks made with the ability score you choose.",
+      "One other effect of your choice also applies."
     ],
     "higher_level": [],
-    "range": "Self",
+    "range": "90 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a cuttlebone or a piece of bone from a dead human",
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": true,
+    "casting_time": "1 bonus action",
+    "level": 1,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "psychic",
+      "damage_at_slot_level": {
+        "1": "1d6",
+        "2": "2d6",
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6"
+      }
+    },
+    "school": "enchantment",
+    "classes": [
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 19
+  },
+  {
+    "index": "hold-monster",
+    "name": "Hold Monster",
+    "desc": [
+      "You attempt to paralyze a creature that you can see within range."
+    ],
+    "higher_level": [],
+    "range": "90 feet",
     "components": [
       "V",
       "S"
@@ -1785,133 +2149,13 @@
     "material": null,
     "ritual": false,
     "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 7
-  },
-  {
-    "index": "silence",
-    "name": "Silence",
-    "desc": [
-      "For the duration, no sound can be created within or pass through a 20-foot radius sphere centered on a point you choose within range."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": true,
-    "duration": "10 minutes",
     "concentration": true,
     "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "ranger",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "sphere",
-      "size": 20
-    },
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 8
-  },
-  {
-    "index": "shatter",
-    "name": "Shatter",
-    "desc": [
-      "A sudden loud roar, like the cracking of stone, erupts from a point you choose within range.",
-      "Each creature in a 10-foot-radius sphere must make a Constitution saving throw."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "a chip of mica",
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "thunder",
-      "damage_at_slot_level": {
-        "2": "3d6",
-        "3": "4d6",
-        "4": "5d6",
-        "5": "6d6",
-        "6": "7d6"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "sphere",
-      "size": 10
-    },
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 9
-  },
-  {
-    "index": "suggestion",
-    "name": "Suggestion",
-    "desc": [
-      "You suggest a course of activity (limited to a sentence or two) to a creature you can see within range that can hear and understand you."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 2,
+    "level": 5,
     "attack_type": null,
     "damage": null,
     "school": "enchantment",
     "classes": [
-      "bard",
       "sorcerer",
       "warlock",
       "wizard"
@@ -1922,41 +2166,7 @@
       "ability": "wisdom"
     },
     "status_effects": [],
-    "spell_list_order": 10
-  },
-  {
-    "index": "invisibility",
-    "name": "Invisibility",
-    "desc": [
-      "A creature you touch becomes invisible until the spell ends."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": "an eyelash encased in a bit of gum arabic",
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 11
+    "spell_list_order": 5
   },
   {
     "index": "hold-person",
@@ -1996,6 +2206,394 @@
     "spell_list_order": 12
   },
   {
+    "index": "hunters-mark",
+    "name": "Hunter's Mark",
+    "desc": [
+      "You choose a creature you can see within range and mark it.",
+      "Until the spell ends, you deal an extra 1d6 damage to the target whenever you hit it with a weapon attack."
+    ],
+    "higher_level": [],
+    "range": "90 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": true,
+    "casting_time": "1 bonus action",
+    "level": 1,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "any",
+      "damage_at_slot_level": {
+        "1": "1d6",
+        "2": "2d6",
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6"
+      }
+    },
+    "school": "divination",
+    "classes": [
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 18
+  },
+  {
+    "index": "hypnotic-pattern",
+    "name": "Hypnotic Pattern",
+    "desc": [
+      "You create a twisting pattern of colored lights."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "illusion",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cone",
+      "size": 30
+    },
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "ice-storm",
+    "name": "Ice Storm",
+    "desc": [
+      "A hail of rock-hard ice pounds to the ground in a 20-foot-radius, 40-foot-high cylinder."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "bludgeoning",
+      "damage_at_slot_level": {
+        "4": "2d8",
+        "5": "3d8",
+        "6": "4d8",
+        "7": "5d8",
+        "8": "6d8"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "druid",
+      "sorcerer"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cylinder",
+      "size": 20,
+      "height": 40
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 12
+  },
+  {
+    "index": "incendiary-cloud",
+    "name": "Incendiary Cloud",
+    "desc": [
+      "You create a 20-foot-radius cloud of swirling embers."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 8,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "8": "10d10",
+        "9": "11d10"
+      }
+    },
+    "school": "conjuration",
+    "classes": [
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 20
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "invisibility",
+    "name": "Invisibility",
+    "desc": [
+      "A creature you touch becomes invisible until the spell ends."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "an eyelash encased in a bit of gum arabic",
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "illusion",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 11
+  },
+  {
+    "index": "lesser-restoration",
+    "name": "Lesser Restoration",
+    "desc": [
+      "You touch a creature and can end one of the following conditions on it: blinded, deafened, paralyzed, or poisoned."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "paladin",
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 6
+  },
+  {
+    "index": "light",
+    "name": "Light",
+    "desc": [
+      "You touch an object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you choose.",
+      "The spell ends if you cast this spell again or dismiss it as an action."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "evocation",
+    "classes": [
+      "cleric",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 5
+  },
+  {
+    "index": "lightning-arrow",
+    "name": "Lightning Arrow",
+    "desc": [
+      "You can transform your weapon or ammunition into a bolt of lightning."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 bonus action",
+    "level": 3,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "lightning",
+      "damage_at_slot_level": {
+        "3": "3d8",
+        "4": "4d8",
+        "5": "5d8",
+        "6": "6d8",
+        "7": "7d8"
+      }
+    },
+    "school": "transmutation",
+    "classes": [
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 13
+  },
+  {
+    "index": "lightning-bolt",
+    "name": "Lightning Bolt",
+    "desc": [
+      "A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "lightning",
+      "damage_at_slot_level": {
+        "3": "8d6",
+        "4": "9d6",
+        "5": "10d6",
+        "6": "11d6",
+        "7": "12d6"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "line",
+      "size": 100,
+      "width": 5
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "locate-creature",
+    "name": "Locate Creature",
+    "desc": [
+      "Describe or name a creature that is familiar to you."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "cleric",
+      "paladin",
+      "ranger",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 5
+  },
+  {
     "index": "locate-object",
     "name": "Locate Object",
     "desc": [
@@ -2031,10 +2629,46 @@
     "spell_list_order": 13
   },
   {
-    "index": "phantasmal-force",
-    "name": "Phantasmal Force",
+    "index": "mage-armor",
+    "name": "Mage Armor",
     "desc": [
-      "You create a phantasmal object, creature, or other visible phenomenon within range that is no larger than a 10-foot cube."
+      "You touch a willing creature who isn't wearing armor.",
+      "A shimmering field appears around the target, granting it a base AC of 13 + its Dexterity modifier."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a piece of cured leather",
+    "ritual": false,
+    "duration": "8 hours",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 21
+  },
+  {
+    "index": "mage-hand",
+    "name": "Mage Hand",
+    "desc": [
+      "A spectral, floating hand appears at a point you choose within range and lasts for the duration.",
+      "The hand vanishes if it is ever more than 30 feet away from you.",
+      "You can use your action to control the hand.",
+      "You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open bag or pouch, or pour out the contents of a vial."
     ],
     "higher_level": [],
     "range": "30 feet",
@@ -2045,7 +2679,380 @@
     "material": null,
     "ritual": false,
     "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "conjuration",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 6
+  },
+  {
+    "index": "magic-circle",
+    "name": "Magic Circle",
+    "desc": [
+      "A 10-foot-radius, 20-foot-tall cylinder of magical energy forms around you."
+    ],
+    "higher_level": [],
+    "range": "10 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "powdered diamond worth 150 gp",
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": false,
+    "casting_time": "1 minute",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "cleric",
+      "paladin",
+      "ranger",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cylinder",
+      "size": 10,
+      "height": 20
+    },
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 5
+  },
+  {
+    "index": "magic-missile",
+    "name": "Magic Missile",
+    "desc": [
+      "You create three glowing darts of force.",
+      "Each dart hits a creature of your choice that you can see within range."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "force",
+      "damage_at_slot_level": {
+        "1": "1d4+1",
+        "2": "2d4+2",
+        "3": "3d4+3",
+        "4": "4d4+4",
+        "5": "5d4+5"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 22
+  },
+  {
+    "index": "mass-cure-wounds",
+    "name": "Mass Cure Wounds",
+    "desc": [
+      "A burst of healing energy springs forth from your hand."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 5,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "bard",
+      "cleric",
+      "paladin",
+      "ranger"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cube",
+      "size": 30
+    },
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 6
+  },
+  {
+    "index": "mass-suggestion",
+    "name": "Mass Suggestion",
+    "desc": [
+      "You suggest a course of activity to a group of creatures."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "24 hours",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 6,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 8
+  },
+  {
+    "index": "mending",
+    "name": "Mending",
+    "desc": [
+      "This spell repairs a single object or creature, restoring 1d4 + 1 hit points.",
+      "The spell can mend a broken object, such as a chain, a vase, or a sword.",
+      "The spell can also mend a wounded creature, but only if the creature has at least 1 hit point."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "charcoal, dust, and grease",
+    "ritual": true,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 7
+  },
+  {
+    "index": "message",
+    "name": "Message",
+    "desc": [
+      "You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.",
+      "You can cast this spell through solid objects if you are familiar with the target and know it is behind the obstacle."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a small copper piece",
+    "ritual": false,
+    "duration": "1 round",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 8
+  },
+  {
+    "index": "meteor-swarm",
+    "name": "Meteor Swarm",
+    "desc": [
+      "You call down four exploding orbs of fire upon points of your choice within range."
+    ],
+    "higher_level": [],
+    "range": "1 mile",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 9,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "9": "20d6"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 40
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "mind-spike",
+    "name": "Mind Spike",
+    "desc": [
+      "You lash out with telekinetic force, striking a creature you can see within range with a spike of psychic energy."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
     "concentration": true,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "psychic",
+      "damage_at_slot_level": {
+        "2": "2d12",
+        "3": "3d12",
+        "4": "4d12",
+        "5": "5d12",
+        "6": "6d12"
+      }
+    },
+    "school": "divination",
+    "classes": [
+      "sorcerer",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 20
+  },
+  {
+    "index": "minor-illusion",
+    "name": "Minor Illusion",
+    "desc": [
+      "You create a sound or an image of an object within range.",
+      "Sound: You create a sound, such as a whisper, a roar, or a knock, that can be heard up to 30 feet away.",
+      "Image: You create a visual image of an object, creature, or other phenomenon within range that can be no larger than a 5-foot cube. The image lasts for the duration or until you use your action to cast this spell again."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "S",
+      "M"
+    ],
+    "material": "a bit of fleece",
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "illusion",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 9
+  },
+  {
+    "index": "mirror-image",
+    "name": "Mirror Image",
+    "desc": [
+      "Three illusory duplicates of yourself appear in your space.",
+      "Until the spell ends, the duplicates move with you and mimic your actions."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": false,
     "casting_time": "1 action",
     "level": 2,
     "attack_type": null,
@@ -2059,11 +3066,9 @@
     ],
     "subclasses": [],
     "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
+    "saving_throw": null,
     "status_effects": [],
-    "spell_list_order": 14
+    "spell_list_order": 7
   },
   {
     "index": "moonbeam",
@@ -2147,123 +3152,13 @@
     "spell_list_order": 16
   },
   {
-    "index": "spike-growth",
-    "name": "Spike Growth",
+    "index": "phantasmal-force",
+    "name": "Phantasmal Force",
     "desc": [
-      "The ground in a 20-foot-radius circle centered on a point within range twists and sprouts hard spikes and thorns."
+      "You create a phantasmal object, creature, or other visible phenomenon within range that is no larger than a 10-foot cube."
     ],
     "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "druid",
-      "ranger",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "circle",
-      "size": 20
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 17
-  },
-  {
-    "index": "web",
-    "name": "Web",
-    "desc": [
-      "You conjure a mass of thick, sticky webs at a point you choose within range."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 20
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 18
-  },
-  {
-    "index": "darkness",
-    "name": "Darkness",
-    "desc": [
-      "Magical darkness spreads from a point you choose within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "M"
-    ],
-    "material": "bat guano and a drop of pitch",
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 2,
-    "attack_type": null,
-    "damage": null,
-    "school": "evocation",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "sphere",
-      "size": 15
-    },
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 19
-  },
-  {
-    "index": "mind-spike",
-    "name": "Mind Spike",
-    "desc": [
-      "You lash out with telekinetic force, striking a creature you can see within range with a spike of psychic energy."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
+    "range": "30 feet",
     "components": [
       "V",
       "S"
@@ -2275,20 +3170,13 @@
     "casting_time": "1 action",
     "level": 2,
     "attack_type": null,
-    "damage": {
-      "damage_type": "psychic",
-      "damage_at_slot_level": {
-        "2": "2d12",
-        "3": "3d12",
-        "4": "4d12",
-        "5": "5d12",
-        "6": "6d12"
-      }
-    },
-    "school": "divination",
+    "damage": null,
+    "school": "illusion",
     "classes": [
+      "bard",
       "sorcerer",
-      "warlock"
+      "warlock",
+      "wizard"
     ],
     "subclasses": [],
     "area_of_effect": null,
@@ -2296,48 +3184,13 @@
       "ability": "wisdom"
     },
     "status_effects": [],
-    "spell_list_order": 20
+    "spell_list_order": 14
   },
   {
-    "index": "dispel-magic",
-    "name": "Dispel Magic",
+    "index": "plane-shift",
+    "name": "Plane Shift",
     "desc": [
-      "Choose one creature, object, or magical effect within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "bard",
-      "cleric",
-      "paladin",
-      "ranger",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "feign-death",
-    "name": "Feign Death",
-    "desc": [
-      "You touch a willing creature and place it in a stasis-like state."
+      "This spell lets you travel from one plane of existence to another."
     ],
     "higher_level": [],
     "range": "Touch",
@@ -2346,19 +3199,17 @@
       "S"
     ],
     "material": null,
-    "ritual": true,
-    "duration": "1 hour per level",
+    "ritual": false,
+    "duration": "Instantaneous",
     "concentration": false,
     "casting_time": "1 action",
-    "level": 3,
+    "level": 7,
     "attack_type": null,
     "damage": null,
-    "school": "necromancy",
+    "school": "conjuration",
     "classes": [
-      "bard",
       "cleric",
-      "druid",
-      "ranger",
+      "sorcerer",
       "warlock",
       "wizard"
     ],
@@ -2366,53 +3217,16 @@
     "area_of_effect": null,
     "saving_throw": null,
     "status_effects": [],
-    "spell_list_order": 2
+    "spell_list_order": 5
   },
   {
-    "index": "hypnotic-pattern",
-    "name": "Hypnotic Pattern",
+    "index": "polymorph",
+    "name": "Polymorph",
     "desc": [
-      "You create a twisting pattern of colored lights."
+      "This spell transforms a creature that you can see within range into a new form."
     ],
     "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cone",
-      "size": 30
-    },
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "lightning-bolt",
-    "name": "Lightning Bolt",
-    "desc": [
-      "A stroke of lightning forming a line 100 feet long and 5 feet wide blasts out from you."
-    ],
-    "higher_level": [],
-    "range": "Self",
+    "range": "60 feet",
     "components": [
       "V",
       "S",
@@ -2420,19 +3234,153 @@
     ],
     "material": null,
     "ritual": false,
+    "duration": "1 hour",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "druid",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 4
+  },
+  {
+    "index": "power-word-kill",
+    "name": "Power Word Kill",
+    "desc": [
+      "You speak a word of power that can kill one creature you can see within range."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
     "duration": "Instantaneous",
     "concentration": false,
     "casting_time": "1 action",
-    "level": 3,
+    "level": 9,
     "attack_type": null,
     "damage": {
-      "damage_type": "lightning",
+      "damage_type": "force",
       "damage_at_slot_level": {
-        "3": "8d6",
-        "4": "9d6",
-        "5": "10d6",
-        "6": "11d6",
-        "7": "12d6"
+        "9": "instant death"
+      }
+    },
+    "school": "enchantment",
+    "classes": [
+      "sorcerer",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "power-word-stun",
+    "name": "Power Word Stun",
+    "desc": [
+      "You speak a word of power that can compel one creature you can see within range to be stunned."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 8,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "sorcerer",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 5
+  },
+  {
+    "index": "prestidigitation",
+    "name": "Prestidigitation",
+    "desc": [
+      "You perform a simple magical trick before the eyes of the target.",
+      "The trick can be a minor effect, such as lighting a candle, making a small object float, or cleaning an object.",
+      "The spell can also create a minor sensory effect, such as a gust of wind, a faint odor, or a soft sound."
+    ],
+    "higher_level": [],
+    "range": "10 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 10
+  },
+  {
+    "index": "prismatic-spray",
+    "name": "Prismatic Spray",
+    "desc": [
+      "Each of up to eight creatures of your choice within range must make a Dexterity saving throw."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 7,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "rainbow",
+      "damage_at_slot_level": {
+        "7": "10d10",
+        "8": "11d10",
+        "9": "12d10"
       }
     },
     "school": "evocation",
@@ -2442,54 +3390,91 @@
     ],
     "subclasses": [],
     "area_of_effect": {
-      "type": "line",
-      "size": 100,
-      "width": 5
+      "type": "cone",
+      "size": 60
     },
     "saving_throw": {
       "ability": "dexterity"
     },
     "status_effects": [],
-    "spell_list_order": 4
+    "spell_list_order": 6
   },
   {
-    "index": "magic-circle",
-    "name": "Magic Circle",
+    "index": "produce-flame",
+    "name": "Produce Flame",
     "desc": [
-      "A 10-foot-radius, 20-foot-tall cylinder of magical energy forms around you."
+      "You create a flickering flame in your hand. The flame illuminates a 10-foot radius and sheds dim light for an additional 10 feet.",
+      "While the flame persists, you can use it as a spellcasting focus for your Druid spells.",
+      "The flame also deals 1d8 fire damage to any creature that hits you with a melee attack while the flame is in your hand. The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
     ],
     "higher_level": [],
-    "range": "10 feet",
+    "range": "Self",
     "components": [
       "V",
-      "S",
-      "M"
+      "S"
     ],
-    "material": "powdered diamond worth 150 gp",
+    "material": null,
     "ritual": false,
     "duration": "10 minutes",
     "concentration": false,
-    "casting_time": "1 minute",
-    "level": 3,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
+    },
+    "school": "conjuration",
+    "classes": [
+      "druid"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "reverse-gravity",
+    "name": "Reverse Gravity",
+    "desc": [
+      "This spell reverses gravity in a 100-foot-radius, 400-foot-high cylinder centered on a point you choose within range."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 7,
     "attack_type": null,
     "damage": null,
-    "school": "abjuration",
+    "school": "transmutation",
     "classes": [
-      "cleric",
-      "paladin",
-      "ranger",
-      "warlock",
+      "sorcerer",
       "wizard"
     ],
     "subclasses": [],
     "area_of_effect": {
       "type": "cylinder",
-      "size": 10,
-      "height": 20
+      "size": 100,
+      "height": 400
     },
-    "saving_throw": null,
+    "saving_throw": {
+      "ability": "dexterity"
+    },
     "status_effects": [],
-    "spell_list_order": 5
+    "spell_list_order": 7
   },
   {
     "index": "revivify",
@@ -2526,6 +3511,384 @@
     "saving_throw": null,
     "status_effects": [],
     "spell_list_order": 6
+  },
+  {
+    "index": "sacred-flame",
+    "name": "Sacred Flame",
+    "desc": [
+      "You invoke the power of your deity to call down a beam of radiant energy on a creature you can see within range.",
+      "The target must succeed on a Wisdom saving throw or take 1d8 radiant damage.",
+      "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "radiant",
+      "damage_at_slot_level": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "cleric"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 2
+  },
+  {
+    "index": "scrying",
+    "name": "Scrying",
+    "desc": [
+      "You can see and hear a particular creature you choose that is on the same plane of existence as you."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "10 minutes",
+    "level": 5,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "cleric",
+      "sorcerer",
+      "wizard",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 7
+  },
+  {
+    "index": "searing-smite",
+    "name": "Searing Smite",
+    "desc": [
+      "The next time you hit with a weapon attack before the spell ends, your weapon flares with fire.",
+      "The target takes an extra 1d6 fire damage, and it must succeed on a Constitution saving throw or take an extra 1d6 fire damage at the start of each of its turns."
+    ],
+    "higher_level": [],
+    "range": "Self",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 bonus action",
+    "level": 1,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "1": "1d6",
+        "2": "2d6",
+        "3": "3d6",
+        "4": "4d6",
+        "5": "5d6"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "paladin"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "constitution"
+    },
+    "status_effects": [],
+    "spell_list_order": 16
+  },
+  {
+    "index": "shatter",
+    "name": "Shatter",
+    "desc": [
+      "A sudden loud roar, like the cracking of stone, erupts from a point you choose within range.",
+      "Each creature in a 10-foot-radius sphere must make a Constitution saving throw."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": "a chip of mica",
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "thunder",
+      "damage_at_slot_level": {
+        "2": "3d6",
+        "3": "4d6",
+        "4": "5d6",
+        "5": "6d6",
+        "6": "7d6"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "bard",
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 10
+    },
+    "saving_throw": {
+      "ability": "constitution"
+    },
+    "status_effects": [],
+    "spell_list_order": 9
+  },
+  {
+    "index": "shield-of-faith",
+    "name": "Shield of Faith",
+    "desc": [
+      "A shimmering field appears and surrounds a creature of your choice within range, granting a +2 bonus to AC for the duration."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 bonus action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "abjuration",
+    "classes": [
+      "cleric",
+      "paladin"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 7
+  },
+  {
+    "index": "silence",
+    "name": "Silence",
+    "desc": [
+      "For the duration, no sound can be created within or pass through a 20-foot radius sphere centered on a point you choose within range."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": true,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "illusion",
+    "classes": [
+      "bard",
+      "cleric",
+      "druid",
+      "ranger",
+      "warlock"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "sphere",
+      "size": 20
+    },
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 8
+  },
+  {
+    "index": "sleep",
+    "name": "Sleep",
+    "desc": [
+      "This spell sends a soothing force to creatures you can see within range.",
+      "Roll 5d8; the total is how many hit points of creatures this spell affects."
+    ],
+    "higher_level": [],
+    "range": "90 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 1,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 23
+  },
+  {
+    "index": "slow",
+    "name": "Slow",
+    "desc": [
+      "You alter the time around one or more creatures you can see within range."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 12
+  },
+  {
+    "index": "sorcerous-burst",
+    "name": "Sorcerous Burst",
+    "desc": [
+      "You unleash a bolt of arcane energy at a creature within range. Make a ranged spell attack against the target.",
+      "On a hit, the target takes 1d8 force damage.",
+      "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8)."
+    ],
+    "higher_level": [],
+    "range": "30 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": "ranged",
+    "damage": {
+      "damage_type": "force",
+      "damage_at_slot_level": {
+        "1": "1d8",
+        "5": "2d8",
+        "11": "3d8",
+        "17": "4d8"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "sorcerer"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 1
+  },
+  {
+    "index": "spike-growth",
+    "name": "Spike Growth",
+    "desc": [
+      "The ground in a 20-foot-radius circle centered on a point within range twists and sprouts hard spikes and thorns."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "druid",
+      "ranger",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "circle",
+      "size": 20
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 17
   },
   {
     "index": "spirit-guardians",
@@ -2572,382 +3935,6 @@
     "spell_list_order": 7
   },
   {
-    "index": "water-walk",
-    "name": "Water Walk",
-    "desc": [
-      "This spell grants affected creatures the ability to walk on any liquid as if it were solid ground."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": true,
-    "duration": "1 hour",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "cleric",
-      "druid",
-      "ranger",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 8
-  },
-  {
-    "index": "counterspell",
-    "name": "Counterspell",
-    "desc": [
-      "You attempt to interrupt a creature in the process of casting a spell."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 reaction",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 9
-  },
-  {
-    "index": "fly",
-    "name": "Fly",
-    "desc": [
-      "You touch a willing creature."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 10
-  },
-  {
-    "index": "haste",
-    "name": "Haste",
-    "desc": [
-      "Choose a creature you can see within range."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 11
-  },
-  {
-    "index": "slow",
-    "name": "Slow",
-    "desc": [
-      "You alter the time around one or more creatures you can see within range."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 3,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 12
-  },
-  {
-    "index": "lightning-arrow",
-    "name": "Lightning Arrow",
-    "desc": [
-      "You can transform your weapon or ammunition into a bolt of lightning."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 bonus action",
-    "level": 3,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "lightning",
-      "damage_at_slot_level": {
-        "3": "3d8",
-        "4": "4d8",
-        "5": "5d8",
-        "6": "6d8",
-        "7": "7d8"
-      }
-    },
-    "school": "transmutation",
-    "classes": [
-      "ranger"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 13
-  },
-  {
-    "index": "banishment",
-    "name": "Banishment",
-    "desc": [
-      "You attempt to banish a creature you can see within range to another plane."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "paladin",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "charisma"
-    },
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "dimension-door",
-    "name": "Dimension Door",
-    "desc": [
-      "You teleport yourself from your current location to any other spot within range."
-    ],
-    "higher_level": [],
-    "range": "500 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "greater-invisibility",
-    "name": "Greater Invisibility",
-    "desc": [
-      "You or a creature you touch becomes invisible until the spell ends."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "illusion",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "polymorph",
-    "name": "Polymorph",
-    "desc": [
-      "This spell transforms a creature that you can see within range into a new form."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "druid",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 4
-  },
-  {
-    "index": "locate-creature",
-    "name": "Locate Creature",
-    "desc": [
-      "Describe or name a creature that is familiar to you."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "divination",
-    "classes": [
-      "cleric",
-      "paladin",
-      "ranger",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 5
-  },
-  {
     "index": "stoneskin",
     "name": "Stoneskin",
     "desc": [
@@ -2982,149 +3969,32 @@
     "spell_list_order": 6
   },
   {
-    "index": "wall-of-fire",
-    "name": "Wall of Fire",
+    "index": "suggestion",
+    "name": "Suggestion",
     "desc": [
-      "You create a wall of fire on a ground surface within range."
+      "You suggest a course of activity (limited to a sentence or two) to a creature you can see within range that can hear and understand you."
     ],
     "higher_level": [],
-    "range": "120 feet",
+    "range": "30 feet",
     "components": [
       "V",
-      "S"
+      "S",
+      "M"
     ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "4": "5d8",
-        "5": "6d8",
-        "6": "7d8",
-        "7": "8d8",
-        "8": "9d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "line",
-      "size": 40,
-      "width": 10
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 7
-  },
-  {
-    "index": "charm-monster",
-    "name": "Charm Monster",
-    "desc": [
-      "You attempt to charm a creature you can see within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
+    "material": "a snake's tongue and either a bit of honeycomb or a drop of sweet oil",
     "ritual": false,
     "duration": "1 hour",
-    "concentration": false,
+    "concentration": true,
     "casting_time": "1 action",
-    "level": 4,
+    "level": 2,
     "attack_type": null,
     "damage": null,
     "school": "enchantment",
     "classes": [
       "bard",
       "sorcerer",
+      "warlock",
       "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 8
-  },
-  {
-    "index": "confusion",
-    "name": "Confusion",
-    "desc": [
-      "This spell causes confusion in a group of creatures."
-    ],
-    "higher_level": [],
-    "range": "90 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 15
-    },
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 9
-  },
-  {
-    "index": "dominate-beast",
-    "name": "Dominate Beast",
-    "desc": [
-      "You attempt to beguile a beast that you can see within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "druid",
-      "ranger",
-      "sorcerer"
     ],
     "subclasses": [],
     "area_of_effect": null,
@@ -3133,487 +4003,6 @@
     },
     "status_effects": [],
     "spell_list_order": 10
-  },
-  {
-    "index": "fire-shield",
-    "name": "Fire Shield",
-    "desc": [
-      "Flaming or icy energy shrouds your body for the duration."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": false,
-    "casting_time": "1 bonus action",
-    "level": 4,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "4": "2d8",
-        "5": "3d8",
-        "6": "4d8",
-        "7": "5d8",
-        "8": "6d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "druid",
-      "sorcerer"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 11
-  },
-  {
-    "index": "ice-storm",
-    "name": "Ice Storm",
-    "desc": [
-      "A hail of rock-hard ice pounds to the ground in a 20-foot-radius, 40-foot-high cylinder."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 4,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "bludgeoning",
-      "damage_at_slot_level": {
-        "4": "2d8",
-        "5": "3d8",
-        "6": "4d8",
-        "7": "5d8",
-        "8": "6d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "druid",
-      "sorcerer"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cylinder",
-      "size": 20,
-      "height": 40
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 12
-  },
-  {
-    "index": "animate-objects",
-    "name": "Animate Objects",
-    "desc": [
-      "You bring objects to life under your control."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "bludgeoning",
-      "damage_at_slot_level": {
-        "5": "5d10",
-        "6": "7d10",
-        "7": "9d10",
-        "8": "11d10",
-        "9": "13d10"
-      }
-    },
-    "school": "transmutation",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "cone-of-cold",
-    "name": "Cone of Cold",
-    "desc": [
-      "A blast of cold air erupts from your hands."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "cold",
-      "damage_at_slot_level": {
-        "5": "8d8",
-        "6": "9d8",
-        "7": "10d8",
-        "8": "11d8",
-        "9": "12d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "druid",
-      "sorcerer"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cone",
-      "size": 60
-    },
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "dominate-person",
-    "name": "Dominate Person",
-    "desc": [
-      "You attempt to beguile a humanoid that you can see within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "greater-restoration",
-    "name": "Greater Restoration",
-    "desc": [
-      "You imbue a creature you touch with positive energy to undo a powerful effect."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "bard",
-      "cleric",
-      "druid",
-      "paladin",
-      "ranger",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 4
-  },
-  {
-    "index": "hold-monster",
-    "name": "Hold Monster",
-    "desc": [
-      "You attempt to paralyze a creature that you can see within range."
-    ],
-    "higher_level": [],
-    "range": "90 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 5
-  },
-  {
-    "index": "mass-cure-wounds",
-    "name": "Mass Cure Wounds",
-    "desc": [
-      "A burst of healing energy springs forth from your hand."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "bard",
-      "cleric",
-      "paladin",
-      "ranger"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 30
-    },
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 6
-  },
-  {
-    "index": "scrying",
-    "name": "Scrying",
-    "desc": [
-      "You can see and hear a particular creature you choose that is on the same plane of existence as you."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "10 minutes",
-    "level": 5,
-    "attack_type": null,
-    "damage": null,
-    "school": "divination",
-    "classes": [
-      "cleric",
-      "sorcerer",
-      "wizard",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 7
-  },
-  {
-    "index": "wall-of-stone",
-    "name": "Wall of Stone",
-    "desc": [
-      "An irregular wall of solid stone springs forth into existence."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 minutes",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 5,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 8
-  },
-  {
-    "index": "eyebite",
-    "name": "Eyebite",
-    "desc": [
-      "You close your eyes and tap into a well of dark magic."
-    ],
-    "higher_level": [],
-    "range": "30 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 6,
-    "attack_type": null,
-    "damage": null,
-    "school": "necromancy",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "guards-and-wards",
-    "name": "Guards and Wards",
-    "desc": [
-      "You design a system of magical traps and wards to protect an area."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "24 hours",
-    "concentration": false,
-    "casting_time": "10 minutes",
-    "level": 6,
-    "attack_type": null,
-    "damage": null,
-    "school": "abjuration",
-    "classes": [
-      "bard",
-      "cleric",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "true-seeing",
-    "name": "True Seeing",
-    "desc": [
-      "This spell gives you the ability to see things as they actually are."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 6,
-    "attack_type": null,
-    "damage": null,
-    "school": "divination",
-    "classes": [
-      "bard",
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 3
   },
   {
     "index": "sunbeam",
@@ -3661,170 +4050,6 @@
     "spell_list_order": 4
   },
   {
-    "index": "chain-lightning",
-    "name": "Chain Lightning",
-    "desc": [
-      "You create a bolt of lightning that arcs toward a target of your choice."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 6,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "lightning",
-      "damage_at_slot_level": {
-        "6": "8d8",
-        "7": "9d8",
-        "8": "10d8",
-        "9": "11d8"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 5
-  },
-  {
-    "index": "circle-of-death",
-    "name": "Circle of Death",
-    "desc": [
-      "A dark purple sphere of negative energy spreads from a point you choose within range."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 6,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "necrotic",
-      "damage_at_slot_level": {
-        "6": "15d8",
-        "7": "16d8",
-        "8": "17d8",
-        "9": "18d8"
-      }
-    },
-    "school": "necromancy",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "sphere",
-      "size": 30
-    },
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 6
-  },
-  {
-    "index": "disintegrate",
-    "name": "Disintegrate",
-    "desc": [
-      "A thin green ray springs from your pointing finger."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 6,
-    "attack_type": "ranged",
-    "damage": {
-      "damage_type": "force",
-      "damage_at_slot_level": {
-        "6": "10d10+40",
-        "7": "11d10+42",
-        "8": "12d10+44",
-        "9": "13d10+46"
-      }
-    },
-    "school": "transmutation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 7
-  },
-  {
-    "index": "mass-suggestion",
-    "name": "Mass Suggestion",
-    "desc": [
-      "You suggest a course of activity to a group of creatures."
-    ],
-    "higher_level": [],
-    "range": "120 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "24 hours",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 6,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "bard",
-      "sorcerer",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
-    "status_effects": [],
-    "spell_list_order": 8
-  },
-  {
     "index": "sunburst",
     "name": "Sunburst",
     "desc": [
@@ -3869,275 +4094,6 @@
     },
     "status_effects": [],
     "spell_list_order": 9
-  },
-  {
-    "index": "delayed-blast-fireball",
-    "name": "Delayed Blast Fireball",
-    "desc": [
-      "A bead of fire springs forth from your hand and zooms toward a point you choose within range."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "7": "12d6",
-        "8": "13d6",
-        "9": "14d6"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "sphere",
-      "size": 30
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "etherealness",
-    "name": "Etherealness",
-    "desc": [
-      "You step into the border region between the Material Plane and the Ethereal Plane."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "finger-of-death",
-    "name": "Finger of Death",
-    "desc": [
-      "You create a necrotic wave of energy in a line 30 feet long and 5 feet wide."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "necrotic",
-      "damage_at_slot_level": {
-        "7": "7d8+20",
-        "8": "8d8+24",
-        "9": "9d8+28"
-      }
-    },
-    "school": "necromancy",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "line",
-      "size": 30,
-      "width": 5
-    },
-    "saving_throw": {
-      "ability": "constitution"
-    },
-    "status_effects": [],
-    "spell_list_order": 3
-  },
-  {
-    "index": "forcecage",
-    "name": "Forcecage",
-    "desc": [
-      "An immobile, invisible, cube-shaped prison composed of force springs into existence."
-    ],
-    "higher_level": [],
-    "range": "100 feet",
-    "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": null,
-    "school": "evocation",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cube",
-      "size": 20
-    },
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 4
-  },
-  {
-    "index": "plane-shift",
-    "name": "Plane Shift",
-    "desc": [
-      "This spell lets you travel from one plane of existence to another."
-    ],
-    "higher_level": [],
-    "range": "Touch",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 5
-  },
-  {
-    "index": "prismatic-spray",
-    "name": "Prismatic Spray",
-    "desc": [
-      "Each of up to eight creatures of your choice within range must make a Dexterity saving throw."
-    ],
-    "higher_level": [],
-    "range": "Self",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "rainbow",
-      "damage_at_slot_level": {
-        "7": "10d10",
-        "8": "11d10",
-        "9": "12d10"
-      }
-    },
-    "school": "evocation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cone",
-      "size": 60
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 6
-  },
-  {
-    "index": "reverse-gravity",
-    "name": "Reverse Gravity",
-    "desc": [
-      "This spell reverses gravity in a 100-foot-radius, 400-foot-high cylinder centered on a point you choose within range."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 7,
-    "attack_type": null,
-    "damage": null,
-    "school": "transmutation",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "cylinder",
-      "size": 100,
-      "height": 400
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 7
   },
   {
     "index": "symbol",
@@ -4204,223 +4160,44 @@
     "spell_list_order": 9
   },
   {
-    "index": "antipathy-sympathy",
-    "name": "Antipathy/Sympathy",
+    "index": "thaumaturgy",
+    "name": "Thaumaturgy",
     "desc": [
-      "You cause an object or creature to radiate either antipathy or sympathy."
+      "You manifest a minor wonder, such as a sudden gust of wind, a small flame flaring to life, or a soft voice echoing from a nearby surface.",
+      "The effect lasts for 1 minute or until you use your action to cast this spell again."
     ],
     "higher_level": [],
-    "range": "60 feet",
+    "range": "30 feet",
     "components": [
-      "V",
-      "S",
-      "M"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "10 days",
-    "concentration": false,
-    "casting_time": "1 hour",
-    "level": 8,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "earthquake",
-    "name": "Earthquake",
-    "desc": [
-      "An earthquake strikes the ground in a square area you choose within range."
-    ],
-    "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S"
+      "V"
     ],
     "material": null,
     "ritual": false,
     "duration": "1 minute",
-    "concentration": true,
+    "concentration": false,
     "casting_time": "1 action",
-    "level": 8,
+    "level": 0,
     "attack_type": null,
     "damage": null,
     "school": "transmutation",
     "classes": [
-      "cleric",
-      "druid",
-      "sorcerer",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "square",
-      "size": 100
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "dominate-monster",
-    "name": "Dominate Monster",
-    "desc": [
-      "You attempt to beguile a creature that you can see within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 hour",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 8,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
+      "cleric"
     ],
     "subclasses": [],
     "area_of_effect": null,
-    "saving_throw": {
-      "ability": "wisdom"
-    },
+    "saving_throw": null,
     "status_effects": [],
     "spell_list_order": 3
   },
   {
-    "index": "incendiary-cloud",
-    "name": "Incendiary Cloud",
+    "index": "thunderwave",
+    "name": "Thunderwave",
     "desc": [
-      "You create a 20-foot-radius cloud of swirling embers."
+      "A wave of thunderous force sweeps out from you.",
+      "Each creature in a 15-foot cube originating from you must make a Constitution saving throw."
     ],
     "higher_level": [],
-    "range": "150 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": true,
-    "casting_time": "1 action",
-    "level": 8,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "fire",
-      "damage_at_slot_level": {
-        "8": "10d10",
-        "9": "11d10"
-      }
-    },
-    "school": "conjuration",
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": {
-      "type": "sphere",
-      "size": 20
-    },
-    "saving_throw": {
-      "ability": "dexterity"
-    },
-    "status_effects": [],
-    "spell_list_order": 4
-  },
-  {
-    "index": "power-word-stun",
-    "name": "Power Word Stun",
-    "desc": [
-      "You speak a word of power that can compel one creature you can see within range to be stunned."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 minute",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 8,
-    "attack_type": null,
-    "damage": null,
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 5
-  },
-  {
-    "index": "gate",
-    "name": "Gate",
-    "desc": [
-      "You tap into the planes of existence and tear open a gateway."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V",
-      "S"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "1 round",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 9,
-    "attack_type": null,
-    "damage": null,
-    "school": "conjuration",
-    "classes": [
-      "cleric",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 1
-  },
-  {
-    "index": "meteor-swarm",
-    "name": "Meteor Swarm",
-    "desc": [
-      "You call down four exploding orbs of fire upon points of your choice within range."
-    ],
-    "higher_level": [],
-    "range": "1 mile",
+    "range": "Self",
     "components": [
       "V",
       "S"
@@ -4430,64 +4207,35 @@
     "duration": "Instantaneous",
     "concentration": false,
     "casting_time": "1 action",
-    "level": 9,
+    "level": 1,
     "attack_type": null,
     "damage": {
-      "damage_type": "fire",
+      "damage_type": "thunder",
       "damage_at_slot_level": {
-        "9": "20d6"
+        "1": "2d8",
+        "2": "3d8",
+        "3": "4d8",
+        "4": "5d8",
+        "5": "6d8"
       }
     },
     "school": "evocation",
     "classes": [
+      "bard",
+      "druid",
       "sorcerer",
       "wizard"
     ],
     "subclasses": [],
     "area_of_effect": {
-      "type": "sphere",
-      "size": 40
+      "type": "cube",
+      "size": 15
     },
     "saving_throw": {
-      "ability": "dexterity"
+      "ability": "constitution"
     },
     "status_effects": [],
-    "spell_list_order": 2
-  },
-  {
-    "index": "power-word-kill",
-    "name": "Power Word Kill",
-    "desc": [
-      "You speak a word of power that can kill one creature you can see within range."
-    ],
-    "higher_level": [],
-    "range": "60 feet",
-    "components": [
-      "V"
-    ],
-    "material": null,
-    "ritual": false,
-    "duration": "Instantaneous",
-    "concentration": false,
-    "casting_time": "1 action",
-    "level": 9,
-    "attack_type": null,
-    "damage": {
-      "damage_type": "force",
-      "damage_at_slot_level": {
-        "9": "instant death"
-      }
-    },
-    "school": "enchantment",
-    "classes": [
-      "sorcerer",
-      "warlock"
-    ],
-    "subclasses": [],
-    "area_of_effect": null,
-    "saving_throw": null,
-    "status_effects": [],
-    "spell_list_order": 3
+    "spell_list_order": 13
   },
   {
     "index": "time-stop",
@@ -4518,6 +4266,258 @@
     "saving_throw": null,
     "status_effects": [],
     "spell_list_order": 4
+  },
+  {
+    "index": "true-seeing",
+    "name": "True Seeing",
+    "desc": [
+      "This spell gives you the ability to see things as they actually are."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 6,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "bard",
+      "cleric",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 3
+  },
+  {
+    "index": "true-strike",
+    "name": "True Strike",
+    "desc": [
+      "You extend your hand and point a finger at a target in range. Your magic grants you a brief vision of the future and whether your attack would be successful.",
+      "The next time you make an attack roll against the target before the spell ends, you have Advantage on the roll."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 round",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "divination",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 11
+  },
+  {
+    "index": "vicious-mockery",
+    "name": "Vicious Mockery",
+    "desc": [
+      "You create a verbal disparagement of the target.",
+      "The target must make a Wisdom saving throw.",
+      "On a failed save, the target has Disadvantage on the next attack roll before the end of your next turn."
+    ],
+    "higher_level": [],
+    "range": "60 feet",
+    "components": [
+      "V"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "Instantaneous",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 0,
+    "attack_type": null,
+    "damage": null,
+    "school": "enchantment",
+    "classes": [
+      "bard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": {
+      "ability": "wisdom"
+    },
+    "status_effects": [],
+    "spell_list_order": 12
+  },
+  {
+    "index": "wall-of-fire",
+    "name": "Wall of Fire",
+    "desc": [
+      "You create a wall of fire on a ground surface within range."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "1 minute",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 4,
+    "attack_type": null,
+    "damage": {
+      "damage_type": "fire",
+      "damage_at_slot_level": {
+        "4": "5d8",
+        "5": "6d8",
+        "6": "7d8",
+        "7": "8d8",
+        "8": "9d8"
+      }
+    },
+    "school": "evocation",
+    "classes": [
+      "druid",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "line",
+      "size": 40,
+      "width": 10
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 7
+  },
+  {
+    "index": "wall-of-stone",
+    "name": "Wall of Stone",
+    "desc": [
+      "An irregular wall of solid stone springs forth into existence."
+    ],
+    "higher_level": [],
+    "range": "120 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 5,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 8
+  },
+  {
+    "index": "water-walk",
+    "name": "Water Walk",
+    "desc": [
+      "This spell grants affected creatures the ability to walk on any liquid as if it were solid ground."
+    ],
+    "higher_level": [],
+    "range": "Touch",
+    "components": [
+      "V",
+      "S"
+    ],
+    "material": null,
+    "ritual": true,
+    "duration": "1 hour",
+    "concentration": false,
+    "casting_time": "1 action",
+    "level": 3,
+    "attack_type": null,
+    "damage": null,
+    "school": "transmutation",
+    "classes": [
+      "cleric",
+      "druid",
+      "ranger",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": null,
+    "saving_throw": null,
+    "status_effects": [],
+    "spell_list_order": 8
+  },
+  {
+    "index": "web",
+    "name": "Web",
+    "desc": [
+      "You conjure a mass of thick, sticky webs at a point you choose within range."
+    ],
+    "higher_level": [],
+    "range": "150 feet",
+    "components": [
+      "V",
+      "S",
+      "M"
+    ],
+    "material": null,
+    "ritual": false,
+    "duration": "10 minutes",
+    "concentration": true,
+    "casting_time": "1 action",
+    "level": 2,
+    "attack_type": null,
+    "damage": null,
+    "school": "conjuration",
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "subclasses": [],
+    "area_of_effect": {
+      "type": "cube",
+      "size": 20
+    },
+    "saving_throw": {
+      "ability": "dexterity"
+    },
+    "status_effects": [],
+    "spell_list_order": 18
   },
   {
     "index": "wish",

@@ -44,7 +44,7 @@ function App() {
         <Route path="/rules/feats" element={<Feats />} />
         <Route path="/rules/races" element={<Races />} />
         <Route path="/spells" element={<Spells />} />
-        <Route path="/spells2024" element={<Spells2024 />} />
+        <Route path="/2024/spells" element={<Spells2024 />} />
         </Routes>
       </div>
     </BrowserRouter>

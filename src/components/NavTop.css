@@ -17,3 +17,37 @@
 .dropdown-menu.show {
     display: block;
 }
+
+/* Style the spell rule version dropdown */
+.navbar-nav .form-select {
+    vertical-align: middle;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Use grid for navbar collapse to separate nav items from spell dropdown */
+#navbarSupportedContent {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dropdown-spell-version {
+    grid-column: 2;
+    margin-left: auto;
+    padding-right: 10px;
+}
+
+/* Push spell rule dropdown to far right */
+.navbar-nav .nav-item.ms-auto {
+    margin-left: auto !important;
+    flex-shrink: 0;
+}
+
+
+
