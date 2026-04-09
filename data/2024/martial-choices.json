@@ -1,0 +1,138 @@
+[
+  {
+    "index": "axe-mastery",
+    "name": "Axe Mastery",
+    "desc": [
+      "You can use the Push and Sweep mastery properties with axes."
+    ],
+    "benefits": [
+      "Push property with axes",
+      "Sweep property with axes"
+    ],
+    "prerequisite": "Barbarian or Fighter class",
+    "type": "martial",
+    "level_requirement": 1
+  },
+  {
+    "index": "sword-mastery",
+    "name": "Sword Mastery",
+    "desc": [
+      "You can use the Push, Sweep, and Topple mastery properties with swords."
+    ],
+    "benefits": [
+      "Push property with swords",
+      "Sweep property with swords",
+      "Topple property with swords"
+    ],
+    "prerequisite": "Barbarian or Fighter class",
+    "type": "martial",
+    "level_requirement": 1
+  },
+  {
+    "index": "polearm-mastery",
+    "name": "Polearm Mastery",
+    "desc": [
+      "You can use the Reach and Sweep mastery properties with polearms."
+    ],
+    "benefits": [
+      "Reach property with polearms",
+      "Sweep property with polearms"
+    ],
+    "prerequisite": "Barbarian or Fighter class",
+    "type": "martial",
+    "level_requirement": 1
+  },
+  {
+    "index": "bow-mastery",
+    "name": "Bow Mastery",
+    "desc": [
+      "You can make ranged attacks with bows without penalty for being within 5 feet of a hostile creature."
+    ],
+    "benefits": [
+      "No penalty for close ranged attacks with bows"
+    ],
+    "prerequisite": "Ranger or Fighter class",
+    "type": "martial",
+    "level_requirement": 1
+  },
+  {
+    "index": "unarmed-mastery",
+    "name": "Unarmed Mastery",
+    "desc": [
+      "Your unarmed strikes deal 1d6 bludgeoning damage and can be used with the Trip and Push mastery properties."
+    ],
+    "benefits": [
+      "1d6 bludgeoning damage",
+      "Trip property with unarmed strikes",
+      "Push property with unarmed strikes"
+    ],
+    "prerequisite": "Monk or Barbarian class",
+    "type": "martial",
+    "level_requirement": 1
+  },
+  {
+    "index": "two-weapon-fighting",
+    "name": "Two-Weapon Fighting",
+    "desc": [
+      "When you make an attack with a light weapon, you can use a bonus action to make one attack with a different light weapon you are holding in your other hand."
+    ],
+    "benefits": [
+      "Bonus action attack with second light weapon"
+    ],
+    "prerequisite": "None",
+    "type": "martial",
+    "level_requirement": 1
+  },
+  {
+    "index": "archery-style",
+    "name": "Archery Fighting Style",
+    "desc": [
+      "You gain a +2 bonus to attack rolls you make with ranged weapons."
+    ],
+    "benefits": [
+      "+2 to attack rolls with ranged weapons"
+    ],
+    "prerequisite": "Fighter or Ranger class",
+    "type": "major",
+    "level_requirement": 1
+  },
+  {
+    "index": "defense-style",
+    "name": "Defense Fighting Style",
+    "desc": [
+      "While you are wearing armor, you gain a +1 bonus to AC."
+    ],
+    "benefits": [
+      "+1 to AC while wearing armor"
+    ],
+    "prerequisite": "Fighter class",
+    "type": "major",
+    "level_requirement": 1
+  },
+  {
+    "index": "dueling-style",
+    "name": "Dueling Fighting Style",
+    "desc": [
+      "When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
+    ],
+    "benefits": [
+      "+2 to damage with one-handed melee weapons"
+    ],
+    "prerequisite": "Fighter class",
+    "type": "major",
+    "level_requirement": 1
+  },
+  {
+    "index": "great-weapon-fighting",
+    "name": "Great Weapon Fighting Style",
+    "desc": [
+      "When you roll a 1 or 2 on a damage die for an attack you make with a two-handed or versatile weapon, you can reroll the die and must use the new roll."
+    ],
+    "benefits": [
+      "Reroll 1s and 2s on damage dice for two-handed weapons"
+    ],
+    "prerequisite": "Fighter class",
+    "type": "major",
+    "level_requirement": 1
+  }
+]

@@ -1,0 +1,822 @@
+[
+  {
+    "name": "Adamantine Armor",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "This suit of armor is reinforced with adamantine, one of the hardest substances in existence. Whileyou\u2019rewearingit, any Critical Hit against you becomes a normal hit.",
+    "index": "adamantine-armor"
+  },
+  {
+    "name": "Adamantine Weapon",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "This weapon or piece of ammunitionis made of adamantine, one of the hardest substances in existence. Whenever this weapon or piece of ammunitionhits an object, thehitisa Critical Hit.",
+    "index": "adamantine-weapon"
+  },
+  {
+    "name": "Ammunition, +1, +2, or +3",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "You have a bonus to attack rollsanddamage rollsmade with this piece of magic ammunition. The bonus is determined by the rarity of the ammunition. Once it hits a target, the ammunition is no longer magical. This ammunition is typically found or sold in quantities offtenortwentypieces. Ten pieces of this ammunition are equivalent in value to a potionof the same rarity .",
+    "index": "ammunition-+1-+2-or-+3"
+  },
+  {
+    "name": "Ammunition of Slaying",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "This magic ammunition is meant to slay creatures of a particular type, whichthe DMchoosesordeterminesrandomlyby rolling on the table below . If a creature of that type takes damage from the ammunition, thecreaturemakesa DC 17Constitutionsaving throw, taking an extra 6d10 Force damage on a failed saveor half as much extra damage on a successful one. After dealing its extra damage to a creature, the ammunition becomes nonmagical. 1d100Creature Type",
+    "index": "ammunition-of-slaying"
+  },
+  {
+    "name": "Armor of Gleaming",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "This armor never gets dirty.",
+    "index": "armor-of-gleaming"
+  },
+  {
+    "name": "Armor of Invulnerability",
+    "type": "Armor",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Youhave Resistanceto Bludgeoning, Piercing, and Slashingdamagewhileyouwearthisarmor . Metal Shell. Youcantakea Magicactiontogiveyourself Immunityto Bludgeoning, Piercing, and Slashingdamagefor10minutesor until you are no longer wearing the armor . Once this property is used, itcan \u2019tbeusedagainuntil the next dawn.",
+    "index": "armor-of-invulnerability"
+  },
+  {
+    "name": "Armor of Resistance",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youhave Resistancetoonetypeofdamagewhileyouwearthisarmor . The DMchoosesthetypeordeterminesitrandomlyby rolling on the following table. 1Acid AMULETOFTHEPLANES, APPARATUSOFKWALISHARMOROFRESISTANCE (LEATHERARMOR), 2Cold3Fire4Force5Lightning6Necrotic7Poison8Psychic9Radiant10Thunder",
+    "index": "armor-of-resistance"
+  },
+  {
+    "name": "Armor of Vulnerability",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisarmor , youhave Resistancetooneofthefollowingdamagetypes: Bludgeoning, Piercing, or Slashing. The DMchoosesthetypeordeterminesitrandomly . Curse. Thisarmoriscursed, afactthatisrevealedonlywhenthe Identifyspelliscastonthearmororyouattunetoit. Attuningtothearmorcursesyouuntilyouaretargetedbya Remove Cursespellorsimilarmagic; removingthearmorfailstoendthecurse. Whilecursed, youhave Vulnerabilitytotwoofthethreedamagetypesassociatedwiththearmor (nottheonetowhichitgrants Resistance).",
+    "index": "armor-of-vulnerability"
+  },
+  {
+    "name": "Arrow-Catching Shield",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +2bonusto Armor Classagainstrangedattackrollswhileyouwieldthis Shield. Thisbonusisinadditiontothe Shield\u2019 snormalbonusto AC. Wheneveranattackermakesarangedattackrollagainstatargetwithin5feetofyou, youcantakea Reactiontobecomethetargetoftheattackinstead. Axeofthe Dwarvish Lords Weapon (Battleaxe), Artifact (Requires Attunement) Ayoungdwarfprincesetouttoforgeaweaponthatwouldberegardedasasymbolofunityamonghispeople. Venturingdeepunderthemountains, deeperthananydwarfhadeverdelved, theprincecametotheblazingheartofagreatvolcano. Withtheaidof Moradin, agodofcreation, he\ufb01rstcraftedfourmightytools: the Starmetal Pick, the Earthheart Forge, the Anvilof Songs, andthe Shaping Hammer . Withthesetools, heforgedthe Axeofthe",
+    "index": "arrow-catching-shield"
+  },
+  {
+    "name": "Belt Str. Rarity",
+    "type": "Belt",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Beltof Giant Strength (frost) or Beltof Giant Strength (stone) 23Very Rare Beltof Giant Strength (\ufb01re) 25Very Rare Beltof Giant Strength (cloud) 27Legendary Beltof Giant Strength (storm) 29Legendary",
+    "index": "belt-str.-rarity"
+  },
+  {
+    "name": "Berserker Axe",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Inaddition, whileyouareattunedtothisweapon, your Hit Pointmaximumincreasesby1foreachlevelyouhaveattained. Curse. Thisweaponiscursed, andbecomingattunedtoitextendsthecursetoyou. Aslongasyouremaincursed, youareunwillingtopartwiththeweapon, keepingitwithinreachatalltimes. Youalsohave Disadvantageonattackrollswithweaponsotherthanthisone. Wheneveranothercreaturedamagesyouwhiletheweaponisinyourpossession, youmustsucceedona DC 15Wisdomsaving throworgoberserk. Thisberserkstateendswhenyoustartyourturnandtherearenocreatureswithin60feetofyouthatyoucanseeorhear . Whileberserk, youregardthecreaturenearesttoyouthatyoucanseeorhearasyourenemy . Iftherearemultiplepossiblecreatures, chooseoneatrandom. Oneachofyourturns, youmustmoveasclosetothecreatureaspossibleandtakethe Attackaction, targetingthecreature. Ifyou\u2019reunabletogetcloseenoughtothecreaturetoattackitwiththeweapon, yourturnendsafteryou\u2019veusedupallyouravailablemovement. Ifthecreaturediesorcannolongerbeseenorheardbyyou, thenextnearestcreaturethatyoucanseeorhearbecomesyournewtarget.",
+    "index": "berserker-axe"
+  },
+  {
+    "name": "Blackrazor",
+    "type": "Weapon",
+    "rarity": "artifact",
+    "requiresAttunement": false,
+    "description": "Hiddeninthedungeonof White Plume Mountain, Blackrazorshineslikeapieceofnightsky\ufb01lledwithstars. Itsblackscabbardisdecoratedwithpiecesofcutobsidian. Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. Ifyouhitan Undeadwiththisweapon, youtake1d10Necroticdamage, andthetargetregains1d10Hit Points. Ifthis Necroticdamagereducesyouto0Hit Points, Blackrazordevoursyoursoul (see \u201cDevour Soul\u201d below). Whileyouholdthisweapon, youhave Immunitytothe Charmedand Frightenedconditions, andyouhave Blindsightwitharangeof30feet. BELTOFGIANTSTRENGTH (FIRE), BELTOFGIANTSTRENGTH (STONE), BERSERKERAXE (BATTLEAXE) Devour Soul. Wheneveryouuse Blackrazortoreduceacreatureto0Hit Points, theswordslaysthecreatureanddevoursitssoulunlessitisa Constructoran Undead. Acreaturewhosesoulhasbeendevouredby Blackrazorcanberestoredtolifeonlybya Wishspell. When Blackrazordevoursasoulthatisn \u2019tyours, yougain Temporary Hit Pointsequaltotheslaincreature\u2019s Hit Pointmaximum. Haste. Blackrazorcancast Hasteonyou, afterwhichitcan \u2019tcastthisspellagainuntil the next dawn. Blackrazordecideswhentocastthespell, whichtakeseffectatthestartofyourturn. Thespelllastsfor1minute (no Concentrationrequired) oruntil Blackrazordecidestoendit, whichitcandoattheendofanyofyourturns. Sentience. Blackrazorisasentient Chaotic Neutralweaponwithan Intelligenceof17, a Wisdomof10, anda Charismaof19. Ithashearingand Darkvisionoutto120feet. Theweaponspeaks Commonandcancommunicatewithitswieldertelepathically . Itsvoiceisdeepandechoing. Whileyouareattunedtoit, Blackrazoralsounderstandseverylanguageyouknow . Personality . Blackrazorspeakswithanimperioustone, asthoughaccustomedtobeingobeyed. Thesword\u2019spurposeistoconsumesouls. Itdoesn \u2019tcarewhosesoulsiteats, includingthewielder \u2019s. Theswordbelievesthatallmatterandenergysprangfromavoidofnegativeenergyandwillonedayreturntoit. Blackrazorismeanttohurrythatprocessalong. Despiteitsnihilism, Blackrazorfeelsastrangekinshipto Waveand Whelm , twootherweaponslockedawayunder White Plume Mountain. Itwantsthethreeweaponstobereunitedandwieldedtogetherincombat, eventhoughitviolentlydisagreeswith Whelmand\ufb01nds Wavetedious. Blackrazor\u2019shungerforsoulsmustberegularlyfed. Iftheswordgoes3daysormorewithoutconsumingasoul, acon\ufb02ictbetweenitanditswielderoccursatthenextsunset. Destroying Blackrazor. Blackrazorcanbedestroyedbycrushingitinthegreatgearsof Mechanus . Primus, thecreatorofthemodrons, alsoknowsaseriesofmusicaltonesthat Blackrazorcan\u2019tstandtohear , causingtheswordtoshatter .",
+    "index": "blackrazor"
+  },
+  {
+    "name": "Cast-Off Armor",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Youcandoffthisarmorasa Magicaction.",
+    "index": "cast-off-armor"
+  },
+  {
+    "name": "Dancing Sword",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youcantakea Bonus Actiontotossthismagicweaponintotheair . Whenyoudoso, theweaponbeginstohover, \ufb02iesupto30feet, andattacksonecreatureofyourchoicewithin5feetofitself. Theweaponusesyourattackrollandaddsyourabilitymodi\ufb01ertodamage rolls. Whiletheweaponhovers, youcantakea Bonus Actiontocauseitto\ufb02yupto30feettoanotherspotwithin30feetofyou. Aspartofthesame Bonus Action, youcancausetheweapontoattackonecreaturewithin5feetoftheweapon. Afterthehoveringweaponattacksforthefourthtime, it\ufb02iesbacktoyouandtriestoreturntoyourhand. Ifyouhavenohandfree, theweaponfallstothegroundinyourspace. Iftheweaponhasnounobstructedpathtoyou, itmovesasclosetoyouasitcanandthenfallstotheground. Italsoceasestohoverifyougraspitoraremorethan30feetawayfromit.",
+    "index": "dancing-sword"
+  },
+  {
+    "name": "Key",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "index": "key"
+  },
+  {
+    "name": "Defender",
+    "type": "Weapon",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. The\ufb01rsttimeyouattackwiththeweapononeachofyourturns, youcantransfersomeoralloftheweapon \u2019sbonustoyour Armor Class. Forexample, youcouldreducethebonustoyourattackrollsanddamage rollsto +1andgaina +2bonusto Armor Class. Theadjustedbonusesremainineffectuntilthestartofyournextturn, althoughyoumustholdtheweapontogainabonusto ACfromit.",
+    "index": "defender"
+  },
+  {
+    "name": "Demon Armor",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisarmor , yougaina +1bonusto Armor Class, andyouknow Abyssal. Inaddition, thearmor \u2019sclawedgauntletsallowyour Unarmed Strikestodeal1d8Slashingdamageinsteadoftheusual Bludgeoningdamage, andyougaina +1bonustotheattackanddamage rollsofyour Unarmed",
+    "index": "demon-armor"
+  },
+  {
+    "name": "Dragon Scale Mail",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Dragon Scale Mailismadeofthescalesofonekindofdragon. Sometimesdragonscollecttheircast-offscalesandgiftthem. Othertimes, hunterscarefullypreservethehideofadeaddragon. Ineithercase, Dragon Scale Mailishighlyvalued. Whilewearingthisarmor , yougaina +1bonusto Armor Class, youhave Advantageonsaving throwsagainstthebreathweaponsof Dragons, andyouhave Resistancetoonedamagetypedeterminedbythekindofdragonthatprovidedthescales (seetheaccompanyingtable). Additionally , youcanfocusyoursensesasa Magicactiontodiscernthedistanceanddirectiontotheclosestdragonwithin30milesofyourselfthatisofthesametypeasthearmor . Thisactioncan \u2019tbeusedagainuntil the next dawn.",
+    "index": "dragon-scale-mail"
+  },
+  {
+    "name": "Dragon Slayer",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Theweapondealsanextra3d6damageoftheweapon \u2019stypeifthetargetisa Dragon.",
+    "index": "dragon-slayer"
+  },
+  {
+    "name": "Dwarven Plate",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisarmor , yougaina +2bonusto Armor Class. Inaddition, ifaneffectmovesyouagainstyourwillalongtheground, youcantakea Reactiontoreducethedistanceyouaremovedbyupto10feet.",
+    "index": "dwarven-plate"
+  },
+  {
+    "name": "Dwarven Thrower",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. Ithasthe Thrownpropertywithanormalrangeof20feetandalongrangeof60feet. Whenyouhitwitharangedattackusingthisweapon, itdealsanextra1d8Forcedamage, oranextra2d8Forcedamageifthetargetisa Giant. Immediatelyafterhittingormissing, theweapon\ufb02iesbacktoyourhand.",
+    "index": "dwarven-thrower"
+  },
+  {
+    "name": "Efreeti Chain",
+    "type": "Armor",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisarmor , yougaina +3bonusto Armor Class, youhave Immunityto Firedamage, andyouknow Primordial. Inaddition, youcanstandonandmoveacrossmoltenrockasifitweresolidground.",
+    "index": "efreeti-chain"
+  },
+  {
+    "name": "Elven Chain",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonusto Armor Classwhileyouwearthisarmor . Youareconsideredtrainedwiththisarmorevenifyoulacktrainingwith Mediumor Heavyarmor .",
+    "index": "elven-chain"
+  },
+  {
+    "name": "Energy Bow",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon, whichhasnostring. Eachtimeyoupullyourarmbackina\ufb01ringmotion, amagicalarrowmadeofgoldenenergyappearsnockedandreadyto\ufb01re. Anarrowproducedbythisweapondeals Forcedamageinsteadof Piercingdamageonahit, anditdisappearsafterithitsormissesitstarget. Untilitdisappears, thearrowemits Bright Lightina20-footradiusand Dim Lightforanadditional20feet. Thisweaponhasthefollowingadditionalproperties. Arrowof Restraint. Wheneveryouusethisweapontomakearangedattackagainstacreature, youcantrytorestrainthetargetinsteadofdealingdamagetoit. Ifthearrowhits, thetargetmustsucceedona DC 15Strengthsaving throworhavethe Restrainedconditionfor1minute. Asanaction, acreature Restrainedbyanarrowcanmakea DC 20Strength ( Athletics ) checktotrytobreaktherestraint, endingtheeffectonitselfonasuccessfulcheck. Arrowof Transport. Asa Magicaction, youcan\ufb01reoneenergyarrowfromthisweaponatatargetyoucanseewithin60feetofyourself. Thetargetcanbeeitherawilling Mediumorsmallercreatureoranobjectthatisn \u2019tbeingwornorcarried, providedtheobjectissmallenoughto\ufb01tinsidea5-foot Cube . Thearrowteleportsthetargettoanunoccupiedspaceyoucanseewithin10feetofyou. Energy Ladder . Asa Magicaction, youcanloosea\ufb02urryofenergyarrowsfromthisweaponatawallupto60feetawayfromyourself. Thearrowsbecomeglowingrungsthatstickoutofthewall, formingamagicalladderupto60feetlongonthewall. Thisladderlastsfor1minutebeforedisappearing.",
+    "index": "energy-bow"
+  },
+  {
+    "name": "Executioner \u2019s Axe",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Any Humanoidyouhitwiththeweapontakesanextra2d6Slashingdamage, andyougain Temporary Hit Pointsequaltotheextradamagedealt.",
+    "index": "executioner-\u2019s-axe"
+  },
+  {
+    "name": "Flame Tongue",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileholdingthismagicweapon, youcantakea Bonus Actionanduseacommandwordtocause\ufb02amestoengulfthedamage-dealingpartoftheweapon. These\ufb02amesshed Bright Lightina40-footradiusand Dim Lightforanadditional40feet. Whiletheweaponisablaze, itdealsanextra2d6Fire FIGURINESOFWONDROUSPOWER (IVORYGOATS, SERPENTINEOWL), damageonahit. The\ufb02ameslastuntilyoutakea Bonus Actiontoissuethecommandagainoruntilyoudrop, stow, orsheathetheweapon.",
+    "index": "flame-tongue"
+  },
+  {
+    "name": "Frost Brand",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyouhitwithanattackrollusingthismagicweapon, thetargettakesanextra1d6Colddamage. Inaddition, whileyouholdtheweapon, youhave",
+    "index": "frost-brand"
+  },
+  {
+    "name": "Giant Slayer",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Whenyouhita Giantwiththisweapon, the Gianttakesanextra2d6damageoftheweapon \u2019stypeandmustsucceedona DC 15Strengthsaving throworhavethe Pronecondition.",
+    "index": "giant-slayer"
+  },
+  {
+    "name": "Hammerof Thunderbolts",
+    "type": "Weapon",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Theweaponhas5charges. Youcanexpend1chargeandmakearangedattackwiththeweapon, hurlingitasifithadthe Thrownpropertywithanormalrangeof20feetandalongrangeof60feet. Iftheattackhits, theweaponunleashesathunderclapaudibleoutto300feet. Thetargetandeverycreaturewithin30feetofitotherthanyoumustsucceedona DC 17Constitutionsaving throworhavethe Stunnedconditionuntiltheendofyournextturn. Immediatelyafterhittingormissing, theweapon\ufb02iesbacktoyourhand. Theweaponregains1d4 + 1expendedchargesdailyatdawn. Giant \u2019s Bane. Whileyouareattunedtotheweaponandwearingeithera Beltof Giant Strengthor Gauntletsof Ogre Powertowhichyouarealsoattuned, yougainthefollowingbene\ufb01ts: Giants\u2019 Bane. Whenyourolla20onthed20foranattackrollmadewiththisweaponagainsta Giant, thecreaturemustsucceedona DC 17Constitutionsaving throwordie. Mightof Giants. The Strengthscorebestowedbyyour Beltof Giant Strengthor Gauntletsof Ogre Powerincreasesby4, toamaximumof30.",
+    "index": "hammerof-thunderbolts"
+  },
+  {
+    "name": "Holy A venger",
+    "type": "Weapon",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. Whenyouhita Fiendoran Undeadwithit, thatcreaturetakesanextra2d10Radiantdamage. Whileyouholdthedrawnweapon, itcreatesa10-foot Emanationoriginatingfromyou. Youandallcreatures Friendlytoyouinthe Emanationhave Advantageonsaving throwsagainstspellsandothermagicaleffects. Ifyouhave17ormorelevelsinthe Paladinclass, thesizeofthe Emanationincreasesto30feet.",
+    "index": "holy-a-venger"
+  },
+  {
+    "name": "Hornof V alhalla",
+    "type": "Orb",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youcantakea Magicactiontoblowthishorn. Inresponse, warriorspiritsfromtheplaneof Ysgardappearinunoccupiedspaceswithin60feetofyou. Eachspiritusesthe Berserkerstatblockandreturnsto Ysgardafter1hourorwhenitdropsto0Hit Points. Thespiritslooklikeliving, breathingwarriors, andtheyhave Immunitytothe Charmedand Frightenedconditions. Onceyouusethehorn, itcan \u2019tbeusedagainuntil7dayshavepassed. Fourtypesof Hornof Valhallaareknowntoexist, eachmadeofadifferentmetal. Thehorn \u2019stypedetermineshowmanyspiritsitsummons, aswellastherequirementforitsuse. The DMchoosesthehorn \u2019stypeordeterminesitrandomlyby rolling on the following table. Ifyoublowthehornwithoutmeetingitsrequirement, thesummonedspiritsattackyou. Ifyoumeettherequirement, theyare Friendlytoyouandyouralliesandfollowyourcommands. 1d100Horn Type Spirits Requirement",
+    "index": "hornof-v-alhalla"
+  },
+  {
+    "name": "Luck Blade",
+    "type": "Weapon",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Whiletheweaponisonyourperson, youalsogaina +1bonustosaving throws. Luck. Iftheweaponisonyourperson, youcancallonitsluck (noactionrequired) torerollonefailed D 20Testifyoudon \u2019thavethe Incapacitatedcondition. Youmustusethesecondroll. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn. Wish. Theweaponhas1d3charges. Whileholdingit, youcanexpend1chargeandcast Wishfromit. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn. Theweaponlosesthispropertyifithasnocharges.",
+    "index": "luck-blade"
+  },
+  {
+    "name": "Maceof Disruption",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyouhita Fiendoran Undeadwiththismagicweapon, thatcreaturetakesanextra2d6Radiantdamage. Ifthetargethas25Hit Pointsorfeweraftertakingthisdamage, itmustsucceedona DC 15Wisdomsaving throworbedestroyed. Onasuccessfulsave, thecreaturehasthe Frightenedconditionuntiltheendofyournextturn. Light. Whileyouholdthisweapon, itsheds Bright Lightina20-footradiusand Dim Lightforanadditional20feet.",
+    "index": "maceof-disruption"
+  },
+  {
+    "name": "Maceof Terror",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thismagicweaponhas3chargesandregains1d3expendedchargesdailyatdawn. Whileholdingtheweapon, youcantakea Magicactionandexpend1chargetoreleaseawaveofterrorfromit. Eachcreatureofyourchoicewithin30feetofyoumustsucceedona DC 15Wisdomsaving throworhavethe Frightenedconditionfor1minute. While Frightenedinthisway, acreaturemustspenditsturnstryingtomoveasfarawayfromyouasitcan, anditcan \u2019tmake Opportunity Attacks . Foritsaction, itcanuseonlythe Dashactionortrytoescapefromaneffectthatpreventsitfrommoving. Ifithasnowhereitcanmove, thecreaturecantakethe Dodgeaction. Attheendofeachofitsturns, acreaturerepeatsthesave, endingtheeffectonitselfonasuccess.",
+    "index": "maceof-terror"
+  },
+  {
+    "name": "Mariner \u2019s Armor",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisarmor , youhavea Swim Speedequaltoyour Speed. Inaddition, ifyoustartyourturnunderwaterwith0Hit Points, youimmediatelyregain1d4Hit Points. Thearmorcan \u2019thealanyoneagainuntil the next dawn. Thearmorisdecoratedwith\ufb01shandshellmotifs.",
+    "index": "mariner-\u2019s-armor"
+  },
+  {
+    "name": "Mithral Armor",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Mithralisalight, \ufb02exiblemetal. Armormadeofthissubstancecanbewornundernormalclothes. Ifthearmornormallyimposes Disadvantageon Dexterity ( Stealth ) checksorhasa Strengthrequirement, themithralversionofthearmordoesn \u2019t.",
+    "index": "mithral-armor"
+  },
+  {
+    "name": "Nine Lives Stealer",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +2bonustoattackrollsanddamage rollsmadewiththismagicweapon. Life Stealing. Theweaponhas1d8 + 1charges. Whenyouattackacreaturethathasfewerthan100Hit Pointswiththisweaponandrolla20onthed20fortheattackroll, thecreaturemustsucceedona DC 15Constitutionsaving throworbeslaininstantlyastheswordtearsitslifeforcefromitsbody . Constructsand Undeadsucceedonthesaveautomatically . Theweaponloses1chargeifthecreatureisslain. Whentheweaponhasnochargesremaining, itlosesthisproperty.",
+    "index": "nine-lives-stealer"
+  },
+  {
+    "name": "Oathbow",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyounockanarrowonthisbow , itwhispersin Elvish, \u201cSwiftdefeattomyenemies. \u201d Whenyouusethisweapontomakearangedattack, youcanutterorsignthefollowingcommandwords: \u201cSwiftdeathtoyouwhohavewrongedme. \u201d Thetargetofyourattackbecomesyourswornenemyuntilitdiesoruntildawn7dayslater . Youcanhaveonlyonesuchswornenemyatatime. Whenyourswornenemydies, youcanchooseanewoneafterthenextdawn. Whenyoumakearangedattackrollwiththisweaponagainstyourswornenemy , youhave Advantageontheroll. Inaddition, yourtargetgainsnobene\ufb01tfrom Half Coveror Three-Quarters Cover, andyousufferno Disadvantageduetolongrange. Iftheattackhits, yourswornenemytakesanextra3d6",
+    "index": "oathbow"
+  },
+  {
+    "name": "Plate Armorof Etherealness",
+    "type": "Armor",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Whileyou\u2019rewearingthisarmor , youcantakea Magicactionanduseacommandwordtogaintheeffectofthe Etherealnessspell. Thespellendsimmediatelyifyouremovethearmorortakea Magicactiontorepeatthecommandword. Thispropertyofthearmorcan \u2019tbeusedagainuntil the next dawn.",
+    "index": "plate-armorof-etherealness"
+  },
+  {
+    "name": "Quarterstaffofthe Acrobat",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youhavea +2bonustoattackrollsanddamage rollsmadewiththismagicweapon. Whileholdingthisweapon, youcancauseittoemitgreen Dim Lightoutto10feet, eitherasa Bonus Actionorafteryouroll Initiative, oryoucanextinguishthelightasa Bonus Action. Whileholdingthisweapon, youcantakea Bonus Actiontoalteritsform, turningitintoa6-inchrod (foreaseofstorage) ora10-footpole, orrevertingita Quarterstaff; theweaponwillelongateonlyasfarasthesurroundingspaceallows. Incertainforms, theweaponhasthefollowingadditionalproperties. Acrobatic Assist (Quarterstaffor10-Foot Pole Forms Only). Whileholdingthisweapon, youhave Advantageon Dexterity ( Acrobatics ) checks. Attack De\ufb02ection (Quarterstaff Form Only). Whenyouarehitbyanattackwhileholdingtheweapon, youcantakea Reactiontotwirltheweaponaroundyou, gaininga +5bonustoyour Armor Classagainstthetriggeringattack, potentiallycausingtheattacktomissyou. Youcan \u2019tusethispropertyagainuntilyou\ufb01nisha Shortor Long Rest. Ranged Weapon (Quarterstaff Form Only). Thisweaponhasthe Thrownpropertywithanormalrangeof30feetandalongrangeof120feet. Immediatelyafteryoumakearangedattackwiththeweapon, it\ufb02iesbacktoyourhand.",
+    "index": "quarterstaffofthe-acrobat"
+  },
+  {
+    "name": "Ringof Djinni Summoning",
+    "type": "Ring",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisring, youcantakea Magicactiontosummonaparticular Djinnifromthe Elemental Planeof Air . Thedjinniappearsinanunoccupiedspaceyouchoosewithin120feetofyourself. Itremainsaslongasyoumaintain Concentration , toamaximumof1hour , oruntilitdropsto0Hit Points. Whilesummoned, thedjinniis Friendlytoyouandyourallies, anditobeysyourcommands. Ifyoufailtocommandit, thedjinnidefendsitselfagainstattackersbuttakesnootheractions. Afterthedjinnideparts, itcan \u2019tbesummonedagainfor24hours, andtheringbecomesnonmagicalifthedjinnidies. Ringsof Djinni Summoningareoftencreatedbythedjinntheysummonandgiventomortalsasgiftsoffriendshiportokensofesteem. QUAAL\u2019SFEATHERTOKENS (FAN, TREE), QUIVEROFEHLONNA, QUARTERSTAFFOFTHEACROBAT",
+    "index": "ringof-djinni-summoning"
+  },
+  {
+    "name": "Ringof Elemental Command",
+    "type": "Ring",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Each Ringof Elemental Commandislinkedtooneofthefour Elemental Planes. The DMchoosesorrandomlydeterminesthelinkedplane. Forexample, a Ringof Elemental Command (air) islinkedtothe Elemental Planeof Air . Every Ringof Elemental Commandhasthefollowingtwoproperties: Elemental Bane. Whilewearingthering, youhave Advantageonattackrollsagainst Elementalsandtheyhave Disadvantageonattackrollsagainstyou. Elemental Compulsion. Whilewearingthering, youcantakea Magicactiontotrytocompelan Elementalyouseewithin60feetofyourself. The Elementalmakesa DC 18Wisdomsaving throw. Onafailedsave, the Elementalhasthe Charmedconditionuntilthestartyournextturn, andyoudeterminewhatitdoeswithitsmoveandactiononitsnextturn. Elemental Focus. Whilewearingthering, youbene\ufb01tfromadditionalpropertiescorrespondingtothering\u2019 slinked Elemental Plane: Air. Youknow Auran, youhave Resistanceto Lightningdamage, andyouhavea Fly Speedequaltoyour Speedandcanhover. Earth. Youknow Terran, andyouhave Resistanceto Aciddamage. Terraincomposedofrubble, rocks, ordirtisn\u2019t Di\ufb03cult Terrainforyou. Inaddition, youcanmovethroughsolidearthorrockasifthoseareaswere Di\ufb03cult Terrainwithoutdisturbingthematterthroughwhichyoupass. Ifyouendyourturninsolidearthorrock, youareshuntedouttothenearestunoccupiedspaceyoulastoccupied. Fire. Youknow Ignan, andyouhave Immunityto Firedamage. Water. Youknow Aquan, yougaina Swim Speedof60feet, andyoucanbreatheunderwater . Spellcasting. Theringhas5chargesandregains1d4 + 1expendedchargesdailyatdawn. Whilewearingthering, youcancastaspellfromit. Choosethespellfromthelistofavailablespellsbasedonthe Elemental Planetheringislinkedto, asshowninthefollowingtable. Thetableindicateshowmanychargesyoumustexpendtocastthespell, whichhasasave DCof18.",
+    "index": "ringof-elemental-command"
+  },
+  {
+    "name": "Ringof E vasion",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisringhas3charges, anditregains1d3expendedchargesdailyatdawn. Whenyoufaila Dexteritysaving throwwhilewearingthering, youcantakea Reactiontoexpend1chargetosucceedonthatsaveinstead. RINGOFANIMALINFLUENCE, RINGOFDJINNISUMMONING, RINGOFELEMENTALCOMMAND (AIR)",
+    "index": "ringof-e-vasion"
+  },
+  {
+    "name": "Ringof F eather F alling",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyoufallwhilewearingthisring, youdescend60feetperroundandtakenodamagefromfalling.",
+    "index": "ringof-f-eather-f-alling"
+  },
+  {
+    "name": "Ringof F ree Action",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileyouwearthisring, Di\ufb03cult Terraindoesn \u2019tcostyouextramovement. Inaddition, magiccanneitherreduceanyofyour Speedsnorcauseyoutohavethe Paralyzedor Restrainedcondition.",
+    "index": "ringof-f-ree-action"
+  },
+  {
+    "name": "Ringof Invisibility",
+    "type": "Ring",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisring, youcantakea Magicactiontogiveyourselfthe Invisiblecondition. Youremain Invisibleuntiltheringisremovedoruntilyoutakea Bonus Actiontobecomevisibleagain.",
+    "index": "ringof-invisibility"
+  },
+  {
+    "name": "Ringof Protection",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonusto Armor Classandsaving throwswhilewearingthisring.",
+    "index": "ringof-protection"
+  },
+  {
+    "name": "Ringof Regeneration",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisring, youregain1d6Hit Pointsevery10minutesifyouhaveatleast1Hit Point. Ifyouloseabodypart, theringcausesthemissingparttoregrowandreturntofullfunctionalityafter1d6 + 1daysifyouhaveatleast1Hit Pointthewholetime.",
+    "index": "ringof-regeneration"
+  },
+  {
+    "name": "Ringof Shooting Stars",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youcancast Dancing Lightsor Lightfromthering. Theringhas6chargesandregains1d6expendedchargesdailyatdawn. Youcanexpenditschargestousethepropertiesbelow . RINGOFPROTECTION, RINGOFREGENERATION, RINGOFSHOOTINGSTARS, RINGOFRESISTANCE (FIRE) Faerie Fire. Youcanexpend1chargetocast Faerie Firefromthering. Lightning Spheres. Youcanexpend2chargesasa Magicactiontocreateuptofour3-foot-diameterspheresoflightning. Eachsphereappearsinanunoccupiedspaceyoucanseewithin120feetofyourself. Thesphereslastaslongasyoumaintain Concentration , upto1minute. Eachspheresheds Dim Lightina30-footradius. Asa Bonus Action, youcanmoveeachsphereupto30feet, butnofartherthan120feetawayfromyourself. The\ufb01rsttimethespherecomeswithin5feetofacreatureotherthanyouthatisn \u2019tbehind Total Cover, thespheredischargeslightningatthatcreatureanddisappears. Thatcreaturemakesa DC 15Dexteritysaving throw. Onafailedsave, thecreaturetakes Lightningdamagebasedonthenumberofspheresyoucreated, asshowninthefollowingtable. Onasuccessfulsave, thecreaturetakeshalfasmuchdamage.",
+    "index": "ringof-shooting-stars"
+  },
+  {
+    "name": "Ringof Spell Storing",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisringstoresspellscastintoit, holdingthemuntiltheattunedwearerusesthem. Theringcanstoreupto5levelsworthofspellsatatime. Whenfound, itcontains1d6 \u2212 1levelsofstoredspellschosenbythe DM. Anycreaturecancastaspelloflevel1through5intotheringbytouchingtheringasthespelliscast. Thespellhasnoeffectotherthantobestoredinthering. Iftheringcan \u2019tholdthespell, thespellisexpendedwithouteffect. Theleveloftheslotusedtocastthespelldetermineshowmuchspaceituses. Whilewearingthisring, youcancastanyspellstoredinit. Thespellusestheslotlevel, spellsave DC, spellattackbonus, andspellcastingabilityoftheoriginalcasterbutisotherwisetreatedasifyoucastthespell. Thespellcastfromtheringisnolongerstoredinit, freeingupspace.",
+    "index": "ringof-spell-storing"
+  },
+  {
+    "name": "Ringof Spell Turning",
+    "type": "Ring",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisring, youhave Advantageonsaving throwsagainstspells. Ifyousucceedonthesaveforaspelloflevel7orlower , thespellhasnoeffectonyou. Ifthatspelltargetedonlyyouanddidn \u2019tcreateanareaofeffect, youcantakea Reactiontode\ufb02ectthespellbackatthespell\u2019 scaster; thecastermustmakeasaving throwagainstthespellusingtheirownspellsave DC.",
+    "index": "ringof-spell-turning"
+  },
+  {
+    "name": "Ringof Telekinesis",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisring, youcancast Telekinesisfromit.",
+    "index": "ringof-telekinesis"
+  },
+  {
+    "name": "Ringofthe Ram",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisringhas3chargesandregains1d3expendedchargesdailyatdawn. Whilewearingthering, youcantakea Magicactiontoexpend1to3chargestomakearangedspellattackagainstonecreatureyoucanseewithin60feetofyourself. Theringproducesaspectralram\u2019sheadandmakesitsattackrollwitha +7bonus. Onahit, foreachchargeyouspend, thetargettakes2d10Forcedamageandispushed5feetawayfromyou. Alternatively, youcanexpend1to3ofthering\u2019 schargesasa Magicactiontotrytobreakanonmagicalobjectyoucanseewithin60feetofyourselfthatisn\u2019tbeingwornorcarried. Theringmakesa Strengthcheckwitha +5bonusforeachchargeyouspend.",
+    "index": "ringofthe-ram"
+  },
+  {
+    "name": "Ringof X -ray Vision",
+    "type": "Ring",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whilewearingthisring, youcantakea Magicactiontogain X -rayvisionwitharangeof30feetfor1minute. Toyou, solidobjectswithinthatradiusappeartransparentanddon \u2019tpreventlightfrompassingthroughthem. Thevisioncanpenetrate1footofstone, 1inchofcommonmetal, orupto3feetofwoodordirt. Thickersubstancesorathinsheetofleadblockthevision. Wheneveryouusetheringagainbeforetakinga Long Rest, youmustsucceedona DC 15Constitutionsaving throworgain1Exhaustionlevel.",
+    "index": "ringof-x--ray-vision"
+  },
+  {
+    "name": "Rodof Absorption",
+    "type": "Rod",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileholdingthisrod, youcantakea Reactiontoabsorbaspellthatistargetingonlyyouanddoesn \u2019tcreateanareaofeffect. Theabsorbedspell\u2019 seffectiscanceled, andthespell\u2019 senergy\u2014notthespellitself\u2014isstoredintherod. Theenergyhasthesamelevelasthespellwhenitwascast. Acanceledspelldissipateswithnoeffect, andanyresourcesusedtocastitarewasted. Therodcanabsorbandstoreupto50levelsofenergyoverthecourseofitsexistence. Oncetherodabsorbs50levelsofenergy, itcan \u2019tabsorbmore. Ifyouaretargetedbyaspellthattherodcan \u2019tstore, therodhasnoeffectonthatspell. Whenyoubecomeattunedtotherod, youknowhowmanylevelsofenergytherodhasabsorbedoverthecourseofitsexistenceandhowmanylevelsofspellenergyitcurrentlyhasstored. Ifyouareaspellcasterholdingtherod, youcanconvertenergystoredinitintospellslotstocastspellsyouhavepreparedorknow . Youcancreatespellslotsonlyofalevelequaltoorlowerthanyourownspellslots, uptoamaximumoflevel5. Youusethestoredlevelsinplaceofyourslotsbutotherwisecastthespellasnormal. Forexample, youcanuse3levelsstoredintherodasalevel3spellslot. Anewlyfoundrodtypicallyhas1d10levelsofspellenergystoredinit. Arodthatcannolongerabsorbspellenergyandhasnoenergyremainingbecomesnonmagical.",
+    "index": "rodof-absorption"
+  },
+  {
+    "name": "Rodof Alertness",
+    "type": "Rod",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisrodhasthefollowingproperties. Alertness. Whileholdingtherod, youhave Advantageon Wisdom ( Perception ) checksandon Initiativerolls. Spells. Whileholdingtherod, youcancastthefollowingspellsfromit:",
+    "index": "rodof-alertness"
+  },
+  {
+    "name": "Rodof Lordly Might",
+    "type": "Rod",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Thisrodhasa\ufb02angedhead, anditfunctionsasamagic Macethatgrantsa +3bonustoattackrollsanddamage rollsmadewithit. Therodhaspropertiesassociatedwithsixdifferentbuttonsthataresetinarowalongthehaft. Ithasthreeotherpropertiesaswell, detailedbelow . RODOFRULERSHIP , RODOFLORDLYMIGHT, Buttons. Youcanpressoneofthefollowingbuttonsasa Bonus Action; abutton\u2019seffectlastsuntilyoupushadifferentbuttonoruntilyoupushthesamebuttonagain, whichcausestherodtoreverttoitsnormalform: Button1. A\ufb01erybladesproutsfromtheendoppositetherod\u2019s\ufb02angedhead. The\ufb02amesshed Bright Lightina40-footradiusand Dim Lightforanadditional40feet, andthebladefunctionsasamagic Longswordor Shortsword (yourchoice) thatdealsanextra2d6Firedamageonahit. Button2. Therod\u2019s\ufb02angedheadfoldsdownandtwocrescent-shapedbladesspringout, transformingtherodintoamagic Battleaxethatgrantsa +3bonustoattackrollsanddamage rollsmadewithit. Button3. Therod\u2019s\ufb02angedheadfoldsdown, aspearpointspringsfromtherod\u2019stip, andtherod\u2019shandlelengthensintoa6-foothaft, transformingtherodintoamagic Spearthatgrantsa +3bonustoattackrollsanddamage rollsmadewithit. Button4. Therodtransformsintoaclimbingpoleupto50feetlong (youspecifythelength), thoughtherod\u2019sbuttonsremainwithinyourreach. Insurfacesashardasgranite, aspikeatthebottomandthreehooksatthetopanchorthepole. Horizontalbars3incheslongfoldoutfromthesides, 1footapart, formingaladder . Thepolecanbearupto4,000pounds. Moreweightorlackofsolidanchoringcausestherodtoreverttoitsnormalform. Button5. Therodtransformsintoahandheldbatteringramandgrantsitsusera +10bonusto Strength ( Athletics ) checksmadetobreakthroughdoors, barricades, andotherbarriers. Button6. Therodassumesorremainsinitsnormalformandindicatesmagneticnorth. (Nothinghappensifthisfunctionoftherodisusedinalocationthathasnomagneticnorth.) Therodalsogivesyouknowledgeofyourapproximatedepthbeneaththegroundoryourheightaboveit. Drain Life. Whenyouhitacreaturewithameleeattackusingtherod, youcanforcethetargettomakea DC 17Constitutionsaving throw. Onafailedsave, thetargettakesanextra4d6Necroticdamage, andyouregainanumberof Hit Pointsequaltohalfthat Necroticdamage. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn. Paralyze. Whenyouhitacreaturewithameleeattackusingtherod, youcanforcethetargettomakea DC 17Constitutionsaving throw. Onafailedsave, thetargethasthe Paralyzedconditionfor1minute. Thetargetrepeatsthesaveattheendofeachofitsturns, endingtheeffectonasuccess. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn. Terrify . Whileholdingtherod, youcantakea Magicactiontoforceeachcreatureyoucanseewithin30feetofyourselftomakea DC 17Wisdomsaving throw. Onafailedsave, atargethasthe Frightenedconditionfor1minute. AFrightenedtargetrepeatsthesaveattheendofeachofitsturns, endingtheeffectonitselfonasuccess. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn.",
+    "index": "rodof-lordly-might"
+  },
+  {
+    "name": "Rodof Resurrection",
+    "type": "Rod",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Therodhas5charges. Whileyouholdit, youcancastoneofthefollowingspellsfromit: Heal (expends1charge) or Resurrection (expends5charges). Therodregains1expendedchargedailyatdawn. Ifyouexpendthelastcharge, roll1d20. Ona1, theroddisappearsinaharmlessburstofradiance.",
+    "index": "rodof-resurrection"
+  },
+  {
+    "name": "Rodof Rulership",
+    "type": "Rod",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youcantakea Magicactiontopresenttherodandcommandobediencefromeachcreatureofyourchoicethatyoucanseewithin120feetofyourself. Eachtargetmustsucceedona DC 15Wisdomsaving throworhavethe Charmedconditionfor8hours. While Charmedinthisway, thecreatureregardsyouasitstrustedleader . Ifharmedbyyouoryouralliesorcommandedtodosomethingcontrarytoitsnature, atargetceasestobe Charmedinthisway. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn.",
+    "index": "rodof-rulership"
+  },
+  {
+    "name": "Scimitarof Speed",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Yougaina +2bonustoattackrollsanddamage rollsmadewiththismagicweapon. Inaddition, youcanmakeoneattackwithitasa Bonus Actiononeachofyourturns.",
+    "index": "scimitarof-speed"
+  },
+  {
+    "name": "Shield, +1, +2, or +3",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Whileholdingthis Shield, youhaveabonusto Armor Classdeterminedbythe Shield\u2019 srarity , inadditiontothe Shield\u2019 snormalbonusto AC.",
+    "index": "shield-+1-+2-or-+3"
+  },
+  {
+    "name": "Shieldof Missile A ttraction",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileholdingthis Shield, youhave Resistancetodamagefromattacksmadewith Rangedweapons. Curse. This Shieldiscursed. Attuningtoitcursesyouuntilyouaretargetedbya Remove Cursespellorsimilarmagic. Removingthe Shieldfailstoendthecurseonyou. Wheneveranattackwitha Rangedweapontargetsacreaturewithin10feetofyou, thecursecausesyoutobecomethetargetinstead.",
+    "index": "shieldof-missile-a-ttraction"
+  },
+  {
+    "name": "Shieldofthe Cavalier",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileholdingthis Shield, youhavea +2bonusto Armor Class. Thisbonusisinadditiontothe Shield\u2019 snormalbonusto AC. The Shieldhasthefollowingadditionalpropertiesthatyoucanusewhileholdingit. Forceful Bash. Whenyoutakethe Attackaction, youcanmakeoneoftheattackrollsusingthe Shieldagainstatargetwithin5feetofyourself. Applyyour Pro\ufb01ciency Bonusand Strengthmodi\ufb01ertotheattackroll. Onahit, the Shielddeals Forcedamagetothetargetequalto2d6 + 2plusyour Strengthmodi\ufb01er , andifthetargetisacreature, youcanpushitupto10feetdirectlyawayfromyourself. Ifthecreatureisyoursizeorsmaller , youcanalsoknockitdown, givingitthe Pronecondition. Protective Field. Asa Reaction, whenyouoranallyyoucanseewithin5feetofyouistargetedbyanattackormakesasaving throwagainstanareaofeffect, youcanusethe Shieldtocreateanimmobile5-foot Emanationoriginatingfromyou. Whenthe Emanationappears, anycreaturesorobjectsnotfullycontainedwithinitarepushedintothenearestunoccupiedspacesoutsideit. Theattackorareaofeffectthattriggeredthe Reactionhasnoeffectoncreaturesandobjectsinsidethe Emanation, whichlastsaslongasyoumaintain Concentration , upto1minute. Nothingcanpassintooroutofthe Emanation. Acreatureorobjectinsidethe Emanationcan \u2019tbedamagedbyattacksoreffectsoriginatingfromoutside, norcanacreatureinsidethe Emanationdamageanythingoutsideit. Once this property is used, itcan \u2019tbeusedagainuntil the next dawn.",
+    "index": "shieldofthe-cavalier"
+  },
+  {
+    "name": "Silvered Weapon",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Analchemicalprocesshasbondedsilvertothismagicweapon. Whenyouscorea Critical Hitwithitagainstacreaturethatisshape-shifted, theweapondealsoneadditionaldieofdamage.",
+    "index": "silvered-weapon"
+  },
+  {
+    "name": "Smoldering Armor",
+    "type": "Armor",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Wispsofharmless, odorlesssmokerisefromthisarmorwhileitisworn.",
+    "index": "smoldering-armor"
+  },
+  {
+    "name": "Spellguard Shield",
+    "type": "Armor",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileholdingthis Shield, youhave Advantageonsaving throwsagainstspellsandothermagicaleffects, andspellattackrollshave Disadvantageagainstyou.",
+    "index": "spellguard-shield"
+  },
+  {
+    "name": "SPIRIT BOARD",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffhas10charges. Whileholdingthestaff, youcanuseanyofitsproperties: Cast Spell. Youcanexpend1ofthestaff \u2019schargestocast Charm Person , Command , or Comprehend Languagesfromitusingyourspellsave DC. Re\ufb02ect Enchantment. Ifyousucceedonasaving throwagainstan Enchantmentspellthattargetsonlyyou, youcantakea Reactiontoexpend1chargefromthestaffandturnthespellbackonitscasterasifyouhadcastthespell. Resist Enchantment. Ifyoufailasaving throwagainstan Enchantmentspellthattargetsonlyyou, youcanturnyourfailedsaveintoasuccessfulone. Youcan\u2019tusethispropertyofthestaffagainuntil the next dawn. Regaining Charges. Thestaffregains1d8 + 2expendedchargesdailyatdawn. Ifyouexpendthelastcharge, roll1d20. Ona1, thestaffcrumblestodustandisdestroyed.",
+    "index": "spirit-board"
+  },
+  {
+    "name": "Staffof Fire",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youhave Resistanceto Firedamagewhileyouholdthisstaff. Spells. Thestaffhas10charges. Whileholdingthestaff, youcancastoneofthespellsonthefollowingtablefromit, usingyourspellsave DC. Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "staffof-fire"
+  },
+  {
+    "name": "Staffof F rost",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Youhave Resistanceto Colddamagewhileyouholdthisstaff. Spells. Thestaffhas10charges. Whileholdingthestaff, youcancastoneofthespellsonthefollowingtablefromit, usingyourspellsave DC. Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "staffof-f-rost"
+  },
+  {
+    "name": "Staffof Healing",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffhas10charges. Whileholdingthestaff, youcancastoneofthespellsonthefollowingtablefromit, usingyourspellcastingabilitymodi\ufb01er . Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "staffof-healing"
+  },
+  {
+    "name": "Staffof P ower",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffhas20chargesandcanbewieldedasamagic Quarterstaffthatgrantsa +2bonustoattackrollsanddamage rollsmadewithit. Whileholdingit, yougaina +2bonusto Armor Class, saving throws, andspellattackrolls. Spells. Whileholdingthestaff, youcancastoneofthespellsonthefollowingtablefromit, usingyourspellsave DC. Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "staffof-p-ower"
+  },
+  {
+    "name": "Staffof Striking",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffcanbewieldedasamagic Quarterstaffthatgrantsa +3bonustoattackrollsanddamage rollsmadewithit. Thestaffhas10charges. Whenyouhitwithameleeattackusingit, youcanexpendupto3charges. Foreachchargeyouexpend, thetargettakesanextra1d6Forcedamage. Regaining Charges. Thestaffregains1d6 + 4expendedchargesdailyatdawn. Ifyouexpendthelastcharge, roll1d20. Ona1, thestaffbecomesanonmagical Quarterstaff.",
+    "index": "staffof-striking"
+  },
+  {
+    "name": "Staffof Swarming Insects",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "index": "staffof-swarming-insects"
+  },
+  {
+    "name": "Staffofthe Magi",
+    "type": "Staff",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Thisstaffhas50chargesandcanbewieldedasamagic Quarterstaffthatgrantsa +2bonustoattackrollsanddamage rollsmadewithit. Whileyouholdit, yougaina +2bonustospellattackrolls. Spell Absorption. Whileholdingthestaff, youhave Advantageonsaving throwsagainstspells. Inaddition, youcantakea Reactionwhenanothercreaturecastsaspellthattargetsonlyyou. Ifyoudo, thestaffabsorbsthemagicofthespell, cancelingitseffectandgaininganumberofchargesequaltotheabsorbedspell\u2019 slevel. However, ifdoingsobringsthestaff \u2019stotalnumberofchargesabove50, thestaffexplodesasifyouactivatedits Retributive Strike (seebelow). Spells. Whileholdingthestaff, youcancastoneofthespellsonthefollowingtablefromit, usingyourspellsave DC. Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "staffofthe-magi"
+  },
+  {
+    "name": "Staffofthe W oodlands",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffhas6chargesandcanbewieldedasamagic Quarterstaffthatgrantsa +2bonustoattackrollsanddamage rollsmadewithit. Whileholdingit, youhavea +2bonustospellattackrolls. Spells. Whileholdingthestaff, youcancastoneofthespellsonthefollowingtablefromit, usingyourspellsave DC. Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "staffofthe-w-oodlands"
+  },
+  {
+    "name": "Staffof Thunderand Lightning",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffcanbewieldedasamagic Quarterstaffthatgrantsa +2bonustoattackrollsanddamage rollsmadewithit. Italsohasthefollowingadditionalproperties. Onceoneofthesepropertiesisused, itcan \u2019tbeusedagainuntil the next dawn. Lightning. Whenyouhitwithameleeattackusingthestaff, youcancausethetargettotakeanextra2d6Lightningdamage (noactionrequired). Thunder . Whenyouhitwithameleeattackusingthestaff, youcancausethestafftoemitacrackofthunderaudibleoutto300feet (noactionrequired). Thetargetyouhitmustsucceedona DC 17Constitutionsaving throworhavethe Stunnedconditionuntiltheendofyournextturn. Thunderand Lightning. Immediatelyafteryouhitwithameleeattackusingthestaff, youcantakea Bonus Actiontousethe Lightningand Thunderproperties (seeabove) atthesametime. Doingsodoesn \u2019texpendthedailyuseofthoseproperties, onlytheuseofthisone. Lightning Strike. Youcantakea Magicactiontocauseaboltoflightningtoleapfromthestaff \u2019stipina Linethatis5feetwideand120feetlong. Eachcreatureinthat Linemakesa DC 17Dexteritysaving throw, taking9d6Lightningdamageonafailedsaveorhalfasmuchdamageonasuccessfulone. Thunderclap. Youcantakea Magicactiontocausethestafftoproduceathunderclapaudibleoutto600feet. Everycreaturewithina60-foot Emanationoriginatingfromyoumakesa DC 17Constitutionsaving throw. Onafailedsave, acreaturetakes2d6Thunderdamageandhasthe Deafenedconditionfor1minute. Onasuccessfulsave, acreaturetakeshalfasmuchdamageonly .",
+    "index": "staffof-thunderand-lightning"
+  },
+  {
+    "name": "Staffof Withering",
+    "type": "Staff",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisstaffhas3chargesandregains1d3expendedchargesdailyatdawn. Thestaffcanbewieldedasamagic Quarterstaff. Onahit, itdealsdamageasanormal Quarterstaff, andyoucanexpend1chargetodealanextra2d10Necroticdamagetothetargetandforceittomakea DC 15Constitutionsaving throw. Onafailedsave, thetargethas Disadvantagefor1houronanyabilitycheckorsaving throwthatuses Strengthor Constitution. Stoneof Controlling Earth Elementals",
+    "index": "staffof-withering"
+  },
+  {
+    "name": "Sword of A nswering",
+    "type": "Weapon",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Yougaina +3bonustoattackrollsanddamage rollsmadewiththissword. Inaddition, whileyouholdthesword, youcantakea Reactiontomakeonemeleeattackwithitagainstanycreatureinyourreachthatdealsdamagetoyou. Youhave Advantageontheattackroll, andanydamagedealtwiththisspecialattackignoresany Immunityor Resistancethetargethastothatdamage.",
+    "index": "sword-of-a-nswering"
+  },
+  {
+    "name": "Sword of Kas",
+    "type": "Weapon",
+    "rarity": "artifact",
+    "requiresAttunement": false,
+    "description": "Kaswasapowerfulwarriorwhoserved Vecnaandwhoseloyaltywasrewardedwiththissword. As Kas\u2019 spowergrew, sodidhishubris. Theswordurged Kastodestroy Vecnaandusurphisthrone. Legendsays Vecna \u2019sdestructioncameat Kas\u2019 shand, but Vecnaalsowroughthisrebelliouslieutenant\u2019 sdoom, leavingonly Kas\u2019 sswordbehind. Bloodthirst. Theswordthirstsforblood. Ifthesworddoesn \u2019ttastebloodonitsbladewithin1minuteofbeingdrawnfromitsscabbard, itswieldermakesa DC 15Charismasaving throw. Onasuccessfulsave, thewieldertakes3d6Psychicdamage. Onafailedsave, thewielderisdominatedbythesword, asifbythe Dominate Monsterspell, andthesworddemandsblood. Thespelleffectendswhenthesword\u2019sdemandismet. Magic Weapon. Yougaina +3bonustoattackrollsanddamage rollsmadewiththesword, whichscoresa Critical Hitonarollof19or20onthed20anddealsanextra2d10Slashingdamageto Undead. Random Properties. Theswordhasthefollowingrandomproperties (see \u201c Artifacts \u201d inthischapter): 1minorbene\ufb01cialproperty1majorbene\ufb01cialproperty1minordetrimentalproperty1majordetrimentalproperty Spells. Whiletheswordisonyourperson, youcancastthefollowingspells (save DC 18) fromit:",
+    "index": "sword-of-kas"
+  },
+  {
+    "name": "Sword of Life Stealing",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyouattackacreaturewiththismagicweaponandrolla20onthed20fortheattackroll, thattargettakesanextra15Necroticdamageifitisn \u2019ta Constructoran Undead, andyougain Temporary Hit Pointsequaltotheamountof Necroticdamagetaken.",
+    "index": "sword-of-life-stealing"
+  },
+  {
+    "name": "Sword of Sharpness",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyouattackanobjectwiththismagicweaponandhit, maximizeyourweapondamagediceagainstthetarget. Whenyouattackacreaturewiththisweaponandrolla20onthed20fortheattackroll, thattargettakesanextra14Slashingdamageandgains1",
+    "index": "sword-of-sharpness"
+  },
+  {
+    "name": "Sword of V engeance",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Yougaina +1bonustoattackrollsanddamage rollsmadewiththismagicweapon. Curse. Thisweaponiscursedandpossessedbyavengefulspirit. Becomingattunedtoitextendsthecursetoyou. Aslongasyouremaincursed, youareunwillingtopartwiththeweapon, keepingitonyourpersonatalltimes. Whileattunedtothisweapon, youhave Disadvantageonattackrollsmadewithweaponsotherthanthisone. Inaddition, whiletheweaponisonyourperson, youmustsucceedona DC 15Wisdomsaving throwwheneveryoutakedamagefromanothercreatureincombat. Onafailedsave, youmustattackthecreaturethatdamagedyouuntilyoudropto0Hit Pointsoritdoesoruntilyoucan \u2019treachthecreaturetomakeameleeattackagainstit. Youcanbreakthecurseintheusualways. Alternatively, casting Banishmentontheweaponforcesthevengefulspirittoleaveit. Theweaponthenbecomesa +1Weaponwithnootherproperties.",
+    "index": "sword-of-v-engeance"
+  },
+  {
+    "name": "Sword of W ounding",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whenyouhitacreaturewithanattackusingthismagicweapon, thetargettakesanextra2d6Necroticdamageandmustsucceedona DC 15Constitutionsaving throworbeunabletoregain Hit Pointsfor1hour . Thetargetrepeatsthesaveattheendofeachofitsturns, endingtheeffectonitselfonasuccess.",
+    "index": "sword-of-w-ounding"
+  },
+  {
+    "name": "Sylvan Talon",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Whilethisweaponisonyourperson, youunderstandthenonwrittencommunicationofall Fey, andtheyunderstandyours. Secret Message. Asa Magicaction, youcanusetheweapontocast Message . Once this property is used, itcan \u2019tbeusedagainuntil the next dawn.",
+    "index": "sylvan-talon"
+  },
+  {
+    "name": "Tentacle Rod",
+    "type": "Rod",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thisrodendsinthreerubberytentacles. Whileholdingtherod, youcantakea Magicactiontodirectthetentaclestostretchoutward, eachoneattackingacreatureyoucanseewithin15feetofyourself. Foreachtentacle, makeameleeattackrollwitha +9bonus. Atentacledeals1d6Psychicdamageonahit. Ifyouhitthesametargetwithallthreetentacles, thetargetmustsucceedona DC 15Dexteritysaving throworhavethe Restrainedconditionuntilyouhavethe Incapacitatedcondition, untilyoutakea Bonus Actiontoreleasethetarget, oruntilthetargetisnolongerwithin15feetofyou. While Restrainedinthisway, thetargettakes3d6Psychicdamageatthestartofeachofitsturns. Attheendofeachofitsturns, thetargetrepeatsthesave, endingtheeffectonitselfonasuccess.",
+    "index": "tentacle-rod"
+  },
+  {
+    "name": "Thunderous Greatclub",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Whileyouareattunedtothismagicweapon, your Strengthis20unlessyour Strengthisalreadyequaltoorgreaterthanthatscore. Theweapondealsanextra1d8Thunderdamagetoanycreatureithitsandanextra3d8Thunderdamagetoobjectsithitsthataren\u2019tbeingwornorcarried. Theweaponhasthefollowingadditionalproperties. Clapof Thunder . Asa Magicaction, youcanstriketheweaponagainstahardsurfacetocreatealoudclapofthunderaudibleoutto300feet. Youalsocreatea30-foot Coneofthunderousenergy. Eachcreatureinthe Conemustsucceedona DC 15Strengthsaving throworhavethe Pronecondition. Nonmagicalobjectsinthe Conethataren\u2019tbeingwornorcarriedtake3d8Thunderdamage. Earthquake. Asa Magicaction, youcanstriketheweaponagainstthegroundtocreateanintenseseismicdisturbanceina50-foot-radiuscirclecenteredonthepointofimpact. Structuresincontactwiththegroundinthatareatake50Bludgeoningdamage, andeachcreatureonthegroundinthatareamustsucceedona DC 20Dexteritysaving throworhavethe Pronecondition. Ifthatcreatureisalsoconcentrating, itmustsucceedona DC 20Constitutionsaving throworits Concentrationisbroken. Inaddition, youcancausea30-foot-deep, 10-foot-wide\ufb01ssuretoopenuponthegroundanywhereinthearea. Anycreatureonaspotwherethe\ufb01ssureopensmustsucceedona DC 20Dexteritysaving throw, fallingintothe\ufb01ssureonafailedsaveormovingwiththe\ufb01ssure\u2019sedgeonasuccessfulone. Anystructureonaspotwherethe\ufb01ssureopenscollapsesintothe\ufb01ssure. Onceyouusethisproperty, itcan \u2019tbeusedagainuntil the next dawn.",
+    "index": "thunderous-greatclub"
+  },
+  {
+    "name": "Tridentof Fish Command",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Thismagicweaponhas3charges, anditregains1d3expendedchargesdailyatdawn. Whileyoucarryit, youcanexpend1chargetocast Dominate Beast (save DC 15) fromitona Beastthathasa Swim Speed. THUNDEROUSGREATCLUB, TENTACLEROD , TALKINGDOLL",
+    "index": "tridentof-fish-command"
+  },
+  {
+    "name": "Vicious Weapon",
+    "type": "Weapon",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thismagicweapondealsanextra2d6damagetoanycreatureithits. Thisextradamageisofthesametypeastheweapon \u2019snormaldamage. TOMEOFUNDERSTANDING, TOMEOFLEADERSHIPANDINFLUENCE, TOMEOFCLEARTHOUGHT",
+    "index": "vicious-weapon"
+  },
+  {
+    "name": "Vorpal Sword",
+    "type": "Weapon",
+    "rarity": "legendary",
+    "requiresAttunement": false,
+    "description": "Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. Inaddition, theweaponignores Resistanceto Slashingdamage. Whenyouusethisweapontoattackacreaturethathasatleastoneheadandrolla20onthed20fortheattackroll, youcutoffoneofthecreature\u2019sheads. Thecreaturediesifitcan \u2019tsurvivewithoutthelosthead. Acreatureisimmunetothiseffectifithas Immunityto Slashingdamage, ifitdoesn \u2019thaveorneedahead, orifthe DMdecidesthatthecreatureistoobigforitsheadtobecutoffwiththisweapon. Suchacreatureinsteadtakesanextra30Slashingdamagefromthehit. Ifthecreaturehas Legendary Resistance, itcanexpendonedailyuseofthattraittoavoidlosingitshead, takingtheextradamageinstead.",
+    "index": "vorpal-sword"
+  },
+  {
+    "name": "Wandof Binding",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "index": "wandof-binding"
+  },
+  {
+    "name": "Wandof Enemy Detection",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcantakea Magicactiontoexpend1charge. For1minute, youknowthedirectionofthenearestcreature Hostiletoyouwithin60feet, butnotitsdistancefromyou. Thewandcansensethepresenceof Hostilecreaturesthatare Invisible , ethereal, disguised, orhidden, aswellasthoseinplainsight. Theeffectendsifyoustopholdingthewand. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintoashesandisdestroyed.",
+    "index": "wandof-enemy-detection"
+  },
+  {
+    "name": "Wandof F ear",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "index": "wandof-f-ear"
+  },
+  {
+    "name": "Wandof Fireballs",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcanexpendnomorethan3chargestocast Fireball (save DC 15) fromit. For1charge, youcastthelevel3versionofthespell. Youcanincreasethespell\u2019 slevelby1foreachadditionalchargeyouexpend. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintoashesandisdestroyed.",
+    "index": "wandof-fireballs"
+  },
+  {
+    "name": "Wandof Lightning Bolts",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcanexpendnomorethan3chargestocast Lightning Bolt (save DC 15) fromit. For1charge, youcastthelevel3versionofthespell. Youcanincreasethespell\u2019 slevelby1foreachadditionalchargeyouexpend. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintoashesandisdestroyed.",
+    "index": "wandof-lightning-bolts"
+  },
+  {
+    "name": "Wandof Orcus",
+    "type": "Wand",
+    "rarity": "artifact",
+    "requiresAttunement": false,
+    "description": "Craftedandwieldedby Orcus, thisghastlywandslipsfromthedemonlord\u2019sgraspfromtimetotime. Whenitdoes, itmagicallyappearswhereverthedemonlordsensesanopportunitytoachievesomefellgoal. Thewandistoppedwithaskullthatoncebelongedtoahumanheroslainby Orcus. Thewandcanmagicallychangeinsizetobetterconformtothegripofitsuser . All Holy Waterwithin10feetofthewandisdestroyed. Anycreaturebesides Orcusthattriestoattunetothewandmakesa DC 17Constitutionsaving throw. Onasuccessfulsave, thecreaturetakes10d6Necroticdamage. Onafailedsave, thecreaturediesand, ifitisa Humanoid, turnsintoa Zombie . Magic Weapon. Youcanwieldthewandasamagic Macethatgrantsa +3bonustoattackrollsanddamage rollsmadewithit. Thewanddealsanextra2d12Necroticdamageonahit. Random Properties. The Wandof Orcushasthefollowingrandomproperties (see \u201c Artifacts \u201d inthischapter): 2minorbene\ufb01cialproperties1majorbene\ufb01cialproperty MISSILES, WANDOFORCUS, WANDOFPARALYSIS, WANDOFPOLYMORPH2minordetrimentalproperties1majordetrimentalproperty Thedetrimentalpropertiesofthe Wandof Orcusaresuppressedwhilethewandisattunedto Orcus. Protection. Yougaina +3bonusto Armor Classwhileholdingthewand. Spells. Thewandhas7chargesandregains1d4 + 3expendedchargesdailyatdawn. Whileholdingthewand, youcancastoneofthespellsonthefollowingtablefromit (save DC 18). Thetableindicateshowmanychargesyoumustexpendtocastthespell.",
+    "index": "wandof-orcus"
+  },
+  {
+    "name": "Wandof P aralysis",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcantakea Magicactiontoexpend1chargetocauseathinblueraytostreakfromthetiptowardacreatureyoucanseewithin60feetofyourself. Thetargetmustsucceedona DC 15Constitutionsaving throworhavethe Paralyzedconditionfor1minute. Attheendofeachofthetarget\u2019sturns, itrepeatsthesave, endingtheeffectonitselfonasuccess. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintoashesandisdestroyed.",
+    "index": "wandof-p-aralysis"
+  },
+  {
+    "name": "Wandof P olymorph",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcanexpend1chargetocast Polymorph (save DC 15) fromit. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintoashesandisdestroyed.",
+    "index": "wandof-p-olymorph"
+  },
+  {
+    "name": "Wandof W eb",
+    "type": "Wand",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcanexpend1chargetocast Web (save DC 13) fromit. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintoashesandisdestroyed.",
+    "index": "wandof-w-eb"
+  },
+  {
+    "name": "Wandof W onder",
+    "type": "Wand",
+    "rarity": "rare",
+    "requiresAttunement": false,
+    "description": "Thiswandhas7charges. Whileholdingit, youcantakea Magicactiontoexpend1chargewhilechoosingapointwithin120feetofyourself. Thatlocationbecomesthepointoforiginofaspellorothermagicaleffectdeterminedby rolling onthe Wandof Wonder Effectstable. Spellscastfromthewandhaveasave DCof15. Ifaspell\u2019 smaximumrangeisnormallylessthan120feet, itbecomes120feetwhencastfromthewand. Ifaneffecthasmultiplepossiblesubjects, the DMdeterminesrandomlywhichamongthemareaffected. Regaining Charges. Thewandregains1d6 + 1expendedchargesdailyatdawn. Ifyouexpendthewand\u2019 slastcharge, roll1d20. Ona1, thewandcrumblesintodustandisdestroyed.",
+    "index": "wandof-w-onder"
+  },
+  {
+    "name": "Wave",
+    "type": "Weapon",
+    "rarity": "artifact",
+    "requiresAttunement": false,
+    "description": "Heldinthedungeonof White Plume Mountain, Waveisengravedwithimagesofwaves, shells, andseacreatures. Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. Whenyourolla20onthed20foranattackrollwiththisweapon, thetargettakesanextra21Necroticdamage. Whileholding Wave, yougainthefollowingbene\ufb01ts: Combat Ready . Youhave Advantageon Initiativerolls. Underwater Adaptation. Abubbleofairformsaroundyourheadwhileyouareunderwater , allowingyoutobreathenormallyinthatenvironment. Aquatic Command. Wavehas3chargesandregains1d3expendedchargesdailyatdawn. Whileyoucarryit, youcanexpend1chargetocast Dominate Beast (save DC 20) fromitona Beastthathasa Swim Speed. Globeof Invulnerability . Whileholding Wave, youcancastthelevel9versionof Globeof Invulnerabilityfromit. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn. Sentience. Waveisasentientweaponof Neutralalignment, withan Intelligenceof14, a Wisdomof10, anda Charismaof18. Ithashearingand Darkvisionoutto120feet. Theweaponcommunicatestelepathicallywithitswielderandspeaks Aquan. Personality . Wavezealouslyencouragesmortalstoworshipseagodsandhasahabitofhummingseachanteys. Con\ufb02ictarisesifthewielderfailstofurthertheweapon \u2019sobjectivesintheworld. Destroying Wave. Wavecanbedestroyedonlyontheislandof Thunderforge, whereitwasforged. Theweaponmustbemelteddownbyastormgiantorsomeoneimbuedwithastormgiant\u2019 sstrength. Destroying Waveangersagodofthesea, whosendspowerfulagentstoattacktheislandandpunishthedestroyers.",
+    "index": "wave"
+  },
+  {
+    "name": "Weapon, +1, +2, or +3",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "You have a bonus to attack rollsanddamage rollsmadewiththismagicweapon. Thebonusisdeterminedbytheweapon \u2019srarity .",
+    "index": "weapon-+1-+2-or-+3"
+  },
+  {
+    "name": "Weaponof W arning",
+    "type": "Weapon",
+    "rarity": "common",
+    "requiresAttunement": false,
+    "description": "Aslongasthisweaponiswithinyourreachandyouareattunedtoit, youandallieswithin30feetofyougainthefollowingbene\ufb01ts. Alarm. Theweaponmagicallyawakenseachsubjectwhoissleepingnaturallywhencombatbegins. Thisbene\ufb01tdoesn \u2019twakeasubjectfrommagicallyinducedsleep. Supernatural Readiness. Eachsubjecthas Advantageonits Initiativerolls.",
+    "index": "weaponof-w-arning"
+  },
+  {
+    "name": "Whelm",
+    "type": "Weapon",
+    "rarity": "artifact",
+    "requiresAttunement": false,
+    "description": "Whelmisapowerfulweaponforgedbydwarvesandlostinthedungeonof White Plume Mountain. Yougaina +3bonustoattackrollsanddamage rollsmadewiththismagicweapon. Hurl. Whelmhasthe Thrownpropertywithanormalrangeof60feetandalongrangeof180feet. Whenyouhitwitharangedattackrollusing Whelm , thetargettakesanextra1d8Forcedamage, oranextra4d8Forcedamageifthetargetisa Construct, an Elemental, ora Giant. Immediatelyafterhittingormissing, theweapon\ufb02iesbacktoyourhand. Shock Wave. Youcantakea Magicactiontostrikethegroundwith Whelmandsendashockwaveoutfromthepointofimpact. Eachcreatureofyourchoiceonthegroundwithin60feetofthatpointmustsucceedona DC 20Constitutionsaving throworhavethe Stunnedconditionfor1minute. Acreaturerepeatsthesaveattheendofeachofitsturns, endingtheeffectonitselfonasuccess. Onceused, thispropertycan \u2019tbeusedagainuntil the next dawn. Supernatural Awareness. Whileyouareholdingtheweapon, italertsyoutothelocationofanysecretorconcealeddoorswithin30feetofyou. Inaddition, youcancast Detect Eviland Goodor Locate Objectfromtheweapon. Onceyoucasteitherspell, youcan \u2019tcastitfromtheweaponagainuntil the next dawn. Sentience. Whelmisasentient, Lawful Neutralweaponwithan Intelligenceof15, a Wisdomof12, anda Charismaof15. Ithashearingand Darkvisionoutto120feet. Theweaponcommunicatestelepathicallywithitswielderandspeaks Dwarvish, Giant, and Goblin. Personality . Whelmhastiestothedwarfclanthatcreatedit, calledthe Dankilorthe Mightyhammerclan. Itlongstobereturnedtothatclan. Whelm \u2019spurposeistoprotectdwarves. Con\ufb02ictarisesifthewielderdoesn \u2019tsharethisgoal. Destroying Whelm. Whelmcanbedissolvedintheacidicbileofarecentlyslainancientblackdragon . Itcanalsobemelteddownintheforgesofthe Mightyhammerdwarfclan, butonlybytherightfulleaderofthatclan.",
+    "index": "whelm"
+  }
+]

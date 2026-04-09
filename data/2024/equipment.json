@@ -1,0 +1,318 @@
+[
+  {
+    "index": "daggers",
+    "name": "Dagger",
+    "equipment_category": "weapons",
+    "gear_category": "martial melee weapons",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "desc": [
+      "A simple melee weapon that can be used for thrown attacks.",
+      "You can make a ranged attack with a dagger by throwing it, but you must have a free hand to retrieve it."
+    ],
+    "damage": {
+      "damage_type": "piercing",
+      "damage_dice": "1d4"
+    },
+    "properties": [
+      "light",
+      "finesse",
+      "thrown"
+    ],
+    "quantity": 1,
+    "group": "simple weapons"
+  },
+  {
+    "index": "light-hammer",
+    "name": "Light Hammer",
+    "equipment_category": "weapons",
+    "gear_category": "simple melee weapons",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 2,
+    "desc": [
+      "A simple melee weapon that deals bludgeoning damage."
+    ],
+    "damage": {
+      "damage_type": "bludgeoning",
+      "damage_dice": "1d4"
+    },
+    "properties": [
+      "light",
+      "thrown"
+    ],
+    "quantity": 1,
+    "group": "simple weapons"
+  },
+  {
+    "index": "longbow",
+    "name": "Longbow",
+    "equipment_category": "weapons",
+    "gear_category": "martial ranged weapons",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 2,
+    "desc": [
+      "A martial ranged weapon that requires two hands to use.",
+      "You must have at least one free hand to load this weapon."
+    ],
+    "damage": {
+      "damage_type": "piercing",
+      "damage_dice": "1d8"
+    },
+    "properties": [
+      "ammunition",
+      "heavy",
+      "two-handed"
+    ],
+    "quantity": 1,
+    "group": "martial weapons"
+  },
+  {
+    "index": "mace",
+    "name": "Mace",
+    "equipment_category": "weapons",
+    "gear_category": "simple melee weapons",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 4,
+    "desc": [
+      "A simple melee weapon that deals bludgeoning damage."
+    ],
+    "damage": {
+      "damage_type": "bludgeoning",
+      "damage_dice": "1d6"
+    },
+    "properties": [],
+    "quantity": 1,
+    "group": "simple weapons"
+  },
+  {
+    "index": "quarterstaff",
+    "name": "Quarterstaff",
+    "equipment_category": "weapons",
+    "gear_category": "simple melee weapons",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 4,
+    "desc": [
+      "A simple melee weapon that can be used with two hands.",
+      "This weapon is versatile, dealing more damage when used with two hands."
+    ],
+    "damage": {
+      "damage_type": "bludgeoning",
+      "damage_dice": "1d6"
+    },
+    "properties": [
+      "versatile"
+    ],
+    "quantity": 1,
+    "group": "simple weapons"
+  },
+  {
+    "index": "shortsword",
+    "name": "Shortsword",
+    "equipment_category": "weapons",
+    "gear_category": "martial melee weapons",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 2,
+    "desc": [
+      "A martial melee weapon that can be used for light attacks."
+    ],
+    "damage": {
+      "damage_type": "piercing",
+      "damage_dice": "1d6"
+    },
+    "properties": [
+      "finesse",
+      "light"
+    ],
+    "quantity": 1,
+    "group": "martial weapons"
+  },
+  {
+    "index": "leather-armor",
+    "name": "Leather Armor",
+    "equipment_category": "armor",
+    "gear_category": "light armor",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 10,
+    "desc": [
+      "Light armor made from hardened leather that offers basic protection."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "armor",
+    "armor_class": "11 + Dexterity modifier"
+  },
+  {
+    "index": "chain-shirt",
+    "name": "Chain Shirt",
+    "equipment_category": "armor",
+    "gear_category": "light armor",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 20,
+    "desc": [
+      "Light armor made of interlocking metal rings that provides good protection while allowing mobility."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "armor",
+    "armor_class": "13 + Dexterity modifier (max 2)"
+  },
+  {
+    "index": "shield",
+    "name": "Shield",
+    "equipment_category": "armor",
+    "gear_category": "shields",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 6,
+    "desc": [
+      "A simple piece of equipment used for defense.",
+      "When you use a shield, you gain a +2 bonus to AC."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "armor",
+    "armor_class": "+2 AC"
+  },
+  {
+    "index": "explorers-pack",
+    "name": "Explorer's Pack",
+    "equipment_category": "adventuring gear",
+    "gear_category": "packs",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 55,
+    "desc": [
+      "A pack containing essential adventuring supplies.",
+      "Contains: Backpack, bedroll, mess kit, tinderbox, 10 torches, 10 pitons, 50 feet of hemp rope, and 1 day of rations."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "adventuring gear"
+  },
+  {
+    "index": "backpack",
+    "name": "Backpack",
+    "equipment_category": "adventuring gear",
+    "gear_category": "containers",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 5,
+    "desc": [
+      "A leather backpack with straps for carrying equipment."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "adventuring gear"
+  },
+  {
+    "index": "thieves-tools",
+    "name": "Thieves' Tools",
+    "equipment_category": "tools",
+    "gear_category": "thieves' tools",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "desc": [
+      "A set of tools used for disarming traps and picking locks.",
+      "You have proficiency with thieves' tools if you have the Rogue class feature or the Thief background."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "tools"
+  },
+  {
+    "index": "torch",
+    "name": "Torch",
+    "equipment_category": "adventuring gear",
+    "gear_category": "light sources",
+    "cost": {
+      "quantity": 1,
+      "unit": "cp"
+    },
+    "weight": 1,
+    "desc": [
+      "A stick of wood with burning tar or tallow that provides light.",
+      "A torch burns for 1 hour."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "adventuring gear"
+  },
+  {
+    "index": "rations",
+    "name": "Rations",
+    "equipment_category": "adventuring gear",
+    "gear_category": "food and drink",
+    "cost": {
+      "quantity": 5,
+      "unit": "cp"
+    },
+    "weight": 2,
+    "desc": [
+      "Dried food suitable for long journeys.",
+      "One day's worth of rations."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "adventuring gear"
+  },
+  {
+    "index": "waterskin",
+    "name": "Waterskin",
+    "equipment_category": "adventuring gear",
+    "gear_category": "containers",
+    "cost": {
+      "quantity": 2,
+      "unit": "sp"
+    },
+    "weight": 5,
+    "desc": [
+      "A leather container for carrying water.",
+      "Holds up to 4 pints of liquid."
+    ],
+    "damage": null,
+    "properties": [],
+    "quantity": 1,
+    "group": "adventuring gear"
+  }
+]

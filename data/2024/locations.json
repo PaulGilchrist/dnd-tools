@@ -1,0 +1,47 @@
+[
+  {
+    "index": " forgotten-realms",
+    "name": "Forgotten Realms",
+    "book": "Forgotten Realms Campaign Setting",
+    "desc": "A vast continent filled with diverse kingdoms, city-states, and wilderness areas.",
+    "type": "continent",
+    "region": "Faer\u00fbn",
+    "population": 0
+  },
+  {
+    "index": "waterdeep",
+    "name": "Waterdeep",
+    "book": "Forgotten Realms Campaign Setting",
+    "desc": "The City of Splendors, a major port city on the Sword Coast.",
+    "type": "city",
+    "region": "Sword Coast",
+    "population": 350000
+  },
+  {
+    "index": "dalelands",
+    "name": "The Dalelands",
+    "book": "Forgotten Realms Campaign Setting",
+    "desc": "A region of small, independent city-states and farming communities.",
+    "type": "region",
+    "region": "Faer\u00fbn",
+    "population": 0
+  },
+  {
+    "index": "moonsea",
+    "name": "The Moonsea",
+    "book": "Forgotten Realms Campaign Setting",
+    "desc": "A lake and surrounding region known for its harsh climate and numerous warring city-states.",
+    "type": "region",
+    "region": "Faer\u00fbn",
+    "population": 0
+  },
+  {
+    "index": "underdark",
+    "name": "The Underdark",
+    "book": "Forgotten Realms Campaign Setting",
+    "desc": "A vast subterranean realm of darkness inhabited by drow, duergar, and other subterranean creatures.",
+    "type": "area",
+    "region": "Underworld",
+    "population": 0
+  }
+]

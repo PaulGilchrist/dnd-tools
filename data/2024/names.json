@@ -1,0 +1,362 @@
+[
+  {
+    "index": "aasimar-names",
+    "name": "Aasimar Names",
+    "type": "species",
+    "family_type": "humanoid",
+    "lists": {
+      "females": [
+        "Alyra",
+        "Celestia",
+        "Dawn",
+        "Elara",
+        "Elysia",
+        "Iris",
+        "Lumina",
+        "Seraphina",
+        "Solara",
+        "Vespera"
+      ],
+      "males": [
+        "Aurelius",
+        "Caelum",
+        "Darius",
+        "Elian",
+        "Ignis",
+        "Lucian",
+        "Malachai",
+        "Orion",
+        "Seraph",
+        "Solomon"
+      ],
+      "family": [
+        "Astral",
+        "Celestial",
+        "Divine",
+        "Heavenly",
+        "Luminous",
+        "Radiant",
+        "Saint",
+        "Starborn",
+        "Sun",
+        "Winged"
+      ]
+    },
+    "cultural_group": "celestial"
+  },
+  {
+    "index": "common-names",
+    "name": "Common Names",
+    "type": "species",
+    "family_type": "humanoid",
+    "lists": {
+      "females": [
+        "Alice",
+        "Anne",
+        "Beatrice",
+        "Catherine",
+        "Elizabeth",
+        "Grace",
+        "Hannah",
+        "Isabel",
+        "Jane",
+        "Katherine"
+      ],
+      "males": [
+        "Adam",
+        "Benjamin",
+        "Charles",
+        "Daniel",
+        "Edward",
+        "Francis",
+        "George",
+        "Henry",
+        "James",
+        "William"
+      ],
+      "family": [
+        "Adams",
+        "Baker",
+        "Cooper",
+        "Dawson",
+        "Evans",
+        "Foster",
+        "Griffin",
+        "Harrison",
+        "Jackson",
+        "King"
+      ]
+    },
+    "cultural_group": "sigil"
+  },
+  {
+    "index": "dwarvish-names",
+    "name": "Dwarvish Names",
+    "type": "species",
+    "family_type": "clan",
+    "lists": {
+      "females": [
+        "Adriana",
+        "Amara",
+        "Bellara",
+        "Elara",
+        "Ginna",
+        "Helga",
+        "Ingrid",
+        "Johanna",
+        "Klara",
+        "Lina"
+      ],
+      "males": [
+        "Brom",
+        "Dain",
+        "Einar",
+        "Fjolnir",
+        "Gunnar",
+        "Haldor",
+        "Ivar",
+        "Jorund",
+        "Karl",
+        "Lodbrok"
+      ],
+      "family": [
+        "Anvil",
+        "Battle",
+        "Clay",
+        "Durn",
+        "Iron",
+        "Keld",
+        "Lod",
+        "Morn",
+        "Nar",
+        "Orrim"
+      ]
+    },
+    "cultural_group": "dwarves"
+  },
+  {
+    "index": "elvish-names",
+    "name": "Elvish Names",
+    "type": "species",
+    "family_type": "clan",
+    "lists": {
+      "females": [
+        "Aeliana",
+        "Caelia",
+        "Elandra",
+        "Faelith",
+        "Isilme",
+        "Lethiel",
+        "Nimloth",
+        "Quelith",
+        "Sylvaris",
+        "Thalindra"
+      ],
+      "males": [
+        "Aelric",
+        "Caelum",
+        "Elandor",
+        "Faelan",
+        "Isildur",
+        "Luthien",
+        "Nimrodel",
+        "Quel'ador",
+        "Sylvarin",
+        "Thalindra"
+      ],
+      "family": [
+        "Silverleaf",
+        "Starfall",
+        "Moonbeam",
+        "Nightwind",
+        "Dawnlight",
+        "Sunset",
+        "Everwood",
+        "Starlight",
+        "Moonshadow",
+        "Windrunner"
+      ]
+    },
+    "cultural_group": "elves"
+  },
+  {
+    "index": "gnomish-names",
+    "name": "Gnomish Names",
+    "type": "species",
+    "family_type": "clan",
+    "lists": {
+      "females": [
+        "Adelina",
+        "Bramble",
+        "Cressida",
+        "Daisy",
+        "Elara",
+        "Fae",
+        "Glimmer",
+        "Hazel",
+        "Iris",
+        "Jasper"
+      ],
+      "males": [
+        "Alaric",
+        "Barnaby",
+        "Clement",
+        "Dexter",
+        "Eldred",
+        "Felix",
+        "Gideon",
+        "Humphrey",
+        "Ignatius",
+        "Jasper"
+      ],
+      "family": [
+        "Brightspark",
+        "Clockwork",
+        "Glimmerglass",
+        "Mistletop",
+        "Pebblefoot",
+        "Quicksilver",
+        "Rustbolt",
+        "Starshine",
+        "Tinker",
+        "Wheeler"
+      ]
+    },
+    "cultural_group": "gnomes"
+  },
+  {
+    "index": "halfling-names",
+    "name": "Halfling Names",
+    "type": "species",
+    "family_type": "clan",
+    "lists": {
+      "females": [
+        "Adelaide",
+        "Bess",
+        "Cecily",
+        "Dora",
+        "Edith",
+        "Fanny",
+        "Gwen",
+        "Hilda",
+        "Irene",
+        "Jemima"
+      ],
+      "males": [
+        "Albert",
+        "Barnaby",
+        "Charles",
+        "Dennis",
+        "Edward",
+        "Frank",
+        "George",
+        "Henry",
+        "James",
+        "William"
+      ],
+      "family": [
+        "Burrows",
+        "Chubb",
+        "Fellowship",
+        "Gardener",
+        "Hill",
+        "Jones",
+        "Longfoot",
+        "Puddlefoot",
+        "Sand",
+        "Tucker"
+      ]
+    },
+    "cultural_group": "halflings"
+  },
+  {
+    "index": "orcish-names",
+    "name": "Orcish Names",
+    "type": "species",
+    "family_type": "tribe",
+    "lists": {
+      "females": [
+        "Barka",
+        "Ghazba",
+        "Hakra",
+        "Kara",
+        "Lagga",
+        "Marga",
+        "Naga",
+        "Ogra",
+        "Raga",
+        "Sagga"
+      ],
+      "males": [
+        "Ghaznak",
+        "Hargak",
+        "Kargak",
+        "Largak",
+        "Morgak",
+        "Nargak",
+        "Orgak",
+        "Rargak",
+        "Sargak",
+        "Targak"
+      ],
+      "family": [
+        "Bloodfist",
+        "Bonecrusher",
+        "Darktusk",
+        "Eyesore",
+        "Fang",
+        "Gore",
+        "Hate",
+        "Ironjaw",
+        "Kill",
+        "Rage"
+      ]
+    },
+    "cultural_group": "orcs"
+  },
+  {
+    "index": "tiefling-names",
+    "name": "Tiefling Names",
+    "type": "species",
+    "family_type": "family",
+    "lists": {
+      "females": [
+        "Azura",
+        "Demona",
+        "Elara",
+        "Izora",
+        "Kallista",
+        "Lilith",
+        "Morrigan",
+        "Nyx",
+        "Serafina",
+        "Vespera"
+      ],
+      "males": [
+        "Azrael",
+        "Demetrius",
+        "Ezekiel",
+        "Lucian",
+        "Malachai",
+        "Nyx",
+        "Samael",
+        "Tiamat",
+        "Uriel",
+        "Vesper"
+      ],
+      "family": [
+        "Bloodbane",
+        "Darkfire",
+        "Duskmourn",
+        "Hellfire",
+        "Infernal",
+        "Nightshade",
+        "Shadow",
+        "Soulburn",
+        "Twilight",
+        "Void"
+      ]
+    },
+    "cultural_group": "infernal"
+  }
+]
