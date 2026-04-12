@@ -18,11 +18,27 @@
     display: block;
 }
 
-/* Style the spell rule version dropdown */
-.navbar-nav .form-select {
+/* Style the spell rule version dropdown to match global form styles */
+.dropdown-spell-version .form-select {
+    background-color: var(--background-color-body);
+    color: var(--color-body);
+    border-color: var(--background-color-header-inner);
     vertical-align: middle;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    width: auto;
+    min-width: 80px;
+}
+
+.dropdown-spell-version .form-select:hover {
+    border-color: var(--color-header);
+}
+
+.dropdown-spell-version .form-select:focus {
+    background-color: var(--background-color-body);
+    color: var(--color-body);
+    border-color: var(--color-header);
+    box-shadow: 0 0 0 0.25rem rgba(var(--color-header), 0.25);
 }
 
 /* Use grid for navbar collapse to separate nav items from spell dropdown */
@@ -48,6 +64,4 @@
     margin-left: auto !important;
     flex-shrink: 0;
 }
-
-
 

@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './NavTop.css';
 
 function NavTop() {
     const [selected, setSelected] = useState('');
     const [spellRuleVersion, setSpellRuleVersion] = useState('5e');
+    const [activeSpellRoute, setActiveSpellRoute] = useState('');
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Check if there's a saved URL in localStorage
@@ -16,6 +18,19 @@ function NavTop() {
 
         // Update selected state based on current route
         const updateSelected = () => {
+            // Track which spell route is active
+            if (location.pathname === '/spells' && spellRuleVersion === '5e') {
+                setActiveSpellRoute('5e');
+            } else if (location.pathname === '/2024/spells' && spellRuleVersion === '2024') {
+                setActiveSpellRoute('2024');
+            } else if (location.pathname === '/spells' || location.pathname === '/2024/spells') {
+                // User is on a spells page but version doesn't match dropdown
+                // Keep track of which version they're on
+                setActiveSpellRoute(location.pathname === '/2024/spells' ? '2024' : '5e');
+            } else {
+                setActiveSpellRoute('');
+            }
+
             if (location.pathname.includes('monsters/lore') || 
                 location.pathname.includes('monsters/encounters') || 
                 location.pathname.includes('monsters/search')) {
@@ -51,7 +66,13 @@ function NavTop() {
     };
 
     const handleSpellRuleChange = (e) => {
-        setSpellRuleVersion(e.target.value);
+        const newVersion = e.target.value;
+        // If the spells nav link is active, navigate to the appropriate spells route
+        if (activeSpellRoute) {
+            const newLink = newVersion === '2024' ? '/2024/spells' : '/spells';
+            navigate(newLink);
+        }
+        setSpellRuleVersion(newVersion);
     };
 
     const spellLink = spellRuleVersion === '2024' ? '/2024/spells' : '/spells';
