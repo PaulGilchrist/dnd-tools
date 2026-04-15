@@ -328,7 +328,8 @@
         "name": "Psychic Drain",
         "description": "If the aboleth has at least one creature <strong>Charmed</strong> or <strong>Grappled</strong>, it uses Consume Memories and regains 5 (1d10) Hit Points."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "abominable-yeti",
@@ -536,7 +537,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-blue-dragon",
@@ -641,7 +643,8 @@
         "name": "Tail Swipe",
         "description": "The dragon makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-brass-dragon",
@@ -762,7 +765,8 @@
         "damage": "27 (6d8) Fire damage",
         "damage_dice": "6d8"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-bronze-dragon",
@@ -883,7 +887,8 @@
         "damage": "10 (3d6) Thunder damage",
         "damage_dice": "3d6"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-copper-dragon",
@@ -1001,7 +1006,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-gold-dragon",
@@ -1125,7 +1131,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-green-dragon",
@@ -1244,7 +1251,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-red-dragon",
@@ -1349,7 +1357,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-silver-dragon",
@@ -1466,7 +1475,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "adult-white-dragon",
@@ -1575,7 +1585,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "air-elemental",
@@ -1661,7 +1672,8 @@
         "damage_dice": "4d10 + 2",
         "recharge": "4–6"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "allosaurus",
@@ -1835,7 +1847,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-blue-dragon",
@@ -1939,7 +1952,8 @@
         "name": "Tail Swipe",
         "description": "The dragon makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-brass-dragon",
@@ -2059,7 +2073,8 @@
         "damage": "36 (8d8) Fire damage",
         "damage_dice": "8d8"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-bronze-dragon",
@@ -2180,7 +2195,8 @@
         "damage": "13 (3d8) Thunder damage",
         "damage_dice": "3d8"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-copper-dragon",
@@ -2297,7 +2313,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-gold-dragon",
@@ -2421,7 +2438,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-green-dragon",
@@ -2541,7 +2559,8 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
-    "artist": "HELGE C. BALZER"
+    "artist": "HELGE C. BALZER",
+    "image": true
   },
   {
     "index": "ancient-red-dragon",
@@ -2645,7 +2664,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-silver-dragon",
@@ -2761,7 +2781,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "ancient-white-dragon",
@@ -2870,7 +2891,8 @@
         "name": "Pounce",
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "animal-lord",
@@ -3072,7 +3094,8 @@
         "damage": "5 (1d6 + 2) Bludgeoning damage",
         "damage_dice": "1d6 + 2"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "animated-broom",
@@ -3323,7 +3346,8 @@
         "recharge": "6"
       }
     ],
-    "artist": "JOHN PATRICK GAÑAS"
+    "artist": "JOHN PATRICK GAÑAS",
+    "image": true
   },
   {
     "index": "ankylosaurus",
@@ -3564,7 +3588,8 @@
         "name": "Counterspell",
         "description": "The arcanaloth casts <em>Counterspell</em> in response to that spell's trigger, using the same spellcasting ability as Spellcasting."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "arch-hag",
@@ -4548,7 +4573,8 @@
         "name": "Teleport",
         "description": "The balor teleports itself or a willing demon within 10 feet of itself up to 60 feet to an unoccupied space the balor can see."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "bandit-captain",
@@ -4626,7 +4652,8 @@
         "name": "Parry",
         "description": "Trigger: The bandit is hit by a melee attack roll while holding a weapon. Response: The bandit adds 2 to its AC against that attack, possibly causing it to miss."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "bandit-crime-lord",
@@ -4955,7 +4982,8 @@
         "damage": "10 (3d6) Psychic damage",
         "damage_dice": "3d6"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "barbed-devil",
@@ -5058,7 +5086,8 @@
         "damage": "17 (5d6) Fire damage",
         "damage_dice": "5d6"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "barlgura",
@@ -5154,7 +5183,8 @@
         "name": "Leap",
         "description": "The barlgura jumps up to 40 feet by spending 10 feet of movement."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "basilisk",
@@ -5211,7 +5241,8 @@
         "save_type": "Constitution",
         "recharge": "4–6"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "bat",
@@ -5338,7 +5369,8 @@
         "save_type": "Constitution"
       }
     ],
-    "artist": "ANDREA PIPARO"
+    "artist": "ANDREA PIPARO",
+    "image": true
   },
   {
     "index": "behir",
@@ -5429,7 +5461,8 @@
         "damage": "21 (6d6) Acid damage",
         "damage_dice": "6d6"
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "beholder-zombie",
@@ -5499,7 +5532,8 @@
         "description": "The zombie randomly shoots one of the following magical rays at a target it can see within 120 feet of itself (roll 1d4; reroll if the zombie has already used that ray during this turn):<br><strong>Paralyzing Ray.</strong> Constitution Saving Throw: DC 14. <strong>Failure:</strong> The target has the <strong>Paralyzed</strong> condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.<br><strong>Fear Ray.</strong> Wisdom Saving Throw: DC 14. <strong>Failure:</strong> 13 (3d8) Psychic damage, and the target has the <strong>Frightened</strong> condition until the end of its next turn.<br><strong>Enervation Ray.</strong> Constitution Saving Throw: DC 14. <strong>Failure:</strong> 10 (3d6) Necrotic damage, and the target has the <strong>Poisoned</strong> condition until the end of its next turn. While Poisoned, the target can't regain Hit Points. <strong>Success:</strong> Half damage only.<br><strong>Disintegration Ray.</strong> Dexterity Saving Throw: DC 14. <strong>Failure:</strong> 27 (5d10) Force damage. If the target is a nonmagical object or a creation of magical force, a 10-foot <strong>Cube</strong> of it disintegrates into dust. <strong>Success:</strong> Half damage. Failure or Success: If the target is a creature and this damage reduces it to 0 Hit Points, it disintegrates into dust.",
         "save_dc": 14
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "beholder",
@@ -5591,7 +5625,8 @@
         "name": "Glare",
         "description": "The beholder uses Eye Rays."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "berserker-commander",
@@ -5960,7 +5995,8 @@
         "name": "Split",
         "description": "Trigger: While the pudding is Large or Medium and has 10+ Hit Points, it becomes <strong>Bloodied</strong> or is subjected to Lightning or Slashing damage. Response: The pudding splits into two new <strong>Black Puddings</strong>. Each new pudding is one size smaller than the original pudding and acts on its Initiative. The original pudding's Hit Points are divided evenly between the new puddings (round down)."
       }
-    ]
+    ],
+    "image": true
   },
   {
     "index": "blink-dog",
@@ -6149,7 +6185,7 @@
         "description": "The blob makes one Pseudopod attack."
       }
     ]
-  },    
+  },
   {
     "index": "blood-hawk",
     "name": "Blood Hawk",
@@ -6424,7 +6460,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "boar",
@@ -6606,7 +6643,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "Bone devils are just one of a thousand reasons never to make a deal with a devil, but they're a significant one. Break said deal, and it'll likely be one of these nightmares that drags you down to the Nine Hells.\n—Sylvira Savikas, Candlekeep Sage"
+    "flavor_text": "Bone devils are just one of a thousand reasons never to make a deal with a devil, but they're a significant one. Break said deal, and it'll likely be one of these nightmares that drags you down to the Nine Hells.\n—Sylvira Savikas, Candlekeep Sage",
+    "image": true
   },
   {
     "index": "bone-naga",
@@ -6704,7 +6742,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "brass-dragon-wyrmling",
@@ -7543,7 +7582,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "bullywug-bog-sage",
@@ -7893,7 +7933,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "camel",
@@ -8056,7 +8097,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "ERIC BELISLE"
+    "artist": "ERIC BELISLE",
+    "image": true
   },
   {
     "index": "cat",
@@ -8474,7 +8516,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "chasme",
@@ -8582,7 +8625,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "RICHARD LUONG"
+    "artist": "RICHARD LUONG",
+    "image": true
   },
   {
     "index": "chimera",
@@ -8690,7 +8734,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "chuul",
@@ -8792,7 +8837,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "clay-golem",
@@ -8905,7 +8951,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "cloaker",
@@ -9018,7 +9065,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "cloud-giant",
@@ -9123,7 +9171,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "cockatrice-regent",
@@ -9307,7 +9356,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "DAREN BADER"
+    "artist": "DAREN BADER",
+    "image": true
   },
   {
     "index": "colossus",
@@ -9816,7 +9866,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "crab",
@@ -9975,7 +10026,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "Is it possible for any creature, any living being, to be inherently evil? Such an assertion may itself facilitate the committing of evil acts. By defining a person as evil, we give them free rein to behave as they will, absolving them from the wickedness of their words and the evil of their hands.\n—Ansolm Haas, The Isolation of Evil"
+    "flavor_text": "Is it possible for any creature, any living being, to be inherently evil? Such an assertion may itself facilitate the committing of evil acts. By defining a person as evil, we give them free rein to behave as they will, absolving them from the wickedness of their words and the evil of their hands.\n—Ansolm Haas, The Isolation of Evil",
+    "image": true
   },
   {
     "index": "crocodile",
@@ -10652,7 +10704,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "darkmantle",
@@ -10734,7 +10787,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "death-cultist",
@@ -10942,7 +10996,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "death-knight-aspirant",
@@ -11197,7 +11252,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "death-slaad",
@@ -11308,7 +11364,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "Fight a slaad and lose, the story's over. Fight a slaad and win, there's a thousand more standing in line just to prove they're tougher.\n—Jebeel Sloom, guide to the Plane of Limbo"
+    "flavor_text": "Fight a slaad and lose, the story's over. Fight a slaad and win, there's a thousand more standing in line just to prove they're tougher.\n—Jebeel Sloom, guide to the Plane of Limbo",
+    "image": true
   },
   {
     "index": "death-tyrant",
@@ -11423,7 +11480,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "deer",
@@ -11637,7 +11695,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "SEAN MURRAY"
+    "artist": "SEAN MURRAY",
+    "image": true
   },
   {
     "index": "deva",
@@ -11751,7 +11810,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "dire-wolf",
@@ -12029,7 +12089,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "The murderous fury of a displacer beast is fit only for nightmares, of which I've been haunted since narrowly escaping one's ambush. I'm certain that beast stalks me still.\n—Jen-Ahb, naturalist and Displacer Beast survivor"
+    "flavor_text": "The murderous fury of a displacer beast is fit only for nightmares, of which I've been haunted since narrowly escaping one's ambush. I'm certain that beast stalks me still.\n—Jen-Ahb, naturalist and Displacer Beast survivor",
+    "image": true
   },
   {
     "index": "djinni",
@@ -12143,7 +12204,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "doppelganger",
@@ -12250,7 +12312,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "Meeting yourself is the surest way to realize you're not as charming as you think you are.\n—Someone claiming to be Lorhirin of Fearchor Keep"
+    "flavor_text": "Meeting yourself is the surest way to realize you're not as charming as you think you are.\n—Someone claiming to be Lorhirin of Fearchor Keep",
+    "image": true
   },
   {
     "index": "dracolich",
@@ -12965,7 +13028,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "erinyes",
@@ -13086,7 +13150,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "ettercap",
@@ -13206,7 +13271,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "ettin",
@@ -13305,7 +13371,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "Twice the malice, aggressiveness, and appetite—the ettin demonstrates that two heads aren't necessarily better than one.\n—Bertrand, Inquisitor of the Mind Fire"
+    "flavor_text": "Twice the malice, aggressiveness, and appetite—the ettin demonstrates that two heads aren't necessarily better than one.\n—Bertrand, Inquisitor of the Mind Fire",
+    "image": true
   },
   {
     "index": "faerie-dragon-adult",
@@ -13731,7 +13798,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "fire-giant",
@@ -13824,7 +13892,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "BRIAN VALENZUELA"
+    "artist": "BRIAN VALENZUELA",
+    "image": true
   },
   {
     "index": "flameskull",
@@ -13939,7 +14008,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "flaming-skeleton",
@@ -14144,7 +14214,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "flumph",
@@ -14251,7 +14322,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "flying-snake",
@@ -14423,7 +14495,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "All-Father Annam banished his son, Karontor, for Karontor's part in the fomorian assault on the Feywild. That day, the ordning—the hierarchy of the giants and their gods—changed forever, and the fomorians were part of it no more.\n—Bigby"
+    "flavor_text": "All-Father Annam banished his son, Karontor, for Karontor's part in the fomorian assault on the Feywild. That day, the ordning—the hierarchy of the giants and their gods—changed forever, and the fomorians were part of it no more.\n—Bigby",
+    "image": true
   },
   {
     "index": "frog",
@@ -14609,7 +14682,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "galeb-duhr",
@@ -14786,7 +14860,8 @@
     "habitat": "",
     "treasure": "",
     "artist": "",
-    "flavor_text": "Where evil passes in the Elemental Plane of Earth, it stains the rock and spoils the soil. Malice vanishes amid other elements, but in the dismal dark, the wicked shape it into nightmares.\n—Tiv, scholar of the Elemental Planes"
+    "flavor_text": "Where evil passes in the Elemental Plane of Earth, it stains the rock and spoils the soil. Malice vanishes amid other elements, but in the dismal dark, the wicked shape it into nightmares.\n—Tiv, scholar of the Elemental Planes",
+    "image": true
   },
   {
     "index": "gas-spore-fungus",
@@ -14969,7 +15044,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "OLIVIER BERNARD"
+    "artist": "OLIVIER BERNARD",
+    "image": true
   },
   {
     "index": "ghast-gravecaller",
@@ -15163,7 +15239,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "OLIVIER BERNARD"
+    "artist": "OLIVIER BERNARD",
+    "image": true
   },
   {
     "index": "ghost",
@@ -15296,7 +15373,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "ghoul",
@@ -15385,7 +15463,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "giant-ape",
@@ -16371,7 +16450,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "giant-frog",
@@ -17310,7 +17390,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "giant-squid",
@@ -17995,7 +18076,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "githyanki-dracomancer",
@@ -18280,7 +18362,8 @@
     "resistances": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "githzerai-monk",
@@ -18381,7 +18464,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "githzerai-psion",
@@ -18587,7 +18671,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "glabrezu",
@@ -18703,7 +18788,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "gladiator",
@@ -19090,7 +19176,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "gnoll-warrior",
@@ -19353,7 +19440,8 @@
     "vulnerabilities": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "goblin-hexer",
@@ -19838,7 +19926,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "goristro",
@@ -19958,7 +20047,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "MARK BEHM"
+    "artist": "MARK BEHM",
+    "image": true
   },
   {
     "index": "graveyard-revenant",
@@ -20159,7 +20249,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "gray-slaad",
@@ -20269,7 +20360,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "grell",
@@ -20372,7 +20464,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "grick-ancient",
@@ -20559,7 +20652,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "griffon",
@@ -20644,7 +20738,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "grimlock",
@@ -20728,7 +20823,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "guard-captain",
@@ -21032,7 +21128,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "RICCARDO MOSCATELLO"
+    "artist": "RICCARDO MOSCATELLO",
+    "image": true
   },
   {
     "index": "gulthias-blight",
@@ -21337,7 +21434,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "haunting-revenant",
@@ -21525,7 +21623,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hell-hound",
@@ -21627,7 +21726,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "helmed-horror",
@@ -21737,7 +21837,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hezrou",
@@ -21843,7 +21944,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hill-giant",
@@ -21937,7 +22039,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hippogriff",
@@ -22026,7 +22129,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hippopotamus",
@@ -22213,7 +22317,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hobgoblin-warlord",
@@ -22320,7 +22425,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": "TARAS SUSAK"
+    "artist": "TARAS SUSAK",
+    "image": true
   },
   {
     "index": "hobgoblin-warrior",
@@ -22493,7 +22599,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hook-horror",
@@ -22580,7 +22687,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "horned-devil",
@@ -22697,7 +22805,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hunter-shark",
@@ -22884,7 +22993,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "hyena",
@@ -23090,7 +23200,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "ice-mephit",
@@ -23201,7 +23312,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "imp",
@@ -23307,7 +23419,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "incubus",
@@ -23597,7 +23710,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "Mark Zug"
+    "artist": "Mark Zug",
+    "image": true
   },
   {
     "index": "invisible-stalker",
@@ -23740,7 +23854,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "iron-golem",
@@ -23888,7 +24003,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "Arash Radkia"
+    "artist": "Arash Radkia",
+    "image": true
   },
   {
     "index": "jackal",
@@ -24130,7 +24246,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "juvenile-shadow-dragon",
@@ -24378,7 +24495,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "killer-whale",
@@ -24873,7 +24991,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "kuotoa-archpriest",
@@ -25516,7 +25635,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "larva",
@@ -25695,7 +25815,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "John Tedrick"
+    "artist": "John Tedrick",
+    "image": true
   },
   {
     "index": "lich",
@@ -25884,7 +26005,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "lion",
@@ -26729,7 +26851,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "magmin",
@@ -26826,7 +26949,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "mammoth",
@@ -27133,7 +27257,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "manticore",
@@ -27244,7 +27369,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "marid",
@@ -27393,7 +27519,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "marilith",
@@ -27542,7 +27669,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "Justin Gerard"
+    "artist": "Justin Gerard",
+    "image": true
   },
   {
     "index": "mastiff",
@@ -27630,7 +27758,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "medusa",
@@ -27775,7 +27904,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "merfolk-skirmisher",
@@ -28122,7 +28252,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "mezzoloth",
@@ -28276,7 +28407,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "mimic",
@@ -28393,7 +28525,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "mind-flayer-arcanist",
@@ -28703,7 +28836,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "minotaur-skeleton",
@@ -28806,7 +28940,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "minotaur-of-baphomet",
@@ -29595,7 +29730,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "mule",
@@ -29883,7 +30019,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "mummy",
@@ -30004,7 +30141,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "myconid-adult",
@@ -30120,7 +30258,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "myconid-sovereign",
@@ -30264,7 +30403,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "myconid-spore-servant",
@@ -30456,7 +30596,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "nalfeshnee",
@@ -30597,7 +30738,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "Justin Gerard"
+    "artist": "Justin Gerard",
+    "image": true
   },
   {
     "index": "needle-blight",
@@ -30696,7 +30838,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "night-hag",
@@ -30863,7 +31006,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "Cynthia Sheppard"
+    "artist": "Cynthia Sheppard",
+    "image": true
   },
   {
     "index": "nightmare",
@@ -30971,7 +31115,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "noble-prodigy",
@@ -31202,7 +31347,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "nothic",
@@ -31337,7 +31483,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "nycaloth",
@@ -31467,7 +31614,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "ochre-jelly",
@@ -31577,7 +31725,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "octopus",
@@ -31876,7 +32025,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "ogrillon-ogre",
@@ -32142,7 +32292,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "otyugh",
@@ -32267,7 +32418,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "owl",
@@ -32466,7 +32618,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "panther",
@@ -32653,7 +32806,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "performer-legend",
@@ -33182,7 +33336,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "Sean Murray"
+    "artist": "Sean Murray",
+    "image": true
   },
   {
     "index": "phase-spider",
@@ -33304,7 +33459,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "piercer",
@@ -33411,7 +33567,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "piranha",
@@ -34060,7 +34217,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "pixie-wonderbringer",
@@ -34307,7 +34465,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "planetar",
@@ -34463,7 +34622,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "plesiosaurus",
@@ -35421,7 +35581,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "psychic-gray-ooze",
@@ -35764,7 +35925,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "quaggoth-thonot",
@@ -36004,7 +36166,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "quasit",
@@ -36146,7 +36309,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "questing-knight",
@@ -36448,7 +36612,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "rat",
@@ -36873,7 +37038,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "reef-shark",
@@ -37068,7 +37234,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "revenant",
@@ -37206,7 +37373,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "rhinoceros",
@@ -37495,7 +37663,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "roper",
@@ -37634,7 +37803,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "rust-monster",
@@ -37770,7 +37940,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "saber-toothed-tiger",
@@ -38015,7 +38186,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "sahuagin-priest",
@@ -38626,7 +38798,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "satyr-revelmaster",
@@ -38870,7 +39043,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "scarecrow",
@@ -38978,7 +39152,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "scorpion",
@@ -39334,7 +39509,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "sea-hag",
@@ -39458,7 +39634,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "seahorse",
@@ -39684,7 +39861,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "shadow-dragon",
@@ -39965,7 +40143,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "shambling-mound",
@@ -40093,7 +40272,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "shield-guardian",
@@ -40217,7 +40397,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": ""
+    "artist": "",
+    "image": true
   },
   {
     "index": "shrieker-fungus",
@@ -40478,7 +40659,8 @@
       "Shortsword"
     ],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "slaad-tadpole",
@@ -40660,7 +40842,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "solar",
@@ -40796,7 +40979,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "CARLO ARELLANO"
+    "artist": "CARLO ARELLANO",
+    "image": true
   },
   {
     "index": "spectator",
@@ -40918,7 +41102,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "specter",
@@ -41017,7 +41202,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "sphinx-of-lore",
@@ -41697,7 +41883,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "TARAS SUSAK"
+    "artist": "TARAS SUSAK",
+    "image": true
   },
   {
     "index": "spirit-naga",
@@ -41791,7 +41978,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "sprite",
@@ -41888,7 +42076,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "spy-master",
@@ -42218,7 +42407,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "stirge",
@@ -42289,7 +42479,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "JOHN TEDRICK"
+    "artist": "JOHN TEDRICK",
+    "image": true
   },
   {
     "index": "stone-giant",
@@ -42391,7 +42582,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "stone-golem",
@@ -42495,7 +42687,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "storm-giant",
@@ -42619,7 +42812,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "succubus",
@@ -42830,7 +43024,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "swarm-of-crawling-claws",
@@ -43901,7 +44096,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "thri-kreen-marauder",
@@ -44447,7 +44643,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "tree-blight",
@@ -44697,7 +44894,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "troll-limb",
@@ -44868,7 +45066,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "JOHN TEDRICK"
+    "artist": "JOHN TEDRICK",
+    "image": true
   },
   {
     "index": "twig-blight",
@@ -44952,7 +45151,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "BRIAN VALEZA"
+    "artist": "BRIAN VALEZA",
+    "image": true
   },
   {
     "index": "tyrannosaurus-rex",
@@ -45164,7 +45364,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "umber-hulk",
@@ -45252,7 +45453,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "unicorn",
@@ -45372,7 +45574,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "vampire-familiar",
@@ -45702,7 +45905,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "vampire-umbral-lord",
@@ -45981,7 +46185,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "venomous-snake",
@@ -46131,7 +46336,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "violet-fungus-necrohulk",
@@ -46411,7 +46617,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "VALERA LUTFULLINA"
+    "artist": "VALERA LUTFULLINA",
+    "image": true
   },
   {
     "index": "vulture",
@@ -47023,7 +47230,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "CHRIS COLD"
+    "artist": "CHRIS COLD",
+    "image": true
   },
   {
     "index": "water-weird",
@@ -47115,7 +47323,8 @@
     "equipment": [],
     "habitat": "",
     "treasure": "",
-    "artist": "CRYSTAL SULLY"
+    "artist": "CRYSTAL SULLY",
+    "image": true
   },
   {
     "index": "weasel",
@@ -47303,7 +47512,8 @@
       "Handaxes (4)"
     ],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "wereboar",
@@ -47406,7 +47616,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": "SLAWOMIR MANIAK"
+    "artist": "SLAWOMIR MANIAK",
+    "image": true
   },
   {
     "index": "wererat",
@@ -47514,7 +47725,8 @@
       "Hand Crossbow"
     ],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "weretiger",
@@ -47625,7 +47837,8 @@
       "Longbow"
     ],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "werewolf",
@@ -47738,7 +47951,8 @@
     ],
     "habitat": "",
     "treasure": "",
-    "artist": "CRISTI BALANESCU"
+    "artist": "CRISTI BALANESCU",
+    "image": true
   },
   {
     "index": "white-dragon-wyrmling",
@@ -47951,7 +48165,8 @@
       "Studded Leather Armor"
     ],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "winged-kobold",
@@ -48132,9 +48347,10 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
-    {
+  {
     "index": "wisp",
     "name": "Wisp",
     "size": "Tiny",
@@ -48387,7 +48603,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "wraith",
@@ -48489,7 +48706,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "wyvern",
@@ -48576,7 +48794,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "xorn",
@@ -48688,7 +48907,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "yeti",
@@ -48794,7 +49014,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "yochlol",
@@ -48918,7 +49139,8 @@
     ],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-black-dragon",
@@ -49018,7 +49240,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-blue-dragon",
@@ -49113,7 +49336,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-brass-dragon",
@@ -49220,7 +49444,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-bronze-dragon",
@@ -49332,7 +49557,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-copper-dragon",
@@ -49439,7 +49665,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-gold-dragon",
@@ -49555,7 +49782,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-green-dragon",
@@ -49660,7 +49888,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-red-dragon",
@@ -49755,7 +49984,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-remorhaz",
@@ -49941,7 +50171,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "young-white-dragon",
@@ -50042,7 +50273,8 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   },
   {
     "index": "yuan-ti-abomination",
@@ -50656,6 +50888,7 @@
     "resistances": [],
     "equipment": [],
     "habitat": "",
-    "treasure": ""
+    "treasure": "",
+    "image": true
   }
 ]
