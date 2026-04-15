@@ -12,7 +12,7 @@ const dataCache = {
     locations: [],
     magicItems: [],
     monsters: [],
-    monsterSubtypes: [],
+    monsterTypes: [],
     names: [],
     playerClasses: [],
     races: [],
@@ -20,7 +20,7 @@ const dataCache = {
     spells: [],
     spells2024: [],
     monsters2024: [],
-    monsters2024Subtypes: [],
+    monsters2024Types: [],
     weaponProperties: []
 };
 
@@ -117,8 +117,8 @@ export function useMonsters() {
     return useDataCache('monsters', BASE_URL + 'data/monsters.json');
 }
 
-export function useMonsterSubtypes() {
-    return useDataCache('monsterSubtypes', BASE_URL + 'data/monster-subtypes.json');
+export function useMonsterTypes() {
+    return useDataCache('monsterTypes', BASE_URL + 'data/monster-types.json');
 }
 
 export function useNames() {
@@ -149,8 +149,8 @@ export function use2024Monsters() {
     return useDataCache('monsters2024', BASE_URL + 'data/2024/monsters.json');
 }
 
-export function use2024MonsterSubtypes() {
-    return useDataCache('monsters2024Subtypes', BASE_URL + 'data/2024/monster-subtypes.json');
+export function use2024MonsterTypes() {
+    return useDataCache('monsters2024Types', BASE_URL + 'data/2024/monster-types.json');
 }
 
 export function useWeaponProperties() {
@@ -261,32 +261,32 @@ export class DataService {
         return this.cache.monsters;
     }
 
-    async getMonsterSubtypes() {
-        if (this.cache.monsterSubtypes.length === 0) {
+    async getMonsterTypes() {
+        if (this.cache.monsterTypes.length === 0) {
             try {
-                const response = await fetch(BASE_URL + 'data/monster-subtypes.json');
+                const response = await fetch(BASE_URL + 'data/monster-types.json');
                 const data = await response.json();
-                this.cache.monsterSubtypes = data;
+                this.cache.monsterTypes = data;
                 console.log('Get - monster subtypes');
             } catch (error) {
                 handleError(error);
             }
         }
-        return this.cache.monsterSubtypes;
+        return this.cache.monsterTypes;
     }
 
-    async get2024MonsterSubtypes() {
-        if (this.cache.monsters2024Subtypes.length === 0) {
+    async get2024MonsterTypes() {
+        if (this.cache.monsters2024Types.length === 0) {
             try {
-                const response = await fetch(BASE_URL + 'data/2024/monster-subtypes.json');
+                const response = await fetch(BASE_URL + 'data/2024/monster-types.json');
                 const data = await response.json();
-                this.cache.monsters2024Subtypes = data;
+                this.cache.monsters2024Types = data;
                 console.log('Get - 2024 monster subtypes');
             } catch (error) {
                 handleError(error);
             }
         }
-        return this.cache.monsters2024Subtypes;
+        return this.cache.monsters2024Types;
     }
 
     async getNames() {

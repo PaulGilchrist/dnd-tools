@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Monster Subtypes Schema",
+  "title": "Monster Types Schema (2024 Rules)",
   "type": "array",
   "items": {
     "type": "object",
@@ -8,30 +8,34 @@
     "properties": {
       "index": {
         "type": "string",
-        "description": "Short identifier for the subtype"
+        "description": "Short identifier for the type"
       },
       "name": {
         "type": "string",
-        "description": "Full name of the subtype"
+        "description": "Full name of the type"
       },
       "book": {
         "type": "string",
-        "description": "Source book for the subtype"
+        "description": "Source book for the type"
       },
       "desc": {
         "type": "string",
-        "description": "Description of the subtype"
+        "description": "Description of the type"
       },
       "monsters": {
         "type": "array",
         "items": {
           "type": "string"
         },
-        "description": "List of monsters that belong to this subtype"
+        "description": "List of monsters that belong to this type"
       },
       "page": {
         "type": "integer",
         "description": "Page number in source book"
+      },
+      "trait_modifiers": {
+        "type": "array",
+        "description": "Trait modifiers applied to creatures of this subtype (2024 rules)"
       }
     }
   }

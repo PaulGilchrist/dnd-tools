@@ -1,642 +1,1066 @@
 [
   {
-    "index": "aberration",
-    "name": "Aberration",
-    "book": "Monster Manual 2024",
-    "desc": "Aberrations are creatures of unnatural origin, often from the Far Realm or other planes of existence. They are typically mindless or incomprehensible in their motives.",
-    "monsters": [
-      "aboleth",
-      "beholder",
-      "blue-slaad",
-      "chuul",
-      "cloaker",
-      "darkmantle",
-      "death-slaad",
-      "flumph",
-      "gibbering-mouther",
-      "githyanki-dracomancer",
-      "githyanki-knight",
-      "githyanki-warrior",
-      "githzerai-monk",
-      "githzerai-psion",
-      "githzerai-zerth",
-      "gray-slaad",
-      "grell",
-      "grick-ancient",
-      "grick",
-      "grimlock",
-      "intellect-devourer",
-      "kuotoa-archpriest",
-      "kuotoa-monitor",
-      "kuotoa-whip",
-      "mind-flayer-arcanist",
-      "mind-flayer",
-      "nothic",
-      "otyugh",
-      "piercer",
-      "red-slaad",
-      "roper",
-      "slaad-tadpole",
-      "spectator"
-    ],
-    "page": 200,
-    "trait_modifiers": [
-      "immune to poison",
-      "resistant to nonmagical weapons"
-    ]
-  },
-  {
-    "index": "beast",
-    "name": "Beast",
-    "book": "Monster Manual 2024",
-    "desc": "Beasts are animals and magical beasts that inhabit the Material Plane. They range from tiny creatures to massive dragons and other legendary beasts.",
-    "monsters": [
-      "allosaurus",
-      "ankylosaurus",
-      "ape",
-      "archelon",
-      "baboon",
-      "badger",
-      "bat",
-      "black-bear",
-      "blood-hawk",
-      "boar",
-      "brown-bear",
-      "camel",
-      "cat",
-      "constrictor-snake",
-      "crab",
-      "crocodile",
-      "deer",
-      "dire-wolf",
-      "draft-horse",
-      "frog",
-      "giant-ape",
-      "giant-badger",
-      "giant-bat",
-      "giant-boar",
-      "giant-centipede",
-      "giant-constrictor-snake",
-      "giant-crab",
-      "giant-crocodile",
-      "giant-fire-beetle",
-      "giant-frog",
-      "giant-goat",
-      "giant-hyena",
-      "giant-lizard",
-      "giant-octopus",
-      "giant-rat",
-      "giant-scorpion",
-      "giant-seahorse",
-      "giant-shark",
-      "giant-spider",
-      "giant-squid",
-      "giant-toad",
-      "giant-venomous-snake",
-      "giant-wasp",
-      "giant-weasel",
-      "giant-wolf-spider",
-      "goat",
-      "hawk",
-      "hippopotamus",
-      "hunter-shark",
-      "hyena",
-      "jackal",
-      "killer-whale",
-      "lion",
-      "lizard",
-      "mammoth",
-      "mastiff",
-      "mule",
-      "octopus",
-      "owl",
-      "panther",
-      "piranha",
-      "plesiosaurus",
-      "polar-bear",
-      "pony",
-      "pteranodon",
-      "rat",
-      "raven",
-      "reef-shark",
-      "rhinoceros",
-      "riding-horse",
-      "saber-toothed-tiger",
-      "scorpion",
-      "seahorse",
-      "spider",
-      "tiger",
-      "triceratops",
-      "tyrannosaurus-rex",
-      "venomous-snake",
-      "vulture",
-      "warhorse",
-      "weasel",
-      "wolf"
-    ],
-    "page": 201,
-    "trait_modifiers": []
-  },
-  {
-    "index": "celestial",
-    "name": "Celestial",
-    "book": "Monster Manual 2024",
-    "desc": "Celestials are creatures of pure good that hail from the Upper Planes. They serve as messengers and warriors for the gods of good.",
-    "monsters": [
-      "animal-lord",
-      "couatl",
-      "deva",
-      "empyrean-iota",
-      "empyrean",
-      "giant-eagle",
-      "giant-elk",
-      "giant-owl",
-      "guardian-naga",
-      "pegasus",
-      "planetar",
-      "solar",
-      "sphinx-of-lore",
-      "sphinx-of-secrets",
-      "sphinx-of-valor",
-      "sphinx-of-wonder",
-      "unicorn"
-    ],
-    "page": 202,
-    "trait_modifiers": [
-      "immune to poison",
-      "resistant to nonmagical weapons",
-      "darkvision"
-    ]
-  },
-  {
-    "index": "construct",
-    "name": "Construct",
-    "book": "Monster Manual 2024",
-    "desc": "Constructs are animated objects or machines created through magic. They have no self-awareness and follow their programming or the will of their creator.",
-    "monsters": [
-      "animated-armor",
-      "animated-broom",
-      "animated-flying-sword",
-      "animated-rug-of-smothering",
-      "brazen-gorgon",
-      "clay-golem",
-      "colossus",
-      "flesh-golem",
-      "gorgon",
-      "helmed-horror",
-      "homunculus",
-      "iron-golem",
-      "modron-duodrone",
-      "modron-monodrone",
-      "modron-pentadrone",
-      "modron-quadrone",
-      "modron-tridrone",
-      "scarecrow",
-      "shield-guardian",
-      "stone-golem"
-    ],
-    "page": 203,
-    "trait_modifiers": [
-      "immune to poison",
-      "immune to disease",
-      "resistant to nonmagical weapons",
-      "no need to breathe"
-    ]
-  },
-  {
-    "index": "dragon",
-    "name": "Dragon",
-    "book": "Monster Manual 2024",
-    "desc": "Dragons are powerful, intelligent reptilian creatures with innate magical abilities. They are among the most dangerous creatures in the multiverse.",
-    "monsters": [
-      "adult-black-dragon",
-      "adult-blue-dragon",
-      "adult-brass-dragon",
-      "adult-bronze-dragon",
-      "adult-copper-dragon",
-      "adult-gold-dragon",
-      "adult-green-dragon",
-      "adult-red-dragon",
-      "adult-silver-dragon",
-      "adult-white-dragon",
-      "ancient-black-dragon",
-      "ancient-blue-dragon",
-      "ancient-brass-dragon",
-      "ancient-bronze-dragon",
-      "ancient-copper-dragon",
-      "ancient-gold-dragon",
-      "ancient-green-dragon",
-      "ancient-red-dragon",
-      "ancient-silver-dragon",
-      "ancient-white-dragon",
-      "black-dragon-wyrmling",
-      "blue-dragon-wyrmling",
-      "brass-dragon-wyrmling",
-      "bronze-dragon-wyrmling",
-      "bronze-dragons",
-      "copper-dragon-wyrmling",
-      "faerie-dragon-adult",
-      "faerie-dragon-youth",
-      "gold-dragon-wyrmling",
-      "half-dragon",
-      "juvenile-shadow-dragon",
-      "kobold-warrior",
-      "pseudodragon",
-      "red-dragon-wyrmling",
-      "shadow-dragon",
-      "silver-dragon-wyrmling",
-      "white-dragon-wyrmling",
-      "winged-kobold",
-      "wyvern",
-      "young-black-dragon",
-      "young-blue-dragon",
-      "young-brass-dragon",
-      "young-bronze-dragon",
-      "young-copper-dragon",
-      "young-gold-dragon",
-      "young-green-dragon",
-      "young-red-dragon",
-      "young-silver-dragon",
-      "young-white-dragon"
-    ],
-    "page": 204,
-    "trait_modifiers": [
-      "darkvision",
-      "fire resistance",
-      "breath weapon"
-    ]
-  },
-  {
-    "index": "elemental",
-    "name": "Elemental",
-    "book": "Monster Manual 2024",
-    "desc": "Elementals are creatures composed of one of the four elements: air, earth, fire, or water. They are native to the Elemental Planes.",
+    "index": "aarakocra",
+    "name": "Aarakocra",
+    "habitat": "Mountain, Planar (Elemental Plane of Air)",
+    "desc": "<p>Aarakocra are birdlike folk who soar the skies of countless worlds and the endless expanses of the <strong>Elemental Plane of Air</strong>. They often resemble avians common to the lands where they dwell; some resemble hawks or condors, while others appear similar to hummingbirds or archaeopteryxes. In many lands, aarakocra tell of their ancient heroics resisting the wicked Queen of Chaos alongside the mysterious Wind Dukes of Aaqa.</p>",
     "monsters": [
       "aarakocra-aeromancer",
-      "aarakocra-skirmisher",
-      "air-elemental",
-      "azer-pyromancer",
-      "azer-sentinel",
-      "dao",
-      "djinni",
-      "elemental-cataclysm",
-      "fire-elemental",
-      "galeb-duhr",
-      "gargoyle",
-      "ice-mephit",
-      "invisible-stalker",
+      "aarakocra-skirmisher"
+    ],
+    "short-description": "Winged Guardians of the Sky",
+    "treasure": [
+      "Implements",
+      "Individual"
+    ],
+    "type": "monstrous humanoid"
+  },
+  {
+    "index": "animated-objects",
+    "name": "Animated Objects",
+    "habitat": "Urban",
+    "desc": "<p>Magic can manipulate mundane items, compelling them to perform simple tasks. Such animate objects might be unassuming tools or decorations that can defend their creator. These objects follow simple instructions from whatever force or magic-user created them. If left unattended, they might defend an area for ages or repeat a task until they wear out.</p>\n<p>Roll on or choose a result from the Animated Object Catalysts table to inspire what sort of magic motivates an ambulatory item.</p>\n<p><strong>Animated Object Catalysts</strong><br><strong>1d10 The Object Was Animated By...</strong><br>1 A Celestial or Fiend using the object to protect or torment a mortal.<br>2 A combination of magic and technology, such as alchemy or alien science.<br>3 The essence of someone transformed by a supernatural trickster.<br>4 Fey as part of their games or wiles.<br>5 Happenstance, with the item gaining a semblance of life after a hundred years of use.<br>6 A magic-user in need of a guardian or servant.<br>7 The song of a magical instrument.<br>8 A spirit possessing the object.<br>9 Wild magic, a spell that went awry, or a chaotic Artifact.<br>10 The will of a powerful psychic being.</p>",
+    "monsters": [
+        "animated-armor",
+        "animated-broom",
+        "animated-flying-sword",
+        "animated-rug-of-smothering"
+    ],
+    "short-description": "Mundane Objects Come to Life",
+    "treasure": [],
+    "type": "object"
+  },
+  {
+    "index": "awakened-plants",
+    "name": "Awakened Plants",
+    "habitat": "Forest",
+    "desc": "<p>Magic can invest plants with mobility, sapience, and even a voice. Spells such as <strong>Awaken</strong> or the influence of other planes of existence might bring mundane vegetation to life, while other remarkable plants might naturally have these features.</p>\n<p>Just because we protect the forest doesn't mean it's defenseless.<br>\u2014Rivergleam, Pixie</p>",
+    "monsters": [
+        "awakened-shrub",
+        "awakened-tree"
+    ],
+    "short-description": "Vegetation Given Magical Life",
+    "treasure": [],
+    "type": "plant"
+  },
+  {
+    "index": "axe-beaks",
+    "name": "Axe Beaks",
+    "habitat": "Arctic, Grassland, Hill",
+    "desc": "<p>Axe beaks are flightless, birdlike creatures with distinctive axe-shaped beaks. Swift predators, they chase down prey and use their beaks to hack through foliage protecting their quarry. Axe beaks live in varied environments. Colorfully plumed axe beaks race across tropical plains, while axe beaks with snowy feathers hunt the tundra.</p>\n<p>Axe beaks are difficult to train, but those hatched and raised in captivity can become reliable mounts.</p>\n<p>The thing's got an axe for a face and a giant, angry rooster for everything else\u2014of course I want to ride it!<br>\u2014Batley Summerfoot, Adventurer</p>",
+    "monsters": [
+        "axe-beak",
+        "giant-axe-beak"
+    ],
+    "short-description": "Flightless Avian Predators",
+    "treasure": [],
+    "type": "beast"
+  },
+  {
+    "index": "azers",
+    "name": "Azers",
+    "habitat": "Mountain, Planar (Elemental Plane of Fire)",
+    "desc": "<p>Azers are living bronze folk who work the primal elements of creation to craft weapons and magical wonders among the multiverse's mightiest infernos.</p>",
+    "monsters": [
+        "azer-pyromancer",
+        "azer-sentinel"
+    ],
+    "short-description": "Fiery Smiths of Living Metal",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "elemental"
+  },
+  {
+    "index": "bandits",
+    "name": "Bandits",
+    "habitat": "Any",
+    "desc": "<p>Bandits use the threat of violence to take what they want. Such criminals include gang members, desperadoes, and lawless mercenaries. Yet not all bandits are motivated by greed. Some are driven to lives of crime by unjust laws, desperation, or the threats of merciless leaders.</p>\n<p>Roll on or choose a result from the Bandit Motivations table to determine the circumstances behind a bandit's crimes.</p>\n<p><strong>Bandit Motivations</strong><br><strong>1d6 The Bandit...</strong><br>1 Fights only oppressors.<br>2 Is an ex-soldier who was discarded by their nation and now takes what they were promised.<br>3 Is in a gang that views nonmembers as foes.<br>4 Hesitantly serves a villainous leader.<br>5 Secretly works for a government or a regional ruler to sow chaos.<br>6 Takes what they need to survive.</p>",
+    "monsters": [
+        "bandit",
+        "bandit-captain",
+        "bandit-crime-lord",
+        "bandit-deceiver"
+    ],
+    "short-description": "Criminals and Scoundrels",
+    "treasure": [
+      "Any"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "berserkers",
+    "name": "Berserkers",
+    "habitat": "Any",
+    "desc": "<p>Gripped by the adrenaline of battle, berserkers are reckless invaders, pit fighters, and other ferocious warriors.</p>",
+    "monsters": [
+        "berserker",
+        "berserker-commander"
+    ],
+    "short-description": "Raging Invaders and Impassioned Warriors",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "black-dragons",
+    "name": "Black Dragons",
+    "habitat": "Swamp",
+    "desc": "<p>Black dragons delight in suffering and ruin. While other chromatic dragons scheme for power and wealth, these dragons seek to tear down all they see and rule over what remains.</p>\n<p>Black dragons are terrifying creatures with curved horns and withered visages suggestive of fiendish skulls. They typically inhabit stagnant swamps, crumbling ruins, or places of magical or environmental corruption. Their acid breath scars their domains, eroding the features from ancient statues and leaving nature with festering wounds.</p>\n<p>Black dragons hoard tarnished symbols of hope and relics of fallen empires. The more sought-after the treasure, the more black dragons prize it\u2014particularly if they were responsible for it being lost.</p>",
+    "monsters": [
+        "adult-black-dragon",
+        "ancient-black-dragon",
+        "black-dragon-wyrmling",
+        "young-black-dragon"
+    ],
+    "short-description": "Dragons of Decay and Despair",
+    "treasure": [
+      "Relics"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "blue-dragons",
+    "name": "Blue Dragons",
+    "habitat": "Coastal, Desert",
+    "desc": "<p>Arrogant and imperious, blue dragons are chromatic dragons that crave control and collect followers like other dragons hoard treasure. They seek to transform their territories into empires, domains to be feared by nations.</p>\n<p>Blue dragons have sharp features with piercing horns and scales that range from sapphire to the shades of stormy skies. They dwell in deserts and badlands, particularly regions with dramatic spires from whose tops they might see for miles. They seek lairs near sites of symbolic power, such as the abandoned fortresses of giants, the colossi of fallen empires, or monuments raised by their followers.</p>\n<p>Regalia of rulership and artistic masterpieces fill blue dragons' hoards. These dragons have no interest in treasures that are common or flawed, preferring one-of-a-kind gemstones, the crowns of fallen royals, and magic items capable of spreading the dragons' influence.</p>",
+    "monsters": [
+        "adult-blue-dragon",
+        "ancient-blue-dragon",
+        "blue-dragon-wyrmling",
+        "young-blue-dragon"
+    ],
+    "short-description": "Dragons of Tyranny and Tempests",
+    "treasure": [
+      "Relics"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "brass-dragons",
+    "name": "Brass Dragons",
+    "habitat": "Desert",
+    "desc": "<p>Gregarious and outgoing, brass dragons relish sharing knowledge and stories. Although these metallic dragons favor arid lands, they cheerfully journey considerable distances to visit friendly creatures, pass on what they've learned, and collect news. Though good natured, brass dragons don't shirk from combat when necessary, thwarting foes with magical sleep and searing them with flame.</p>\n<p>Brass dragons favor warm climes, particularly steppes and rocky or sandy deserts, and they usually dwell near prominent crossroads or oases that regularly draw visitors. They enjoy adopting Humanoid forms, disguising themselves as traveling merchants, scholars, storytellers, or anyone else invested in others' stories.</p>\n<p>Brass dragons collect eclectic objects. While such items might seem like knickknacks, each is part of a story\u2014perhaps a nostalgic memento or evidence of a tale passed into myth. An old friend's hat and the crown of the last ruler of a forgotten dynasty could occupy the same shelf in a brass dragon's hoard.</p>",
+    "monsters": [
+        "adult-brass-dragon",
+        "ancient-brass-dragon",
+        "brass-dragon-wyrmling",
+        "young-brass-dragon"
+    ],
+    "short-description": "Dragons of Lore and Rapport",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "bugbears",
+    "name": "Bugbears",
+    "habitat": "Forest, Grassland, Planar (Feywild), Underdark",
+    "desc": "<p>Bugbears embody fear of the wilds and the menace of natural places. They're notoriously stealthy, and foes that venture into their territories often vanish without a trace.</p>",
+    "monsters": [
+        "bugbear-stalker",
+        "bugbear-warrior"
+    ],
+    "short-description": "Lurking Goblinoid Brutes",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "bulettes",
+    "name": "Bulettes",
+    "habitat": "Grassland, Hill, Mountain",
+    "desc": "<p>Also called \"land sharks,\" bulettes are single-minded predators that burrow under, leap over, and burst through obstacles in pursuit of their quarry. They burrow rapidly just belowground. On sensing movement, they erupt from below, attempting to catch prey in their oversize maws.</p>",
+    "monsters": [
+        "bulette",
+        "bulette-pup"
+    ],
+    "short-description": "Ravenous, Subsurface Land Sharks",
+    "treasure": [],
+    "type": "monstrosity"
+  },
+  {
+    "index": "centaurs",
+    "name": "Centaurs",
+    "habitat": "Forest, Grassland, Planar (Feywild)",
+    "desc": "<p>Centaurs are defenders of forests, plains, and sites of primeval power. With upper bodies like humans' and the lower bodies of horses, centaurs charge into battle against those who would harm their allies.</p>",
+    "monsters": [
+        "centaur-trooper",
+        "centaur-warden"
+    ],
+    "short-description": "Defenders of the Feywild",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "cockatrices",
+    "name": "Cockatrices",
+    "habitat": "Grassland",
+    "desc": "<p>Cockatrices combine the features of irate roosters and starving reptiles. They petrify those they bite, their slightest peck turning their prey to stone.</p>",
+    "monsters": [
+        "cockatrice",
+        "cockatrice-regent"
+    ],
+    "short-description": "Accursed Avians with the Power to Petrify",
+    "treasure": [],
+    "type": "monstrosity"
+  },
+  {
+    "index": "copper-dragons",
+    "name": "Copper Dragons",
+    "habitat": "Hill",
+    "desc": "<p>Relentlessly friendly and curious, most copper dragons view the world as a place of endless wonder and possibility. These gregarious dragons are fonts of patience, hospitality, and humor, and they seek to improve the lives\u2014or, at least, the mood\u2014of those they interact with. If forced to fight to defend themselves or their friends, these dragons favor using their slowing breath and physical attacks to subdue antagonists. Only in cases of extreme peril or emotion do they use their deadly acid breath.</p>\n<p>Copper dragons typically live in caverns amid picturesque hills and rock formations\u2014particularly those that are prominent landmarks. These dragons collect gifts, though they have little interest in treasure without meaning, no matter how valuable it is. To them, thoughtfully given presents and the feelings or memories they symbolize are more important than masterpieces or magical relics.</p>",
+    "monsters": [
+        "adult-copper-dragon",
+        "ancient-copper-dragon",
+        "copper-dragon-wyrmling",
+        "young-copper-dragon"
+    ],
+    "short-description": "Dragons of Curiosity and Community",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "crawling-claws",
+    "name": "Crawling Claws",
+    "habitat": "Any",
+    "desc": "<p>Crawling claws are severed hands that move and act of their own murderous accord. These deathless appendages can spring to life from the severed limbs of killers and villains, and sinister magic-users might animate crawling claws as foul servants. Crawling claws appear in a variety of forms, from decaying human hands to the fresh appendages of animals or monsters.</p>",
+    "monsters": [
+        "crawling-claw",
+        "swarm-of-crawling-claws"
+    ],
+    "short-description": "Severed Appendages with Malicious Will",
+    "treasure": [],
+    "type": "undead"
+  },
+  {
+    "index": "cultists",
+    "name": "Cultists",
+    "habitat": "Any",
+    "desc": "<p>Cultists use magic and extreme measures to spread radical beliefs. Some privately pursue esoteric secrets, while others form shadowy cabals seeking to bring about terrifying ends. Cultists often follow obscure mystical traditions or obsess over interpretations of ancient prophecies. They might worship supernatural patrons\u2014deities, otherworldly creatures, manipulative alien minds, or stranger forces. Roll on or choose a result from the Cultist Agendas table to inspire what a cultist seeks to achieve.</p>\n<p><strong>Cultist Agendas</strong><br><strong>1d6 The Cultist Strives To...</strong><br>1 Bring about the end of a dominant order, an age, or the world.<br>2 Burn away the comfortable lies of reality, revealing forgotten or terrible truths.<br>3 Expand their faith though mind control or supernatural coercion.<br>4 Make global changes, like sinking the land or awakening volcanoes.<br>5 Remake life on a mass scale, altering other creatures' bodies or spiritual beings.<br>6 Summon their deity or its herald, weapon, or realm into their world.</p>\n<p><strong>Occult Symbols</strong><br>Cults often identify with symbols that exemplify their beliefs. Such symbols might mark objects important to the cult, as well as the dress and bodies of cultists themselves. These symbols might be broadly understandable, or they might have meaning only to cultists. Roll twice on or choose results from the Cult Symbols table to inspire a cult's icons.</p>\n<p><strong>Cult Symbols</strong><br><strong>1d10 The Symbol Is... Depicted As...</strong><br>1 An alchemical sign A calendar or map<br>2 An animal A crest or as heraldry<br>3 A celestial body An elaborate diagram<br>4 A deity's icon A metaphorical image<br>5 An element A mystical being<br>6 An eye Part of an equation<br>7 A geometric shape A repeating pattern<br>8 A letter or number A series of scratches<br>9 Part of a monster A simple pictogram<br>10 A skull A weapon or tool</p>\n<p><strong>Cult Members</strong><br>Cults often form hierarchies around a charismatic or domineering leader. While cult members might work independently, they take their orders from superiors with greater supernatural powers. Any cult might have the following sorts of members.</p>",
+    "monsters": [
+        "cultist",
+        "aberrant-cultist",
+        "cultist-fanatic",
+        "cultist-hierophant",
+        "death-cultist",
+        "elemental-cultist",
+        "fiend-cultist"
+    ],
+    "short-description": "Doomsayers and Fanatics",
+    "treasure": [
+      "Individual",
+      "Relics"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "cyclopes",
+    "name": "Cyclopes",
+    "habitat": "Coastal, Desert, Grassland, Hill, Mountain, Underdark",
+    "desc": "<p>Cyclopes are gigantic, one-eyed descendants of the gods. Using their mystical vision, cyclopes can witness how future events are likely to occur.</p>",
+    "monsters": [
+         "cyclops-oracle",
+         "cyclops-sentry"
+    ],
+    "short-description": "Monocular Servants of Destiny",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "giant"
+  },
+  {
+    "index": "death-knights",
+    "name": "Death Knights",
+    "habitat": "Any",
+    "desc": "<p>Champions of evil, death knights are armor-clad, skeletal warlords. Combining devastating martial prowess and blasphemous magic, these undying tyrants lead unholy legions against the living or brood in cursed citadels. Every death knight is haunted by a legacy of tragedy and dishonor that drives it to commit greater evils.</p>",
+    "monsters": [
+        "death-knight",
+        "death-knight-aspirant"
+    ],
+    "short-description": "Haunted Commanders of Unliving Legions",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "undead"
+  },
+  {
+    "index": "dretches",
+    "name": "Dretches",
+    "habitat": "Planar (Abyss)",
+    "desc": "<p>The servants and victims of greater demons, dretches embody petty instincts, chaotic impulses, and violent urges. Dretches exist in unfathomable numbers in the depths of the <strong>Abyss</strong>, where their reeking throngs fill vast demonic hordes.</p>\n<p>Ah, the infinite wonders of the Abyss. If there's anything you don't like, you'll find it here.<br>\u2014Jaranda, expert on the Abyss</p>",
+    "monsters": [
+      "swarm-of-dretches"
+    ],
+    "short-description": "Demons of Frenzy and Vulgarity",
+    "treasure": [],
+    "type": "fiend"
+  },
+  {
+    "index": "empyreans",
+    "name": "Empyreans",
+    "habitat": "Any",
+    "desc": "<p>Empyreans are the spawn of deities. While not gods themselves, they possess divine influence and powers related to their divine parents. Some empyreans are near-demigods with fantastic might and the power to reshape mortal lives. Others are little more than divine thoughts or moments of immortal attention made manifest. Whether empyreans are idealized beings or vestiges of divinity, their appearances are influenced by their creators. Roll on or choose a result from the Empyrean Influences table to inspire what aspects of an empyrean's heritage manifest in its physical form.</p>\n<p><strong>Empyrean Influences</strong><br><strong>1d6 The Empyrean Has Features That Are...</strong><br>1 Balanced, naturalistic, or suggestive of watching eyes.<br>2 Colorful, shadowy, or fluid or that vary depending on the viewer.<br>3 Comforting and gentle or that remind viewers of pleasant memories.<br>4 Disconnected parts, visible thoughts, or errant shapes.<br>5 Machinelike, stoic, symmetrical, or suggestive of judgment.<br>6 Morbid, menacing, or monstrous or that embody the viewer's fears.</p>",
+    "monsters": [
+        "empyrean",
+        "empyrean-iota"
+    ],
+    "short-description": "Scions of the Gods",
+    "treasure": [
+      "Relics"
+    ],
+    "type": "celestial"
+  },
+  {
+    "index": "faerie-dragons",
+    "name": "Faerie Dragons",
+    "habitat": "Forest",
+    "desc": "<p>Faerie dragons are cat-size pranksters with draconic features, butterfly-like wings, and scales of warm hues as youths and cool hues as adults.</p>",
+    "monsters": [
+        "faerie-dragon-adult",
+        "faerie-dragon-youth"
+    ],
+    "short-description": "Whimsical Draconic Tricksters",
+    "treasure": [
+      "Implements"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "fungi",
+    "name": "Fungi",
+    "habitat": "Underdark",
+    "desc": "<p>The dank, sunless Underdark is a fertile breeding ground for weird and dangerous fungi.</p>",
+    "monsters": [
+        "gas-spore-fungus",
+        "shrieker-fungus",
+        "violet-fungus-necrohulk",
+        "violet-fungus"
+    ],
+    "short-description": "Deadly Spores and Predatory Polyps",
+    "treasure": [],
+    "type": "plant"
+  },
+  {
+    "index": "ghasts",
+    "name": "Ghasts",
+    "habitat": "Swamp, Underdark, Urban",
+    "desc": "<p>Ghasts are reeking, undying corpses closely related to ghouls. They hunger for the vices they enjoyed in life as much as they do for rotting flesh.</p>",
+    "monsters": [
+        "ghast",
+        "ghast-gravecaller"
+    ],
+    "short-description": "Tyrants among Corpses",
+    "treasure": [
+      "Any"
+    ],
+    "type": "undead"
+  },
+  {
+    "index": "ghouls",
+    "name": "Ghouls",
+    "habitat": "Swamp, Underdark, Urban",
+    "desc": "<p>Packs of ghouls haunt the rotten corners of the world, ravenously hunting for corpses and those soon to be corpses. These gaunt, animate cadavers with unnaturally long tongues dwell in catacombs and ruins where they devour the contents of graves and paralyze foes with vicious claws.</p>\n<p>On a plain of teeth, in a temple of filth, the starving king wastes no morsel. Every coffin a banquet. Every slab a platter. Now is the time of feasting!<br>\u2014Invocation of Doresain, King of Ghouls</p>",
+    "monsters": [
+        "ghoul",
+        "lacedon-ghoul"
+    ],
+    "short-description": "Eaters of the Dead",
+    "treasure": [
+      "Any"
+    ],
+    "type": "undead"
+  },
+  {
+    "index": "githyanki",
+    "name": "Githyanki",
+    "habitat": "Planar (Astral Plane)",
+    "desc": "<p>Githyanki were once an ordinary people, but the deeds of a vile mind flayer empire etched conflict on their being. Gaunt, humanlike creatures, githyanki have serrated ears and speckled skin ranging through shades of yellow, green, and brown. While some githyanki follow their own paths, many are influenced by a past that forever altered their fates.</p>\n<h2>History of the Gith</h2>\n<p>Ages ago, a humanlike people were conquered by an empire of <strong>mind flayers</strong>. The illithids manipulated this forgotten people through untold horrors, forced evolution, and psychic reshaping. Eventually one named Gith rose from among the captives and led a rebellion against their oppressors.</p>\n<p>Gith's followers, who became known as the gith, defeated the mind flayers and shattered their vast empire.</p>\n<p>The victory of the gith was short-lived. As Gith was forging her own burgeoning empire, a leader named Zerthimon challenged her. Zerthimon claimed Gith's drive for vengeance and new conquests was evidence of species-wide mental programming laid by the mind flayers, biological manipulation that condemned her people to continued servitude. This claim split the gith into Gith's followers, the githyanki (meaning \"followers of Gith\"), and Zerthimon's followers, the githzerai (meaning \"those who spurn Gith\"), and sparked an ongoing conflict.</p>\n<p>When Gith perished, her adviser, <strong>Vlaakith</strong>, assumed rule of the githyanki. Vlaakith's line has continued to the githyanki's current ruler, Vlaakith the Lich-Queen. This undead tyrant compels her people to wage endless wars against mind flayers, githzerai, and any others that threaten githyanki supremacy.</p>\n<p>To slay in Vlaakith's name is our greatest service. To die in her name is our last act of reverence.<br>\u2014Meldavh, githyanki knight</p>",
+    "monsters": [
+      "githyanki-dracomancer",
+      "githyanki-knight",
+      "githyanki-warrior"
+    ],
+    "short-description": "Invaders from the Astral Plane",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "githzerai",
+    "name": "Githzerai",
+    "habitat": "Planar (Limbo)",
+    "desc": "<p>Githzerai are gaunt, humanlike beings, physically identical to githyanki. They share a history with githyanki as creatures physically and psychically transformed by <strong>mind flayers</strong> (see the \"Githyanki\" section). Githzerai know that in body and mind, their species was manipulated by their former illithid oppressors. Rather than giving in to this programming, githzerai follow the teachings of their first leader, Zerthimon, and reshape their minds and bodies to find peace.</p>\n<p>Githzerai psychically create serene, hidden sanctuaries in chaotic reaches of the multiverse. Most of these redoubts drift through the chaotic plane of Limbo, but githzerai conclaves can also be found in the Abyss, the Elemental Chaos, and the Feywild. Githzerai create these cloisters to hone their psionic abilities, to gain insights from the multiverse, and to avoid githyanki and mind flayers.</p>\n<p>We githzerai crave a challenge, so that when Zerthimon returns, he shall find us ready. Thus we traveled to howling Limbo to make our new home.<br>\u2014Zaerith Menyar-Ag-Gith, githzerai leader</p>\n<h2>Adventures with Gith</h2>\n<p>Characters might be drawn into conflicts involving githzerai and githyanki in various ways. Roll on or choose a result from the Gith Conflicts table to inspire adventures featuring these age-old rivals.</p>\n<p><strong>Gith Conflicts</strong><br><strong>1d8 The Characters Are...</strong><br>1 Called on to deliver a message or mysterious parcel to or from Vlaakith the Lich Queen.<br>2 Encouraged by a disguised <strong>intellect devourer</strong> to seek out an elusive gith leader.<br>3 Entreated to aid githzerai fleeing the githyanki who destroyed their sanctuary.<br>4 Entrusted with renewing or disrupting the githyanki's alliance with red dragons.<br>5 Invited to hunt illithids with githyanki.<br>6 Pressed to uncover a gith spy in a planar community or on a spelljamming ship.<br>7 Sent on a quest to discover the last known location of the hero Gith or Zerthimon.<br>8 Tasked with returning the blade of a fallen githyanki knight to the knight's people.</p>",
+    "monsters": [
+      "githzerai-monk",
+      "githzerai-psion",
+      "githzerai-zerth"
+    ],
+    "short-description": "Explorers at Reality's Extremes",
+    "treasure": [
+      "Arcana",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "gnolls",
+    "name": "Gnolls",
+    "habitat": "Desert, Forest, Grassland, Hill",
+    "desc": "<p>The first gnolls arose from hyenas that fed on flesh tainted by the <strong>Abyss</strong>. Their corruption and violence delighted the demon lord <strong>Yeenoghu</strong>, who encouraged their numbers and spread them across the multiverse. Ever since, gnolls have been the cackling servants of Yeenoghu, existing to cause ruin and to feast on what remains.</p>",
+    "monsters": [
+        "gnoll-demoniac",
+        "gnoll-fang-of-yeenoghu",
+        "gnoll-pack-lord",
+        "gnoll-warrior"
+    ],
+    "short-description": "Fiends in Feral Flesh",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "goblins",
+    "name": "Goblins",
+    "habitat": "Forest, Grassland, Hill, Planar (Acheron, Feywild), Underdark",
+    "desc": "<p>Goblins are Feywild embodiments of recklessness and ruin. They delight in wreckage\u2014the louder, the more energetic, and the more convoluted, the better. Goblin raids are often as much opportunities to enjoy setting fires and tormenting livestock as they are parts of more disruptive plots.</p>\n<p>Goblins obey those who accomplish the wildest plans. Such leaders might be goblin raid masterminds, bombastic magic-users, or those capable of making the loudest noises. Hobgoblins and forceful humanoids might also command ornery groups of goblins, directing their destructiveness toward banditry, sabotage, or war.</p>\n<p>The deity Maglubiyet claims to be the god of goblins, hobgoblins, and bugbears, and on the Infinite Battlefield of <strong>Acheron</strong>, the deity commands innumerable goblinoid legions. In ages long past, Maglubiyet witnessed the destructive propensity of goblinoids and relocated a population of them from the Feywild to his realm on the Outer Planes. Since then, hordes of these more martial-minded goblins have flourished, with some finding their ways to Material Plane worlds. These vicious invaders seek to sow ruin in preparation for their god's conquest.</p>\n<p>Bree-yark!<br>\u2014Approximate translation from Goblin to Common: \"Hey, rube!\"</p>",
+    "monsters": [
+        "goblin-boss",
+        "goblin-hexer",
+        "goblin-minion",
+        "goblin-warrior",
+    ],
+    "short-description": "Wild Tricksters and Troublemakers",
+    "treasure": [
+      "Implements",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "gold-dragons",
+    "name": "Gold Dragons",
+    "habitat": "Forest, Grassland",
+    "desc": "<p>Gold dragons work to make the world a better place. The most powerful of the metallic dragons, these awe-inspiring dragons strive to protect that which is good and bend fate toward a brighter future. Their kind dispositions don't prevent gold dragons from engaging in combat when necessary, though, and they exhale brilliant flames and weakening magic to rout their foes.</p>\n<p>Gold dragons favor grasslands and pristine forests, frequently dwelling near awe-inspiring natural wonders or guarding monuments from ancient civilizations. In their lairs, gold dragons hoard coins and gems, but they frequently put their treasure to use in pursuit of greater goals. They often use their riches to buy rare lore books, pay informants, or patronize idealistic adventurers.</p>",
+    "monsters": [
+        "adult-gold-dragon",
+        "ancient-gold-dragon",
+        "gold-dragon-wyrmling",
+        "young-gold-dragon"
+    ],
+    "short-description": "Dragons of Hope and Majesty",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "gorgons",
+    "name": "Gorgons",
+    "habitat": "Forest, Grassland, Hill",
+    "desc": "<p>Resembling mighty bulls armored in iron plates, gorgons are lifelike automatons that seek to destroy all who enter their territories. In addition to goring foes with their deadly horns and trampling them under their iron hooves, gorgons exhale gouts of noxious gas.</p>\n<p>Gorgons are created by magic-users to serve as guardians. The process for creating a gorgon is labor intensive and dangerous, with one method requiring the skeleton of a bull, the blood of a medusa, and the brain of a basilisk fused into a frame of ensorcelled iron. If the process fails, petrifying gas emerges from the materials, creating a magical threat that can fill a structure and linger for years.</p>\n<p>When magic-users create gorgons, they often enchant them to ignore those who confront the creature with a specific command key, usually a password or a specific signal. Once a gorgon is set to guard an area, it attacks any who enter until they flee or are destroyed. Should someone provide the command key, the monster ignores that intruder so long as the intruder remains in its sight. But if the intruder ventures out of sight and then returns without again presenting the command key, the gorgon attacks. Those in a gorgon's territory must remain vigilant and aware of the monster's exact position, or they risk being attacked by a gorgon they thought was no longer a threat.</p>\n<p>Those who create gorgons strive to give them purposefully obscure command keys. Hints at command keys might be found among the records of a gorgon's creator or in the area the gorgon protects\u2014perhaps scrawled as a petrified trespasser's final act. Roll on or choose a result from the Gorgon Command Keys table to inspire the word or signal that temporarily neutralizes a gorgon.</p>\n<p>Notable among my eccentric ancestor's scattered designs was a schematic of a swamp-dwelling bovine monster and an ominous note: \"Do better.\"<br>\u2014Lum the Maestro, <strong>A Mind of Metal</strong></p>\n<p><strong>Gorgon Command Keys</strong><br><strong>1d6 Gorgon Won't Attack Those That...</strong><br>1 Cast a particular spell in the gorgon's presence.<br>2 Keep their back to the gorgon or otherwise act like they don't see the monster.<br>3 Offer it a drink of blood, water, or wine.<br>4 Recite a specific rhyme or sing a certain song.<br>5 Say its creator's name backward.<br>6 Wear a mask, perhaps in the shape of a bull or an animal meaningful to the gorgon's creator.</p>",
+    "monsters": [],
+    "short-description": "Bull-like Guardians with Petrifying Breath",
+    "treasure": [
+      "Any"
+    ],
+    "type": "construct"
+  },
+  {
+    "index": "gray-oozes",
+    "name": "Gray Oozes",
+    "habitat": "Underdark",
+    "desc": "<p>Gray oozes are predatory, corrosive slimes that blend in with stony surroundings.</p>",
+    "monsters": [],
+    "short-description": "Hungry Slimes and Magical Failures",
+    "treasure": [],
+    "type": "ooze"
+  },
+  {
+    "index": "green-dragons",
+    "name": "Green Dragons",
+    "habitat": "Forest",
+    "desc": "<p>From forbidden forest depths, green dragons whisper evils into the world and manipulate the lives of those who listen. Elusive, conniving, and negotistical, these chromatic dragons patiently prey on the fears of shorter-lived beings, corrupting and isolating them. Green dragons might lurk amid labyrinthine wildernesses for centuries without revealing themselves; even their most devoted followers might know them only as the voice of the woodlands or a whisper in their dreams.</p>\n<p>Despite their might, most green dragons disdain physical violence, viewing combat as servants' work and preferring to trick foes into dangerous or exploitative scenarios. These dragons collect \"baubles\" that embody their webs of manipulation and serve as tools of extortion, such as compromising documents, family heirlooms, and sentimental treasures.</p>",
+    "monsters": [
+        "adult-green-dragon",
+        "ancient-green-dragon",
+        "green-dragon-wyrmling",
+        "young-green-dragon"
+    ],
+    "short-description": "Dragons of Deceit and Derision",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "gricks",
+    "name": "Gricks",
+    "habitat": "Forest, Underdark",
+    "desc": "<p>Gricks are wormlike predators that burst from hiding\u2014flailing and snapping\u2014to consume whatever prey passes near. They hide in cavernous crags or amid deadfalls, the scattered bones and possessions of past meals the only evidence of their threat.</p>\n<p>Gricks' origins are unclear, but some suggest these creatures arise from natural worms or similar invertebrates mutated by magical phenomena. Many cite the presence of gricks in a region as evidence of portals to other planes of existence, legendary magic items, or powerful supernatural beings.</p>",
+    "monsters": [],
+    "short-description": "Worms That Hunt the Dark and Decaying",
+    "treasure": [
+      "Any"
+    ],
+    "type": "monstrosity"
+  },
+  {
+    "index": "guards",
+    "name": "Guards",
+    "habitat": "Any",
+    "desc": "<p>Guards protect people, places, and things, either for pay or from a sense of duty. They might perform their duties vigilantly or distractedly. Some raise alarms at the first sign of danger and defend their charges with their lives. Others flee outright if their compensation doesn't match the danger they face.</p>\n<p>To distinguish between Waterdeep's different groups of guardians, keep this handy mnemonic in mind: the Guard guards the walls while the Watch watches all.<br>\u2014Volothamp Geddarm, legendary explorer</p>",
+    "monsters": [],
+    "short-description": "Sentries and Watch Members",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "hobgoblins",
+    "name": "Hobgoblins",
+    "habitat": "Desert, Forest, Grassland, Hill, Mountain, Planar (Acheron), Underdark",
+    "desc": "<p>Hobgoblins embody the primal urge to grow and spread, expressing such drives by bending the world to their whims. Lone hobgoblins claim woodland territories and plunder the wilds. In groups, they form hierarchical, martial societies bent on conquering lands and stripping them of resources to serve their expansionist zeal.</p>\n<p>Hobgoblins often subjugate animals, monsters, and destructive Fey\u2014particularly goblins and bugbears\u2014to serve their plans. Hobgoblins might ally with dragons, warlords, the servants of warlike gods, or other powerful creatures that promise them control of new territories. Should hobgoblins bring an entire land to heel, they seek new conquests, venturing across seas, into the Underdark, or to stars and planes of existence beyond.</p>\n<p>Many hobgoblins serve the violent god Maglubiyet, whose hunger for conquest matches their own. Hobgoblin followers of Maglubiyet flourish in the Infinite Battlefield of <strong>Acheron</strong>, where they endlessly indulge their drive for domination. These war-obsessed hobgoblins employ elaborate tactics and strange weapons, which they sometimes unleash on worlds of the Material Plane.</p>\n<h2>Hobgoblin Warfare</h2>\n<p>The drive to subjugate and pillage is part of hobgoblins' supernatural nature, though a few might repress their warlike tendencies or turn them to more useful ends. Roll on or choose a result from the Hobgoblin Strategies table to inspire how a hobgoblin carries out its conquest.</p>\n<p><strong>Hobgoblin Strategies</strong><br><strong>1d6 The Hobgoblin Works To...</strong><br>1 Build a vessel to carry hobgoblin armies to new conquests.<br>2 Capture monsters and train them to fight.<br>3 Collapse a region into the <strong>Underdark</strong> so riches can be sifted from the ruins.<br>4 Construct a giant machine to strip resources.<br>5 Convince devils, dragons, or hobgoblins from <strong>Acheron</strong> to invade an enemy land.<br>6 Help shortsighted merchants undermine a government or despoil the environment.</p>",
+    "monsters": [],
+    "short-description": "Conquerors of Every Horizon",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "knights",
+    "name": "Knights",
+    "habitat": "Any",
+    "desc": "<p>Knights are skilled warriors trained for war and tested in battle. Many serve the rulers of a realm, a religion, or an order devoted to a cause.</p>",
+    "monsters": [],
+    "short-description": "Battle Masters and Heroic Wanderers",
+    "treasure": [
+      "Armaments",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "kuo-toa",
+    "name": "Kuo-toa",
+    "habitat": "Ocean",
+    "desc": "<p>Kuo-toa are medium aberration humanoids. They can breathe air and water but have sunlight sensitivity. They wield spears and can use sticky nets to restrain foes. They also have a sticky shield ability that can trap weapons.</p>",
+    "monsters": [
+      "kuotoa-archpriest",
+      "kuotoa-monitor",
+      "kuotoa-whip"
+    ],
+    "short-description": "Medium Aberration, Neutral Evil",
+    "treasure": [],
+    "type": "humanoid"
+  },
+  {
+    "index": "larvae",
+    "name": "Larvae",
+    "habitat": "Planar (Lower Planes)",
+    "desc": "<p>Souls condemned to the Lower Planes often become larvae\u2014repulsive, maggot-like creatures with twisted features evocative of those they possessed in life. These pathetic creatures are nearly helpless and struggle to escape the attention of the more powerful inhabitants of the Lower Planes. Many Fiends view larvae as delicacies to be consumed, while evil magic-users find larvae useful for depraved rituals. <strong>Night hags</strong> frequently collect and herd larvae, trading them to nefarious parties across the multiverse.</p>\n<p>Larvae that survive on the Lower Planes long enough can eventually transform into other sorts of lesser Fiends.</p>",
+    "monsters": [
+      "swarm-of-larvae"
+    ],
+    "short-description": "Fitting Fates for Depraved Souls",
+    "treasure": [],
+    "type": "fiend"
+  },
+  {
+    "index": "lemures",
+    "name": "Lemures",
+    "habitat": "Planar (Nine Hells)",
+    "desc": "<p>The least of all devils, lemures arise from wicked souls, their mortal memories scoured away. Only vague limbs and anguished features jut from these slurries of infernal proto-matter.</p>",
+    "monsters": [
+      "swarm-of-lemures"
+    ],
+    "short-description": "Devils of Agony and Despair",
+    "treasure": [],
+    "type": "fiend"
+  },
+  {
+    "index": "lizardfolk",
+    "name": "Lizardfolk",
+    "habitat": "Forest, Swamp",
+    "desc": "<p>Lizardfolk dwell in wildernesses suffused with primal magic. While many lizardfolk are Humanoids with varied skills, some forge powerful bonds with the <strong>Elemental Plane of Earth</strong>, granting them magical connections to the cycle of growth and rebirth.</p>",
+    "monsters": [
       "lizardfolk-geomancer",
-      "lizardfolk-sovereign",
-      "magma-mephit",
-      "magmin",
-      "marid",
+      "lizardfolk-sovereign"
+    ],
+    "short-description": "Reptilian Defenders of the Land",
+    "treasure": [
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "mages",
+    "name": "Mages",
+    "habitat": "Any",
+    "desc": "<p>Mages are magical wonder-workers, ranging from spellcasting overlords to reclusive witches. They study mystical secrets and possess insight into monsters, legends, omens, and other lore. Mages often gather allies or hire assistants to aid them in their research or to attain magical might.</p>\n<p>Roll on or choose a result from the Mage Roles table to inspire different sorts of mages.</p>\n<p><strong>Mage Roles</strong><br><strong>1d10 The Mage Is...</strong><br>1 An astronomer who draws magic from stars.<br>2 An author who writes about the occult.<br>3 A magical engineer who creates wonders.<br>4 An oracle who interprets omens.<br>5 A prodigy with a remarkable magical heritage.<br>6 A psion whose powers manifest as spells.<br>7 A scholar investigating ancient lore.<br>8 A soothsayer who advises rulers.<br>9 A war mage who aids soldiers in battle.<br>10 A witch who shares secret wisdom.</p>",
+    "monsters": [],
+    "short-description": "Magical Scholars and Spellcasters",
+    "treasure": [
+      "Arcana",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "mephits",
+    "name": "Mephits",
+    "habitat": "Planar (Elemental Planes)",
+    "desc": "<p>Mephits are mean-spirited tricksters that dwell on the Elemental Planes. The six most prominent types of mephits resemble halfling-size gargoyles with wings, exaggerated features, and bodies composed of two elements. Most live self-interested existences, indulging their warped senses of humor or overblown egos on their home planes of existence. Some serve as messengers or spies for genies or magic-users.</p>\n<p>Mephits resent leaving the elemental extremes where they make their homes. If loosed on the Material Plane or other realms, they lash out with nasty pranks or by tormenting weaker creatures. When destroyed, mephits explode in a burst of elemental magic.</p>",
+    "monsters": [],
+    "short-description": "Malicious Elemental Hooligans",
+    "treasure": [],
+    "type": "elemental"
+  },
+  {
+    "index": "merfolk",
+    "name": "Merfolk",
+    "habitat": "Coastal, Underwater",
+    "desc": "<p>Beneath the waves dwell merfolk, mysterious creatures that merge the features of humans and sea creatures. Some are curious about land dwellers, while others view them with suspicion.</p>",
+    "monsters": [
       "merfolk-skirmisher",
-      "merfolk-wavebender",
-      "mud-mephit",
-      "salamander-fire-snake",
-      "salamander-inferno-master",
-      "salamander",
-      "smoke-mephit",
-      "steam-mephit",
-      "water-elemental",
-      "water-weird",
-      "xorn"
+      "merfolk-wavebender"
     ],
-    "page": 205,
-    "trait_modifiers": [
-      "immune to poison",
-      "resistant to nonmagical weapons",
-      "no need to breathe"
-    ]
+    "short-description": "Protectors and Explorers of the Seas",
+    "treasure": [
+      "Individual"
+    ],
+    "type": "humanoid"
   },
   {
-    "index": "fey",
-    "name": "Fey",
-    "book": "Monster Manual 2024",
-    "desc": "Fey are creatures from the Feywild, a plane of existence filled with magic, wonder, and danger. They are often capricious and unpredictable.",
-    "monsters": [
-      "arch-hag",
-      "blink-dog",
-      "bugbear-stalker",
-      "bugbear-warrior",
-      "bullywug-bog-sage",
-      "bullywug-warrior",
-      "bullywugs",
-      "centaur-trooper",
-      "centaur-warden",
-      "dire-worg",
-      "goblin-boss",
-      "goblin-hexer",
-      "goblin-minion",
-      "goblin-warrior",
-      "hobgoblin-captain",
-      "hobgoblin-warlord",
-      "hobgoblin-warrior",
-      "pixie-wonderbringer",
-      "pixie",
-      "satyr-revelmaster",
-      "satyr",
-      "sea-hag",
-      "sprite",
-      "worg"
+    "index": "mind-flayers",
+    "name": "Mind Flayers",
+    "habitat": "Underdark",
+    "desc": "<p>Scattered survivors of a world-ruining, multiversal empire, mind flayers lurk in secret conclaves hidden deep within Material Plane worlds. Within their alien sanctuaries, these wicked masterminds\u2014also known as illithids\u2014reshape the <strong>Underdark</strong> and its inhabitants to serve their unfathomable whims. Mind flayers are feared for their psionic powers, which allow them to stun and control other creatures, and for their horrific method of feeding: using their four slimy tentacles to extract the brains of their victims.</p>\n<p>Mind flayers are infamous plotters and manipulators, concocting plans that reach beyond their subterranean realms. Aside from using their psionic powers to control others, mind flayers often experiment with their own bizarre life cycles, implanting other creatures with illithid young to create unnatural servants. Creatures such as <strong>grimlocks</strong> and <strong>intellect devourers</strong> result from mind flayers' biological tampering, while other Underdark-dwelling monsters\u2014including <strong>kuo-toa</strong>, <strong>quaggoths</strong>, and <strong>troglodytes</strong>\u2014often serve illithid masters.</p>\n<p>Githyanki and githzerai have a long adversarial history with mind flayers and bear the scars of illithid manipulation.</p>\n<h2>Mind Flayer Colonies</h2>\n<p>Mind flayers work as lone schemers, in mysterious cabals, or as part of worlds-spanning illithid conspiracies. In groups, mind flayers work toward bizarre agendas organized by an <strong>elder brain</strong>\u2014a massive, brain-like being with incredible psionic powers. Without such a leader, groups of mind flayers fall to self-destructive squabbling. Roll on or choose a result from the Mind Flayer Machinations table to inspire an illithid conclave's plots.</p>\n<p><strong>Mind Flayer Machinations</strong><br><strong>1d6 The Mind Flayer Colony Seeks To...</strong><br>1 Blot out the sun so their Underdark-dwelling servants can invade the surface.<br>2 Create a new monstrous fusion between mind flayers and a legendary monster.<br>3 Forge a psionic network uniting illithid colonies.<br>4 Replace world leaders with <strong>intellect devourers</strong>.<br>5 Restore a vessel to travel through Wildspace.<br>6 Sacrifice the mental energy of a planet's populace to take control of a githyanki bastion.</p>",
+    "monsters": [],
+    "short-description": "Brain-Eating Underdark Tyrants",
+    "treasure": [
+      "Arcana"
     ],
-    "page": 206,
-    "trait_modifiers": [
-      "immune to poison",
-      "resistant to nonmagical weapons"
-    ]
+    "type": "aberration"
   },
   {
-    "index": "giant",
-    "name": "Giant",
-    "book": "Monster Manual 2024",
-    "desc": "Giants are large, powerful humanoids with varying degrees of intelligence. They can be found in many different environments.",
-    "monsters": [
-      "cloud-giant",
-      "cyclops-oracle",
-      "cyclops-sentry",
-      "ettin",
-      "fire-giant",
-      "fomorian",
-      "frost-giant",
-      "hill-giant",
-      "ogre",
-      "ogrillon-ogre",
-      "stone-giant",
-      "storm-giant",
-      "troll-limb",
-      "troll"
-    ],
-    "page": 207,
-    "trait_modifiers": []
+    "index": "modrons",
+    "name": "Modrons",
+    "habitat": "Planar (Mechanus)",
+    "desc": "<p>Beings of magic and machinery, modrons embody absolute law. These inhabitants of the clockwork plane of <strong>Mechanus</strong> tend to the incredible mechanisms of their orderly home and oppose chaotic forces across the multiverse.</p>\n<p>Modrons are parts of a vast hierarchy, spanning from quirky monodrones to the leader of their kind, the godlike Primus. Every modron carries out tasks assigned to it by higher-ranking modrons, doing so without question. Generally, modrons communicate only with other modrons of their own rank or the ranks immediately above and below them. Those more than one rank away tend to be either too advanced or too simple for them to understand.</p>\n<p>Modrons excel at tasks that require patience and precision, but they have little understanding of nonliteral concepts such as art or humor. They have no egos; they have only their work and the certainty that multiversal law depends on their efficacy.</p>\n<p>In rare cases, a modron goes rogue and develops its own will. In these cases, other modrons are sent to recover or destroy their malfunctioning kin.</p>\n<p>The guide swore \"beep boop\" meant \"hello, friend.\" I don't know why they're after us!<br>\u2014A planar explorer learning modrons have no sense of humor</p>\n<h2>Modron Marches</h2>\n<p>Whether in service to lawful deities or as part of the Great Modron March, modrons travel from Mechanus to spread their vision of law to other planes of existence. Roll on or choose a result from the Modron Operations table to inspire what effort leads a group of modrons to other realms.</p>\n<p><strong>Modron Operations</strong><br><strong>1d8 The Modrons Work To...</strong><br>1. Create a clockwork outpost to monitor the balance of obscure planar forces.<br>2. Ensure neither side gains the upper hand in a conflict between good and evil.<br>3. Excavate a portal to another plane.<br>4. Find a lost contingent of modrons.<br>5. Reactivate a titanic but lost modron device.<br>6. Remove a forest, mountain, or city before the arrival of a modron procession.<br>7. Seal off a planar rift or wild magic zone.<br>8. Wage war with demons, slaadi, or chaotic Fey.</p>",
+    "monsters": [],
+    "short-description": "Mechanized Caretakers of Multiversal Law",
+    "treasure": [],
+    "type": "construct"
   },
   {
-    "index": "humanoid",
-    "name": "Humanoid",
-    "book": "Monster Manual 2024",
-    "desc": "Humanoids are the most common creatures in the multiverse, including humans and their many kin and cousins.",
-    "monsters": [
-      "aberrant-cultist",
-      "archmage",
-      "archpriest",
-      "assassin",
-      "bandit-captain",
-      "bandit-crime-lord",
-      "bandit-deceiver",
-      "bandit",
-      "berserker-commander",
-      "berserker",
-      "commoner",
-      "cultist-fanatic",
-      "cultist-hierophant",
-      "cultist",
-      "death-cultist",
-      "elemental-cultist",
-      "fiend-cultist",
-      "gladiator",
-      "guard-captain",
-      "guard",
-      "knight",
-      "mage-apprentice",
-      "mage",
-      "noble-prodigy",
-      "noble",
-      "performer-legend",
-      "performer-maestro",
-      "performer",
-      "pirate-admiral",
-      "pirate-captain",
-      "pirate",
-      "priest-acolyte",
-      "priest",
-      "questing-knight",
-      "scout-captain",
-      "scout",
-      "spy-master",
-      "spy",
-      "tough-boss",
-      "tough",
-      "vampire-familiar",
-      "warrior-commander",
-      "warrior-infantry",
-      "warrior-veteran"
+    "index": "mummies",
+    "name": "Mummies",
+    "habitat": "Desert, Swamp",
+    "desc": "<p>Mysterious rites and mighty faith can tie spirits to their corpses, binding them to their remains for all time. Should their resting places be violated, these beings, known as mummies, reanimate their deteriorating bodies to restore the sanctity of their tombs and punish those who disturbed their rest.</p>\n<p>Mummies pursue those who offend them, typically mortals who desecrate their resting places, steal their burial treasures, or defile sites tied to their faith. With undying rage, these ancient corpses go to extreme lengths to avenge themselves and restore what they need to find peace.</p>\n<p>A mummy might look frail, but its body possesses supernatural strength, and its gaze can strike fear in the bravest hearts. Those who escape a mummy's grasp might find themselves subject to a terrible curse. Victims of a mummy's curse gradually wither, their bodies rotting away until they're reduced to dust. This curse can be healed only by the <strong>Remove Curse</strong> spell or similar magic.</p>\n<p>Rule 7: Before opening a sarcophagus, light a torch.<br>\u2014X the Mystic's<br>Rules of Dungeon Survival</p>",
+    "monsters": [],
+    "short-description": "Deathless Ancients with Ageless Ambitions",
+    "treasure": [
+      "Relics"
     ],
-    "page": 208,
-    "trait_modifiers": []
+    "type": "undead"
   },
   {
-    "index": "monstrosity",
-    "name": "Monstrosity",
-    "book": "Monster Manual 2024",
-    "desc": "Monstrosities are creatures of unnatural origin or monstrous appearance. They are often the result of magical experimentation or corruption.",
+    "index": "myconids",
+    "name": "Myconids",
+    "habitat": "Underdark",
+    "desc": "<p>Myconids dwell in remote <strong>Underdark</strong> reaches overgrown with molds and mushrooms. These ambulatory fungal creatures tend to their sanctuaries and avoid becoming embroiled in the conflicts of other creatures. They use specialized spores to communicate, to alert one another to danger, and to defend themselves. When myconids encounter other beings, they use mind-linking spores to allow nearby creatures to telepathically share thoughts. Nevertheless, myconids' goals remain mysterious to most non-fungal creatures.</p>",
+    "monsters": [],
+    "short-description": "Keepers of the Spore",
+    "treasure": [
+      "Any"
+    ],
+    "type": "plant"
+  },
+  {
+    "index": "nobles",
+    "name": "Nobles",
+    "habitat": "Any",
+    "desc": "<p>Nobles encompass a variety of people with social influence. They might be rulers, wealthy merchants, callous bureaucrats, or the idle elite.</p>",
+    "monsters": [],
+    "short-description": "Royals and Rich Folk",
+    "treasure": [
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "ogres",
+    "name": "Ogres",
+    "habitat": "Arctic, Desert, Forest, Grassland, Hill, Mountain, Swamp, Underdark",
+    "desc": "<p>Ogres are selfish raiders and hulking gluttons spawned of hateful supernatural forces. From dismal ruins and bleak hinterlands, they raid vulnerable communities and ambush travelers. Ogres covet food and treasure, and they spitefully destroy art, books, clockwork devices, and other delicate or lovingly made things. Occasionally they kidnap victims to eat later or, more rarely, performers who catch their interest.</p>\n<p>Ogres trace their origins to wrathful deities such as Erythnul, Takhisis, and Vaprak. They magically emerge from the earth of lands corrupted by evil gods, sinister magic, or ancient curses. Some bear evidence of the places that spawned them, sporting rocky calluses, mossy growths, or frozen scars.</p>",
+    "monsters": [],
+    "short-description": "Raging Hulks and Hoarders",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "giant"
+  },
+  {
+    "index": "owlbears",
+    "name": "Owlbears",
+    "habitat": "Forest",
+    "desc": "<p>Created long ago by misguided mages, owlbears combine keen avian eyes, thick feathers, and a tearing beak with a mighty bearlike frame. Despite their magical origins, owlbears have propagated and spread to wildernesses across the multiverse.</p>\n<p>Owlbears dwell in distinctive dens. Roll on or choose a result from the Owlbear Den Features table to inspire an owlbear den's noteworthy traits.</p>\n<p><strong>Owlbear Den Features</strong><br><strong>1d4 An Owlbear Den Contains...</strong><br>1. Evidence of previous occupants, like bandits, wolves, or dragons.<br>2. Heaps of regurgitated pellets studded with coins or other treasure.<br>3. A nest with 1d6 owlbear eggs.<br>4. Passages through the earth or hollow trees.</p>",
+    "monsters": [],
+    "short-description": "Magically Perfected Predators",
+    "treasure": [],
+    "type": "monstrosity"
+  },
+  {
+    "index": "performers",
+    "name": "Performers",
+    "habitat": "Any",
+    "desc": "<p>From royal courts to village squares, skilled entertainers hone their talents and delight audiences. Some travel far, sharing tales and demonstrating mysterious arts. Others serve in the courts and theaters of great nations, cultivating celebrity and navigating the whims of patrons. Many hone professional secrets and magical flourishes, striving to make their performances truly unforgettable.</p>\n<p>Use the following list of entertainers and roles to inspire the performers in your adventures:</p>\n<ul>\n<li>Acrobat</li>\n<li>Comedian</li>\n<li>Mime</li>\n<li>Actor</li>\n<li>Contortionist</li>\n<li>Minstrel</li>\n<li>Aerialist</li>\n<li>Dancer</li>\n<li>Mourner</li>\n<li>Animal trainer</li>\n<li>Daredevil</li>\n<li>Oral historian</li>\n<li>Athlete</li>\n<li>Jester</li>\n<li>Poet</li>\n<li>Burlesque artist</li>\n<li>Juggler</li>\n<li>Puppeteer</li>\n<li>Busker</li>\n<li>Magician</li>\n<li>Ritualist</li>\n<li>Circus performer</li>\n</ul>",
+    "monsters": [],
+    "short-description": "Artists and Entertainers",
+    "treasure": [
+      "Implements",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "pirates",
+    "name": "Pirates",
+    "habitat": "Any",
+    "desc": "<p>The term \"pirate\" encompasses a broad range of seafarers, including vicious sea rovers, dogged privateers, cursed treasure hunters, and others who seek riches and fame on the seas.</p>\n<p>Pirates might be allies, foes, wild cards, or some combination thereof. While they are the bane of merchants and coastal communities, they know secrets of the sea and how to avoid aquatic threats. More unusual pirates set their sights beyond the waves, using airships, spelljamming vessels, plane-shifting craft, or stranger vehicles to explore and raid incredible realms.</p>\n<h2>Pirate Flags</h2>\n<p>To terrify opponents and spread their reputations, pirate crews fly distinctive flags. Roll twice on or choose results from the Pirate Flags table to inspire what flag a pirate crew sails under.</p>\n<p><strong>Pirate Flags</strong><br><strong>1d8 The Flag Shows A...</strong> | <strong>1d8 With...</strong><br>1. Buccaneer | 1. A captain's hat<br>2. Dragon | 2. Crossbones<br>3. Fiend | 3. Crossed blades<br>4. Goat | 4. An eye patch<br>5. Kraken | 5. Lightning bolts<br>6. Merfolk | 6. A mug of ale<br>7. Skull | 7. A tattoo<br>8. Whale | 8. A treasure chest</p>",
+    "monsters": [],
+    "short-description": "Freebooters and Fortune Hunters",
+    "treasure": [
+      "Individual",
+      "Implements"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "pixies",
+    "name": "Pixies",
+    "habitat": "Forest, Planar (Feywild)",
+    "desc": "<p>Barely a foot tall, pixies resemble diminutive elves with gossamer wings. They invisibly observe those who enter their wooded homes, revealing themselves to those with friendly intentions. Those who are unfriendly become the targets of pixies' pranks.</p>",
+    "monsters": [],
+    "short-description": "Friends of the Forest",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "fey"
+  },
+  {
+    "index": "priests",
+    "name": "Priests",
+    "habitat": "Any",
+    "desc": "<p>Priests harness the power of faith to work miracles. These religious adherents are as diverse as the faiths they follow. Some obey gods and their servants, while others live by age-old creeds. Belief guides priests' actions and their magic, which they use to shape the world in line with their ideologies.</p>\n<p>Roll on or choose a result from the Priest Roles table to inspire different sorts of priests.</p>\n<p><strong>Priest Roles</strong><br><strong>1d10 The Priest Is...</strong><br>1. An ascetic who keeps wicked spirits at bay.<br>2. An elder who speaks for the dead.<br>3. An exorcist who hunts wicked spirits.<br>4. A follower of a god no one has heard of.<br>5. A mediator and teacher of traditional ways.<br>6. A philosopher devoted to a concept, multiversal view, or plane of existence.<br>7. The reincarnation of an ancient faith leader.<br>8. A ritualist who uses tinctures and performances to access the divine.<br>9. A shaman whose medicines ease many ills.<br>10. A zealot who wages war for a divine cause.</p>",
+    "monsters": [],
+    "short-description": "Arbiters of the Mortal and the Divine",
+    "treasure": [
+      "Individual",
+      "Relics"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "quaggoths",
+    "name": "Quaggoths",
+    "habitat": "Underdark",
+    "desc": "<p>Beastly hunters endemic to subterranean depths, quaggoths scrape harsh existences from the <strong>Underdark</strong>. While they can survive on bitter lichens and toxic fungi, they viciously attack anything they can make a meal of, from giant spiders to explorers. Quaggoths sometimes serve as muscle for Underdark-dwelling villains.</p>\n<p>Quaggoths frequently collect in small bands led by the most fearsome group member. These bands are proud and quick to hold grudges.</p>\n<p>Anyone who harms a quaggoth\u2014or who is suspected of doing so\u2014earns the enmity of that quaggoth's band regardless of reason or fault. These grudges sometimes extend to whole communities rather than individuals. Generations of quaggoths might seek revenge against a settlement's inhabitants for decades-old slights. Only the leader of a quaggoth band can demand that a grudge ends.</p>",
+    "monsters": [],
+    "short-description": "Unpredictable Subterranean Stalkers",
+    "treasure": [],
+    "type": "humanoid"
+  },
+  {
+    "index": "red-dragons",
+    "name": "Red Dragons",
+    "habitat": "Hill, Mountain",
+    "desc": "<p>Red dragons take whatever they desire and burn to ash anything that stands in their way. These chromatic dragons endlessly desire more\u2014more magic, territory, treasure, or whatever else inflames their cruel ambitions.</p>\n<p>Red dragons make their lairs amid perilous cliffs and volcanoes. Within, they amass and fiercely protect hoards of treasure, and many have perfect recall of the hoards' contents and the locations of all they've collected. Should anything go missing, red dragons fly into rages. They don't rest until their treasures are returned and the thieves have burned.</p>\n<p>Red dragons believe themselves to be the greatest of all dragons and, by extension, the greatest of all creatures. To them, pillaging and conquering are their right\u2014treasures can find no more honored place than in their hoards, and other creatures are privileged to serve them.</p>",
     "monsters": [
-      "abominable-yeti",
-      "ankheg",
-      "axe-beak",
-      "basilisk",
-      "behir",
-      "bulette-pup",
-      "bulette",
-      "carrion-crawler",
-      "chimera",
-      "cockatrice-regent",
-      "cockatrice",
-      "death-dog",
-      "displacer-beast",
-      "doppelganger",
-      "ettercap",
-      "flying-snake",
-      "giant-axe-beak",
-      "giant-vulture",
-      "griffon",
-      "harpy",
-      "hippogriff",
-      "hook-horror",
-      "hydra",
-      "kenku",
-      "kraken",
-      "manticore",
-      "medusa",
-      "merrow",
-      "mimic",
-      "minotaur-of-baphomet",
-      "owlbear",
-      "peryton",
-      "phase-spider",
-      "primeval-owlbear",
-      "purple-worm",
-      "quaggoth-thonot",
-      "quaggoth",
-      "remorhaz",
-      "roc",
-      "rust-monster",
-      "stirge",
-      "tarrasque",
+        "adult-red-dragon",
+        "ancient-red-dragon",
+        "red-dragon-wyrmling",
+        "young-red-dragon"
+    ],
+    "short-description": "Dragons of Greed and Devastation",
+    "treasure": [
+      "Any"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "remorhazes",
+    "name": "Remorhazes",
+    "habitat": "Arctic",
+    "desc": "<p>Remorhazes are centipede-like terrors that burrow through snow and ice to ambush smaller creatures that trespass in their frozen territories.</p>",
+    "monsters": [],
+    "short-description": "Super-Heated Arctic Arthropods",
+    "treasure": [],
+    "type": "monstrosity"
+  },
+  {
+    "index": "revenants",
+    "name": "Revenants",
+    "habitat": "Forest, Swamp, Urban",
+    "desc": "<p>Wrathful spirits bent on revenge, revenants possess corpses and other materials, using them to seek justice or vent their rage on those who wronged them. Revenants refuse to rest until those they seek to punish are no more. If their bodies are destroyed, revenants claim new forms and continue their ruthless quests.</p>",
+    "monsters": [],
+    "short-description": "Vengeance from beyond the Grave",
+    "treasure": [
+      "Any"
+    ],
+    "type": "undead"
+  },
+  {
+    "index": "sahuagin",
+    "name": "Sahuagin",
+    "habitat": "Coastal, Underwater",
+    "desc": "<p>Sahuagin are fiendish terrors that prey on creatures above and below the water. Called \"sea devils\" by residents of coastal communities, sahuagin are ruthless raiders. They ransack ships, fishing villages, and undersea communities to slake their bloodthirst, claim treasure, and make sacrifices to their vicious deity\u2014the sharklike god Sekolah.</p>\n<p>Sahuagin constantly war on any peoples living near their territory. Merfolk and other aquatic folk bear the brunt of these attacks, but sahuagin also hunt air-breathers who sail over or swim through the waters the sea devils claim. Sahuagin often attack alongside sharks, which they can telepathically command.</p>",
+    "monsters": [
+      "sahuagin-baron",
+      "sahuagin-priest",
+      "sahuagin-warrior"
+    ],
+    "short-description": "Ravagers from Beneath the Waves",
+    "treasure": [
+      "Any"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "salamanders",
+    "name": "Salamanders",
+    "habitat": "Planar (Elemental Plane of Fire), Underdark",
+    "desc": "<p>Salamanders are serpentine denizens of the <strong>Elemental Plane of Fire</strong>. They believe that flames expose the purest forms of all things and delight in burning and melting things, seeing fleeting beauty and striking nuances in blazes consuming different fuels\u2014ancient forests, artistic masterpieces, or living creatures. To salamanders, those that can't endure their flames are nothing but ashes in disguise. They harbor malice toward few creatures, but they consider creating remarkable flames more important than the pain and loss their fires cause.</p>\n<p>Salamanders are typically content to dwell on the Elemental Plane of Fire, creating strange, temporary art amid the flames. Some travel to other planes of existence and worlds to experience the flames of other realms or create conflagrations of unprecedented scale.</p>",
+    "monsters": [],
+    "short-description": "Serpentine Artists of the Inferno",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "elemental"
+  },
+  {
+    "index": "satyrs",
+    "name": "Satyrs",
+    "habitat": "Forest, Planar (Feywild)",
+    "desc": "<p>Satyrs embody the untamed joys of the wilderness. They indulge in sprees of merrymaking\u2014eating, drinking, performing,</p>",
+    "monsters": [],
+    "short-description": "Horned and Hoofed Revelers",
+    "treasure": [
+      "Implements"
+    ],
+    "type": "fey"
+  },
+  {
+    "index": "scouts",
+    "name": "Scouts",
+    "habitat": "Any",
+    "desc": "<p>Scouts are warriors of the wilderness, trained in hunting and tracking. They might be explorers or trappers, or they could perform more martial roles as archers, bounty hunters, or outriders.</p>",
+    "monsters": [],
+    "short-description": "Watchers and Wanderers",
+    "treasure": [
+      "Implements",
+      "Individual"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "silver-dragons",
+    "name": "Silver Dragons",
+    "habitat": "Mountain, Urban",
+    "desc": "<p>Silver dragons work to preserve peace and encourage greatness. They try to live as examples of decency while remaining watchful against evil.</p>\n<p>Silver dragons typically dwell amid snow-capped mountains, though aspirations and congeniality drive some to instead live among cosmopolitan societies. Disguised as humanoids, they ally with artists, historians, knights, and humble leaders who learn from the past to create better futures.</p>\n<p>Silver dragons take inspiration from legendary heroes and have grand ambitions. Many collect treasures that reflect these interests, such as histories, ancient art, and the gear of famous champions.</p>",
+    "monsters": [
+        "adult-silver-dragon",
+        "ancient-silver-dragon",
+        "silver-dragon-wyrmling",
+        "young-silver-dragon"
+    ],
+    "short-description": "Dragons of Courage and Fairness",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "skeletons",
+    "name": "Skeletons",
+    "habitat": "Planar (Shadowfell), Underdark, Urban",
+    "desc": "<p>Skeletons rise at the summons of necromancers and foul spirits. Whether they're the remains of the ancient dead or fresh bones bound to morbid ambitions, they commit deathless work for whatever forces reanimated them, often serving as guardians, soldiers, or laborers. In rare cases, skeletons are reanimated but given no particular direction. Roll on or choose a result from the Skeleton Pantomimes table to inspire how undirected skeletons behave.</p>\n<p><strong>Skeleton Pantomimes</strong><br><strong>1d6 Left to Its Own Devices, the Skeleton...</strong><br>1 Delivers meal salvers or ages-old correspondence to the crypt of its dead master.<br>2 Endlessly trains in battle with other skeletons, despite being hacked to animate splinters.<br>3 Mimics ways it entertained itself in life, such as acting, dancing, or reading.<br>4 Performs a familiar task, such as cleaning, cooking, mining, or praying.<br>5 Repeats its final moments of life.<br>6 Stands guard at the post it protected in life.</p>",
+    "monsters": [],
+    "short-description": "Ossified Evil",
+    "treasure": [],
+    "type": "undead"
+  },
+  {
+    "index": "slaadi",
+    "name": "Slaadi",
+    "habitat": "Planar (Limbo)",
+    "desc": "<p>Unpredictable slaadi devour and multiply across the Ever-Changing Chaos of <strong>Limbo</strong>. These toad-like, extraplanar beings embody the endless potentiality of their home plane of existence. While slaadi aren't inherently evil, their impulses are wild and often destructive. Many are driven to propagate through supernatural processes. Unfortunately, these processes typically are fatal for other creatures.</p>\n<p>Slaadi have no formal society. Rather, strong slaadi dominate weaker ones. <strong>Blue</strong> and <strong>red slaadi</strong> rampage across Limbo and spill into other worlds at the direction of <strong>green slaadi</strong>. More powerful slaadi have connections to the Spawning Stone, a source of chaotic magic from which the first slaadi originated. The Spawning Stone is hidden deep within Limbo, and legends tie its origins to the modron overlord Primus or the ruinous slaad lords, such as Ssendam, the golden amoeboid terror, and Ygorl, the winged skeleton. These slaad lords and others plot to spread slaadi across the multiverse.</p>",
+    "monsters": [],
+    "short-description": "Chaos-Spawned Hordes of Limbo",
+    "treasure": [
+      "Any"
+    ],
+    "type": "fiend"
+  },
+  {
+    "index": "sphinxes",
+    "name": "Sphinxes",
+    "habitat": "Desert, Planar (Upper Planes)",
+    "desc": "<p>Sphinxes protect the secrets of the multiverse. Formed from the spirits of sages and explorers, sphinxes know the power of truth and the importance of preserving it. They share their wisdom only with those who prove themselves wise or overcome tests of worthiness, such as riddles or battles with dangerous beasts. Through their existences, sphinxes might change form as they gain more nuanced understanding of cosmic enigmas.</p>\n<p>Round she is, yet flat as a board<br>Altar of the Lupine Lords<br>Jewel on black velvet, pearl in the sea<br>Unchanged but e'er changing eternally</p>\n<p>\u2014Riddle of White Plume Mountain<br><strong>Answer to the riddle of White Plume Mountain</strong></p>",
+    "monsters": [],
+    "short-description": "Collectors and Keepers of Secrets",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "monstrosity"
+  },
+  {
+    "index": "stirges",
+    "name": "Stirges",
+    "habitat": "Desert, Forest, Grassland, Hill, Mountain, Swamp, Underdark, Urban",
+    "desc": "<p>Stirges are bat-size vermin with dagger-length proboscises that attach to other creatures and drain life from them. Stirges are most active at night and hide in shadowy places during the day. If disturbed, they take flight and defend themselves. Roll on or choose a result from the Stirge Roosts table to inspire where stirges might lurk.</p>\n<p><strong>Stirge Roosts</strong><br><strong>1d4 Between Hunts, the Stirge Lurks In...</strong><br>1 The attic or furniture of a ruined building.<br>2 A cave or narrow crevice.<br>3 A hollow tree or thicket.<br>4 The remains of a gigantic, dead creature.</p>",
+    "monsters": [
+      "swarm-of-stirges"
+    ],
+    "short-description": "Notorious, Clinging Bloodsuckers",
+    "treasure": [],
+    "type": "monstrosity"
+  },
+  {
+    "index": "thri-kreen",
+    "name": "Thri-kreen",
+    "habitat": "Desert, Grassland",
+    "desc": "<p>Thri-kreen are mantis-like wanderers who harness their innate camouflage and psychic abilities to survive. Different groups of thri-kreen have distinct carapaces, from the rocky shades of desert dwellers to the vibrant hues of those living in verdant lands. While their language has a distinctly insectile quality, thri-kreen often use telepathy to communicate, and groups can rapidly share a wealth of detailed information without making a sound.</p>\n<p>I would tell you now the tale of the first Ka'Cha, the first thri-kreen who knew and taught the truth: that the clutch is all.<br>\u2014Ka'Cha, thri-kreen knowledge hunter</p>",
+    "monsters": [
       "thri-kreen-marauder",
-      "thri-kreen-psion",
-      "troglodyte",
-      "umber-hulk",
-      "werebear",
-      "wereboar",
-      "wererat",
-      "weretiger",
-      "werewolf",
-      "winter-wolf",
-      "yeti",
-      "young-remorhaz",
+      "thri-kreen-psion"
+    ],
+    "short-description": "Mantid Psychics and Scavengers",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "toughs",
+    "name": "Toughs",
+    "habitat": "Any",
+    "desc": "<p>Bodyguards, belligerents, and laborers, toughs rely on their physical strength to intimidate foes. They might be brawny criminals, rowdy tavern goers, seasoned workers, or anyone who uses their muscle to get what they want.</p>",
+    "monsters": [],
+    "short-description": "Brawlers and Bullies",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "vampires",
+    "name": "Vampires",
+    "habitat": "Underdark, Urban",
+    "desc": "<p>Vampires disguise their accursed, immortal natures, passing as mortals to feed on the blood of the living. While the youngest vampires might be little more than bloodthirsty servants of their creators, the eldest possess incredible cunning and control over supernatural forces of the night.</p>\n<p>Undead vampires lie dormant during the day, retreating to resting places hidden from foes and the sun's searing rays. Roll on or choose a result from the Vampire Resting Places table to inspire a vampire's grim sanctuary.</p>\n<p><strong>Vampire Resting Places</strong><br><strong>1d6 The Vampire's Resting Place Is...</strong><br>1 Among the roots of a dead tree.<br>2 At the bottom of a stagnant pool.<br>3 A coffin filled with grave dirt.<br>4 A large pot full of blood or vinegar.<br>5 A space accessible only by shape-shifting.<br>6 Within a statue or suit of armor.</p>",
+    "monsters": [],
+    "short-description": "Blood-Sucking Lords of the Night",
+    "treasure": [
+      "Any"
+    ],
+    "type": "undead"
+  },
+  {
+    "index": "warriors",
+    "name": "Warriors",
+    "habitat": "Any",
+    "desc": "<p>Warriors are professionals who make a living through their prowess in battle. They might be skilled in using a variety of tactics or trained to take advantage of unusual battlefields. Warriors often work together, whether in armies or in teams with deliberate goals.</p>\n<p>Roll on or choose a result from the Warrior Roles table to inspire the creation of different sorts of warriors.</p>\n<p><strong>Warrior Roles</strong><br><strong>1d10 The Warrior Is...</strong><br>1 A bodyguard who protects a noble.<br>2 A cavalry officer with an unusual steed.<br>3 A crusader who fights for a divine cause.<br>4 A duelist who claims to be unbeatable.<br>5 A gate guard who asks nonsensical questions.<br>6 A grizzled veteran who trains new recruits.<br>7 A hunter skilled at slaying specific monsters.<br>8 A retired general who is weary of battle.<br>9 A volunteer with a homemade weapon.<br>10 A young mercenary trying to prove their skill.</p>",
+    "monsters": [],
+    "short-description": "Soldiers and Scrappers",
+    "treasure": [
+      "Armaments"
+    ],
+    "type": "humanoid"
+  },
+  {
+    "index": "white-dragons",
+    "name": "White Dragons",
+    "habitat": "Arctic",
+    "desc": "<p>Among the most primal chromatic dragons, white dragons prioritize survival over all. Life is harsh and uncertain in the arctic expanses, glacial heights, and frozen seas where these dragons dwell. White dragons fiercely protect their territories, scouring the frigid regions for food and evidence of trespassers. Most white dragons ignore the plots of smaller creatures and other dragons, concerning themselves only with their own survival.</p>\n<p>White dragons create lairs to defend themselves from other deadly arctic creatures and from dangerous natural conditions. Within these shelters, white dragons hoard testaments to their superiority, such as monstrous skulls, the gear of defeated rivals, and curiosities that capture their interest. To protect such treasure, white dragons coax ice to form over their hoards or sink their wealth in frigid pools. For white dragons, each piece of treasure embodies a victory\u2014the details of which inflate as these dragons age.</p>",
+    "monsters": [
+        "adult-white-dragon",
+        "ancient-white-dragon",
+        "white-dragon-wyrmling",
+        "young-white-dragon"
+    ],
+    "short-description": "Dragons of Cold and Cruelty",
+    "treasure": [
+      "Arcana"
+    ],
+    "type": "dragon"
+  },
+  {
+    "index": "worgs",
+    "name": "Worgs",
+    "habitat": "Forest, Grassland, Hill, Planar (Feywild)",
+    "desc": "<p>Sometimes mistaken at first for giant wolves, worgs are vicious hunters. These sapient predators can speak and often taunt their prey, enjoying the taste of fear in their meals.</p>",
+    "monsters": [],
+    "short-description": "Malicious Lupine Ravagers",
+    "treasure": [],
+    "type": "monstrosity"
+  },
+  {
+    "index": "yetis",
+    "name": "Yetis",
+    "habitat": "Arctic",
+    "desc": "<p>Across alpine extremes and frozen frontiers, yetis hunt those that trespass in their territories. Reclusive and merciless, they resemble giant apes with pale fur and ram-like horns. Yetis easily blend in with snow and icy cliffs, revealing themselves with blood-chilling howls just before striking with their icy claws. In addition to their physical might, yetis can chill creatures with a look, freezing their foes in place, and they can conjure ice and hurl it at foes.</p>\n<p>Due to yetis' elusiveness, folktales about yetis are more common than sightings. Whether a distant scream is the howl of an enraged yeti or just the wind, few can be certain. Nevertheless, many mountainous settlements burn bonfires to ward off yetis, taking advantage of these brutes' aversion to fire.</p>",
+    "monsters": [],
+    "short-description": "Chilling Stalkers of the Frozen Wilds",
+    "treasure": [
+      "Any"
+    ],
+    "type": "giant"
+  },
+  {
+    "index": "yuan-ti",
+    "name": "Yuan-ti",
+    "habitat": "Desert, Forest, Swamp, Urban",
+    "desc": "<p>Exploiting pacts with sinister supernatural forces, yuan-ti bargain away their humanity for the lethality and predatory deviousness of serpents. From hidden bastions, they manipulate rulers and the wealthy, seeking to control the world. Many yuan-ti possess venomous magic, which often manifests as fangs or striking serpents.</p>\n<p>Yuan-ti have humanlike forms with a variety of horrifying serpentine transformations. Some have a scattering of reptilian scales, while others are giants that are more snake than human. Typically, the more snakelike yuan-ti are, the greater esteem they hold among their kind.</p>\n<p>Yuan-ti might gain their reptilian features through dangerous supernatural rites. Roll on or choose a result from the Yuan-ti Transformations table to inspire how yuan-ti obtain their serpentine aspects.</p>\n<p><strong>Yuan-ti Transformations</strong><br><strong>1d6 A Yuan-ti Gained Its Snake Features From...</strong><br>1 Bargaining parts of its soul to a pantheon of serpentine demigods.<br>2 A curse laid on its people in the distant past.<br>3 The dream-venom of Merrshaulk, a slumbering snake god.<br>4 Experiments by <strong>spirit nagas</strong> or other yuan-ti.<br>5 A ritual involving the skin of a fiendish snake.<br>6 Trials to excise its \"weak\" human parts.</p>",
+    "monsters": [
       "yuan-ti-abomination",
       "yuan-ti-infiltrator",
       "yuan-ti-malison-type-1",
       "yuan-ti-malison-type-2",
       "yuan-ti-malison-type-3"
     ],
-    "page": 209,
-    "trait_modifiers": []
+    "short-description": "Power-Hungry Serpentine Conspirators",
+    "treasure": [
+      "Relics"
+    ],
+    "type": "humanoid"
   },
   {
-    "index": "plant",
-    "name": "Plant",
-    "book": "Monster Manual 2024",
-    "desc": "Plants are creatures with the characteristics of plants, often animated by magic or natural forces.",
-    "monsters": [
-      "awakened-shrub",
-      "awakened-tree",
-      "gas-spore-fungus",
-      "gulthias-blight",
-      "myconid-adult",
-      "myconid-sovereign",
-      "myconid-spore-servant",
-      "myconid-sprout",
-      "needle-blight",
-      "shambling-mound",
-      "shrieker-fungus",
-      "treant",
-      "tree-blight",
-      "twig-blight",
-      "vine-blight",
-      "violet-fungus-necrohulk",
-      "violet-fungus"
-    ],
-    "page": 210,
-    "trait_modifiers": [
-      "immune to poison",
-      "resistant to nonmagical weapons",
-      "no need to breathe"
-    ]
-  },
-  {
-    "index": "undead",
-    "name": "Undead",
-    "book": "Monster Manual 2024",
-    "desc": "Undead are creatures that have been returned to a form of life after death, often through necromantic magic.",
-    "monsters": [
-      "-wisp",
-      "banshee",
-      "beholder-zombie",
-      "bone-naga",
-      "crawling-claw",
-      "death-knight-aspirant",
-      "death-knight",
-      "death-tyrant",
-      "demilich",
-      "dracolich",
-      "flameskull",
-      "flaming-skeleton",
-      "ghast-gravecaller",
-      "ghast",
-      "ghost",
-      "ghoul",
-      "graveyard-revenant",
-      "haunting-revenant",
-      "lacedon-ghoul",
-      "lich",
-      "minotaur-skeleton",
-      "mummy-lord",
-      "mummy",
-      "ogre-zombie",
-      "poltergeist",
-      "revenant",
-      "shadow",
-      "skeleton",
-      "specter",
-      "vampire-nightbringer",
-      "vampire-spawn",
-      "vampire-umbral-lord",
-      "vampire",
-      "warhorse-skeleton",
-      "wight",
-      "wraith",
-      "zombie"
-    ],
-    "page": 211,
-    "trait_modifiers": [
-      "immune to poison",
-      "immune to disease",
-      "resistant to nonmagical weapons",
-      "no need to breathe"
-    ]
-  },
-  {
-    "index": "fiend",
-    "name": "Fiend",
-    "book": "Monster Manual 2024",
-    "desc": "Fiends are creatures from the Lower Planes, including demons and devils. They are inherently evil and seek to corrupt and destroy.",
-    "monsters": [
-      "arcanaloth",
-      "balor",
-      "barbed-devil",
-      "barlgura",
-      "bearded-devil",
-      "bone-devil",
-      "cambion",
-      "chain-devil",
-      "chasme",
-      "erinyes",
-      "glabrezu",
-      "gnoll-demoniac",
-      "gnoll-fang-of-yeenoghu",
-      "gnoll-pack-lord",
-      "gnoll-warrior",
-      "goristro",
-      "hell-hound",
-      "hezrou",
-      "horned-devil",
-      "ice-devil",
-      "imp",
-      "incubus",
-      "jackalwere",
-      "lamia",
-      "larva",
-      "lemure",
-      "manes-vaporspawn",
-      "manes",
-      "marilith",
-      "mezzoloth",
-      "nalfeshnee",
-      "night-hag",
-      "nightmare",
-      "nycaloth",
-      "oni",
-      "pit-fiend",
-      "quasit",
-      "rakshasa",
-      "sahuagin-baron",
-      "sahuagin-priest",
-      "sahuagin-warrior",
-      "shadow-demon",
-      "spined-devil",
-      "spirit-naga",
-      "succubus",
-      "ultroloth",
-      "vrock",
-      "yochlol"
-    ],
-    "page": 212,
-    "trait_modifiers": [
-      "immune to poison",
-      "resistant to nonmagical weapons",
-      "darkvision",
-      "fire resistance"
-    ]
+    "index": "zombies",
+    "name": "Zombies",
+    "habitat": "Planar (Shadowfell), Underdark, Urban",
+    "desc": "<p>Zombies are unthinking, reanimated corpses, often gruesomely marred by decay and lethal traumas. They serve whatever supernatural force animates them\u2014typically evil necromancers or fiendish spirits. Zombies are relentless, merciless, and resilient, and their dead flesh can carry on even after suffering grievous wounds. While they can follow simple orders, they rely on primal drives rather than thought. They fulfill commands by working tirelessly or battering through foes, but they are easily stymied by barriers or unexpected circumstances.</p>\n<p>Zombies are usually created from Humanoid corpses, but the remains of other creatures can also become zombies. Such monstrous zombies might possess the strength they had in life or a measure of their supernatural abilities, but they employ such abilities haphazardly at best.</p>",
+    "monsters": [],
+    "short-description": "Relentless Reanimated Corpses",
+    "treasure": [],
+    "type": "undead"
   }
 ]

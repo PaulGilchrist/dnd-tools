@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useMonsters, useMonsterSubtypes } from '../../data/dataService';
+import { useMonsters, useMonsterTypes } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import Monster from './Monster';
 import './MonsterLore.css';
 
 function MonsterLore() {
     const [monsters, setMonsters] = useState([]);
-    const [monsterSubtypes, setMonsterSubtypes] = useState([]);
+    const [monsterTypes, setMonsterTypes] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const [shownSubtype, setShownSubtype] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
     const { data: monstersData, loading: monstersLoading } = useMonsters();
-    const { data: monsterSubtypesData, loading: subtypeLoading } = useMonsterSubtypes();
+    const { data: monsterTypesData, loading: subtypeLoading } = useMonsterTypes();
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -23,7 +23,7 @@ function MonsterLore() {
             // Check for index parameter in URL
             const index = searchParams.get('index');
             if (index) {
-                const monsterSubtype = monsterSubtypesData.find(subtype => subtype.index === index);
+                const monsterSubtype = monsterTypesData.find(subtype => subtype.index === index);
                 if (monsterSubtype) {
                     showSubtype(index, false);
                     scrollIntoView(index);
@@ -38,10 +38,10 @@ function MonsterLore() {
             }
         }
 
-        if (monsterSubtypesData) {
-            setMonsterSubtypes(monsterSubtypesData);
+        if (monsterTypesData) {
+            setMonsterTypes(monsterTypesData);
         }
-    }, [monstersData, monsterSubtypesData]);
+    }, [monstersData, monsterTypesData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -74,7 +74,7 @@ function MonsterLore() {
 
     return (
         <>
-            {monsterSubtypes.map((subtype) => (
+            {monsterTypes.map((subtype) => (
                 <div className="list" key={subtype.index}>
                     <div 
                         className={`card outer w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
