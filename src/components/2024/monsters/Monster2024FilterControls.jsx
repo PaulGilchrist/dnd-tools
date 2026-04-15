@@ -66,7 +66,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
     };
 
     return (
-        <div className="filter-controls">
+        <>
             {/* Name */}
             <NameInput
                 filter={filter}
@@ -92,72 +92,84 @@ function Monster2024FilterControls({ filter, updateFilter }) {
             />
 
             {/* Challenge Rating */}
-            <div className="filter-row">
-                <div className="filter-group">
-                    <label>Challenge Rating</label>
-                    <div className="input-group">
-                        <input
-                            type="number"
-                            min="0"
-                            max="30"
-                            value={filter.challengeRatingMin}
-                            onChange={(e) => handleChallengeMinChange(e.target.value)}
-                            className="form-control"
-                        />
-                        <span className="input-group-text">-</span>
-                        <input
-                            type="number"
-                            min="0"
-                            max="30"
-                            value={filter.challengeRatingMax}
-                            onChange={(e) => handleChallengeMaxChange(e.target.value)}
-                            className="form-control"
-                        />
-                    </div>
+            <label htmlFor="challengeRatingMin" className="col-form-label">Challenge Rating</label>
+            <div className="row">
+                <div className="col">
+                    <input
+                        type="number"
+                        className="form-control"
+                        id="challengeRatingMin"
+                        name="challengeRatingMin"
+                        value={filter.challengeRatingMin}
+                        onChange={(e) => handleChallengeMinChange(e.target.value)}
+                        min="0"
+                        max="30"
+                        step="0.25"
+                        placeholder="min"
+                    />
+                </div>
+                <div className="col">
+                    <input
+                        type="number"
+                        className="form-control"
+                        id="challengeRatingMax"
+                        name="challengeRatingMax"
+                        value={filter.challengeRatingMax}
+                        onChange={(e) => handleChallengeMaxChange(e.target.value)}
+                        min="0"
+                        max="30"
+                        step="0.25"
+                        placeholder="max"
+                    />
                 </div>
             </div>
 
             {/* XP Range */}
-            <div className="filter-row">
-                <div className="filter-group">
-                    <label>XP Range</label>
-                    <div className="input-group">
-                        <input
-                            type="number"
-                            min="0"
-                            max="100000"
-                            value={filter.xpMin}
-                            onChange={(e) => handleXpMinChange(e.target.value)}
-                            className="form-control"
-                        />
-                        <span className="input-group-text">-</span>
-                        <input
-                            type="number"
-                            min="0"
-                            max="100000"
-                            value={filter.xpMax}
-                            onChange={(e) => handleXpMaxChange(e.target.value)}
-                            className="form-control"
-                        />
-                    </div>
+            <label htmlFor="xpMin" className="col-form-label">XP Range</label>
+            <div className="row">
+                <div className="col">
+                    <input
+                        type="number"
+                        className="form-control"
+                        id="xpMin"
+                        name="xpMin"
+                        value={filter.xpMin}
+                        onChange={(e) => handleXpMinChange(e.target.value)}
+                        min="0"
+                        max="100000"
+                        step="25"
+                        placeholder="min"
+                    />
+                </div>
+                <div className="col">
+                    <input
+                        type="number"
+                        className="form-control"
+                        id="xpMax"
+                        name="xpMax"
+                        value={filter.xpMax}
+                        onChange={(e) => handleXpMaxChange(e.target.value)}
+                        min="0"
+                        max="100000"
+                        step="25"
+                        placeholder="max"
+                    />
                 </div>
             </div>
 
             {/* Bookmarked */}
-            <div className="filter-row">
-                <SelectFilter
-                    label="Bookmarked"
-                    name="bookmarked"
-                    value={filter.bookmarked}
-                    options={[
-                        { value: 'All', label: 'All' },
-                        { value: 'true', label: 'Bookmarked Only' },
-                        { value: 'false', label: 'Not Bookmarked' }
-                    ]}
-                    onChange={handleBookmarkedChange}
-                />
-            </div>
-        </div>
+            <SelectFilter
+                label="Bookmarked"
+                name="bookmarked"
+                value={filter.bookmarked}
+                options={[
+                    { value: 'All', label: 'All' },
+                    { value: 'true', label: 'Bookmarked Only' },
+                    { value: 'false', label: 'Not Bookmarked' }
+                ]}
+                onChange={handleBookmarkedChange}
+            />
+        </>
     );
 }
 
