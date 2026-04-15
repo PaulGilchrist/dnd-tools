@@ -92,6 +92,7 @@ function MonsterLore2024() {
     // Group subtypes by their parent type
     const groupSubtypesByType = () => {
         const grouped = {};
+        const typeMonsterIndices = {};
         
         monsterSubtypes.forEach(subtype => {
             // Find the first monster of this subtype to determine its type
@@ -105,7 +106,13 @@ function MonsterLore2024() {
             
             if (!grouped[type]) {
                 // Find the type-level data (description, book, page) from monsterTypesData
-                const typeData = monsterTypesData.find(t => t.index === type || (t.name && t.name.toLowerCase().replace(/\s+/g, '-') === type.toLowerCase().replace(/\s+/g, '-')));
+                // Normalize type names for matching (remove spaces, lowercase)
+                const normalizedType = type.toLowerCase().replace(/\s+/g, '-');
+                const typeData = monsterTypesData.find(t => 
+                    t.index === type || 
+                    t.index === normalizedType ||
+                    (t.name && t.name.toLowerCase().replace(/\s+/g, '-') === normalizedType)
+                );
                 
                 grouped[type] = {
                     type,
@@ -114,8 +121,10 @@ function MonsterLore2024() {
                     trait_modifiers: typeData?.trait_modifiers || [],
                     book: typeData?.book || '',
                     page: typeData?.page || '',
-                    subtypes: []
+                    subtypes: [],
+                    monstersWithoutSubtype: []
                 };
+                typeMonsterIndices[type] = new Set();
             }
             
             grouped[type].subtypes.push({
@@ -123,6 +132,33 @@ function MonsterLore2024() {
                 monsters: subtypeMonsters,
                 firstMonster: subtypeMonsters[0]
             });
+            
+            // Track monsters that are in subtypes
+            subtypeMonsters.forEach(m => typeMonsterIndices[type].add(m.index));
+        });
+        
+        // Find monsters that belong to types but have no subtype
+        monsterTypesData.forEach(typeData => {
+            const type = typeData.index || typeData.name?.toLowerCase().replace(/\s+/g, '-');
+            const normalizedType = type.toLowerCase().replace(/\s+/g, '-');
+            
+            // Find the actual type key in grouped (case-insensitive match)
+            const groupedTypeKey = Object.keys(grouped).find(k => 
+                k.toLowerCase().replace(/\s+/g, '-') === normalizedType
+            );
+            
+            if (groupedTypeKey && typeMonsterIndices[groupedTypeKey]) {
+                const monstersInType = typeData.monsters || [];
+                const monstersWithoutSubtype = monstersInType
+                    .filter(monsterIndex => !typeMonsterIndices[groupedTypeKey].has(monsterIndex))
+                    .map(monsterIndex => monsters.find(m => m.index === monsterIndex))
+                    .filter(m => m);
+                
+                console.log(`Type ${groupedTypeKey}: ${monstersInType.length} total, ${monstersWithoutSubtype.length} without subtype`);
+                if (monstersWithoutSubtype.length > 0) {
+                    grouped[groupedTypeKey].monstersWithoutSubtype = monstersWithoutSubtype;
+                }
+            }
         });
         
         return Object.values(grouped).sort((a, b) => a.name.localeCompare(b.name));
@@ -165,6 +201,7 @@ function MonsterLore2024() {
                                         </>
                                     )}
                                     <br/>
+                                    {console.log(`Rendering ${typeGroup.name}: ${typeGroup.monstersWithoutSubtype?.length || 0} monsters without subtype`)}
                                     <h5>Subtypes</h5>
                                     
                                     {/* Sort subtypes alphabetically */}
@@ -222,6 +259,23 @@ function MonsterLore2024() {
                                                 </div>
                                             );
                                         })}
+                                    {/* Show monsters without subtypes */}
+                                    {typeGroup.monstersWithoutSubtype && typeGroup.monstersWithoutSubtype.length > 0 && (
+                                        <>
+                                            <br/>
+                                            <h5>Monsters without Subtype</h5>
+                                            {typeGroup.monstersWithoutSubtype.map(monster => (
+                                                <div className="inner-list" key={monster.index}>
+                                                    <Monster2024 
+                                                        monster={monster}
+                                                        expand={shownCard === monster.index}
+                                                        onExpand={(expanded) => expandCard(monster.index, expanded)}
+                                                        cardType="inner"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </>
+                                    )}
                                     {/* Show book and page after subtypes and monsters */}
                                     {typeGroup.book && typeGroup.page && (
                                         <div className="card-footer">
