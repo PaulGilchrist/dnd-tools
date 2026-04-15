@@ -11,7 +11,6 @@ function Monster2024RegionalEffects({ monster }) {
 
     return (
         <div className="removeExtraLine">
-            <h5>Regional Effects</h5>
             {monster.regional_effects.summary && <p>{monster.regional_effects.summary}</p>}
             {monster.regional_effects.effects && monster.regional_effects.effects.length > 0 && (
                 <ul>

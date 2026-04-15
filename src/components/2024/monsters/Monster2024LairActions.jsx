@@ -11,7 +11,6 @@ function Monster2024LairActions({ monster }) {
 
     return (
         <div className="removeExtraLine">
-            <h5>Lair Actions</h5>
             {monster.lair_actions.summary && <p>{monster.lair_actions.summary}</p>}
             {monster.lair_actions.actions && monster.lair_actions.actions.length > 0 && (
                 <ul>

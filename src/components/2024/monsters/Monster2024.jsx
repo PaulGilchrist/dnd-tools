@@ -131,7 +131,7 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                 <h5>Actions</h5>
                             </div>
                             <Monster2024Actions monster={monster} />
-                            {monster.reactions && (
+                            {monster.reactions && monster.reactions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div className="removeExtraLine">
@@ -140,7 +140,7 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                     <Monster2024Reactions monster={monster} />
                                 </div>
                             )}
-                            {monster.legendary_actions && (
+                            {monster.legendary_actions && monster.legendary_actions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div>
@@ -149,7 +149,7 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                     <Monster2024LegendaryActions monster={monster} />
                                 </div>
                             )}
-                            {monster.lair_actions && (
+                            {monster.lair_actions && monster.lair_actions.actions && monster.lair_actions.actions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div>
