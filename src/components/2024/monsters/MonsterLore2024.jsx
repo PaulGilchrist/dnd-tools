@@ -72,51 +72,119 @@ function MonsterLore2024() {
         }
     };
 
+    // Group monsters by subtype for a given monster type
+    const getMonstersBySubtype = (monstersList, typeMonsterIndices) => {
+        const withSubtype = [];
+        const withoutSubtype = [];
+
+        typeMonsterIndices.forEach(monsterIndex => {
+            const monster = monstersList.find(m => m.index === monsterIndex);
+            if (monster) {
+                if (monster.subtype && monster.subtype !== monster.type) {
+                    withSubtype.push(monster);
+                } else {
+                    withoutSubtype.push(monster);
+                }
+            }
+        });
+
+        return { withSubtype, withoutSubtype };
+    };
+
     if (monstersLoading || subtypeLoading) {
         return <div className="list"><div>Loading monster lore...</div></div>;
     }
 
     return (
         <>
-            {monsterTypes.map((subtype) => (
-                <div className="list" key={subtype.index}>
-                    <div 
-                        className={`card outer w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
-                        id={subtype.index}
-                    >
+            {monsterTypes.map((subtype) => {
+                const typeMonsterIndices = subtype.monsters || [];
+                const { withSubtype, withoutSubtype } = getMonstersBySubtype(monsters, typeMonsterIndices);
+
+                return (
+                    <div className="list" key={subtype.index}>
                         <div 
-                            className="card-header clickable"
-                            onClick={() => showSubtype(subtype.index)}
+                            className={`card outer w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
+                            id={subtype.index}
                         >
-                            <div className="card-title">{subtype.name}</div>
-                        </div>
-                        {shownSubtype === subtype.index && (
-                            <div className="card-body">
-                                <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
-                                <br/>
-                                <h5>Monsters</h5>
-                                {monsters.map((monster) => (
-                                    <div className="inner-list" key={monster.index} id={monster.index}>
-                                        {subtype.monsters.includes(monster.index) && (
+                            <div 
+                                className="card-header clickable"
+                                onClick={() => showSubtype(subtype.index)}
+                            >
+                                <div className="card-title">{subtype.name}</div>
+                            </div>
+                            {shownSubtype === subtype.index && (
+                                <div className="card-body">
+                                    <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
+                                    <br/>
+                                    <h5>Monsters</h5>
+                                    
+                                    {/* Subtypes with their own monsters - grouped by unique subtype */}
+                                    {(() => {
+                                        const uniqueSubtypes = [...new Set(withSubtype.map(m => m.subtype))];
+                                        return uniqueSubtypes.map(subtypeName => {
+                                            const monstersInSubtype = withSubtype.filter(m => m.subtype === subtypeName);
+                                            const firstMonster = monstersInSubtype[0];
+                                            const isExpanded = shownCard === subtypeName;
+                                            
+                                            return (
+                                                <div className="inner-list" key={subtypeName} id={subtypeName}>
+                                            <div 
+                                                className={`card inner w-100 ${shownCard === subtypeName ? 'active' : ''}`}
+                                                onClick={() => expandCard(subtypeName, !shownCard.includes(subtypeName))}
+                                            >
+                                                <div className="card-header clickable">
+                                                    <div className="card-title">{subtypeName}</div>
+                                                    <i>
+                                                        {firstMonster.size} {firstMonster.type.toLowerCase()}
+                                                        {firstMonster.subtype && firstMonster.subtype !== firstMonster.type && (
+                                                            <span> ({firstMonster.subtype})</span>
+                                                        )}, {firstMonster.alignment}
+                                                    </i>
+                                                </div>
+                                                {isExpanded && (
+                                                    <div className="card-body">
+                                                        <h6>Monsters in this subtype</h6>
+                                                        {monstersInSubtype.map(innerMonster => (
+                                                            <Monster2024 
+                                                                key={innerMonster.index}
+                                                                monster={innerMonster}
+                                                                expand={shownCard === innerMonster.index}
+                                                                onExpand={(expanded) => expandCard(innerMonster.index, expanded)}
+                                                                cardType="inner"
+                                                            />
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                            );
+                                        });
+                                    })()}
+
+                                    {/* Monsters without subtypes */}
+                                    {withoutSubtype.map((monster) => (
+                                        <div className="inner-list" key={monster.index} id={monster.index}>
                                             <Monster2024 
                                                 monster={monster}
                                                 expand={shownCard === monster.index}
                                                 onExpand={(expanded) => expandCard(monster.index, expanded)}
                                                 cardType="inner"
                                             />
-                                        )}
+                                        </div>
+                                    ))}
+                                    <div className="card-footer">
+                                        {subtype.book} (page {subtype.page})
                                     </div>
-                                ))}
-                                <div className="card-footer">
-                                    {subtype.book} (page {subtype.page})
                                 </div>
-                            </div>
                         )}
+                        </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
         </>
     );
 }
 
 export default MonsterLore2024;
+
