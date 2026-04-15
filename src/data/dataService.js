@@ -20,6 +20,7 @@ const dataCache = {
     spells: [],
     spells2024: [],
     monsters2024: [],
+    monsters2024Subtypes: [],
     weaponProperties: []
 };
 
@@ -148,6 +149,10 @@ export function use2024Monsters() {
     return useDataCache('monsters2024', BASE_URL + 'data/2024/monsters.json');
 }
 
+export function use2024MonsterSubtypes() {
+    return useDataCache('monsters2024Subtypes', BASE_URL + 'data/2024/monster-subtypes.json');
+}
+
 export function useWeaponProperties() {
     return useDataCache('weaponProperties', BASE_URL + 'data/weapon-properties.json');
 }
@@ -270,6 +275,20 @@ export class DataService {
         return this.cache.monsterSubtypes;
     }
 
+    async get2024MonsterSubtypes() {
+        if (this.cache.monsters2024Subtypes.length === 0) {
+            try {
+                const response = await fetch(BASE_URL + 'data/2024/monster-subtypes.json');
+                const data = await response.json();
+                this.cache.monsters2024Subtypes = data;
+                console.log('Get - 2024 monster subtypes');
+            } catch (error) {
+                handleError(error);
+            }
+        }
+        return this.cache.monsters2024Subtypes;
+    }
+
     async getNames() {
         if (this.cache.names.length === 0) {
             try {
@@ -358,3 +377,4 @@ export class DataService {
 
 // Export singleton instance for class-based usage
 export const dataService = new DataService();
+

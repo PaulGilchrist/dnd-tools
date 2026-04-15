@@ -51,6 +51,16 @@ function NavTop() {
                 setActiveMonsterRoute(location.pathname === '/2024/monsters/search' ? '2024' : '5e');
             }
 
+            // Track which lore route is active
+            if (location.pathname === '/monsters/lore' && ruleVersion === '5e') {
+                setActiveMonsterRoute('lore-5e');
+            } else if (location.pathname === '/2024/monsters/lore' && ruleVersion === '2024') {
+                setActiveMonsterRoute('lore-2024');
+            } else if (location.pathname === '/monsters/lore' || location.pathname === '/2024/monsters/lore') {
+                // User is on a lore page but version doesn't match dropdown
+                setActiveMonsterRoute(location.pathname === '/2024/monsters/lore' ? 'lore-2024' : 'lore-5e');
+            }
+
             if (location.pathname.includes('monsters/lore') || 
                 location.pathname.includes('monsters/encounters') || 
                 location.pathname.includes('monsters/search')) {
@@ -91,19 +101,25 @@ function NavTop() {
         localStorage.setItem('ruleVersion', newVersion);
         // If spells route is active, navigate to appropriate spells route
         if (activeSpellRoute) {
-            const newLink = newVersion === '2024' ? '/2024/spells' : '/spells';
-            navigate(newLink);
+    const newLink = newVersion === '2024' ? '/2024/spells' : '/spells';
+    navigate(newLink);
         }
-        // If monsters route is active, navigate to appropriate monsters route
-        else if (activeMonsterRoute) {
-            const newLink = newVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
-            navigate(newLink);
+        // If monsters search route is active, navigate to appropriate monsters route
+        else if (activeMonsterRoute === '5e' || activeMonsterRoute === '2024') {
+    const newLink = newVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
+    navigate(newLink);
+        }
+        // If lore route is active, navigate to appropriate lore route
+        else if (activeMonsterRoute === 'lore-5e' || activeMonsterRoute === 'lore-2024') {
+    const newLink = newVersion === '2024' ? '/2024/monsters/lore' : '/monsters/lore';
+    navigate(newLink);
         }
         setRuleVersion(newVersion);
     };
 
     const spellLink = ruleVersion === '2024' ? '/2024/spells' : '/spells';
     const monsterSearchLink = ruleVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
+    const monsterLoreLink = ruleVersion === '2024' ? '/2024/monsters/lore' : '/monsters/lore';
 
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
@@ -177,7 +193,7 @@ function NavTop() {
                             </li>
                             <li>
                                 <NavLink 
-                                    to="/monsters/lore" 
+                                    to={monsterLoreLink} 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
