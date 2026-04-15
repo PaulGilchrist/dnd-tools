@@ -127,14 +127,14 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
                             <hr />
                             <Monster2024SpecialAbilities monster={monster} />
                             <hr />
-                            <div className="removeExtraLine">
+                            <div>
                                 <h5>Actions</h5>
                             </div>
                             <Monster2024Actions monster={monster} />
                             {monster.reactions && monster.reactions.length > 0 && (
                                 <div>
                                     <hr />
-                                    <div className="removeExtraLine">
+                                    <div>
                                         <h5>Reactions</h5>
                                     </div>
                                     <Monster2024Reactions monster={monster} />

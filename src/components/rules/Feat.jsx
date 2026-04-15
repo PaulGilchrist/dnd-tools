@@ -27,7 +27,7 @@ function Feat({ feat, expand, onExpand }) {
             </div>
             {isExpanded && (
                 <div className="card-body">
-                    <div className="card-text removeExtraLine">
+                    <div className="card-text">
                         {feat.prerequisite && (
                             <div>
                                 <b>Prerequisite</b>: {feat.prerequisite}<br /><br />

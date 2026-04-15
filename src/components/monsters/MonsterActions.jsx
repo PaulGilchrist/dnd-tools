@@ -6,7 +6,7 @@ function MonsterActions({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             {monster.actions.map((action, index) => (
                 <div key={index}>
                     <b>

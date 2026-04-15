@@ -223,7 +223,7 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
 
                         {/* Description and Special */}
                         {equipmentItem.desc && (
-                            <div className="removeExtraLine">
+                            <div>
                                 <hr />
                                 <h5>Description</h5>
                                 {equipmentItem.desc.map((desc, index) => (
@@ -235,7 +235,7 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
                         )}
 
                         {equipmentItem.special && (
-                            <div className="removeExtraLine">
+                            <div>
                                 <hr />
                                 <h5>Special</h5>
                                 {equipmentItem.special.map((spec, index) => (

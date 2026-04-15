@@ -6,7 +6,7 @@ function MonsterSpecialAbilities({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             {monster.special_abilities.map((special_ability, index) => (
                 <span key={index}>
                     <b>

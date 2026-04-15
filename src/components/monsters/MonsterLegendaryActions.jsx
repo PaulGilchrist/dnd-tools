@@ -6,7 +6,7 @@ function MonsterLegendaryActions({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             {monster.legendary_actions.map((legendary_action, index) => (
                 <span key={index}>
                     <b>{legendary_action.name}:</b>&nbsp;{legendary_action.desc}<br /><br />

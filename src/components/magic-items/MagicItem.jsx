@@ -72,7 +72,7 @@ function MagicItem({ magicItem, expand, onExpand, onBookmarkChange }) {
                     <div className="card-text">
                         {/* Description */}
                         {magicItem.description && (
-                            <div className="removeExtraLine">
+                            <div>
                                 <b>Description:</b><br />
                                 <div dangerouslySetInnerHTML={{ __html: magicItem.description }} />
                             </div>

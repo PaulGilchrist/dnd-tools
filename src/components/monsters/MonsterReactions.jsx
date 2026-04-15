@@ -6,7 +6,7 @@ function MonsterReactions({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             {monster.reactions.map((reaction, index) => (
                 <span key={index}>
                     <b>{reaction.name}:</b>&nbsp;{reaction.desc}<br /><br />

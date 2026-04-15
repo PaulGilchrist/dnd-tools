@@ -29,10 +29,6 @@
     display: none;
 }
 
-.removeExtraLine {
-    margin-bottom: -20px;
-}
-
 .inner {
     box-sizing: border-box;
     margin-left: 0 !important;

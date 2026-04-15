@@ -19,12 +19,7 @@
 }
 
 .card-text hr {
-  margin: 1rem 0;
-}
-
-.removeExtraLine h5 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin: 0 0;
 }
 
 .cover {

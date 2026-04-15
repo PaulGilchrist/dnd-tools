@@ -15,9 +15,9 @@ function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
             <div className="card-header clickable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <div className="card-title">Features</div>
             </div>
-            <div className="card-body removeExtraLine" style={{ display: shownLevel !== 0 ? 'none' : 'block' }}>
+            <div className="card-body" style={{ display: shownLevel !== 0 ? 'none' : 'block' }}>
                 {features.map((feature, index) => (
-                    <div key={index} className="removeExtraLine">
+                    <div key={index}>
                         <b>{feature.name}:</b>&nbsp;
                         {feature.desc && feature.desc.map((desc, descIndex) => (
                             <span key={descIndex}>

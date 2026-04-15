@@ -10,7 +10,7 @@ function Monster2024Actions({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             {monster.actions.map((action, index) => (
                 <div key={index}>
                     <b>
@@ -23,9 +23,9 @@ function Monster2024Actions({ monster }) {
                         )}
                         :
                     </b>&nbsp;{action.description}<br />
-                    {action.attack_bonus && <span>Atk: +{action.attack_bonus} ({action.damage_dice || 'melee'}) — {action.damage || 'damage'}</span>}
-                    {action.save_dc && <span>DC {action.save_dc} {action.save_type} save or {action.save_effect}</span>}
-                    <br /><br />
+                    {action.attack_bonus && <span>Atk: +{action.attack_bonus} ({action.damage_dice || 'melee'}) — {action.damage || 'damage'}<br /></span>}
+                    {action.save_dc && <span>DC {action.save_dc} {action.save_type} save or {action.save_effect}<br /></span>}
+                    <br />
                 </div>
             ))}
         </div>

@@ -17,10 +17,6 @@
     margin-bottom: 10px;
 }
 
-.removeExtraLine br {
-    margin-bottom: 5px;
-}
-
 /* Add spacing after expanded card content */
 .card.active .card-body > div:last-child {
     margin-bottom: 10px;

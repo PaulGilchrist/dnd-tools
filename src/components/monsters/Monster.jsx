@@ -120,14 +120,14 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                             <hr />
                             <MonsterSpecialAbilities monster={monster} />
                             <hr />
-                            <div className="removeExtraLine">
+                            <div>
                                 <h5>Actions</h5>
                             </div>
                             <MonsterActions monster={monster} />
                             {monster.reactions && (
                                 <div>
                                     <hr />
-                                    <div className="removeExtraLine">
+                                    <div>
                                         <h5>Reactions</h5>
                                     </div>
                                     <MonsterReactions monster={monster} />

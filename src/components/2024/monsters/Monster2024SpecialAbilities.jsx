@@ -10,7 +10,7 @@ function Monster2024SpecialAbilities({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             <h5>Special Traits</h5>
             {monster.traits.map((trait, index) => (
                 <div key={index}>

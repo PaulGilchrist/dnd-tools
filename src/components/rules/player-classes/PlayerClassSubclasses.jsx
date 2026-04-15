@@ -36,7 +36,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                 {playerClass.subclasses.map((subclass) => (
                     <div key={subclass.index} id={subclass.index}>
                         {shownSubclass === subclass.index && (
-                            <div className="subtext removeExtraLine">
+                            <div className="subtext">
                                 <strong>{subclass.subclass_flavor} - {subclass.name}</strong> - {subclass.desc}<br />
 
                                 {/* Subclass Spells */}
@@ -75,7 +75,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                 {subclassFeatures && subclassFeatures.length > 0 && (
                                     <div>
                                         {subclassFeatures.map((feature, index) => (
-                                            <div key={index} className="removeExtraLine">
+                                            <div key={index}>
                                                 <div className="feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                     {feature.description && feature.description[0] && (
