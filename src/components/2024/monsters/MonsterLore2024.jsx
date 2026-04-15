@@ -104,11 +104,16 @@ function MonsterLore2024() {
             const type = firstMonster.type;
             
             if (!grouped[type]) {
+                // Find the type-level data (description, book, page) from monsterTypesData
+                const typeData = monsterTypesData.find(t => t.index === type || (t.name && t.name.toLowerCase().replace(/\s+/g, '-') === type.toLowerCase().replace(/\s+/g, '-')));
+                
                 grouped[type] = {
                     type,
                     name: type,
-                    book: subtype.book,
-                    page: subtype.page,
+                    desc: typeData?.desc || '',
+                    trait_modifiers: typeData?.trait_modifiers || [],
+                    book: typeData?.book || '',
+                    page: typeData?.page || '',
                     subtypes: []
                 };
             }
@@ -146,7 +151,19 @@ function MonsterLore2024() {
                             </div>
                             {shownSubtype === typeGroup.type && (
                                 <div className="card-body">
+                                    {/* Show description and trait modifiers first */}
                                     <div dangerouslySetInnerHTML={{ __html: typeGroup.desc || '' }} />
+                                    <br/>
+                                    {typeGroup.trait_modifiers && typeGroup.trait_modifiers.length > 0 && (
+                                        <>
+                                            <h6>Trait Modifiers</h6>
+                                            <ul>
+                                                {typeGroup.trait_modifiers.map((modifier, idx) => (
+                                                    <li key={idx}>{modifier}</li>
+                                                ))}
+                                            </ul>
+                                        </>
+                                    )}
                                     <br/>
                                     <h5>Subtypes</h5>
                                     
@@ -205,9 +222,12 @@ function MonsterLore2024() {
                                                 </div>
                                             );
                                         })}
-                                    <div className="card-footer">
-                                        {typeGroup.book} (page {typeGroup.page})
-                                    </div>
+                                    {/* Show book and page after subtypes and monsters */}
+                                    {typeGroup.book && typeGroup.page && (
+                                        <div className="card-footer">
+                                            {typeGroup.book} (page {typeGroup.page})
+                                        </div>
+                                    )}
                                 </div>
                         )}
                         </div>
