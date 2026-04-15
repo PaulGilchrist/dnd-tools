@@ -7,6 +7,7 @@ import FilterForm from './Monster2024FilterForm';
 import FilterControls from './Monster2024FilterControls';
 import Loading from './Monster2024Loading';
 import { scrollIntoView } from '../../../data/utils';
+import { useMonster2024Filter } from '../../../hooks/useMonster2024Filter';
 
 /**
  * Monster2024Search component - Main search and filter page for 2024 monsters
@@ -19,17 +20,8 @@ function Monster2024Search() {
     // Fetch data
     const { data: monstersData, loading: monstersLoading } = use2024Monsters();
 
-    // Filter state
-    const [filter, setFilter] = useState({
-        bookmarked: 'All',
-        challengeRatingMin: 0,
-        challengeRatingMax: 25,
-        name: '',
-        size: 'All',
-        type: 'All',
-        xpMin: 0,
-        xpMax: 50000
-    });
+    // Use custom hook for filter state and persistence
+    const { filter, updateFilter } = useMonster2024Filter();
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -48,13 +40,6 @@ function Monster2024Search() {
                 }
             }
 
-            // Set search filters from localStorage
-            const savedFilter = localStorage.getItem('monsterFilter2024');
-            if (savedFilter) {
-                setFilter(JSON.parse(savedFilter));
-            } else {
-                localStorage.setItem('monsterFilter2024', JSON.stringify(filter));
-            }
 
             console.log(`${updatedMonsters.length} 2024 monsters`);
         }
@@ -116,7 +101,7 @@ function Monster2024Search() {
     return (
         <>
             <FilterForm>
-                <FilterControls filter={filter} updateFilter={setFilter} />
+                <FilterControls filter={filter} updateFilter={updateFilter} />
             </FilterForm>
 
             <Monster2024List

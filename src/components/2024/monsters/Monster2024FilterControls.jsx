@@ -38,31 +38,31 @@ const TYPE_OPTIONS = [
  */
 function Monster2024FilterControls({ filter, updateFilter }) {
     const handleBookmarkedChange = (value) => {
-        updateFilter({ ...filter, bookmarked: value });
+        updateFilter('bookmarked', value);
     };
 
     const handleSizeChange = (value) => {
-        updateFilter({ ...filter, size: value });
+        updateFilter('size', value);
     };
 
     const handleTypeChange = (value) => {
-        updateFilter({ ...filter, type: value });
+        updateFilter('type', value);
     };
 
     const handleChallengeMinChange = (value) => {
-        updateFilter({ ...filter, challengeRatingMin: parseInt(value, 10) });
+        updateFilter('challengeRatingMin', parseInt(value, 10));
     };
 
     const handleChallengeMaxChange = (value) => {
-        updateFilter({ ...filter, challengeRatingMax: parseInt(value, 10) });
+        updateFilter('challengeRatingMax', parseInt(value, 10));
     };
 
     const handleXpMinChange = (value) => {
-        updateFilter({ ...filter, xpMin: parseInt(value, 10) });
+        updateFilter('xpMin', parseInt(value, 10));
     };
 
     const handleXpMaxChange = (value) => {
-        updateFilter({ ...filter, xpMax: parseInt(value, 10) });
+        updateFilter('xpMax', parseInt(value, 10));
     };
 
     return (
@@ -174,3 +174,4 @@ function Monster2024FilterControls({ filter, updateFilter }) {
 }
 
 export default Monster2024FilterControls;
+
