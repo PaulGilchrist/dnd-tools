@@ -64,7 +64,8 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
         if (monster && monster.image) {
             // Use relative path to look up in monsterImages object
             const imagePath = `../../assets/monsters/${monster.index}.jpg`;
-            setMonsterImage(monsterImages[imagePath] || '');
+            const imageModule = monsterImages[imagePath];
+            setMonsterImage(imageModule ? imageModule.default : '');
             setImageActive(true);
         }
     };

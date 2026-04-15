@@ -14,7 +14,7 @@ import Monster2024RegionalEffects from './Monster2024RegionalEffects';
 const BASE_URL = import.meta.env.BASE_URL || '';
 
 // Import all monster images dynamically
-const monsterImages = import.meta.glob('../../../../assets/monsters/*.jpg', { eager: true });
+const monsterImages = import.meta.glob('../../../assets/monsters/*.jpg', { eager: true });
 
 /**
  * Monster2024 component - Displays a single monster card with 2024 rules data
@@ -70,8 +70,9 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
     const handleImageClick = (e) => {
         e.stopPropagation();
         if (monster && monster.image) {
-            const imagePath = `../../../../assets/monsters/${monster.index}.jpg`;
-            setMonsterImage(monsterImages[imagePath] || '');
+            const imagePath = `../../../assets/monsters/${monster.index}.jpg`;
+            const imageModule = monsterImages[imagePath];
+            setMonsterImage(imageModule ? imageModule.default : '');
             setImageActive(true);
         }
     };
