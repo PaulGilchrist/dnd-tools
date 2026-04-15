@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { use2024Monsters, use2024MonsterTypes } from '../../../data/dataService';
+import { use2024Monsters, use2024MonsterTypes, use2024MonsterSubtypes } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
 import Monster2024 from './Monster2024';
 import './MonsterLore2024.css';
@@ -12,13 +12,15 @@ import './MonsterLore2024.css';
 function MonsterLore2024() {
     const [monsters, setMonsters] = useState([]);
     const [monsterTypes, setMonsterTypes] = useState([]);
+    const [monsterSubtypes, setMonsterSubtypes] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const [shownSubtype, setShownSubtype] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
     const { data: monstersData, loading: monstersLoading } = use2024Monsters();
-    const { data: monsterTypesData, loading: subtypeLoading } = use2024MonsterTypes();
+    const { data: monsterTypesData, loading: typesLoading } = use2024MonsterTypes();
+    const { data: subtypesData, loading: subtypesLoading } = use2024MonsterSubtypes();
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -45,7 +47,11 @@ function MonsterLore2024() {
         if (monsterTypesData) {
             setMonsterTypes(monsterTypesData);
         }
-    }, [monstersData, monsterTypesData]);
+
+        if (subtypesData) {
+            setMonsterSubtypes(subtypesData);
+        }
+    }, [monstersData, monsterTypesData, subtypesData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -72,109 +78,135 @@ function MonsterLore2024() {
         }
     };
 
-    // Group monsters by subtype for a given monster type
-    const getMonstersBySubtype = (monstersList, typeMonsterIndices) => {
-        const withSubtype = [];
-        const withoutSubtype = [];
-
-        typeMonsterIndices.forEach(monsterIndex => {
-            const monster = monstersList.find(m => m.index === monsterIndex);
-            if (monster) {
-                if (monster.subtype && monster.subtype !== monster.type) {
-                    withSubtype.push(monster);
-                } else {
-                    withoutSubtype.push(monster);
-                }
-            }
-        });
-
-        return { withSubtype, withoutSubtype };
+    // Get monsters that belong to a specific subtype by matching monster indices
+    const getMonstersForSubtype = (subtype) => {
+        if (!subtype.monsters || !subtype.monsters.length) {
+            return [];
+        }
+        
+        return subtype.monsters
+            .map(monsterIndex => monsters.find(m => m.index === monsterIndex))
+            .filter(monster => monster);
     };
 
-    if (monstersLoading || subtypeLoading) {
+    // Group subtypes by their parent type
+    const groupSubtypesByType = () => {
+        const grouped = {};
+        
+        monsterSubtypes.forEach(subtype => {
+            // Find the first monster of this subtype to determine its type
+            const subtypeMonsters = getMonstersForSubtype(subtype);
+            if (subtypeMonsters.length === 0) {
+                return;
+            }
+            
+            const firstMonster = subtypeMonsters[0];
+            const type = firstMonster.type;
+            
+            if (!grouped[type]) {
+                grouped[type] = {
+                    type,
+                    name: type,
+                    book: subtype.book,
+                    page: subtype.page,
+                    subtypes: []
+                };
+            }
+            
+            grouped[type].subtypes.push({
+                ...subtype,
+                monsters: subtypeMonsters,
+                firstMonster: subtypeMonsters[0]
+            });
+        });
+        
+        return Object.values(grouped).sort((a, b) => a.name.localeCompare(b.name));
+    };
+
+    if (monstersLoading || typesLoading || subtypesLoading) {
         return <div className="list"><div>Loading monster lore...</div></div>;
     }
 
+    const typeGroups = groupSubtypesByType();
+
     return (
         <>
-            {monsterTypes.map((subtype) => {
-                const typeMonsterIndices = subtype.monsters || [];
-                const { withSubtype, withoutSubtype } = getMonstersBySubtype(monsters, typeMonsterIndices);
-
+            {typeGroups.map((typeGroup) => {
                 return (
-                    <div className="list" key={subtype.index}>
+                    <div className="list" key={typeGroup.type}>
                         <div 
-                            className={`card outer w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
-                            id={subtype.index}
+                            className={`card outer w-100 ${shownSubtype === typeGroup.type ? 'active' : ''}`} 
+                            id={typeGroup.type}
                         >
                             <div 
                                 className="card-header clickable"
-                                onClick={() => showSubtype(subtype.index)}
+                                onClick={() => showSubtype(typeGroup.type)}
                             >
-                                <div className="card-title">{subtype.name}</div>
+                                <div className="card-title">{typeGroup.name}</div>
                             </div>
-                            {shownSubtype === subtype.index && (
+                            {shownSubtype === typeGroup.type && (
                                 <div className="card-body">
-                                    <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
+                                    <div dangerouslySetInnerHTML={{ __html: typeGroup.desc || '' }} />
                                     <br/>
-                                    <h5>Monsters</h5>
+                                    <h5>Subtypes</h5>
                                     
-                                    {/* Subtypes with their own monsters - grouped by unique subtype */}
-                                    {(() => {
-                                        const uniqueSubtypes = [...new Set(withSubtype.map(m => m.subtype))];
-                                        return uniqueSubtypes.map(subtypeName => {
-                                            const monstersInSubtype = withSubtype.filter(m => m.subtype === subtypeName);
-                                            const firstMonster = monstersInSubtype[0];
-                                            const isExpanded = shownCard === subtypeName;
-                                            
+                                    {/* Sort subtypes alphabetically */}
+                                    {typeGroup.subtypes
+                                        .sort((a, b) => a.name.localeCompare(b.name))
+                                        .map(subtype => {
+                                            const isExpanded = shownCard === subtype.index;
                                             return (
-                                                <div className="inner-list" key={subtypeName} id={subtypeName}>
-                                            <div 
-                                                className={`card inner w-100 ${shownCard === subtypeName ? 'active' : ''}`}
-                                                onClick={() => expandCard(subtypeName, !shownCard.includes(subtypeName))}
-                                            >
-                                                <div className="card-header clickable">
-                                                    <div className="card-title">{subtypeName}</div>
-                                                    <i>
-                                                        {firstMonster.size} {firstMonster.type.toLowerCase()}
-                                                        {firstMonster.subtype && firstMonster.subtype !== firstMonster.type && (
-                                                            <span> ({firstMonster.subtype})</span>
-                                                        )}, {firstMonster.alignment}
-                                                    </i>
-                                                </div>
-                                                {isExpanded && (
-                                                    <div className="card-body">
-                                                        <h6>Monsters in this subtype</h6>
-                                                        {monstersInSubtype.map(innerMonster => (
-                                                            <Monster2024 
-                                                                key={innerMonster.index}
-                                                                monster={innerMonster}
-                                                                expand={shownCard === innerMonster.index}
-                                                                onExpand={(expanded) => expandCard(innerMonster.index, expanded)}
-                                                                cardType="inner"
-                                                            />
-                                                        ))}
+                                                <div className="inner-list" key={subtype.index} id={subtype.index}>
+                                                    <div 
+                                                        className={`card inner w-100 ${isExpanded ? 'active' : ''}`}
+                                                        onClick={() => expandCard(subtype.index, !isExpanded)}
+                                                    >
+                                                        <div className="card-header clickable">
+                                                            <div className="card-title">{subtype.name}</div>
+                                                            <i>
+                                                                {subtype.firstMonster?.size} {subtype.firstMonster?.type?.toLowerCase()}
+                                                                {subtype.firstMonster?.subtype && subtype.firstMonster.subtype !== subtype.firstMonster.type && (
+                                                                    <span> ({subtype.firstMonster.subtype})</span>
+                                                                )}, {subtype.firstMonster?.alignment}
+                                                            </i>
+                                                        </div>
+                                                        {isExpanded && (
+                                                            <div className="card-body">
+                                                                {/* Display subtype info before monster list */}
+                                                                {subtype['short-description'] && (
+                                                                    <div className="subtype-info">
+                                                                        <strong>Short Description:</strong> {subtype['short-description']}
+                                                                    </div>
+                                                                )}
+                                                                {subtype.habitat && (
+                                                                    <div className="subtype-info">
+                                                                        <strong>Habitat:</strong> {subtype.habitat}
+                                                                    </div>
+                                                                )}
+                                                                {subtype.desc && (
+                                                                    <div className="subtype-info">
+                                                                        <strong>Description:</strong>
+                                                                        <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
+                                                                    </div>
+                                                                )}
+                                                                <h6>Monsters in this subtype</h6>
+                                                                {subtype.monsters.map(innerMonster => (
+                                                                    <Monster2024 
+                                                                        key={innerMonster.index}
+                                                                        monster={innerMonster}
+                                                                        expand={shownCard === innerMonster.index}
+                                                                        onExpand={(expanded) => expandCard(innerMonster.index, expanded)}
+                                                                        cardType="inner"
+                                                                    />
+                                                                ))}
+                                                            </div>
+                                                        )}
                                                     </div>
-                                                )}
-                                            </div>
-                                        </div>
+                                                </div>
                                             );
-                                        });
-                                    })()}
-
-                                    {/* Monsters without subtypes */}
-                                    {withoutSubtype.map((monster) => (
-                                        <div className="inner-list" key={monster.index} id={monster.index}>
-                                            <Monster2024 
-                                                monster={monster}
-                                                expand={shownCard === monster.index}
-                                                onExpand={(expanded) => expandCard(monster.index, expanded)}
-                                                cardType="inner"
-                                            />
-                                        </div>
-                                    ))}
+                                        })}
                                     <div className="card-footer">
-                                        {subtype.book} (page {subtype.page})
+                                        {typeGroup.book} (page {typeGroup.page})
                                     </div>
                                 </div>
                         )}

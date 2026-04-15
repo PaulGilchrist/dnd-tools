@@ -442,8 +442,7 @@
         "goblin-boss",
         "goblin-hexer",
         "goblin-minion",
-        "goblin-warrior",
-    ],
+        "goblin-warrior"],
     "short-description": "Wild Tricksters and Troublemakers",
     "treasure": [
       "Implements",

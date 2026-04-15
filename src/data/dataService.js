@@ -153,6 +153,10 @@ export function use2024MonsterTypes() {
     return useDataCache('monsters2024Types', BASE_URL + 'data/2024/monster-types.json');
 }
 
+export function use2024MonsterSubtypes() {
+    return useDataCache('monsters2024Subtypes', BASE_URL + 'data/2024/monster-subtypes.json');
+}
+
 export function useWeaponProperties() {
     return useDataCache('weaponProperties', BASE_URL + 'data/weapon-properties.json');
 }
