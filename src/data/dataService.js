@@ -19,6 +19,7 @@ const dataCache = {
     rules: [],
     spells: [],
     spells2024: [],
+    monsters2024: [],
     weaponProperties: []
 };
 
@@ -141,6 +142,10 @@ export function useSpells() {
 
 export function use2024Spells() {
     return useDataCache('spells2024', BASE_URL + 'data/2024/spells.json');
+}
+
+export function use2024Monsters() {
+    return useDataCache('monsters2024', BASE_URL + 'data/2024/monsters.json');
 }
 
 export function useWeaponProperties() {

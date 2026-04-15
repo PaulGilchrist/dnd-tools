@@ -20,6 +20,7 @@ import Feats from './components/rules/Feats'
 import Races from './components/rules/Races'
 import Spells from './components/spells/Spells'
 import Spells2024 from './components/2024/spells/Spells'
+import Monster2024Search from './components/2024/monsters/Monster2024Search'
 import './App.css'
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/rules/races" element={<Races />} />
         <Route path="/spells" element={<Spells />} />
         <Route path="/2024/spells" element={<Spells2024 />} />
+        <Route path="/2024/monsters/search" element={<Monster2024Search />} />
         </Routes>
       </div>
     </BrowserRouter>

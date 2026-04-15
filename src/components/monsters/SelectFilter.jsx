@@ -12,9 +12,11 @@ function SelectFilter({ label, name, value, options, onChange }) {
                     onChange(e.target.value);
                 }}
             >
-                <option>All</option>
+                <option value="All">All</option>
                 {options.map((option) => (
-                    <option key={option} value={option}>{option}</option>
+                    <option key={option.value || option} value={option.value || option}>
+                        {option.label || option}
+                    </option>
                 ))}
             </select>
         </>

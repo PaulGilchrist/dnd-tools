@@ -1,0 +1,9 @@
+/* Monster2024Defenses component styles */
+
+.monster-defenses {
+  font-size: 0.95rem;
+}
+
+.monster-defenses div {
+  margin-bottom: 0.25rem;
+}
