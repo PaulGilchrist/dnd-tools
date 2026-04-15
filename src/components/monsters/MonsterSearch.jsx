@@ -40,11 +40,11 @@ function MonsterSearch() {
             }
 
             // Set search filters from localStorage, only defaulting to "All" when there's no saved data
-            const savedFilter = localStorage.getItem('monsterFilter');
+            const savedFilter = localStorage.getItem('monsterFilter5e');
             if (savedFilter) {
                 // Filter already has defaults from hook, just need to update if saved exists
             } else {
-                localStorage.setItem('monsterFilter', JSON.stringify(filter));
+                localStorage.setItem('monsterFilter5e', JSON.stringify(filter));
             }
 
             console.log(`${updatedMonsters.length} monsters`);

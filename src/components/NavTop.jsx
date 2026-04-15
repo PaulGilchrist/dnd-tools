@@ -4,8 +4,9 @@ import './NavTop.css';
 
 function NavTop() {
     const [selected, setSelected] = useState('');
-    const [spellRuleVersion, setSpellRuleVersion] = useState('5e');
+    const [ruleVersion, setRuleVersion] = useState('5e');
     const [activeSpellRoute, setActiveSpellRoute] = useState('');
+    const [activeMonsterRoute, setActiveMonsterRoute] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -19,9 +20,9 @@ function NavTop() {
         // Update selected state based on current route
         const updateSelected = () => {
             // Track which spell route is active
-            if (location.pathname === '/spells' && spellRuleVersion === '5e') {
+            if (location.pathname === '/spells' && ruleVersion === '5e') {
                 setActiveSpellRoute('5e');
-            } else if (location.pathname === '/2024/spells' && spellRuleVersion === '2024') {
+            } else if (location.pathname === '/2024/spells' && ruleVersion === '2024') {
                 setActiveSpellRoute('2024');
             } else if (location.pathname === '/spells' || location.pathname === '/2024/spells') {
                 // User is on a spells page but version doesn't match dropdown
@@ -29,6 +30,17 @@ function NavTop() {
                 setActiveSpellRoute(location.pathname === '/2024/spells' ? '2024' : '5e');
             } else {
                 setActiveSpellRoute('');
+            }
+
+            // Track which monster route is active
+            if (location.pathname === '/monsters/search' && ruleVersion === '5e') {
+                setActiveMonsterRoute('5e');
+            } else if (location.pathname === '/2024/monsters/search' && ruleVersion === '2024') {
+                setActiveMonsterRoute('2024');
+            } else if (location.pathname === '/monsters/search' || location.pathname === '/2024/monsters/search') {
+                // User is on a monsters page but version doesn't match dropdown
+                // Keep track of which version they're on
+                setActiveMonsterRoute(location.pathname === '/2024/monsters/search' ? '2024' : '5e');
             }
 
             if (location.pathname.includes('monsters/lore') || 
@@ -65,17 +77,23 @@ function NavTop() {
         setSelected(prev => prev === name ? '' : name);
     };
 
-    const handleSpellRuleChange = (e) => {
+    const handleRuleChange = (e) => {
         const newVersion = e.target.value;
-        // If the spells nav link is active, navigate to the appropriate spells route
+        // If spells route is active, navigate to appropriate spells route
         if (activeSpellRoute) {
             const newLink = newVersion === '2024' ? '/2024/spells' : '/spells';
             navigate(newLink);
         }
-        setSpellRuleVersion(newVersion);
+        // If monsters route is active, navigate to appropriate monsters route
+        else if (activeMonsterRoute) {
+            const newLink = newVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
+            navigate(newLink);
+        }
+        setRuleVersion(newVersion);
     };
 
-    const spellLink = spellRuleVersion === '2024' ? '/2024/spells' : '/spells';
+    const spellLink = ruleVersion === '2024' ? '/2024/spells' : '/spells';
+    const monsterSearchLink = ruleVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
 
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
@@ -158,7 +176,7 @@ function NavTop() {
                             </li>
                             <li>
                                 <NavLink 
-                                    to="/monsters/search" 
+                                    to={monsterSearchLink} 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
@@ -195,7 +213,7 @@ function NavTop() {
                         >
                             <li><NavLink to="/rules/general" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>General</NavLink></li>
                             <li><NavLink to="/rules/ability-scores" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Abilities</NavLink></li>
-                            <li><NavLink to="/rules/classes" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Classes</NavLink></li>
+
                             <li><NavLink to="/rules/conditions" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Conditions</NavLink></li>
                             <li><NavLink to="/rules/feats" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Feats</NavLink></li>
                             <li><NavLink to="/rules/races" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Races</NavLink></li>
@@ -213,9 +231,9 @@ function NavTop() {
                 <div className="dropdown-spell-version">
                     <select 
                         className="form-select form-select-sm"
-                        value={spellRuleVersion}
-                        onChange={handleSpellRuleChange}
-                        aria-label="Select spell rule version"
+                        value={ruleVersion}
+                        onChange={handleRuleChange}
+                        aria-label="Select rule version"
                     >
                         <option value="5e">5e</option>
                         <option value="2024">2024</option>
