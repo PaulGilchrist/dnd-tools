@@ -10,6 +10,14 @@ function NavTop() {
     const location = useLocation();
     const navigate = useNavigate();
 
+    // Load saved rule version from localStorage on initial mount
+    useEffect(() => {
+        const savedRuleVersion = localStorage.getItem('ruleVersion');
+        if (savedRuleVersion) {
+            setRuleVersion(savedRuleVersion);
+        }
+    }, []);
+
     useEffect(() => {
         // Check if there's a saved URL in localStorage
         const url = localStorage.getItem('url');
@@ -66,7 +74,7 @@ function NavTop() {
         };
 
         updateSelected();
-    }, [location]);
+    }, [location, ruleVersion]);
 
     const showDropdown = (name) => {
         console.log('Show Dropdown:', name, selected);
@@ -79,6 +87,8 @@ function NavTop() {
 
     const handleRuleChange = (e) => {
         const newVersion = e.target.value;
+        // Save the rule version to localStorage
+        localStorage.setItem('ruleVersion', newVersion);
         // If spells route is active, navigate to appropriate spells route
         if (activeSpellRoute) {
             const newLink = newVersion === '2024' ? '/2024/spells' : '/spells';
