@@ -10,10 +10,10 @@ function Monster2024Reactions({ monster }) {
     }
 
     return (
-        <div className="removeExtraLine">
+        <div>
             {monster.reactions.map((reaction, index) => (
-                <span key={index}>
-                    <b>{reaction.name}:</b>&nbsp;{reaction.trigger && <i>{reaction.trigger}</i>}{reaction.description}<br /><br />
+                <span key={index} className="reaction-item">
+                    <b>{reaction.name}:</b>&nbsp;{reaction.trigger && <i>{reaction.trigger}</i>}{reaction.description}
                 </span>
             ))}
         </div>
