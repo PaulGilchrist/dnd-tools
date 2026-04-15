@@ -83,9 +83,11 @@ function MonsterLore2024() {
                     <div 
                         className={`card outer w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
                         id={subtype.index}
-                        onClick={() => showSubtype(subtype.index)}
                     >
-                        <div className="card-header clickable">
+                        <div 
+                            className="card-header clickable"
+                            onClick={() => showSubtype(subtype.index)}
+                        >
                             <div className="card-title">{subtype.name}</div>
                         </div>
                         {shownSubtype === subtype.index && (
