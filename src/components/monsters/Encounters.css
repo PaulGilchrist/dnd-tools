@@ -1,15 +1,15 @@
-.playerLevelButtons {
+.encounters-playerLevelButtons {
   grid-column: 2 / -1;
   display: flex;
   gap: 1rem;
 }
 
-table {
+.encounters-table {
   margin: auto;
   margin-top: 20px;
   max-width: 500px;
 }
 
-.column {
+.encounters-column {
   width: 100px;
 }

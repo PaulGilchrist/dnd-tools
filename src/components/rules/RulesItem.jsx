@@ -31,11 +31,11 @@ function RulesItem({ rule, expand = false, onExpand }) {
 
         return rule.subsections.map((subsection) => (
             <div key={subsection.index} id={subsection.index}>
-                <div className={`inner card ${shownSubsection === subsection.index ? 'active' : ''}`}>
+                <div className={`rulesItem-inner card ${shownSubsection === subsection.index ? 'active' : ''}`}>
                     <div className="inner card-header clickable" onClick={() => showSubsection(subsection.index)}>
                         <div className="card-title">{subsection.name}</div>
                     </div>
-                    <div className={`inner card-body ${shownSubsection !== subsection.index ? 'hidden' : ''}`}>
+                    <div className={`rulesItem-inner card-body ${shownSubsection !== subsection.index ? 'rulesItem-hidden' : ''}`}>
                         <div dangerouslySetInnerHTML={{ __html: subsection.desc }}></div>
                         {subsection.page && (
                             <div>{subsection.book} (page {subsection.page})</div>
@@ -47,7 +47,7 @@ function RulesItem({ rule, expand = false, onExpand }) {
     };
 
     return (
-        <div className="component">
+        <div className="rulesItem-component">
             <div className={`card outer w-100 ${expand ? 'active' : ''}`}>
                 <div className="card-header clickable" onClick={toggleDetails}>
                     <div className="card-title">{rule.name}</div>

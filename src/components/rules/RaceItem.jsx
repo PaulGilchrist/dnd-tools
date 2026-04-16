@@ -57,10 +57,10 @@ function RaceItem({ race, expand, onExpand }) {
                 traitDesc = trait.desc;
             }
             return (
-                <div key={trait.index} className="race-trait">
+                <div key={trait.index} className="raceItem-race-trait">
                     <b>{traitName}</b>
                     {traitDesc && (
-                        <div className="trait-desc">
+                        <div className="raceItem-trait-desc">
                             <hr />
                             <h5>Description</h5>
                             {traitDesc}
@@ -69,7 +69,7 @@ function RaceItem({ race, expand, onExpand }) {
                     <hr />
                     <h5>Details</h5>
                     {trait.details && (
-                        <div className="trait-details">
+                        <div className="raceItem-trait-details">
                             <div dangerouslySetInnerHTML={{ __html: trait.details }} />
                         </div>
                     )}
@@ -89,10 +89,10 @@ function RaceItem({ race, expand, onExpand }) {
             }
 
             return (
-                <div key={trait.index} className="race-trait">
+                <div key={trait.index} className="raceItem-race-trait">
                     <b>{traitName}</b>
                     {traitDesc && (
-                        <div className="trait-desc">
+                        <div className="raceItem-trait-desc">
                             <hr />
                             {traitDesc}
                         </div>
@@ -147,7 +147,7 @@ function RaceItem({ race, expand, onExpand }) {
 
                     {/* Languages */}
                     {getLanguages() && (
-                        <div className="section-divider">
+                        <div className="raceItem-section-divider">
                             <hr />
                             <h5>Languages</h5>
                             {getLanguages()}
@@ -156,7 +156,7 @@ function RaceItem({ race, expand, onExpand }) {
 
                     {/* Traits */}
                     {getTraits() && (
-                        <div className="section-divider">
+                        <div className="raceItem-section-divider">
                             <hr />
                             <h5>Racial Traits</h5>
                             {getTraits()}
@@ -170,7 +170,7 @@ function RaceItem({ race, expand, onExpand }) {
 
                     {/* Book Reference */}
                     {race.book && (
-                        <div className="book-reference">
+                        <div className="raceItem-book-reference">
                             <b>Source:</b>&nbsp;{race.book} (page {race.page})
                         </div>
                     )}

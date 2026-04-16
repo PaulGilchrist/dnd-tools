@@ -11,7 +11,7 @@ function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
     if (!features || features.length === 0) return null;
 
     return (
-        <div className="card inner w-100">
+        <div className="playerClass-inner card w-100">
             <div className="card-header clickable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <div className="card-title">Features</div>
             </div>

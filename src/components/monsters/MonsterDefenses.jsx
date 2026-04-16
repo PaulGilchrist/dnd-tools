@@ -72,7 +72,7 @@ function MonsterDefenses({ monster }) {
     };
 
     return (
-        <div className="monster-defenses">
+        <div className="monsterDefenses-monster-defenses">
             {hasSavingThrows() && (
                 <div>
                     <b>Saving Throws:</b>&nbsp;{getSavingThrows()}

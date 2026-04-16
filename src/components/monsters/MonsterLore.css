@@ -1,24 +1,24 @@
-.outer > .card-body {
+.monsterLore-outer > .card-body {
     padding-top: 5px;
     padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.inner > .card-header {
+.monsterLore-inner > .card-header {
     padding: 0 10px;
 }
 
-.component {
+.monsterLore-component {
     margin-left: 5px;
     margin-right: -5px;
 }
 
-.hidden {
+.monsterLore-hidden {
     display: none;
 }
 
-.inner-list {
+.monsterLore-inner-list {
     max-width: 1000px;
     margin-left: 10px;
     margin-right: 10px;

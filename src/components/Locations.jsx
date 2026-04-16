@@ -79,7 +79,7 @@ function Locations() {
     return (
         <>
             {image && (
-                <div className="cover" onClick={() => setImage('')}>
+                <div className="locations-cover" onClick={() => setImage('')}>
                     {image && (
                         <img src={image} alt="Location map" />
                     )}

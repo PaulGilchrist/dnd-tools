@@ -1,14 +1,14 @@
-.monster-defenses {
+.monsterDefenses-monster-defenses {
     display: flex;
     flex-direction: column;
 }
 
-.monster-defenses > div {
+.monsterDefenses-monster-defenses > div {
     margin: 0;
     padding: 0;
 }
 
-.monster-defenses > b {
+.monsterDefenses-monster-defenses > b {
     margin: 0;
     padding: 0;
 }

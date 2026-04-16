@@ -176,7 +176,7 @@ function MonsterLore2024() {
     };
 
     if (monstersLoading || typesLoading || subtypesLoading) {
-        return <div className="list"><div>Loading monster lore...</div></div>;
+        return <div className="list"><div className="monsterLore2024-hidden">Loading monster lore...</div></div>;
     }
 
     const typeGroups = groupSubtypesByType();
@@ -187,7 +187,7 @@ function MonsterLore2024() {
                 return (
                     <div className="list" key={typeGroup.type}>
                         <div 
-                            className={`card outer w-100 ${shownSubtype === typeGroup.type ? 'active' : ''}`} 
+                            className={`monsterLore2024-outer card w-100 ${shownSubtype === typeGroup.type ? 'active' : ''}`} 
                             id={typeGroup.type}
                         >
                             <div 
@@ -221,9 +221,9 @@ function MonsterLore2024() {
                                         .map(subtype => {
                                             const isExpanded = shownCard === subtype.index;
                                             return (
-                                                <div className="inner-list" key={subtype.index} id={subtype.index}>
+                                                <div className="monsterLore2024-inner-list" key={subtype.index} id={subtype.index}>
                                                     <div 
-                                                        className={`card inner w-100 ${isExpanded ? 'active' : ''}`}
+                                                        className={`monsterLore2024-inner card w-100 ${isExpanded ? 'active' : ''}`}
                                                         onClick={(e) => { e.stopPropagation(); expandCard(subtype.index, !isExpanded); }}
                                                     >
                                                         <div className="card-header clickable">
@@ -277,7 +277,7 @@ function MonsterLore2024() {
                                             <br/>
                                             <h5>Monsters without Subtype</h5>
                                             {typeGroup.monstersWithoutSubtype.map(monster => (
-                                                <div className="inner-list" key={monster.index}>
+                                                <div className="monsterLore2024-inner-list" key={monster.index}>
                                                     <Monster2024 
                                                         monster={monster}
                                                         expand={shownMonster === monster.index}

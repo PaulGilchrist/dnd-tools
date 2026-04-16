@@ -1,18 +1,18 @@
-.abilities {
+.monster-abilities {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 370px;
 }
 
-.ability {
+.monster-ability {
     text-align: center;
 }
 
-.ability-name {
+.monster-ability-name {
   font-weight: bold;
 }
 
-.cover {
+.monster-cover {
     position: fixed;
     top: 0;
     left: 0;
@@ -25,12 +25,12 @@
     z-index: 1000;
 }
 
-.cover img {
+.monster-cover img {
     max-width: 90%;
     max-height: 90%;
 }
 
-.inner {
+.monster-inner {
     margin-left: 20px;
 }
 

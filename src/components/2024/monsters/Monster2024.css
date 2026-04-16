@@ -1,15 +1,15 @@
 /* Monster2024 component styles */
 
-.card-header i {
+.monster2024-card-header i {
   font-style: italic;
   color: #6c757d;
 }
 
-.card-text hr {
+.monster2024-card-text hr {
   margin: 0 0;
 }
 
-.cover {
+.monster2024-cover {
   position: fixed;
   top: 0;
   left: 0;
@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.cover img {
+.monster2024-cover img {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;

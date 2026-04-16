@@ -22,7 +22,7 @@ function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
                         <td>{name}</td>
                         <td>
                             <input 
-                                className="form-check-input" 
+                                className="nameListTable-form-check-input" 
                                 type="checkbox" 
                                 onChange={() => toggleUsed(name)}
                                 checked={isNameUsed(name)}
@@ -54,7 +54,7 @@ function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
                         <td>{name}</td>
                         <td>
                             <input 
-                                className="form-check-input" 
+                                className="nameListTable-form-check-input" 
                                 type="checkbox" 
                                 onChange={() => toggleUsed(name)}
                                 checked={isNameUsed(name)}

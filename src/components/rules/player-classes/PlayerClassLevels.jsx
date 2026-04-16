@@ -33,7 +33,7 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
                 {playerClass.class_levels.map((level) => (
                 <div key={level.level} id={shownLevel}>
                     {level.level === shownLevel && (
-                        <div className="subtext">
+                        <div className="playerClass-subtext">
                             {/* Ability Score Bonuses */}
                             {level.ability_score_bonuses !== undefined && (
                                 <AbilityScoreBonuses ability_score_bonuses={level.ability_score_bonuses} />

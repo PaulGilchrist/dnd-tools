@@ -81,13 +81,13 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
     return (
         <>
             {imageActive && (
-                <div className="cover" onClick={() => setImageActive(false)}>
+                <div className="monster2024-cover" onClick={() => setImageActive(false)}>
                     {monsterImage && (
                         <img src={monsterImage} alt={monster.name} />
                     )}
                 </div>
             )}
-            <div className={`card w-100 ${isExpanded ? 'active' : ''} ${cardType === 'inner' ? 'inner' : ''}`} id={monster.index}>
+            <div className={`card w-100 ${isExpanded ? 'active' : ''} ${cardType === 'inner' ? 'monster2024-inner' : ''}`} id={monster.index}>
                 <div className="card-header clickable">
                     <div onClick={toggleDetails}>
                         <div className="card-title">{monster.name}</div>

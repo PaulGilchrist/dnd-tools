@@ -31,7 +31,7 @@ function PlayerClass({ playerClass, expand, onExpand }) {
     }
 
     return (
-        <div className={`card outer w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
+        <div className={`playerClass-outer card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
             <PlayerClassHeader 
                 playerClass={playerClass}
                 isExpanded={isExpanded}

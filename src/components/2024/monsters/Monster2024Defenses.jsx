@@ -79,7 +79,7 @@ function Monster2024Defenses({ monster }) {
     };
 
     return (
-        <div className="monster-defenses">
+        <div className="monster2024Defenses-monster-defenses">
             {monster.saving_throws && Object.keys(monster.saving_throws).length > 0 && (
                 <div>
                     <b>Saving Throws:</b>&nbsp;{getSavingThrows()}

@@ -1,5 +1,5 @@
 /* Style the spell rule version dropdown to match global form styles */
-.dropdown-spell-version .form-select {
+.navTop-dropdown-spell-version .form-select {
     background-color: var(--background-color-body);
     color: var(--color-body);
     border-color: var(--background-color-header-inner);
@@ -10,11 +10,11 @@
     min-width: 80px;
 }
 
-.dropdown-spell-version .form-select:hover {
+.navTop-dropdown-spell-version .form-select:hover {
     border-color: var(--color-header);
 }
 
-.dropdown-spell-version .form-select:focus {
+.navTop-dropdown-spell-version .form-select:focus {
     background-color: var(--background-color-body);
     color: var(--color-body);
     border-color: var(--color-header);
@@ -33,7 +33,7 @@
     flex-wrap: wrap;
 }
 
-.dropdown-spell-version {
+.navTop-dropdown-spell-version {
     grid-column: 2;
     margin-left: auto;
     padding-right: 10px;

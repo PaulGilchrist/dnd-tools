@@ -19,12 +19,12 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
             <div>
                 <br />
                 <b>Choose {playerClass.subclasses[0].subclass_flavor}:</b>
-                <div className="subclass-group">
+                <div className="playerClass-subclass-group">
                     {playerClass.subclasses.map((subclass) => (
                         <div key={subclass.index} className="btn-group">
                             <button 
                                 type="button" 
-                                className={`btn btn-outline-primary btn-subclass ${shownSubclass === subclass.index ? 'active' : ''}`}
+                                className={`btn btn-outline-primary playerClass-btn-subclass ${shownSubclass === subclass.index ? 'active' : ''}`}
                                 onClick={() => onShowSubclass(subclass.index)}
                             >
                                 {subclass.name}
@@ -36,14 +36,14 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                 {playerClass.subclasses.map((subclass) => (
                     <div key={subclass.index} id={subclass.index}>
                         {shownSubclass === subclass.index && (
-                            <div className="subtext">
+                            <div className="playerClass-subtext">
                                 <strong>{subclass.subclass_flavor} - {subclass.name}</strong> - {subclass.desc}<br />
 
                                 {/* Subclass Spells */}
                                 {subclass.spells && (
-                                    <div className="margin-bottom-small">
+                                    <div className="playerClass-margin-bottom-small">
                                         <b>Spells:</b>
-                                        <div dangerouslySetInnerHTML={{ __html: getSpells(subclass.spells) }} className="spell-list" />
+                                        <div dangerouslySetInnerHTML={{ __html: getSpells(subclass.spells) }} className="playerClass-spell-list" />
                                     </div>
                                 )}
 
@@ -52,7 +52,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                     <div>
                                         {subclass.features.map((feature, index) => (
                                             <div key={index}>
-                                                <div className="feature">
+                                                <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                     {feature.desc && feature.desc.map((desc, descIndex) => (
                                                         <div key={descIndex} className="margin-bottom-small">
@@ -76,7 +76,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                     <div>
                                         {subclassFeatures.map((feature, index) => (
                                             <div key={index}>
-                                                <div className="feature">
+                                                <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                     {feature.description && feature.description[0] && (
                                                         <span dangerouslySetInnerHTML={{ __html: feature.description[0] }} />
@@ -95,7 +95,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
 
                                 {/* Subclass Spellcasting by Level */}
                                 {currentSubclass && currentSubclass.class_levels && (
-                                    <div className="subtext">
+                                    <div className="playerClass-subtext">
                                         {currentSubclass.class_levels.map((level) => (
                                             <div key={level.level}>
                                                 {level.spellcasting && level.level === shownLevel && (

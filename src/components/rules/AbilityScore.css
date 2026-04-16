@@ -1,4 +1,4 @@
-.card .card-header.clickable {
+.abilityScore-card .card-header.clickable {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;

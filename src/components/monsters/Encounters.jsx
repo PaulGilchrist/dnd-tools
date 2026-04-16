@@ -139,7 +139,7 @@ function Encounters() {
                 </select>
 
                 {/* Player Level Buttons */}
-                <div className="playerLevelButtons">
+                <div className="encounters-playerLevelButtons">
                     <button type="button" className="btn btn-primary" onClick={addPlayer}>Add Player</button>
                     <button type="button" className="btn btn-primary" onClick={removePlayer}>Remove Player</button>
                 </div>
@@ -152,7 +152,7 @@ function Encounters() {
                             key={`input-${index}`}
                             type="number" 
                             name={`player${index}`} 
-                            className="column form-control"
+                            className="encounters-column form-control"
                             value={level}
                             onChange={(e) => onPlayerLevelChange(index, e.target.value)}
                             min="1" 

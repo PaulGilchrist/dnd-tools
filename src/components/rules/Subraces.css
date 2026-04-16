@@ -1,32 +1,32 @@
-.subrace {
+.subraces-subrace {
     margin-left: 20px;
     padding: 10px;
     border-radius: 5px;
 }
 
-.subrace-trait {
+.subraces-subrace-trait {
     margin-bottom: 10px;
     padding-left: 15px;
 }
 
-.subrace h5 {
+.subraces-subrace h5 {
     margin-top: 10px;
     color: lightgreen;
 }
 
-.subrace-desc {
+.subraces-subrace-desc {
     margin-top: 8px;
 }
 
-.subrace-info {
+.subraces-subrace-info {
     margin-top: 10px;
 }
 
-.subrace-traits {
+.subraces-subrace-traits {
     margin-top: 10px;
 }
 
-.subrace-special {
+.subraces-subrace-special {
     margin-top: 10px;
 }
 
@@ -35,20 +35,20 @@
     border-radius: 5px;
 }
 
-.subraces-section .subrace {
+.subraces-section .subraces-subrace {
     background-color: #343a40;
 }
 
-.subraces-section .subrace h5 {
+.subraces-section .subraces-subrace h5 {
     color: lightgreen;
 }
 
-.subraces-section .subrace b {
+.subraces-section .subraces-subrace b {
     color: #fff;
 }
 
-.subraces-section .subrace span,
-.subraces-section .subrace div {
+.subraces-section .subraces-subrace span,
+.subraces-section .subraces-subrace div {
     color: #fff;
 }
 

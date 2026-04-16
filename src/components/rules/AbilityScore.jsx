@@ -29,7 +29,7 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
     const skills = getSkills();
 
     return (
-        <div className={`card w-100 ${isExpanded ? 'active' : ''}`}>
+        <div className={`abilityScore-card w-100 ${isExpanded ? 'active' : ''}`}>
             <div className="card-header clickable" onClick={toggleDetails}>
                 <span className="card-title">
                     {abilityScore.full_name}

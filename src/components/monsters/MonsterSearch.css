@@ -1,33 +1,33 @@
-.filter-form .row {
+.monsterSearch-filter-form .row {
     display: grid;
     grid-template-columns: 1fr 1fr auto;
     gap: 5px;
 }
 
-.filter-form .col {
+.monsterSearch-filter-form .col {
     padding: 0;
 }
 
-.column {
+.monsterSearch-column {
     width: 100%;
 }
 
-.abilities {
+.monsterSearch-abilities {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
 
-.ability {
+.monsterSearch-ability {
     text-align: center;
 }
 
-.ability-name {
+.monsterSearch-ability-name {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.cover {
+.monsterSearch-cover {
     position: fixed;
     top: 0;
     left: 0;
@@ -40,11 +40,11 @@
     z-index: 1000;
 }
 
-.cover img {
+.monsterSearch-cover img {
     max-width: 90%;
     max-height: 90%;
 }
 
-.inner {
+.monsterSearch-inner {
     margin-left: 20px;
 }

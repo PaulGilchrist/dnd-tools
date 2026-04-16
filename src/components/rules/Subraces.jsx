@@ -23,7 +23,7 @@ function Subraces({ subraces }) {
         // Build traits with descriptions
         const traitsWithDescContent = traitsWithDesc.map(trait => {
             return (
-                <div key={trait.index} className="subrace-trait">
+                <div key={trait.index} className="subraces-subrace-trait">
                     <b>{trait.name}</b>
                     {Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc}
                 </div>
@@ -33,7 +33,7 @@ function Subraces({ subraces }) {
         // Build traits without descriptions
         const traitsWithoutDescContent = traitsWithoutDesc.map(trait => {
             return (
-                <div key={trait.index} className="subrace-trait">
+                <div key={trait.index} className="subraces-subrace-trait">
                     <b>{trait.name}</b>
                 </div>
             );
@@ -43,11 +43,11 @@ function Subraces({ subraces }) {
         const allTraits = [...traitsWithDescContent, ...traitsWithoutDescContent];
 
         return (
-            <div key={subrace.index} className="subrace">
+            <div key={subrace.index} className="subraces-subrace">
                 <h5>{subrace.name}</h5>
 
                 {subrace.desc && (
-                    <div className="subrace-desc">
+                    <div className="subraces-subrace-desc">
                         <hr />
                         {subrace.desc}
                     </div>
@@ -55,7 +55,7 @@ function Subraces({ subraces }) {
 
                 {/* Ability Bonuses */}
                 {subrace.ability_bonuses && subrace.ability_bonuses.length > 0 && (
-                    <div className="subrace-info">
+                    <div className="subraces-subrace-info">
                         <b>Ability Bonuses:</b>&nbsp;
                         {subrace.ability_bonuses.map(bonus => 
                             <span key={bonus.ability_score}>{bonus.ability_score} +{bonus.bonus}, </span>
@@ -65,21 +65,21 @@ function Subraces({ subraces }) {
 
                 {/* Speed */}
                 {subrace.speed && (
-                    <div className="subrace-info">
+                    <div className="subraces-subrace-info">
                         <b>Speed:</b>&nbsp;{subrace.speed} feet<br />
                     </div>
                 )}
 
                 {/* Starting Proficiencies */}
                 {subrace.starting_proficiencies && subrace.starting_proficiencies.length > 0 && (
-                    <div className="subrace-info">
+                    <div className="subraces-subrace-info">
                         <b>Starting Proficiencies:</b>&nbsp;{subrace.starting_proficiencies.join(', ')}<br />
                     </div>
                 )}
 
                 {/* Racial Traits */}
                 {subrace.racial_traits && subrace.racial_traits.length > 0 && (
-                    <div className="subrace-traits">
+                    <div className="subraces-subrace-traits">
                         <b>Racial Traits:</b><br />
                         {allTraits}
                     </div>
@@ -87,14 +87,14 @@ function Subraces({ subraces }) {
 
                 {/* Language Options */}
                 {subrace.language_options && (
-                    <div className="subrace-info">
+                    <div className="subraces-subrace-info">
                         <b>Language Options:</b>&nbsp;Choose 1 from: {subrace.language_options.from.join(', ')}<br />
                     </div>
                 )}
 
                 {/* Trait-specific options (like spells) */}
                 {subrace.racial_traits && subrace.racial_traits.length > 0 && (
-                    <div className="subrace-special">
+                    <div className="subraces-subrace-special">
                         <b>Special Options:</b><br />
                         {subrace.racial_traits.map((trait, idx) => (
                             <div key={idx}>
@@ -111,7 +111,7 @@ function Subraces({ subraces }) {
     });
 
     return (
-        <div className="subraces-section">
+        <div className="subraces-subraces-section">
             <hr />
             <h5>Subraces</h5>
             {subracesList}

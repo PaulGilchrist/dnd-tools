@@ -272,7 +272,7 @@ function NavTop() {
                         </NavLink>
                     </li>
                 </ul>
-                <div className="dropdown-spell-version">
+                <div className="navTop-dropdown-spell-version">
                     <select 
                         className="form-select form-select-sm"
                         value={ruleVersion}

@@ -1,56 +1,56 @@
-.level-group {
+.playerClass-level-group {
     width: 370px;
 }
 
-.btn-level {
+.playerClass-btn-level {
     padding: 3px;
     width: 37px;
 }
 
-.subclass-group {
+.playerClass-subclass-group {
     padding-top: 10px;
     width: 370px;
 }
 
-.btn-subclass {
+.playerClass-btn-subclass {
     padding: 3px;
     width: 185px;
 }
 
-.inner > .card-body {
+.playerClass-inner > .card-body {
     padding: 8px;
 }
 
-.outer > .card-body {
+.playerClass-outer > .card-body {
     padding: 4px;
 }
 
-.component {
+.playerClass-component {
     margin-left: 5px;
     margin-right: -5px;
 }
 
-.hidden {
+.playerClass-hidden {
     display: none;
 }
 
-.feature {
+.playerClass-feature {
     margin-bottom: 26px;
 }
 
-.feature-desc {
+.playerClass-feature-desc {
     padding-left: 10px;
 }
 
-.margin-bottom-small {
+.playerClass-margin-bottom-small {
     margin-bottom: 6px;
 }
 
-.spell-list {
+.playerClass-spell-list {
     margin-top: 0;
     padding-top: 0;
 }
 
-.subtext {
+.playerClass-subtext {
     padding: 6px 20px;
 }

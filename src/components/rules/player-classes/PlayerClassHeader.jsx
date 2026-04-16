@@ -9,7 +9,7 @@ function PlayerClassHeader({ playerClass, isExpanded, onToggle }) {
     }, [isExpanded]);
 
     return (
-        <div className="card-header clickable" onClick={onToggle}>
+        <div className="playerClass-card-header clickable" onClick={onToggle}>
             <div className="card-title">{playerClass.name}</div>
         </div>
     );

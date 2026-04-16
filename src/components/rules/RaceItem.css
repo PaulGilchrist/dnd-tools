@@ -1,55 +1,55 @@
-.race-trait {
+.raceItem-race-trait {
     margin-bottom: 15px;
 }
 
-.trait-desc {
+.raceItem-trait-desc {
     margin-top: 8px;
 }
 
-.trait-details {
+.raceItem-trait-details {
     margin-top: 10px;
 }
 
-.section-divider {
+.raceItem-section-divider {
     margin-top: 15px;
 }
 
-.section-divider h5 {
+.raceItem-section-divider h5 {
     margin-bottom: 8px;
 }
 
-.subrace {
+.raceItem-subrace {
     margin-left: 20px;
     padding: 10px;
     border-radius: 5px;
 }
 
-.subrace-trait {
+.raceItem-subrace-trait {
     margin-bottom: 10px;
     padding-left: 15px;
 }
 
-.subrace h5 {
+.raceItem-subrace h5 {
     margin-top: 10px;
 }
 
-.card-body .subrace {
+.raceItem-card-body .raceItem-subrace {
     background-color: #2c3034;
 }
 
-.card-body .subrace h5 {
+.raceItem-card-body .raceItem-subrace h5 {
     color: #fff;
 }
 
-.card-body .subrace b {
+.raceItem-card-body .raceItem-subrace b {
     color: #fff;
 }
 
-.card-body .subrace span,
-.card-body .subrace div {
+.raceItem-card-body .raceItem-subrace span,
+.raceItem-card-body .raceItem-subrace div {
     color: #fff;
 }
 
-.book-reference {
+.raceItem-book-reference {
     margin-top: 15px;
 }

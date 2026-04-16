@@ -1,11 +1,4 @@
-img {
-  max-height: 100vh;
-  width: auto;
-  margin: auto;
-  max-width:100%;
-  z-index: 200;
-}
-.cover{
+.locations-cover{
   background-color: var(--background-color-main);
   position:fixed;
   top: 0;
@@ -16,5 +9,13 @@ img {
   flex-direction: column;
   height: 100vh;
   z-index: 100;
+}
+
+.locations-cover img {
+  max-height: 100vh;
+  width: auto;
+  margin: auto;
+  max-width:100%;
+  z-index: 200;
 }
 

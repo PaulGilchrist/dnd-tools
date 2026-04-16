@@ -13,7 +13,7 @@ function WeaponPropertyDescription({ category, property, getWeaponPropertyDescri
     }
 
     return (
-        <div className="weapon-property-description">
+        <div className="equipmentItems-weapon-property-description">
             <b>Weapon Property - {property}</b><br />
             {description}
         </div>
