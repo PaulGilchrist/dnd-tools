@@ -16,7 +16,7 @@
 }
 
 .card-header.clickable:hover {
-    background-color: #f8f9fa;
+    background-color: var(--background-color-header);
 }
 
 .card-header {

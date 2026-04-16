@@ -15,6 +15,9 @@
 
     --background-color-header-inner: #202320;
     --color-header-inner: #fff;
+
+    --background-color-header-expanded: #353535;
+    --color-header-expanded: #ccffcc;
 }
 
 b {
@@ -58,9 +61,10 @@ body {
     color: var(--color-header);
 }
 
-.card-header:hover {
-    background-color: var(--background-color-header);
-    color: var(--color-header);
+.card.active .card-header,
+.card .card-header:hover {
+    background-color: var(--background-color-header-expanded) !important;
+    color: var(--color-header-expanded) !important;
 }
 
 .card-body {
@@ -83,14 +87,15 @@ body {
     padding: 0 10px;
 }
 
+.inner.active>.card-header,
 .inner>.card-header:hover {
-    background-color: var(--background-color-header);
-    color: var(--color-header);
+    background-color: var(--background-color-header-expanded) !important;
+    color: var(--color-header-expanded) !important;
 }
 
 .active.inner>.card-header {
-    background-color: var(--background-color-header);
-    color: var(--color-header);
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
 }
 
 .form-control {
@@ -197,6 +202,8 @@ th {
         --color-body: #000;
         --background-color-header-inner: #ddd;
         --color-header-inner: #070;
+        --background-color-header-expanded: #c8c8c8;
+        --color-header-expanded: #00aa00;
     }
 }
 
@@ -204,5 +211,4 @@ th {
 * {
   print-color-adjust: exact;
 }
-
 
