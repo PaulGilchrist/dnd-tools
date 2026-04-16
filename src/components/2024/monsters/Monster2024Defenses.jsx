@@ -1,5 +1,4 @@
 import { getNameString } from '../../../utils/monsterUtils';
-import './Monster2024Defenses.css';
 
 /**
  * Monster2024Defenses component - Displays monster defenses including saving throws, skills, immunities, etc.

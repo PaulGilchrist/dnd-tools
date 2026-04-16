@@ -1,5 +1,4 @@
 import { getNameString } from '../../utils/monsterUtils';
-import './MonsterDefenses.css';
 
 function MonsterDefenses({ monster }) {
     if (!monster) {

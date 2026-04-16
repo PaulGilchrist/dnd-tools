@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './Monster.css';
 import MonsterAbilityScores from './MonsterAbilityScores';
 import MonsterStats from './MonsterStats';
 import MonsterDefenses from './MonsterDefenses';

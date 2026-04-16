@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { useMonsters, useMonsterTypes } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import Monster from './Monster';
-import './MonsterLore.css';
 
 function MonsterLore() {
     const [monsters, setMonsters] = useState([]);
@@ -69,7 +68,7 @@ function MonsterLore() {
     };
 
     if (monstersLoading || subtypeLoading) {
-        return <div className="list"><div className="monsterLore-hidden">Loading monster lore...</div></div>;
+        return <div className="list"><div className="hidden">Loading monster lore...</div></div>;
     }
 
     return (
@@ -77,7 +76,7 @@ function MonsterLore() {
             {monsterTypes.map((subtype) => (
                 <div className="list" key={subtype.index}>
                     <div 
-                        className={`monsterLore-outer card w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
+                        className={`outer card w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} 
                         id={subtype.index}
                     >
                         <div className="card-header clickable" onClick={() => showSubtype(subtype.index)}>
@@ -89,7 +88,7 @@ function MonsterLore() {
                                 <br/>
                                 <h5>Monsters</h5>
                                 {monsters.map((monster) => (
-                                    <div className="monsterLore-inner-list" key={monster.index} id={monster.index}>
+                                    <div className="inner-list" key={monster.index} id={monster.index}>
                                         {subtype.monsters.includes(monster.index) && (
                                             <Monster 
                                                 monster={monster}

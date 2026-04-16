@@ -3,6 +3,20 @@
   padding: 10px;
 }
 
+.abilities {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 370px;
+}
+
+.ability {
+    text-align: center;
+}
+
+.ability-name {
+  font-weight: bold;
+}
+
 /* Main app container */
 .app-container {
   padding: 20px;
