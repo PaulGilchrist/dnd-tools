@@ -1,33 +1,5 @@
 [
   {
-    "index": "actions",
-    "name": "Actions",
-    "description": "<h2>ACTIONS</h2>\n<ul>\n<li><strong>Multiattack</strong>. The avatar makes a number of Reaping Scythe attacks equal to half the summoner's Proficiency Bonus (rounded up).</li>\n<li><strong>Reaping Scythe</strong>. Melee Attack Roll: Automatic hit, reach 5 ft. Hit: 7 (1d8 + 3) Slashing damage plus 4 (1d8) Necrotic damage.</li>\n<li><strong>Star</strong>. Increase one of your ability scores by 2, to a maximum of 24.</li>\n<li><strong>Sun</strong>. A magic item (chosen by the DM) appears on your person. In addition, you gain 10 Temporary Hit Points daily at dawn until you die.</li>\n<li><strong>Talons</strong>. Every magic item you wear or carry disintegrates. Artifacts in your possession vanish instead.</li>\n<li><strong>Throne</strong>. You gain proficiency and Expertise in your choice of History, Insight, Intimidation, or Persuasion. In addition, you gain rightful ownership of a small keep somewhere in the world. However, the keep is currently home to one or more monsters, which must be cleared out before you can claim the keep as yours.</li>\n<li><strong>Void</strong>. Your soul is drawn from your body and contained in an object in a place of the DM's choice. One or more powerful beings guard the place. While your soul is trapped in this way, your body is inert, ceases aging, and requires no food, air, or water. A Wish spell can't return your soul to your body, but the spell reveals the location of the object that holds your soul. You draw no more cards.</li>\n</ul>",
-    "rarity": "legendary",
-    "requiresAttunement": false,
-    "type": "Artifact",
-    "damage": {
-      "damage_dice": "1d8 + 3 (Slashing) plus 1d8 (Necrotic)",
-      "damage_type": "Slashing and Necrotic",
-      "extra_damage": ""
-    },
-    "bonuses": {
-      "ability_score_increase": {
-        "ability": "varies",
-        "amount": 2,
-        "maximum": 24
-      }
-    },
-    "temporary_hit_points": {
-      "amount": "10",
-      "duration": "daily at dawn until you die"
-    },
-    "action_types": [
-      "Multiattack",
-      "Melee Attack Roll"
-    ]
-  },
-  {
     "index": "adamantine_armor",
     "name": "Adamantine Armor",
     "description": "<p>Generic variant, uncommon</p>\n<p>This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.</p>",
