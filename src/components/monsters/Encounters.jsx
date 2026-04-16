@@ -166,7 +166,7 @@ function Encounters() {
 
             {/* Encounter Thresholds Table */}
             <div className="list">
-                <table className="table table-condensed table-striped table-hover">
+                <table className="encounters-table table-condensed table-striped table-hover">
                     <thead>
                         <tr>
                             <th className="col-form-label">Monsters</th>
