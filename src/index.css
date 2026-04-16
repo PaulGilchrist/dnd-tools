@@ -61,8 +61,8 @@ body {
     color: var(--color-header);
 }
 
-.card.active .card-header,
-.card .card-header:hover {
+.card.active>.card-header,
+.card>.card-header:hover {
     background-color: var(--background-color-header-expanded) !important;
     color: var(--color-header-expanded) !important;
 }
@@ -87,15 +87,14 @@ body {
     padding: 0 10px;
 }
 
-.inner.active>.card-header,
 .inner>.card-header:hover {
     background-color: var(--background-color-header-expanded) !important;
     color: var(--color-header-expanded) !important;
 }
 
-.active.inner>.card-header {
-    background-color: var(--background-color-header-expanded);
-    color: var(--color-header-expanded);
+.card.inner.active>.card-header {
+    background-color: var(--background-color-header-expanded) !important;
+    color: var(--color-header-expanded) !important;
 }
 
 .form-control {
