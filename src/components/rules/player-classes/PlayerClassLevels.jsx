@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
-import './PlayerClass.css';
 import LevelSelector from './LevelSelector';
 import AbilityScoreBonuses from './AbilityScoreBonuses';
 import ProficiencyBonus from './ProficiencyBonus';
@@ -34,6 +33,7 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
                 <div key={level.level} id={shownLevel}>
                     {level.level === shownLevel && (
                         <div className="playerClass-subtext">
+                            <br/>
                             {/* Ability Score Bonuses */}
                             {level.ability_score_bonuses !== undefined && (
                                 <AbilityScoreBonuses ability_score_bonuses={level.ability_score_bonuses} />

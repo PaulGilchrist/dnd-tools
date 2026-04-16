@@ -31,7 +31,7 @@ function PlayerClass({ playerClass, expand, onExpand }) {
     }
 
     return (
-        <div className={`playerClass-outer card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
+        <div className={`outer card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
             <PlayerClassHeader 
                 playerClass={playerClass}
                 isExpanded={isExpanded}
@@ -39,12 +39,11 @@ function PlayerClass({ playerClass, expand, onExpand }) {
             />
 
             {isExpanded && (
-                <>
+                <div className="card-body">
                     <PlayerClassBasicInfo playerClass={playerClass} getNameString={getNameString} />
-
                     {/* Features that are not level specific */}
                     {playerClass.features && playerClass.features.length > 0 && (
-                        <div className="card-body">
+                        <div>
                             <PlayerClassFeatures 
                                 features={playerClass.features}
                                 shownLevel={shownLevel}
@@ -52,16 +51,14 @@ function PlayerClass({ playerClass, expand, onExpand }) {
                             />
                         </div>
                     )}
-
-                    <div className="card-body">
+                    <div>
                         <PlayerClassLevels 
                             playerClass={playerClass}
                             shownLevel={shownLevel}
                             onShowLevel={showLevel}
                         />
                     </div>
-
-                    <div className="card-body">
+                    <div>
                         <PlayerClassSubclasses 
                             playerClass={playerClass}
                             shownLevel={shownLevel}
@@ -72,14 +69,13 @@ function PlayerClass({ playerClass, expand, onExpand }) {
                             subclassFeatures={subclassFeatures}
                         />
                     </div>
-
-                    <div className="card-body">
+                    <div>
                         <br />
                         {playerClass.page && (
                             <div>{playerClass.book} (page {playerClass.page})</div>
                         )}
                     </div>
-                </>
+                </div>
             )}
         </div>
     );

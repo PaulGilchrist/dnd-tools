@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
-import './PlayerClass.css';
 
 function LevelSelector({ playerClass, shownLevel, onShowLevel }) {
     useEffect(() => {

@@ -35,10 +35,11 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
 
                 {playerClass.subclasses.map((subclass) => (
                     <div key={subclass.index} id={subclass.index}>
+                        <br/>
                         {shownSubclass === subclass.index && (
                             <div className="playerClass-subtext">
                                 <strong>{subclass.subclass_flavor} - {subclass.name}</strong> - {subclass.desc}<br />
-
+                                <br/>
                                 {/* Subclass Spells */}
                                 {subclass.spells && (
                                     <div className="playerClass-margin-bottom-small">
@@ -46,7 +47,6 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                         <div dangerouslySetInnerHTML={{ __html: getSpells(subclass.spells) }} className="playerClass-spell-list" />
                                     </div>
                                 )}
-
                                 {/* Features that are not level specific */}
                                 {subclass.features && subclass.features.length > 0 && (
                                     <div>
@@ -60,7 +60,6 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                                         </div>
                                                     ))}
                                                 </div>
-
                                                 {feature.prerequisites && feature.prerequisites.length > 0 && (
                                                     <div>
                                                         <b>Prerequisites:</b>&nbsp;{getPrerequisites(feature.prerequisites)}<br />
@@ -70,7 +69,6 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                         ))}
                                     </div>
                                 )}
-
                                 {/* Subclass Features by Level */}
                                 {subclassFeatures && subclassFeatures.length > 0 && (
                                     <div>
@@ -79,20 +77,21 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                                 <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                     {feature.description && feature.description[0] && (
-                                                        <span dangerouslySetInnerHTML={{ __html: feature.description[0] }} />
+                                                        <div>
+                                                            <span dangerouslySetInnerHTML={{ __html: feature.description[0] }} />
+                                                        </div>
                                                     )}
-
                                                     {feature.details && (
                                                         <div>
-                                                            <br /><span dangerouslySetInnerHTML={{ __html: feature.details }} />
+                                                            <span dangerouslySetInnerHTML={{ __html: feature.details }} />
                                                         </div>
                                                     )}
                                                 </div>
+                                                <br />
                                             </div>
                                         ))}
                                     </div>
                                 )}
-
                                 {/* Subclass Spellcasting by Level */}
                                 {currentSubclass && currentSubclass.class_levels && (
                                     <div className="playerClass-subtext">
@@ -105,62 +104,52 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                                                 <b>Cantrips Known:</b>&nbsp;{level.spellcasting.cantrips_known}<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spells_known > 0 && (
                                                             <div>
                                                                 <b>Spells Known:</b>&nbsp;{level.spellcasting.spells_known}<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_1 > 0 && (
                                                             <div>
                                                                 <b>Spell Slots:</b><br />
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_1} of level 1<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_2 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_2} of level 2<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_3 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_3} of level 3<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_4 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_4} of level 4<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_5 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_5} of level 5<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_6 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_6} of level 6<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_7 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_7} of level 7<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_8 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_8} of level 8<br />
                                                             </div>
                                                         )}
-
                                                         {level.spellcasting.spell_slots_level_9 > 0 && (
                                                             <div>
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;{level.spellcasting.spell_slots_level_9} of level 9<br />
