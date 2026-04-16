@@ -222,17 +222,19 @@ function MonsterLore2024() {
                                             return (
                                                 <div className="inner-list" key={subtype.index} id={subtype.index}>
                                                     <div 
-                                                        className={`inner card w-100 ${isExpanded ? 'active' : ''}`}
+                                                        className={`card w-100 ${isExpanded ? 'active' : ''}`}
                                                         onClick={(e) => { e.stopPropagation(); expandCard(subtype.index, !isExpanded); }}
                                                     >
                                                         <div className="card-header clickable">
-                                                            <div className="card-title">{subtype.name}</div>
-                                                            <i>
-                                                                {subtype.firstMonster?.size} {subtype.firstMonster?.type?.toLowerCase()}
-                                                                {subtype.firstMonster?.subtype && subtype.firstMonster.subtype !== subtype.firstMonster.type && (
-                                                                    <span> ({subtype.firstMonster.subtype})</span>
-                                                                )}, {subtype.firstMonster?.alignment}
-                                                            </i>
+                                                            <div>
+                                                                <div className="card-title">{subtype.name}</div>
+                                                                <i>
+                                                                    {subtype.firstMonster?.size} {subtype.firstMonster?.type?.toLowerCase()}
+                                                                    {subtype.firstMonster?.subtype && subtype.firstMonster.subtype !== subtype.firstMonster.type && (
+                                                                        <span> ({subtype.firstMonster.subtype})</span>
+                                                                    )}, {subtype.firstMonster?.alignment}
+                                                                </i>
+                                                            </div>
                                                         </div>
                                                         {isExpanded && (
                                                             <div className="card-body"
