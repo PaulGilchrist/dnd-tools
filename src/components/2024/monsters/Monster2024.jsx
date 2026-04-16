@@ -36,7 +36,8 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
         }
     }, [expand]);
 
-    const toggleDetails = () => {
+    const toggleDetails = (e) => {
+        e.stopPropagation();
         setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
     };

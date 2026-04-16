@@ -15,6 +15,7 @@ function MonsterLore2024() {
     const [monsterSubtypes, setMonsterSubtypes] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const [shownSubtype, setShownSubtype] = useState('');
+    const [shownMonster, setShownMonster] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
@@ -56,9 +57,19 @@ function MonsterLore2024() {
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
+            setShownMonster('');
             scrollIntoView(index);
         } else {
             setShownCard('');
+        }
+    };
+
+    const expandMonsterCard = (index, expanded) => {
+        if (expanded) {
+            setShownMonster(index);
+            scrollIntoView(index);
+        } else {
+            setShownMonster('');
         }
     };
 
@@ -213,7 +224,7 @@ function MonsterLore2024() {
                                                 <div className="inner-list" key={subtype.index} id={subtype.index}>
                                                     <div 
                                                         className={`card inner w-100 ${isExpanded ? 'active' : ''}`}
-                                                        onClick={() => expandCard(subtype.index, !isExpanded)}
+                                                        onClick={(e) => { e.stopPropagation(); expandCard(subtype.index, !isExpanded); }}
                                                     >
                                                         <div className="card-header clickable">
                                                             <div className="card-title">{subtype.name}</div>
@@ -225,7 +236,8 @@ function MonsterLore2024() {
                                                             </i>
                                                         </div>
                                                         {isExpanded && (
-                                                            <div className="card-body">
+                                                            <div className="card-body"
+                                                                    onClick={(e) => e.stopPropagation()}>
                                                                 {/* Display subtype info before monster list */}
                                                                 {subtype['short-description'] && (
                                                                     <div className="subtype-info">
@@ -248,8 +260,8 @@ function MonsterLore2024() {
                                                                     <Monster2024 
                                                                         key={innerMonster.index}
                                                                         monster={innerMonster}
-                                                                        expand={shownCard === innerMonster.index}
-                                                                        onExpand={(expanded) => expandCard(innerMonster.index, expanded)}
+                                                                        expand={shownMonster === innerMonster.index}
+                                                                        onExpand={(expanded) => expandMonsterCard(innerMonster.index, expanded)}
                                                                         cardType="inner"
                                                                     />
                                                                 ))}
@@ -268,8 +280,8 @@ function MonsterLore2024() {
                                                 <div className="inner-list" key={monster.index}>
                                                     <Monster2024 
                                                         monster={monster}
-                                                        expand={shownCard === monster.index}
-                                                        onExpand={(expanded) => expandCard(monster.index, expanded)}
+                                                        expand={shownMonster === monster.index}
+                                                        onExpand={(expanded) => expandMonsterCard(monster.index, expanded)}
                                                         cardType="inner"
                                                     />
                                                 </div>
