@@ -302,3 +302,8 @@ ul {
     border-right-color: var(--border);
   }
 }
+
+/* Hidden class for inner card bodies */
+.hidden {
+  display: none !important;
+}
