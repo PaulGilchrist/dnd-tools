@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './AbilityScore.css';
 
 function AbilityScore({ abilityScore, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
@@ -29,17 +28,19 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
     const skills = getSkills();
 
     return (
-        <div className={`abilityScore-card w-100 ${isExpanded ? 'active' : ''}`}>
+        <div className={`card w-100 ${isExpanded ? 'active' : ''}`}>
             <div className="card-header clickable" onClick={toggleDetails}>
-                <span className="card-title">
-                    {abilityScore.full_name}
-                </span>
-                <div className="skills-column">
-                    {skills && (
-                        <span>
-                            &nbsp;- {skills}
-                        </span>
-                    )}
+                <div>
+                    <span className="card-title">
+                        {abilityScore.full_name}
+                    </span>
+                    <div className="skills-column">
+                        {skills && (
+                            <span>
+                                &nbsp;- {skills}
+                            </span>
+                        )}
+                    </div>
                 </div>
             </div>
             {isExpanded && (
