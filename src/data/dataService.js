@@ -11,6 +11,7 @@ const dataCache = {
     feats: [],
     locations: [],
     magicItems: [],
+    magicItems2024: [],
     monsters: [],
     monsterTypes: [],
     names: [],
@@ -155,6 +156,10 @@ export function use2024MonsterTypes() {
 
 export function use2024MonsterSubtypes() {
     return useDataCache('monsters2024Subtypes', BASE_URL + 'data/2024/monster-subtypes.json');
+}
+
+export function use2024MagicItems() {
+    return useDataCache('magicItems2024', BASE_URL + 'data/2024/magic-items.json');
 }
 
 export function useWeaponProperties() {

@@ -22,6 +22,7 @@ import Spells from './components/spells/Spells'
 import Spells2024 from './components/2024/spells/Spells'
 import Monster2024Search from './components/2024/monsters/Monster2024Search'
 import MonsterLore2024 from './components/2024/monsters/MonsterLore2024'
+import MagicItems2024 from './components/2024/magic-items/MagicItems2024'
 import './App.css'
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/2024/spells" element={<Spells2024 />} />
         <Route path="/2024/monsters/search" element={<Monster2024Search />} />
         <Route path="/2024/monsters/lore" element={<MonsterLore2024 />} />
+        <Route path="/2024/magic-items" element={<MagicItems2024 />} />
         </Routes>
       </div>
     </BrowserRouter>

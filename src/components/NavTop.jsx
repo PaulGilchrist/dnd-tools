@@ -7,6 +7,7 @@ function NavTop() {
     const [ruleVersion, setRuleVersion] = useState('5e');
     const [activeSpellRoute, setActiveSpellRoute] = useState('');
     const [activeMonsterRoute, setActiveMonsterRoute] = useState('');
+    const [activeMagicItemsRoute, setActiveMagicItemsRoute] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -59,6 +60,16 @@ function NavTop() {
             } else if (location.pathname === '/monsters/lore' || location.pathname === '/2024/monsters/lore') {
                 // User is on a lore page but version doesn't match dropdown
                 setActiveMonsterRoute(location.pathname === '/2024/monsters/lore' ? 'lore-2024' : 'lore-5e');
+            }
+
+            // Track which magic items route is active
+            if (location.pathname === '/magic-items' && ruleVersion === '5e') {
+                setActiveMagicItemsRoute('5e');
+            } else if (location.pathname === '/2024/magic-items' && ruleVersion === '2024') {
+                setActiveMagicItemsRoute('2024');
+            } else if (location.pathname === '/magic-items' || location.pathname === '/2024/magic-items') {
+                // User is on a magic items page but version doesn't match dropdown
+                setActiveMagicItemsRoute(location.pathname === '/2024/magic-items' ? '2024' : '5e');
             }
 
             if (location.pathname.includes('monsters/lore') || 
@@ -114,12 +125,18 @@ function NavTop() {
     const newLink = newVersion === '2024' ? '/2024/monsters/lore' : '/monsters/lore';
     navigate(newLink);
         }
+        // If magic items route is active, navigate to appropriate magic items route
+        else if (activeMagicItemsRoute === '5e' || activeMagicItemsRoute === '2024') {
+    const newLink = newVersion === '2024' ? '/2024/magic-items' : '/magic-items';
+    navigate(newLink);
+        }
         setRuleVersion(newVersion);
     };
 
     const spellLink = ruleVersion === '2024' ? '/2024/spells' : '/spells';
     const monsterSearchLink = ruleVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
     const monsterLoreLink = ruleVersion === '2024' ? '/2024/monsters/lore' : '/monsters/lore';
+    const magicItemsLink = ruleVersion === '2024' ? '/2024/magic-items' : '/magic-items';
 
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
@@ -158,7 +175,7 @@ function NavTop() {
                     </li>
                     <li className="nav-item">
                         <NavLink 
-                            to="/magic-items" 
+                            to={magicItemsLink} 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Magic Items
