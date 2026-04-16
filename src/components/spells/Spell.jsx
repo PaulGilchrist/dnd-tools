@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './Spell.css';
 
 function Spell({ spell, expand, onExpand, onKnownChange, onPreparedChange }) {
     const [isExpanded, setIsExpanded] = useState(expand);
@@ -90,7 +89,7 @@ function Spell({ spell, expand, onExpand, onKnownChange, onPreparedChange }) {
                     <div className="card-title">{spell.name}</div>
                     <i>{getLevelText(spell.level)}&nbsp;{spell.school.toLowerCase()}</i>
                     {spell.ritual && (
-                        <span>(ritual)</span>
+                        <span> (ritual)</span>
                     )}<br />
                 </div>
                 <div>

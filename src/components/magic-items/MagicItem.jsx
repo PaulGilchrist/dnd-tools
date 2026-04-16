@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './MagicItem.css';
 
 function MagicItem({ magicItem, expand, onExpand, onBookmarkChange }) {
     const [isExpanded, setIsExpanded] = useState(expand);

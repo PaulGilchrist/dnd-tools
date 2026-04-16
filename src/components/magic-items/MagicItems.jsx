@@ -5,7 +5,6 @@ import { scrollIntoView } from '../../data/utils';
 import MagicItem from './MagicItem';
 import MagicItemsFilterForm from './MagicItemsFilterForm';
 import MagicItemList from './MagicItemList';
-import './MagicItems.css';
 
 function MagicItems() {
     const [magicItems, setMagicItems] = useState([]);

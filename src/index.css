@@ -24,6 +24,23 @@ b {
     color: var(--color-header);
 }
 
+/* Override Bootstrap <i> tag styling in card headers - apply to all states */
+.card-header > div > i,
+.card-header > div > span,
+.card-header.active > div > i,
+.card-header.active > div > span,
+.card-header:hover > div > i,
+.card-header:hover > div > span {
+    color: var(--color-header);
+    font-style: normal;
+    font-weight: normal;
+}
+
+/* Fallback: ensure all non-bold, non-title elements in header use correct color */
+.card-header > div > :not(b):not(.card-title) {
+    color: var(--color-header);
+}
+
 .btn-outline-primary {
     border-color: var(--color-body);
     color: var(--color-body);
@@ -63,8 +80,8 @@ body {
 
 .card.active>.card-header,
 .card>.card-header:hover {
-    background-color: var(--background-color-header-expanded) !important;
-    color: var(--color-header-expanded) !important;
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
 }
 
 .card-body {
@@ -88,13 +105,13 @@ body {
 }
 
 .inner>.card-header:hover {
-    background-color: var(--background-color-header-expanded) !important;
-    color: var(--color-header-expanded) !important;
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
 }
 
 .card.inner.active>.card-header {
-    background-color: var(--background-color-header-expanded) !important;
-    color: var(--color-header-expanded) !important;
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
 }
 
 .form-control {

@@ -5,7 +5,6 @@ import Spell from './Spell';
 import SpellFilter from './SpellFilter';
 import { useSpellFilter } from '../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../hooks/useSpellPersistence';
-import './Spells.css';
 
 import { scrollIntoView } from '../../data/utils';
 

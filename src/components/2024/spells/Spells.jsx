@@ -6,7 +6,6 @@ import SpellFilter from './SpellFilter';
 import { useSpellFilter } from '../../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../../hooks/useSpellPersistence';
 import { scrollIntoView } from '../../../data/utils';
-import './Spells.css';
 
 function Spells2024() {
     const [spells, setSpells] = useState([]);
