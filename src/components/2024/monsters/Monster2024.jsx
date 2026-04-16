@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import './Monster2024.css';
 import Monster2024AbilityScores from './Monster2024AbilityScores';
 import Monster2024Stats from './Monster2024Stats';
 import Monster2024Defenses from './Monster2024Defenses';
@@ -81,13 +80,13 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
     return (
         <>
             {imageActive && (
-                <div className="monster2024-cover" onClick={() => setImageActive(false)}>
+                <div className="cover" onClick={() => setImageActive(false)}>
                     {monsterImage && (
                         <img src={monsterImage} alt={monster.name} />
                     )}
                 </div>
             )}
-            <div className={`card w-100 ${isExpanded ? 'active' : ''} ${cardType === 'inner' ? 'monster2024-inner' : ''}`} id={monster.index}>
+            <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={monster.index}>
                 <div className="card-header clickable">
                     <div onClick={toggleDetails}>
                         <div className="card-title">{monster.name}</div>

@@ -63,8 +63,6 @@
     grid-template-columns: auto 110px;
 }
 
-
-
 /* Override any default Bootstrap or framework spacing */
 .list {
     margin: auto;

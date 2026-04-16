@@ -3,7 +3,6 @@ import { useSearchParams } from 'react-router-dom';
 import { use2024Monsters, use2024MonsterTypes, use2024MonsterSubtypes } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
 import Monster2024 from './Monster2024';
-import './MonsterLore2024.css';
 
 /**
  * MonsterLore2024 component - Displays monster subtypes with 2024 rules data
@@ -176,7 +175,7 @@ function MonsterLore2024() {
     };
 
     if (monstersLoading || typesLoading || subtypesLoading) {
-        return <div className="list"><div className="monsterLore2024-hidden">Loading monster lore...</div></div>;
+        return <div className="list"><div className="hidden">Loading monster lore...</div></div>;
     }
 
     const typeGroups = groupSubtypesByType();
@@ -187,7 +186,7 @@ function MonsterLore2024() {
                 return (
                     <div className="list" key={typeGroup.type}>
                         <div 
-                            className={`monsterLore2024-outer card w-100 ${shownSubtype === typeGroup.type ? 'active' : ''}`} 
+                            className={`outer card w-100 ${shownSubtype === typeGroup.type ? 'active' : ''}`} 
                             id={typeGroup.type}
                         >
                             <div 
@@ -221,9 +220,9 @@ function MonsterLore2024() {
                                         .map(subtype => {
                                             const isExpanded = shownCard === subtype.index;
                                             return (
-                                                <div className="monsterLore2024-inner-list" key={subtype.index} id={subtype.index}>
+                                                <div className="inner-list" key={subtype.index} id={subtype.index}>
                                                     <div 
-                                                        className={`monsterLore2024-inner card w-100 ${isExpanded ? 'active' : ''}`}
+                                                        className={`inner card w-100 ${isExpanded ? 'active' : ''}`}
                                                         onClick={(e) => { e.stopPropagation(); expandCard(subtype.index, !isExpanded); }}
                                                     >
                                                         <div className="card-header clickable">
@@ -240,17 +239,17 @@ function MonsterLore2024() {
                                                                     onClick={(e) => e.stopPropagation()}>
                                                                 {/* Display subtype info before monster list */}
                                                                 {subtype['short-description'] && (
-                                                                    <div className="subtype-info">
+                                                                    <div>
                                                                         <strong>Short Description:</strong> {subtype['short-description']}
                                                                     </div>
                                                                 )}
                                                                 {subtype.habitat && (
-                                                                    <div className="subtype-info">
+                                                                    <div>
                                                                         <strong>Habitat:</strong> {subtype.habitat}
                                                                     </div>
                                                                 )}
                                                                 {subtype.desc && (
-                                                                    <div className="subtype-info">
+                                                                    <div>
                                                                         <strong>Description:</strong>
                                                                         <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
                                                                     </div>
@@ -277,7 +276,7 @@ function MonsterLore2024() {
                                             <br/>
                                             <h5>Monsters without Subtype</h5>
                                             {typeGroup.monstersWithoutSubtype.map(monster => (
-                                                <div className="monsterLore2024-inner-list" key={monster.index}>
+                                                <div className="inner-list" key={monster.index}>
                                                     <Monster2024 
                                                         monster={monster}
                                                         expand={shownMonster === monster.index}
