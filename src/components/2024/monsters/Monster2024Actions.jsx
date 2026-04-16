@@ -1,4 +1,5 @@
 import { getNameString } from '../../../utils/monsterUtils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 /**
  * Monster2024Actions component - Displays monster actions
@@ -22,9 +23,20 @@ function Monster2024Actions({ monster }) {
                             <span>&nbsp;(Recharge 5-6)</span>
                         )}
                         :
-                    </b>&nbsp;{action.description}<br />
-                    {action.attack_bonus && <span>Atk: +{action.attack_bonus} ({action.damage_dice || 'melee'}) — {action.damage || 'damage'}<br /></span>}
-                    {action.save_dc && <span>DC {action.save_dc} {action.save_type} save or {action.save_effect}<br /></span>}
+                    </b>&nbsp;
+                    <span dangerouslySetInnerHTML={renderHtmlContent(action.description)} />
+                    <br />
+                    {action.attack_bonus && (
+                        <span>
+                            Atk: +{action.attack_bonus} ({action.damage_dice || 'melee'}) — {action.damage || 'damage'}
+                        </span>
+                    )}
+                    <br />
+                    {action.save_dc && (
+                        <span>
+                            DC {action.save_dc} {action.save_type} save or {action.save_effect}
+                        </span>
+                    )}
                     <br />
                 </div>
             ))}
@@ -33,3 +45,4 @@ function Monster2024Actions({ monster }) {
 }
 
 export default Monster2024Actions;
+

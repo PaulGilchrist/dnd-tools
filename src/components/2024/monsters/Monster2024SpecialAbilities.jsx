@@ -1,4 +1,5 @@
 import { getNameString } from '../../../utils/monsterUtils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 /**
  * Monster2024SpecialAbilities component - Displays monster special abilities and traits
@@ -14,7 +15,9 @@ function Monster2024SpecialAbilities({ monster }) {
             <h5>Special Traits</h5>
             {monster.traits.map((trait, index) => (
                 <div key={index}>
-                    <b>{trait.name}:</b>&nbsp;{trait.description}<br /><br />
+                    <b>{trait.name}:</b>&nbsp;
+                    <span dangerouslySetInnerHTML={renderHtmlContent(trait.description)} />
+                    <br /><br />
                 </div>
             ))}
         </div>

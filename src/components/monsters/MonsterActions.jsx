@@ -1,4 +1,5 @@
 import { getNameString } from '../../utils/monsterUtils';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function MonsterActions({ monster }) {
     if (!monster || !monster.actions) {
@@ -17,7 +18,9 @@ function MonsterActions({ monster }) {
                         {action.usage && action.usage.type === 'per day' && (
                             <span>&nbsp;({action.usage.times}/Day)</span>
                         )}:
-                    </b>&nbsp;{action.desc}<br /><br />
+                    </b>&nbsp;
+                    <span dangerouslySetInnerHTML={renderHtmlContent(action.desc)} />
+                    <br /><br />
                 </div>
             ))}
         </div>

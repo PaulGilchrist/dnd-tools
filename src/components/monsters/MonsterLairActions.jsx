@@ -1,4 +1,5 @@
 import { getNameString } from '../../utils/monsterUtils';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function MonsterLairActions({ monster }) {
     if (!monster || !monster.lair_actions) {
@@ -7,14 +8,18 @@ function MonsterLairActions({ monster }) {
 
     return (
         <div>
-            {monster.lair_actions.summary}<br />
+            <span dangerouslySetInnerHTML={renderHtmlContent(monster.lair_actions.summary)} /><br />
             <ul>
                 {monster.lair_actions.actions.map((action, index) => (
-                    <li key={index}>{action}</li>
+                    <li key={index}>
+                        <span dangerouslySetInnerHTML={renderHtmlContent(action)} />
+                    </li>
                 ))}
             </ul>
             {monster.lair_actions.usage && (
-                <div>{monster.lair_actions.usage}<br /></div>
+                <div>
+                    <span dangerouslySetInnerHTML={renderHtmlContent(monster.lair_actions.usage)} /><br />
+                </div>
             )}
         </div>
     );

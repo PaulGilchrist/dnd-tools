@@ -1,4 +1,5 @@
 import { getNameString } from '../../utils/monsterUtils';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function MonsterSpecialAbilities({ monster }) {
     if (!monster || !monster.special_abilities) {
@@ -14,7 +15,9 @@ function MonsterSpecialAbilities({ monster }) {
                         {special_ability.usage && special_ability.usage.type === 'per day' && (
                             <span>&nbsp;({special_ability.usage.times}/day)</span>
                         )}:
-                    </b>&nbsp;{special_ability.desc}<br /><br />
+                    </b>&nbsp;
+                    <span dangerouslySetInnerHTML={renderHtmlContent(special_ability.desc)} />
+                    <br /><br />
                 </span>
             ))}
         </div>

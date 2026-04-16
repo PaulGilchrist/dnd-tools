@@ -1,4 +1,5 @@
 import { getNameString } from '../../../utils/monsterUtils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 /**
  * Monster2024LairActions component - Displays lair actions
@@ -16,7 +17,8 @@ function Monster2024LairActions({ monster }) {
                 <ul>
                     {monster.lair_actions.actions.map((action, index) => (
                         <li key={index}>
-                            <b>{action.name}:</b>&nbsp;{action.description}
+                            <b>{action.name}:</b>&nbsp;
+                            <span dangerouslySetInnerHTML={renderHtmlContent(action.description)} />
                             {action.save_dc && <span> (DC {action.save_dc} save)</span>}
                         </li>
                     ))}

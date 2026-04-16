@@ -1,4 +1,5 @@
 import { getNameString } from '../../../utils/monsterUtils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 /**
  * Monster2024RegionalEffects component - Displays regional effects
@@ -15,7 +16,9 @@ function Monster2024RegionalEffects({ monster }) {
             {monster.regional_effects.effects && monster.regional_effects.effects.length > 0 && (
                 <ul>
                     {monster.regional_effects.effects.map((effect, index) => (
-                        <li key={index}>{effect}</li>
+                        <li key={index}>
+                            <span dangerouslySetInnerHTML={renderHtmlContent(effect)} />
+                        </li>
                     ))}
                 </ul>
             )}

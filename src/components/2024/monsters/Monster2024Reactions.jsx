@@ -1,4 +1,5 @@
 import { getNameString } from '../../../utils/monsterUtils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 /**
  * Monster2024Reactions component - Displays monster reactions
@@ -13,7 +14,9 @@ function Monster2024Reactions({ monster }) {
         <div>
             {monster.reactions.map((reaction, index) => (
                 <span key={index} className="reaction-item">
-                    <b>{reaction.name}:</b>&nbsp;{reaction.trigger && <i>{reaction.trigger}</i>}{reaction.description}
+                    <b>{reaction.name}:</b>&nbsp;
+                    {reaction.trigger && <i>{reaction.trigger}</i>}
+                    <span dangerouslySetInnerHTML={renderHtmlContent(reaction.description)} />
                 </span>
             ))}
         </div>
