@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './EquipmentItem.css';
 
 function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
     const [isExpanded, setIsExpanded] = useState(expand);

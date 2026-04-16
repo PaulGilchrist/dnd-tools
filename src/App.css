@@ -14,6 +14,45 @@
     width: 100%;
 }
 
+.card-header {
+    background-color: var(--background-color-header);
+    color: var(--color-header);
+}
+
+.card.active>.card-header,
+.card>.card-header:hover {
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
+}
+
+.card-body {
+    background-color: var(--background-color-body);
+    color: var(--color-body);
+}
+
+.card-title {
+    color: var(--color-header);
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.inner>.card-header {
+    background-color: var(--background-color-header-inner);
+    color: var(--color-body);
+    padding: 0 10px;
+}
+
+.inner>.card-header:hover {
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
+}
+
+.card.inner.active>.card-header {
+    background-color: var(--background-color-header-expanded);
+    color: var(--color-header-expanded);
+}
+
 .card-header.clickable:hover {
     background-color: var(--background-color-header);
 }
@@ -25,17 +64,12 @@
 }
 
 
-.card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 0;
-}
-
-
 
 /* Override any default Bootstrap or framework spacing */
 .list {
-  margin-top: 0;
+    margin: auto;
+    margin-top: 0;
+    max-width: 1000px;
 }
 
 .counter {
@@ -55,6 +89,15 @@
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-gap: 10px;
+  max-width: 500px;
+  margin: auto;
+  padding-left: 5px;
 }
 
 form {
@@ -247,4 +290,3 @@ ul {
     border-right-color: var(--border);
   }
 }
-

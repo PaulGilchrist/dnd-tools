@@ -73,45 +73,9 @@ body {
     padding-top: var(--nav-padding-top, 61px); /* Account for fixed navbar */
 }
 
-.card-header {
-    background-color: var(--background-color-header);
-    color: var(--color-header);
-}
-
-.card.active>.card-header,
-.card>.card-header:hover {
-    background-color: var(--background-color-header-expanded);
-    color: var(--color-header-expanded);
-}
-
-.card-body {
-    background-color: var(--background-color-body);
-    color: var(--color-body);
-}
-
-.card-title {
-    color: var(--color-header);
-}
-
 .col-form-label {
     color: var(--color-header);
     font-weight: 600;
-}
-
-.inner>.card-header {
-    background-color: var(--background-color-header-inner);
-    color: var(--color-body);
-    padding: 0 10px;
-}
-
-.inner>.card-header:hover {
-    background-color: var(--background-color-header-expanded);
-    color: var(--color-header-expanded);
-}
-
-.card.inner.active>.card-header {
-    background-color: var(--background-color-header-expanded);
-    color: var(--color-header-expanded);
 }
 
 .form-control {

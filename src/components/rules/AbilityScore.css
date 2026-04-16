@@ -1,17 +1,5 @@
-.card {
-    margin-top: 5px;
-    margin-left: 5px;
-    width: 100%;
-}
-
 .card .card-header.clickable {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 0;
 }

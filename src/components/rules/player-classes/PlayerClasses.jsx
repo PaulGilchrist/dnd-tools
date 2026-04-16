@@ -3,7 +3,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { usePlayerClasses } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
 import PlayerClass from './PlayerClass';
-import './PlayerClasses.css';
+
 
 function PlayerClasses() {
     const [playerClasses, setPlayerClasses] = useState([]);

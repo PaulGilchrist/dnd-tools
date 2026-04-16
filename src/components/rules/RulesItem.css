@@ -1,23 +1,6 @@
-.card-header {
-    align-content: center;
-    display: grid;
-    grid-template-columns: 1fr auto;
-}
-
-.inner>.card-header {    
-    padding: 0 10px;
-    display: block;
-}
-
 .inner>.card-body {    
     padding-left: 8px;
     padding-right: 8px;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 0;
 }
 
 .component {

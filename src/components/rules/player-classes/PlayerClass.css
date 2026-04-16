@@ -17,34 +17,12 @@
     width: 185px;
 }
 
-.card {
-    margin-top: 5px;
-    margin-left: 5px;
-    width: 100%;
-}
-
 .inner > .card-body {
     padding: 8px;
 }
 
 .outer > .card-body {
     padding: 4px;
-}
-
-.card-header {
-    align-content: center;
-    display: grid;
-    grid-template-columns: auto 110px;
-}
-
-.inner > .card-header {
-    padding: 0px 10px;
-}
-
-.card-title {
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 0;
 }
 
 .component {

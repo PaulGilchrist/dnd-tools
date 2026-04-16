@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Feat.css';
+
 
 function Feat({ feat, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAbilityScores } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import AbilityScore from './AbilityScore';
-import './AbilityScores.css';
+
 
 function AbilityScores() {
     const [abilityScores, setAbilityScores] = useState([]);

@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useFeats } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import Feat from './Feat';
-import './Feats.css';
+
 
 function Feats() {
     const [shownCard, setShownCard] = useState('');

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ConditionItem.css';
+
 
 function ConditionItem({ condition, expand = false, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
