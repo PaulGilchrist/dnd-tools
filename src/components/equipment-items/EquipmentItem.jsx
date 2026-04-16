@@ -62,8 +62,8 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
                     <div className="card-title">{equipmentItem.name}</div>
                     <div>
                         <i>{equipmentItem.equipment_category}, cost {equipmentItem.cost.quantity} {equipmentItem.cost.unit}</i>
-                        {equipmentItem.weight && (
-                            <span>, weight {equipmentItem.weight} lb.</span>
+                        {equipmentItem.weight != null && equipmentItem.weight !== '' && Number(equipmentItem.weight) > 0 && (
+                            <i>, weight {equipmentItem.weight} lb.</i>
                         )}
                     </div>
                 </div>
