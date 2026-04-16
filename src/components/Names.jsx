@@ -164,9 +164,9 @@ function Names() {
     }
 
     return (
-        <div className="names">
+        <div className="names-table">
             <NameFilterForm filter={filter} setFilter={setFilter} filterChanged={filterChanged} />
-
+            <br/>
             {shownNames.firstNames && shownNames.firstNames.length > 0 && (
                 <NameListTable filter={filter} shownNames={shownNames} isNameUsed={isNameUsed} toggleUsed={toggleUsed} />
             )}

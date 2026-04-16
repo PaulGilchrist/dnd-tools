@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './NameListTable.css';
+import './Names.css';
 
 function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
     const renderFirstTable = () => (
@@ -22,7 +22,7 @@ function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
                         <td>{name}</td>
                         <td>
                             <input 
-                                className="nameListTable-form-check-input" 
+                                className="form-check-input" 
                                 type="checkbox" 
                                 onChange={() => toggleUsed(name)}
                                 checked={isNameUsed(name)}
@@ -54,7 +54,7 @@ function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
                         <td>{name}</td>
                         <td>
                             <input 
-                                className="nameListTable-form-check-input" 
+                                className="form-check-input" 
                                 type="checkbox" 
                                 onChange={() => toggleUsed(name)}
                                 checked={isNameUsed(name)}
@@ -67,7 +67,7 @@ function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
     );
 
     return (
-        <div className={`list ${filter.type === 'building' || shownNames.familyType != null ? 'dualList' : ''}`}>
+        <div className={`list ${filter.type === 'building' || shownNames.familyType != null ? 'names-dualList' : ''}`}>
             {renderFirstTable()}
             {(filter.type === 'building' || shownNames.familyType != null) && renderSecondTable()}
         </div>
