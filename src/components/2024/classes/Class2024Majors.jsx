@@ -25,7 +25,7 @@ function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }
 
     return (
         <div style={{ marginBottom: '1rem' }}>
-            <h5>Major Options</h5>
+            <h5 style={{ marginBottom: '0.25rem', marginTop: '0' }}>Major Options</h5>
             <p className="major-intro">
                 At 3rd level, you choose a major path that defines your specialization. 
                 Each major grants unique features at certain levels.
@@ -38,10 +38,10 @@ function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }
                         onClick={() => toggleMajor(major.name)}
                         style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                     >
-                        <div>
+                        <div style={{ lineHeight: '10px', marginTop: '-3px' }}>
                             <h5>{major.name}</h5>
                             {major.subtitle && (
-                                <h6>{major.subtitle}</h6>
+                                <div>{major.subtitle}</div>
                             )}
                         </div>
                         <span className="toggle-icon" style={{ marginLeft: '0.5rem' }}>{expandedMajor === major.name ? '▼' : '▶'}</span>
