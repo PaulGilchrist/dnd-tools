@@ -25,3 +25,14 @@
   display: block;
   object-fit: contain;
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats > div:last-child {
+  text-align: right;
+}
