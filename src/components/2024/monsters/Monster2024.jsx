@@ -87,7 +87,7 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
                     )}
                 </div>
             )}
-            <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={monster.index}>
+            <div className={`card w-100 ${isExpanded ? 'active' : ''} ${cardType === 'inner' ? 'inner' : ''}`} id={monster.index}>
                 <div className="card-header clickable">
                     <div onClick={toggleDetails}>
                         <div className="card-title">{monster.name}</div>

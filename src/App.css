@@ -25,7 +25,24 @@
 .card {
     margin-top: 5px;
     margin-left: 5px;
+    margin-right: 5px;
     width: 100%;
+}
+
+.card.inner {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+/* Nested inner cards within outer cards */
+.outer .card {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+/* Remove left margin from inner-list containers */
+.inner-list {
+    margin-left: 0;
 }
 
 .card-header {
@@ -42,6 +59,8 @@
 .card-body {
     background-color: var(--background-color-body);
     color: var(--color-body);
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .card-title {
@@ -307,3 +326,4 @@ ul {
 .hidden {
   display: none !important;
 }
+
