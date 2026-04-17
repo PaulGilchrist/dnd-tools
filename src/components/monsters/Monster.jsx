@@ -8,6 +8,7 @@ import MonsterReactions from './MonsterReactions';
 import MonsterLegendaryActions from './MonsterLegendaryActions';
 import MonsterLairActions from './MonsterLairActions';
 import MonsterRegionalEffects from './MonsterRegionalEffects';
+import './MonsterCover.css';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
 const BASE_URL = import.meta.env.BASE_URL || '';

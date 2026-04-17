@@ -1,21 +1,27 @@
-.locations-cover{
+.locations-cover {
   background-color: var(--background-color-main);
-  position:fixed;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  margin: auto;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
   z-index: 100;
 }
 
 .locations-cover img {
-  max-height: 100vh;
+  max-width: 100vw;
+  max-height: 100dvh;
   width: auto;
-  margin: auto;
-  max-width:100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
   z-index: 200;
+  display: block;
+  object-fit: contain;
 }
-
