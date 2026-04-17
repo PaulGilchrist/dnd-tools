@@ -1,0 +1,72 @@
+import { useState, useEffect } from 'react';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { use2024Classes } from '../../../data/dataService';
+import { scrollIntoView } from '../../../data/utils';
+import Class2024 from './Class2024';
+
+function Classes2024() {
+    const [classes2024, setClasses2024] = useState([]);
+    const [shownCard, setShownCard] = useState('');
+    const location = useLocation();
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    // Fetch 2024 class data
+    const { data: classesData, loading: classesLoading } = use2024Classes();
+
+    useEffect(() => {
+        if (classesData && classesData.length > 0) {
+            setClasses2024(classesData);
+
+            // Check for index parameter in URL
+            const index = searchParams.get('index');
+            if (index) {
+                const playerClass = classesData.find(item => item.index === index);
+                if (playerClass) {
+                    setShownCard(index);
+                    scrollIntoView(index);
+                }
+            }
+        }
+    }, [classesData]);
+
+    const expandCard = (index, expanded) => {
+        if (expanded) {
+            setShownCard(index);
+            scrollIntoView(index);
+        } else {
+            setShownCard('');
+        }
+
+        // Update URL query params using setSearchParams
+        if (expanded) {
+            setSearchParams({ index });
+        } else {
+            setSearchParams({});
+        }
+    };
+
+    if (classesLoading) {
+        return <div className="list"><div>Loading 2024 classes...</div></div>;
+    }
+
+    return (
+        <div className="list">
+            <h2 className="section-title">2024 Player Classes</h2>
+            <p className="section-description">
+                Classes from the 2024 Dungeons & Dragons rules update. Each class includes core traits, 
+                level progression, and major options (replacing traditional subclasses).
+            </p>
+            {classes2024.map((playerClass) => (
+                <div key={playerClass.index} id={playerClass.index}>
+                    <Class2024 
+                        playerClass={playerClass}
+                        expand={shownCard === playerClass.index}
+                        onExpand={(expanded) => expandCard(playerClass.index, expanded)}
+                    />
+                </div>
+            ))}
+        </div>
+    );
+}
+
+export default Classes2024;
