@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
 import Class2024Header from './Class2024Header';
-import Class2024BasicInfo from './Class2024BasicInfo';
 import Class2024Features from './Class2024Features';
 import Class2024Levels from './Class2024Levels';
 import Class2024Majors from './Class2024Majors';
@@ -117,12 +116,51 @@ function Class2024({ playerClass, expand, onExpand }) {
                         </div>
                     )}
 
-                    {/* Core Traits */}
+                    {/* Core Traits - Embedded in card body */}
                     {playerClass.core_traits && (
-                        <Class2024BasicInfo 
-                            playerClass={playerClass} 
-                            getNameString={getNameString}
-                        />
+                        <div className="core-traits-embedded" style={{ marginBottom: '1rem' }}>
+                            <h4>Core Traits</h4>
+                            {playerClass.core_traits.primary_ability && (
+                                <div>
+                                    <b>Primary Ability:</b>&nbsp;{playerClass.core_traits.primary_ability}
+                                </div>
+                            )}
+                            {playerClass.core_traits.hit_point_die && (
+                                <div>
+                                    <b>Hit Die:</b>&nbsp;{playerClass.core_traits.hit_point_die}
+                                </div>
+                            )}
+                            {playerClass.core_traits.saving_throw_proficiencies && (
+                                <div>
+                                    <b>Saving Throw Proficiencies:</b>&nbsp;{playerClass.core_traits.saving_throw_proficiencies}
+                                </div>
+                            )}
+                            {playerClass.core_traits.skill_proficiencies && (
+                                <div>
+                                    <b>Skill Proficiencies:</b>&nbsp;{playerClass.core_traits.skill_proficiencies}
+                                </div>
+                            )}
+                            {playerClass.core_traits.weapon_proficiencies && (
+                                <div>
+                                    <b>Weapon Proficiencies:</b>&nbsp;{playerClass.core_traits.weapon_proficiencies}
+                                </div>
+                            )}
+                            {playerClass.core_traits.armor_training && (
+                                <div>
+                                    <b>Armor Training:</b>&nbsp;{playerClass.core_traits.armor_training}
+                                </div>
+                            )}
+                            {playerClass.core_traits.tool_proficiencies && (
+                                <div>
+                                    <b>Tool Proficiencies:</b>&nbsp;{playerClass.core_traits.tool_proficiencies}
+                                </div>
+                            )}
+                            {playerClass.core_traits.starting_equipment && (
+                                <div>
+                                    <b>Starting Equipment:</b>&nbsp;{playerClass.core_traits.starting_equipment}
+                                </div>
+                            )}
+                        </div>
                     )}
 
                     {/* Level-based Class Features */}
@@ -190,3 +228,4 @@ function Class2024({ playerClass, expand, onExpand }) {
 }
 
 export default Class2024;
+
