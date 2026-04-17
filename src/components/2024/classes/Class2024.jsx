@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
 import Class2024Header from './Class2024Header';
-import Class2024Features from './Class2024Features';
 import Class2024Majors from './Class2024Majors';
 
 function Class2024({ playerClass, expand, onExpand }) {
@@ -162,13 +161,19 @@ function Class2024({ playerClass, expand, onExpand }) {
                         </div>
                     )}
 
-                    {/* Level-based Class Features */}
+                    {/* Level-based Class Features - Now inline */}
                     {classFeatures.length > 0 && (
-                        <div>
-                            <Class2024Features 
-                                features={classFeatures}
-                                shownLevel={shownLevel}
-                            />
+                        <div className="class-features-section" style={{ marginBottom: '1rem' }}>
+                            <h5>Class Features</h5>
+                            {classFeatures.map((feature, index) => (
+                                <div key={index} className="feature-item" style={{ marginBottom: '1rem' }}>
+                                    <b>{feature.name} (Level {feature.level}):</b>&nbsp;
+                                    {feature.description && (
+                                        <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                                    )}
+                                    <br />
+                                </div>
+                            ))}
                         </div>
                     )}
 
