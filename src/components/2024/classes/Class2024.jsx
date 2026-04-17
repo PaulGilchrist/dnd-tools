@@ -6,7 +6,7 @@ import Class2024Majors from './Class2024Majors';
 
 function Class2024({ playerClass, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [shownLevel, setShownLevel] = useState(0);
+    const [shownLevel, setShownLevel] = useState(1);
     const [shownMajor, setShownMajor] = useState('');
 
     // Update local state when props change
