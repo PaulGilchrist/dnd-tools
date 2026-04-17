@@ -1,4 +1,5 @@
 import React from 'react';
+import './Class2024CoreTraits.css';
 
 /**
  * Component to display the core traits of a player class
@@ -9,7 +10,7 @@ function Class2024CoreTraits({ coreTraits }) {
     }
 
     return (
-        <div className="core-traits-embedded" style={{ marginBottom: '1rem', marginTop: '1rem' }}>
+        <div className="core-traits-embedded class2024-core-traits-embedded">
             <h5>Core Traits</h5>
             {coreTraits.primary_ability && (
                 <div>

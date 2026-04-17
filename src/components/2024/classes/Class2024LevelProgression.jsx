@@ -1,4 +1,5 @@
 import React from 'react';
+import './Class2024LevelProgression.css';
 
 /**
  * Component to display the level progression with a selector
@@ -9,16 +10,16 @@ function Class2024LevelProgression({ playerClass, shownLevel, onShowLevel }) {
     }
 
     return (
-        <div className="level-progression-embedded" style={{ marginBottom: '1rem' }}>
+        <div className="level-progression-embedded class2024-level-progression-embedded">
             <h4>Level Progression</h4>
             {/* Level Selector */}
-            <div className="level-selector" style={{ marginBottom: '1rem' }}>
+            <div className="level-selector class2024-level-selector">
                 <b>Select Level:</b>&nbsp;
                 {playerClass.class_levels.map((level) => (
                     <button
                         key={level.level}
                         className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'}`}
-                        style={{ margin: '0.125rem' }}
+                        className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'} class2024-level-selector-btn`}
                         onClick={() => onShowLevel(level.level)}
                     >
                         {level.level}
@@ -43,14 +44,14 @@ function AllLevelsView({ playerClass }) {
     return (
         <div>
             {playerClass.class_levels.map((level) => (
-                <div key={level.level} id={level.level} style={{ marginBottom: '1.5rem' }}>
+                <div key={level.level} id={level.level} className="class2024-level-view">
                     <h5 className="level-header">
                         Level {level.level} <span className="proficiency-badge">Proficiency: {level.proficiency_bonus}</span>
                     </h5>
                     {level.features && level.features.length > 0 && (
                         <div className="level-features">
                             {level.features.map((feature, fIndex) => (
-                                <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
+                                <div key={fIndex} className="feature-item class2024-feature-item">
                                     <b>{feature.name}:</b>&nbsp;
                                     {feature.type === 'subclass_feature' && (
                                         <span className="subclass-badge">(Subclass)</span>
@@ -96,11 +97,11 @@ function SelectedLevelView({ playerClass, shownLevel }) {
 
     return (
         <div className="selected-level-features">
-            <h5 className="level-header" style={{ marginBottom: '1rem' }}>
+            <h5 className="level-header class2024-level-header">
                 Level {selectedLevel.level} <span className="proficiency-badge">Proficiency: {selectedLevel.proficiency_bonus}</span>
             </h5>
             {allFeatures.map((feature, fIndex) => (
-                <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
+                <div key={fIndex} className="feature-item class2024-feature-item">
                     <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
                     {feature.type === 'subclass_feature' && (
                         <span className="subclass-badge">(Subclass)</span>

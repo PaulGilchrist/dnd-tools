@@ -1,0 +1,9 @@
+/* PlayerClassFeatures component styles */
+
+.player-class-features-card-body {
+    display: block;
+}
+
+.player-class-features-card-body.hidden {
+    display: none;
+}

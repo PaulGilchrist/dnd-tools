@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
+import './PlayerClassFeatures.css';
 
 function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
     useEffect(() => {
@@ -15,7 +16,7 @@ function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
             <div className="card-header clickable" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <div className="card-title">Features</div>
             </div>
-            <div className="card-body" style={{ display: shownLevel !== 0 ? 'none' : 'block' }}>
+            <div className={`card-body player-class-features-card-body ${shownLevel !== 0 ? 'hidden' : ''}`}>
                 {features.map((feature, index) => (
                     <div key={index}>
                         <b>{feature.name}:</b>&nbsp;
@@ -41,3 +42,4 @@ function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
 }
 
 export default PlayerClassFeatures;
+

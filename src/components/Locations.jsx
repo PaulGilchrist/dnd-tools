@@ -94,7 +94,7 @@ function Locations() {
                         {/* Scroll anchor - must be in document flow */}
                         <div
                             id={`scroll-anchor-${location.index}`}
-                            style={{ display: 'block', height: '1px', width: '1px', overflow: 'hidden', visibility: 'hidden' }}
+                            className="locations-scroll-anchor"
                         ></div>
                         <div 
                             className={`card outer w-100 ${shownCard === location.index ? 'active' : ''}`} 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../../spells/SpellFilter.css';
 
 function SpellFilter({ filter, onFilterChange }) {
     const handleChange = (field, value) => {
@@ -49,7 +50,7 @@ function SpellFilter({ filter, onFilterChange }) {
 
             {/* Levels */}
             <label htmlFor="levelMin" className="col-form-label">Level Range</label>
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div className="spell-filter-level-range">
                 <input 
                     type="number" 
                     className="form-control level-min-input" 
