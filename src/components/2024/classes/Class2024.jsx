@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
 import Class2024Header from './Class2024Header';
 import Class2024Majors from './Class2024Majors';
+import Class2024CoreTraits from './Class2024CoreTraits';
+import Class2024ClassFeatures from './Class2024ClassFeatures';
+import Class2024LevelProgression from './Class2024LevelProgression';
+import Class2024Multiclassing from './Class2024Multiclassing';
 
 function Class2024({ playerClass, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -111,161 +115,22 @@ function Class2024({ playerClass, expand, onExpand }) {
                         <span dangerouslySetInnerHTML={{ __html: playerClass.class_description }} />
                     )}
 
-                    {/* Core Traits - Embedded in card body */}
+                    {/* Core Traits */}
                     {playerClass.core_traits && (
-                        <div className="core-traits-embedded" style={{ marginBottom: '1rem', marginTop: '1rem' }}>
-                            <h5>Core Traits</h5>
-                            {playerClass.core_traits.primary_ability && (
-                                <div>
-                                    <b>Primary Ability:</b>&nbsp;{playerClass.core_traits.primary_ability}
-                                </div>
-                            )}
-                            {playerClass.core_traits.hit_point_die && (
-                                <div>
-                                    <b>Hit Die:</b>&nbsp;{playerClass.core_traits.hit_point_die}
-                                </div>
-                            )}
-                            {playerClass.core_traits.saving_throw_proficiencies && (
-                                <div>
-                                    <b>Saving Throw Proficiencies:</b>&nbsp;{playerClass.core_traits.saving_throw_proficiencies}
-                                </div>
-                            )}
-                            {playerClass.core_traits.skill_proficiencies && (
-                                <div>
-                                    <b>Skill Proficiencies:</b>&nbsp;{playerClass.core_traits.skill_proficiencies}
-                                </div>
-                            )}
-                            {playerClass.core_traits.weapon_proficiencies && (
-                                <div>
-                                    <b>Weapon Proficiencies:</b>&nbsp;{playerClass.core_traits.weapon_proficiencies}
-                                </div>
-                            )}
-                            {playerClass.core_traits.armor_training && (
-                                <div>
-                                    <b>Armor Training:</b>&nbsp;{playerClass.core_traits.armor_training}
-                                </div>
-                            )}
-                            {playerClass.core_traits.tool_proficiencies && (
-                                <div>
-                                    <b>Tool Proficiencies:</b>&nbsp;{playerClass.core_traits.tool_proficiencies}
-                                </div>
-                            )}
-                            {playerClass.core_traits.starting_equipment && (
-                                <div>
-                                    <b>Starting Equipment:</b>&nbsp;{playerClass.core_traits.starting_equipment}
-                                </div>
-                            )}
-                        </div>
+                        <Class2024CoreTraits coreTraits={playerClass.core_traits} />
                     )}
 
-                    {/* Level-based Class Features - Now inline */}
+                    {/* Level-based Class Features */}
                     {classFeatures.length > 0 && (
-                        <div className="class-features-section" style={{ marginBottom: '1rem' }}>
-                            <h5>Class Features</h5>
-                            {classFeatures.map((feature, index) => (
-                                <div key={index} className="feature-item" style={{ marginBottom: '1rem' }}>
-                                    <b>{feature.name} (Level {feature.level}):</b>&nbsp;
-                                    {feature.description && (
-                                        <span dangerouslySetInnerHTML={{ __html: feature.description }} />
-                                    )}
-                                    <br />
-                                </div>
-                            ))}
-                        </div>
+                        <Class2024ClassFeatures classFeatures={classFeatures} />
                     )}
-
-                    {/* Level Progression - Embedded in card body */}
+                    {/* Level Progression */}
                     {playerClass.class_levels && (
-                        <div className="level-progression-embedded" style={{ marginBottom: '1rem' }}>
-                            <h4>Level Progression</h4>
-                            {/* Level Selector */}
-                            <div className="level-selector" style={{ marginBottom: '1rem' }}>
-                                <b>Select Level:</b>&nbsp;
-                                {playerClass.class_levels.map((level) => (
-                                    <button
-                                        key={level.level}
-                                        className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'}`}
-                                        style={{ margin: '0.125rem' }}
-                                        onClick={() => showLevel(level.level)}
-                                    >
-                                        {level.level}
-                                    </button>
-                                ))}
-                            </div>
-
-                            {/* Show features for selected level or all levels */}
-                            {shownLevel === 0 ? (
-                                <div>
-                                    {playerClass.class_levels.map((level) => (
-                                        <div key={level.level} id={level.level} style={{ marginBottom: '1.5rem' }}>
-                                            <h5 className="level-header">
-                                                Level {level.level} <span className="proficiency-badge">Proficiency: {level.proficiency_bonus}</span>
-                                            </h5>
-                                            {level.features && level.features.length > 0 && (
-                                                <div className="level-features">
-                                                    {level.features.map((feature, fIndex) => (
-                                                        <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
-                                                            <b>{feature.name}:</b>&nbsp;
-                                                            {feature.type === 'subclass_feature' && (
-                                                                <span className="subclass-badge">(Subclass)</span>
-                                                            )}
-                                                            {feature.description && (
-                                                                <span dangerouslySetInnerHTML={{ __html: feature.description }} />
-                                                            )}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="selected-level-features">
-                                    {(() => {
-                                        const selectedLevel = playerClass.class_levels.find(l => l.level === shownLevel);
-                                        if (!selectedLevel) return null;
-                                        
-                                        // Display level header with proficiency bonus
-                                        return (
-                                            <>
-                                                <h5 className="level-header" style={{ marginBottom: '1rem' }}>
-                                                    Level {selectedLevel.level} <span className="proficiency-badge">Proficiency: {selectedLevel.proficiency_bonus}</span>
-                                                </h5>
-                                                {/* Collect all features up to this level */}
-                                                {(() => {
-                                                    const allFeatures = [];
-                                                    for (let i = 0; i < playerClass.class_levels.length; i++) {
-                                                        if (playerClass.class_levels[i].level <= shownLevel && playerClass.class_levels[i].features) {
-                                                            playerClass.class_levels[i].features.forEach((feature) => {
-                                                                // Only show if this is a new feature at this level
-                                                                if (feature.level === playerClass.class_levels[i].level) {
-                                                                    allFeatures.push({
-                                                                        ...feature,
-                                                                        sourceLevel: playerClass.class_levels[i].level
-                                                                    });
-                                                                }
-                                                            });
-                                                        }
-                                                    }
-                                                    
-                                                    return allFeatures.map((feature, fIndex) => (
-                                                        <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
-                                                            <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
-                                                            {feature.type === 'subclass_feature' && (
-                                                                <span className="subclass-badge">(Subclass)</span>
-                                                            )}
-                                                            {feature.description && (
-                                                                <span dangerouslySetInnerHTML={{ __html: feature.description }} />
-                                                            )}
-                                                        </div>
-                                                    ));
-                                                })()}
-                                            </>
-                                        );
-                                    })()}
-                                </div>
-                            )}
-                        </div>
+                        <Class2024LevelProgression 
+                            playerClass={playerClass}
+                            shownLevel={shownLevel}
+                            onShowLevel={showLevel}
+                        />
                     )}
 
                     {/* Major Options (Subclasses) */}
@@ -281,24 +146,7 @@ function Class2024({ playerClass, expand, onExpand }) {
                     )}
 
                     {/* Multiclassing Info */}
-                    {playerClass.multiclassing && (
-                        <div className="multiclassing-info">
-                            <h4>Multiclassing</h4>
-                            <div dangerouslySetInnerHTML={{ __html: playerClass.multiclassing.requirements }} />
-                            {playerClass.multiclassing.core_traits_gained && (
-                                <div>
-                                    <b>Core Traits Gained:</b>
-                                    <span dangerouslySetInnerHTML={{ __html: playerClass.multiclassing.core_traits_gained }} />
-                                </div>
-                            )}
-                            {playerClass.multiclassing.features_gained && (
-                                <div>
-                                    <b>Features Gained:</b>
-                                    <span dangerouslySetInnerHTML={{ __html: playerClass.multiclassing.features_gained }} />
-                                </div>
-                            )}
-                        </div>
-                    )}
+                    <Class2024Multiclassing multiclassing={playerClass.multiclassing} />
 
                     {/* Source Reference */}
                     <div>
