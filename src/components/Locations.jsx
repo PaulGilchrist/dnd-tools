@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useLocations } from '../data/dataService';
@@ -39,7 +40,8 @@ function Locations() {
     // Scroll into view when card is expanded
     useEffect(() => {
         if (shownCard) {
-            setTimeout(() => scrollIntoView(shownCard), 100);
+            // Use a longer timeout to ensure the card body has fully rendered
+            setTimeout(() => scrollIntoView(shownCard), 300);
         }
     }, [shownCard]);
 
@@ -89,11 +91,20 @@ function Locations() {
             <div className="list">
                 {locations.map((location) => (
                     <div key={location.index} id={location.index}>
+                        {/* Scroll anchor - must be in document flow */}
+                        <div
+                            id={`scroll-anchor-${location.index}`}
+                            style={{ display: 'block', height: '1px', width: '1px', overflow: 'hidden', visibility: 'hidden' }}
+                        ></div>
                         <div 
                             className={`card outer w-100 ${shownCard === location.index ? 'active' : ''}`} 
                             id={location.index}
                         >
-                            <div className="card-header clickable" onClick={() => expandCard(location.index)}>
+                            <div 
+                                className="card-header clickable" 
+                                id={`${location.index}-header`}
+                                onClick={() => expandCard(location.index)}
+                            >
                                 <div>
                                     <div className="card-title">{location.name}</div>
                                     <i>{location.type}</i><br />
@@ -101,7 +112,7 @@ function Locations() {
                             </div>
                             
                             {shownCard === location.index && (
-                                <div className="card-body">
+                                <div className="card-body" id={`${location.index}-body`}>
                                     <div className="stats">
                                         <div>
                                             {/* no stats */}
