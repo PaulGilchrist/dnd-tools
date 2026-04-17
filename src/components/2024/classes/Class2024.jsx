@@ -189,15 +189,6 @@ function Class2024({ playerClass, expand, onExpand }) {
                                         {level.level}
                                     </button>
                                 ))}
-                                {shownLevel !== 0 && (
-                                    <button
-                                        className="btn btn-sm btn-outline-secondary"
-                                        style={{ margin: '0.125rem' }}
-                                        onClick={() => showLevel(0)}
-                                    >
-                                        All
-                                    </button>
-                                )}
                             </div>
 
                             {/* Show features for selected level or all levels */}
@@ -232,33 +223,43 @@ function Class2024({ playerClass, expand, onExpand }) {
                                         const selectedLevel = playerClass.class_levels.find(l => l.level === shownLevel);
                                         if (!selectedLevel) return null;
                                         
-                                        // Collect all features up to this level
-                                        const allFeatures = [];
-                                        for (let i = 0; i < playerClass.class_levels.length; i++) {
-                                            if (playerClass.class_levels[i].level <= shownLevel && playerClass.class_levels[i].features) {
-                                                playerClass.class_levels[i].features.forEach((feature) => {
-                                                    // Only show if this is a new feature at this level
-                                                    if (feature.level === playerClass.class_levels[i].level) {
-                                                        allFeatures.push({
-                                                            ...feature,
-                                                            sourceLevel: playerClass.class_levels[i].level
-                                                        });
+                                        // Display level header with proficiency bonus
+                                        return (
+                                            <>
+                                                <h5 className="level-header" style={{ marginBottom: '1rem' }}>
+                                                    Level {selectedLevel.level} <span className="proficiency-badge">Proficiency: {selectedLevel.proficiency_bonus}</span>
+                                                </h5>
+                                                {/* Collect all features up to this level */}
+                                                {(() => {
+                                                    const allFeatures = [];
+                                                    for (let i = 0; i < playerClass.class_levels.length; i++) {
+                                                        if (playerClass.class_levels[i].level <= shownLevel && playerClass.class_levels[i].features) {
+                                                            playerClass.class_levels[i].features.forEach((feature) => {
+                                                                // Only show if this is a new feature at this level
+                                                                if (feature.level === playerClass.class_levels[i].level) {
+                                                                    allFeatures.push({
+                                                                        ...feature,
+                                                                        sourceLevel: playerClass.class_levels[i].level
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
                                                     }
-                                                });
-                                            }
-                                        }
-                                        
-                                        return allFeatures.map((feature, fIndex) => (
-                                            <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
-                                                <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
-                                                {feature.type === 'subclass_feature' && (
-                                                    <span className="subclass-badge">(Subclass)</span>
-                                                )}
-                                                {feature.description && (
-                                                    <span dangerouslySetInnerHTML={{ __html: feature.description }} />
-                                                )}
-                                            </div>
-                                        ));
+                                                    
+                                                    return allFeatures.map((feature, fIndex) => (
+                                                        <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
+                                                            <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
+                                                            {feature.type === 'subclass_feature' && (
+                                                                <span className="subclass-badge">(Subclass)</span>
+                                                            )}
+                                                            {feature.description && (
+                                                                <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                                                            )}
+                                                        </div>
+                                                    ));
+                                                })()}
+                                            </>
+                                        );
                                     })()}
                                 </div>
                             )}
