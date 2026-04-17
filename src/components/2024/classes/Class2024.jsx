@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
 import Class2024Header from './Class2024Header';
 import Class2024Features from './Class2024Features';
-import Class2024Levels from './Class2024Levels';
 import Class2024Majors from './Class2024Majors';
 
 function Class2024({ playerClass, expand, onExpand }) {
@@ -173,14 +172,98 @@ function Class2024({ playerClass, expand, onExpand }) {
                         </div>
                     )}
 
-                    {/* Level Progression */}
-                    <div>
-                        <Class2024Levels 
-                            playerClass={playerClass}
-                            shownLevel={shownLevel}
-                            onShowLevel={showLevel}
-                        />
-                    </div>
+                    {/* Level Progression - Embedded in card body */}
+                    {playerClass.class_levels && (
+                        <div className="level-progression-embedded" style={{ marginBottom: '1rem' }}>
+                            <h4>Level Progression</h4>
+                            {/* Level Selector */}
+                            <div className="level-selector" style={{ marginBottom: '1rem' }}>
+                                <b>Select Level:</b>&nbsp;
+                                {playerClass.class_levels.map((level) => (
+                                    <button
+                                        key={level.level}
+                                        className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'}`}
+                                        style={{ margin: '0.125rem' }}
+                                        onClick={() => showLevel(level.level)}
+                                    >
+                                        {level.level}
+                                    </button>
+                                ))}
+                                {shownLevel !== 0 && (
+                                    <button
+                                        className="btn btn-sm btn-outline-secondary"
+                                        style={{ margin: '0.125rem' }}
+                                        onClick={() => showLevel(0)}
+                                    >
+                                        All
+                                    </button>
+                                )}
+                            </div>
+
+                            {/* Show features for selected level or all levels */}
+                            {shownLevel === 0 ? (
+                                <div>
+                                    {playerClass.class_levels.map((level) => (
+                                        <div key={level.level} id={level.level} style={{ marginBottom: '1.5rem' }}>
+                                            <h5 className="level-header">
+                                                Level {level.level} <span className="proficiency-badge">Proficiency: {level.proficiency_bonus}</span>
+                                            </h5>
+                                            {level.features && level.features.length > 0 && (
+                                                <div className="level-features">
+                                                    {level.features.map((feature, fIndex) => (
+                                                        <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
+                                                            <b>{feature.name}:</b>&nbsp;
+                                                            {feature.type === 'subclass_feature' && (
+                                                                <span className="subclass-badge">(Subclass)</span>
+                                                            )}
+                                                            {feature.description && (
+                                                                <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="selected-level-features">
+                                    {(() => {
+                                        const selectedLevel = playerClass.class_levels.find(l => l.level === shownLevel);
+                                        if (!selectedLevel) return null;
+                                        
+                                        // Collect all features up to this level
+                                        const allFeatures = [];
+                                        for (let i = 0; i < playerClass.class_levels.length; i++) {
+                                            if (playerClass.class_levels[i].level <= shownLevel && playerClass.class_levels[i].features) {
+                                                playerClass.class_levels[i].features.forEach((feature) => {
+                                                    // Only show if this is a new feature at this level
+                                                    if (feature.level === playerClass.class_levels[i].level) {
+                                                        allFeatures.push({
+                                                            ...feature,
+                                                            sourceLevel: playerClass.class_levels[i].level
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        }
+                                        
+                                        return allFeatures.map((feature, fIndex) => (
+                                            <div key={fIndex} className="feature-item" style={{ marginBottom: '0.75rem' }}>
+                                                <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
+                                                {feature.type === 'subclass_feature' && (
+                                                    <span className="subclass-badge">(Subclass)</span>
+                                                )}
+                                                {feature.description && (
+                                                    <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                                                )}
+                                            </div>
+                                        ));
+                                    })()}
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     {/* Major Options (Subclasses) */}
                     {playerClass.majors && playerClass.majors.length > 0 && (
