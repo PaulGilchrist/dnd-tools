@@ -22,10 +22,19 @@
 }
 
 /* Use grid for navbar collapse to separate nav items from spell dropdown */
-#navbarSupportedContent {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
+/* Only apply grid layout at md breakpoint and above (when navbar is expanded) */
+@media (min-width: 768px) {
+    #navbarSupportedContent {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+    }
+
+    .navTop-dropdown-spell-version {
+        grid-column: 2;
+        margin-left: auto;
+        padding-right: 10px;
+    }
 }
 
 .navbar-nav {
@@ -33,14 +42,9 @@
     flex-wrap: wrap;
 }
 
-.navTop-dropdown-spell-version {
-    grid-column: 2;
-    margin-left: auto;
-    padding-right: 10px;
-}
-
 /* Push spell rule dropdown to far right */
 .navbar-nav .nav-item.ms-auto {
     margin-left: auto !important;
     flex-shrink: 0;
 }
+
