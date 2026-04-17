@@ -3,7 +3,6 @@ import { scrollIntoView } from '../../../data/utils';
 import Class2024Header from './Class2024Header';
 import Class2024Majors from './Class2024Majors';
 import Class2024CoreTraits from './Class2024CoreTraits';
-import Class2024ClassFeatures from './Class2024ClassFeatures';
 import Class2024LevelProgression from './Class2024LevelProgression';
 import Class2024Multiclassing from './Class2024Multiclassing';
 
@@ -120,19 +119,6 @@ function Class2024({ playerClass, expand, onExpand }) {
                         <Class2024CoreTraits coreTraits={playerClass.core_traits} />
                     )}
 
-                    {/* Level-based Class Features */}
-                    {classFeatures.length > 0 && (
-                        <Class2024ClassFeatures classFeatures={classFeatures} />
-                    )}
-                    {/* Level Progression */}
-                    {playerClass.class_levels && (
-                        <Class2024LevelProgression 
-                            playerClass={playerClass}
-                            shownLevel={shownLevel}
-                            onShowLevel={showLevel}
-                        />
-                    )}
-
                     {/* Major Options (Subclasses) */}
                     {playerClass.majors && playerClass.majors.length > 0 && (
                         <div>
@@ -143,6 +129,15 @@ function Class2024({ playerClass, expand, onExpand }) {
                                 majorFeatures={majorFeatures}
                             />
                         </div>
+                    )}
+
+                    {/* Level Progression */}
+                    {playerClass.class_levels && (
+                        <Class2024LevelProgression 
+                            playerClass={playerClass}
+                            shownLevel={shownLevel}
+                            onShowLevel={showLevel}
+                        />
                     )}
 
                     {/* Multiclassing Info */}
