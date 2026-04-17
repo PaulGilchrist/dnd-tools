@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
+import './Class2024Majors.css'
 
 function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }) {
     const [expandedMajor, setExpandedMajor] = useState('');
@@ -23,24 +24,24 @@ function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }
     };
 
     return (
-        <div className="major-options-section" style={{ marginBottom: '1rem' }}>
-            <h6>Major Options</h6>
+        <div style={{ marginBottom: '1rem' }}>
+            <h5>Major Options</h5>
             <p className="major-intro">
                 At 3rd level, you choose a major path that defines your specialization. 
                 Each major grants unique features at certain levels.
             </p>
             
             {playerClass.majors.map((major, index) => (
-                <div key={index} className="major-option card w-100" style={{ marginBottom: '1rem' }}>
+                <div key={index} className="card w-100" style={{ marginBottom: '1rem' }}>
                     <div 
                         className="card-header clickable" 
                         onClick={() => toggleMajor(major.name)}
-                        style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.875rem' }}
+                        style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
                     >
-                        <div className="card-title">
-                            <h6 style={{ margin: '0' }}>{major.name}</h6>
+                        <div>
+                            <h5>{major.name}</h5>
                             {major.subtitle && (
-                                <small className="major-subtitle">{major.subtitle}</small>
+                                <h6>{major.subtitle}</h6>
                             )}
                         </div>
                         <span className="toggle-icon" style={{ marginLeft: '0.5rem' }}>{expandedMajor === major.name ? '▼' : '▶'}</span>

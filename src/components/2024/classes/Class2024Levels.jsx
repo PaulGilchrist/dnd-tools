@@ -15,7 +15,7 @@ function Class2024Levels({ playerClass, shownLevel, onShowLevel }) {
     return (
         <div className="playerClass-inner card w-100" style={{ marginBottom: '1rem' }}>
             <div className="card-header clickable">
-                <div className="card-title">Level Progression</div>
+                <h5>Level Progression</h5>
             </div>
             <div className="card-body">
                 {/* Level Selector */}

@@ -110,15 +110,15 @@ function Class2024({ playerClass, expand, onExpand }) {
                     {/* Class Description */}
                     {playerClass.class_description && (
                         <div className="class-description">
-                            <b>About {playerClass.name}:</b>
+                            <h5>About {playerClass.name}:</h5>
                             <span dangerouslySetInnerHTML={{ __html: playerClass.class_description }} />
                         </div>
                     )}
 
                     {/* Core Traits - Embedded in card body */}
                     {playerClass.core_traits && (
-                        <div className="core-traits-embedded" style={{ marginBottom: '1rem' }}>
-                            <h4>Core Traits</h4>
+                        <div className="core-traits-embedded" style={{ marginBottom: '1rem', marginTop: '1rem' }}>
+                            <h5>Core Traits</h5>
                             {playerClass.core_traits.primary_ability && (
                                 <div>
                                     <b>Primary Ability:</b>&nbsp;{playerClass.core_traits.primary_ability}
