@@ -46,12 +46,12 @@ function Classes2024() {
     };
 
     if (classesLoading) {
-        return <div className="list"><div>Loading 2024 classes...</div></div>;
+        return <div className="list"><div>Loading classes...</div></div>;
     }
 
     return (
         <div className="list">
-            <h2 className="section-title">2024 Player Classes</h2>
+            <h2 className="section-title">Player Classes</h2>
             <p className="section-description">
                 Classes from the 2024 Dungeons & Dragons rules update. Each class includes core traits, 
                 level progression, and major options (replacing traditional subclasses).
