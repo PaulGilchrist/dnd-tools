@@ -1,10 +1,10 @@
 import React from 'react';
-import './Class2024LevelProgression.css';
+import './PlayerClass2024LevelProgression.css';
 
 /**
  * Component to display the level progression with a selector
  */
-function Class2024LevelProgression({ playerClass, shownLevel, onShowLevel }) {
+function PlayerClass2024LevelProgression({ playerClass, shownLevel, onShowLevel }) {
     if (!playerClass.class_levels) {
         return null;
     }
@@ -115,4 +115,4 @@ function SelectedLevelView({ playerClass, shownLevel }) {
     );
 }
 
-export default Class2024LevelProgression;
+export default PlayerClass2024LevelProgression;

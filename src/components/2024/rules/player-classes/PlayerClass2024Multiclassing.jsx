@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Component to display multiclassing information
  */
-function Class2024Multiclassing({ multiclassing }) {
+function PlayerClass2024Multiclassing({ multiclassing }) {
     if (!multiclassing) {
         return null;
     }
@@ -28,4 +28,4 @@ function Class2024Multiclassing({ multiclassing }) {
     );
 }
 
-export default Class2024Multiclassing;
+export default PlayerClass2024Multiclassing;

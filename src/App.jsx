@@ -23,7 +23,7 @@ import Spells2024 from './components/2024/spells/Spells'
 import Monster2024Search from './components/2024/monsters/Monster2024Search'
 import MonsterLore2024 from './components/2024/monsters/MonsterLore2024'
 import MagicItems2024 from './components/2024/magic-items/MagicItems2024'
-import Classes2024 from './components/2024/rules/classes/classes2024'
+import PlayerClasses2024 from './components/2024/rules/player-classes/player-classes2024'
 import Races2024 from './components/2024/rules/races/Races2024'
 import Backgrounds2024 from './components/2024/rules/Backgrounds2024'
 import './App.css'
@@ -54,9 +54,12 @@ function App() {
         <Route path="/2024/monsters/search" element={<Monster2024Search />} />
         <Route path="/2024/monsters/lore" element={<MonsterLore2024 />} />
         <Route path="/2024/magic-items" element={<MagicItems2024 />} />
-        <Route path="/2024/rules/classes" element={<Classes2024 />} />
+        <Route path="/2024/rules/classes" element={<PlayerClasses2024 />} />
+        <Route path="/2024/classes" element={<Navigate to="/2024/rules/classes" replace />} />
         <Route path="/2024/rules/races" element={<Races2024 />} />
-        <Route path="/2024/rules/backgrounds" element={<Backgrounds2024 />} />
+                <Route path="/2024/races" element={<Navigate to="/2024/rules/races" replace />} />
+                <Route path="/2024/rules/backgrounds" element={<Backgrounds2024 />} />
+                <Route path="/2024/backgrounds" element={<Navigate to="/2024/rules/backgrounds" replace />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../../data/utils';
-import './Class2024Majors.css'
+import './PlayerClass2024Majors.css'
 
-function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }) {
+function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }) {
     const [expandedMajor, setExpandedMajor] = useState('');
 
     useEffect(() => {
@@ -93,5 +93,5 @@ function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }
     );
 }
 
-export default Class2024Majors;
+export default PlayerClass2024Majors;
 

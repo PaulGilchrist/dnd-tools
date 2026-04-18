@@ -1,10 +1,10 @@
 import React from 'react';
-import './Class2024CoreTraits.css';
+import './PlayerClass2024CoreTraits.css';
 
 /**
  * Component to display the core traits of a player class
  */
-function Class2024CoreTraits({ coreTraits }) {
+function PlayerClass2024CoreTraits({ coreTraits }) {
     if (!coreTraits) {
         return null;
     }
@@ -56,4 +56,4 @@ function Class2024CoreTraits({ coreTraits }) {
     );
 }
 
-export default Class2024CoreTraits;
+export default PlayerClass2024CoreTraits;

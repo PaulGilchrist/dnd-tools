@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../../data/utils';
 
-function Class2024Header({ playerClass, isExpanded, onToggle }) {
+function PlayerClass2024Header({ playerClass, isExpanded, onToggle }) {
     useEffect(() => {
         if (isExpanded) {
             scrollIntoView(playerClass.index);
@@ -15,4 +15,4 @@ function Class2024Header({ playerClass, isExpanded, onToggle }) {
     );
 }
 
-export default Class2024Header;
+export default PlayerClass2024Header;

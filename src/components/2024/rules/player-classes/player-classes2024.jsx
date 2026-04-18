@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { use2024Classes } from '../../../../data/dataService';
 import { scrollIntoView } from '../../../../data/utils';
-import Class2024 from './Class2024';
+import PlayerClass2024 from './PlayerClass2024';
 
-function Classes2024() {
+function PlayerClasses2024() {
     const [classes2024, setClasses2024] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const location = useLocation();
@@ -58,7 +58,7 @@ function Classes2024() {
             </p>
             {classes2024.map((playerClass) => (
                 <div key={playerClass.index} id={playerClass.index}>
-                    <Class2024 
+                    <PlayerClass2024 
                         playerClass={playerClass}
                         expand={shownCard === playerClass.index}
                         onExpand={(expanded) => expandCard(playerClass.index, expanded)}
@@ -69,4 +69,4 @@ function Classes2024() {
     );
 }
 
-export default Classes2024;
+export default PlayerClasses2024;

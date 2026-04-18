@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../../data/utils';
-import Class2024Header from './Class2024Header';
-import Class2024Majors from './Class2024Majors';
-import Class2024CoreTraits from './Class2024CoreTraits';
-import Class2024LevelProgression from './Class2024LevelProgression';
-import Class2024Multiclassing from './Class2024Multiclassing';
+import PlayerClass2024Header from './PlayerClass2024Header';
+import PlayerClass2024Majors from './PlayerClass2024Majors';
+import PlayerClass2024CoreTraits from './PlayerClass2024CoreTraits';
+import PlayerClass2024LevelProgression from './PlayerClass2024LevelProgression';
+import PlayerClass2024Multiclassing from './PlayerClass2024Multiclassing';
 
-function Class2024({ playerClass, expand, onExpand }) {
+function PlayerClass2024({ playerClass, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const [shownLevel, setShownLevel] = useState(1);
     const [shownMajor, setShownMajor] = useState('');
@@ -101,7 +101,7 @@ function Class2024({ playerClass, expand, onExpand }) {
 
     return (
         <div className={`outer card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
-            <Class2024Header 
+            <PlayerClass2024Header 
                 playerClass={playerClass}
                 isExpanded={isExpanded}
                 onToggle={handleToggle}
@@ -116,13 +116,13 @@ function Class2024({ playerClass, expand, onExpand }) {
 
                     {/* Core Traits */}
                     {playerClass.core_traits && (
-                        <Class2024CoreTraits coreTraits={playerClass.core_traits} />
+                        <PlayerClass2024CoreTraits coreTraits={playerClass.core_traits} />
                     )}
 
                     {/* Major Options (Subclasses) */}
                     {playerClass.majors && playerClass.majors.length > 0 && (
                         <div>
-                            <Class2024Majors 
+                            <PlayerClass2024Majors 
                                 playerClass={playerClass}
                                 shownMajor={shownMajor}
                                 onShowMajor={showMajor}
@@ -133,7 +133,7 @@ function Class2024({ playerClass, expand, onExpand }) {
 
                     {/* Level Progression */}
                     {playerClass.class_levels && (
-                        <Class2024LevelProgression 
+                        <PlayerClass2024LevelProgression 
                             playerClass={playerClass}
                             shownLevel={shownLevel}
                             onShowLevel={showLevel}
@@ -141,7 +141,7 @@ function Class2024({ playerClass, expand, onExpand }) {
                     )}
 
                     {/* Multiclassing Info */}
-                    <Class2024Multiclassing multiclassing={playerClass.multiclassing} />
+                    <PlayerClass2024Multiclassing multiclassing={playerClass.multiclassing} />
 
                     {/* Source Reference */}
                     <div>
@@ -156,5 +156,5 @@ function Class2024({ playerClass, expand, onExpand }) {
     );
 }
 
-export default Class2024;
+export default PlayerClass2024;
 
