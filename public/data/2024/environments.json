@@ -1,13 +1,13 @@
 [
-  "arctic",
-  "coast",
-  "desert",
-  "forest",
-  "grassland",
-  "hill",
-  "mountain",
-  "plains",
-  "swamp",
-  "underdark",
-  "urban"
+    "arctic",
+    "coastal",
+    "desert",
+    "forest",
+    "grassland",
+    "hill",
+    "mountain",
+    "swamp",
+    "underdark",
+    "underwater",
+    "urban"
 ]

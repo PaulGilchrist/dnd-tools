@@ -1,64 +1,283 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Backgrounds Schema (2024 Rules)",
+  "title": "D&D 5e Backgrounds",
+  "description": "Schema for D&D 5e character backgrounds including ability scores, feats, skill proficiencies, tool proficiencies, equipment, and flavor text.",
   "type": "array",
   "items": {
-    "type": "object",
-    "required": ["index", "name"],
-    "properties": {
-      "index": {
-        "type": "string",
-        "description": "Short identifier for the background"
-      },
-      "name": {
-        "type": "string",
-        "description": "Full name of the background"
-      },
-      "description": {
-        "type": "string",
-        "description": "Description of the background"
-      },
-      "skill_proficiencies": {
-        "type": "array",
-        "items": {
-          "type": "string"
+    "$ref": "#/definitions/Background"
+  },
+  "definitions": {
+    "Background": {
+      "type": "object",
+      "description": "A D&D 5e character background.",
+      "required": [
+        "name",
+        "ability_scores",
+        "feat",
+        "skill_proficiencies",
+        "tool_proficiency",
+        "equipment",
+        "flavor_text"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the background.",
+          "enum": [
+            "ACOLYTE",
+            "ARTISAN",
+            "CHARLATAN",
+            "CRIMINAL",
+            "ENTERTAINER",
+            "FARMER",
+            "GUARD",
+            "GUIDE",
+            "HERMIT",
+            "MERCHANT",
+            "NOBLE",
+            "SAGE",
+            "SAILOR",
+            "SCRIBE",
+            "SOLDIER",
+            "WAYFARER"
+          ]
         },
-        "description": "Skill proficiencies granted by the background"
-      },
-      "tool_proficiencies": {
-        "type": "array",
-        "items": {
-          "type": "string"
+        "ability_scores": {
+          "type": "array",
+          "description": "The three ability scores associated with this background, in order.",
+          "items": {
+            "$ref": "#/definitions/AbilityScore"
+          },
+          "minItems": 3,
+          "maxItems": 3
         },
-        "description": "Tool proficiencies granted by the background"
-      },
-      "languages": {
-        "type": "array",
-        "items": {
-          "type": "string"
+        "feat": {
+          "$ref": "#/definitions/Feat"
         },
-        "description": "Languages granted by the background"
-      },
-      "feature": {
-        "type": "string",
-        "description": "Special feature granted by the background"
-      },
-      "feature_description": {
-        "type": "string",
-        "description": "Detailed description of the background feature"
-      },
-      "equipment": {
-        "type": "array",
-        "description": "Equipment included with the background"
-      },
-      "book": {
-        "type": "string",
-        "description": "Source book"
-      },
-      "page": {
-        "type": "integer",
-        "description": "Page number"
+        "skill_proficiencies": {
+          "type": "array",
+          "description": "The skill proficiencies granted by this background, in order.",
+          "items": {
+            "$ref": "#/definitions/SkillProficiency"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "tool_proficiency": {
+          "$ref": "#/definitions/ToolProficiency"
+        },
+        "equipment": {
+          "$ref": "#/definitions/EquipmentChoice"
+        },
+        "flavor_text": {
+          "type": "array",
+          "description": "Narrative paragraphs describing the background's backstory.",
+          "items": {
+            "type": "string"
+          }
+        }
       }
+    },
+    "AbilityScore": {
+      "type": "string",
+      "description": "A D&D 5e ability score.",
+      "enum": [
+        "Strength",
+        "Dexterity",
+        "Constitution",
+        "Intelligence",
+        "Wisdom",
+        "Charisma"
+      ]
+    },
+    "Feat": {
+      "type": "object",
+      "description": "The feat granted by this background.",
+      "required": [
+        "name",
+        "reference"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the feat."
+        },
+        "reference": {
+          "type": "string",
+          "description": "A reference to where the feat is described (e.g., chapter number)."
+        }
+      }
+    },
+    "SkillProficiency": {
+      "type": "string",
+      "description": "A D&D 5e skill proficiency.",
+      "enum": [
+        "Acrobatics",
+        "Animal Handling",
+        "Arcana",
+        "Athletics",
+        "Deception",
+        "History",
+        "Insight",
+        "Intimidation",
+        "Investigation",
+        "Medicine",
+        "Nature",
+        "Perception",
+        "Persuasion",
+        "Religion",
+        "Sleight of Hand",
+        "Stealth",
+        "Survival"
+      ]
+    },
+    "ToolProficiency": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "A specific tool proficiency with no choice involved.",
+          "required": [
+            "type",
+            "tool"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The category of tool (e.g., 'Artisan\\'s Tools', 'Gaming Set', 'Musical Instrument').",
+              "enum": [
+                "Artisan\\'s Tools",
+                "Gaming Set",
+                "Musical Instrument"
+              ]
+            },
+            "tool": {
+              "type": "string",
+              "description": "The specific tool name."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "A tool proficiency where the character chooses one option.",
+          "required": [
+            "type",
+            "choice"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The category of tool the character can choose from."
+            },
+            "choice": {
+              "type": "object",
+              "description": "Details about the choice the character makes.",
+              "required": [
+                "count",
+                "description"
+              ],
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "description": "The number of tools to choose from the category."
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the choice (e.g., 'Choose one kind of Artisan\\'s Tools')."
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "EquipmentChoice": {
+      "type": "object",
+      "description": "The equipment choice for this background (Option A or Option B).",
+      "required": [
+        "option_a",
+        "option_b"
+      ],
+      "properties": {
+        "option_a": {
+          "$ref": "#/definitions/EquipmentOption"
+        },
+        "option_b": {
+          "$ref": "#/definitions/EquipmentOption"
+        }
+      }
+    },
+    "EquipmentOption": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "A detailed equipment option with individual items.",
+          "required": [
+            "items",
+            "gold_pieces"
+          ],
+          "properties": {
+            "items": {
+              "type": "array",
+              "description": "List of individual equipment items.",
+              "items": {
+                "$ref": "#/definitions/EquipmentItem"
+              }
+            },
+            "gold_pieces": {
+              "type": "integer",
+              "description": "The amount of gold pieces included."
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "A simple gold-only equipment option.",
+          "required": [
+            "gold_pieces"
+          ],
+          "properties": {
+            "gold_pieces": {
+              "type": "integer",
+              "description": "The amount of gold pieces the character receives instead of equipment."
+            }
+          }
+        }
+      ]
+    },
+    "EquipmentItem": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "A named equipment item.",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the equipment item."
+            },
+            "quantity": {
+              "type": "integer",
+              "description": "The quantity of the item, if more than one.",
+              "default": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "A monetary value in gold pieces.",
+          "required": [
+            "gold_pieces"
+          ],
+          "properties": {
+            "gold_pieces": {
+              "type": "integer",
+              "description": "The amount of gold pieces."
+            }
+          }
+        }
+      ]
     }
   }
 }
