@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { scrollIntoView } from '../../../data/utils';
+import { scrollIntoView } from '../../../../data/utils';
 
 function Class2024Header({ playerClass, isExpanded, onToggle }) {
     useEffect(() => {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNames } from '../data/dataService';
+import { useNames } from '../../data/dataService';
 import './Names.css';
 import NameFilterForm from './NameFilterForm';
 import NameListTable from './NameListTable';

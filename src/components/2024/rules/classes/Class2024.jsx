@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { scrollIntoView } from '../../../data/utils';
+import { scrollIntoView } from '../../../../data/utils';
 import Class2024Header from './Class2024Header';
 import Class2024Majors from './Class2024Majors';
 import Class2024CoreTraits from './Class2024CoreTraits';

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { use2024Races } from '../../../data/dataService';
-import { scrollIntoView } from '../../../data/utils';
+import { use2024Races } from '../../../../data/dataService';
+import { scrollIntoView } from '../../../../data/utils';
 import RaceItem2024 from './RaceItem2024';
 
 function Races2024() {

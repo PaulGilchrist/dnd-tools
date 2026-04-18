@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { use2024Classes } from '../../../data/dataService';
-import { scrollIntoView } from '../../../data/utils';
+import { use2024Classes } from '../../../../data/dataService';
+import { scrollIntoView } from '../../../../data/utils';
 import Class2024 from './Class2024';
 
 function Classes2024() {

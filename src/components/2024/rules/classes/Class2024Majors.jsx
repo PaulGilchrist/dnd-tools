@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { scrollIntoView } from '../../../data/utils';
+import { scrollIntoView } from '../../../../data/utils';
 import './Class2024Majors.css'
 
 function Class2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }) {

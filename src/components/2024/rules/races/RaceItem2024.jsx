@@ -114,7 +114,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                 <div>
                     <div className="card-title">{race.name}</div>
                     <div>
-                        <i>Size: {race.size}, Speed: {race.speed} feet</i>
+                        <i><b>Size:</b> {race.size}, <b>Speed:</b> {race.speed} feet</i>
                     </div>
                 </div>
             </div>
