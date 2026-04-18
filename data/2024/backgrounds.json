@@ -156,7 +156,7 @@
   {
     "index": "hermit",
     "name": "Hermit",
-    "description": "You have spent most of your life in seclusion, apart from the clamor and\u5bb4 of society.",
+    "description": "You have spent most of your life in seclusion, apart from the clamor and宴 of society.",
     "skill_proficiencies": [
       "medicine",
       "religion"
@@ -330,5 +330,32 @@
     ],
     "book": "Player's Handbook 2024",
     "page": 194
+  },
+  {
+    "index": "guard",
+    "name": "Guard",
+    "description": "You have served as a guard, protecting people and property in a town, city, or fortress.",
+    "skill_proficiencies": [
+      "athletics",
+      "perception"
+    ],
+    "tool_proficiencies": [
+      "one type of gaming set"
+    ],
+    "languages": [],
+    "feature": "Rank",
+    "feature_description": "Your service as a guard gives you authority and respect among the local militia and town watch.",
+    "equipment": [
+      "a spear",
+      "a light crossbow with 20 bolts",
+      "a gaming set",
+      "a hooded lantern",
+      "manacles",
+      "a quiver",
+      "traveler's clothes",
+      "12 gp"
+    ],
+    "book": "Player's Handbook 2024",
+    "page": 170
   }
 ]
