@@ -109,13 +109,13 @@ function MagicItem2024({ magicItem, expand, onExpand, onBookmarkChange }) {
         
         const parts = ['<b>Saving Throws:</b>'];
         magicItem.saving_throws.forEach(st => {
-            parts.push(`- DC ${st.dc} ${st.ability}: ${st.effect_on_fail}`);
+            parts.push(`DC ${st.dc} ${st.ability}: ${st.effect_on_fail}`);
             if (st.effect_on_success) {
                 parts.push(`  (Success: ${st.effect_on_success})`);
             }
         });
         
-        return <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} />;
+        return <div dangerouslySetInnerHTML={{ __html: parts }} />;
     };
 
     // Helper function to render bonuses
