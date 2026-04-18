@@ -119,13 +119,17 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                             <hr />
                             <MonsterDefenses monster={monster} />
                             <hr />
-                            <MonsterSpecialAbilities monster={monster} />
-                            <hr />
+                            {monster.special_abilities && monster.special_abilities.length > 0 && (
+                                <>
+                                    <MonsterSpecialAbilities monster={monster} />
+                                    <hr />
+                                </>
+                            )}
                             <div>
                                 <h5>Actions</h5>
                             </div>
                             <MonsterActions monster={monster} />
-                            {monster.reactions && (
+                            {monster.reactions && monster.reactions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div>
@@ -134,7 +138,7 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                                     <MonsterReactions monster={monster} />
                                 </div>
                             )}
-                            {monster.legendary_actions && (
+                            {monster.legendary_actions && monster.legendary_actions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div>
@@ -143,7 +147,7 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
                                     <MonsterLegendaryActions monster={monster} />
                                 </div>
                             )}
-                            {monster.lair_actions && (
+                            {monster.lair_actions && monster.lair_actions.actions && monster.lair_actions.actions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div>

@@ -6,7 +6,7 @@ import { renderHtmlContent } from '../../../utils/htmlUtils';
  * @param {object} monster - The monster data object
  */
 function Monster2024SpecialAbilities({ monster }) {
-    if (!monster || !monster.traits) {
+    if (!monster || !monster.traits || monster.traits.length === 0) {
         return null;
     }
 

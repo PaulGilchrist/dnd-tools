@@ -31,7 +31,7 @@ function PlayerClass({ playerClass, expand, onExpand }) {
     }
 
     return (
-        <div className={`outer card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
+        <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
             <PlayerClassHeader 
                 playerClass={playerClass}
                 isExpanded={isExpanded}
@@ -70,7 +70,6 @@ function PlayerClass({ playerClass, expand, onExpand }) {
                         />
                     </div>
                     <div>
-                        <br />
                         {playerClass.page && (
                             <div>{playerClass.book} (page {playerClass.page})</div>
                         )}

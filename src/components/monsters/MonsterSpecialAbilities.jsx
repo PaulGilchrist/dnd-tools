@@ -2,12 +2,13 @@ import { getNameString } from '../../utils/monsterUtils';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function MonsterSpecialAbilities({ monster }) {
-    if (!monster || !monster.special_abilities) {
+    if (!monster || !monster.special_abilities || monster.special_abilities.length === 0) {
         return null;
     }
 
     return (
         <div>
+            <h5>Special Traits</h5>
             {monster.special_abilities.map((special_ability, index) => (
                 <span key={index}>
                     <b>

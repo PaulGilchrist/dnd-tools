@@ -2,7 +2,7 @@ function PlayerClassBasicInfo({ playerClass, getNameString }) {
     if (!playerClass) return null;
 
     return (
-        <div className="card-body">
+        <div>
             {playerClass.desc}<br /><br />
             <b>Hit Die:</b>&nbsp;d{playerClass.hit_die}<br />
             
