@@ -47,16 +47,19 @@ function Backgrounds2024() {
                                             </ul>
                                         ) :  <>None</>}
                                     </div><br/>
-                                    <div>
-                                        <h5>Tool Proficiencies</h5>
-                                        {background.tool_proficiencies && background.tool_proficiencies.length > 0 ? (
-                                            <ul>
-                                                {background.tool_proficiencies.map((tool, idx) => (
-                                                    <li key={idx}>{tool.charAt(0).toUpperCase() + tool.slice(1)}</li>
-                                                ))}
-                                            </ul>
-                                        ) : <>None</>}
-                                    </div><br/>
+                                    {background.tool_proficiencies && background.tool_proficiencies.length > 0 ? (
+                                        <div>
+                                            <h5>Tool Proficiencies</h5>
+                                            {background.tool_proficiencies && background.tool_proficiencies.length > 0 ? (
+                                                <ul>
+                                                    {background.tool_proficiencies.map((tool, idx) => (
+                                                        <li key={idx}>{tool.charAt(0).toUpperCase() + tool.slice(1)}</li>
+                                                    ))}
+                                                </ul>
+                                            ) : <>None</>}
+                                            <br/>
+                                        </div>
+                                    ) : <></>}
                                     {/* <div>
                                         <h5>Languages</h5>
                                         {background.languages && background.languages.length > 0 ? (
@@ -69,12 +72,12 @@ function Backgrounds2024() {
                                     </div>
                                 <br /> */}
                                 <div className="feature-section">
-                                    <h4>Feature: {background.feature}</h4>
+                                    <h5>Feature: {background.feature}</h5>
                                     {background.feature_description}<br/>
                                 </div>
                                 <br />
                                 <div className="equipment-section">
-                                    <h4>Equipment</h4>
+                                    <h5>Equipment</h5>
                                     <ul>
                                         {background.equipment && background.equipment.length > 0 ? (
                                             background.equipment.map((item, idx) => (
@@ -85,9 +88,9 @@ function Backgrounds2024() {
                                 </div>
                                 <br />
                                 {background.book && background.page && (
-                                    <p className="source-reference">
+                                    <div className="source-reference">
                                         ({background.book} page {background.page})
-                                    </p>
+                                    </div>
                                 )}
                             </div>
                         )}
