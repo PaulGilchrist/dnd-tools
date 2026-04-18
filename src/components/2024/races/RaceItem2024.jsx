@@ -40,10 +40,13 @@ function RaceItem2024({ race, expand, onExpand }) {
             return null;
         }
 
+        // Filter out lineage traits (those with sub_traits) as they're displayed separately
+        const nonLineageTraits = race.traits.filter(trait => !trait.sub_traits);
+
         // Separate traits with details from those without
         const traitsWithDetails = [];
         const traitsWithoutDetails = [];
-        race.traits.forEach(trait => {
+        nonLineageTraits.forEach(trait => {
             if (trait.details) {
                 traitsWithDetails.push(trait);
             } else {
