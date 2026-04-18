@@ -17,6 +17,7 @@ const dataCache = {
     names: [],
     playerClasses: [],
     races: [],
+    races2024: [],
     rules: [],
     spells: [],
     spells2024: [],
@@ -169,6 +170,10 @@ export function useWeaponProperties() {
 
 export function use2024Classes() {
     return useDataCache('classes2024', BASE_URL + 'data/2024/classes.json');
+}
+
+export function use2024Races() {
+    return useDataCache('races2024', BASE_URL + 'data/2024/races.json');
 }
 
 // Alternative: Create a DataService class for non-React usage or compatibility

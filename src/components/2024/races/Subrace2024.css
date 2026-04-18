@@ -1,0 +1,46 @@
+.subrace2024-subraces-section {
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.subrace2024-subrace {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.subrace2024-subrace-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.subrace2024-subrace-desc {
+    margin-bottom: 8px;
+}
+
+.subrace2024-subrace-info {
+    margin-bottom: 8px;
+}
+
+.subrace2024-subrace-traits {
+    margin-top: 8px;
+}
+
+.subrace2024-subrace-special {
+    margin-top: 8px;
+}
+
+.subrace2024-subrace-trait {
+    margin-bottom: 5px;
+}
+
+.subrace2024-trait-name {
+    font-weight: bold;
+}
+
+.subrace2024-trait-description {
+    font-style: italic;
+    margin-left: 5px;
+}

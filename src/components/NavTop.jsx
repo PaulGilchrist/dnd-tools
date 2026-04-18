@@ -9,6 +9,7 @@ function NavTop() {
     const [activeMonsterRoute, setActiveMonsterRoute] = useState('');
     const [activeMagicItemsRoute, setActiveMagicItemsRoute] = useState('');
     const [activeClassesRoute, setActiveClassesRoute] = useState('');
+    const [activeRacesRoute, setActiveRacesRoute] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -83,6 +84,16 @@ function NavTop() {
                 setActiveClassesRoute(location.pathname === '/2024/classes' ? '2024' : '5e');
             }
 
+            // Track which races route is active
+            if (location.pathname === '/rules/races' && ruleVersion === '5e') {
+                setActiveRacesRoute('5e');
+            } else if (location.pathname === '/2024/races' && ruleVersion === '2024') {
+                setActiveRacesRoute('2024');
+            } else if (location.pathname === '/rules/races' || location.pathname === '/2024/races') {
+                // User is on a races page but version doesn't match dropdown
+                setActiveRacesRoute(location.pathname === '/2024/races' ? '2024' : '5e');
+            }
+
             if (location.pathname.includes('monsters/lore') || 
                 location.pathname.includes('monsters/encounters') || 
                 location.pathname.includes('monsters/search')) {
@@ -146,6 +157,11 @@ function NavTop() {
             const newLink = newVersion === '2024' ? '/2024/classes' : '/rules/classes';
             navigate(newLink);
         }
+        // If races route is active, navigate to appropriate races route
+        else if (activeRacesRoute === '5e' || activeRacesRoute === '2024') {
+            const newLink = newVersion === '2024' ? '/2024/races' : '/rules/races';
+            navigate(newLink);
+        }
         setRuleVersion(newVersion);
     };
 
@@ -154,6 +170,7 @@ function NavTop() {
     const monsterLoreLink = ruleVersion === '2024' ? '/2024/monsters/lore' : '/monsters/lore';
     const magicItemsLink = ruleVersion === '2024' ? '/2024/magic-items' : '/magic-items';
     const classesLink = ruleVersion === '2024' ? '/2024/classes' : '/rules/classes';
+    const racesLink = ruleVersion === '2024' ? '/2024/races' : '/rules/races';
 
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
@@ -276,7 +293,7 @@ function NavTop() {
                             <li><NavLink to={classesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Classes</NavLink></li>
                             <li><NavLink to="/rules/conditions" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Conditions</NavLink></li>
                             <li><NavLink to="/rules/feats" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Feats</NavLink></li>
-                            <li><NavLink to="/rules/races" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Races</NavLink></li>
+                            <li><NavLink to={racesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Races</NavLink></li>
                         </ul>
                     </li>
                     <li className="nav-item">
