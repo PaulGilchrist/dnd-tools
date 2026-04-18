@@ -25,6 +25,7 @@ import MonsterLore2024 from './components/2024/monsters/MonsterLore2024'
 import MagicItems2024 from './components/2024/magic-items/MagicItems2024'
 import Classes2024 from './components/2024/classes/classes2024'
 import Races2024 from './components/2024/races/Races2024'
+import Backgrounds2024 from './components/2024/Backgrounds2024'
 import './App.css'
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/2024/magic-items" element={<MagicItems2024 />} />
         <Route path="/2024/classes" element={<Classes2024 />} />
         <Route path="/2024/races" element={<Races2024 />} />
+        <Route path="/2024/backgrounds" element={<Backgrounds2024 />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -24,7 +24,8 @@ const dataCache = {
     monsters2024: [],
     monsters2024Types: [],
     weaponProperties: [],
-    classes2024: []
+    classes2024: [],
+    backgrounds2024: []
 };
 
 // Helper function to sort array of objects by property name
@@ -174,6 +175,10 @@ export function use2024Classes() {
 
 export function use2024Races() {
     return useDataCache('races2024', BASE_URL + 'data/2024/races.json');
+}
+
+export function use2024Backgrounds() {
+    return useDataCache('backgrounds2024', BASE_URL + 'data/2024/backgrounds.json');
 }
 
 // Alternative: Create a DataService class for non-React usage or compatibility
@@ -391,6 +396,20 @@ export class DataService {
             }
         }
         return this.cache.weaponProperties;
+    }
+
+    async getBackgrounds2024() {
+        if (this.cache.backgrounds2024.length === 0) {
+            try {
+                const response = await fetch(BASE_URL + 'data/2024/backgrounds.json');
+                const data = await response.json();
+                this.cache.backgrounds2024 = data;
+                console.log('Get - 2024 backgrounds');
+            } catch (error) {
+                handleError(error);
+            }
+        }
+        return this.cache.backgrounds2024;
     }
 }
 

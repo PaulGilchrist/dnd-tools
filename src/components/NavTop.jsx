@@ -171,6 +171,7 @@ function NavTop() {
     const magicItemsLink = ruleVersion === '2024' ? '/2024/magic-items' : '/magic-items';
     const classesLink = ruleVersion === '2024' ? '/2024/classes' : '/rules/classes';
     const racesLink = ruleVersion === '2024' ? '/2024/races' : '/rules/races';
+    const backgroundsLink = ruleVersion === '2024' ? '/2024/backgrounds' : '/rules/backgrounds';
 
     return (
         <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
@@ -290,6 +291,9 @@ function NavTop() {
                         >
                             <li><NavLink to="/rules/general" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>General</NavLink></li>
                             <li><NavLink to="/rules/ability-scores" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Abilities</NavLink></li>
+                            {ruleVersion === '2024' && (
+                                <li><NavLink to={backgroundsLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Backgrounds</NavLink></li>
+                            )}
                             <li><NavLink to={classesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Classes</NavLink></li>
                             <li><NavLink to="/rules/conditions" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Conditions</NavLink></li>
                             <li><NavLink to="/rules/feats" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Feats</NavLink></li>
