@@ -1,5 +1,4 @@
 import './RaceItem2024.css';
-import Subrace2024 from './Subrace2024';
 
 function RaceItem2024({ race, expand, onExpand }) {
 
@@ -166,12 +165,33 @@ function RaceItem2024({ race, expand, onExpand }) {
                         </div>
                     )}
 
-                    {/* Subraces */}
-                    {race.subraces && race.subraces.length > 0 && (
+                    {/* Lineages (2024 format - stored within traits as sub_traits) */}
+                    {race.traits && race.traits.some(trait => trait.sub_traits) && (
                         <div className="raceItem2024-subspecies-section">
-                            <h5>Subraces</h5>
-                            {race.subraces.map(subrace => (
-                                <Subrace2024 key={subrace.index} subrace={subrace} />
+                            <h5>Lineages</h5>
+                            {race.traits.filter(trait => trait.sub_traits).map(trait => (
+                                <div key={trait.name} className="raceItem2024-lineage-container">
+                                    <div className="raceItem2024-lineage-header">
+                                        <b>{trait.name}</b>
+                                        {trait.description && (
+                                            <div className="raceItem2024-lineage-desc">
+                                                {trait.description}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="raceItem2024-lineage-options">
+                                        {trait.sub_traits.map((subTrait, idx) => (
+                                            <div key={idx} className="raceItem2024-subtrait">
+                                                <b>{subTrait.name}</b>
+                                                {subTrait.description && (
+                                                    <div className="raceItem2024-subtrait-desc">
+                                                        {subTrait.description}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
                             ))}
                         </div>
                     )}
