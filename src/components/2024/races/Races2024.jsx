@@ -21,7 +21,7 @@ function Races2024() {
             // Check for index parameter in URL
             const index = searchParams.get('index');
             if (index) {
-                const race = racesData.find(race => race.index === index);
+                const race = racesData.find(race => race.name === index);
                 if (race) {
                     setShownCard(index);
                     scrollIntoView(index);
@@ -39,15 +39,12 @@ function Races2024() {
     }, [racesData]);
 
     const expandCard = (index, expanded) => {
+        // expanded is the desired NEW state
+        // If expanding, set shownCard to this index
+        // If collapsing, clear shownCard
+        setShownCard(expanded ? index : '');
         if (expanded) {
-            setShownCard(index);
             scrollIntoView(index);
-        } else {
-            setShownCard('');
-        }
-
-        // Update URL query params using setSearchParams
-        if (expanded) {
             setSearchParams({ index });
         } else {
             setSearchParams({});
@@ -62,11 +59,11 @@ function Races2024() {
         <>
             <div className="list">
                 {races.map((race) => (
-                    <div key={race.index} id={race.index}>
+                    <div key={race.name} id={race.name}>
                         <RaceItem2024
                             race={race}
-                            expand={shownCard === race.index}
-                            onExpand={(expanded) => expandCard(race.index, expanded)}
+                            expand={shownCard === race.name}
+                            onExpand={(expanded) => expandCard(race.name, expanded)}
                         />
                     </div>
                 ))}

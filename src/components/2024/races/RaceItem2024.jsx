@@ -1,14 +1,7 @@
-import { useState } from 'react';
 import './RaceItem2024.css';
 import Subrace2024 from './Subrace2024';
 
 function RaceItem2024({ race, expand, onExpand }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-
-    // Update local state when prop changes
-    if (expand !== isExpanded) {
-        setIsExpanded(expand);
-    }
 
     const getAbilityBonuses = () => {
         if (!race.ability_score_increase && (!race.ability_score_options || race.ability_score_options.length === 0)) {
@@ -112,12 +105,11 @@ function RaceItem2024({ race, expand, onExpand }) {
     }
 
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
-        onExpand(!isExpanded);
+        onExpand(!expand);
     };
 
     return (
-        <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={race.index}>
+        <div className={`card w-100 ${expand ? 'active' : ''}`} id={race.index}>
             <div className="card-header clickable" onClick={toggleDetails}>
                 <div>
                     <div className="card-title">{race.name}</div>
@@ -127,7 +119,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                 </div>
             </div>
 
-            {isExpanded && (
+            {expand && (
                 <div className="card-body">
                     {/* Basic Information */}
                     <div>
