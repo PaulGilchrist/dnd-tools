@@ -32,10 +32,9 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                         </div>
                     ))}
                 </div>
-
+                <br/>
                 {playerClass.subclasses.map((subclass) => (
                     <div key={subclass.index} id={subclass.index}>
-                        <br/>
                         {shownSubclass === subclass.index && (
                             <div className="playerClass-subtext">
                                 <strong>{subclass.subclass_flavor} - {subclass.name}</strong> - {subclass.desc}<br />

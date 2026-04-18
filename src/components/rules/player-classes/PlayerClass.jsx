@@ -51,6 +51,7 @@ function PlayerClass({ playerClass, expand, onExpand }) {
                             />
                         </div>
                     )}
+                    <br/>
                     <div>
                         <PlayerClassLevels 
                             playerClass={playerClass}
