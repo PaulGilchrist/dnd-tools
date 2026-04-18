@@ -49,13 +49,7 @@ function RaceItem({ race, expand, onExpand }) {
         // Build content for traits with details (HTML)
         const traitsWithDetailsContent = traitsWithDetails.map(trait => {
             const traitName = trait.name || 'Trait';
-            let traitDesc = '';
-            
-            if (trait.desc && Array.isArray(trait.desc)) {
-                traitDesc = trait.desc.join(' ');
-            } else if (trait.desc) {
-                traitDesc = trait.desc;
-            }
+            const traitDesc = trait.description || trait.desc || '';
             return (
                 <div key={trait.index} className="raceItem-race-trait">
                     <b>{traitName}</b>
@@ -63,7 +57,7 @@ function RaceItem({ race, expand, onExpand }) {
                         <div className="raceItem-trait-desc">
                             <hr />
                             <h5>Description</h5>
-                            {traitDesc}
+                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
                     )}
                     <hr />
@@ -79,22 +73,15 @@ function RaceItem({ race, expand, onExpand }) {
 
         // Build content for traits without details (text only)
         const traitsWithoutDetailsContent = traitsWithoutDetails.map(trait => {
-            const traitName = trait.name || 'Trait';
-            let traitDesc = '';
-
-            if (trait.desc && Array.isArray(trait.desc)) {
-                traitDesc = trait.desc.join(' ');
-            } else if (trait.desc) {
-                traitDesc = trait.desc;
-            }
-
+                        const traitName = trait.name || 'Trait';
+            const traitDesc = trait.description || trait.desc || '';
             return (
                 <div key={trait.index} className="raceItem-race-trait">
                     <b>{traitName}</b>
                     {traitDesc && (
                         <div className="raceItem-trait-desc">
                             <hr />
-                            {traitDesc}
+                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
                     )}
                 </div>

@@ -65,7 +65,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                     <span className="raceItem2024-trait-name">{traitName}</span>
                     {traitDesc && (
                         <div className="raceItem2024-trait-description">
-                            {traitDesc}
+                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
                     )}
                 </div>
@@ -86,7 +86,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                     <span className="raceItem2024-trait-name">{traitName}</span>
                     {traitDesc && (
                         <div className="raceItem2024-trait-description">
-                            {traitDesc}
+                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
                     )}
                 </div>
@@ -175,7 +175,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                                         <b>{trait.name}</b>
                                         {trait.description && (
                                             <div className="raceItem2024-lineage-desc">
-                                                {trait.description}
+                                                <div dangerouslySetInnerHTML={{ __html: trait.description }} />
                                             </div>
                                         )}
                                     </div>
@@ -185,7 +185,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                                                 <b>{subTrait.name}</b>
                                                 {subTrait.description && (
                                                     <div className="raceItem2024-subtrait-desc">
-                                                        {subTrait.description}
+                                                        <div dangerouslySetInnerHTML={{ __html: subTrait.description }} />
                                                     </div>
                                                 )}
                                             </div>
