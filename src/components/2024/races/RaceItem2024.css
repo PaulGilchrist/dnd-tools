@@ -110,7 +110,7 @@
 .raceItem2024-lineage-container {
     margin-bottom: 15px;
     padding: 10px;
-    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
     border-radius: 5px;
 }
 
@@ -121,7 +121,6 @@
 .raceItem2024-lineage-desc {
     font-style: italic;
     margin-top: 5px;
-    color: #666;
 }
 
 .raceItem2024-lineage-options {
@@ -136,5 +135,4 @@
 .raceItem2024-subtrait-desc {
     font-style: italic;
     margin-top: 3px;
-    color: #666;
 }
