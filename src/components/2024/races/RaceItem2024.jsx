@@ -66,7 +66,6 @@ function RaceItem2024({ race, expand, onExpand }) {
                     <span className="raceItem2024-trait-name">{traitName}</span>
                     {traitDesc && (
                         <div className="raceItem2024-trait-description">
-                            <hr />
                             {traitDesc}
                         </div>
                     )}
@@ -88,7 +87,6 @@ function RaceItem2024({ race, expand, onExpand }) {
                     <span className="raceItem2024-trait-name">{traitName}</span>
                     {traitDesc && (
                         <div className="raceItem2024-trait-description">
-                            <hr />
                             {traitDesc}
                         </div>
                     )}
@@ -155,7 +153,6 @@ function RaceItem2024({ race, expand, onExpand }) {
                     {/* Languages */}
                     {getLanguages() && (
                         <div className="raceItem2024-section-divider">
-                            <hr />
                             <h5>Languages</h5>
                             {getLanguages()}
                         </div>
@@ -164,7 +161,6 @@ function RaceItem2024({ race, expand, onExpand }) {
                     {/* Traits */}
                     {getTraits() && (
                         <div className="raceItem2024-section-divider">
-                            <hr />
                             <h5>Racial Traits</h5>
                             {getTraits()}
                         </div>

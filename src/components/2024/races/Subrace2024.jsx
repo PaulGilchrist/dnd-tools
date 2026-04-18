@@ -43,11 +43,10 @@ function Subrace2024({ subrace }) {
             <h5 className="subrace2024-subrace-name">{subrace.name}</h5>
 
             {subrace.desc && (
-                <div className="subrace2024-subrace-desc">
-                    <hr />
-                    {subrace.desc}
-                </div>
-            )}
+                                <div className="subrace2024-subrace-desc">
+                                    {subrace.desc}
+                                </div>
+                            )}
 
             {/* Ability Bonuses */}
             {subrace.ability_bonuses && subrace.ability_bonuses.length > 0 && (
@@ -107,7 +106,6 @@ function Subrace2024({ subrace }) {
                 </div>
             )}
 
-            <hr />
         </div>
     );
 }
