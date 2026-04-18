@@ -18,7 +18,7 @@ function PlayerClass({ playerClass, expand, onExpand }) {
         showSubclass,
         classFeatures,
         subclassFeatures
-    } = usePlayerClassLogic(playerClass, expand === 'active' ? 1 : 0, '');
+    } = usePlayerClassLogic(playerClass, expand ? 1 : 0, '');
 
     // Forward the onExpand callback from parent
     const handleToggle = () => {

@@ -7,8 +7,8 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
 
     // Update local state when props change
     useEffect(() => {
-        if (isExpanded !== initialShownLevel) {
-            setIsExpanded(initialShownLevel > 0);
+        if (isExpanded !== (initialShownLevel ? 1 : 0)) {
+            setIsExpanded(!!initialShownLevel);
         }
     }, [initialShownLevel]);
 
