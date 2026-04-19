@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 
 export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialShownSubclass = '') {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [shownLevel, setShownLevel] = useState(initialShownLevel);
+    const [shownLevel, setShownLevel] = useState(1);
     const [shownSubclass, setShownSubclass] = useState(initialShownSubclass);
 
     // Update local state when props change
     useEffect(() => {
+        if (initialShownLevel > 0) {
+            setShownLevel(initialShownLevel);
+        }
         if (isExpanded !== (initialShownLevel ? 1 : 0)) {
             setIsExpanded(!!initialShownLevel);
         }
