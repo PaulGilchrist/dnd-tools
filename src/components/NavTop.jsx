@@ -104,12 +104,13 @@ function NavTop() {
                        location.pathname.includes('rules/classes') || 
                        location.pathname.includes('rules/conditions') || 
                        location.pathname.includes('rules/feats') || 
-                       location.pathname.includes('rules/races')) {
+                       location.pathname.includes('rules/races') ||
+                       location.pathname.includes('rules/backgrounds')) {
                 // We're on a submenu page, clear selection to collapse menu
                 setSelected('');
             } else if (location.pathname.includes('monsters')) {
                 setSelected('monsters');
-            } else if (location.pathname.includes('rules')) {
+            } else if (location.pathname.includes('rules') && !location.pathname.includes('2024/')) {
                 setSelected('rules');
             } else {
                 setSelected('');
