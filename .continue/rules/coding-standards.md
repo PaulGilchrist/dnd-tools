@@ -1,5 +1,5 @@
 ---
-name: Local - Coding Standards
+name: Coding Standards
 description: Coding Standards
 ---
 

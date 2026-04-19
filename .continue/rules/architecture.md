@@ -1,12 +1,9 @@
 ---
-name: Local - Project Architecture
+name: Project Architecture
 description: Project Architecture
 ---
 
-Project Architecture - Folder Structure
-
-React Project GOT Repo Location- `dnd-tools`
-    Components - `src/components`
-    Data - `public/data`
-    5e Dungeons & Dragons Rules - `docs/5e`
-    2024 Dungeons & Dragons Rules - `docs/2024`
+5e Components Location = `src/components`
+2024 Components Location = `src/components/2024`
+5e Data Location = `public/data`
+2024 Data Location = `public/data/2024`

@@ -1,6 +1,6 @@
 ---
-name: Local - Concisness
-description: Concisness
+name: Concisness
+description: Concisness of responses to conserve context
 ---
 
 Never start responses with "I will..." or "I have analyzed...".
