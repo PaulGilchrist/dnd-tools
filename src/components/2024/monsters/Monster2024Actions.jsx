@@ -25,19 +25,17 @@ function Monster2024Actions({ monster }) {
                         :
                     </b>&nbsp;
                     <span dangerouslySetInnerHTML={renderHtmlContent(action.description)} />
-                    <br />
                     {action.attack_bonus && (
                         <span>
                             Atk: +{action.attack_bonus} ({action.damage_dice || 'melee'}) — {action.damage || 'damage'}
                         </span>
                     )}
-                    <br />
                     {action.save_dc && (
                         <span>
                             DC {action.save_dc} {action.save_type} save or {action.save_effect}
                         </span>
                     )}
-                    <br />
+                <br/>
                 </div>
             ))}
         </div>

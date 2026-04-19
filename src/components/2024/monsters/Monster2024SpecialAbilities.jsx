@@ -17,7 +17,6 @@ function Monster2024SpecialAbilities({ monster }) {
                 <div key={index}>
                     <b>{trait.name}:</b>&nbsp;
                     <span dangerouslySetInnerHTML={renderHtmlContent(trait.description)} />
-                    <br /><br />
                 </div>
             ))}
         </div>
