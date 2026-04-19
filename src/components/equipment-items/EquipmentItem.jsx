@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './EquipmentItem.css';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 
 function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, ruleVersion }) {
