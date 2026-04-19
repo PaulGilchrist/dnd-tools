@@ -12,7 +12,7 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
         if (!equipmentItem.contents || equipmentItem.contents.length === 0) {
             return '';
         }
-        const contents = equipmentItem.contents.map(content => 
+        const contents = equipmentItem.contents.map(content =>
             `${content.quantity} ${content.item.name}`
         ).join(', ');
         return contents;
@@ -67,15 +67,15 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
                     </div>
                 </div>
                 <div className="form-check">
-                    <input 
-                        className="form-check-input" 
-                        type="checkbox" 
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
                         id={`bookmarked-${equipmentItem.index}`}
                         checked={equipmentItem.bookmarked || false}
                         onChange={handleCheckboxChange}
                     />
-                    <label 
-                        className="form-check-label" 
+                    <label
+                        className="form-check-label"
                         htmlFor={`bookmarked-${equipmentItem.index}`}
                         onClick={handleLabelClick}
                     >
@@ -215,6 +215,11 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
                                 {equipmentItem.properties && equipmentItem.properties.length > 0 && (
                                     <div>
                                         <b>Properties:</b>&nbsp;{getProperties()}<br />
+                                    </div>
+                                )}
+                                {equipmentItem.mastery && equipmentItem.mastery.length > 0 && (
+                                    <div>
+                                        <b>Weapon Mastery:</b>&nbsp;{equipmentItem.mastery}<br />
                                     </div>
                                 )}
                             </div>
