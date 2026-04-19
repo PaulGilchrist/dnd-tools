@@ -18,17 +18,12 @@ function ConditionItem({ condition, expand = false, onExpand }) {
         return null;
     }
 
-    // Convert desc array to JSX with proper line breaks
+    // Render desc as HTML string
     const renderDescription = () => {
-        if (!condition.desc || condition.desc.length === 0) {
+        if (!condition.desc) {
             return null;
         }
-
-        return condition.desc.map((desc, index) => (
-            <span key={index}>
-                {desc}<br /><br />
-            </span>
-        ));
+        return <div dangerouslySetInnerHTML={{ __html: condition.desc }} />;
     };
 
     return (
