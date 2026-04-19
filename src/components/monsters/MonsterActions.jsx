@@ -20,7 +20,6 @@ function MonsterActions({ monster }) {
                         )}:
                     </b>&nbsp;
                     <span dangerouslySetInnerHTML={renderHtmlContent(action.desc)} />
-                    <br /><br />
                 </div>
             ))}
         </div>

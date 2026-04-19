@@ -18,7 +18,6 @@ function MonsterSpecialAbilities({ monster }) {
                         )}:
                     </b>&nbsp;
                     <span dangerouslySetInnerHTML={renderHtmlContent(special_ability.desc)} />
-                    <br /><br />
                 </span>
             ))}
         </div>
