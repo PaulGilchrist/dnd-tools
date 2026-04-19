@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useConditions } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
+import { useRuleVersion } from '../../context/RuleVersionContext';
 import ConditionItem from './ConditionItem';
 
 function Conditions() {
+    const { ruleVersion } = useRuleVersion();
     const [conditions, setConditions] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const location = useLocation();
@@ -29,6 +31,7 @@ function Conditions() {
             } else {
                 // No filter needed for conditions - just display all
             }
+            console.log(`ruleVersion ${ruleVersion}`)
         }
     }, [conditionsData]);
 
@@ -55,15 +58,24 @@ function Conditions() {
     return (
         <>
             <div className="list">
-                {conditions.map((condition) => (
-                    <div key={condition.index} id={condition.index}>
-                        <ConditionItem 
-                            condition={condition}
-                            expand={shownCard === condition.index}
-                            onExpand={(expanded) => expandCard(condition.index, expanded)}
-                        />
-                    </div>
-                ))}
+                {conditions.map((condition) => {
+                    // Filter conditions based on ruleVersion
+                    // If condition has a rules property, only show if it matches the current ruleVersion
+                    // Otherwise, show the condition (default to 5e behavior)
+                    if (condition.rules && condition.rules !== ruleVersion) {
+                        return null;
+                    }
+                    return (
+                        <div key={condition.index} id={condition.index}>
+                            <ConditionItem 
+                                condition={condition}
+                                expand={shownCard === condition.index}
+                                onExpand={(expanded) => expandCard(condition.index, expanded)}
+                                ruleVersion={ruleVersion}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         </>
     );
