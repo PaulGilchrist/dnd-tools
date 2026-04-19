@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './EquipmentItem.css';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 
 function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, ruleVersion }) {
@@ -185,9 +186,27 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
                         {equipmentItem.equipment_category === 'Tools' && (
                             <div>
                                 <b>Category:</b>&nbsp;{equipmentItem.tool_category}<br />
+                                {ruleVersion === '2024' && (
+                                    <div>
+                                        {equipmentItem.ability && (
+                                            <div>
+                                                <b>Ability:</b>&nbsp;{equipmentItem.ability}<br />
+                                            </div>
+                                        )}
+                                        {equipmentItem.utilize && (
+                                            <div>
+                                                <b>Utilize:</b>&nbsp;{equipmentItem.utilize}<br />
+                                            </div>
+                                        )}
+                                        {equipmentItem.craft && (
+                                            <div>
+                                                <b>Craft:</b>&nbsp;{equipmentItem.craft}<br />
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         )}
-
                         {/* Weapon */}
                         {equipmentItem.equipment_category === 'Weapon' && (
                             <div>
@@ -250,11 +269,11 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
                                 ))}
                             </div>
                         )}
+
                     </div>
                 </div>
             )}
         </div>
     );
 }
-
 export default EquipmentItem;
