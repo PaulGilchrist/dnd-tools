@@ -127,16 +127,9 @@ function Spell({ spell, expand, onExpand, onKnownChange, onPreparedChange }) {
             return null;
         }
 
-        const savingThrow = spell.saving_throw;
         return (
             <div>
-                <b>Saving Throw:</b>&nbsp;{savingThrow.type}<br />
-                {savingThrow.success && (
-                    <div><b>Success:</b>&nbsp;{savingThrow.success}</div>
-                )}
-                {savingThrow.failure && (
-                    <div><b>Failure:</b>&nbsp;{savingThrow.failure}</div>
-                )}
+                <b>Saving Throw:</b>&nbsp;{spell.saving_throw}<br />
             </div>
         );
     };
@@ -174,20 +167,6 @@ function Spell({ spell, expand, onExpand, onKnownChange, onPreparedChange }) {
         return (
             <div>
                 <b>Status Effects:</b>&nbsp;{spell.status_effects.join(', ')}<br />
-            </div>
-        );
-    };
-
-    const renderCantripScaling = () => {
-        if (spell.level !== 0 || !spell.cantrip_scaling) {
-            return null;
-        }
-
-        const scaling = spell.cantrip_scaling;
-        return (
-            <div>
-                <b>Cantrip Scaling:</b>&nbsp;
-                {scaling.description}
             </div>
         );
     };
@@ -255,7 +234,6 @@ function Spell({ spell, expand, onExpand, onKnownChange, onPreparedChange }) {
                                 {renderDamage()}
                                 {renderSavingThrow()}
                                 {renderStatusEffects()}
-                                {renderCantripScaling()}
                             </div>
                         </div>
 
