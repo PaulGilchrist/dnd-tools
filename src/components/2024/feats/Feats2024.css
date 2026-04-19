@@ -26,14 +26,6 @@ Feat2024Filter specific styles
     margin-left: 0.5rem;
 }
 
-/* Prerequisites highlight */
-.prerequisites {
-    padding: 0.5rem;
-    background-color: #fff3cd;
-    border-left: 4px solid #ffc107;
-    margin-bottom: 1rem;
-}
-
 /* Benefits list */
 .benefits {
     margin-top: 1rem;
@@ -58,8 +50,8 @@ Feat2024Filter specific styles
 
 .feat-tags .tag {
     display: inline-block;
-    background-color: #e9ecef;
-    color: #495057;
+    background-color: #35383b;
+    color: #bdc7d0;
     padding: 0.25rem 0.75rem;
     border-radius: 0.25rem;
     font-size: 0.875rem;

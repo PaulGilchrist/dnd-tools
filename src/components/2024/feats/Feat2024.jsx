@@ -68,7 +68,7 @@ function Feat2024({ feat, expand, onExpand }) {
                         )}
                         
                         {feat.prerequisites && (
-                            <div className="prerequisites">
+                            <div>
                                 <b>Prerequisites:</b> {renderPrerequisites(feat.prerequisites)}
                             </div>
                         )}
@@ -91,7 +91,7 @@ function Feat2024({ feat, expand, onExpand }) {
                                 <b>Ability Score Increase:</b>
                                 {feat.ability_score_increase.scores?.map((score, index) => (
                                     <span key={index} className="ability-score-item">
-                                        {score} +{feat.ability_score_increase.amount}
+                                        &nbsp;{score} +{feat.ability_score_increase.amount}
                                     </span>
                                 ))}
                                 (max {feat.ability_score_increase.max_value})
