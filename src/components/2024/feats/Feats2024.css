@@ -1,0 +1,73 @@
+Feat2024Filter specific styles
+.feats-2024.filter-form {
+    margin-bottom: 1rem;
+}
+
+.filter-row {
+    display: contents;
+}
+
+/* Match global form label styling */
+.col-form-label {
+    font-weight: 600;
+    color: var(--color-body);
+    align-self: center;
+}
+
+/* Repeatable badge */
+.repeatable-badge {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* Prerequisites highlight */
+.prerequisites {
+    padding: 0.5rem;
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    margin-bottom: 1rem;
+}
+
+/* Benefits list */
+.benefits {
+    margin-top: 1rem;
+}
+
+/* Ability score increase */
+.ability-score-increase {
+    margin-top: 0.5rem;
+}
+
+.ability-score-item {
+    margin-right: 0.5rem;
+}
+
+/* Tags display */
+.feat-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.feat-tags .tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feats-2024.filter-form {
+        grid-template-columns: 1fr;
+    }
+}

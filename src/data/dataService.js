@@ -9,6 +9,7 @@ const dataCache = {
     conditions: [],
     equipment: [],
     feats: [],
+    feats2024: [],
     locations: [],
     magicItems: [],
     magicItems2024: [],
@@ -179,6 +180,10 @@ export function use2024Races() {
 
 export function use2024Backgrounds() {
     return useDataCache('backgrounds2024', BASE_URL + 'data/2024/backgrounds.json');
+}
+
+export function use2024Feats() {
+    return useDataCache('feats2024', BASE_URL + 'data/2024/feats.json');
 }
 
 // Alternative: Create a DataService class for non-React usage or compatibility
