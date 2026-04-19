@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 import Monster2024AbilityScores from './Monster2024AbilityScores';
 import Monster2024Stats from './Monster2024Stats';
 import Monster2024Defenses from './Monster2024Defenses';
@@ -6,7 +7,6 @@ import Monster2024SpecialAbilities from './Monster2024SpecialAbilities';
 import Monster2024Actions from './Monster2024Actions';
 import Monster2024Reactions from './Monster2024Reactions';
 import Monster2024LegendaryActions from './Monster2024LegendaryActions';
-import Monster2024LairActions from './Monster2024LairActions';
 import Monster2024RegionalEffects from './Monster2024RegionalEffects';
 import '../../monsters/MonsterCover.css';
 
@@ -155,13 +155,13 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                     <Monster2024LegendaryActions monster={monster} />
                                 </div>
                             )}
-                            {monster.lair_actions && monster.lair_actions.actions && monster.lair_actions.actions.length > 0 && (
+                            {monster.lair_actions && monster.lair_actions.length > 0 && (
                                 <div>
                                     <hr />
                                     <div>
                                         <h5>Lair Actions</h5>
                                     </div>
-                                    <Monster2024LairActions monster={monster} />
+                                    <span dangerouslySetInnerHTML={renderHtmlContent(monster.lair_actions)} />
                                 </div>
                             )}
                             {monster.regional_effects && (
