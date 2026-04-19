@@ -4,6 +4,10 @@
     border-bottom: 1px solid #dee2e6;
 }
 
+.weapon-mastery-item:not(:first-child) {
+    margin-top: -20px;
+}
+
 .weapon-mastery-item:last-child {
     border-bottom: none;
     margin-bottom: 0;
