@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 // For GitHub Pages at https://PaulGilchrist.github.io/dnd-tools/, 
 const base = import.meta.env.BASE_URL || '/'
 
+import { RuleVersionProvider } from './context/RuleVersionContext'
 import NavTop from './components/NavTop'
 import EquipmentItems from './components/equipment-items/EquipmentItems'
 import Locations from './components/Locations'
@@ -32,11 +33,12 @@ import './App.css'
 
 function App() {
     return (
-        <BrowserRouter basename={base}>
-            <NavTop />
-            <div className="main-content">
-                {/* Redirect root to spells, matching Angular routing */}
-                <Routes>
+        <RuleVersionProvider>
+            <BrowserRouter basename={base}>
+                <NavTop />
+                <div className="main-content">
+                    {/* Redirect root to spells, matching Angular routing */}
+                    <Routes>
                     <Route path="/" element={<Navigate to="/spells" replace />} />
                     <Route path="/equipment-items" element={<EquipmentItems />} />
                     <Route path="/locations" element={<Locations />} />
@@ -67,8 +69,9 @@ function App() {
                     <Route path="/2024/rules/weapon-mastery" element={<WeaponMastery2024 />} />
                     <Route path="/2024/weapon-mastery" element={<Navigate to="/2024/rules/weapon-mastery" replace />} />
                 </Routes>
-            </div>
-        </BrowserRouter>
+                </div>
+            </BrowserRouter>
+        </RuleVersionProvider>
     )
 }
 

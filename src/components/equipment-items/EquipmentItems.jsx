@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useEquipment, useWeaponProperties } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
+import { useRuleVersion } from '../../context/RuleVersionContext';
 import EquipmentItem from './EquipmentItem';
 import EquipmentFilterForm from './EquipmentFilterForm';
 import WeaponPropertyDescription from './WeaponPropertyDescription';
@@ -9,6 +10,7 @@ import EquipmentItemList from './EquipmentItemList';
 import './EquipmentItems.css';
 
 function EquipmentItems() {
+    const { ruleVersion } = useRuleVersion();
     const [equipmentItems, setEquipmentItems] = useState([]);
     const [weaponProperties, setWeaponProperties] = useState([]);
     const [filter, setFilter] = useState({
@@ -185,6 +187,7 @@ function EquipmentItems() {
                 shownCard={shownCard}
                 expandCard={expandCard}
                 handleBookmarkChange={handleBookmarkChange}
+                ruleVersion={ruleVersion}
             />
         </>
     );

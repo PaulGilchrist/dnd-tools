@@ -1,6 +1,6 @@
 import EquipmentItem from './EquipmentItem';
 
-function EquipmentItemList({ filteredItems, showEquipmentItem, shownCard, expandCard, handleBookmarkChange }) {
+function EquipmentItemList({ filteredItems, showEquipmentItem, shownCard, expandCard, handleBookmarkChange, ruleVersion }) {
     return (
         <div className="list">
             {filteredItems.map((equipmentItem) => (
@@ -11,6 +11,7 @@ function EquipmentItemList({ filteredItems, showEquipmentItem, shownCard, expand
                             expand={shownCard === equipmentItem.index}
                             onExpand={(expanded) => expandCard(equipmentItem.index, expanded)}
                             onBookmarkChange={handleBookmarkChange}
+                            ruleVersion={ruleVersion}
                         />
                     )}
                 </div>

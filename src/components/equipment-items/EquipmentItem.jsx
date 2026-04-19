@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useRuleVersion } from '../../context/RuleVersionContext';
 
-function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
+function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, ruleVersion }) {
     const [isExpanded, setIsExpanded] = useState(expand);
 
     // Update local state when prop changes
@@ -217,7 +218,7 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange }) {
                                         <b>Properties:</b>&nbsp;{getProperties()}<br />
                                     </div>
                                 )}
-                                {equipmentItem.mastery && equipmentItem.mastery.length > 0 && (
+                                {equipmentItem.mastery && equipmentItem.mastery.length > 0 && ruleVersion === '2024' && (
                                     <div>
                                         <b>Weapon Mastery:</b>&nbsp;{equipmentItem.mastery}<br />
                                     </div>

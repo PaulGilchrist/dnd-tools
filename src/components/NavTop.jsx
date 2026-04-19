@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useRuleVersion } from '../context/RuleVersionContext';
 import './NavTop.css';
 
 function NavTop() {
     const [selected, setSelected] = useState('');
-    const [ruleVersion, setRuleVersion] = useState('5e');
+    const { ruleVersion, setRuleVersion } = useRuleVersion();
     const [activeSpellRoute, setActiveSpellRoute] = useState('');
     const [activeMonsterRoute, setActiveMonsterRoute] = useState('');
     const [activeMagicItemsRoute, setActiveMagicItemsRoute] = useState('');
@@ -13,14 +14,6 @@ function NavTop() {
     const [activeFeatsRoute, setActiveFeatsRoute] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
-
-    // Load saved rule version from localStorage on initial mount
-    useEffect(() => {
-        const savedRuleVersion = localStorage.getItem('ruleVersion');
-        if (savedRuleVersion) {
-            setRuleVersion(savedRuleVersion);
-        }
-    }, []);
 
     useEffect(() => {
         // Check if there's a saved URL in localStorage
