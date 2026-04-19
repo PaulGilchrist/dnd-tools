@@ -31,6 +31,29 @@ const TYPE_OPTIONS = [
     { value: 'Undead', label: 'Undead' }
 ];
 
+// Environment options for 2024 monsters
+const ENVIRONMENT_OPTIONS = [
+    { value: 'All', label: 'All Environments' },
+    { value: 'any', label: 'Any' },
+    { value: 'aquatic', label: 'Aquatic' },
+    { value: 'burrow', label: 'Burrow' },
+    { value: 'cloud', label: 'Cloud' },
+    { value: 'underground', label: 'Underground' },
+    { value: 'frozen', label: 'Frozen' },
+    { value: 'hills', label: 'Hills' },
+    { value: 'jungles', label: 'Jungles' },
+    { value: 'mountains', label: 'Mountains' },
+    { value: 'plains', label: 'Plains' },
+    { value: 'swamp', label: 'Swamp' },
+    { value: 'underdark', label: 'Underdark' },
+    { value: 'underwater', label: 'Underwater' },
+    { value: 'urban', label: 'Urban' },
+    { value: 'forest', label: 'Forest' },
+    { value: 'rock', label: 'Rock' },
+    { value: 'sky', label: 'Sky' },
+    { value: 'void', label: 'Void' }
+];
+
 /**
  * Monster2024FilterControls component - Filter controls for 2024 monsters
  * @param {object} filter - Current filter state
@@ -47,6 +70,10 @@ function Monster2024FilterControls({ filter, updateFilter }) {
 
     const handleTypeChange = (value) => {
         updateFilter('type', value);
+    };
+
+    const handleEnvironmentChange = (value) => {
+        updateFilter('environment', value);
     };
 
     const handleChallengeMinChange = (value) => {
@@ -89,6 +116,15 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                 value={filter.type}
                 options={TYPE_OPTIONS}
                 onChange={handleTypeChange}
+            />
+
+            {/* Environment */}
+            <SelectFilter
+                label="Environment"
+                name="environment"
+                value={filter.environment}
+                options={ENVIRONMENT_OPTIONS}
+                onChange={handleEnvironmentChange}
             />
 
             {/* Challenge Rating */}

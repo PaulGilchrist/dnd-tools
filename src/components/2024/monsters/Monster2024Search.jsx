@@ -91,6 +91,10 @@ function Monster2024Search() {
         if (filter.type !== 'All' && filter.type !== monster.type) {
             return false;
         }
+        // Environment filter
+        if (filter.environment !== 'All' && filter.environment !== monster.environment) {
+            return false;
+        }
         // XP
         if (monster.xp < filter.xpMin || monster.xp > filter.xpMax) {
             return false;

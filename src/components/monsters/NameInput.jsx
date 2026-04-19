@@ -12,7 +12,7 @@ function NameInput({ filter, updateFilter }) {
         setLocalValue(value);
         
         if (value.length < 50) {
-            updateFilter({ ...filter, name: value });
+            updateFilter('name', value);
         }
     };
 
