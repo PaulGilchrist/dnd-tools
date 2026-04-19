@@ -26,7 +26,8 @@ const dataCache = {
     monsters2024Types: [],
     weaponProperties: [],
     classes2024: [],
-    backgrounds2024: []
+    backgrounds2024: [],
+    weaponMastery2024: []
 };
 
 // Helper function to sort array of objects by property name
@@ -184,6 +185,10 @@ export function use2024Backgrounds() {
 
 export function use2024Feats() {
     return useDataCache('feats2024', BASE_URL + 'data/2024/feats.json');
+}
+
+export function useWeaponMastery2024() {
+    return useDataCache('weaponMastery2024', BASE_URL + 'data/2024/weapon-mastery.json');
 }
 
 // Alternative: Create a DataService class for non-React usage or compatibility

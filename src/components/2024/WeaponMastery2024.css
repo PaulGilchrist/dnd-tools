@@ -1,0 +1,23 @@
+.weapon-mastery-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.weapon-mastery-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.weapon-mastery-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-header);
+    margin-bottom: 0.5rem;
+}
+
+.weapon-mastery-description {
+    line-height: 1.6;
+    color: var(--color-body);
+    margin-bottom: 0;
+}

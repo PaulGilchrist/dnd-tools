@@ -27,6 +27,7 @@ import PlayerClasses2024 from './components/2024/rules/player-classes/PlayerClas
 import Races2024 from './components/2024/rules/races/Races2024'
 import Backgrounds2024 from './components/2024/rules/Backgrounds2024'
 import Feats2024 from './components/2024/feats/Feats2024'
+import WeaponMastery2024 from './components/2024/WeaponMastery2024'
 import './App.css'
 
 function App() {
@@ -63,6 +64,8 @@ function App() {
                     <Route path="/2024/backgrounds" element={<Navigate to="/2024/rules/backgrounds" replace />} />
                     <Route path="/2024/rules/feats" element={<Feats2024 />} />
                     <Route path="/2024/feats" element={<Navigate to="/2024/rules/feats" replace />} />
+                    <Route path="/2024/rules/weapon-mastery" element={<WeaponMastery2024 />} />
+                    <Route path="/2024/weapon-mastery" element={<Navigate to="/2024/rules/weapon-mastery" replace />} />
                 </Routes>
             </div>
         </BrowserRouter>

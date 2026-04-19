@@ -316,6 +316,9 @@ function NavTop() {
                             <li><NavLink to="/rules/conditions" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Conditions</NavLink></li>
                             <li><NavLink to={featsLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Feats</NavLink></li>
                             <li><NavLink to={racesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Races</NavLink></li>
+                            {ruleVersion === '2024' && (
+                                <li><NavLink to="/2024/rules/weapon-mastery" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Weapon Mastery</NavLink></li>
+                            )}
                         </ul>
                     </li>
                     <li className="nav-item">
