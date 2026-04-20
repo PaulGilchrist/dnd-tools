@@ -1,22 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function useMonsterFilter(initialFilter = {}) {
-    const [filter, setFilter] = useState({
-        bookmarked: 'All',
-        challengeRatingMin: 0,
-        challengeRatingMax: 25,
-        environment: 'All',
-        name: '',
-        size: 'All',
-        type: 'All',
-        xpMin: 0,
-        xpMax: 50000,
-        ...initialFilter
+    const [filter, setFilter] = useState(() => {
+        // Try to load from localStorage on initial mount
+        const savedFilter = localStorage.getItem('monsterFilter');
+        if (savedFilter) {
+            try {
+                return JSON.parse(savedFilter);
+            } catch (e) {
+                console.error('Failed to parse saved filter:', e);
+            }
+        }
+        
+        // Return default values
+        return {
+            bookmarked: 'All',
+            challengeRatingMin: 0,
+            challengeRatingMax: 25,
+            environment: 'All',
+            name: '',
+            size: 'All',
+            type: 'All',
+            xpMin: 0,
+            xpMax: 50000,
+            ...initialFilter
+        };
     });
 
-    const filterChanged = (newFilter) => {
-        localStorage.setItem('monsterFilter', JSON.stringify(newFilter));
-    };
+    // Save to localStorage whenever filter changes
+    useEffect(() => {
+        localStorage.setItem('monsterFilter', JSON.stringify(filter));
+    }, [filter]);
 
     const showMonster = (monster) => {
         // Bookmarked filter
@@ -51,9 +65,10 @@ export function useMonsterFilter(initialFilter = {}) {
     };
 
     const updateFilter = (key, value) => {
-        const newFilter = { ...filter, [key]: value };
-        setFilter(newFilter);
-        filterChanged(newFilter);
+        setFilter(prevFilter => ({
+            ...prevFilter,
+            [key]: value
+        }));
     };
 
     return {
