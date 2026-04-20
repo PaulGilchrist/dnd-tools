@@ -329,6 +329,7 @@
         "description": "If the aboleth has at least one creature <strong>Charmed</strong> or <strong>Grappled</strong>, it uses Consume Memories and regains 5 (1d10) Hit Points."
       }
     ],
+    "lair_actions": "Aboleths usually dwell in submerged ruins and caverns. They keep air-filled spaces for their terrestrial servants and to hold treasures that would be damaged by water.<br/><br/>The region containing an aboleth's lair is warped by it, creating the following effects:<br/><br/><b>Foul Water.</b> Water sources within 1 mile of the lair are supernaturally fouled. Creatures other than the aboleth and its allies that drink such water must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><b>Psionic Projection.</b> While in its lair, the aboleth can cast ProjectImage, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 16). When casting the spell this way, the spell's range is 1 mile, and the aboleth can use its telepathy as if it were in the illusion's space.<br/><br/>If the aboleth dies or moves its lair elsewhere, these effects end immediately.<br/><br/>'The lies we call reason are fragile things, vulnerable and raw on the shores of eons. But in the dream-vaults of dread ancients roil seas of terrifying truth. Our age is an island, and the ebb of primordial tides avows the Stygian wave.'<br/>",
     "image": true
   },
   {
@@ -503,13 +504,13 @@
         "damage_dice": "2d6 + 6"
       },
       {
-        "name": "Acid Breath (Recharge 5–6)",
+        "name": "Acid Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 18, each creature in a 60-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 54 (12d8) Acid damage. <strong>Success:</strong> Half damage.",
         "save_dc": 18,
         "save_type": "Dexterity",
         "damage": "54 (12d8) Acid damage",
         "damage_dice": "12d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -538,6 +539,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Black dragons lurk in dismal ruins, polluted bogs, or other sites gripped by decay.<br/><br/>The region containing an adult or ancient black dragon's lair is warped by its presence, creating the following effects:<br/><br/><b>Acrid Haze.</b> Odorous and stifling fog covers the area within 1 mile of the lair, rendering that area Lightly Obscured. Travel for creatures other than the dragon and its allies takes twice the usual time in that area.<br/><b>Foul Water.</b> Water sources within 1 mile of the lair are supernaturally fouled. A creature that drinks such water must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -613,13 +615,13 @@
         "damage_dice": "2d8 + 7"
       },
       {
-        "name": "Lightning Breath (Recharge 5–6)",
+        "name": "Lightning Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 19, each creature in a 90-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 60 (11d10) Lightning damage. <strong>Success:</strong> Half damage.",
         "save_dc": 19,
         "save_type": "Dexterity",
         "damage": "60 (11d10) Lightning damage",
         "damage_dice": "11d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -644,6 +646,7 @@
         "description": "The dragon makes one Rend attack."
       }
     ],
+    "lair_actions": "Blue dragons dwell in arid lands. Their lairs might be death traps meant to entomb invaders or ostentatious fortresses where they plot domination.<br/><br/>The region containing an adult or ancient blue dragon'’'s lair is changed by its presence, creating the following effects:<br/><br/><b>Sinkholes.</b> Sinkholes form more frequently in the area within 1 mile of the lair. Whenever a creature in that area other than the dragon and its allies finishes a Long Rest, roll 1d20. On a 1, a sinkhole opens beneath the creature, and the creature must succeed on a DC 15 Dexterity saving throw or fall 2d4 x 10 feet into the sinkhole.<br/><b>Spiteful Storms.</b> Dust devils and thunderstorms rage within 1 mile of the lair. The area is Lightly Obscured.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/><br/>",
     "image": true
   },
   {
@@ -725,13 +728,13 @@
         "damage_dice": "2d10 + 6"
       },
       {
-        "name": "Fire Breath (Recharge 5–6)",
+        "name": "Fire Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 18, each creature in a 60-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 45 (10d8) Fire damage. <strong>Success:</strong> Half damage.",
         "save_dc": 18,
         "save_type": "Dexterity",
         "damage": "45 (10d8) Fire damage",
         "damage_dice": "10d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Sleep Breath",
@@ -766,6 +769,7 @@
         "damage_dice": "6d8"
       }
     ],
+    "lair_actions":"Brass dragons usually dwell in secret caves and canyons near well-traveled routes.<br/><br/>The area containing an adult or ancient brass dragon's lair is altered by its presence, creating the following effects:<br/><br/><b>Mirages.</b> While in its lair, the dragon can cast MajorImage, requiring no Material components and using the same spellcasting ability as its Spellcasting action. When casting the spell this way, the spell's range is 1 mile, and the dragon doesn't need to see the spot where the illusion appears.<br/><b>Refreshing Water.</b> Water within 1 mile of the lair is magically refreshing. A creature that drinks such water gains 2d4 Temporary Hit Points, and the dragon is immediately aware of the creature's presence.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -847,13 +851,13 @@
         "damage_dice": "2d8 + 7"
       },
       {
-        "name": "Lightning Breath (Recharge 5–6)",
+        "name": "Lightning Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 19, each creature in a 90-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 55 (10d10) Lightning damage. <strong>Success:</strong> Half damage.",
         "save_dc": 19,
         "save_type": "Dexterity",
         "damage": "55 (10d10) Lightning damage",
         "damage_dice": "10d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Repulsion Breath",
@@ -888,6 +892,7 @@
         "damage_dice": "3d6"
       }
     ],
+    "lair_actions": "Bronze dragons usually make their homes near or under the sea.<br/><br/>The region containing an adult or ancient bronze dragon's lair is changed by its presence, creating the following effects:<br/><br/><b>Buoying Currents.</b> Creatures within 1 mile of the lair that lack a Swim Speed ignore the extra cost of movement while swimming.<br/><b>Sun and Storms.</b> While in its lair, the dragon can cast Control Weather, requiring no Material components and using the same spellcasting ability as its Spellcasting action. When casting the spell this way, the dragon can control the weather within 1 mile of its lair, regardless if the dragon is inside or outside.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -966,13 +971,13 @@
         "damage_dice": "2d10 + 6"
       },
       {
-        "name": "Acid Breath (Recharge 5–6)",
+        "name": "Acid Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 18, each creature in a 60-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 54 (12d8) Acid damage. <strong>Success:</strong> Half damage.",
         "save_dc": 18,
         "save_type": "Dexterity",
         "damage": "54 (12d8) Acid damage",
         "damage_dice": "12d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Slowing Breath",
@@ -1007,6 +1012,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Copper dragons typically inhabit multichamber caves and renovated ruins.<br/><br/>The region containing an adult or ancient copper dragon's lair is changed by its presence, creating the following effects:<br/><br/><b>Chatty Critters.</b> Tiny Beasts magically gain the ability to speak and understand Draconic while within 6 miles of the lair.<br/><b>Giggle Fits.</b> Whenever a creature other than the dragon and its allies is within 1 mile of the lair and rolls a 1 on a D20 Test, it must succeed on a DC 15 Wisdom saving throw or have the Incapacitated condition until the end of its next turn, as it is wracked with laughter.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -1091,13 +1097,13 @@
         "damage_dice": "2d8 + 8"
       },
       {
-        "name": "Fire Breath (Recharge 5–6)",
+        "name": "Fire Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 21, each creature in a 60-foot <strong>Cone</strong>. <strong>Failure:</strong> 66 (12d10) Fire damage. <strong>Success:</strong> Half damage.",
         "save_dc": 21,
         "save_type": "Dexterity",
         "damage": "66 (12d10) Fire damage",
         "damage_dice": "12d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -1132,6 +1138,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Gold dragons make their homes in places of natural and magical wonder.<br/><br/>The region containing an adult or ancient gold dragon's lair is altered by its presence, creating the following effects:<br/><br/><b>Dream Messenger.</b> While in its lair, the dragon can cast Dream, requiring no Material components and using Charisma as the spellcasting ability. When casting the spell this way, the dragon can target any creature within 6 miles.<br/><b>Foretelling Fog.</b> The area within 1 mile of the lair is Lightly Obscured by opalescent fog. While in that area, creatures can't be surprised, as the fog swirls into shapes that warn of danger.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -1217,13 +1224,13 @@
         "damage_dice": "2d8 + 6"
       },
       {
-        "name": "Poison Breath (Recharge 5–6)",
+        "name": "Poison Breath (Recharge 5-6)",
         "description": "Constitution Saving Throw: DC 18, each creature in a 60-foot <strong>Cone</strong>. <strong>Failure:</strong> 56 (16d6) Poison damage. <strong>Success:</strong> Half damage.",
         "save_dc": 18,
         "save_type": "Constitution",
         "damage": "56 (16d6) Poison damage",
         "damage_dice": "16d6",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -1252,6 +1259,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Green dragons lair in ancient forests, often shaping stands of massive trees into compounds of interwoven branches, hollow trunks, and caverns amid mighty roots. They might also dwell amid forested ruins, particularly the former homes of those they've conquered.<br/><br/>The region containing an adult or ancient green dragon's lair is warped by its presence, creating the following effects:<br/><br/><b>Beast Spies.</b> Tiny Beasts magically gain the ability to understand Draconic and can communicate telepathically with the dragon while within 1 mile of the lair.<br/><b>Poisonous Thicket.</b> Ordinary plants growing within 1 mile of the lair poison the air around them. Whenever a creature other than the dragon or its allies finishes a Long Rest in that area, it must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -1327,13 +1335,13 @@
         "damage_dice": "1d10 + 8"
       },
       {
-        "name": "Fire Breath (Recharge 5–6)",
+        "name": "Fire Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 21, each creature in a 60-foot <strong>Cone</strong>. <strong>Failure:</strong> 59 (17d6) Fire damage. <strong>Success:</strong> Half damage.",
         "save_dc": 21,
         "save_type": "Dexterity",
         "damage": "59 (17d6) Fire damage",
         "damage_dice": "17d6",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -1358,6 +1366,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Red dragons make their lairs in smoldering, unapproachable places such as volcanic mountains, burning wastelands, and ruins they've stolen from other creatures.<br/><br/>The region containing an adult or ancient red dragon's lair is warped by its presence, creating the following effects:<br/><br/><b>Burning Heat.</b> The area within 1 mile of the lair is an area of extreme heat. A burning creature or object takes an additional 1d4 Fire damage at the start of each of its turns.<br/><b>Smoldering Haze.</b> The area within 1 mile of the lair is Lightly Obscured with clouds of ash. Whenever a creature other than the dragon or one of its allies finishes a Long Rest in that area, that creature must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -1435,13 +1444,13 @@
         "damage_dice": "2d8 + 8"
       },
       {
-        "name": "Cold Breath (Recharge 5–6)",
+        "name": "Cold Breath (Recharge 5-6)",
         "description": "Constitution Saving Throw: DC 20, each creature in a 60-foot <strong>Cone</strong>. <strong>Failure:</strong> 54 (12d8) Cold damage. <strong>Success:</strong> Half damage.",
         "save_dc": 20,
         "save_type": "Constitution",
         "damage": "54 (12d8) Cold damage",
         "damage_dice": "12d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Paralyzing Breath",
@@ -1476,6 +1485,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Silver dragons typically lair in picturesque mountain retreats or on sculpted cloud 'islands.'<br/><br/>The region containing an adult or ancient silver dragon's lair is changed by its magic, creating the following effects:<br/><br/><b>Gentle Gusts.</b> Winds buoy creatures that fall within 1 mile of the lair. Such creatures descend at a rate of 60 feet per round and take no damage from falling.<br/><b>Sun and Storms.</b> While in its lair, the dragon can cast Con rol Weather, requiring no Material components and using the same spellcasting ability as mits Spellcasting action.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -1555,13 +1565,13 @@
         "damage_dice": "2d6 + 6"
       },
       {
-        "name": "Cold Breath (Recharge 5–6)",
+        "name": "Cold Breath (Recharge 5-6)",
         "description": "Constitution Saving Throw: DC 19, each creature in a 60-foot <strong>Cone</strong>. <strong>Failure:</strong> 54 (12d8) Cold damage. <strong>Success:</strong> Half damage.",
         "save_dc": 19,
         "save_type": "Constitution",
         "damage": "54 (12d8) Cold damage",
         "damage_dice": "12d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "legendary_actions": [
@@ -1586,6 +1596,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "White dragons brood in bitterly cold lairs clawed from stone and ice.<br/><br/>The region containing an adult or ancient white dragon's lair is affected by its presence, creating the following effects:<br/><br/><b>Frigid Cold.</b> The area within 1 mile of the lair is an area of extreme cold. Any water in that area is frigid water. See the Dungeon Master's Guide for rules on extreme cold and frigid water.<br/><b>Glacial Gloom.</b> The area within 1 mile of the lair is Lightly Obscured by chilly fog. Whenever a creature other than the dragon or one of its allies finishes a Long Rest in that area, that creature must succeed on a DC 15 Constitution saving throw or have its Speed reduced by 10 feet for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/><br/>",
     "image": true
   },
   {
@@ -1664,13 +1675,13 @@
         "damage_dice": "2d8 + 5"
       },
       {
-        "name": "Whirlwind (Recharge 4–6)",
+        "name": "Whirlwind (Recharge 4-6)",
         "description": "Strength Saving Throw: DC 13, one Medium or smaller creature in the elemental's space. <strong>Failure:</strong> 24 (4d10 + 2) Thunder damage, and the target is pushed up to 20 feet straight away from the elemental and has the <strong>Prone</strong> condition. <strong>Success:</strong> Half damage only.",
         "save_dc": 13,
         "save_type": "Strength",
         "damage": "24 (4d10 + 2) Thunder damage",
         "damage_dice": "4d10 + 2",
-        "recharge": "4–6"
+        "recharge": "4-6"
       }
     ],
     "image": true
@@ -1813,13 +1824,13 @@
         "damage_dice": "2d8 + 8"
       },
       {
-        "name": "Acid Breath (Recharge 5–6)",
+        "name": "Acid Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 22, each creature in a 90-foot-long, 10-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 67 (15d8) Acid damage. <strong>Success:</strong> Half damage.",
         "save_dc": 22,
         "save_type": "Dexterity",
         "damage": "67 (15d8) Acid damage",
         "damage_dice": "15d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -1848,6 +1859,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Black dragons lurk in dismal ruins, polluted bogs, or other sites gripped by decay.<br/><br/>The region containing an adult or ancient black dragon's lair is warped by its presence, creating the following effects:<br/><br/><b>Acrid Haze.</b> Odorous and stifling fog covers the area within 1 mile of the lair, rendering that area Lightly Obscured. Travel for creatures other than the dragon and its allies takes twice the usual time in that area.<br/><b>Foul Water.</b> Water sources within 1 mile of the lair are supernaturally fouled. A creature that drinks such water must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -1922,13 +1934,13 @@
         "damage_dice": "2d8 + 9"
       },
       {
-        "name": "Lightning Breath (Recharge 5–6)",
+        "name": "Lightning Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 23, each creature in a 120-foot-long, 10-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 88 (16d10) Lightning damage. <strong>Success:</strong> Half damage.",
         "save_dc": 23,
         "save_type": "Dexterity",
         "damage": "88 (16d10) Lightning damage",
         "damage_dice": "16d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -1953,6 +1965,7 @@
         "description": "The dragon makes one Rend attack."
       }
     ],
+    "lair_actions": "Blue dragons dwell in arid lands. Their lairs might be death traps meant to entomb invaders or ostentatious fortresses where they plot domination.<br/><br/>The region containing an adult or ancient blue dragon'’'s lair is changed by its presence, creating the following effects:<br/><br/><b>Sinkholes.</b> Sinkholes form more frequently in the area within 1 mile of the lair. Whenever a creature in that area other than the dragon and its allies finishes a Long Rest, roll 1d20. On a 1, a sinkhole opens beneath the creature, and the creature must succeed on a DC 15 Dexterity saving throw or fall 2d4 x 10 feet into the sinkhole.<br/><b>Spiteful Storms.</b> Dust devils and thunderstorms rage within 1 mile of the lair. The area is Lightly Obscured.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/><br/>",
     "image": true
   },
   {
@@ -2033,13 +2046,13 @@
         "damage_dice": "2d10 + 8"
       },
       {
-        "name": "Fire Breath (Recharge 5–6)",
+        "name": "Fire Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 21, each creature in a 90-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 58 (13d8) Fire damage. <strong>Success:</strong> Half damage.",
         "save_dc": 21,
         "save_type": "Dexterity",
         "damage": "58 (13d8) Fire damage",
         "damage_dice": "13d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Sleep Breath",
@@ -2074,6 +2087,7 @@
         "damage_dice": "8d8"
       }
     ],
+    "lair_actions":"Brass dragons usually dwell in secret caves and canyons near well-traveled routes.<br/><br/>The area containing an adult or ancient brass dragon's lair is altered by its presence, creating the following effects:<br/><br/><b>Mirages.</b> While in its lair, the dragon can cast MajorImage, requiring no Material components and using the same spellcasting ability as its Spellcasting action. When casting the spell this way, the spell's range is 1 mile, and the dragon doesn't need to see the spot where the illusion appears.<br/><b>Refreshing Water.</b> Water within 1 mile of the lair is magically refreshing. A creature that drinks such water gains 2d4 Temporary Hit Points, and the dragon is immediately aware of the creature's presence.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2155,13 +2169,13 @@
         "damage_dice": "2d8 + 9"
       },
       {
-        "name": "Lightning Breath (Recharge 5–6)",
+        "name": "Lightning Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 23, each creature in a 120-foot-long, 10-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 82 (15d10) Lightning damage. <strong>Success:</strong> Half damage.",
         "save_dc": 23,
         "save_type": "Dexterity",
         "damage": "82 (15d10) Lightning damage",
         "damage_dice": "15d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Repulsion Breath",
@@ -2196,6 +2210,7 @@
         "damage_dice": "3d8"
       }
     ],
+    "lair_actions": "Bronze dragons usually make their homes near or under the sea.<br/><br/>The region containing an adult or ancient bronze dragon's lair is changed by its presence, creating the following effects:<br/><br/><b>Buoying Currents.</b> Creatures within 1 mile of the lair that lack a Swim Speed ignore the extra cost of movement while swimming.<br/><b>Sun and Storms.</b> While in its lair, the dragon can cast Control Weather, requiring no Material components and using the same spellcasting ability as its Spellcasting action. When casting the spell this way, the dragon can control the weather within 1 mile of its lair, regardless if the dragon is inside or outside.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2273,13 +2288,13 @@
         "damage_dice": "2d10 + 8"
       },
       {
-        "name": "Acid Breath (Recharge 5–6)",
+        "name": "Acid Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 22, each creature in a 90-foot-long, 10-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 63 (14d8) Acid damage. <strong>Success:</strong> Half damage.",
         "save_dc": 22,
         "save_type": "Dexterity",
         "damage": "63 (14d8) Acid damage",
         "damage_dice": "14d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Slowing Breath",
@@ -2314,6 +2329,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Copper dragons typically inhabit multichamber caves and renovated ruins.<br/><br/>The region containing an adult or ancient copper dragon's lair is changed by its presence, creating the following effects:<br/><br/><b>Chatty Critters.</b> Tiny Beasts magically gain the ability to speak and understand Draconic while within 6 miles of the lair.<br/><b>Giggle Fits.</b> Whenever a creature other than the dragon and its allies is within 1 mile of the lair and rolls a 1 on a D20 Test, it must succeed on a DC 15 Wisdom saving throw or have the Incapacitated condition until the end of its next turn, as it is wracked with laughter.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2398,13 +2414,13 @@
         "damage_dice": "2d8 + 10"
       },
       {
-        "name": "Fire Breath (Recharge 5–6)",
+        "name": "Fire Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 24, each creature in a 90-foot <strong>Cone</strong>. <strong>Failure:</strong> 71 (13d10) Fire damage. <strong>Success:</strong> Half damage.",
         "save_dc": 24,
         "save_type": "Dexterity",
         "damage": "71 (13d10) Fire damage",
         "damage_dice": "13d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -2439,6 +2455,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Gold dragons make their homes in places of natural and magical wonder.<br/><br/>The region containing an adult or ancient gold dragon's lair is altered by its presence, creating the following effects:<br/><br/><b>Dream Messenger.</b> While in its lair, the dragon can cast Dream, requiring no Material components and using Charisma as the spellcasting ability. When casting the spell this way, the dragon can target any creature within 6 miles.<br/><b>Foretelling Fog.</b> The area within 1 mile of the lair is Lightly Obscured by opalescent fog. While in that area, creatures can't be surprised, as the fog swirls into shapes that warn of danger.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2524,13 +2541,13 @@
         "damage_dice": "2d8 + 8"
       },
       {
-        "name": "Poison Breath (Recharge 5–6)",
+        "name": "Poison Breath (Recharge 5-6)",
         "description": "Constitution Saving Throw: DC 22, each creature in a 90-foot <strong>Cone</strong>. <strong>Failure:</strong> 77 (22d6) Poison damage. <strong>Success:</strong> Half damage.",
         "save_dc": 22,
         "save_type": "Constitution",
         "damage": "77 (22d6) Poison damage",
         "damage_dice": "22d6",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -2559,7 +2576,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
-    "artist": "HELGE C. BALZER",
+    "lair_actions": "Green dragons lair in ancient forests, often shaping stands of massive trees into compounds of interwoven branches, hollow trunks, and caverns amid mighty roots. They might also dwell amid forested ruins, particularly the former homes of those they've conquered.<br/><br/>The region containing an adult or ancient green dragon's lair is warped by its presence, creating the following effects:<br/><br/><b>Beast Spies.</b> Tiny Beasts magically gain the ability to understand Draconic and can communicate telepathically with the dragon while within 1 mile of the lair.<br/><b>Poisonous Thicket.</b> Ordinary plants growing within 1 mile of the lair poison the air around them. Whenever a creature other than the dragon or its allies finishes a Long Rest in that area, it must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2634,13 +2651,13 @@
         "damage_dice": "2d8 + 10"
       },
       {
-        "name": "Fire Breath (Recharge 5–6)",
+        "name": "Fire Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 24, each creature in a 90-foot <strong>Cone</strong>. <strong>Failure:</strong> 91 (26d6) Fire damage. <strong>Success:</strong> Half damage.",
         "save_dc": 24,
         "save_type": "Dexterity",
         "damage": "91 (26d6) Fire damage",
         "damage_dice": "26d6",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -2665,6 +2682,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Red dragons make their lairs in smoldering, unapproachable places such as volcanic mountains, burning wastelands, and ruins they've stolen from other creatures.<br/><br/>The region containing an adult or ancient red dragon's lair is warped by its presence, creating the following effects:<br/><br/><b>Burning Heat.</b> The area within 1 mile of the lair is an area of extreme heat. A burning creature or object takes an additional 1d4 Fire damage at the start of each of its turns.<br/><b>Smoldering Haze.</b> The area within 1 mile of the lair is Lightly Obscured with clouds of ash. Whenever a creature other than the dragon or one of its allies finishes a Long Rest in that area, that creature must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2741,13 +2759,13 @@
         "damage_dice": "2d8 + 10"
       },
       {
-        "name": "Cold Breath (Recharge 5–6)",
+        "name": "Cold Breath (Recharge 5-6)",
         "description": "Constitution Saving Throw: DC 24, each creature in a 90-foot <strong>Cone</strong>. <strong>Failure:</strong> 67 (15d8) Cold damage. <strong>Success:</strong> Half damage.",
         "save_dc": 24,
         "save_type": "Constitution",
         "damage": "67 (15d8) Cold damage",
         "damage_dice": "15d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Paralyzing Breath",
@@ -2782,6 +2800,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "Silver dragons typically lair in picturesque mountain retreats or on sculpted cloud 'islands.'<br/><br/>The region containing an adult or ancient silver dragon's lair is changed by its magic, creating the following effects:<br/><br/><b>Gentle Gusts.</b> Winds buoy creatures that fall within 1 mile of the lair. Such creatures descend at a rate of 60 feet per round and take no damage from falling.<br/><b>Sun and Storms.</b> While in its lair, the dragon can cast Con rol Weather, requiring no Material components and using the same spellcasting ability as mits Spellcasting action.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -2861,13 +2880,13 @@
         "damage_dice": "2d8 + 8"
       },
       {
-        "name": "Cold Breath (Recharge 5–6)",
+        "name": "Cold Breath (Recharge 5-6)",
         "description": "Constitution Saving Throw: DC 22, each creature in a 90-foot <strong>Cone</strong>. <strong>Failure:</strong> 63 (14d8) Cold damage. <strong>Success:</strong> Half damage.",
         "save_dc": 22,
         "save_type": "Constitution",
         "damage": "63 (14d8) Cold damage",
         "damage_dice": "14d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "legendary_actions": [
@@ -2892,6 +2911,7 @@
         "description": "The dragon moves up to half its Speed, and it makes one Rend attack."
       }
     ],
+    "lair_actions": "White dragons brood in bitterly cold lairs clawed from stone and ice.<br/><br/>The region containing an adult or ancient white dragon's lair is affected by its presence, creating the following effects:<br/><br/><b>Frigid Cold.</b> The area within 1 mile of the lair is an area of extreme cold. Any water in that area is frigid water. See the Dungeon Master's Guide for rules on extreme cold and frigid water.<br/><b>Glacial Gloom.</b> The area within 1 mile of the lair is Lightly Obscured by chilly fog. Whenever a creature other than the dragon or one of its allies finishes a Long Rest in that area, that creature must succeed on a DC 15 Constitution saving throw or have its Speed reduced by 10 feet for 1 hour.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/><br/>",
     "image": true
   },
   {
@@ -3721,7 +3741,8 @@
         "name": "Malicious Magic",
         "description": "The hag uses Spellcasting to cast <em>Dimension Door</em> or <em>Hypnotic Pattern</em>. The hag can't take this action again until the start of its next turn."
       }
-    ]
+    ],
+    "lair_actions": "Each arch-hag creates a magical home, such as a hidden demiplane, a mansion atop a storm cloud, or—in the case of the arch-hag Baba Yaga—a hut atop giant chicken legs. The interiors of these lairs frequently change or exhibit bewildering features.<br/><br/>The region containing an arch-hag's lair is altered by its presence, creating the following effects:<br/><br/><b>Lapsus Linguae.</b> Creatures (excluding the hag and its allies) within 1 mile of the lair subtract 1d10 from any ability checks they make when they take the Influence action.<br/><b>Meddlesome Magic.</b> Whenever a creature other than the hag or its allies finishes a Long Rest while within 1 mile of the lair, the next time that creature casts a spell using a spell slot, it also casts Confusion centered on itself. The spell uses the creature's spellcasting ability and doesn't require Concentration.<br/><br/>If the arch-hag is destroyed or moves its lair elsewhere, these effects end immediately.<br/><br/>Heh! People who know too much grow old before their time. Ask me your questions, but be certain that every secret has its cost.<br/>"
   },
   {
     "index": "archelon",
@@ -3951,13 +3972,13 @@
         "damage_dice": "4d10 + 5"
       },
       {
-        "name": "Holy Word (Recharge 4–6)",
+        "name": "Holy Word (Recharge 4-6)",
         "description": "Wisdom Saving Throw: DC 17, each enemy in a 20-foot <strong>Emanation</strong> originating from the archpriest. <strong>Failure:</strong> 21 (6d6) Radiant damage, and the target has the <strong>Stunned</strong> condition until the end of the archpriest's next turn. <strong>Success:</strong> Half damage only.",
         "save_dc": 17,
         "save_type": "Wisdom",
         "damage": "21 (6d6) Radiant damage",
         "damage_dice": "6d6",
-        "recharge": "4–6"
+        "recharge": "4-6"
       },
       {
         "name": "Spellcasting",
@@ -4810,13 +4831,13 @@
         "damage_dice": "2d4 + 3"
       },
       {
-        "name": "Blinding Flash (Recharge 4–6)",
+        "name": "Blinding Flash (Recharge 4-6)",
         "description": "Constitution Saving Throw: DC 14, each creature in a 10-foot-radius <strong>Sphere</strong> centered on a point the bandit can see within 120 feet. <strong>Failure:</strong> 13 (3d6 + 3) Radiant damage, and the target has the <strong>Blinded</strong> condition until the start of the bandit's next turn. <strong>Success:</strong> Half damage only.",
         "save_dc": 14,
         "save_type": "Constitution",
         "damage": "13 (3d6 + 3) Radiant damage",
         "damage_dice": "3d6 + 3",
-        "recharge": "4–6"
+        "recharge": "4-6"
       },
       {
         "name": "Spellcasting",
@@ -5235,11 +5256,11 @@
     ],
     "bonus_actions": [
       {
-        "name": "Petrifying Gaze (Recharge 4–6)",
+        "name": "Petrifying Gaze (Recharge 4-6)",
         "description": "Constitution Saving Throw: DC 12, each creature in a 30-foot <strong>Cone</strong>. If the basilisk sees its reflection in the Cone, the basilisk must make this save. First Failure: The target has the <strong>Restrained</strong> condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. Second Failure: The target has the <strong>Petrified</strong> condition instead of the Restrained condition.",
         "save_dc": 12,
         "save_type": "Constitution",
-        "recharge": "4–6"
+        "recharge": "4-6"
       }
     ],
     "image": true
@@ -5443,13 +5464,13 @@
         "damage_dice": "5d8 + 6"
       },
       {
-        "name": "Lightning Breath (Recharge 5–6)",
+        "name": "Lightning Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 16, each creature in a 90-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 66 (12d10) Lightning damage. <strong>Success:</strong> Half damage.",
         "save_dc": 16,
         "save_type": "Dexterity",
         "damage": "66 (12d10) Lightning damage",
         "damage_dice": "12d10",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [
@@ -5626,6 +5647,7 @@
         "description": "The beholder uses Eye Rays."
       }
     ],
+    "lair_actions":"Beholders lurk in cavern complexes they've carved using their eye rays deep in the Underdark or in lairs created for them by their servants.<br/><br/>The region containing a beholder's lair is twisted by its presence, creating the following effects:<br/><br/><b>Scopophobia.</b> Creatures within 1 mile of the lair feel as if they're being watched. Any creature (excluding the beholder and its allies) that finishes a Short Rest while within 1 mile of the lair must succeed on a DC 13 Wisdom saving throw or gain no benefit from that rest.<br/><b>Warping Terrain.</b> Minor warps in reality occur near the lair; any creature (excluding the beholder) within 1 mile of the lair that makes a D20 Test and rolls a 1 has the Prone condition.<br/><br/>If the beholder dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "image": true
   },
   {
@@ -5904,13 +5926,13 @@
         "damage_dice": "1d6 + 2"
       },
       {
-        "name": "Acid Breath (Recharge 5–6)",
+        "name": "Acid Breath (Recharge 5-6)",
         "description": "Dexterity Saving Throw: DC 11, each creature in a 15-foot-long, 5-foot-wide <strong>Line</strong>. <strong>Failure:</strong> 22 (5d8) Acid damage. <strong>Success:</strong> Half damage.",
         "save_dc": 11,
         "save_type": "Dexterity",
         "damage": "22 (5d8) Acid damage",
         "damage_dice": "5d8",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "artist": "MARTIN MOTTET"
@@ -6055,9 +6077,9 @@
     ],
     "bonus_actions": [
       {
-        "name": "Teleport (Recharge 4–6)",
+        "name": "Teleport (Recharge 4-6)",
         "description": "The dog teleports up to 40 feet to an unoccupied space it can see.",
-        "recharge": "4–6"
+        "recharge": "4-6"
       }
     ],
     "artist": "JOHN PATRICK GAÑAS"
@@ -6347,7 +6369,7 @@
         "save_type": "Dexterity",
         "damage": "21 (6d6) Lightning damage (half on success)",
         "damage_dice": "6d6",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "30-foot-long, 5-foot-wide Line"
       }
     ],
@@ -6821,7 +6843,7 @@
         "save_type": "Dexterity",
         "damage": "14 (4d6) Fire damage (half on success)",
         "damage_dice": "4d6",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "20-foot-long, 5-foot-wide Line"
       },
       {
@@ -6934,7 +6956,7 @@
         "damage": "13 (2d8 + 4) Piercing damage plus 13 (3d8) Fire damage",
         "damage_dice": "2d8 + 4 or 3d8",
         "damage_bonus": 4,
-        "recharge": "5–6",
+        "recharge": "5-6",
         "save_effect": "The target is pulled into the gorgon's space and has the Grappled condition (escape DC 14); if the gorgon already has a creature Grappled, the target has the Prone condition instead. Until the grapple ends, the target has the Restrained condition. When the gorgon moves, the Grappled target moves with it, costing no extra movement."
       }
     ],
@@ -7037,7 +7059,7 @@
         "save_type": "Dexterity",
         "damage": "16 (3d10) Lightning damage (half on success)",
         "damage_dice": "3d10",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "40-foot-long, 5-foot-wide Line"
       },
       {
@@ -8181,7 +8203,7 @@
         "damage": "7 (1d6 + 4) Bludgeoning damage",
         "damage_dice": "1d6 + 4",
         "damage_bonus": 4,
-        "recharge": "5–6",
+        "recharge": "5-6",
         "save_effect": "The target has the Prone condition."
       }
     ],
@@ -8294,7 +8316,7 @@
         "damage": "11 (2d6 + 4) Bludgeoning damage",
         "damage_dice": "2d6 + 4",
         "damage_bonus": 4,
-        "recharge": "5–6",
+        "recharge": "5-6",
         "save_effect": "The target has the Restrained condition until the end of its next turn."
       }
     ],
@@ -8625,7 +8647,7 @@
         "save_type": "Dexterity",
         "damage": "31 (7d8) Fire damage (half on success)",
         "damage_dice": "7d8",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "15-foot Cone"
       }
     ],
@@ -8846,7 +8868,7 @@
       {
         "name": "Hasten",
         "description": "The golem takes the <strong>Dash</strong> and <strong>Disengage</strong> actions.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "reactions": [],
@@ -9377,7 +9399,7 @@
         "save_type": "Dexterity",
         "damage": "65 (10d12) Radiant damage (half on success)",
         "damage_dice": "10d12",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "300-foot-long, 10-foot-wide Line",
         "save_effect": "Failure or Success: A creature reduced to 0 Hit Points by this beam disintegrates into dust, leaving behind any magic items it was wearing or carrying."
       }
@@ -9642,7 +9664,7 @@
         "save_type": "Dexterity",
         "damage": "18 (4d8) Acid damage (half on success)",
         "damage_dice": "4d8",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "20-foot-long, 5-foot-wide Line"
       },
       {
@@ -10392,7 +10414,7 @@
         "name": "Portent",
         "trigger": "The cyclops or an ally it can see makes a <strong>D20 Test</strong>.",
         "description": "The cyclops rolls 1d20 and chooses whether to use that roll in place of the d20 rolled for the D20 Test.",
-        "recharge": "4–6"
+        "recharge": "4-6"
       }
     ],
     "legendary_actions": [],
@@ -10990,7 +11012,7 @@
         "save_type": "Dexterity",
         "damage": "21 (6d6) Fire damage plus 21 (6d6) Necrotic damage (half on success)",
         "damage_dice": "6d6 or 6d6",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "120 feet",
         "save_effect": "Half damage"
       },
@@ -11111,7 +11133,7 @@
         "save_type": "Dexterity",
         "damage": "35 (10d6) Fire damage plus 35 (10d6) Necrotic damage (half on success)",
         "damage_dice": "10d6 or 10d6",
-        "recharge": "5–6",
+        "recharge": "5-6",
         "range": "120 feet",
         "save_effect": "Half damage"
       },
@@ -11380,7 +11402,7 @@
         "uses": 1
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Death tyrants often lurk deep in the Underdark, in the tunnel-mazes they occupied in life or in the lairs of enemy beholders they conquered. These lairs are devoid of life, as death tyrants change their servants into Undead horrors.<br/><br/>The region containing a death tyrant's lair is warped by its presence, creating the following effects:<br/><br/><b>Negative Energy Suffusion.</b> Whenever a creature within 1 mile of the lair regains Hit Points from a spell, it subtracts 1d10 from the number of Hit Points regained.<br/><b>Scopophobia.</b> Creatures within 1 mile of the lair feel as if they're being watched. Any creature (excluding the death tyrant and its allies) that finishes a Short Rest while within 1 mile of the lair must succeed on a DC 15 Wisdom saving throw or gain no benefit from that rest.<br/><br/>If the death tyrant dies or moves its lair elsewhere, these effects end immediately.<br/><br/>A cluster of tiny lights descended from a dark crevice in the ceiling. These motes cast an eerie glow on the great, alien skull that hung beneath them.<br/>",
     "book": "",
     "page": null,
     "legendary_resistance": 3,
@@ -11568,7 +11590,7 @@
         "damage_dice": "20d6",
         "range": "30-foot Emanation",
         "save_effect": "The target has the Frightened condition until the start of the demilich's next turn.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [],
@@ -11595,7 +11617,7 @@
         "uses": 1
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Demiliches jealously guard their deathtrap-laden sanctums. The most notorious of these is the Tomb of Horrors, lair of the infamous Acererak.<br/><br/>The region containing a demilich's lair is twisted by its presence, creating the following effects:<br/><br/><b>Enervating Domain.</b> Whenever a creature other than the demilich or one of its allies finishes a Long Rest within 1 mile of the lair, the creature must succeed on a DC 20 Constitution saving throw or have its Hit Point maximum reduced by 1d4. This reduction lasts until the creature finishes a Long Rest outside that area.<br/><b>Travel Ward.</b> Creatures can't use teleportation or planar travel to enter or exit the lair.<br/><br/>If the demilich dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "book": "",
     "page": null,
     "legendary_resistance": 3,
@@ -11883,7 +11905,7 @@
         "damage_dice": "8d8",
         "range": "30 feet",
         "save_effect": "The target has the Frightened condition until the start of the worg's next turn.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [
@@ -12330,7 +12352,7 @@
         "damage_dice": "8d12",
         "range": "60-foot Cone",
         "save_effect": "Half damage",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -12364,7 +12386,7 @@
         "save_effect": "The target has the Frightened condition until the end of its next turn."
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "A dracolich lurks in a corrupted version of the lair it had in life. The region containing a dracolich's lair is warped by its presence, creating the following effects:<br/><br/><b>Sapping Mist.</b> The area within 1 mile of the lair is Lightly Obscured by pale fog. Whenever a creature other than the dracolich or one of its allies finishes a Long Rest in that area, it must succeed on a DC 15 Constitution saving throw or gain 1 Exhaustion level.<br/><b>Soul Drain.</b> Creatures within 1 mile of the lair have Disadvantage on Death Saving Throws.<br/><br/>If the dracolich is destroyed or moves its lair elsewhere, these effects end immediately. The effects resume if the dracolich gains a new body (see its Soul Gem trait).<br/><br/>",
     "book": "",
     "page": null,
     "legendary_resistance": 3,
@@ -13362,7 +13384,7 @@
         "save_type": "Wisdom",
         "range": "15-foot Cone",
         "save_effect": "The target has the Incapacitated condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Incapacitated, the target uses all its movement on each of its turns to move in a random direction.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -13472,7 +13494,7 @@
         "save_type": "Wisdom",
         "range": "15-foot Cone",
         "save_effect": "The target has the Incapacitated condition until the end of its next turn and uses all its movement on its turn to move in a random direction.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -14386,7 +14408,7 @@
         "damage_dice": "6d6",
         "range": "120 feet",
         "save_effect": "The target gains 1 Exhaustion level.",
-        "recharge": "4–6"
+        "recharge": "4-6"
       }
     ],
     "bonus_actions": [],
@@ -14577,7 +14599,7 @@
       {
         "name": "War Cry",
         "description": "The giant or one creature of its choice that can see or hear it gains 16 (2d10 + 5) <strong>Temporary Hit Points</strong> and has Advantage on attack rolls until the start of the giant's next turn.",
-        "uses": "5–6"
+        "uses": "5-6"
       }
     ],
     "reactions": [],
@@ -17282,7 +17304,7 @@
         "save_type": "Dexterity",
         "range": "60 feet",
         "save_effect": "The target has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Poison and Psychic damage).",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [],
@@ -17946,7 +17968,7 @@
       },
       {
         "name": "Gibbering",
-        "description": "The mouther babbles incoherently while it doesn't have the <strong>Incapacitated</strong> condition. Wisdom Saving Throw: DC 10, any creature that starts its turn within 20 feet of the mouther while it is babbling. Failure: The target rolls 1d8 to determine what it does during the current turn:\n\n<strong>1–4.</strong> The target does nothing.\n\n<strong>5–6.</strong> The target takes no action or Bonus Action and uses all its movement to move in a random direction.\n\n<strong>7–8.</strong> The target makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack."
+        "description": "The mouther babbles incoherently while it doesn't have the <strong>Incapacitated</strong> condition. Wisdom Saving Throw: DC 10, any creature that starts its turn within 20 feet of the mouther while it is babbling. Failure: The target rolls 1d8 to determine what it does during the current turn:\n\n<strong>1-4.</strong> The target does nothing.\n\n<strong>5-6.</strong> The target takes no action or Bonus Action and uses all its movement to move in a random direction.\n\n<strong>7-8.</strong> The target makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack."
       }
     ],
     "actions": [
@@ -17968,7 +17990,7 @@
         "damage_dice": "2d6",
         "range": "30 feet",
         "save_effect": "The target has the Blinded condition until the end of the mouther's next turn.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [],
@@ -18065,7 +18087,7 @@
         "damage_dice": "6d8 or 6d8",
         "range": "90-foot Cone",
         "save_effect": "Half damage",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -18877,7 +18899,7 @@
         "damage_dice": "8d6",
         "range": "60 feet",
         "save_effect": "The gnoll or a creature of its choice it can see gains 10 Temporary Hit Points.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [
@@ -19062,7 +19084,7 @@
         "name": "Incite Rampage",
         "description": "The gnoll targets another creature it can see within 60 feet of itself that has the Rampage Bonus Action. The target can take a Reaction to make one melee attack.",
         "range": "60 feet",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [
@@ -19713,7 +19735,7 @@
         "damage_dice": "4d10",
         "range": "15-foot Cone",
         "save_effect": "Half damage",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Weakening Breath",
@@ -19808,7 +19830,7 @@
         "save_type": "Constitution",
         "range": "30-foot Cone",
         "save_effect": "First Failure: The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. Second Failure: The target has the Petrified condition instead of the Restrained condition.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [
@@ -20045,7 +20067,7 @@
         "save_type": "Wisdom",
         "range": "30-foot Emanation",
         "save_effect": "The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [],
@@ -21090,7 +21112,7 @@
     "traits": [
       {
         "name": "Blight Seeds",
-        "description": "When it finishes a Long Rest, the blight expels 1d6 seeds into unoccupied spaces on the ground within 30 feet of itself. After 24 hours, the seeds become creatures under the blight's control. Roll 1d8 for each seed to determine the creature it becomes: on 1–4, <strong>Twig Blight</strong>; on 5–6, <strong>Needle Blight</strong>; on 7–8, <strong>Vine Blight</strong>."
+        "description": "When it finishes a Long Rest, the blight expels 1d6 seeds into unoccupied spaces on the ground within 30 feet of itself. After 24 hours, the seeds become creatures under the blight's control. Roll 1d8 for each seed to determine the creature it becomes: on 1-4, <strong>Twig Blight</strong>; on 5-6, <strong>Needle Blight</strong>; on 7-8, <strong>Vine Blight</strong>."
       }
     ],
     "actions": [
@@ -21243,7 +21265,7 @@
         "damage_dice": "8d6",
         "range": "30-foot Cone",
         "save_effect": "Half damage",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [
@@ -21616,7 +21638,7 @@
         "damage_dice": "5d6",
         "range": "15-foot Cone",
         "save_effect": "Half damage",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "bonus_actions": [],
@@ -24868,7 +24890,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Kraken lairs tend to be sunken temples, eldritch ritual sites, or primeval places of divine power. They might lie deep beneath bodies of fresh or salt water, and they often connect to labyrinths of flooded subterranean tunnels or networks of magical portals.<br/><br/>The region containing a kraken's lair is twisted by its presence, creating the following effects:<br/><br/><b>Ocean Tyrant.</b> The kraken exerts its dominance over animals in its domain. All Beasts within 1 mile of the lair have the Charmed condition while in that area.<br/><b>Sea and Storms.</b> While in its lair, the kraken can cast C o n tr ol W e a th e r, requiring no spell components and using Intelligence as the spellcasting ability.<br/><br/>If the kraken dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Amphibious",
@@ -25880,7 +25902,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Liches create secluded libraries of magical lore and arcane laboratories hidden within extraplanar bastions, fortresses with cursed reputations, or other such deadly sanctuaries.<br/><br/>The region containing a lich's lair is warped by its presence, creating the following effects:<br/><br/><b>All-Seeing.</b> While in its lair, the lich can cast Clairvoyance, requiring no spell components and using the same spellcasting ability as its Spellcasting action.<br/><b>Inevitable Siphon.</b> Whenever a Humanoid dies within 1 mile of the lair, its soul is immediately consumed by the lich. A Humanoid whose soul is consumed in this way can be brought back to life only by a True Resurrection or Wish spell.<br/><br/>If the lich is destroyed or moves its lair elsewhere, these effects end immediately. These effects resume if the lich gains a new body (see its Spirit Jar trait).<br/><br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -29893,7 +29915,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Mummy lords typically lurk in the ruins of places they dwelled in life. Such sites have forbidding reputations, or they might be lost and forgotten.<br/><br/>The region containing a mummy lord's lair is warped by its presence, creating the following effects:<br/><br/><b>Cursed Fate.</b> Whenever a creature other than the mummy or one of its allies casts a Divination spell while within 1 mile of the lair, the creature makes a DC 15 Constitution saving throw. On a failed save, the spell dissipates with no effect, and the action, Bonus Action, or Reaction used to cast the spell is wasted, but any resources used to cast it aren't expended.<br/><b>Soul Drain.</b> Creatures within 1 mile of the lair have Disadvantage on Death Saving Throws.<br/><br/>If the mummy lord is destroyed or moves its lair elsewhere, these effects end immediately. The effects resume if the mummy lord gains a new body (see its Undead Restoration trait).<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -39899,7 +39921,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Shadow dragons lair in places of darkness and despair, such as accursed ruins, the depths of the Underdark, or the Shadowfell.<br/><br/>The region around a shadow dragons lair is twisted by its presence, creating the following effects:<br/><br/><b>Negative Energy Suffusion.</b> Whenever a creature within 1 mile of the lair regains Hit Points from a spell, it subtracts 1d10 from the number of Hit Points regained.<br/><b>Stifling Shadows.</b> Within 1 mile of the lair, effects that normally create Bright Light instead create Dim Light, and creatures there have Advantage on Dexterity (Stealth) checks.<br/><br/>If the dragon dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -40454,7 +40476,7 @@
         "damage": "18 (4d8)",
         "damage_dice": "4d8",
         "range": "15-foot Cone",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Paralyzing Breath",
@@ -41196,7 +41218,7 @@
         "damage": "35 (10d6)",
         "damage_dice": "10d6",
         "range": "300-foot Emanation",
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Spellcasting",
@@ -41220,7 +41242,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Sphinxes typically dwell in places that hold great knowledge or prophetic magic.<br/><br/>The region containing a sphinx of lore's or sphinx of valor's lair is altered by its presence, creating the following effects:<br/><br/><b>Distant Sight.</b> While in its lair, the sphinx can cast Clairvoyance, requiring no spell components and using the same spellcasting ability as its Spellcasting action. When cast this way, the spell's range is 1 mile.<br/><b>Infusion of Knowledge.</b> Whenever the sphinx or one of its allies takes a Study action while within 1 mile of the lair, it adds 1d6 to any ability check it makes for that action.<br/><br/>If the sphinx dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Inscrutable",
@@ -41335,8 +41357,6 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
-    "lair_actions": [],
     "traits": [
       {
         "name": "Inscrutable",
@@ -41486,7 +41506,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Sphinxes typically dwell in places that hold great knowledge or prophetic magic.<br/><br/>The region containing a sphinx of lore's or sphinx of valor's lair is altered by its presence, creating the following effects:<br/><br/><b>Distant Sight.</b> While in its lair, the sphinx can cast Clairvoyance, requiring no spell components and using the same spellcasting ability as its Spellcasting action. When cast this way, the spell's range is 1 mile.<br/><b>Infusion of Knowledge.</b> Whenever the sphinx or one of its allies takes a Study action while within 1 mile of the lair, it adds 1d6 to any ability check it makes for that action.<br/><br/>If the sphinx dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Inscrutable",
@@ -41591,8 +41611,6 @@
         "uses": "2/Day"
       }
     ],
-    "legendary_actions": [],
-    "lair_actions": [],
     "traits": [
       {
         "name": "Magic Resistance",
@@ -42476,7 +42494,7 @@
         "name": "Deflect Missile",
         "trigger": "The giant is hit by a ranged attack roll and takes Bludgeoning, Piercing, or Slashing damage from it.",
         "description": "The giant reduces the damage it takes from the attack by 11 (1d10 + 6), and if that damage is reduced to 0, the giant can redirect some of the attack's force. Dexterity Saving Throw: DC 17, one creature the giant can see within 60 feet. Failure: 11 (1d10 + 6) Force damage.",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "legendary_actions": [],
@@ -42562,7 +42580,7 @@
       {
         "name": "Slow",
         "description": "The golem casts the Slow spell, requiring no spell components and using Constitution as the spellcasting ability (spell save DC 17).",
-        "recharge": "5–6"
+        "recharge": "5-6"
       }
     ],
     "reactions": [],
@@ -43977,7 +43995,7 @@
       },
       {
         "name": "Reflective Carapace",
-        "description": "If the tarrasque is targeted by a Magic Missile spell or a spell that requires a ranged attack roll, roll 1d6. On a 1–5, the tarrasque is unaffected. On a 6, the tarrasque is unaffected and reflects the spell, turning the caster into the target."
+        "description": "If the tarrasque is targeted by a Magic Missile spell or a spell that requires a ranged attack roll, roll 1d6. On a 1-5, the tarrasque is unaffected. On a 6, the tarrasque is unaffected and reflects the spell, turning the caster into the target."
       },
       {
         "name": "Siege Monster",
@@ -45238,7 +45256,7 @@
       {
         "name": "Fiendish Guile",
         "description": "The ultroloth casts Dispel Magic, Invisibility (self only), Misty Step, or Suggestion, requiring no Material components and using the same spellcasting ability as Spellcasting.",
-        "recharge": "4–6"
+        "recharge": "4-6"
       }
     ],
     "reactions": [],
@@ -45338,7 +45356,7 @@
     "bonus_actions": [
       {
         "name": "Confusing Gaze",
-        "description": "Wisdom Saving Throw: DC 14, each creature in a 30-foot Cone. Failure: The target can't take Reactions until the start of the umber hulk's next turn, and the target rolls 1d8 to determine what it does on its next turn: 1–4. The target does nothing. 5–6. The target takes no action or Bonus Action and uses all its movement to move in a random direction. 7–8. The target makes a melee attack against a random creature within its reach or does nothing if it can't make such an attack.",
+        "description": "Wisdom Saving Throw: DC 14, each creature in a 30-foot Cone. Failure: The target can't take Reactions until the start of the umber hulk's next turn, and the target rolls 1d8 to determine what it does on its next turn: 1-4. The target does nothing. 5-6. The target takes no action or Bonus Action and uses all its movement to move in a random direction. 7-8. The target makes a melee attack against a random creature within its reach or does nothing if it can't make such an attack.",
         "save_dc": 14,
         "save_type": "Wisdom",
         "range": "30-foot Cone"
@@ -45458,7 +45476,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Unicorns dwell in unspoiled forests, particularly where benevolent Fey creatures live.<br/><br/>The region containing a unicorn's lair is changed by its presence, creating the following effects:<br/><br/><b>Obscuring Foliage.</b> The unicorn and its allies have Advantage on Dexterity (Stealth) checks while within 1 mile of the lair.<br/><b>Positive Energy.</b> Whenever a creature within 1 mile of the lair regains Hit Points from a spell, it regains the maximum number of Hit Points possible. Additionally, the effects of curses are suppressed within 1 mile of the lair.<br/><br/>If the unicorn dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -45928,7 +45946,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Vampires and vampire umbral lords create sanctuaries apart from the living, whether hidden in cosmopolitan cities or sequestered in ruins where they dwelled in life.<br/><br/>The region containing a vampire's lair is warped by its presence, creating the following effects:<br/><br/><b>Children of the Night.</b> The vampire exerts influence over the animals in its domain. From dusk until dawn, Medium or smaller Beasts have the Charmed condition while within 1 mile of the lair.<br/><b>Looming Shadows.</b> Shadows within 1 mile of the lair seem to move as if alive. Any creature (excluding the vampire and its allies) that finishes a Short Rest while within 1 mile of the lair must succeed on a DC 15 Wisdom saving throw or gain no benefit from that rest.<br/><b>Mists.</b> The area within 1 mile of the lair is Lightly Obscured by a persistent, creeping fog. The vampire and any creatures of its choice are unaffected by the fog.<br/><br/>If the vampire dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -46042,7 +46060,7 @@
         "name": "Charm",
         "description": "The vampire casts Charm Person, requiring no spell components and using Charisma as the spellcasting ability (spell save DC 17), and the duration is 24 hours. The Charmed target is a willing recipient of the vampire's Bite, the damage of which doesn't end the spell. When the spell ends, the target is unaware it was Charmed by the vampire.",
         "save_dc": 17,
-        "recharge": "5–6"
+        "recharge": "5-6"
       },
       {
         "name": "Shape-Shift",
@@ -46064,7 +46082,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Vampires and vampire umbral lords create sanctuaries apart from the living, whether hidden in cosmopolitan cities or sequestered in ruins where they dwelled in life.<br/><br/>The region containing a vampire's lair is warped by its presence, creating the following effects:<br/><br/><b>Children of the Night.</b> The vampire exerts influence over the animals in its domain. From dusk until dawn, Medium or smaller Beasts have the Charmed condition while within 1 mile of the lair.<br/><b>Looming Shadows.</b> Shadows within 1 mile of the lair seem to move as if alive. Any creature (excluding the vampire and its allies) that finishes a Short Rest while within 1 mile of the lair must succeed on a DC 15 Wisdom saving throw or gain no benefit from that rest.<br/><b>Mists.</b> The area within 1 mile of the lair is Lightly Obscured by a persistent, creeping fog. The vampire and any creatures of its choice are unaffected by the fog.<br/><br/>If the vampire dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
