@@ -166,13 +166,18 @@ function EquipmentItems() {
     }
 
     const filterByRuleVersion = (equipmentItem) => {
-        // If equipmentItem.rules does not exist, show the item
+        // If equipmentItem.rules does not exist, show the item (applies to all rule versions)
         if (!equipmentItem.rules) {
             return true;
         }
         
-        // If equipmentItem.rules exists and matches ruleVersion, show the item
+        // If equipmentItem.rules exists and matches ruleVersion, show the item.  Always show tools, just displayed differently based on ruleVersion
         if (equipmentItem.rules === ruleVersion) {
+            return true;
+        }
+        
+        // Always show tools, just displayed differently based on ruleVersion
+        if (equipmentItem.equipment_category === 'Tools') {
             return true;
         }
         
