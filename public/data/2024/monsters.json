@@ -25902,7 +25902,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Liches create secluded libraries of magical lore and arcane laboratories hidden within extraplanar bastions, fortresses with cursed reputations, or other such deadly sanctuaries.<br/><br/>The region containing a lich's lair is warped by its presence, creating the following effects:<br/><br/><b>All-Seeing.</b> While in its lair, the lich can cast Clairvoyance, requiring no spell components and using the same spellcasting ability as its Spellcasting action.<br/><b>Inevitable Siphon.</b> Whenever a Humanoid dies within 1 mile of the lair, its soul is immediately consumed by the lich. A Humanoid whose soul is consumed in this way can be brought back to life only by a True Resurrection or Wish spell.<br/><br/>If the lich is destroyed or moves its lair elsewhere, these effects end immediately. These effects resume if the lich gains a new body (see its Spirit Jar trait).<br/><br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -29915,7 +29915,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Mummy lords typically lurk in the ruins of places they dwelled in life. Such sites have forbidding reputations, or they might be lost and forgotten.<br/><br/>The region containing a mummy lord's lair is warped by its presence, creating the following effects:<br/><br/><b>Cursed Fate.</b> Whenever a creature other than the mummy or one of its allies casts a Divination spell while within 1 mile of the lair, the creature makes a DC 15 Constitution saving throw. On a failed save, the spell dissipates with no effect, and the action, Bonus Action, or Reaction used to cast the spell is wasted, but any resources used to cast it aren't expended.<br/><b>Soul Drain.</b> Creatures within 1 mile of the lair have Disadvantage on Death Saving Throws.<br/><br/>If the mummy lord is destroyed or moves its lair elsewhere, these effects end immediately. The effects resume if the mummy lord gains a new body (see its Undead Restoration trait).<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -41242,7 +41242,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Sphinxes typically dwell in places that hold great knowledge or prophetic magic.<br/><br/>The region containing a sphinx of lore's or sphinx of valor's lair is altered by its presence, creating the following effects:<br/><br/><b>Distant Sight.</b> While in its lair, the sphinx can cast Clairvoyance, requiring no spell components and using the same spellcasting ability as its Spellcasting action. When cast this way, the spell's range is 1 mile.<br/><b>Infusion of Knowledge.</b> Whenever the sphinx or one of its allies takes a Study action while within 1 mile of the lair, it adds 1d6 to any ability check it makes for that action.<br/><br/>If the sphinx dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Inscrutable",
@@ -41357,8 +41357,6 @@
     ],
     "bonus_actions": [],
     "reactions": [],
-    "legendary_actions": [],
-    "lair_actions": [],
     "traits": [
       {
         "name": "Inscrutable",
@@ -41508,7 +41506,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Sphinxes typically dwell in places that hold great knowledge or prophetic magic.<br/><br/>The region containing a sphinx of lore's or sphinx of valor's lair is altered by its presence, creating the following effects:<br/><br/><b>Distant Sight.</b> While in its lair, the sphinx can cast Clairvoyance, requiring no spell components and using the same spellcasting ability as its Spellcasting action. When cast this way, the spell's range is 1 mile.<br/><b>Infusion of Knowledge.</b> Whenever the sphinx or one of its allies takes a Study action while within 1 mile of the lair, it adds 1d6 to any ability check it makes for that action.<br/><br/>If the sphinx dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Inscrutable",
@@ -41613,8 +41611,6 @@
         "uses": "2/Day"
       }
     ],
-    "legendary_actions": [],
-    "lair_actions": [],
     "traits": [
       {
         "name": "Magic Resistance",
@@ -45480,7 +45476,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Unicorns dwell in unspoiled forests, particularly where benevolent Fey creatures live.<br/><br/>The region containing a unicorn's lair is changed by its presence, creating the following effects:<br/><br/><b>Obscuring Foliage.</b> The unicorn and its allies have Advantage on Dexterity (Stealth) checks while within 1 mile of the lair.<br/><b>Positive Energy.</b> Whenever a creature within 1 mile of the lair regains Hit Points from a spell, it regains the maximum number of Hit Points possible. Additionally, the effects of curses are suppressed within 1 mile of the lair.<br/><br/>If the unicorn dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -45950,7 +45946,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Vampires and vampire umbral lords create sanctuaries apart from the living, whether hidden in cosmopolitan cities or sequestered in ruins where they dwelled in life.<br/><br/>The region containing a vampire's lair is warped by its presence, creating the following effects:<br/><br/><b>Children of the Night.</b> The vampire exerts influence over the animals in its domain. From dusk until dawn, Medium or smaller Beasts have the Charmed condition while within 1 mile of the lair.<br/><b>Looming Shadows.</b> Shadows within 1 mile of the lair seem to move as if alive. Any creature (excluding the vampire and its allies) that finishes a Short Rest while within 1 mile of the lair must succeed on a DC 15 Wisdom saving throw or gain no benefit from that rest.<br/><b>Mists.</b> The area within 1 mile of the lair is Lightly Obscured by a persistent, creeping fog. The vampire and any creatures of its choice are unaffected by the fog.<br/><br/>If the vampire dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
@@ -46086,7 +46082,7 @@
         "recharge": false
       }
     ],
-    "lair_actions": [],
+    "lair_actions": "Vampires and vampire umbral lords create sanctuaries apart from the living, whether hidden in cosmopolitan cities or sequestered in ruins where they dwelled in life.<br/><br/>The region containing a vampire's lair is warped by its presence, creating the following effects:<br/><br/><b>Children of the Night.</b> The vampire exerts influence over the animals in its domain. From dusk until dawn, Medium or smaller Beasts have the Charmed condition while within 1 mile of the lair.<br/><b>Looming Shadows.</b> Shadows within 1 mile of the lair seem to move as if alive. Any creature (excluding the vampire and its allies) that finishes a Short Rest while within 1 mile of the lair must succeed on a DC 15 Wisdom saving throw or gain no benefit from that rest.<br/><b>Mists.</b> The area within 1 mile of the lair is Lightly Obscured by a persistent, creeping fog. The vampire and any creatures of its choice are unaffected by the fog.<br/><br/>If the vampire dies or moves its lair elsewhere, these effects end immediately.<br/>",
     "traits": [
       {
         "name": "Legendary Resistance",
