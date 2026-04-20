@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../data/utils';
 
-function RulesItem({ rule, expand = false, onExpand }) {
+function RulesItem({ rule, expand = false, onExpand, ruleVersion }) {
     const [shownSubsection, setShownSubsection] = useState(null);
 
     // Reset inner cards when parent collapses to ensure they start contracted

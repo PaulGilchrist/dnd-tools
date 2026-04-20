@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useRules } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
+import { useRuleVersion } from '../../context/RuleVersionContext';
 import RulesItem from './RulesItem';
 
 function GeneralRules() {
+    const { ruleVersion } = useRuleVersion();
     const [rules, setRules] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const location = useLocation();
@@ -54,6 +56,46 @@ function GeneralRules() {
         }
     };
 
+    const filterByRuleVersion = (rule) => {
+        // If rule.rules does not exist, show the item
+        if (!rule.rules) {
+            return true;
+        }
+        
+        // If rule.rules exists and matches ruleVersion, show the item
+        if (rule.rules === ruleVersion) {
+            return true;
+        }
+        
+        // If rule.rules exists but does not match ruleVersion, skip the item
+        return false;
+    };
+
+    const filterSubsections = (rule) => {
+        if (!rule.subsections) return rule;
+        
+        const filteredSubsections = rule.subsections.filter((subsection) => {
+            // If subsection.rules does not exist, show the item
+            if (!subsection.rules) {
+                return true;
+            }
+            
+            // If subsection.rules exists and matches ruleVersion, show the item
+            if (subsection.rules === ruleVersion) {
+                return true;
+            }
+            
+            // If subsection.rules exists but does not match ruleVersion, skip the item
+            return false;
+        });
+        
+        return { ...rule, subsections: filteredSubsections };
+    };
+
+    const filteredRules = rules
+        .filter(filterByRuleVersion)
+        .map(filterSubsections);
+
     if (rulesLoading) {
         return <div className="list"><div>Loading rules...</div></div>;
     }
@@ -61,12 +103,13 @@ function GeneralRules() {
     return (
         <>
             <div className="list">
-                {rules.map((rule) => (
+                {filteredRules.map((rule) => (
                     <div key={rule.index} id={rule.index}>
                         <RulesItem
                             rule={rule}
                             expand={shownCard === rule.index}
                             onExpand={(expanded) => expandCard(rule.index, expanded)}
+                            ruleVersion={ruleVersion}
                         />
                     </div>
                 ))}
