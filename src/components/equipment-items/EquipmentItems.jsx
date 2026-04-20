@@ -165,7 +165,24 @@ function EquipmentItems() {
         return <div className="list"><div>Loading equipment...</div></div>;
     }
 
-    const filteredItems = equipmentItems.filter(showEquipmentItem);
+    const filterByRuleVersion = (equipmentItem) => {
+        // If equipmentItem.rules does not exist, show the item
+        if (!equipmentItem.rules) {
+            return true;
+        }
+        
+        // If equipmentItem.rules exists and matches ruleVersion, show the item
+        if (equipmentItem.rules === ruleVersion) {
+            return true;
+        }
+        
+        // If equipmentItem.rules exists but does not match ruleVersion, skip the item
+        return false;
+    };
+
+    const filteredItems = equipmentItems
+        .filter(showEquipmentItem)
+        .filter(filterByRuleVersion);
 
     return (
         <>

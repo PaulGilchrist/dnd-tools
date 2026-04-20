@@ -3147,7 +3147,7 @@
     "weight": 10
   },
   {
-    "index": "potion-of-healing",
+    "index": "potion-of-healing-5e",
     "name": "Potion of healing",
     "equipment_category": "Adventuring Gear",
     "gear_category": "Standard Gear",
@@ -3158,7 +3158,23 @@
     "weight": 0.5,
     "desc": [
       "A character who drinks the magical red fluid in this vial regains 2d4 + 2 hit points. Drinking or administering a potion takes an action."
-    ]
+    ],
+    "rules": "5e"
+  },
+  {
+    "index": "potion-of-healing-2024",
+    "name": "Potion of healing",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "desc": [
+      "This potion is a magic item. As a Bonus Action, you can drink it or administer it to another creature within 5 feet of yourself. The creature that drinks the magical red fluid in this vial regains 2d4 + 2 Hit Points."
+    ],
+    "rules": "2024"
   },
   {
     "index": "potters-tools",
