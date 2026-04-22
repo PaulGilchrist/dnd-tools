@@ -3,8 +3,8 @@ name: Coding Standards
 description: Coding Standards
 ---
 
-- JavaScript will be used rather than TypeScript.
-- Match existing folder structure standards.
+- Use JavaScript, not TypeScript.
+- Match the existing folder structure.
 - NEVER use inline styles.
-- NEVER use !important in CSS
-- Use existing global CSS where possible to maintain standard look and feel.  Any componnet specific css classes should be named beginning with the component name and be in a component specific css file matching the componnet file name.  Ex: file=component.css, class=.component-className
+- NEVER use !important in CSS.
+- You MUST avoid new CSS, using only existing styles.  If you feel a new style is needed, you MUST explain why and get permission before proceeding.
