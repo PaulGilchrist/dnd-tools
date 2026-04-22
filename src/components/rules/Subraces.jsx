@@ -57,7 +57,7 @@ function Subraces({ subraces }) {
                 {subrace.ability_bonuses && subrace.ability_bonuses.length > 0 && (
                     <div className="subraces-subrace-info">
                         <b>Ability Bonuses:</b>&nbsp;
-                        {subrace.ability_bonuses.map(bonus => 
+                        {subrace.ability_bonuses.map(bonus =>
                             <span key={bonus.ability_score}>{bonus.ability_score} +{bonus.bonus}, </span>
                         )}
                     </div>
@@ -98,7 +98,7 @@ function Subraces({ subraces }) {
                         <b>Special Options:</b><br />
                         {subrace.racial_traits.map((trait, idx) => (
                             <div key={idx}>
-                                {trait.name}: 
+                                {trait.name}:
                                 {trait.desc && (Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc)}
                             </div>
                         ))}
