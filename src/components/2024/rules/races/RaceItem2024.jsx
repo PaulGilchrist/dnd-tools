@@ -100,6 +100,40 @@ function RaceItem2024({ race, expand, onExpand }) {
         return [...traitsWithDetailsContent, ...traitsWithoutDetailsContent];
     };
 
+    const getSubraces = () => {
+        if (!race.subraces || race.subraces.length === 0) {
+            return null;
+        }
+
+        return race.subraces.map((subrace, idx) => {
+            const subraceName = subrace.name || `Subrace ${idx + 1}`;
+            const subraceDesc = subrace.description || subrace.desc || '';
+            
+            return (
+                <div key={idx} className="raceItem2024-subrace-item">
+                    <span className="raceItem2024-subrace-name">{subraceName}</span>
+                    {subraceDesc && (
+                        <div className="raceItem2024-subrace-description">
+                            <div dangerouslySetInnerHTML={{ __html: subraceDesc }} />
+                        </div>
+                    )}
+                </div>
+            );
+        });
+    };
+
+    const getRaceDescription = () => {
+        if (!race.description) {
+            return null;
+        }
+        
+        return (
+            <div className="raceItem2024-description-section">
+                <div dangerouslySetInnerHTML={{ __html: race.description }} />
+            </div>
+        );
+    };
+
     if (!race) {
         return null;
     }
@@ -121,6 +155,13 @@ function RaceItem2024({ race, expand, onExpand }) {
 
             {expand && (
                 <div className="card-body">
+                    {/* Race Description */}
+                    {getRaceDescription() && (
+                        <div className="raceItem2024-description-section">
+                            {getRaceDescription()}
+                        </div>
+                    )}
+
                     {/* Basic Information */}
                     <div>
                         {getAbilityBonuses() && (
@@ -165,6 +206,14 @@ function RaceItem2024({ race, expand, onExpand }) {
                         <div className="raceItem2024-section-divider">
                             <h5>Racial Traits</h5>
                             {getTraits()}
+                        </div>
+                    )}
+
+                    {/* Subraces (2024 format - stored in subraces array) */}
+                    {getSubraces() && (
+                        <div className="raceItem2024-section-divider">
+                            <h5>Subraces</h5>
+                            {getSubraces()}
                         </div>
                     )}
 

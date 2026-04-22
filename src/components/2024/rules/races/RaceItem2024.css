@@ -135,3 +135,29 @@
     font-style: italic;
     margin-top: 3px;
 }
+
+/* Race description and subraces */
+.raceItem2024-description-section {
+    margin-bottom: 15px;
+}
+
+.raceItem2024-subrace-item {
+    margin-bottom: 12px;
+    padding: 10px;
+    background-color: var(--background-color-header-inner);
+    border-left: 3px solid var(--color-header);
+    border-radius: 4px;
+}
+
+.raceItem2024-subrace-name {
+    font-weight: bold;
+    font-size: 1.05em;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-header);
+}
+
+.raceItem2024-subrace-description {
+    margin-top: 5px;
+    color: var(--color-body);
+}
