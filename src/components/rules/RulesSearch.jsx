@@ -107,12 +107,7 @@ function RulesSearch({ rules, ruleVersion }) {
         }
     }, [matches]);
 
-        // Scroll to match when highlightIndex changes
-    useEffect(() => {
-        if (highlightIndex >= 0 && highlightIndex < matches.length) {
-            scrollToMatch(highlightIndex);
-        }
-    }, [highlightIndex, matches, scrollToMatch]);
+        // Removed auto-scroll on every keystroke - only scroll when user explicitly navigates
 
         // Navigate to next/previous match
     const navigateToMatch = useCallback((direction) => {

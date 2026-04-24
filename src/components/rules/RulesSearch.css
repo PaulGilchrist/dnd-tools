@@ -1,12 +1,20 @@
-/* Rules Search Container */
+/* Rules Search Wrapper - keeps search bar sticky at top */
+.rules-search-wrapper {
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color-body);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Rules Search Container - the actual search input area */
 .rules-search-container {
     position: sticky;
     top: 0;
     background-color: var(--background-color-body);
     padding: 10px;
-    z-index: 1000;
+    z-index: 1001;
     border-bottom: 2px solid var(--border);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-input-wrapper {
@@ -62,7 +70,7 @@
     justify-content: center;
 }
 
-/* Flow Container */
+
 .rules-flow-container {
     max-width: 900px;
     margin: 0 auto;
@@ -168,7 +176,7 @@ mark.search-highlight {
     }
     
     .rules-flow-container {
-        padding: 10px 5px;
+        padding: 20px 5px;
     }
     
     .rules-flow-item {
@@ -197,43 +205,4 @@ mark.search-highlight {
 
 .rules-flow-item.highlighted-rule {
     animation: pulseHighlight 1s ease-in-out;
-}
-
-/* Additional styles for sticky search bar */
-.rules-search-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--background-color-body);
-    padding: 10px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Rules Search Wrapper - keeps everything sticky */
-.rules-search-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--background-color-body);
-}
-
-/* Ensure the search container stays at the top */
-.rules-search-container {
-    position: sticky;
-    top: 0;
-    background-color: var(--background-color-body);
-    padding: 10px;
-    z-index: 1001;
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation buttons should also be sticky */
-.rules-navigation {
-    position: sticky;
-    top: 60px; /* Below the search input */
-    z-index: 1000;
-    background-color: var(--background-color-body);
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
