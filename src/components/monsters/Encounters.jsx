@@ -78,14 +78,38 @@ function Encounters() {
     }, [effectiveXP, totalThreshold]);
 
     const filteredMonsters = useMemo(() => {
-        if (!monstersData || !searchQuery) return monstersData || [];
-        const query = searchQuery.toLowerCase();
-        return monstersData.filter(monster => 
-            monster.name.toLowerCase().includes(query) ||
-            (monster.type && monster.type.toLowerCase().includes(query)) ||
-            (monster.subtype && monster.subtype.toLowerCase().includes(query))
-        );
-    }, [monstersData, searchQuery]);
+        if (!monstersData) return [];
+        
+        // Calculate the max XP threshold (2x the selected difficulty threshold)
+        let maxXP = 0;
+        filter.playerLevels.forEach(pl => {
+            const levelIndex = parseInt(pl);
+            if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
+                maxXP += xpThresholds[levelIndex][filter.difficulty];
+            }
+        });
+        maxXP *= 2;
+        
+        // Always filter from the full monster list, not a previously filtered list
+        let result = monstersData.filter(monster => {
+            // Filter out monsters more than double the recommended difficulty
+            if (monster.xp > maxXP) {
+                return false;
+            }
+            
+            // Apply search query filter
+            if (searchQuery) {
+                const query = searchQuery.toLowerCase();
+                return monster.name.toLowerCase().includes(query) ||
+                    (monster.type && monster.type.toLowerCase().includes(query)) ||
+                    (monster.subtype && monster.subtype.toLowerCase().includes(query));
+            }
+            
+            return true;
+        });
+        
+        return result;
+    }, [monstersData, searchQuery, filter.playerLevels, filter.difficulty]);
 
     const isSelected = (monsterIndex) => {
         return selectedMonsters.some(m => m.index === monsterIndex);
@@ -250,7 +274,7 @@ function Encounters() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredMonsters.slice(0, 50).map((monster) => (
+                                {filteredMonsters.map((monster) => (
                                     <tr 
                                         key={monster.index}
                                         className={`monster-row ${isSelected(monster.index) ? 'selected' : ''}`}
@@ -282,9 +306,7 @@ function Encounters() {
                                 ))}
                             </tbody>
                         </table>
-                        {filteredMonsters.length > 50 && (
-                            <div className="text-center text-muted small mt-1">Showing 50 of {filteredMonsters.length} monsters</div>
-                        )}
+                        
                     </div>
                 )}
                 
