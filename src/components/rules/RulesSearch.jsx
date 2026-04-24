@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { highlightText, ruleMatchesSearch } from './RuleSearchUtils';
 import './RulesSearch.css';
@@ -49,8 +49,8 @@ function RulesSearch({ rules, ruleVersion }) {
         return flatList;
     }, []);
 
-    // Get flattened rules
-    const flatRules = flattenRules(rules || []);
+    // Get flattened rules - memoized to prevent infinite loop
+    const flatRules = useMemo(() => flattenRules(rules || []), [rules, flattenRules]);
 
     // Find all matches in the flattened rules
     useEffect(() => {
