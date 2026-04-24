@@ -1,0 +1,239 @@
+/* Rules Search Container */
+.rules-search-container {
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color-body);
+    padding: 10px;
+    z-index: 1000;
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-input-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rules-search-input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    background-color: var(--background-color-body);
+    color: var(--color-body);
+}
+
+.rules-search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+}
+
+.match-counter {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Navigation Buttons */
+.rules-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.rules-navigation .btn {
+    min-width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flow Container */
+.rules-flow-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.rules-flow-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--background-color-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rules-flow-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rules-flow-item.has-matches {
+    border-left: 4px solid var(--accent);
+}
+
+.rules-flow-item.highlighted-rule {
+    background-color: rgba(var(--accent-rgb), 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3);
+}
+
+.rules-flow-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-header);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+}
+
+/* Subsection Styles */
+.subsection-content {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+}
+
+.subsection-content.has-matches {
+    background-color: rgba(var(--accent-rgb), 0.05);
+}
+
+.subsection-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-header);
+    margin-bottom: 10px;
+}
+
+.subsection-desc {
+    line-height: 1.6;
+    color: var(--color-body);
+}
+
+.subsection-page {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Highlight Styles */
+mark.search-highlight {
+    background-color: #ffd700;
+    color: #000;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(255, 215, 0, 0.5);
+}
+
+.rules-flow-item.highlighted-rule mark.search-highlight {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+/* Empty State */
+.empty-search-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+    font-size: 16px;
+}
+
+.empty-search-results p {
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rules-search-container {
+        padding: 8px;
+    }
+    
+    .rules-flow-container {
+        padding: 10px 5px;
+    }
+    
+    .rules-flow-item {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .rules-flow-title {
+        font-size: 20px;
+    }
+    
+    .subsection-content {
+        padding: 10px;
+    }
+}
+
+/* Animation for highlighted item */
+@keyframes pulseHighlight {
+    0%, 100% {
+        box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.5);
+    }
+}
+
+.rules-flow-item.highlighted-rule {
+    animation: pulseHighlight 1s ease-in-out;
+}
+
+/* Additional styles for sticky search bar */
+.rules-search-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background-color-body);
+    padding: 10px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Rules Search Wrapper - keeps everything sticky */
+.rules-search-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--background-color-body);
+}
+
+/* Ensure the search container stays at the top */
+.rules-search-container {
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color-body);
+    padding: 10px;
+    z-index: 1001;
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation buttons should also be sticky */
+.rules-navigation {
+    position: sticky;
+    top: 60px; /* Below the search input */
+    z-index: 1000;
+    background-color: var(--background-color-body);
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
