@@ -1,7 +1,7 @@
 /* Rules Search Wrapper - keeps search bar sticky at top */
 .rules-search-wrapper {
     position: sticky;
-    top: 0;
+    top: 61px;
     background-color: var(--background-color-body);
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@
 /* Rules Search Container - the actual search input area */
 .rules-search-container {
     position: sticky;
-    top: 0;
+    top: 61px;
     background-color: var(--background-color-body);
     padding: 10px;
     z-index: 1001;

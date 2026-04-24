@@ -10,12 +10,12 @@ function RulesSearch({ rules, ruleVersion }) {
     const [matches, setMatches] = useState([]);
     const containerRef = useRef(null);
 
-        // Flatten all rules and subsections into a single list
+    // Flatten all rules and subsections into a single list
     const flattenRules = useCallback((rules) => {
         const flatList = [];
         
         rules.forEach((rule, ruleIdx) => {
-             // Add the main rule
+            // Add the main rule
             flatList.push({
                 type: 'rule',
                 index: rule.index,
@@ -24,10 +24,10 @@ function RulesSearch({ rules, ruleVersion }) {
                 ruleIdx: ruleIdx
             });
             
-             // Add all subsections
+            // Add all subsections
             if (rule.subsections) {
                 rule.subsections.forEach((sub, subIdx) => {
-                     // Filter by rule version
+                    // Filter by rule version
                     if (sub.rules && sub.rules !== ruleVersion) {
                         return;
                     }
@@ -49,10 +49,10 @@ function RulesSearch({ rules, ruleVersion }) {
         return flatList;
     }, []);
 
-        // Get flattened rules
+    // Get flattened rules
     const flatRules = flattenRules(rules || []);
 
-        // Find all matches in the flattened rules
+    // Find all matches in the flattened rules
     useEffect(() => {
         if (flatRules.length === 0) {
             setMatches([]);
@@ -68,7 +68,7 @@ function RulesSearch({ rules, ruleVersion }) {
 
         const allMatches = [];
         flatRules.forEach((item, idx) => {
-             // Check name
+            // Check name
             if (item.name && item.name.toLowerCase().includes(searchText.toLowerCase())) {
                 allMatches.push({ 
                     index: idx, 
@@ -78,7 +78,7 @@ function RulesSearch({ rules, ruleVersion }) {
                 });
             }
             
-             // Check desc
+            // Check desc
             if (item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase())) {
                 allMatches.push({ 
                     index: idx, 
@@ -93,23 +93,40 @@ function RulesSearch({ rules, ruleVersion }) {
         setHighlightIndex(allMatches.length > 0 ? 0 : -1);
     }, [flatRules, searchText]);
 
-        // Scroll to match
+    // Scroll to match
     const scrollToMatch = useCallback((index) => {
         if (index < 0 || index >= matches.length) return;
         
         const match = matches[index];
         if (!match) return;
         
-         // Scroll to the element with the rule index
+        // Scroll to the element with the rule index
         const element = document.getElementById(match.ruleIndex);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Get the sticky header height
+            const header = document.querySelector('.rules-search-container');
+            const headerHeight = header ? header.offsetHeight : 80;
+            
+            // Calculate the element's position relative to the document
+            const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+            
+            // Calculate the target scroll position
+            // We want the element to appear just below the sticky header
+            // The sticky header is at 61px from top (accounting for fixed NavTop)
+            // So we need: elementTop - headerHeight
+            const targetScroll = elementTop - headerHeight;
+            
+            // Scroll to the target position
+            window.scrollTo({
+                top: Math.max(0, targetScroll),
+                behavior: 'smooth'
+            });
         }
     }, [matches]);
 
-        // Removed auto-scroll on every keystroke - only scroll when user explicitly navigates
+    // Removed auto-scroll on every keystroke - only scroll when user explicitly navigates
 
-        // Navigate to next/previous match
+    // Navigate to next/previous match
     const navigateToMatch = useCallback((direction) => {
         if (matches.length === 0) return;
         
@@ -118,12 +135,13 @@ function RulesSearch({ rules, ruleVersion }) {
         if (newIndex >= matches.length) newIndex = 0;
         
         setHighlightIndex(newIndex);
-    }, [highlightIndex, matches.length]);
+        scrollToMatch(newIndex);
+    }, [highlightIndex, matches.length, scrollToMatch]);
 
-        // Handle keyboard navigation
+    // Handle keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e) => {
-                // Only handle if search input is not focused
+            // Only handle if search input is not focused
             if (document.activeElement && (document.activeElement.tagName === 'INPUT' || 
                 document.activeElement.tagName === 'TEXTAREA' ||
                 document.activeElement.tagName === 'SELECT')) {
@@ -137,7 +155,7 @@ function RulesSearch({ rules, ruleVersion }) {
                 e.preventDefault();
                 navigateToMatch(-1);
             } else if (e.key === 'Escape') {
-                    // Clear search
+                // Clear search
                 setSearchText('');
                 const input = document.querySelector('.rules-search-input');
                 if (input) input.blur();
@@ -148,7 +166,7 @@ function RulesSearch({ rules, ruleVersion }) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [navigateToMatch]);
 
-        // Handle rule click to navigate
+    // Handle rule click to navigate
     const handleRuleClick = (ruleIndex) => {
         navigate(`/rules/general?index=${ruleIndex}`);
     };
@@ -158,32 +176,31 @@ function RulesSearch({ rules, ruleVersion }) {
     }
 
     return (
-            <div className="rules-search-wrapper">
-                <div className="rules-search-container">
-                    <div className="search-input-wrapper">
-                        <input
+        <div className="rules-search-wrapper">
+            <div className="rules-search-container">
+                <div className="search-input-wrapper">
+                    <input
                         type="text"
                         className="form-control rules-search-input"
                         placeholder="Search all rules..."
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                         autoFocus
-                        />
-                        {matches.length > 0 && (
-                            <div className="match-counter">
-                                {highlightIndex + 1} of {matches.length}
-                            </div>
-                        )}
-                    </div>
+                    />
+                    {matches.length > 0 && (
+                        <div className="match-counter">
+                            {highlightIndex + 1} of {matches.length}
+                        </div>
+                    )}
                 </div>
                 
-                {/* Navigation Buttons */}
+                {/* Navigation Buttons - inside sticky container */}
                 {matches.length > 0 && (
                     <div className="rules-navigation">
                         <button
-                        className="btn btn-secondary btn-sm"
-                        onClick={() => navigateToMatch(-1)}
-                        title="Previous match (Alt+Up)"
+                            className="btn btn-secondary btn-sm"
+                            onClick={() => navigateToMatch(-1)}
+                            title="Previous match (Alt+Up)"
                         >
                             ▲
                         </button>
@@ -191,86 +208,87 @@ function RulesSearch({ rules, ruleVersion }) {
                             {highlightIndex + 1} / {matches.length}
                         </span>
                         <button
-                        className="btn btn-secondary btn-sm"
-                        onClick={() => navigateToMatch(1)}
-                        title="Next match (Alt+Down)"
+                            className="btn btn-secondary btn-sm"
+                            onClick={() => navigateToMatch(1)}
+                            title="Next match (Alt+Down)"
                         >
                             ▼
                         </button>
                     </div>
                 )}
-                
-                {/* Rules List - Flat Flow */}
-                <div className="rules-flow-container" ref={containerRef}>
-                    {flatRules.map((item, idx) => {
-                        const isHighlighted = matches.some(m => m.index === idx);
-                        
-                        return (
-                            <div
-                                key={`${item.type}-${item.index}`}
-                                id={item.index}
-                                className={`rules-flow-item ${isHighlighted ? 'highlighted-rule' : ''}`}
-                                onClick={() => handleRuleClick(item.index)}
-                            >
-                                {item.type === 'rule' && (
-                                    <>
-                                        <h2 className="rules-flow-title">
-                                            {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                <span dangerouslySetInnerHTML={{ __html: highlightText(item.name, searchText) }} />
-                                            ) : (
-                                                item.name
-                                            )}
-                                        </h2>
-                                        {item.desc && (
-                                            <div className="rules-flow-desc">
-                                                {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                    <span dangerouslySetInnerHTML={{ __html: highlightText(item.desc, searchText) }} />
-                                                ) : (
-                                                    <div dangerouslySetInnerHTML={{ __html: item.desc }} />
-                                                )}
-                                            </div>
-                                        )}
-                                    </>
-                                )}
-                                
-                                {item.type === 'subsection' && (
-                                    <>
-                                        <h3 className="subsection-title">
-                                            {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                <span dangerouslySetInnerHTML={{ __html: highlightText(item.name, searchText) }} />
-                                            ) : (
-                                                item.name
-                                            )}
-                                        </h3>
-                                        {item.desc && (
-                                            <div className="subsection-desc">
-                                                {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                    <span dangerouslySetInnerHTML={{ __html: highlightText(item.desc, searchText) }} />
-                                                ) : (
-                                                    <div dangerouslySetInnerHTML={{ __html: item.desc }} />
-                                                )}
-                                            </div>
-                                        )}
-                                        {item.page && (
-                                            <div className="subsection-page">
-                                                {item.book} (page {item.page})
-                                            </div>
-                                        )}
-                                    </>
-                                )}
-                            </div>
-                        );
-                    })}
-                </div>
-                
-                {/* Empty State */}
-                {matches.length === 0 && searchText && (
-                    <div className="empty-search-results">
-                        <p>No rules found matching "{searchText}"</p>
-                    </div>
-                )}
             </div>
-        );
+            
+            {/* Rules List - Flat Flow */}
+            <div className="rules-flow-container" ref={containerRef}>
+                {flatRules.map((item, idx) => {
+                    const isHighlighted = matches.some(m => m.index === idx);
+                    
+                    return (
+                        <div
+                            key={`${item.type}-${item.index}`}
+                            id={item.index}
+                            className={`rules-flow-item ${isHighlighted ? 'highlighted-rule' : ''}`}
+                            onClick={() => handleRuleClick(item.index)}
+                        >
+                            {item.type === 'rule' && (
+                                <>
+                                    <h2 className="rules-flow-title">
+                                        {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
+                                            <span dangerouslySetInnerHTML={{ __html: highlightText(item.name, searchText) }} />
+                                        ) : (
+                                            item.name
+                                        )}
+                                    </h2>
+                                    {item.desc && (
+                                        <div className="rules-flow-desc">
+                                            {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
+                                                <span dangerouslySetInnerHTML={{ __html: highlightText(item.desc, searchText) }} />
+                                            ) : (
+                                                <div dangerouslySetInnerHTML={{ __html: item.desc }} />
+                                            )}
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                            
+                            {item.type === 'subsection' && (
+                                <>
+                                    <h3 className="subsection-title">
+                                        {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
+                                            <span dangerouslySetInnerHTML={{ __html: highlightText(item.name, searchText) }} />
+                                        ) : (
+                                            item.name
+                                        )}
+                                    </h3>
+                                    {item.desc && (
+                                        <div className="subsection-desc">
+                                            {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
+                                                <span dangerouslySetInnerHTML={{ __html: highlightText(item.desc, searchText) }} />
+                                            ) : (
+                                                <div dangerouslySetInnerHTML={{ __html: item.desc }} />
+                                            )}
+                                        </div>
+                                    )}
+                                    {item.page && (
+                                        <div className="subsection-page">
+                                            {item.book} (page {item.page})
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
+            
+            {/* Empty State */}
+            {matches.length === 0 && searchText && (
+                <div className="empty-search-results">
+                    <p>No rules found matching "{searchText}"</p>
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default RulesSearch;
