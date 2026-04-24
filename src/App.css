@@ -322,6 +322,18 @@ ul {
   }
 }
 
+/* Page header for rule pages */
+.page-header {
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.page-description {
+  color: var(--color-body);
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
 /* Hidden class for inner card bodies */
 .hidden {
   display: none !important;

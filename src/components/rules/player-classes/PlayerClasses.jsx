@@ -51,18 +51,22 @@ function PlayerClasses() {
     }
 
     return (
-        <div className="list">
-            {playerClasses.map((playerClass) => (
-                <div key={playerClass.index} id={playerClass.index}>
-                    <PlayerClass 
-                        playerClass={playerClass}
-                        expand={shownCard === playerClass.index}
-                        onExpand={(expanded) => expandCard(playerClass.index, expanded)}
-                    />
-                </div>
-            ))}
-        </div>
-    );
+              <div className="list">
+                  <div className="page-header">
+                      <h1 className="card-title">Classes</h1>
+                      <p className="page-description">Choose a class for your character. Your class defines your character's role in the game and determines their abilities, skills, and progression.</p>
+                  </div>
+                  {playerClasses.map((playerClass) => (
+                      <div key={playerClass.index} id={playerClass.index}>
+                          <PlayerClass 
+                             playerClass={playerClass}
+                             expand={shownCard === playerClass.index}
+                             onExpand={(expanded) => expandCard(playerClass.index, expanded)}
+                          />
+                      </div>
+                  ))}
+              </div>
+          );
 }
 
 export default PlayerClasses;
