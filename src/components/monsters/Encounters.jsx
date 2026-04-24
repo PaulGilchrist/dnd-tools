@@ -52,11 +52,11 @@ function Encounters() {
         return xpThreshold;
     }, [filter.playerLevels, filter.difficulty]);
 
-    const totalMonsterXP = useMemo(() => {
-        return selectedMonsters.reduce((sum, monster) => sum + (monster.xp || 0), 0);
-    }, [selectedMonsters]);
+        const totalMonsterXP = useMemo(() => {
+        return selectedMonsters.reduce((sum, monster) => sum + (monster.xp || 0) * (monster.qty || 1), 0);
+     }, [selectedMonsters]);
 
-    const monsterCount = selectedMonsters.length;
+    const monsterCount = selectedMonsters.reduce((sum, monster) => sum + (monster.qty || 1), 0);
     const difficultyMultiplier = useMemo(() => {
         if (monsterCount === 0) return 1;
         if (monsterCount === 1) return 1;
@@ -117,10 +117,26 @@ function Encounters() {
 
     const toggleMonster = (monster) => {
         if (isSelected(monster.index)) {
-            setSelectedMonsters(selectedMonsters.filter(m => m.index !== monster.index));
+            // If already selected, decrease quantity or remove if qty is 1
+            setSelectedMonsters(selectedMonsters.map(m => 
+                m.index === monster.index ? { ...m, qty: (m.qty || 1) - 1 } : m
+            ).filter(m => (m.qty || 1) > 0));
         } else {
-            setSelectedMonsters([...selectedMonsters, monster]);
+            // Add new monster with qty 1
+            setSelectedMonsters([...selectedMonsters, { ...monster, qty: 1 }]);
         }
+    };
+
+    const increaseQty = (monsterIndex) => {
+        setSelectedMonsters(selectedMonsters.map(m => 
+            m.index === monsterIndex ? { ...m, qty: (m.qty || 1) + 1 } : m
+        ));
+    };
+
+    const decreaseQty = (monsterIndex) => {
+        setSelectedMonsters(selectedMonsters.map(m => 
+            m.index === monsterIndex ? { ...m, qty: (m.qty || 1) - 1 } : m
+        ).filter(m => (m.qty || 1) > 0));
     };
 
     const removeMonster = (monsterIndex) => {
@@ -263,47 +279,73 @@ function Encounters() {
                 {filteredMonsters.length > 0 && (
                     <div className="monster-table-wrapper">
                         <table className="monster-table">
-                            <thead>
-                                <tr>
-                                    <th className="col-select">Select</th>
-                                    <th className="col-name">Monster</th>
-                                    <th className="col-type">Type</th>
-                                    <th className="col-cr">CR</th>
-                                    <th className="col-xp">XP</th>
-                                    <th className="col-remove"></th>
-                                </tr>
-                            </thead>
+                             <thead>
+                                 <tr>
+                                     <th className="col-select">Select</th>
+                                     <th className="col-name">Monster</th>
+                                     <th className="col-cr">CR</th>
+                                     <th className="col-xp">XP</th>
+                                     <th className="col-qty">Qty</th>
+                                     <th className="col-remove"></th>
+                                 </tr>
+                              </thead>
                             <tbody>
-                                {filteredMonsters.map((monster) => (
-                                    <tr 
-                                        key={monster.index}
-                                        className={`monster-row ${isSelected(monster.index) ? 'selected' : ''}`}
-                                        onClick={() => toggleMonster(monster)}
-                                    >
-                                        <td className="col-select">
-                                            <input 
-                                                type="checkbox" 
-                                                checked={isSelected(monster.index)}
-                                                onChange={() => toggleMonster(monster)}
-                                                onClick={(e) => e.stopPropagation()}
-                                            />
-                                        </td>
-                                        <td className="col-name">{monster.name}</td>
-                                        <td className="col-type text-muted small">{monster.type}{monster.subtype ? ` (${monster.subtype})` : ''}</td>
-                                        <td className="col-cr">{monster.challenge_rating}</td>
-                                        <td className="col-xp">{monster.xp}</td>
-                                        <td className="col-remove">
-                                            <button 
-                                                type="button" 
-                                                className="btn btn-sm btn-link text-danger p-0" 
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    removeMonster(monster.index);
-                                                }}
-                                            >×</button>
-                                        </td>
-                                    </tr>
-                                ))}
+                                {filteredMonsters.map((monster) => {
+                                    const selected = selectedMonsters.find(m => m.index === monster.index);
+                                    const qty = selected ? (selected.qty || 1) : 0;
+                                    return (
+                                        <tr 
+                                           key={monster.index}
+                                           className={`monster-row ${qty > 0 ? 'selected' : ''}`}
+                                           onClick={() => toggleMonster(monster)}
+                                        >
+                                            <td className="col-select">
+                                                <input 
+                                                   type="checkbox" 
+                                                   checked={qty > 0}
+                                                   onChange={() => toggleMonster(monster)}
+                                                   onClick={(e) => e.stopPropagation()}
+                                                />
+                                            </td>
+                                            <td className="col-name">{monster.name}</td>
+                                            <td className="col-cr">{monster.challenge_rating}</td>
+                                            <td className="col-xp">{monster.xp}</td>
+                                            <td className="col-qty">
+                                                {qty > 0 && (
+                                                    <div className="qty-controls">
+                                                        <button 
+                                                           type="button" 
+                                                           className="btn btn-sm btn-outline-secondary qty-btn" 
+                                                           onClick={(e) => {
+                                                               e.stopPropagation();
+                                                               decreaseQty(monster.index);
+                                                             }}
+                                                        >−</button>
+                                                        <span className="qty-value">{qty}</span>
+                                                        <button 
+                                                           type="button" 
+                                                           className="btn btn-sm btn-outline-secondary qty-btn" 
+                                                           onClick={(e) => {
+                                                               e.stopPropagation();
+                                                               increaseQty(monster.index);
+                                                             }}
+                                                        >+</button>
+                                                    </div>
+                                                )}
+                                            </td>
+                                            <td className="col-remove">
+                                                <button 
+                                                   type="button" 
+                                                   className="btn btn-sm btn-link text-danger p-0" 
+                                                   onClick={(e) => {
+                                                       e.stopPropagation();
+                                                       removeMonster(monster.index);
+                                                     }}
+                                                >×</button>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
                         
