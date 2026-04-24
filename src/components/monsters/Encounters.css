@@ -1,3 +1,9 @@
+.encounters-title {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--color-main);
+}
+
 .encounters-compact {
     max-width: 500px;
     margin: 0 auto;

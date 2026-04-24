@@ -137,9 +137,11 @@ function Encounters() {
     }
 
     return (
-        <div className="encounters-compact">
-            {/* Top Row: Filters + Summary */}
-            <div className="encounters-top">
+        <div className="container">
+            <h2 className="encounters-title">Encounter Builder</h2>
+            <div className="encounters-compact">
+                {/* Top Row: Filters + Summary */}
+                <div className="encounters-top">
                 {/* Left: Filters */}
                 <div className="encounters-filters-side">
                     <div className="form-group">
@@ -156,12 +158,11 @@ function Encounters() {
                         </select>
                     </div>
                     <div className="form-group">
-                                            <label className="small-label d-block mb-1">Party Levels</label>
                                             <button type="button" className="btn btn-sm btn-outline-secondary mb-2" onClick={addPlayer}>+ Add Player</button>
                                             <div className="player-levels-horizontal">
                                                 {filter.playerLevels.map((level, index) => (
                                                     <div key={index} className="player-level-row">
-                                                        <span className="player-level-label">Player {index + 1}</span>
+                                                        <span className="player-level-label">Player {index + 1} Level</span>
                                                         <input 
                                                           type="number" 
                                                           className="player-level-input"
@@ -310,10 +311,11 @@ function Encounters() {
                             </div>
                         ))}
                     </div>
-                </div>
-            )}
-        </div>
-    );
+                 </div>
+             )}
+         </div>
+         </div>
+     );
 }
 
 export default Encounters;
