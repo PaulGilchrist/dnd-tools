@@ -71,13 +71,14 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
      );
 
     const featsContent = renderFeats2024(shownLevel);
-                const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
-                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
-                const barbarianContent = renderBarbarianInfo(selectedLevel, playerClass.name);
-                const bardContent = renderBardicInfo(selectedLevel);
-                const channelDivinityContent = renderChannelDivinity(selectedLevel);
-                const druidContent = renderDruidInfo(selectedLevel);
-                const fighterContent = renderFighterInfo(selectedLevel, playerClass.name);
+    		const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
+    		const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
+    		const barbarianContent = renderBarbarianInfo(selectedLevel, playerClass.name);
+    		const bardContent = renderBardicInfo(selectedLevel);
+    		const channelDivinityContent = renderChannelDivinity(selectedLevel);
+    		const druidContent = renderDruidInfo(selectedLevel);
+    		const fighterContent = renderFighterInfo(selectedLevel, playerClass.name);
+    		const monkContent = renderMonkInfo(selectedLevel);
 
                 return (
                         <div className="selected-level-features">
@@ -94,8 +95,10 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
                                                           {druidContent && <><>{druidContent}</><br /></>}
                                                           {/* Fighter Info - Second Wind, Weapon Mastery */}
                                                           {fighterContent && <><>{fighterContent}</><br /></>}
-                                                          {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                                                          {energyContent && <><>{energyContent}</><br /></>}
+                                                                                                                     {/* Monk Info - Martial Arts Die, Focus Points, Unarmored Movement Increase */}
+                                                                                                                     {monkContent && <><>{monkContent}</><br /></>}
+                                                                                                                     {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                                                                                                                     {energyContent && <><>{energyContent}</><br /></>}
                                                           {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
                                                           {spellcastingContent && <><>{spellcastingContent}</><br /></>}
                                           {allFeatures.map((feature, fIndex) => (
@@ -324,6 +327,30 @@ function renderFighterInfo(level, className) {
      }
     if (level.weapon_mastery !== undefined && level.weapon_mastery !== null && level.weapon_mastery > 0 && className === 'Fighter') {
         parts.push(<div key="weapon_mastery"><b>Weapon Mastery:</b>&nbsp;{level.weapon_mastery}</div>);
+    }
+
+    if (parts.length === 0) {
+        return null;
+    }
+
+    return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Monk-specific information
+ * Displays Martial Arts Die, Focus Points, and Unarmored Movement Increase for Monk class levels
+ */
+function renderMonkInfo(level) {
+    const parts = [];
+
+    if (level.martial_arts_die !== undefined && level.martial_arts_die !== null) {
+        parts.push(<div key="martial_arts_die"><b>Martial Arts Die:</b>&nbsp;d{level.martial_arts_die}</div>);
+    }
+    if (level.focus_points !== undefined && level.focus_points !== null) {
+        parts.push(<div key="focus_points"><b>Focus Points:</b>&nbsp;{level.focus_points}</div>);
+    }
+    if (level.unarmored_movement_increase !== undefined && level.unarmored_movement_increase !== null) {
+        parts.push(<div key="unarmored_movement_increase"><b>Unarmored Movement Increase:</b>&nbsp;+{level.unarmored_movement_increase} ft</div>);
     }
 
     if (parts.length === 0) {
