@@ -81,6 +81,7 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
     const monkContent = renderMonkInfo(selectedLevel);
     const rangerContent = renderRangerInfo(selectedLevel);
     const rogueContent = renderRogueInfo(selectedLevel);
+    const sorcererContent = renderSorcererInfo(selectedLevel);
 
     return (
         <div className="selected-level-features">
@@ -103,6 +104,8 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
             {rangerContent && <><>{rangerContent}</><br /></>}
             {/* Rogue Info - Sneak Attack */}
             {rogueContent && <><>{rogueContent}</><br /></>}
+            {/* Sorcerer Info - Sorcery Points */}
+            {sorcererContent && <><>{sorcererContent}</><br /></>}
             {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
             {energyContent && <><>{energyContent}</><br /></>}
             {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
@@ -393,6 +396,24 @@ function renderRogueInfo(level) {
 
     if (level.sneak_attack_num_d6 !== undefined && level.sneak_attack_num_d6 !== null) {
         parts.push(<div key="sneak_attack"><b>Sneak Attack:</b>&nbsp;{level.sneak_attack_num_d6}d6</div>);
+    }
+
+    if (parts.length === 0) {
+        return null;
+    }
+
+    return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Sorcerer-specific information
+ * Displays the Sorcery Points for Sorcerer class levels
+ */
+function renderSorcererInfo(level) {
+    const parts = [];
+
+    if (level.sorcery_points !== undefined && level.sorcery_points !== null) {
+        parts.push(<div key="sorcery_points"><b>Sorcery Points:</b>&nbsp;{level.sorcery_points}</div>);
     }
 
     if (parts.length === 0) {
