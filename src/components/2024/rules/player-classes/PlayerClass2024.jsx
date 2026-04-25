@@ -115,9 +115,9 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
                     )}
 
                     {/* Core Traits */}
-                    {playerClass.core_traits && (
-                        <PlayerClass2024CoreTraits coreTraits={playerClass.core_traits} />
-                    )}
+                                         {(playerClass.primary_ability || playerClass.hit_point_die || playerClass.saving_throw_proficiencies || playerClass.skill_proficiency_choices || playerClass.weapon_proficiencies || playerClass.armor_training || playerClass.tool_proficiencies || playerClass.starting_equipment) && (
+                                             <PlayerClass2024CoreTraits playerClass={playerClass} />
+                                         )}
 
                     {/* Major Options (Subclasses) */}
                     {playerClass.majors && playerClass.majors.length > 0 && (

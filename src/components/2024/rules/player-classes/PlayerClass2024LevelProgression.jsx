@@ -65,7 +65,7 @@ function SelectedLevelView({ playerClass, shownLevel }) {
 
     return (
         <div className="selected-level-features">
-            <b>Proficiency:</b> {selectedLevel.proficiency_bonus}<br/>
+            <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br/>
             {/* Feats */}
             {renderFeats2024(shownLevel)}<br/>
             {/* Spellcasting Info */}
@@ -100,7 +100,7 @@ function renderFeats2024(level) {
 
     // Origin feat at level 1
     if (level >= 1) {
-        parts.push('Origin');
+        parts.push('1 Origin');
       }
 
     // General feats at levels 4, 8, 12, 16
@@ -112,7 +112,7 @@ function renderFeats2024(level) {
 
     // Epic Boon at level 19
     if (level >= 19) {
-        parts.push('Epic Boon');
+        parts.push('1 Epic Boon');
       }
 
     if (parts.length === 0) {
@@ -169,9 +169,9 @@ function renderSpellcastingInfo(spellcasting) {
                 </div>
             )}
 
-            {spellcasting.spells_known > 0 && (
+            {spellcasting.prepared_spells > 0 && (
                 <div>
-                    <b>Spells Known:</b>&nbsp;{spellcasting.spells_known}<br />
+                    <b>Prepared Spells:</b>&nbsp;{spellcasting.prepared_spells}<br />
                 </div>
             )}
 
