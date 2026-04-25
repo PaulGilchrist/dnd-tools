@@ -65,7 +65,7 @@ function SelectedLevelView({ playerClass, shownLevel }) {
 
     return (
         <div className="selected-level-features">
-            <b>Proficiency:</b> {selectedLevel.proficiency_bonus}
+            <b>Proficiency:</b> {selectedLevel.proficiency_bonus}<br/>
             {/* Spellcasting Info */}
             {selectedLevel.spellcasting && renderSpellcastingInfo(selectedLevel.spellcasting)}<br/>
             {allFeatures.map((feature, fIndex) => (

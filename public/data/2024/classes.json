@@ -29,13 +29,6 @@
                 ]
             }
         ],
-        "proficiencies": [
-            "Simple weapons",
-            "Martial weapons",
-            "Light armor",
-            "Medium armor",
-            "Shields"
-        ],
         "saving_throws": [
             "Strength",
             "Constitution"
@@ -43,11 +36,14 @@
         "class_levels": [
             {
                 "level": 1,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "rages": 2,
+                "rage_damage": 2,
+                "weapon_mastery": 2,
                 "features": [
                     {
                         "name": "Rage",
-                        "description": "You can imbue yourself with a primal power called Rage, a force that grants you extraordinary might and resilience. You can enter it as a Bonus Action if you aren't wearing Heavy armor. You can enter your Rage the number of times shown for your Barbarian level in the Rages column of the Barbarian Features table. You Regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. While active, your Rage follows the rules below. Damage Resistance. You have Resistance to Bludgeoning, Piercing, and Slashing damage. Rage Damage. When you make an attack using Strength—with either a weapon or an Unarmed Strike—and deal damage to the target, you gain a bonus to the damage that increases as you gain levels as a Barbarian, as shown in the Rage Damage column of the Barbarian Features table. Strength Advantage. You have Advantage on Strength checks and Strength saving throws. No Concentration or Spells. You can't maintain Concentration, and you can't cast spells. Duration. The Rage lasts until the end of your next turn, and it ends early if you don Heavy armor or have the Incapacitated condition. If your Rage is still active on your next turn, you can extend the Rage for another round by doing one of the following: Make an attack roll against an enemy. Force an enemy to make a saving throw. Take a Bonus Action to extend your Rage. Each time the Rage is extended, it lasts until the end of your next turn. You can maintain a Rage for up to 10 minutes.",
+                        "description": "You can imbue yourself with a primal power called Rage, a force that grants you extraordinary might and resilience. You can enter it as a Bonus Action if you aren't wearing Heavy armor. You can enter your Rage the number of times shown for your Barbarian level in the Rages column of the Barbarian Features table. You Regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest. While active, your Rage follows the rules below.<br/><br/><b>Damage Resistance.</b> You have Resistance to Bludgeoning, Piercing, and Slashing damage.<br/><br/><b>Rage Damage.</b> When you make an attack using Strength with either a weapon or an Unarmed Strike and deal damage to the target, you gain a bonus to the damage that increases as you gain levels as a Barbarian, as shown in the Rage Damage column of the Barbarian Features table.<br/><br/><b>Strength Advantage.</b> You have Advantage on Strength checks and Strength saving throws.<br/><br/><b>No Concentration or Spells.</b> You can't maintain Concentration, and you can't cast spells.<br/><br/><b>Duration.</b> The Rage lasts until the end of your next turn, and it ends early if you don Heavy armor or have the Incapacitated condition. If your Rage is still active on your next turn, you can extend the Rage for another round by doing one of the following:<ul><li>Make an attack roll against an enemy.</li><li>Force an enemy to make a saving throw.</li><li>Take a Bonus Action to extend your Rage.</li></ul><br/>Each time the Rage is extended, it lasts until the end of your next turn. You can maintain a Rage for up to 10 minutes.",
                         "level": 1,
                         "type": "class_feature"
                     },
@@ -67,7 +63,10 @@
             },
             {
                 "level": 2,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "rages": 2,
+                "rage_damage": 2,
+                "weapon_mastery": 2,
                 "features": [
                     {
                         "name": "Danger Sense",
@@ -85,7 +84,10 @@
             },
             {
                 "level": 3,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "rages": 3,
+                "rage_damage": 2,
+                "weapon_mastery": 2,
                 "features": [
                     {
                         "name": "Barbarian Subclass",
@@ -103,7 +105,10 @@
             },
             {
                 "level": 4,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "rages": 3,
+                "rage_damage": 2,
+                "weapon_mastery": 3,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -115,7 +120,10 @@
             },
             {
                 "level": 5,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "rages": 3,
+                "rage_damage": 2,
+                "weapon_mastery": 3,
                 "features": [
                     {
                         "name": "Extra Attack",
@@ -133,7 +141,10 @@
             },
             {
                 "level": 6,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "rages": 4,
+                "rage_damage": 2,
+                "weapon_mastery": 3,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -145,7 +156,10 @@
             },
             {
                 "level": 7,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "rages": 4,
+                "rage_damage": 2,
+                "weapon_mastery": 3,
                 "features": [
                     {
                         "name": "Feral Instinct",
@@ -163,7 +177,10 @@
             },
             {
                 "level": 8,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "rages": 4,
+                "rage_damage": 2,
+                "weapon_mastery": 3,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -175,7 +192,10 @@
             },
             {
                 "level": 9,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "rages": 4,
+                "rage_damage": 3,
+                "weapon_mastery": 3,
                 "features": [
                     {
                         "name": "Brutal Strike",
@@ -187,7 +207,10 @@
             },
             {
                 "level": 10,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "rages": 4,
+                "rage_damage": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -199,7 +222,10 @@
             },
             {
                 "level": 11,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "rages": 4,
+                "rage_damage": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Relentless Rage",
@@ -211,7 +237,10 @@
             },
             {
                 "level": 12,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "rages": 5,
+                "rage_damage": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -223,7 +252,10 @@
             },
             {
                 "level": 13,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "rages": 5,
+                "rage_damage": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Improved Brutal Strike",
@@ -235,7 +267,10 @@
             },
             {
                 "level": 14,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "rages": 5,
+                "rage_damage": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -247,7 +282,10 @@
             },
             {
                 "level": 15,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "rages": 5,
+                "rage_damage": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Persistent Rage",
@@ -259,7 +297,10 @@
             },
             {
                 "level": 16,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "rages": 5,
+                "rage_damage": 4,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -271,7 +312,10 @@
             },
             {
                 "level": 17,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "rages": 6,
+                "rage_damage": 4,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Improved Brutal Strike",
@@ -283,7 +327,10 @@
             },
             {
                 "level": 18,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "rages": 6,
+                "rage_damage": 4,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Indomitable Might",
@@ -295,7 +342,10 @@
             },
             {
                 "level": 19,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "rages": 6,
+                "rage_damage": 4,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Epic Boon",
@@ -307,7 +357,10 @@
             },
             {
                 "level": 20,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "rages": 6,
+                "rage_damage": 4,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Primal Champion",
@@ -465,11 +518,6 @@
         "hit_die": 8,
         "hit_die_type": "d8",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Light armor",
-            "3 Musical Instruments"
-        ],
         "saving_throws": [
             "Dexterity",
             "Charisma"
@@ -1110,12 +1158,6 @@
         "hit_die": 8,
         "hit_die_type": "d8",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Light armor",
-            "Medium armor",
-            "Shields"
-        ],
         "saving_throws": [
             "Wisdom",
             "Charisma"
@@ -1894,12 +1936,6 @@
         "hit_die": 8,
         "hit_die_type": "d8",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Light armor",
-            "Shields",
-            "Herbalism Kit"
-        ],
         "saving_throws": [
             "Intelligence",
             "Wisdom"
@@ -2709,14 +2745,6 @@
         "hit_die": 10,
         "hit_die_type": "d10",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Martial weapons",
-            "Light armor",
-            "Medium armor",
-            "Heavy armor",
-            "Shields"
-        ],
         "saving_throws": [
             "Strength",
             "Constitution"
@@ -3203,10 +3231,6 @@
         "hit_die": 8,
         "hit_die_type": "d8",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Martial weapons with the Light property"
-        ],
         "saving_throws": [
             "Strength",
             "Dexterity"
@@ -3655,14 +3679,6 @@
         "hit_die": 10,
         "hit_die_type": "d10",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Martial weapons",
-            "Light armor",
-            "Medium armor",
-            "Heavy armor",
-            "Shields"
-        ],
         "saving_throws": [
             "Wisdom",
             "Charisma"
@@ -4385,13 +4401,6 @@
         "hit_die": 10,
         "hit_die_type": "d10",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Martial weapons",
-            "Light armor",
-            "Medium armor",
-            "Shields"
-        ],
         "saving_throws": [
             "Strength",
             "Dexterity"
@@ -5010,12 +5019,6 @@
         "hit_die": 8,
         "hit_die_type": "d8",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons",
-            "Martial weapons with Finesse or Light property",
-            "Light armor",
-            "Thieves' Tools"
-        ],
         "saving_throws": [
             "Dexterity",
             "Intelligence"
@@ -5468,9 +5471,6 @@
         "hit_die": 6,
         "hit_die_type": "d6",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons"
-        ],
         "saving_throws": [
             "Constitution",
             "Charisma"
@@ -6236,9 +6236,6 @@
         "hit_die": 8,
         "hit_die_type": "d8",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons"
-        ],
         "saving_throws": [
             "Wisdom",
             "Charisma"
@@ -7041,9 +7038,6 @@
         "hit_die": 6,
         "hit_die_type": "d6",
         "proficiency_choices": [],
-        "proficiencies": [
-            "Simple weapons"
-        ],
         "saving_throws": [
             "Intelligence",
             "Wisdom"
