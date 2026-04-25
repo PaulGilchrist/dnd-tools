@@ -2850,8 +2850,8 @@
             {
                 "level": 4,
                 "proficiency_bonus": 2,
-                "second_wind": 2,
-                "weapon_mastery": 3,
+                "second_wind": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -2863,9 +2863,9 @@
             },
             {
                 "level": 5,
-                "proficiency_bonus": 2,
-                "second_wind": 2,
-                "weapon_mastery": 3,
+                "proficiency_bonus": 3,
+                "second_wind": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Extra Attack",
@@ -2883,9 +2883,9 @@
             },
             {
                 "level": 6,
-                "proficiency_bonus": 2,
-                "second_wind": 2,
-                "weapon_mastery": 3,
+                "proficiency_bonus": 3,
+                "second_wind": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -2897,9 +2897,9 @@
             },
             {
                 "level": 7,
-                "proficiency_bonus": 2,
-                "second_wind": 2,
-                "weapon_mastery": 3,
+                "proficiency_bonus": 3,
+                "second_wind": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -2911,9 +2911,9 @@
             },
             {
                 "level": 8,
-                "proficiency_bonus": 2,
-                "second_wind": 2,
-                "weapon_mastery": 3,
+                "proficiency_bonus": 3,
+                "second_wind": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -2925,9 +2925,9 @@
             },
             {
                 "level": 9,
-                "proficiency_bonus": 2,
-                "second_wind": 2,
-                "weapon_mastery": 3,
+                "proficiency_bonus": 4,
+                "second_wind": 3,
+                "weapon_mastery": 4,
                 "features": [
                     {
                         "name": "Indomitable",

@@ -3,6 +3,7 @@ import { scrollIntoView } from '../../../data/utils';
 import LevelSelector from './LevelSelector';
 import AbilityScoreBonuses from './AbilityScoreBonuses';
 import ProficiencyBonus from './ProficiencyBonus';
+import Feats from './Feats';
 import BarbarianStats from './BarbarianStats';
 import BardStats from './BardStats';
 import ClericStats from './ClericStats';
@@ -39,9 +40,11 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
                                 <AbilityScoreBonuses ability_score_bonuses={level.ability_score_bonuses} />
                             )}
                             {/* Proficiency Bonus */}
-                            {level.prof_bonus !== undefined && (
-                                <ProficiencyBonus prof_bonus={level.prof_bonus} />
-                            )}
+                                                         {level.prof_bonus !== undefined && (
+                                                             <ProficiencyBonus prof_bonus={level.prof_bonus} />
+                                                         )}
+                                                         {/* Feats */}
+                                                         <Feats level={level.level} />
                             {/* Class-specific stats */}
                             {playerClass.index === 'barbarian' && level.class_specific && (
                                 <BarbarianStats class_specific={level.class_specific} />
