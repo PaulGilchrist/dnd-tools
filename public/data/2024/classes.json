@@ -6143,20 +6143,14 @@
         "index": "sorcerer",
         "name": "Sorcerer",
         "class_description": "<p><b>Sorcereers wield innate magic that is stamped into their being.</b></p><p>Some Sorcerers can't name the origin of their power, while others trace it to strange events in their personal or family history. The blessing of a dragon or a diviner at a baby's birth or the strike of lightning from a clear sky might spark a Sorcerer's gift. So too might the gift of a deity, exposure to the strange magic of another plane of existence, or a glimpse into the inner workings of reality. Whatever the origin, the result is an indelible mark on the Sorcerer, a churning magic that can be passed down through generations. Sorcerers don't learn magic; the raw, roiling power of magic is part of them. The essential art of a Sorcerer is learning to harness and channel that innate magic, allowing the Sorcerer to discover new and startling ways to unleash their power. As Sorcerers master their innate magic, they grow more attuned to its origin, developing distinct powers that reflect its source. Sorcerers are rare. Some family lines produce exactly one Sorcerer in every generation, but most of the time, the talents of sorcery appear as a fluke. People who have this magical power soon discover that it doesn't like to stay quiet. A Sorcerer's magic wants to be wielded.</p>",
-        "core_traits": {
-            "primary_ability": "Charisma",
-            "hit_point_die": "D6 per Sorcerer level",
-            "saving_throw_proficiencies": "Constitution and Charisma",
-            "skill_proficiencies": "Choose 2: Arcana, Deception, Insight, Intimidation, Persuasion, or Religion",
-            "weapon_proficiencies": "Simple weapons",
-            "armor_training": "None",
-            "tool_proficiencies": "",
-            "starting_equipment": "Choose A or B: (A) Spear, 2 Daggers, Arcane Focus (crystal), Dungeoneer's Pack, and 28 GP; or (B) 50 GP"
-        },
-        "hit_die": 6,
-        "hit_die_type": "d6",
-        "proficiency_choices": [],
-        "saving_throws": [
+        "primary_ability": "Charisma",
+        "hit_point_die": "6",
+        "skill_proficiencies": "Choose 2: Arcana, Deception, Insight, Intimidation, Persuasion, or Religion",
+        "weapon_proficiencies": "Simple weapons",
+        "armor_training": "None",
+        "tool_proficiencies": "",
+        "starting_equipment": "Choose A or B: (A) Spear, 2 Daggers, Arcane Focus (crystal), Dungeoneer's Pack, and 28 GP; or (B) 50 GP",
+        "saving_throw_proficiencies": [
             "Constitution",
             "Charisma"
         ],
