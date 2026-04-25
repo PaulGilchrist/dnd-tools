@@ -26,12 +26,8 @@ function PlayerClass2024LevelProgression({ playerClass, shownLevel, shownMajor, 
                  ))}
              </div>
 
-             {/* Show features for selected level or all levels */}
-             {shownLevel === 0 ? (
-                 <AllLevelsView playerClass={playerClass} shownMajor={shownMajor} />
-             ) : (
-                 <SelectedLevelView playerClass={playerClass} shownLevel={shownLevel} shownMajor={shownMajor} />
-             )}
+             {/* Show features for selected level */}
+                           <SelectedLevelView playerClass={playerClass} shownLevel={shownLevel} shownMajor={shownMajor} />
          </div>
      );
 }
@@ -75,28 +71,34 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
      );
 
     const featsContent = renderFeats2024(shownLevel);
-            const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
-            const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
-            const barbarianContent = renderBarbarianInfo(selectedLevel);
-            const bardContent = renderBardicInfo(selectedLevel);
-            const channelDivinityContent = renderChannelDivinity(selectedLevel);
+                const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
+                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
+                const barbarianContent = renderBarbarianInfo(selectedLevel, playerClass.name);
+                const bardContent = renderBardicInfo(selectedLevel);
+                const channelDivinityContent = renderChannelDivinity(selectedLevel);
+                const druidContent = renderDruidInfo(selectedLevel);
+                const fighterContent = renderFighterInfo(selectedLevel, playerClass.name);
 
-            return (
-                   <div className="selected-level-features">
-                       <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
-                       {/* Feats */}
-                       {featsContent && <><>{featsContent}</><br /></>}
-                       {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                       {barbarianContent && <><>{barbarianContent}</><br /></>}
-                       {/* Bard Info - Bardic Die */}
-                       {bardContent && <><>{bardContent}</><br /></>}
-                       {/* Cleric Info - Channel Divinity */}
-                       {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
-                       {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                       {energyContent && <><>{energyContent}</><br /></>}
-                       {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                       {spellcastingContent && <><>{spellcastingContent}</><br /></>}
-             {allFeatures.map((feature, fIndex) => (
+                return (
+                        <div className="selected-level-features">
+                            <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+                            {/* Feats */}
+                            {featsContent && <><>{featsContent}</><br /></>}
+                            {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+                            {barbarianContent && <><>{barbarianContent}</><br /></>}
+                            {/* Bard Info - Bardic Die */}
+                            {bardContent && <><>{bardContent}</><br /></>}
+                            {/* Cleric Info - Channel Divinity */}
+                            {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
+                            {/* Druid Info - Wild Shape, Beast Forms, Max CR, Fly Speed */}
+                                                          {druidContent && <><>{druidContent}</><br /></>}
+                                                          {/* Fighter Info - Second Wind, Weapon Mastery */}
+                                                          {fighterContent && <><>{fighterContent}</><br /></>}
+                                                          {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                                                          {energyContent && <><>{energyContent}</><br /></>}
+                                                          {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+                                                          {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+                                          {allFeatures.map((feature, fIndex) => (
                  <div key={fIndex} className="feature-item class2024-feature-item">
                      <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
                      {feature.type === 'subclass_feature' && (
@@ -107,65 +109,6 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
                      )}
                  </div>
              ))}
-         </div>
-     );
-}
-
-/**
- * Component to display features for all levels
- */
-function AllLevelsView({ playerClass, shownMajor }) {
-    return (
-         <div className="all-levels-features">
-             {playerClass.class_levels.map((level) => {
-                 // Check if energy should be shown for this level
-                const shouldShowEnergy = level.energy && (
-                     !level.energy.required_major ||
-                    level.energy.required_major === shownMajor
-                 );
-
-                 // Check if spellcasting should be shown for this level
-                const shouldShowSpellcasting = level.spellcasting && (
-                     !level.spellcasting.required_major ||
-                    level.spellcasting.required_major === shownMajor
-                 );
-
-                const featsContent = renderFeats2024(level.level);
-                                                const energyContent = shouldShowEnergy ? renderEnergyInfo(level.energy) : null;
-                                                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(level.spellcasting) : null;
-                                                const barbarianContent = renderBarbarianInfo(level);
-                                                const bardContent = renderBardicInfo(level);
-                                                const channelDivinityContent = renderChannelDivinity(level);
-
-                                                return (
-                                                       <div key={level.level} className="level-section">
-                                                           <h5>Level {level.level}</h5>
-                                                           <b>Proficiency:</b> +{level.proficiency_bonus}<br />
-                                                           {featsContent && <><>{featsContent}</><br /></>}
-                                                           {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                                                           {barbarianContent && <><>{barbarianContent}</><br /></>}
-                                                           {/* Bard Info - Bardic Die */}
-                                                           {bardContent && <><>{bardContent}</><br /></>}
-                                                           {/* Cleric Info - Channel Divinity */}
-                                                           {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
-                                                           {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                                                           {energyContent && <><>{energyContent}</><br /></>}
-                                                           {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                                                            {spellcastingContent && <><>{spellcastingContent}</><br /></>}
-                          {level.features && level.features.map((feature, fIndex) => (
-                             <div key={fIndex} className="feature-item class2024-feature-item">
-                                 <b>{feature.name}:</b>&nbsp;
-                                 {feature.type === 'subclass_feature' && (
-                                     <span className="subclass-badge">(Subclass)</span>
-                                 )}
-                                 {feature.description && (
-                                     <span dangerouslySetInnerHTML={{ __html: feature.description }} />
-                                 )}
-                             </div>
-                         ))}
-                     </div>
-                 );
-             })}
          </div>
      );
 }
@@ -290,7 +233,7 @@ function renderSpellcastingInfo(spellcasting) {
  * Helper function to render Barbarian-specific information
  * Displays rages, rage damage, and weapon mastery for Barbarian class levels
  */
-function renderBarbarianInfo(level) {
+function renderBarbarianInfo(level, className) {
     const parts = [];
 
     if (level.rages) {
@@ -299,9 +242,9 @@ function renderBarbarianInfo(level) {
     if (level.rage_damage) {
         parts.push(<div key="rage_damage"><b>Rage Damage:</b>&nbsp;+{level.rage_damage}</div>);
      }
-    if (level.weapon_mastery) {
+    if (level.weapon_mastery && className === 'Barbarian') {
         parts.push(<div key="weapon_mastery"><b>Weapon Mastery:</b>&nbsp;{level.weapon_mastery}</div>);
-     }
+      }
 
     if (parts.length === 0) {
         return null;
@@ -336,10 +279,58 @@ function renderChannelDivinity(level) {
     }
 
     return (
-           <div>
-               <b>Channel Divinity:</b>&nbsp;{level.channel_divinity} use{level.channel_divinity !== 1 ? 's' : ''}<br />
-           </div>
-       );
+             <div>
+                 <b>Channel Divinity:</b>&nbsp;{level.channel_divinity} use{level.channel_divinity !== 1 ? 's' : ''}<br />
+             </div>
+         );
+}
+
+/**
+ * Helper function to render Druid-specific information
+ * Displays Wild Shape, Beast Known Forms, Max CR, and Fly Speed for Druid class levels
+ */
+function renderDruidInfo(level) {
+    const parts = [];
+
+    if (level.wild_shape !== undefined && level.wild_shape !== null) {
+        parts.push(<div key="wild_shape"><b>Wild Shape:</b>&nbsp;{level.wild_shape}</div>);
+       }
+    if (level.beast_known_forms !== undefined && level.beast_known_forms !== null) {
+        parts.push(<div key="beast_known_forms"><b>Beast Known Forms:</b>&nbsp;{level.beast_known_forms}</div>);
+       }
+    if (level.beast_max_cr !== undefined && level.beast_max_cr !== null) {
+        parts.push(<div key="beast_max_cr"><b>Beast Max CR:</b>&nbsp;{level.beast_max_cr}</div>);
+       }
+    if (level.beast_fly_speed !== undefined && level.beast_fly_speed !== null) {
+        parts.push(<div key="beast_fly_speed"><b>Beast Fly Speed:</b>&nbsp;{level.beast_fly_speed}</div>);
+       }
+
+    if (parts.length === 0) {
+        return null;
+       }
+
+    return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Fighter-specific information
+ * Displays Second Wind uses and Weapon Mastery for Fighter class levels
+ */
+function renderFighterInfo(level, className) {
+    const parts = [];
+
+    if (level.second_wind !== undefined && level.second_wind !== null && level.second_wind > 0) {
+        parts.push(<div key="second_wind"><b>Second Wind:</b>&nbsp;{level.second_wind} use{level.second_wind !== 1 ? 's' : ''}</div>);
+     }
+    if (level.weapon_mastery !== undefined && level.weapon_mastery !== null && level.weapon_mastery > 0 && className === 'Fighter') {
+        parts.push(<div key="weapon_mastery"><b>Weapon Mastery:</b>&nbsp;{level.weapon_mastery}</div>);
+    }
+
+    if (parts.length === 0) {
+        return null;
+    }
+
+    return <div>{parts}</div>;
 }
 
 export default PlayerClass2024LevelProgression;
