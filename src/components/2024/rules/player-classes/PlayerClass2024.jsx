@@ -134,9 +134,10 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
                     {/* Level Progression */}
                     {playerClass.class_levels && (
                         <PlayerClass2024LevelProgression 
-                            playerClass={playerClass}
-                            shownLevel={shownLevel}
-                            onShowLevel={showLevel}
+                           playerClass={playerClass}
+                           shownLevel={shownLevel}
+                           shownMajor={shownMajor}
+                           onShowLevel={showLevel}
                         />
                     )}
 

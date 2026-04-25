@@ -2906,7 +2906,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 6,
                     "energy_die_num": 4
@@ -2934,7 +2934,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 6,
                     "energy_die_num": 4
@@ -2968,7 +2968,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -2996,7 +2996,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -3024,7 +3024,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -3052,7 +3052,7 @@
                         "type": "subclass_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -3086,7 +3086,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 8,
                     "energy_die_num": 8
@@ -3114,7 +3114,7 @@
                         "type": "subclass_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 8,
                     "energy_die_num": 8
@@ -3142,7 +3142,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 10,
                     "energy_die_num": 8
@@ -3170,7 +3170,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 10,
                     "energy_die_num": 8
@@ -3204,7 +3204,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -3232,7 +3232,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -3260,7 +3260,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -3288,7 +3288,7 @@
                         "type": "subclass_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -3322,7 +3322,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -3350,7 +3350,7 @@
                         "type": "subclass_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -3378,7 +3378,7 @@
                         "type": "class_feature"
                     }
                 ],
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -3398,7 +3398,7 @@
                 "proficiency_bonus": 6,
                 "second_wind": 4,
                 "weapon_mastery": 6,
-                "psi_energy": {
+                "energy": {
                     "required_major": "Psi Warrior",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -5547,11 +5547,6 @@
                     "spell_slots_level_2": 0,
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
-                },
-                "soulknife_energy": {
-                    "required_major": "Soulknife",
-                    "energy_die_type": 0,
-                    "energy_die_num": 0
                 }
             },
             {
@@ -5574,11 +5569,6 @@
                     "spell_slots_level_2": 0,
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
-                },
-                "soulknife_energy": {
-                    "required_major": "Soulknife",
-                    "energy_die_type": 0,
-                    "energy_die_num": 0
                 }
             },
             {
@@ -5608,7 +5598,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 6,
                     "energy_die_num": 4
@@ -5635,7 +5625,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 6,
                     "energy_die_num": 4
@@ -5668,7 +5658,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -5695,7 +5685,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -5728,7 +5718,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -5755,7 +5745,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 8,
                     "energy_die_num": 6
@@ -5782,7 +5772,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 8,
                     "energy_die_num": 8
@@ -5809,7 +5799,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 8,
                     "energy_die_num": 8
@@ -5836,7 +5826,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 10,
                     "energy_die_num": 8
@@ -5863,7 +5853,7 @@
                     "spell_slots_level_3": 0,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 10,
                     "energy_die_num": 8
@@ -5890,7 +5880,7 @@
                     "spell_slots_level_3": 2,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -5917,7 +5907,7 @@
                     "spell_slots_level_3": 2,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -5944,7 +5934,7 @@
                     "spell_slots_level_3": 2,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -5971,7 +5961,7 @@
                     "spell_slots_level_3": 3,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 10,
                     "energy_die_num": 10
@@ -5998,7 +5988,7 @@
                     "spell_slots_level_3": 3,
                     "spell_slots_level_4": 0
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -6025,7 +6015,7 @@
                     "spell_slots_level_3": 3,
                     "spell_slots_level_4": 1
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -6052,7 +6042,7 @@
                     "spell_slots_level_3": 3,
                     "spell_slots_level_4": 1
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 12,
                     "energy_die_num": 12
@@ -6079,7 +6069,7 @@
                     "spell_slots_level_3": 3,
                     "spell_slots_level_4": 1
                 },
-                "soulknife_energy": {
+                "energy": {
                     "required_major": "Soulknife",
                     "energy_die_type": 12,
                     "energy_die_num": 12
