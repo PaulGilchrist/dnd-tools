@@ -79,6 +79,7 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
     		const druidContent = renderDruidInfo(selectedLevel);
     		const fighterContent = renderFighterInfo(selectedLevel, playerClass.name);
     		const monkContent = renderMonkInfo(selectedLevel);
+    		const rangerContent = renderRangerInfo(selectedLevel);
 
                 return (
                         <div className="selected-level-features">
@@ -96,8 +97,10 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
                                                           {/* Fighter Info - Second Wind, Weapon Mastery */}
                                                           {fighterContent && <><>{fighterContent}</><br /></>}
                                                                                                                      {/* Monk Info - Martial Arts Die, Focus Points, Unarmored Movement Increase */}
-                                                                                                                     {monkContent && <><>{monkContent}</><br /></>}
-                                                                                                                     {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                                                                                                                                                                                                                                           {monkContent && <><>{monkContent}</><br /></>}
+                                                                                                                                                                                                                                           {/* Ranger Info - Favored Enemy */}
+                                                                                                                                                                                                                                           {rangerContent && <><>{rangerContent}</><br /></>}
+                                                                                                                                                                                                                                           {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
                                                                                                                      {energyContent && <><>{energyContent}</><br /></>}
                                                           {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
                                                           {spellcastingContent && <><>{spellcastingContent}</><br /></>}
@@ -352,6 +355,24 @@ function renderMonkInfo(level) {
     if (level.unarmored_movement_increase !== undefined && level.unarmored_movement_increase !== null) {
         parts.push(<div key="unarmored_movement_increase"><b>Unarmored Movement Increase:</b>&nbsp;+{level.unarmored_movement_increase} ft</div>);
     }
+
+        if (parts.length === 0) {
+        return null;
+     }
+
+    return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Ranger-specific information
+ * Displays the number of Favored Enemy types for Ranger class levels
+ */
+function renderRangerInfo(level) {
+    const parts = [];
+
+    if (level.favored_enemy !== undefined && level.favored_enemy !== null) {
+        parts.push(<div key="favored_enemy"><b>Favored Enemy:</b>&nbsp;{level.favored_enemy}</div>);
+     }
 
     if (parts.length === 0) {
         return null;
