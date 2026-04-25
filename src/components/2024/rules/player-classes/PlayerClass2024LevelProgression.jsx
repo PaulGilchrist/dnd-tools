@@ -75,24 +75,27 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
      );
 
     const featsContent = renderFeats2024(shownLevel);
-        const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
-        const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
-        const barbarianContent = renderBarbarianInfo(selectedLevel);
-        const bardContent = renderBardicInfo(selectedLevel);
+            const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
+            const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
+            const barbarianContent = renderBarbarianInfo(selectedLevel);
+            const bardContent = renderBardicInfo(selectedLevel);
+            const channelDivinityContent = renderChannelDivinity(selectedLevel);
 
-        return (
-              <div className="selected-level-features">
-                  <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
-                  {/* Feats */}
-                  {featsContent && <><>{featsContent}</><br /></>}
-                  {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                  {barbarianContent && <><>{barbarianContent}</><br /></>}
-                  {/* Bard Info - Bardic Die */}
-                  {bardContent && <><>{bardContent}</><br /></>}
-                  {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                  {energyContent && <><>{energyContent}</><br /></>}
-                  {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                  {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+            return (
+                   <div className="selected-level-features">
+                       <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+                       {/* Feats */}
+                       {featsContent && <><>{featsContent}</><br /></>}
+                       {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+                       {barbarianContent && <><>{barbarianContent}</><br /></>}
+                       {/* Bard Info - Bardic Die */}
+                       {bardContent && <><>{bardContent}</><br /></>}
+                       {/* Cleric Info - Channel Divinity */}
+                       {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
+                       {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                       {energyContent && <><>{energyContent}</><br /></>}
+                       {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+                       {spellcastingContent && <><>{spellcastingContent}</><br /></>}
              {allFeatures.map((feature, fIndex) => (
                  <div key={fIndex} className="feature-item class2024-feature-item">
                      <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
@@ -128,24 +131,27 @@ function AllLevelsView({ playerClass, shownMajor }) {
                  );
 
                 const featsContent = renderFeats2024(level.level);
-                                const energyContent = shouldShowEnergy ? renderEnergyInfo(level.energy) : null;
-                                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(level.spellcasting) : null;
-                                const barbarianContent = renderBarbarianInfo(level);
-                                const bardContent = renderBardicInfo(level);
+                                                const energyContent = shouldShowEnergy ? renderEnergyInfo(level.energy) : null;
+                                                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(level.spellcasting) : null;
+                                                const barbarianContent = renderBarbarianInfo(level);
+                                                const bardContent = renderBardicInfo(level);
+                                                const channelDivinityContent = renderChannelDivinity(level);
 
-                                return (
-                                      <div key={level.level} className="level-section">
-                                          <h5>Level {level.level}</h5>
-                                          <b>Proficiency:</b> +{level.proficiency_bonus}<br />
-                                          {featsContent && <><>{featsContent}</><br /></>}
-                                          {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                                          {barbarianContent && <><>{barbarianContent}</><br /></>}
-                                          {/* Bard Info - Bardic Die */}
-                                          {bardContent && <><>{bardContent}</><br /></>}
-                                          {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                                          {energyContent && <><>{energyContent}</><br /></>}
-                                          {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                                           {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+                                                return (
+                                                       <div key={level.level} className="level-section">
+                                                           <h5>Level {level.level}</h5>
+                                                           <b>Proficiency:</b> +{level.proficiency_bonus}<br />
+                                                           {featsContent && <><>{featsContent}</><br /></>}
+                                                           {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+                                                           {barbarianContent && <><>{barbarianContent}</><br /></>}
+                                                           {/* Bard Info - Bardic Die */}
+                                                           {bardContent && <><>{bardContent}</><br /></>}
+                                                           {/* Cleric Info - Channel Divinity */}
+                                                           {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
+                                                           {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                                                           {energyContent && <><>{energyContent}</><br /></>}
+                                                           {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+                                                            {spellcastingContent && <><>{spellcastingContent}</><br /></>}
                           {level.features && level.features.map((feature, fIndex) => (
                              <div key={fIndex} className="feature-item class2024-feature-item">
                                  <b>{feature.name}:</b>&nbsp;
@@ -314,10 +320,26 @@ function renderBardicInfo(level) {
       }
 
     return (
-          <div>
-              <b>Bardic Die:</b>&nbsp;d{level.bardic_die}<br />
-          </div>
-      );
+           <div>
+               <b>Bardic Die:</b>&nbsp;d{level.bardic_die}<br />
+           </div>
+       );
+}
+
+/**
+ * Helper function to render Cleric-specific information
+ * Displays the Channel Divinity uses for Cleric class levels
+ */
+function renderChannelDivinity(level) {
+    if (level.channel_divinity === undefined || level.channel_divinity === null) {
+        return null;
+    }
+
+    return (
+           <div>
+               <b>Channel Divinity:</b>&nbsp;{level.channel_divinity} use{level.channel_divinity !== 1 ? 's' : ''}<br />
+           </div>
+       );
 }
 
 export default PlayerClass2024LevelProgression;
