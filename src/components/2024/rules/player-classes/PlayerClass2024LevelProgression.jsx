@@ -75,21 +75,24 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
      );
 
     const featsContent = renderFeats2024(shownLevel);
-    const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
-    const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
-    const barbarianContent = renderBarbarianInfo(selectedLevel);
+        const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
+        const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
+        const barbarianContent = renderBarbarianInfo(selectedLevel);
+        const bardContent = renderBardicInfo(selectedLevel);
 
-    return (
-         <div className="selected-level-features">
-             <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
-             {/* Feats */}
-             {featsContent && <><>{featsContent}</><br /></>}
-             {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-             {barbarianContent && <><>{barbarianContent}</><br /></>}
-             {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-             {energyContent && <><>{energyContent}</><br /></>}
-             {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-             {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+        return (
+              <div className="selected-level-features">
+                  <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+                  {/* Feats */}
+                  {featsContent && <><>{featsContent}</><br /></>}
+                  {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+                  {barbarianContent && <><>{barbarianContent}</><br /></>}
+                  {/* Bard Info - Bardic Die */}
+                  {bardContent && <><>{bardContent}</><br /></>}
+                  {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                  {energyContent && <><>{energyContent}</><br /></>}
+                  {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+                  {spellcastingContent && <><>{spellcastingContent}</><br /></>}
              {allFeatures.map((feature, fIndex) => (
                  <div key={fIndex} className="feature-item class2024-feature-item">
                      <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
@@ -125,21 +128,24 @@ function AllLevelsView({ playerClass, shownMajor }) {
                  );
 
                 const featsContent = renderFeats2024(level.level);
-                const energyContent = shouldShowEnergy ? renderEnergyInfo(level.energy) : null;
-                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(level.spellcasting) : null;
-                const barbarianContent = renderBarbarianInfo(level);
+                                const energyContent = shouldShowEnergy ? renderEnergyInfo(level.energy) : null;
+                                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(level.spellcasting) : null;
+                                const barbarianContent = renderBarbarianInfo(level);
+                                const bardContent = renderBardicInfo(level);
 
-                return (
-                     <div key={level.level} className="level-section">
-                         <h5>Level {level.level}</h5>
-                         <b>Proficiency:</b> +{level.proficiency_bonus}<br />
-                         {featsContent && <><>{featsContent}</><br /></>}
-                         {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                         {barbarianContent && <><>{barbarianContent}</><br /></>}
-                         {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                         {energyContent && <><>{energyContent}</><br /></>}
-                         {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                          {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+                                return (
+                                      <div key={level.level} className="level-section">
+                                          <h5>Level {level.level}</h5>
+                                          <b>Proficiency:</b> +{level.proficiency_bonus}<br />
+                                          {featsContent && <><>{featsContent}</><br /></>}
+                                          {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+                                          {barbarianContent && <><>{barbarianContent}</><br /></>}
+                                          {/* Bard Info - Bardic Die */}
+                                          {bardContent && <><>{bardContent}</><br /></>}
+                                          {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                                          {energyContent && <><>{energyContent}</><br /></>}
+                                          {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+                                           {spellcastingContent && <><>{spellcastingContent}</><br /></>}
                           {level.features && level.features.map((feature, fIndex) => (
                              <div key={fIndex} className="feature-item class2024-feature-item">
                                  <b>{feature.name}:</b>&nbsp;
@@ -296,6 +302,22 @@ function renderBarbarianInfo(level) {
      }
 
     return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Bard-specific information
+ * Displays the bardic die for Bard class levels
+ */
+function renderBardicInfo(level) {
+    if (!level.bardic_die) {
+        return null;
+      }
+
+    return (
+          <div>
+              <b>Bardic Die:</b>&nbsp;d{level.bardic_die}<br />
+          </div>
+      );
 }
 
 export default PlayerClass2024LevelProgression;
