@@ -80,30 +80,33 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
     		const fighterContent = renderFighterInfo(selectedLevel, playerClass.name);
     		const monkContent = renderMonkInfo(selectedLevel);
     		const rangerContent = renderRangerInfo(selectedLevel);
+    		    		const rogueContent = renderRogueInfo(selectedLevel);
 
-                return (
-                        <div className="selected-level-features">
-                            <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
-                            {/* Feats */}
-                            {featsContent && <><>{featsContent}</><br /></>}
-                            {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                            {barbarianContent && <><>{barbarianContent}</><br /></>}
-                            {/* Bard Info - Bardic Die */}
-                            {bardContent && <><>{bardContent}</><br /></>}
-                            {/* Cleric Info - Channel Divinity */}
-                            {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
-                            {/* Druid Info - Wild Shape, Beast Forms, Max CR, Fly Speed */}
-                                                          {druidContent && <><>{druidContent}</><br /></>}
-                                                          {/* Fighter Info - Second Wind, Weapon Mastery */}
-                                                          {fighterContent && <><>{fighterContent}</><br /></>}
-                                                                                                                     {/* Monk Info - Martial Arts Die, Focus Points, Unarmored Movement Increase */}
-                                                                                                                                                                                                                                           {monkContent && <><>{monkContent}</><br /></>}
-                                                                                                                                                                                                                                           {/* Ranger Info - Favored Enemy */}
-                                                                                                                                                                                                                                           {rangerContent && <><>{rangerContent}</><br /></>}
-                                                                                                                                                                                                                                           {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                                                                                                                     {energyContent && <><>{energyContent}</><br /></>}
-                                                          {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                                                          {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+    		                return (
+    		                         <div className="selected-level-features">
+    		                             <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+    		                             {/* Feats */}
+    		                             {featsContent && <><>{featsContent}</><br /></>}
+    		                             {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+    		                             {barbarianContent && <><>{barbarianContent}</><br /></>}
+    		                             {/* Bard Info - Bardic Die */}
+    		                             {bardContent && <><>{bardContent}</><br /></>}
+    		                             {/* Cleric Info - Channel Divinity */}
+    		                             {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
+    		                             {/* Druid Info - Wild Shape, Beast Forms, Max CR, Fly Speed */}
+    		                                                           {druidContent && <><>{druidContent}</><br /></>}
+    		                                                           {/* Fighter Info - Second Wind, Weapon Mastery */}
+    		                                                           {fighterContent && <><>{fighterContent}</><br /></>}
+    		                                                                                                                      {/* Monk Info - Martial Arts Die, Focus Points, Unarmored Movement Increase */}
+    		                                                                                                                                                                                                                                            {monkContent && <><>{monkContent}</><br /></>}
+    		                                                                                                                                                                                                                                            {/* Ranger Info - Favored Enemy */}
+    		                                                                                                                                                                                                                                            {rangerContent && <><>{rangerContent}</><br /></>}
+    		                                                                                                                                                                                                                                            {/* Rogue Info - Sneak Attack */}
+    		                                                                                                                                                                                                                                            {rogueContent && <><>{rogueContent}</><br /></>}
+    		                                                                                                                                                                                                                                            {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+    		                                                                                                                      {energyContent && <><>{energyContent}</><br /></>}
+    		                                                           {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+    		                                                           {spellcastingContent && <><>{spellcastingContent}</><br /></>}
                                           {allFeatures.map((feature, fIndex) => (
                  <div key={fIndex} className="feature-item class2024-feature-item">
                      <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
@@ -372,7 +375,25 @@ function renderRangerInfo(level) {
 
     if (level.favored_enemy !== undefined && level.favored_enemy !== null) {
         parts.push(<div key="favored_enemy"><b>Favored Enemy:</b>&nbsp;{level.favored_enemy}</div>);
+      }
+
+    if (parts.length === 0) {
+        return null;
      }
+
+    return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Rogue-specific information
+ * Displays the Sneak Attack damage dice for Rogue class levels
+ */
+function renderRogueInfo(level) {
+    const parts = [];
+
+    if (level.sneak_attack_num_d6 !== undefined && level.sneak_attack_num_d6 !== null) {
+        parts.push(<div key="sneak_attack"><b>Sneak Attack:</b>&nbsp;{level.sneak_attack_num_d6}d6</div>);
+      }
 
     if (parts.length === 0) {
         return null;
