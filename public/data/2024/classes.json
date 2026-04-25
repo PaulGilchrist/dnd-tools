@@ -2908,8 +2908,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 6,
-                    "psi_die_num": 4
+                    "energy_die_type": 6,
+                    "energy_die_num": 4
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -2936,8 +2936,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 6,
-                    "psi_die_num": 4
+                    "energy_die_type": 6,
+                    "energy_die_num": 4
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -2970,8 +2970,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 8,
-                    "psi_die_num": 6
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -2998,8 +2998,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 8,
-                    "psi_die_num": 6
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3026,8 +3026,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 8,
-                    "psi_die_num": 6
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3054,8 +3054,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 8,
-                    "psi_die_num": 6
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3088,8 +3088,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 8,
-                    "psi_die_num": 8
+                    "energy_die_type": 8,
+                    "energy_die_num": 8
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3116,8 +3116,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 8,
-                    "psi_die_num": 8
+                    "energy_die_type": 8,
+                    "energy_die_num": 8
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3144,8 +3144,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 10,
-                    "psi_die_num": 8
+                    "energy_die_type": 10,
+                    "energy_die_num": 8
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3172,8 +3172,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 10,
-                    "psi_die_num": 8
+                    "energy_die_type": 10,
+                    "energy_die_num": 8
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3206,8 +3206,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 10,
-                    "psi_die_num": 10
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3234,8 +3234,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 10,
-                    "psi_die_num": 10
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3262,8 +3262,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 10,
-                    "psi_die_num": 10
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3290,8 +3290,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 10,
-                    "psi_die_num": 10
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3324,8 +3324,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 12,
-                    "psi_die_num": 12
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3352,8 +3352,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 12,
-                    "psi_die_num": 12
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3380,8 +3380,8 @@
                 ],
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 12,
-                    "psi_die_num": 12
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
                 },
                 "spellcasting": {
                     "required_major": "Eldritch Knight",
@@ -3400,8 +3400,8 @@
                 "weapon_mastery": 6,
                 "psi_energy": {
                     "required_major": "Psi Warrior",
-                    "psi_die_type": 12,
-                    "psi_die_num": 12
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
                 },
                 "features": [
                     {
@@ -5497,27 +5497,22 @@
         "index": "rogue",
         "name": "Rogue",
         "class_description": "<p><b>Rogues rely on cunning, stealth, and their foes' vulnerabilities to get the upper hand in any situation.</b></p><p>They have a knack for finding the solution to just about any problem. A few even learn magical tricks to supplement their other abilities. Many Rogues focus on stealth and deception, while others refine skills that help them in a dungeon environment, such as climbing, finding and disarming traps, and opening locks. In combat, Rogues prioritize subtle strikes over brute strength. They would rather make one precise strike than wear an opponent down with a barrage of blows. Some Rogues began their careers as criminals, while others used their cunning to fight crime. Whatever a Rogue's relation to the law, no common criminal or officer of the law can match the subtle brilliance of the greatest Rogues.</p>",
-        "core_traits": {
-            "primary_ability": "Dexterity",
-            "hit_point_die": "D8 per Rogue level",
-            "saving_throw_proficiencies": "Dexterity and Intelligence",
-            "skill_proficiencies": "Choose 4: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Persuasion, Sleight of Hand, or Stealth",
-            "weapon_proficiencies": "Simple weapons and Martial weapons that have the Finesse or Light property",
-            "armor_training": "Light armor",
-            "tool_proficiencies": "Thieves' Tools",
-            "starting_equipment": "Choose A or B: (A) Leather Armor, 2 Daggers, Shortsword, Shortbow, 20 Arrows, Quiver, Thieves' Tools, Burglar's Pack, and 8 GP; or (B) 100 GP"
-        },
-        "hit_die": 8,
-        "hit_die_type": "d8",
-        "proficiency_choices": [],
-        "saving_throws": [
+        "primary_ability": "Dexterity",
+        "hit_point_die": "8",
+        "skill_proficiencies": "Choose 4: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Persuasion, Sleight of Hand, or Stealth",
+        "weapon_proficiencies": "Simple weapons and Martial weapons that have the Finesse or Light property",
+        "armor_training": "Light armor",
+        "tool_proficiencies": "Thieves' Tools",
+        "starting_equipment": "Choose A or B: (A) Leather Armor, 2 Daggers, Shortsword, Shortbow, 20 Arrows, Quiver, Thieves' Tools, Burglar's Pack, and 8 GP; or (B) 100 GP",
+        "saving_throw_proficiencies": [
             "Dexterity",
             "Intelligence"
         ],
         "class_levels": [
             {
                 "level": 1,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "sneak_attack_num_d6": 1,
                 "features": [
                     {
                         "name": "Expertise",
@@ -5543,11 +5538,21 @@
                         "level": 1,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 0,
+                    "prepared_spells": 0,
+                    "spell_slots_level_1": 0,
+                    "spell_slots_level_2": 0,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 2,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "sneak_attack_num_d6": 1,
                 "features": [
                     {
                         "name": "Cunning Action",
@@ -5555,11 +5560,21 @@
                         "level": 2,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 0,
+                    "prepared_spells": 0,
+                    "spell_slots_level_1": 0,
+                    "spell_slots_level_2": 0,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 3,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "sneak_attack_num_d6": 2,
                 "features": [
                     {
                         "name": "Rogue Subclass",
@@ -5573,11 +5588,21 @@
                         "level": 3,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 3,
+                    "spell_slots_level_1": 2,
+                    "spell_slots_level_2": 0,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 4,
-                "proficiency_bonus": "+2",
+                "proficiency_bonus": 2,
+                "sneak_attack_num_d6": 2,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -5585,11 +5610,21 @@
                         "level": 4,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 4,
+                    "spell_slots_level_1": 3,
+                    "spell_slots_level_2": 0,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 5,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "sneak_attack_num_d6": 3,
                 "features": [
                     {
                         "name": "Cunning Strike",
@@ -5603,11 +5638,21 @@
                         "level": 5,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 4,
+                    "spell_slots_level_1": 3,
+                    "spell_slots_level_2": 0,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 6,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "sneak_attack_num_d6": 3,
                 "features": [
                     {
                         "name": "Expertise",
@@ -5615,11 +5660,21 @@
                         "level": 6,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 4,
+                    "spell_slots_level_1": 3,
+                    "spell_slots_level_2": 0,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 7,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "sneak_attack_num_d6": 4,
                 "features": [
                     {
                         "name": "Evasion",
@@ -5633,11 +5688,21 @@
                         "level": 7,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 5,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 2,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 8,
-                "proficiency_bonus": "+3",
+                "proficiency_bonus": 3,
+                "sneak_attack_num_d6": 4,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -5645,11 +5710,21 @@
                         "level": 8,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 6,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 2,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 9,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "sneak_attack_num_d6": 5,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -5657,11 +5732,21 @@
                         "level": 9,
                         "type": "subclass_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 3,
+                    "prepared_spells": 6,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 2,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 10,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "sneak_attack_num_d6": 5,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -5669,11 +5754,21 @@
                         "level": 10,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 7,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 2,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 11,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "sneak_attack_num_d6": 6,
                 "features": [
                     {
                         "name": "Improved Cunning Strike",
@@ -5681,11 +5776,21 @@
                         "level": 11,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 8,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 12,
-                "proficiency_bonus": "+4",
+                "proficiency_bonus": 4,
+                "sneak_attack_num_d6": 6,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -5693,11 +5798,21 @@
                         "level": 12,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 8,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 0,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 13,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "sneak_attack_num_d6": 7,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -5705,11 +5820,21 @@
                         "level": 13,
                         "type": "subclass_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 9,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 2,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 14,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "sneak_attack_num_d6": 7,
                 "features": [
                     {
                         "name": "Devious Strikes",
@@ -5717,11 +5842,21 @@
                         "level": 14,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 10,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 2,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 15,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "sneak_attack_num_d6": 8,
                 "features": [
                     {
                         "name": "Slippery Mind",
@@ -5729,11 +5864,21 @@
                         "level": 15,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 10,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 2,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 16,
-                "proficiency_bonus": "+5",
+                "proficiency_bonus": 5,
+                "sneak_attack_num_d6": 8,
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -5741,11 +5886,21 @@
                         "level": 16,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 11,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 3,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 17,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "sneak_attack_num_d6": 9,
                 "features": [
                     {
                         "name": "Subclass feature",
@@ -5753,11 +5908,21 @@
                         "level": 17,
                         "type": "subclass_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 11,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 3,
+                    "spell_slots_level_4": 0
+                }
             },
             {
                 "level": 18,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "sneak_attack_num_d6": 9,
                 "features": [
                     {
                         "name": "Elusive",
@@ -5765,11 +5930,21 @@
                         "level": 18,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 12,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 3,
+                    "spell_slots_level_4": 1
+                }
             },
             {
                 "level": 19,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "sneak_attack_num_d6": 10,
                 "features": [
                     {
                         "name": "Epic Boon",
@@ -5777,11 +5952,21 @@
                         "level": 19,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 12,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 3,
+                    "spell_slots_level_4": 1
+                }
             },
             {
                 "level": 20,
-                "proficiency_bonus": "+6",
+                "proficiency_bonus": 6,
+                "sneak_attack_num_d6": 10,
                 "features": [
                     {
                         "name": "Stroke of Luck",
@@ -5789,7 +5974,16 @@
                         "level": 20,
                         "type": "class_feature"
                     }
-                ]
+                ],
+                "spellcasting": {
+                    "required_major": "Arcane Trickster",
+                    "cantrips_known": 4,
+                    "prepared_spells": 13,
+                    "spell_slots_level_1": 4,
+                    "spell_slots_level_2": 3,
+                    "spell_slots_level_3": 3,
+                    "spell_slots_level_4": 1
+                }
             }
         ],
         "majors": [
@@ -5984,6 +6178,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 0,
+                    "energy_die_num": 0
+                },
                 "spellcasting": {
                     "cantrips_known": 4,
                     "prepared_spells": 2,
@@ -6015,6 +6214,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 0,
+                    "energy_die_num": 0
+                },
                 "spellcasting": {
                     "cantrips_known": 4,
                     "prepared_spells": 3,
@@ -6040,6 +6244,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 6,
+                    "energy_die_num": 4
+                },
                 "spellcasting": {
                     "cantrips_known": 4,
                     "prepared_spells": 4,
@@ -6065,6 +6274,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 6,
+                    "energy_die_num": 4
+                },
                 "spellcasting": {
                     "cantrips_known": 5,
                     "prepared_spells": 5,
@@ -6090,6 +6304,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
+                },
                 "spellcasting": {
                     "cantrips_known": 5,
                     "prepared_spells": 6,
@@ -6115,6 +6334,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
+                },
                 "spellcasting": {
                     "cantrips_known": 5,
                     "prepared_spells": 7,
@@ -6133,6 +6357,11 @@
                 "level": 7,
                 "proficiency_bonus": "+3",
                 "features": [],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
+                },
                 "spellcasting": {
                     "cantrips_known": 5,
                     "prepared_spells": 8,
@@ -6150,6 +6379,11 @@
             {
                 "level": 8,
                 "proficiency_bonus": "+3",
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 8,
+                    "energy_die_num": 6
+                },
                 "features": [
                     {
                         "name": "Ability Score Improvement",
@@ -6176,6 +6410,11 @@
                 "level": 9,
                 "proficiency_bonus": "+4",
                 "features": [],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 8,
+                    "energy_die_num": 8
+                },
                 "spellcasting": {
                     "cantrips_known": 5,
                     "prepared_spells": 10,
@@ -6201,6 +6440,11 @@
                         "type": "subclass_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 8,
+                    "energy_die_num": 8
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 11,
@@ -6219,6 +6463,11 @@
                 "level": 11,
                 "proficiency_bonus": "+4",
                 "features": [],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 10,
+                    "energy_die_num": 8
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 12,
@@ -6244,6 +6493,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 10,
+                    "energy_die_num": 8
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 12,
@@ -6262,6 +6516,11 @@
                 "level": 13,
                 "proficiency_bonus": "+5",
                 "features": [],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 13,
@@ -6287,6 +6546,11 @@
                         "type": "subclass_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 13,
@@ -6305,6 +6569,11 @@
                 "level": 15,
                 "proficiency_bonus": "+6",
                 "features": [],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 14,
@@ -6330,6 +6599,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 10,
+                    "energy_die_num": 10
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 14,
@@ -6355,6 +6629,11 @@
                         "type": "subclass_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 15,
@@ -6373,6 +6652,11 @@
                 "level": 18,
                 "proficiency_bonus": "+6",
                 "features": [],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 15,
@@ -6398,6 +6682,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 15,
@@ -6423,6 +6712,11 @@
                         "type": "class_feature"
                     }
                 ],
+                "soulknife_energy": {
+                    "required_major": "Soulknife",
+                    "energy_die_type": 12,
+                    "energy_die_num": 12
+                },
                 "spellcasting": {
                     "cantrips_known": 6,
                     "prepared_spells": 15,
