@@ -75,15 +75,19 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
         selectedLevel.spellcasting.required_major === shownMajor
     );
 
+        const featsContent = renderFeats2024(shownLevel);
+    const energyContent = shouldShowEnergy ? renderEnergyInfo(selectedLevel.energy) : null;
+    const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(selectedLevel.spellcasting) : null;
+
     return (
-        <div className="selected-level-features">
-            <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
-            {/* Feats */}
-            {renderFeats2024(shownLevel)}<br />
-            {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-            {shouldShowEnergy && renderEnergyInfo(selectedLevel.energy)}<br />
-            {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-            {shouldShowSpellcasting && renderSpellcastingInfo(selectedLevel.spellcasting)}<br />
+         <div className="selected-level-features">
+             <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+             {/* Feats */}
+             {featsContent && <><>{featsContent}</><br /></>}
+             {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+             {energyContent && <><>{energyContent}</><br /></>}
+             {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+             {spellcastingContent && <><>{spellcastingContent}</><br /></>}
             {allFeatures.map((feature, fIndex) => (
                 <div key={fIndex} className="feature-item class2024-feature-item">
                     <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
@@ -118,15 +122,19 @@ function AllLevelsView({ playerClass, shownMajor }) {
                     level.spellcasting.required_major === shownMajor
                 );
 
+                                const featsContent = renderFeats2024(level.level);
+                const energyContent = shouldShowEnergy ? renderEnergyInfo(level.energy) : null;
+                const spellcastingContent = shouldShowSpellcasting ? renderSpellcastingInfo(level.spellcasting) : null;
+
                 return (
-                    <div key={level.level} className="level-section">
-                        <h5>Level {level.level}</h5>
-                        <b>Proficiency:</b> +{level.proficiency_bonus}<br />
-                        {renderFeats2024(level.level)}
-                        {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                        {shouldShowEnergy && renderEnergyInfo(level.energy)}
-                        {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                        {shouldShowSpellcasting && renderSpellcastingInfo(level.spellcasting)}<br />
+                      <div key={level.level} className="level-section">
+                          <h5>Level {level.level}</h5>
+                          <b>Proficiency:</b> +{level.proficiency_bonus}<br />
+                          {featsContent && <><>{featsContent}</><br /></>}
+                          {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+                          {energyContent && <><>{energyContent}</><br /></>}
+                          {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+                          {spellcastingContent && <><>{spellcastingContent}</><br /></>}
                         {level.features && level.features.map((feature, fIndex) => (
                             <div key={fIndex} className="feature-item class2024-feature-item">
                                 <b>{feature.name}:</b>&nbsp;
@@ -181,7 +189,7 @@ function renderFeats2024(level) {
 
     return (
         <div>
-            <b>Feats:</b>&nbsp;{parts.join(', ')}
+            <b>Feats:</b>&nbsp;{parts.join(', ')}<br />
         </div>
     );
 }
