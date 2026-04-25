@@ -10,31 +10,31 @@ function PlayerClass2024LevelProgression({ playerClass, shownLevel, shownMajor, 
     }
 
     return (
-          <div className="level-progression-embedded class2024-level-progression-embedded">
-              <h4>Level Progression</h4>
-              {/* Level Selector */}
-              <div className="level-selector class2024-level-selector">
-                  <b>Select Level:</b>&nbsp;
-                  {playerClass.class_levels.map((level) => (
-                      <button
-                         key={level.level}
-                         className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'}`}
-                         className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'} class2024-level-selector-btn`}
-                         onClick={() => onShowLevel(level.level)}
-                      >
-                          {level.level}
-                      </button>
-                  ))}
-              </div>
+        <div className="level-progression-embedded class2024-level-progression-embedded">
+            <h4>Level Progression</h4>
+            {/* Level Selector */}
+            <div className="level-selector class2024-level-selector">
+                <b>Select Level:</b>&nbsp;
+                {playerClass.class_levels.map((level) => (
+                    <button
+                        key={level.level}
+                        className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'}`}
+                        className={`btn btn-sm ${shownLevel === level.level ? 'btn-primary' : 'btn-outline-secondary'} class2024-level-selector-btn`}
+                        onClick={() => onShowLevel(level.level)}
+                    >
+                        {level.level}
+                    </button>
+                ))}
+            </div>
 
-              {/* Show features for selected level or all levels */}
-              {shownLevel === 0 ? (
-                  <AllLevelsView playerClass={playerClass} shownMajor={shownMajor} />
-              ) : (
-                  <SelectedLevelView playerClass={playerClass} shownLevel={shownLevel} shownMajor={shownMajor} />
-              )}
-          </div>
-      );
+            {/* Show features for selected level or all levels */}
+            {shownLevel === 0 ? (
+                <AllLevelsView playerClass={playerClass} shownMajor={shownMajor} />
+            ) : (
+                <SelectedLevelView playerClass={playerClass} shownLevel={shownLevel} shownMajor={shownMajor} />
+            )}
+        </div>
+    );
 }
 
 /**
@@ -57,46 +57,46 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
                     allFeatures.push({
                         ...feature,
                         sourceLevel: playerClass.class_levels[i].level
-                      });
-                  }
-              });
-          }
-      }
+                    });
+                }
+            });
+        }
+    }
 
-     // Check if energy should be shown (only if required_major matches shownMajor or has no required_major)
+    // Check if energy should be shown (only if required_major matches shownMajor or has no required_major)
     const shouldShowEnergy = selectedLevel.energy && (
-        !selectedLevel.energy.required_major || 
-       selectedLevel.energy.required_major === shownMajor
-      );
+        !selectedLevel.energy.required_major ||
+        selectedLevel.energy.required_major === shownMajor
+    );
 
-      // Check if spellcasting should be shown (only if required_major matches shownMajor or has no required_major)
+    // Check if spellcasting should be shown (only if required_major matches shownMajor or has no required_major)
     const shouldShowSpellcasting = selectedLevel.spellcasting && (
-        !selectedLevel.spellcasting.required_major || 
+        !selectedLevel.spellcasting.required_major ||
         selectedLevel.spellcasting.required_major === shownMajor
-      );
+    );
 
     return (
-            <div className="selected-level-features">
-                <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br/>
-                {/* Feats */}
-                {renderFeats2024(shownLevel)}<br/>
-                {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                {shouldShowEnergy && renderEnergyInfo(selectedLevel.energy)}<br/>
-                {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                {shouldShowSpellcasting && renderSpellcastingInfo(selectedLevel.spellcasting)}<br/>
-                {allFeatures.map((feature, fIndex) => (
-                    <div key={fIndex} className="feature-item class2024-feature-item">
-                        <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
-                        {feature.type === 'subclass_feature' && (
-                            <span className="subclass-badge">(Subclass)</span>
-                        )}
-                        {feature.description && (
-                            <span dangerouslySetInnerHTML={{ __html: feature.description }} />
-                        )}
-                    </div>
-                ))}
-            </div>
-        );
+        <div className="selected-level-features">
+            <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+            {/* Feats */}
+            {renderFeats2024(shownLevel)}<br />
+            {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+            {shouldShowEnergy && renderEnergyInfo(selectedLevel.energy)}<br />
+            {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+            {shouldShowSpellcasting && renderSpellcastingInfo(selectedLevel.spellcasting)}<br />
+            {allFeatures.map((feature, fIndex) => (
+                <div key={fIndex} className="feature-item class2024-feature-item">
+                    <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
+                    {feature.type === 'subclass_feature' && (
+                        <span className="subclass-badge">(Subclass)</span>
+                    )}
+                    {feature.description && (
+                        <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                    )}
+                </div>
+            ))}
+        </div>
+    );
 }
 
 /**
@@ -107,26 +107,26 @@ function AllLevelsView({ playerClass, shownMajor }) {
         <div className="all-levels-features">
             {playerClass.class_levels.map((level) => {
                 // Check if energy should be shown for this level
-               const shouldShowEnergy = level.energy && (
-                    !level.energy.required_major || 
-                   level.energy.required_major === shownMajor
-                  );
+                const shouldShowEnergy = level.energy && (
+                    !level.energy.required_major ||
+                    level.energy.required_major === shownMajor
+                );
 
-               // Check if spellcasting should be shown for this level
-               const shouldShowSpellcasting = level.spellcasting && (
-                    !level.spellcasting.required_major || 
+                // Check if spellcasting should be shown for this level
+                const shouldShowSpellcasting = level.spellcasting && (
+                    !level.spellcasting.required_major ||
                     level.spellcasting.required_major === shownMajor
-                  );
+                );
 
                 return (
                     <div key={level.level} className="level-section">
                         <h5>Level {level.level}</h5>
-                        <b>Proficiency:</b> +{level.proficiency_bonus}<br/>
-                        {renderFeats2024(level.level)}<br/>
+                        <b>Proficiency:</b> +{level.proficiency_bonus}<br />
+                        {renderFeats2024(level.level)}
                         {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                        {shouldShowEnergy && renderEnergyInfo(level.energy)}<br/>
+                        {shouldShowEnergy && renderEnergyInfo(level.energy)}
                         {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                        {shouldShowSpellcasting && renderSpellcastingInfo(level.spellcasting)}<br/>
+                        {shouldShowSpellcasting && renderSpellcastingInfo(level.spellcasting)}<br />
                         {level.features && level.features.map((feature, fIndex) => (
                             <div key={fIndex} className="feature-item class2024-feature-item">
                                 <b>{feature.name}:</b>&nbsp;
@@ -154,36 +154,36 @@ function AllLevelsView({ playerClass, shownMajor }) {
 function renderFeats2024(level) {
     if (!level || level < 1) {
         return null;
-      }
+    }
 
     const parts = [];
 
     // Origin feat at level 1
     if (level >= 1) {
         parts.push('1 Origin');
-      }
+    }
 
     // General feats at levels 4, 8, 12, 16
     const generalFeatLevels = [4, 8, 12, 16];
     const generalFeats = generalFeatLevels.filter(featLevel => level >= featLevel).length;
     if (generalFeats > 0) {
         parts.push(`${generalFeats} General`);
-      }
+    }
 
     // Epic Boon at level 19
     if (level >= 19) {
         parts.push('1 Epic Boon');
-      }
+    }
 
     if (parts.length === 0) {
         return null;
-      }
+    }
 
     return (
-          <div>
-              <b>Feats:</b>&nbsp;{parts.join(', ')}<br />
-          </div>
-      );
+        <div>
+            <b>Feats:</b>&nbsp;{parts.join(', ')}
+        </div>
+    );
 }
 
 /**
@@ -193,13 +193,13 @@ function renderFeats2024(level) {
 function renderEnergyInfo(energy) {
     if (!energy || !energy.energy_die_type || !energy.energy_die_num) {
         return null;
-       }
+    }
 
     return (
-         <div>
-              <b>Energy:</b>&nbsp;{energy.energy_die_num}d{energy.energy_die_type}<br />
-          </div>
-      );
+        <div>
+            <b>Energy:</b>&nbsp;{energy.energy_die_num}d{energy.energy_die_type}<br />
+        </div>
+    );
 }
 
 /**
