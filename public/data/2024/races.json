@@ -38,12 +38,15 @@
                 "name": "Necrotic Shroud",
                 "description": "Your eyes briefly become pools of darkness, and flightless wings sprout from your back temporarily. Creatures other than your allies within 10 feet of you must succeed on a Charisma saving throw (DC 8 plus your Charisma modifier and Proficiency Bonus) or have the Frightened condition until the end of your next turn."
             }
+        ],
+        "languages": [
+            "Common"
         ]
     },
     {
         "name": "Dragonborn",
         "creature_type": "Humanoid",
-        "description": "<p>The ancestors of dragonborn hatched from the eggs of chromatic and metallic dragons. One story holds that these eggs were blessed by the dragon gods Bahamut and Tiamat, who wanted to populate the multiverse with people created in their image. Another story claims that dragons created the first dragonborn without the gods' blessings. Whatever their origin, dragonborn have made homes for themselves on the Material Plane.</p><p>Dragonborn look like wingless, bipedal dragons—sclaly, bright-eyed, and thick-boned with horns on their heads—and their coloration and other features are reminiscent of their draconic ancestors.</p>",
+        "description": "<p>The ancestors of dragonborn hatched from the eggs of chromatic and metallic dragons. One story holds that these eggs were blessed by the dragon gods Bahamut and Tiamat, who wanted to populate the multiverse with people created in their image. Another story claims that dragons created the first dragonborn without the gods' blessings. Whatever their origin, dragonborn have made homes for themselves on the Material Plane.</p><p>Dragonborn look like wingless, bipedal dragons\u2014sclaly, bright-eyed, and thick-boned with horns on their heads\u2014and their coloration and other features are reminiscent of their draconic ancestors.</p>",
         "size": "Medium",
         "speed": 30,
         "subraces": [
@@ -109,6 +112,10 @@
                 "name": "Draconic Flight",
                 "description": "When you reach character level 5, you can channel draconic magic to give yourself temporary flight. As a Bonus Action, you sprout spectral wings on your back that last for 10 minutes or until you retract the wings (no action required) or have the Incapacitated condition. During that time, you have a Fly Speed equal to your Speed. Your wings appear to be made of the same energy as your Breath Weapon. Once you use this trait, you can't use it again until you finish a Long Rest."
             }
+        ],
+        "languages": [
+            "Common",
+            "Draconic"
         ]
     },
     {
@@ -120,11 +127,19 @@
         "subraces": [
             {
                 "name": "Hill",
-                "description": ""
+                "description": "",
+                "languages": [
+                    "Common",
+                    "Dwarvish"
+                ]
             },
             {
                 "name": "Mountain",
-                "description": ""
+                "description": "",
+                "languages": [
+                    "Common",
+                    "Dwarvish"
+                ]
             }
         ],
         "traits": [
@@ -134,7 +149,7 @@
             },
             {
                 "name": "Dwarven Resilience",
-                "description": "You have Resistance to Poison damage. You also have Advantage on saving throws you maize to avoid or end the Poisoned condition."
+                "description": "You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the Poisoned condition."
             },
             {
                 "name": "Dwarven Toughness",
@@ -144,6 +159,10 @@
                 "name": "Stonecunning",
                 "description": "As a Bonus Action, you gain Tremorsense with a range of 60 feet for 10 minutes. You must be on a stone surface or touching a stone surface to use this Tremorsense. The stone can be natural or worked.<br/>You can use this Bonus Action a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest."
             }
+        ],
+        "languages": [
+            "Common",
+            "Dwarvish"
         ]
     },
     {
@@ -155,15 +174,27 @@
         "subraces": [
             {
                 "name": "Drow",
-                "description": "Drow typically dwell in the Underdark and have been shaped by it. Some drow individuals and societies avoid the Underdark altogether yet carry its magic. In the Eberron setting, for example, drow dwell in rainforests and cyclopean ruins on the continent of Xen'drik."
+                "description": "Drow typically dwell in the Underdark and have been shaped by it. Some drow individuals and societies avoid the Underdark altogether yet carry its magic. In the Eberron setting, for example, drow dwell in rainforests and cyclopean ruins on the continent of Xen'drik.",
+                "languages": [
+                    "Dark Speech"
+                ]
             },
             {
                 "name": "High Elves",
-                "description": "High elves have been infused with the magic of crossings between the Feywild and the Material Plane. On some worlds, high elves refer to themselves by other names. For example, they call tl1emselves sun or moon elves in the Forgotten Realms setting, Silvanesti and Qualinesti in the Dragonlance setting, and Aereni in the Eberro11 setting."
+                "description": "High elves have been infused with the magic of crossings between the Feywild and the Material Plane. On some worlds, high elves refer to themselves by other names. For example, they call tl1emselves sun or moon elves in the Forgotten Realms setting, Silvanesti and Qualinesti in the Dragonlance setting, and Aereni in the Eberro11 setting.",
+                "languages": [
+                    "Common",
+                    "Elvish",
+                    "One extra language of your choice"
+                ]
             },
             {
                 "name": "Wood Elves",
-                "description": "Wood elves carry the magic of primeval forests within themselves. They are known by many other names, including wild elves, green elves, and forest elves. Grugach are reclusive wood elves of the Greyhawk setting, while the Kagonesti and the Tairnadal are wood elves of the Dragonlance and Eberron settings, respectively."
+                "description": "Wood elves carry the magic of primeval forests within themselves. They are known by many other names, including wild elves, green elves, and forest elves. Grugach are reclusive wood elves of the Greyhawk setting, while the Kagonesti and the Tairnadal are wood elves of the Dragonlance and Eberron settings, respectively.",
+                "languages": [
+                    "Common",
+                    "Elvish"
+                ]
             }
         ],
         "traits": [
@@ -187,6 +218,10 @@
                 "name": "Elfish Lineage",
                 "description": "You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage):<br/><br/><table class='table table-condensed table-striped table-hover'><caption>Elven Lineages</caption><thead><tr><th>Lineage</th><th>Level 1</th><th>Level 3</th><th>Level 5</th></tr></thead><tbody><tr><td>Drow</td><td>The range of your Darkvision increases to 120 feet. You also know the <em>Dancing Lights</em> cantrip.</td><td><em>Faerie Fire</em></td><td><em>Darkness</em></td></tr><tr><td>High Elf</td><td>You know the <em>Prestidigitation</em> cantrip. Whenever you finish a Long Rest, you can replace that cantrip with a different cantrip from the Wizard spell list.</td><td><em>Detect Magic</em></td><td><em>Misty Step</em></td></tr><tr><td>Wood Elf</td><td>Your Speed increases to 35 feet. You also know the <em>Druidcraft</em> cantrip.</td><td><em>Longstrider</em></td><td><em>Pass without Trace</em></td></tr></tbody></table>"
             }
+        ],
+        "languages": [
+            "Common",
+            "Elvish"
         ]
     },
     {
@@ -198,11 +233,17 @@
         "subraces": [
             {
                 "name": "Forest Gnome",
-                "description": "You know the Minor Illusion cantrip. You also always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell."
+                "description": "You know the Minor Illusion cantrip. You also always have the Speak with Animals spell prepared. You can cast it without a spell slot a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest. You can also use any spell slots you have to cast the spell.",
+                "languages": [
+                    "Sylvan"
+                ]
             },
             {
                 "name": "Rock Gnome",
-                "description": "You know the Mending and Prestidigitation cantrips. In addition, you can spend 10 minutes casting Prestidigitation to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from Prestidigitation; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell's ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn't do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action."
+                "description": "You know the Mending and Prestidigitation cantrips. In addition, you can spend 10 minutes casting Prestidigitation to create a Tiny clockwork device (AC 5, 1 HP), such as a toy, fire starter, or music box. When you create the device, you determine its function by choosing one effect from Prestidigitation; the device produces that effect whenever you or another creature takes a Bonus Action to activate it with a touch. If the chosen effect has options within it, you choose one of those options for the device when you create it. For example, if you choose the spell's ignite-extinguish effect, you determine whether the device ignites or extinguishes fire; the device doesn't do both. You can have three such devices in existence at a time, and each falls apart 8 hours after its creation or when you dismantle it with a touch as a Utilize action.",
+                "languages": [
+                    "Gnomish"
+                ]
             }
         ],
         "traits": [
@@ -218,6 +259,10 @@
                 "name": "Gnomish Lineage",
                 "description": "You are part of a lineage that grants you supernatural abilities. Choose one of the following options; whichever one you choose, Intelligence, Wisdom, or Charisma is your spellcasting ability for the spells you cast with this trait (choose the ability when you select the lineage):"
             }
+        ],
+        "languages": [
+            "Common",
+            "Gnomish"
         ]
     },
     {
@@ -229,27 +274,51 @@
         "subraces": [
             {
                 "name": "Cloud's Jaunt (Cloud Giant)",
-                "description": "As a Bonus Action, you magically teleport up to 30 feet to an unoccupied space you can see."
+                "description": "As a Bonus Action, you magically teleport up to 30 feet to an unoccupied space you can see.",
+                "languages": [
+                    "Common",
+                    "Giant"
+                ]
             },
             {
                 "name": "Fire's Burn (Fire Giant)",
-                "description": "When you hit a target with an attack roll and deal damage to it, you can also deal 1d10 Fire damage to that target."
+                "description": "When you hit a target with an attack roll and deal damage to it, you can also deal 1d10 Fire damage to that target.",
+                "languages": [
+                    "Common",
+                    "Giant"
+                ]
             },
             {
                 "name": "Frost's Chill (Frost Giant)",
-                "description": "When you hit a target with an attack roll and deal damage to it, you can also deal 1d6 Cold damage to that target and reduce its Speed by 10 feet until the start of your next turn."
+                "description": "When you hit a target with an attack roll and deal damage to it, you can also deal 1d6 Cold damage to that target and reduce its Speed by 10 feet until the start of your next turn.",
+                "languages": [
+                    "Common",
+                    "Giant"
+                ]
             },
             {
                 "name": "Hill's Tumble (Hill Giant)",
-                "description": "When you hit a Large or smaller creature with an attack roll and deal damage to it, you can give that target the Prone condition."
+                "description": "When you hit a Large or smaller creature with an attack roll and deal damage to it, you can give that target the Prone condition.",
+                "languages": [
+                    "Common",
+                    "Giant"
+                ]
             },
             {
                 "name": "Stone's Endurance (Stone Giant)",
-                "description": "When you take damage, you can take a Reaction to roll 1d12. Add your Constitution modifier to the number rolled and reduce the damage by that total."
+                "description": "When you take damage, you can take a Reaction to roll 1d12. Add your Constitution modifier to the number rolled and reduce the damage by that total.",
+                "languages": [
+                    "Common",
+                    "Giant"
+                ]
             },
             {
                 "name": "Storm's Thunder (Storm Giant)",
-                "description": "When you take damage from a creature within 60 feet of you, you can take a Reaction to deal 1d8 Thunder damage to that creature."
+                "description": "When you take damage from a creature within 60 feet of you, you can take a Reaction to deal 1d8 Thunder damage to that creature.",
+                "languages": [
+                    "Common",
+                    "Giant"
+                ]
             }
         ],
         "traits": [
@@ -265,12 +334,16 @@
                 "name": "Giant Ancestry",
                 "description": "You are descended from Giants. Choose one of the following benefits-a supernatural boon from your ancestry; you can use the chosen benefit a number of times equal to your Proficiency Bonus, and you regain all expended uses when you finish a Long Rest:"
             }
+        ],
+        "languages": [
+            "Common",
+            "Giant"
         ]
     },
     {
         "name": "Halfling",
         "creature_type": "Humanoid",
-        "description": "<p>Cheerished and guided by gods who value life, home, and hearth, halflings gravitate toward bucolic havens where family and community help shape their lives. That said, many halflings possess a brave and adventurous spirit that leads them on journeys of discovery, affording them the chance to explore a bigger world and make new friends along the way. Their size—similar to that of a human child—helps them pass through crowds unnoticed and slip through tight spaces. Anyone who has spent time around halflings, particularly halfling adventurers, has likely witnessed the storied \"luck of the halflings\" in action. When a halfling is in mortal danger, an unseen force seems to intervene on the halfling's behalf. Many halflings believe in the power of luck, and they attribute their unusual gift to one or more of their benevolent gods, including Yondalla, Brandobaris, and Charmalaine. The same gift might contribute to their robust life spans (about 150 years). Halfling communities come in all varieties. For every sequestered shire tucked away in an unspoiled part of the world, there's a crime syndicate like the Boromar Clan in the Eberron setting or a territorial mob of halflings like those in the Dark Sun setting. Halflings who prefer to live underground are sometimes called strongheart halflings or stouts. Nomadic halflings, as well as those who live among humans and other tall folk, are sometimes called lightfoot halflings or tallfellows.</p>",
+        "description": "<p>Cheerished and guided by gods who value life, home, and hearth, halflings gravitate toward bucolic havens where family and community help shape their lives. That said, many halflings possess a brave and adventurous spirit that leads them on journeys of discovery, affording them the chance to explore a bigger world and make new friends along the way. Their size\u2014similar to that of a human child\u2014helps them pass through crowds unnoticed and slip through tight spaces. Anyone who has spent time around halflings, particularly halfling adventurers, has likely witnessed the storied \"luck of the halflings\" in action. When a halfling is in mortal danger, an unseen force seems to intervene on the halfling's behalf. Many halflings believe in the power of luck, and they attribute their unusual gift to one or more of their benevolent gods, including Yondalla, Brandobaris, and Charmalaine. The same gift might contribute to their robust life spans (about 150 years). Halfling communities come in all varieties. For every sequestered shire tucked away in an unspoiled part of the world, there's a crime syndicate like the Boromar Clan in the Eberron setting or a territorial mob of halflings like those in the Dark Sun setting. Halflings who prefer to live underground are sometimes called strongheart halflings or stouts. Nomadic halflings, as well as those who live among humans and other tall folk, are sometimes called lightfoot halflings or tallfellows.</p>",
         "subtypes": [],
         "size": "Small (about 2-3 feet tall)",
         "speed": 30,
@@ -291,6 +364,10 @@
                 "name": "Naturally Stealthy",
                 "description": "You can take the Hide action even when you are obscured only by a creature that is at least one size larger than you."
             }
+        ],
+        "languages": [
+            "Common",
+            "Halfling"
         ]
     },
     {
@@ -312,6 +389,9 @@
                 "name": "Versatile",
                 "description": "You gain an Origin feat of your choice (see chapter 5). Skilled is recommended."
             }
+        ],
+        "languages": [
+            "Common"
         ]
     },
     {
@@ -333,6 +413,10 @@
                 "name": "Relentless Endurance",
                 "description": "When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can't do so again until you finish a Long Rest."
             }
+        ],
+        "languages": [
+            "Common",
+            "Orc"
         ]
     },
     {
@@ -344,15 +428,24 @@
         "subraces": [
             {
                 "name": "Abyssal",
-                "description": "The entropy of the Abyss, the chaos of Pandemonium, and the despair of Carceri call to tieflings who have the abyssal legacy. Horns, fur, tusks, and peculiar scents are common physical features of such tieflings, most of whom have the blood of demons coursing through their veins."
+                "description": "The entropy of the Abyss, the chaos of Pandemonium, and the despair of Carceri call to tieflings who have the abyssal legacy. Horns, fur, tusks, and peculiar scents are common physical features of such tieflings, most of whom have the blood of demons coursing through their veins.",
+                "languages": [
+                    "Abyssal"
+                ]
             },
             {
                 "name": "Chthonic",
-                "description": "Tieflings who have the chthonic legacy feel not only the tug of Carceri but also the greed of Gehenna and the gloom of Hades. Some of these tieflings look cadaverous. Others possess the unearthly beauty of a succubus, or they have physical features in-common with a night hag, a yugoloth, or some other Neutral Evil fiendish ancestor."
+                "description": "Tieflings who have the chthonic legacy feel not only the tug of Carceri but also the greed of Gehenna and the gloom of Hades. Some of these tieflings look cadaverous. Others possess the unearthly beauty of a succubus, or they have physical features in-common with a night hag, a yugoloth, or some other Neutral Evil fiendish ancestor.",
+                "languages": [
+                    "Common"
+                ]
             },
             {
                 "name": "Infernal",
-                "description": "The infernal legacy connects tieflings not only to Gehenna but also the Nine Hells and the raging battlefields of Acheron. Horns, spines, tails, golden eyes, and a faint odor of sulfur or smoke are common physical features of such tieflings, most of whom trace their ancestry to devils."
+                "description": "The infernal legacy connects tieflings not only to Gehenna but also the Nine Hells and the raging battlefields of Acheron. Horns, spines, tails, golden eyes, and a faint odor of sulfur or smoke are common physical features of such tieflings, most of whom trace their ancestry to devils.",
+                "languages": [
+                    "Infernal"
+                ]
             }
         ],
         "traits": [
@@ -372,6 +465,9 @@
                 "name": "Otherworldly Presence",
                 "description": "You know the Thaumaturgy cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy trait."
             }
+        ],
+        "languages": [
+            "Common"
         ]
     }
 ]

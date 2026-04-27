@@ -59,7 +59,7 @@
             },
             {
                 "name": "Brass",
-                "desc": "Brass Dragonborn are talkative and warm-spirited, breathing fire and carrying the social, curious nature of brass dragons who thrive in sun‑baked deserts."
+                "desc": "Brass Dragonborn are talkative and warm-spirited, breathing fire and carrying the social, curious nature of brass dragons who thrive in sun-baked deserts."
             },
             {
                 "name": "Bronze",
@@ -75,7 +75,7 @@
             },
             {
                 "name": "Green",
-                "desc": "Green Dragonborn exude a sharp, cunning presence, breathing toxic gas and reflecting the forest‑dwelling, manipulative instincts of green dragons."
+                "desc": "Green Dragonborn exude a sharp, cunning presence, breathing toxic gas and reflecting the forest-dwelling, manipulative instincts of green dragons."
             },
             {
                 "name": "Red",
@@ -83,11 +83,11 @@
             },
             {
                 "name": "Silver",
-                "desc": "Silver Dragonborn are compassionate and steadfast, breathing frost and mirroring the protective, community‑oriented nature of silver dragons."
+                "desc": "Silver Dragonborn are compassionate and steadfast, breathing frost and mirroring the protective, community-oriented nature of silver dragons."
             },
             {
                 "name": "White",
-                "desc": "White Dragonborn channel bitter cold through their frost breath, often displaying a rugged, survival‑driven mindset shaped by their arctic heritage."
+                "desc": "White Dragonborn channel bitter cold through their frost breath, often displaying a rugged, survival-driven mindset shaped by their arctic heritage."
             }
         ],
         "book": "Player's Handbook",
