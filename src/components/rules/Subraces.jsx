@@ -48,7 +48,6 @@ function Subraces({ subraces }) {
 
                 {subrace.desc && (
                     <div className="subraces-subrace-desc">
-                        <hr />
                         {subrace.desc}
                     </div>
                 )}

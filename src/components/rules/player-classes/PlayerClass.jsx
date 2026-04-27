@@ -32,7 +32,7 @@ function PlayerClass({ playerClass, expand, onExpand }) {
 
     return (
         <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={playerClass.index}>
-            <PlayerClassHeader 
+            <PlayerClassHeader
                 playerClass={playerClass}
                 isExpanded={isExpanded}
                 onToggle={handleToggle}
@@ -44,23 +44,24 @@ function PlayerClass({ playerClass, expand, onExpand }) {
                     {/* Features that are not level specific */}
                     {playerClass.features && playerClass.features.length > 0 && (
                         <div>
-                            <PlayerClassFeatures 
+                            <PlayerClassFeatures
                                 features={playerClass.features}
                                 shownLevel={shownLevel}
                                 getPrerequisites={getPrerequisites}
                             />
                         </div>
                     )}
-                    <br/>
+                    <br />
                     <div>
-                        <PlayerClassLevels 
+                        <PlayerClassLevels
                             playerClass={playerClass}
                             shownLevel={shownLevel}
                             onShowLevel={showLevel}
+                            classFeatures={classFeatures}
                         />
                     </div>
                     <div>
-                        <PlayerClassSubclasses 
+                        <PlayerClassSubclasses
                             playerClass={playerClass}
                             shownLevel={shownLevel}
                             shownSubclass={shownSubclass}

@@ -18,7 +18,7 @@ import WarlockStats from './WarlockStats';
 import WizardStats from './WizardStats';
 import SpellcastingInfo from './SpellcastingInfo';
 
-function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
+function PlayerClassLevels({ playerClass, shownLevel, onShowLevel, classFeatures }) {
     useEffect(() => {
         if (shownLevel > 0) {
             scrollIntoView(shownLevel);
@@ -30,21 +30,21 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
     return (
         <>
             <LevelSelector playerClass={playerClass} shownLevel={shownLevel} onShowLevel={onShowLevel} />
-                {playerClass.class_levels.map((level) => (
+            {playerClass.class_levels.map((level) => (
                 <div key={level.level} id={shownLevel}>
                     {level.level === shownLevel && (
                         <div className="playerClass-subtext">
-                            <br/>
+                            <br />
                             {/* Ability Score Bonuses */}
                             {level.ability_score_bonuses !== undefined && (
                                 <AbilityScoreBonuses ability_score_bonuses={level.ability_score_bonuses} />
                             )}
                             {/* Proficiency Bonus */}
-                                                         {level.prof_bonus !== undefined && (
-                                                             <ProficiencyBonus prof_bonus={level.prof_bonus} />
-                                                         )}
-                                                         {/* Feats */}
-                                                         <Feats level={level.level} />
+                            {level.prof_bonus !== undefined && (
+                                <ProficiencyBonus prof_bonus={level.prof_bonus} />
+                            )}
+                            {/* Feats */}
+                            <Feats level={level.level} />
                             {/* Class-specific stats */}
                             {playerClass.index === 'barbarian' && level.class_specific && (
                                 <BarbarianStats class_specific={level.class_specific} />
@@ -56,7 +56,7 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
 
                             {playerClass.index === 'cleric' && level.class_specific && (
                                 <ClericStats class_specific={level.class_specific} />
-                                    )}
+                            )}
 
                             {playerClass.index === 'druid' && level.class_specific && (
                                 <DruidStats class_specific={level.class_specific} />
@@ -68,7 +68,7 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
 
                             {playerClass.index === 'monk' && level.class_specific && (
                                 <MonkStats class_specific={level.class_specific} />
-                                    )}
+                            )}
 
                             {playerClass.index === 'paladin' && level.class_specific && (
                                 <PaladinStats class_specific={level.class_specific} />
@@ -80,7 +80,7 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
 
                             {playerClass.index === 'rogue' && level.class_specific && (
                                 <RogueStats class_specific={level.class_specific} />
-                                    )}
+                            )}
 
                             {playerClass.index === 'sorcerer' && level.class_specific && (
                                 <SorcererStats class_specific={level.class_specific} />
@@ -95,10 +95,33 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel }) {
                             {/* Spellcasting */}
                             {level.spellcasting && (
                                 <SpellcastingInfo spellcasting={level.spellcasting} />
-                                    )}
+                            )}
+                            {/* Class Features */}
+                            {classFeatures && classFeatures.length > 0 && (
+                                <div>
+                                    {classFeatures.map((feature, index) => (
+                                        <div key={index}>
+                                            <div className="playerClass-feature">
+                                                <b>{feature.name}:</b>&nbsp;
+                                                {feature.description && feature.description[0] && (
+                                                    <div>
+                                                        <span dangerouslySetInnerHTML={{ __html: feature.description[0] }} />
+                                                    </div>
+                                                )}
+                                                {feature.details && (
+                                                    <div>
+                                                        <span dangerouslySetInnerHTML={{ __html: feature.details }} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <br />
                                         </div>
-                                    )}
-                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
             ))}
         </>
     );
