@@ -51,14 +51,13 @@ function PlayerClasses2024() {
 
     return (
         <div className="list">
-            <h2 className="section-title">Player Classes</h2>
-            <p className="section-description">
-                Classes from the 2024 Dungeons & Dragons rules update. Each class includes core traits, 
-                level progression, and major options (replacing traditional subclasses).
-            </p>
+            <div className="page-header">
+                <h1 className="card-title">Player Classes</h1>
+                <div className="page-description">Classes from the 2024 Dungeons & Dragons rules update. Each class includes core traits, level progression, and major options (replacing traditional subclasses).</div>
+            </div>
             {classes2024.map((playerClass) => (
                 <div key={playerClass.index} id={playerClass.index}>
-                    <PlayerClass2024 
+                    <PlayerClass2024
                         playerClass={playerClass}
                         expand={shownCard === playerClass.index}
                         onExpand={(expanded) => expandCard(playerClass.index, expanded)}
