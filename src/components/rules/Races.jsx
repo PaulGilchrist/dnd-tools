@@ -59,24 +59,22 @@ function Races() {
     }
 
     return (
-               <>
-                   <div className="page-header">
-                       <h1 className="card-title">Races</h1>
-                       <div className="page-description">Choose a race for your character. Each race offers unique traits and abilities that reflect their culture, biology, and heritage.</div>
-                   </div>
-                   <div className="list">
-                       {races.map((race) => (
-                           <div key={race.index} id={race.index}>
-                               <RaceItem
+                    <div className="list">
+                        <div className="page-header">
+                            <h1 className="card-title">Races</h1>
+                            <div className="page-description">Choose a race for your character. Each race offers unique traits and abilities that reflect their culture, biology, and heritage.</div>
+                        </div>
+                        {races.map((race) => (
+                            <div key={race.index} id={race.index}>
+                                <RaceItem
                                   race={race}
                                   expand={shownCard === race.index}
                                   onExpand={(expanded) => expandCard(race.index, expanded)}
-                               />
-                           </div>
-                       ))}
-                   </div>
-               </>
-           );
+                                />
+                            </div>
+                        ))}
+                    </div>
+                );
 }
 
 export default Races;
