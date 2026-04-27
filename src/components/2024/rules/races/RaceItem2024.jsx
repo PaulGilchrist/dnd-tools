@@ -6,22 +6,22 @@ function RaceItem2024({ race, expand, onExpand }) {
         if (!race.ability_score_increase && (!race.ability_score_options || race.ability_score_options.length === 0)) {
             return null;
         }
-        
+
         let bonuses = '';
-        
+
         // Handle ability_score_increase (single choice)
         if (race.ability_score_increase) {
             bonuses = `${race.ability_score_increase} +1`;
         }
-        
+
         // Handle ability_score_options (multiple choices)
         if (race.ability_score_options && race.ability_score_options.length > 0) {
-            const options = race.ability_score_options.map(option => 
+            const options = race.ability_score_options.map(option =>
                 `${option.ability_score} +${option.bonus}`
             ).join(', ');
             bonuses = options;
         }
-        
+
         return bonuses;
     };
 
@@ -58,11 +58,11 @@ function RaceItem2024({ race, expand, onExpand }) {
         const traitsWithDetailsContent = traitsWithDetails.map(trait => {
             const traitName = trait.name || 'Trait';
             let traitDesc = '';
-            
+
             if (trait.description) {
                 traitDesc = trait.description;
             }
-            
+
             return (
                 <div key={trait.name} className="raceItem2024-race-trait">
                     <span className="raceItem2024-trait-name">{traitName}</span>
@@ -108,7 +108,7 @@ function RaceItem2024({ race, expand, onExpand }) {
         return race.subraces.map((subrace, idx) => {
             const subraceName = subrace.name || `Subrace ${idx + 1}`;
             const subraceDesc = subrace.description || subrace.desc || '';
-            
+
             return (
                 <div key={idx} className="raceItem2024-subrace-item">
                     <span className="raceItem2024-subrace-name">{subraceName}</span>
@@ -126,7 +126,7 @@ function RaceItem2024({ race, expand, onExpand }) {
         if (!race.description) {
             return null;
         }
-        
+
         return (
             <div className="raceItem2024-description-section">
                 <div dangerouslySetInnerHTML={{ __html: race.description }} />
@@ -169,23 +169,23 @@ function RaceItem2024({ race, expand, onExpand }) {
                                 <b>Ability Bonuses:</b>&nbsp;{getAbilityBonuses()}<br />
                             </div>
                         )}
-                        
+
                         <div className="raceItem2024-speed">
                             <b>Speed:</b>&nbsp;{race.speed} feet<br />
                         </div>
-                        
+
                         {race.size && (
                             <div className="raceItem2024-size">
                                 <b>Size:</b>&nbsp;{race.size}<br />
                             </div>
                         )}
-                        
+
                         {race.age && (
                             <div className="raceItem2024-age">
                                 <b>Age:</b>&nbsp;{race.age}<br />
                             </div>
                         )}
-                        
+
                         {race.alignment && (
                             <div className="raceItem2024-alignment">
                                 <b>Alignment:</b>&nbsp;{race.alignment}<br />
@@ -195,9 +195,8 @@ function RaceItem2024({ race, expand, onExpand }) {
 
                     {/* Languages */}
                     {getLanguages() && (
-                        <div className="raceItem2024-section-divider">
-                            <h5>Languages</h5>
-                            {getLanguages()}
+                        <div className="raceItem2024-languages">
+                            <b>Languages:</b>&nbsp;{getLanguages()}<br />
                         </div>
                     )}
 
