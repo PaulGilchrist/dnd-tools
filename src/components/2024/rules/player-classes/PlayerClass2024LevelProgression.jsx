@@ -82,37 +82,41 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
     const rangerContent = renderRangerInfo(selectedLevel);
     const rogueContent = renderRogueInfo(selectedLevel);
     const sorcererContent = renderSorcererInfo(selectedLevel);
-        const warlockContent = renderWarlockInfo(selectedLevel);
+    const warlockContent = renderWarlockInfo(selectedLevel);
+    const extraAttacksContent = renderExtraAttacks(selectedLevel);
 
-        return (
-             <div className="selected-level-features">
-                 <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
-                 {/* Feats */}
-                 {featsContent && <><>{featsContent}</><br /></>}
-                 {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
-                 {barbarianContent && <><>{barbarianContent}</><br /></>}
-                 {/* Bard Info - Bardic Die */}
-                 {bardContent && <><>{bardContent}</><br /></>}
-                 {/* Cleric Info - Channel Divinity */}
-                 {channelDivinityContent && <><>{channelDivinityContent}</><br /></>}
-                 {/* Druid Info - Wild Shape, Beast Forms, Max CR, Fly Speed */}
-                 {druidContent && <><>{druidContent}</><br /></>}
-                 {/* Fighter Info - Second Wind, Weapon Mastery */}
-                 {fighterContent && <><>{fighterContent}</><br /></>}
-                 {/* Monk Info - Martial Arts Die, Focus Points, Unarmored Movement Increase */}
-                 {monkContent && <><>{monkContent}</><br /></>}
-                 {/* Ranger Info - Favored Enemy */}
-                 {rangerContent && <><>{rangerContent}</><br /></>}
-                 {/* Rogue Info - Sneak Attack */}
-                 {rogueContent && <><>{rogueContent}</><br /></>}
-                 {/* Sorcerer Info - Sorcery Points */}
-                 {sorcererContent && <><>{sorcererContent}</><br /></>}
-                 {/* Warlock Info - Eldritch Invocations */}
-                 {warlockContent && <><>{warlockContent}</><br /></>}
-                 {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
-                 {energyContent && <><>{energyContent}</><br /></>}
-                 {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
-                 {spellcastingContent && <><>{spellcastingContent}</><br /></>}
+    return (
+        <div className="selected-level-features">
+            <b>Proficiency:</b> +{selectedLevel.proficiency_bonus}<br />
+            {/* Feats */}
+            {featsContent && <><>{featsContent}</></>}
+            {/* Extra Attacks */}
+            {extraAttacksContent && <><>{extraAttacksContent}</></>}
+            {/* Barbarian Info - Rages, Rage Damage, Weapon Mastery */}
+            {barbarianContent && <><>{barbarianContent}</></>}
+            {/* Bard Info - Bardic Die */}
+            {bardContent && <><>{bardContent}</></>}
+            {/* Cleric Info - Channel Divinity */}
+            {channelDivinityContent && <><>{channelDivinityContent}</></>}
+            {/* Druid Info - Wild Shape, Beast Forms, Max CR, Fly Speed */}
+            {druidContent && <><>{druidContent}</></>}
+            {/* Fighter Info - Second Wind, Weapon Mastery */}
+            {fighterContent && <><>{fighterContent}</></>}
+            {/* Monk Info - Martial Arts Die, Focus Points, Unarmored Movement Increase */}
+            {monkContent && <><>{monkContent}</></>}
+            {/* Ranger Info - Favored Enemy */}
+            {rangerContent && <><>{rangerContent}</></>}
+            {/* Rogue Info - Sneak Attack */}
+            {rogueContent && <><>{rogueContent}</></>}
+            {/* Sorcerer Info - Sorcery Points */}
+            {sorcererContent && <><>{sorcererContent}</></>}
+            {/* Warlock Info - Eldritch Invocations */}
+            {warlockContent && <><>{warlockContent}</></>}
+            {/* Energy Info - only show if required_major matches shownMajor or has no required_major */}
+            {energyContent && <><>{energyContent}</></>}
+            {/* Spellcasting Info - only show if required_major matches shownMajor or has no required_major */}
+            <br/>
+            {spellcastingContent && <><>{spellcastingContent}</></>}
             {allFeatures.map((feature, fIndex) => (
                 <div key={fIndex} className="feature-item class2024-feature-item">
                     <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
@@ -435,11 +439,29 @@ function renderWarlockInfo(level) {
 
     if (level.eldritch_invocations !== undefined && level.eldritch_invocations !== null) {
         parts.push(<div key="eldritch_invocations"><b>Eldritch Invocations:</b>&nbsp;{level.eldritch_invocations}</div>);
-     }
+    }
 
     if (parts.length === 0) {
         return null;
-     }
+    }
+
+    return <div>{parts}</div>;
+}
+
+/**
+ * Helper function to render Extra Attacks information
+ * Displays the number of extra attacks for classes that have this feature (Fighter, Barbarian, Monk, Paladin, Ranger)
+ */
+function renderExtraAttacks(level) {
+    const parts = [];
+
+    if (level.extra_attacks !== undefined && level.extra_attacks !== null && level.extra_attacks > 0) {
+        parts.push(<div key="extra_attacks"><b>Extra Attacks:</b>&nbsp;{level.extra_attacks}</div>);
+    }
+
+    if (parts.length === 0) {
+        return null;
+    }
 
     return <div>{parts}</div>;
 }
