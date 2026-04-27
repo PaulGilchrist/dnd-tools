@@ -56,20 +56,22 @@ function Races2024() {
     }
 
     return (
-        <>
-            <div className="list">
-                {races.map((race) => (
-                    <div key={race.name} id={race.name}>
-                        <RaceItem2024
+             <div className="list">
+                 <div className="page-header">
+                     <h1 className="card-title">Races</h1>
+                     <div className="page-description">Choose a race for your character. Each race offers unique traits and abilities that reflect their culture, biology, and heritage.</div>
+                 </div>
+                 {races.map((race) => (
+                     <div key={race.name} id={race.name}>
+                         <RaceItem2024
                             race={race}
                             expand={shownCard === race.name}
                             onExpand={(expanded) => expandCard(race.name, expanded)}
-                        />
-                    </div>
-                ))}
-            </div>
-        </>
-    );
+                         />
+                     </div>
+                 ))}
+             </div>
+         );
 }
 
 export default Races2024;
