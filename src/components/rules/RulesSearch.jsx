@@ -11,43 +11,48 @@ function RulesSearch({ rules, ruleVersion }) {
     const containerRef = useRef(null);
 
     // Flatten all rules and subsections into a single list
-    const flattenRules = useCallback((rules) => {
-        const flatList = [];
+        const flattenRules = useCallback((rules) => {
+            const flatList = [];
         
-        rules.forEach((rule, ruleIdx) => {
-            // Add the main rule
-            flatList.push({
-                type: 'rule',
-                index: rule.index,
-                name: rule.name,
-                desc: rule.desc,
-                ruleIdx: ruleIdx
-            });
+            rules.forEach((rule, ruleIdx) => {
+                 // Filter main rule by rule version
+                if (rule.rules && rule.rules !== ruleVersion) {
+                    return;
+                 }
             
-            // Add all subsections
-            if (rule.subsections) {
-                rule.subsections.forEach((sub, subIdx) => {
-                    // Filter by rule version
-                    if (sub.rules && sub.rules !== ruleVersion) {
-                        return;
-                    }
+                 // Add the main rule
+                flatList.push({
+                    type: 'rule',
+                    index: rule.index,
+                    name: rule.name,
+                    desc: rule.desc,
+                    ruleIdx: ruleIdx
+                 });
+            
+                 // Add all subsections
+                if (rule.subsections) {
+                    rule.subsections.forEach((sub, subIdx) => {
+                         // Filter by rule version
+                        if (sub.rules && sub.rules !== ruleVersion) {
+                            return;
+                         }
                     
-                    flatList.push({
-                        type: 'subsection',
-                        index: sub.index,
-                        name: sub.name,
-                        desc: sub.desc,
-                        book: sub.book,
-                        page: sub.page,
-                        ruleIdx: ruleIdx,
-                        subIdx: subIdx
-                    });
-                });
-            }
-        });
+                        flatList.push({
+                            type: 'subsection',
+                            index: sub.index,
+                            name: sub.name,
+                            desc: sub.desc,
+                            book: sub.book,
+                            page: sub.page,
+                            ruleIdx: ruleIdx,
+                            subIdx: subIdx
+                         });
+                     });
+                 }
+             });
         
-        return flatList;
-    }, []);
+            return flatList;
+         }, [ruleVersion]);
 
     // Get flattened rules - memoized to prevent infinite loop
     const flatRules = useMemo(() => flattenRules(rules || []), [rules, flattenRules]);
