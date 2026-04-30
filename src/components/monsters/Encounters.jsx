@@ -2,6 +2,10 @@ import { useState, useEffect, useMemo } from 'react';
 import { useMonsters } from '../../data/dataService';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import Loading from './Loading';
+import EncounterFilterPanel from './EncounterFilterPanel';
+import EncounterSummaryPanel from './EncounterSummaryPanel';
+import EncounterMonsterTable from './EncounterMonsterTable';
+import EncounterSelectedMonsters from './EncounterSelectedMonsters';
 import './Encounters.css';
 
 const xpThresholds = [
@@ -111,12 +115,8 @@ function Encounters() {
         return result;
     }, [monstersData, searchQuery, filter.playerLevels, filter.difficulty]);
 
-    const isSelected = (monsterIndex) => {
-        return selectedMonsters.some(m => m.index === monsterIndex);
-    };
-
     const toggleMonster = (monster) => {
-        if (isSelected(monster.index)) {
+        if (selectedMonsters.some(m => m.index === monster.index)) {
             // If already selected, decrease quantity or remove if qty is 1
             setSelectedMonsters(selectedMonsters.map(m => 
                 m.index === monster.index ? { ...m, qty: (m.qty || 1) - 1 } : m
@@ -156,9 +156,10 @@ function Encounters() {
         updateFilter({ ...filter, playerLevels: [...filter.playerLevels, 1] });
     };
 
-    const removePlayer = () => {
-        if (filter.playerLevels.length > 1) {
-            updateFilter({ ...filter, playerLevels: filter.playerLevels.slice(0, -1) });
+    const removePlayer = (playerIndex) => {
+        const newLevels = filter.playerLevels.filter((_, i) => i !== playerIndex);
+        if (newLevels.length > 0) {
+            updateFilter({ ...filter, playerLevels: newLevels });
         }
     };
 
@@ -182,203 +183,49 @@ function Encounters() {
             <div className="encounters-compact">
                 {/* Top Row: Filters + Summary */}
                 <div className="encounters-top">
-                {/* Left: Filters */}
-                <div className="encounters-filters-side">
-                    <div className="form-group">
-                        <label htmlFor="difficulty" className="small-label">Difficulty</label>
-                        <select 
-                            id="difficulty"
-                            className="form-control form-control-sm" 
-                            value={filter.difficulty}
-                            onChange={onDifficultyChange}
-                        >
-                            {difficultyLabels.map((label, index) => (
-                                <option key={index} value={index}>{label}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="form-group">
-                                            <button type="button" className="btn btn-sm btn-outline-secondary mb-2" onClick={addPlayer}>+ Add Player</button>
-                                            <div className="player-levels-horizontal">
-                                                {filter.playerLevels.map((level, index) => (
-                                                    <div key={index} className="player-level-row">
-                                                        <span className="player-level-label">Player {index + 1} Level</span>
-                                                        <input 
-                                                          type="number" 
-                                                          className="player-level-input"
-                                                          value={level}
-                                                          onChange={(e) => onPlayerLevelChange(index, e.target.value)}
-                                                          min="1" 
-                                                          max="20" 
+                     <EncounterFilterPanel
+                        filter={{
+                            ...filter,
+                            difficultyLabels,
+                            difficultyColors,
+                            difficultyIndex,
+                            totalThreshold
+                        }}
+                        onDifficultyChange={onDifficultyChange}
+                        onAddPlayer={addPlayer}
+                        onRemovePlayer={removePlayer}
+                        onPlayerLevelChange={onPlayerLevelChange}
+                     />
+                     <EncounterSummaryPanel
+                        totalMonsterXP={totalMonsterXP}
+                        monsterCount={monsterCount}
+                        difficultyMultiplier={difficultyMultiplier}
+                        effectiveXP={effectiveXP}
+                        difficultyIndex={difficultyIndex}
+                        difficultyLabels={difficultyLabels}
+                        difficultyColors={difficultyColors}
+                        selectedMonsters={selectedMonsters}
+                        onClearMonsters={clearMonsters}
                                                         />
-                                                        <button 
-                                                            type="button" 
-                                                            className="btn btn-sm btn-outline-danger level-delete-btn" 
-                                                            onClick={() => {
-                                                                const newLevels = filter.playerLevels.filter((_, i) => i !== index);
-                                                                if (newLevels.length > 0) {
-                                                                    updateFilter({ ...filter, playerLevels: newLevels });
-                                                                 }
-                                                             }}
-                                                            disabled={filter.playerLevels.length <= 1}
-                                                            title="Remove player"
-                                                        >×</button>
                                                     </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                    <div className="threshold-mini">
-                        <span>Target: <strong style={{ color: difficultyColors[difficultyIndex] }}>{totalThreshold} XP</strong></span>
-                        <span className="text-muted">({difficultyLabels[difficultyIndex]})</span>
-                    </div>
-                </div>
-
-                {/* Right: Selected Monsters Summary */}
-                <div className="encounters-summary-side">
-                    <div className="summary-stats">
-                        <div className="stat-item">
-                            <span className="stat-label">Total XP</span>
-                            <span className="stat-value"> {totalMonsterXP}</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-label">Monsters</span>
-                            <span className="stat-value"> {monsterCount}</span>
-                        </div>
-                        <div className="stat-item">
-                            <span className="stat-label">Multiplier</span>
-                            <span className="stat-value"> ×{difficultyMultiplier}</span>
-                        </div>
-                        <div className="stat-item stat-item-main">
-                            <span className="stat-label">Effective</span>
-                            <span className="stat-value" style={{ color: difficultyColors[difficultyIndex] }}> {effectiveXP}</span>
-                        </div>
-                        <div className="stat-item stat-item-main">
-                            <span className="stat-label">Difficulty</span>
-                            <span className="stat-value" style={{ color: difficultyColors[difficultyIndex] }}> {difficultyLabels[difficultyIndex]}</span>
-                        </div>
-                    </div>
-                    {selectedMonsters.length > 0 && (
-                        <button type="button" className="btn btn-sm btn-warning w-100" onClick={clearMonsters}>Clear All</button>
-                    )}
-                </div>
-            </div>
-
             {/* Monster Selection */}
-            <div className="encounters-monsters">
-                <div className="input-group input-group-sm mb-2">
-                    <span className="input-group-text">Search</span>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        placeholder="Name, type, or subtype..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                 <EncounterMonsterTable
+                    filteredMonsters={filteredMonsters}
+                    selectedMonsters={selectedMonsters}
+                    onToggleMonster={toggleMonster}
+                    onIncreaseQty={increaseQty}
+                    onDecreaseQty={decreaseQty}
+                    onRemoveMonster={removeMonster}
+                    searchQuery={searchQuery}
+                    onSearchQueryChange={setSearchQuery}
                     />
-                </div>
-                
-                {filteredMonsters.length > 0 && (
-                    <div className="monster-table-wrapper">
-                        <table className="monster-table">
-                             <thead>
-                                 <tr>
-                                     <th className="col-select">Select</th>
-                                     <th className="col-name">Monster</th>
-                                     <th className="col-cr">CR</th>
-                                     <th className="col-xp">XP</th>
-                                     <th className="col-qty">Qty</th>
-                                     <th className="col-remove"></th>
-                                 </tr>
-                              </thead>
-                            <tbody>
-                                {filteredMonsters.map((monster) => {
-                                    const selected = selectedMonsters.find(m => m.index === monster.index);
-                                    const qty = selected ? (selected.qty || 1) : 0;
-                                    return (
-                                        <tr 
-                                           key={monster.index}
-                                           className={`monster-row ${qty > 0 ? 'selected' : ''}`}
-                                           onClick={() => toggleMonster(monster)}
-                                        >
-                                            <td className="col-select">
-                                                <input 
-                                                   type="checkbox" 
-                                                   checked={qty > 0}
-                                                   onChange={() => toggleMonster(monster)}
-                                                   onClick={(e) => e.stopPropagation()}
-                                                />
-                                            </td>
-                                            <td className="col-name">{monster.name}</td>
-                                            <td className="col-cr">{monster.challenge_rating}</td>
-                                            <td className="col-xp">{monster.xp}</td>
-                                            <td className="col-qty">
-                                                {qty > 0 && (
-                                                    <div className="qty-controls">
-                                                        <button 
-                                                           type="button" 
-                                                           className="btn btn-sm btn-outline-secondary qty-btn" 
-                                                           onClick={(e) => {
-                                                               e.stopPropagation();
-                                                               decreaseQty(monster.index);
-                                                             }}
-                                                        >−</button>
-                                                        <span className="qty-value">{qty}</span>
-                                                        <button 
-                                                           type="button" 
-                                                           className="btn btn-sm btn-outline-secondary qty-btn" 
-                                                           onClick={(e) => {
-                                                               e.stopPropagation();
-                                                               increaseQty(monster.index);
-                                                             }}
-                                                        >+</button>
-                                                    </div>
-                                                )}
-                                            </td>
-                                            <td className="col-remove">
-                                                <button 
-                                                   type="button" 
-                                                   className="btn btn-sm btn-link text-danger p-0" 
-                                                   onClick={(e) => {
-                                                       e.stopPropagation();
-                                                       removeMonster(monster.index);
-                                                     }}
-                                                >×</button>
-                                            </td>
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
-                        
-                    </div>
-                )}
-                
-                {filteredMonsters.length === 0 && (
-                    <div className="text-center text-muted py-3">No monsters found</div>
-                )}
-            </div>
-
             {/* Selected Monsters Detail */}
-            {selectedMonsters.length > 0 && (
-                <div className="encounters-selected-detail">
-                    <h6>Selected Monsters ({selectedMonsters.length})</h6>
-                    <div className="selected-list">
-                        {selectedMonsters.map((monster) => (
-                            <div key={monster.index} className="selected-item">
-                                <span className="selected-name">{monster.name}</span>
-                                <span className="selected-cr">CR {monster.challenge_rating}</span>
-                                <span className="selected-xp">{monster.xp} XP</span>
-                                <button 
-                                    type="button" 
-                                    className="btn btn-sm btn-link text-danger p-0" 
-                                    onClick={() => removeMonster(monster.index)}
-                                >×</button>
+                 <EncounterSelectedMonsters
+                    selectedMonsters={selectedMonsters}
+                    onRemoveMonster={removeMonster}
+                 />
                             </div>
-                        ))}
                     </div>
-                 </div>
-             )}
-         </div>
-         </div>
      );
 }
 
