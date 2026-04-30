@@ -8,7 +8,7 @@ import Monster2024Actions from './Monster2024Actions';
 import Monster2024Reactions from './Monster2024Reactions';
 import Monster2024LegendaryActions from './Monster2024LegendaryActions';
 import Monster2024RegionalEffects from './Monster2024RegionalEffects';
-import '../../monsters/MonsterCover.css';
+import '../../common/Cover.css';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
 const BASE_URL = import.meta.env.BASE_URL || '';
@@ -81,7 +81,7 @@ function Monster2024({ cardType = 'outer', expand, monster, onExpand, onBookmark
     return (
         <>
             {imageActive && (
-                <div className="cover" onClick={() => setImageActive(false)}>
+                <div className="cover-overlay" onClick={() => setImageActive(false)}>
                     {monsterImage && (
                         <img src={monsterImage} alt={monster.name} />
                     )}

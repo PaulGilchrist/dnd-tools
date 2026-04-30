@@ -1,5 +1,4 @@
-import './Subrace2024.css';
-
+import '../../../common/index.css';
 function Subrace2024({ subrace }) {
     if (!subrace) {
         return null;
@@ -21,9 +20,9 @@ function Subrace2024({ subrace }) {
 
     // Build traits with descriptions
     const traitsWithDescContent = traitsWithDesc.map(trait => (
-        <div key={trait.index} className="subrace2024-subrace-trait">
-            <span className="subrace2024-trait-name">{trait.name}</span>
-            <span className="subrace2024-trait-description">
+        <div key={trait.index} className="subrace-trait-sm">
+            <span className="trait-name-sm">{trait.name}</span>
+            <span className="trait-description-sm">
                 {Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc}
             </span>
         </div>
@@ -31,26 +30,26 @@ function Subrace2024({ subrace }) {
 
     // Build traits without descriptions
     const traitsWithoutDescContent = traitsWithoutDesc.map(trait => (
-        <div key={trait.index} className="subrace2024-subrace-trait">
-            <span className="subrace2024-trait-name">{trait.name}</span>
+        <div key={trait.index} className="subrace-trait-sm">
+            <span className="trait-name-sm">{trait.name}</span>
         </div>
     ));
 
     const allTraits = [...traitsWithDescContent, ...traitsWithoutDescContent];
 
     return (
-        <div key={subrace.index} className="subrace2024-subrace">
-            <h5 className="subrace2024-subrace-name">{subrace.name}</h5>
+        <div key={subrace.index} className="subrace-card">
+            <h5 className="subrace-heading-sm">{subrace.name}</h5>
 
             {subrace.desc && (
-                                <div className="subrace2024-subrace-desc">
+                <div className="subrace-description-sm">
                                     {subrace.desc}
                                 </div>
                             )}
 
             {/* Ability Bonuses */}
             {subrace.ability_bonuses && subrace.ability_bonuses.length > 0 && (
-                <div className="subrace2024-subrace-info">
+                <div className="subrace-info-sm">
                     <b>Ability Bonuses:</b>&nbsp;
                     {subrace.ability_bonuses.map(bonus => (
                         <span key={bonus.ability_score}>
@@ -62,14 +61,14 @@ function Subrace2024({ subrace }) {
 
             {/* Speed */}
             {subrace.speed && (
-                <div className="subrace2024-subrace-info">
+                <div className="subrace-info-sm">
                     <b>Speed:</b>&nbsp;{subrace.speed} feet<br />
                 </div>
             )}
 
             {/* Starting Proficiencies */}
             {subrace.starting_proficiencies && subrace.starting_proficiencies.length > 0 && (
-                <div className="subrace2024-subrace-info">
+                <div className="subrace-info-sm">
                     <b>Starting Proficiencies:</b>&nbsp;
                     {subrace.starting_proficiencies.join(', ')}<br />
                 </div>
@@ -77,7 +76,7 @@ function Subrace2024({ subrace }) {
 
             {/* Racial Traits */}
             {subrace.racial_traits && subrace.racial_traits.length > 0 && (
-                <div className="subrace2024-subrace-traits">
+                <div className="subrace-traits-sm">
                     <b>Racial Traits:</b><br />
                     {allTraits}
                 </div>
@@ -85,7 +84,7 @@ function Subrace2024({ subrace }) {
 
             {/* Language Options */}
             {subrace.language_options && (
-                <div className="subrace2024-subrace-info">
+                <div className="subrace-info-sm">
                     <b>Language Options:</b>&nbsp;
                     Choose 1 from: {subrace.language_options.from.join(', ')}<br />
                 </div>
@@ -93,7 +92,7 @@ function Subrace2024({ subrace }) {
 
             {/* Special Options */}
             {subrace.racial_traits && subrace.racial_traits.length > 0 && (
-                <div className="subrace2024-subrace-special">
+                <div className="subrace-special-sm">
                     <b>Special Options:</b><br />
                     {subrace.racial_traits.map((trait, idx) => (
                         <div key={idx}>

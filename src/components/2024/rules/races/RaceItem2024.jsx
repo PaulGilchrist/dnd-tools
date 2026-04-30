@@ -1,4 +1,4 @@
-import './RaceItem2024.css';
+import '../../../common/index.css';
 
 function RaceItem2024({ race, expand, onExpand }) {
 
@@ -64,10 +64,10 @@ function RaceItem2024({ race, expand, onExpand }) {
             }
 
             return (
-                <div key={trait.name} className="raceItem2024-race-trait">
-                    <span className="raceItem2024-trait-name">{traitName}</span>
+                 <div key={trait.name} className="trait-container-sm">
+                     <span className="trait-name-sm">{traitName}</span>
                     {traitDesc && (
-                        <div className="raceItem2024-trait-description">
+                         <div className="trait-description">
                             <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
                     )}
@@ -85,10 +85,10 @@ function RaceItem2024({ race, expand, onExpand }) {
             }
 
             return (
-                <div key={trait.name} className="raceItem2024-race-trait">
-                    <span className="raceItem2024-trait-name">{traitName}</span>
+                 <div key={trait.name} className="trait-container-sm">
+                     <span className="trait-name-sm">{traitName}</span>
                     {traitDesc && (
-                        <div className="raceItem2024-trait-description">
+                         <div className="trait-description">
                             <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
                     )}
@@ -110,10 +110,10 @@ function RaceItem2024({ race, expand, onExpand }) {
             const subraceDesc = subrace.description || subrace.desc || '';
 
             return (
-                <div key={idx} className="raceItem2024-subrace-item">
-                    <span className="raceItem2024-subrace-name">{subraceName}</span>
+                 <div key={idx} className="subrace-item">
+                     <span className="subrace-item-name">{subraceName}</span>
                     {subraceDesc && (
-                        <div className="raceItem2024-subrace-description">
+                         <div className="subrace-item-description">
                             <div dangerouslySetInnerHTML={{ __html: subraceDesc }} />
                         </div>
                     )}
@@ -128,7 +128,7 @@ function RaceItem2024({ race, expand, onExpand }) {
         }
 
         return (
-            <div className="raceItem2024-description-section">
+             <div className="description-section">
                 <div dangerouslySetInnerHTML={{ __html: race.description }} />
             </div>
         );
@@ -157,7 +157,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                 <div className="card-body">
                     {/* Race Description */}
                     {getRaceDescription() && (
-                        <div className="raceItem2024-description-section">
+                         <div className="description-section">
                             {getRaceDescription()}
                         </div>
                     )}
@@ -202,7 +202,7 @@ function RaceItem2024({ race, expand, onExpand }) {
 
                     {/* Traits */}
                     {getTraits() && (
-                        <div className="raceItem2024-section-divider">
+                         <div className="section-divider">
                             <h5>Racial Traits</h5>
                             {getTraits()}
                         </div>
@@ -210,7 +210,7 @@ function RaceItem2024({ race, expand, onExpand }) {
 
                     {/* Subraces (2024 format - stored in subraces array) */}
                     {getSubraces() && (
-                        <div className="raceItem2024-section-divider">
+                         <div className="section-divider">
                             <h5>Subraces</h5>
                             {getSubraces()}
                         </div>
@@ -221,21 +221,21 @@ function RaceItem2024({ race, expand, onExpand }) {
                         <div className="raceItem2024-subspecies-section">
                             <h5>Lineages</h5>
                             {race.traits.filter(trait => trait.sub_traits).map(trait => (
-                                <div key={trait.name} className="raceItem2024-lineage-container">
-                                    <div className="raceItem2024-lineage-header">
+                                 <div key={trait.name} className="lineage-container">
+                                     <div className="lineage-header">
                                         <b>{trait.name}</b>
                                         {trait.description && (
-                                            <div className="raceItem2024-lineage-desc">
+                                             <div className="lineage-description">
                                                 <div dangerouslySetInnerHTML={{ __html: trait.description }} />
                                             </div>
                                         )}
                                     </div>
-                                    <div className="raceItem2024-lineage-options">
+                                     <div className="lineage-options">
                                         {trait.sub_traits.map((subTrait, idx) => (
                                             <div key={idx} className="raceItem2024-subtrait">
                                                 <b>{subTrait.name}</b>
                                                 {subTrait.description && (
-                                                    <div className="raceItem2024-subtrait-desc">
+                                                     <div className="subtrait-description">
                                                         <div dangerouslySetInnerHTML={{ __html: subTrait.description }} />
                                                     </div>
                                                 )}
@@ -249,7 +249,7 @@ function RaceItem2024({ race, expand, onExpand }) {
 
                     {/* Book Reference */}
                     {race.book && (
-                        <div className="raceItem2024-book-reference">
+                         <div className="book-reference">
                             <b>Source:</b>&nbsp;{race.book} (page {race.page})
                         </div>
                     )}

@@ -5,7 +5,6 @@ import Feat2024 from './Feat2024';
 import Feat2024Filter from './Feat2024Filter';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
 import { scrollIntoView } from '../../../data/utils';
-import './Feats2024.css';
 
 function Feats2024() {
     const [feats, setFeats] = useState([]);

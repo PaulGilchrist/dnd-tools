@@ -8,7 +8,7 @@ import MonsterReactions from './MonsterReactions';
 import MonsterLegendaryActions from './MonsterLegendaryActions';
 import MonsterLairActions from './MonsterLairActions';
 import MonsterRegionalEffects from './MonsterRegionalEffects';
-import './MonsterCover.css';
+import '../common/Cover.css';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
 const BASE_URL = import.meta.env.BASE_URL || '';
@@ -73,7 +73,7 @@ function Monster({ cardType = 'outer', expand, monster, onExpand, onBookmarkChan
     return (
         <>
             {imageActive && (
-                <div className="monster-cover" onClick={() => setImageActive(false)}>
+                <div className="cover-overlay" onClick={() => setImageActive(false)}>
                     {monsterImage && (
                         <img src={monsterImage} alt={monster.name} />
                     )}

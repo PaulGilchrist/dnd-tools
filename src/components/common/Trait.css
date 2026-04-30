@@ -1,0 +1,202 @@
+/* Shared trait and feature styles */
+/* Used by: RaceItem, Subraces, RaceItem2024, Subrace2024, Feats2024 */
+
+/* Trait container */
+.trait-container {
+    margin-bottom: 15px;
+}
+
+.trait-container-sm {
+    margin-bottom: 10px;
+}
+
+/* Trait name */
+.trait-name-sm {
+    font-weight: bold;
+    color: var(--color-header);
+}
+
+/* Trait description */
+.trait-description {
+    margin-top: 5px;
+    font-style: italic;
+    color: var(--color-body);
+}
+
+.trait-description-sm {
+    margin-top: 3px;
+    font-style: italic;
+}
+
+.trait-description-md {
+    margin-top: 8px;
+}
+
+/* Trait details */
+.trait-details-md {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+/* Section divider */
+.section-divider {
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.section-divider h5 {
+    margin-bottom: 8px;
+}
+
+/* Book reference */
+.book-reference {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Lineage container */
+.lineage-container {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.lineage-header {
+    margin-bottom: 8px;
+}
+
+.lineage-description {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.lineage-options {
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+/* Subtrait description */
+.subtrait-description {
+    font-style: italic;
+    margin-top: 3px;
+}
+
+/* Feature item */
+.feature-item {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 3px solid #007bff;
+}
+
+/* Spell item */
+.spell-item {
+    margin-bottom: 0.25rem;
+}
+
+/* Benefits list */
+.benefits-list {
+    margin-top: 1rem;
+}
+
+/* Ability score increase */
+.ability-score-increase {
+    margin-top: 0.5rem;
+}
+
+.ability-score-item {
+    margin-right: 0.5rem;
+}
+
+/* Tags display */
+.tags-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-item {
+    display: inline-block;
+    background-color: #35383b;
+    color: #bdc7d0;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Repeatable badge */
+.repeatable-badge {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* Description section */
+.description-section {
+    margin-bottom: 15px;
+}
+
+/* Level selector */
+.level-selector {
+    margin-bottom: 1rem;
+}
+
+.level-selector-btn {
+    margin: 0.125rem;
+}
+
+/* Major/section container */
+.major-container {
+    margin-bottom: 1rem;
+}
+
+.major-title {
+    margin-bottom: 0.25rem;
+    margin-top: 0;
+}
+
+.major-card {
+    margin-bottom: 1rem;
+}
+
+.major-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.major-title-container {
+    line-height: 10px;
+    margin-top: -3px;
+}
+
+.major-toggle-icon {
+    margin-left: 0.5rem;
+}
+
+.major-description {
+    margin-bottom: 1rem;
+}
+
+.major-features {
+    margin-bottom: 1rem;
+}
+
+.major-feature {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    border-left: 3px solid #007bff;
+}
+
+.major-feature-description {
+    margin-top: 0.25rem;
+}

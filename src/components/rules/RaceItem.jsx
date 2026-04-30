@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './RaceItem.css';
+import '../common/index.css';
 import Subraces from './Subraces';
 
 function RaceItem({ race, expand, onExpand }) {
@@ -51,10 +51,10 @@ function RaceItem({ race, expand, onExpand }) {
             const traitName = trait.name || 'Trait';
             const traitDesc = trait.description || trait.desc || '';
             return (
-                <div key={trait.index} className="raceItem-race-trait">
+                 <div key={trait.index} className="trait-container">
                     <b>{traitName}</b>
                     {traitDesc && (
-                        <div className="raceItem-trait-desc">
+                         <div className="trait-description-md">
                             <hr />
                             <h5>Description</h5>
                             <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
@@ -63,7 +63,7 @@ function RaceItem({ race, expand, onExpand }) {
                     <hr />
                     <h5>Details</h5>
                     {trait.details && (
-                        <div className="raceItem-trait-details">
+                         <div className="trait-details-md">
                             <div dangerouslySetInnerHTML={{ __html: trait.details }} />
                         </div>
                     )}
@@ -76,10 +76,10 @@ function RaceItem({ race, expand, onExpand }) {
                         const traitName = trait.name || 'Trait';
             const traitDesc = trait.description || trait.desc || '';
             return (
-                <div key={trait.index} className="raceItem-race-trait">
+                 <div key={trait.index} className="trait-container">
                     <b>{traitName}</b>
                     {traitDesc && (
-                        <div className="raceItem-trait-desc">
+                         <div className="trait-description-md">
                             <hr />
                             <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
                         </div>
@@ -134,7 +134,7 @@ function RaceItem({ race, expand, onExpand }) {
 
                     {/* Languages */}
                     {getLanguages() && (
-                        <div className="raceItem-section-divider">
+                         <div className="section-divider">
                             <hr />
                             <h5>Languages</h5>
                             {getLanguages()}
@@ -143,7 +143,7 @@ function RaceItem({ race, expand, onExpand }) {
 
                     {/* Traits */}
                     {getTraits() && (
-                        <div className="raceItem-section-divider">
+                         <div className="section-divider">
                             <hr />
                             <h5>Racial Traits</h5>
                             {getTraits()}
@@ -157,7 +157,7 @@ function RaceItem({ race, expand, onExpand }) {
 
                     {/* Book Reference */}
                     {race.book && (
-                        <div className="raceItem-book-reference">
+                         <div className="book-reference">
                             <b>Source:</b>&nbsp;{race.book} (page {race.page})
                         </div>
                     )}

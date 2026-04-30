@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import '../../common/index.css';
 
 function Feat2024({ feat, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
@@ -74,7 +75,7 @@ function Feat2024({ feat, expand, onExpand }) {
                         )}
                         
                         {feat.benefits && feat.benefits.length > 0 && (
-                            <div className="benefits">
+                              <div className="benefits-list">
                                 <b>Benefits:</b>
                                 <ul>
                                     {feat.benefits.map((benefit, index) => (
@@ -99,9 +100,9 @@ function Feat2024({ feat, expand, onExpand }) {
                         )}
 
                         {feat.tags && feat.tags.length > 0 && (
-                            <div className="feat-tags">
+                              <div className="tags-container">
                                 {feat.tags.map((tag, index) => (
-                                    <span key={index} className="tag">
+                                      <span key={index} className="tag-item">
                                         {tag.replace(/_/g, ' ')}
                                     </span>
                                 ))}
