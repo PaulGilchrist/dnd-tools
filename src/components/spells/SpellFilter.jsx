@@ -33,21 +33,21 @@ function SpellFilter({ filter, onFilterChange }) {
             {/* Class */}
             <label htmlFor="class" className="col-form-label">Class</label>
             <select 
-                name="class" 
-                className="form-control"
-                value={filter.class}
-                onChange={(e) => handleChange('class', e.target.value)}
-            >
-                <option selected>All</option>
-                <option>Bard</option>
-                <option>Cleric</option>
-                <option>Druid</option>
-                <option>Paladin</option>
-                <option>Ranger</option>
-                <option>Sorcerer</option>
-                <option>Warlock</option>
-                <option>Wizard</option>
-            </select>
+                            name="class" 
+                            className="form-control"
+                            value={filter.class}
+                            onChange={(e) => handleChange('class', e.target.value)}
+                         >
+                             <option value="All">All</option>
+                             <option value="Bard">Bard</option>
+                             <option value="Cleric">Cleric</option>
+                             <option value="Druid">Druid</option>
+                             <option value="Paladin">Paladin</option>
+                             <option value="Ranger">Ranger</option>
+                             <option value="Sorcerer">Sorcerer</option>
+                             <option value="Warlock">Warlock</option>
+                             <option value="Wizard">Wizard</option>
+                         </select>
 
             {/* Levels */}
             <label htmlFor="levelMin" className="col-form-label">Level Range</label>
@@ -81,31 +81,31 @@ function SpellFilter({ filter, onFilterChange }) {
             {/* Casting Time */}
             <label htmlFor="castingTime" className="col-form-label">Casting Time</label>
             <select 
-                name="castingTime" 
-                className="form-control"
-                value={filter.castingTime}
-                onChange={(e) => handleChange('castingTime', e.target.value)}
-            >
-                <option selected>All</option>
-                <option>Action</option>
-                <option>Bonus Action</option>
-                <option>Non-Ritual, Long Cast Time</option>
-                <option>Reaction</option>
-                <option>Ritual</option>
-            </select>
+                            name="castingTime" 
+                            className="form-control"
+                            value={filter.castingTime}
+                            onChange={(e) => handleChange('castingTime', e.target.value)}
+                          >
+                              <option value="All">All</option>
+                              <option value="Action">Action</option>
+                              <option value="Bonus Action">Bonus Action</option>
+                              <option value="Non-Ritual, Long Cast Time">Non-Ritual, Long Cast Time</option>
+                              <option value="Reaction">Reaction</option>
+                              <option value="Ritual">Ritual</option>
+                          </select>
 
             {/* Status */}
             <label htmlFor="status" className="col-form-label">Status</label>
             <select 
-                name="status" 
-                className="form-control"
-                value={filter.status}
-                onChange={(e) => handleChange('status', e.target.value)}
-            >
-                <option selected>All</option>
-                <option>Known</option>
-                <option>Prepared or Known Ritual</option>
-            </select>
+                            name="status" 
+                            className="form-control"
+                            value={filter.status}
+                            onChange={(e) => handleChange('status', e.target.value)}
+                           >
+                               <option value="All">All</option>
+                               <option value="Known">Known</option>
+                               <option value="Prepared or Known Ritual">Prepared or Known Ritual</option>
+                           </select>
         </form>
     );
 }
