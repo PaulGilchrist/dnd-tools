@@ -18,7 +18,7 @@ function MonsterSearch() {
     const { data: monstersData, loading: monstersLoading } = useMonsters();
 
     // Use custom hooks for filter and bookmark logic
-    const { filter, updateFilter } = useMonsterFilter();
+    const { filter, updateFilter, showMonster } = useMonsterFilter();
     const { updateMonstersWithBookmarks, handleBookmarkChange } = useMonsterBookmarks();
 
     useEffect(() => {
@@ -79,37 +79,7 @@ function MonsterSearch() {
         return <Loading />;
     }
 
-    const filteredMonsters = updateMonstersWithBookmarks(monstersData).filter((monster) => {
-        // Bookmarked filter
-        if (filter.bookmarked !== 'All' && !monster.bookmarked) {
-            return false;
-        }
-        // Challenge Range
-        if (monster.challenge_rating < filter.challengeRatingMin || monster.challenge_rating > filter.challengeRatingMax) {
-            return false;
-        }
-        // Environment filter
-        if (filter.environment !== 'All' && (!monster.environments || !monster.environments.includes(filter.environment))) {
-            return false;
-        }
-        // Name filter
-        if (filter.name !== '' && !monster.name.toLowerCase().includes(filter.name.toLowerCase())) {
-            return false;
-        }
-        // Size filter
-        if (filter.size !== 'All' && filter.size !== monster.size) {
-            return false;
-        }
-        // Type filter
-        if (filter.type !== 'All' && filter.type !== monster.type) {
-            return false;
-        }
-        // XP
-        if (monster.xp < filter.xpMin || monster.xp > filter.xpMax) {
-            return false;
-        }
-        return true;
-    });
+    const filteredMonsters = updateMonstersWithBookmarks(monstersData).filter(showMonster);
 
     return (
         <>

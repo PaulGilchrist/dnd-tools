@@ -141,15 +141,13 @@ function Spells() {
             <div className="list">
                 {filteredSpells.map((spell) => (
                     <div key={spell.index} id={spell.index}>
-                        {useSpellFilter(filter, spell) && (
-                            <Spell 
-                                spell={spell}
-                                expand={shownCard === spell.index}
-                                onExpand={(expanded) => expandCard(spell.index, expanded)}
-                                onKnownChange={handleKnownChange}
-                                onPreparedChange={handlePreparedChange}
-                            />
-                        )}
+                        <Spell 
+                           spell={spell}
+                           expand={shownCard === spell.index}
+                           onExpand={(expanded) => expandCard(spell.index, expanded)}
+                           onKnownChange={handleKnownChange}
+                           onPreparedChange={handlePreparedChange}
+                        />
                     </div>
                 ))}
             </div>
