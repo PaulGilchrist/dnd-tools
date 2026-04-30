@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { use2024Monsters, use2024MonsterTypes, use2024MonsterSubtypes } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
 import Monster2024 from './Monster2024';
 
 /**
@@ -36,10 +37,10 @@ function MonsterLore2024() {
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
-                const savedFilter = localStorage.getItem('monsterLore2024Filter');
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER_2024);
                 if (!savedFilter) {
                     const defaultFilter = { category: 'All' };
-                    localStorage.setItem('monsterLore2024Filter', JSON.stringify(defaultFilter));
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER_2024, defaultFilter);
                 }
             }
         }
@@ -199,7 +200,7 @@ function MonsterLore2024() {
                                 <div className="card-body">
                                     {/* Show description and trait modifiers first */}
                                     <div dangerouslySetInnerHTML={{ __html: typeGroup.desc || '' }} />
-                                    <br/>
+                                    <br />
                                     {typeGroup.trait_modifiers && typeGroup.trait_modifiers.length > 0 && (
                                         <>
                                             <h6>Trait Modifiers</h6>
@@ -210,7 +211,7 @@ function MonsterLore2024() {
                                             </ul>
                                         </>
                                     )}
-                                    <br/>
+                                    <br />
                                     {console.log(`Rendering ${typeGroup.name}: ${typeGroup.monstersWithoutSubtype?.length || 0} monsters without subtype`)}
                                     <h5>Subtypes</h5>
                                     
@@ -232,7 +233,7 @@ function MonsterLore2024() {
                                                                     {subtype.firstMonster?.size} {subtype.firstMonster?.type?.toLowerCase()}
                                                                     {subtype.firstMonster?.subtype && subtype.firstMonster.subtype !== subtype.firstMonster.type && (
                                                                         <span> ({subtype.firstMonster.subtype})</span>
-                                                                    )}, {subtype.firstMonster?.alignment}
+                                                                    )}
                                                                 </i>
                                                             </div>
                                                         </div>
@@ -275,7 +276,7 @@ function MonsterLore2024() {
                                     {/* Show monsters without subtypes */}
                                     {typeGroup.monstersWithoutSubtype && typeGroup.monstersWithoutSubtype.length > 0 && (
                                         <>
-                                            <br/>
+                                            <br />
                                             <h5>Monsters without Subtype</h5>
                                             {typeGroup.monstersWithoutSubtype.map(monster => (
                                                 <div className="inner-list" key={monster.index}>

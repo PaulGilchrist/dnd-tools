@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useMagicItems } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import MagicItem from './MagicItem';
 import MagicItemsFilterForm from './MagicItemsFilterForm';
 import MagicItemList from './MagicItemList';
@@ -23,15 +24,15 @@ function MagicItems() {
     const { data: magicItemsData, loading: magicItemsLoading } = useMagicItems();
 
     useEffect(() => {
-        // Load saved filters from localStorage on mount
-        const savedFilter = localStorage.getItem('magicItemsFilter');
+            // Load saved filters from localStorage on mount
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER);
         if (savedFilter) {
             try {
-                setFilter(JSON.parse(savedFilter));
-            } catch (e) {
+                setFilter(savedFilter);
+                 } catch (e) {
                 console.error('Error parsing saved filter:', e);
+                 }
             }
-        }
 
         if (magicItemsData && magicItemsData.length > 0) {
             setMagicItems(magicItemsData);
@@ -44,19 +45,19 @@ function MagicItems() {
                 if (magicItem) {
                     setShownCard(index);
                     scrollIntoView(index);
-                }
             }
+               }
 
-            // Set bookmarked status from localStorage
-            const magicItemsBookmarkedJson = localStorage.getItem('magicItemsBookmarked');
+                   // Set bookmarked status from localStorage
+            const magicItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED);
             let magicItemsBookmarked = [];
             if (magicItemsBookmarkedJson) {
                 try {
-                    magicItemsBookmarked = JSON.parse(magicItemsBookmarkedJson);
-                } catch (e) {
+                    magicItemsBookmarked = magicItemsBookmarkedJson;
+                    } catch (e) {
                     console.error('Error parsing bookmarked items:', e);
-                }
             }
+               }
 
             // Update bookmarked status for each item
             const updatedItems = magicItemsData.map(item => ({
@@ -64,8 +65,8 @@ function MagicItems() {
                 bookmarked: magicItemsBookmarked.includes(item.index)
             }));
             setMagicItems(updatedItems);
-        }
-    }, [magicItemsData]);
+            }
+        }, [magicItemsData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -80,34 +81,34 @@ function MagicItems() {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-        }
-    };
+           }
+        };
 
     const filterChanged = (newFilter) => {
-        localStorage.setItem('magicItemsFilter', JSON.stringify(newFilter));
-    };
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER, newFilter);
+        };
 
     const showMagicItem = (magicItem) => {
         // Attunement filter
         if (filter.attunement !== 'All' && (
-            (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
-            (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
-        )) {
+               (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
+               (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
+          )) {
             return false;
-        }
-        // Bookmarked filter
+           }
+           // Bookmarked filter
         if (filter.bookmarked !== 'All' && !magicItem.bookmarked) {
             return false;
-        }
-        // Name filter
+           }
+           // Name filter
         if (filter.name !== '' && !magicItem.name.toLowerCase().includes(filter.name.toLowerCase())) {
             return false;
-        }
-        // Rarity filter
+           }
+           // Rarity filter
         if (filter.rarity !== 'All' && magicItem.rarity !== filter.rarity) {
             return false;
-        }
-        // Type filter
+           }
+           // Type filter
         if (filter.type !== 'All' && magicItem.type !== filter.type) {
             return false;
         }
@@ -119,27 +120,27 @@ function MagicItems() {
         setMagicItems(prevItems => 
             prevItems.map(item => 
                 item.index === index ? { ...item, bookmarked: isBookmarked } : item
-            )
-        );
-        
-        // Save to localStorage - get current bookmarked items from state
+              )
+          );
+         
+            // Save to localStorage - get current bookmarked items from state
         const magicItemsBookmarked = magicItems
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-        
+              .filter(item => item.bookmarked)
+              .map(item => item.index);
+         
         if (isBookmarked) {
             // Add to bookmarked list
             magicItemsBookmarked.push(index);
-        } else {
-            // Remove from bookmarked list
+           } else {
+               // Remove from bookmarked list
             const filtered = magicItemsBookmarked.filter(i => i !== index);
-            localStorage.setItem('magicItemsBookmarked', JSON.stringify(filtered));
-        }
-        
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED, filtered);
+           }
+         
         if (isBookmarked) {
-            localStorage.setItem('magicItemsBookmarked', JSON.stringify(magicItemsBookmarked));
-        }
-    };
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED, magicItemsBookmarked);
+           }
+        };
 
     if (magicItemsLoading) {
         return <div className="list"><div>Loading magic items...</div></div>;
@@ -148,8 +149,8 @@ function MagicItems() {
     const filteredItems = magicItems.filter(showMagicItem);
 
     return (
-        <>
-            <MagicItemsFilterForm
+              <>
+                  <MagicItemsFilterForm
                 filter={filter}
                 setFilter={setFilter}
                 onFilterChange={filterChanged}
@@ -161,10 +162,9 @@ function MagicItems() {
                 shownCard={shownCard}
                 expandCard={expandCard}
                 handleBookmarkChange={handleBookmarkChange}
-            />
-        </>
-    );
+                  />
+              </>
+          );
 }
 
 export default MagicItems;
-

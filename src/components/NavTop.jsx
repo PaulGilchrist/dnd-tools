@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useRuleVersion } from '../context/RuleVersionContext';
+import { LOCAL_STORAGE_KEYS, getLocalStorageString, setLocalStorageString, removeLocalStorageItem } from '../utils/localStorage';
 import './NavTop.css';
 
 function NavTop() {
@@ -16,11 +17,11 @@ function NavTop() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Check if there's a saved URL in localStorage
-        const url = localStorage.getItem('url');
+           // Check if there's a saved URL in localStorage
+        const url = getLocalStorageString(LOCAL_STORAGE_KEYS.URL);
         if (url) {
-            localStorage.removeItem('url');
-        }
+            removeLocalStorageItem(LOCAL_STORAGE_KEYS.URL);
+           }
 
         // Update selected state based on current route
         const updateSelected = () => {
@@ -29,9 +30,9 @@ function NavTop() {
                 setActiveSpellRoute('5e');
             } else if (location.pathname === '/2024/spells' && ruleVersion === '2024') {
                 setActiveSpellRoute('2024');
-            } else if (location.pathname === '/spells' || location.pathname === '/2024/spells') {
-                // User is on a spells page but version doesn't match dropdown
-                // Keep track of which version they're on
+               } else if (location.pathname === '/spells' || location.pathname === '/2024/spells') {
+                    // User is on a spells page but version doesn't match dropdown
+                    // Keep track of which version they're on
                 setActiveSpellRoute(location.pathname === '/2024/spells' ? '2024' : '5e');
             } else {
                 setActiveSpellRoute('');
@@ -42,9 +43,9 @@ function NavTop() {
                 setActiveMonsterRoute('5e');
             } else if (location.pathname === '/2024/monsters/search' && ruleVersion === '2024') {
                 setActiveMonsterRoute('2024');
-            } else if (location.pathname === '/monsters/search' || location.pathname === '/2024/monsters/search') {
-                // User is on a monsters page but version doesn't match dropdown
-                // Keep track of which version they're on
+               } else if (location.pathname === '/monsters/search' || location.pathname === '/2024/monsters/search') {
+                    // User is on a monsters page but version doesn't match dropdown
+                    // Keep track of which version they're on
                 setActiveMonsterRoute(location.pathname === '/2024/monsters/search' ? '2024' : '5e');
             }
 
@@ -53,8 +54,8 @@ function NavTop() {
                 setActiveMonsterRoute('lore-5e');
             } else if (location.pathname === '/2024/monsters/lore' && ruleVersion === '2024') {
                 setActiveMonsterRoute('lore-2024');
-            } else if (location.pathname === '/monsters/lore' || location.pathname === '/2024/monsters/lore') {
-                // User is on a lore page but version doesn't match dropdown
+               } else if (location.pathname === '/monsters/lore' || location.pathname === '/2024/monsters/lore') {
+                    // User is on a lore page but version doesn't match dropdown
                 setActiveMonsterRoute(location.pathname === '/2024/monsters/lore' ? 'lore-2024' : 'lore-5e');
             }
 
@@ -63,8 +64,8 @@ function NavTop() {
                 setActiveMagicItemsRoute('5e');
             } else if (location.pathname === '/2024/magic-items' && ruleVersion === '2024') {
                 setActiveMagicItemsRoute('2024');
-            } else if (location.pathname === '/magic-items' || location.pathname === '/2024/magic-items') {
-                // User is on a magic items page but version doesn't match dropdown
+               } else if (location.pathname === '/magic-items' || location.pathname === '/2024/magic-items') {
+                    // User is on a magic items page but version doesn't match dropdown
                 setActiveMagicItemsRoute(location.pathname === '/2024/magic-items' ? '2024' : '5e');
             }
 
@@ -73,8 +74,8 @@ function NavTop() {
                 setActiveClassesRoute('5e');
             } else if (location.pathname === '/2024/classes' && ruleVersion === '2024') {
                 setActiveClassesRoute('2024');
-            } else if (location.pathname === '/rules/classes' || location.pathname === '/2024/classes') {
-                // User is on a classes page but version doesn't match dropdown
+               } else if (location.pathname === '/rules/classes' || location.pathname === '/2024/classes') {
+                    // User is on a classes page but version doesn't match dropdown
                 setActiveClassesRoute(location.pathname === '/2024/classes' ? '2024' : '5e');
             }
 
@@ -83,8 +84,8 @@ function NavTop() {
                 setActiveRacesRoute('5e');
             } else if (location.pathname === '/2024/races' && ruleVersion === '2024') {
                 setActiveRacesRoute('2024');
-            } else if (location.pathname === '/rules/races' || location.pathname === '/2024/races') {
-                // User is on a races page but version doesn't match dropdown
+               } else if (location.pathname === '/rules/races' || location.pathname === '/2024/races') {
+                    // User is on a races page but version doesn't match dropdown
                 setActiveRacesRoute(location.pathname === '/2024/races' ? '2024' : '5e');
             }
 
@@ -93,8 +94,8 @@ function NavTop() {
                 setActiveFeatsRoute('5e');
             } else if (location.pathname === '/2024/rules/feats' && ruleVersion === '2024') {
                 setActiveFeatsRoute('2024');
-            } else if (location.pathname === '/rules/feats' || location.pathname === '/2024/rules/feats') {
-                // User is on a feats page but version doesn't match dropdown
+               } else if (location.pathname === '/rules/feats' || location.pathname === '/2024/rules/feats') {
+                    // User is on a feats page but version doesn't match dropdown
                 setActiveFeatsRoute(location.pathname === '/2024/rules/feats' ? '2024' : '5e');
             }
 
@@ -118,8 +119,8 @@ function NavTop() {
                 setSelected('rules');
             } else {
                 setSelected('');
-            }
-        };
+               }
+           };
 
         updateSelected();
     }, [location, ruleVersion]);
@@ -135,39 +136,39 @@ function NavTop() {
 
     const handleRuleChange = (e) => {
         const newVersion = e.target.value;
-        // Save the rule version to localStorage
-        localStorage.setItem('ruleVersion', newVersion);
-        // If spells route is active, navigate to appropriate spells route
+           // Save the rule version to localStorage
+        setLocalStorageString(LOCAL_STORAGE_KEYS.RULE_VERSION, newVersion);
+           // If spells route is active, navigate to appropriate spells route
         if (activeSpellRoute) {
             const newLink = newVersion === '2024' ? '/2024/spells' : '/spells';
             navigate(newLink);
-        }
-        // If monsters search route is active, navigate to appropriate monsters route
+           }
+           // If monsters search route is active, navigate to appropriate monsters route
         else if (activeMonsterRoute === '5e' || activeMonsterRoute === '2024') {
             const newLink = newVersion === '2024' ? '/2024/monsters/search' : '/monsters/search';
             navigate(newLink);
-        }
-        // If lore route is active, navigate to appropriate lore route
+           }
+           // If lore route is active, navigate to appropriate lore route
         else if (activeMonsterRoute === 'lore-5e' || activeMonsterRoute === 'lore-2024') {
             const newLink = newVersion === '2024' ? '/2024/monsters/lore' : '/monsters/lore';
             navigate(newLink);
-        }
-        // If magic items route is active, navigate to appropriate magic items route
+           }
+           // If magic items route is active, navigate to appropriate magic items route
         else if (activeMagicItemsRoute === '5e' || activeMagicItemsRoute === '2024') {
             const newLink = newVersion === '2024' ? '/2024/magic-items' : '/magic-items';
             navigate(newLink);
-        }
-        // If classes route is active, navigate to appropriate classes route
+           }
+           // If classes route is active, navigate to appropriate classes route
         else if (activeClassesRoute === '5e' || activeClassesRoute === '2024') {
             const newLink = newVersion === '2024' ? '/2024/classes' : '/rules/classes';
             navigate(newLink);
-        }
-        // If races route is active, navigate to appropriate races route
+           }
+           // If races route is active, navigate to appropriate races route
         else if (activeRacesRoute === '5e' || activeRacesRoute === '2024') {
             const newLink = newVersion === '2024' ? '/2024/races' : '/rules/races';
             navigate(newLink);
-        }
-        // If feats route is active, navigate to appropriate feats route
+           }
+           // If feats route is active, navigate to appropriate feats route
         else if (activeFeatsRoute === '5e' || activeFeatsRoute === '2024') {
             const newLink = newVersion === '2024' ? '/2024/rules/feats' : '/rules/feats';
             navigate(newLink);
@@ -185,50 +186,50 @@ function NavTop() {
     const featsLink = ruleVersion === '2024' ? '/2024/rules/feats' : '/rules/feats';
 
     return (
-        <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
-            <NavLink 
+           <nav className="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
+               <NavLink 
                 to="/" 
                 className="navbar-brand ms-2"
                 end
             >
                 D&D Tools
-            </NavLink>
-            <button 
+               </NavLink>
+               <button 
                 className="navbar-toggler" 
                 type="button" 
                 data-bs-toggle="collapse" 
                 data-bs-target="#navbarSupportedContent"
-            >
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <NavLink 
+               >
+                   <span className="navbar-toggler-icon"></span>
+               </button>
+               <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                   <ul className="navbar-nav">
+                       <li className="nav-item">
+                           <NavLink 
                             to="/equipment-items" 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Equipment
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink 
+                           </NavLink>
+                       </li>
+                       <li className="nav-item">
+                           <NavLink 
                             to="/locations" 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Locations
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink 
+                           </NavLink>
+                       </li>
+                       <li className="nav-item">
+                           <NavLink 
                             to={magicItemsLink} 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Magic Items
-                        </NavLink>
-                    </li>
-                    <li className="nav-item dropdown">
-                        <a 
+                           </NavLink>
+                       </li>
+                       <li className="nav-item dropdown">
+                           <a 
                             className={`nav-link dropdown-toggle ${showDropdown('monsters') ? 'active' : ''}`} 
                             href="#" 
                             id="navbarDropdownMonsters" 
@@ -237,53 +238,53 @@ function NavTop() {
                             onClick={(e) => {
                                 e.preventDefault();
                                 handleSetSelected('monsters');
-                            }}
-                        >
+                             }}
+                           >
                             Monsters
-                        </a>
-                        <ul 
+                           </a>
+                           <ul 
                             className={`dropdown-menu ${showDropdown('monsters') ? 'show' : ''}`}
                             aria-labelledby="navbarDropdownMonsters"
-                        >
-                            <li>
-                                <NavLink 
+                           >
+                               <li>
+                                   <NavLink 
                                     to="/monsters/encounters" 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
                                     Encounters
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink 
+                                   </NavLink>
+                               </li>
+                               <li>
+                                   <NavLink 
                                     to={monsterLoreLink} 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
                                     Lore
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink 
+                                   </NavLink>
+                               </li>
+                               <li>
+                                   <NavLink 
                                     to={monsterSearchLink} 
                                     className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`}
                                     onClick={() => setSelected('')}
                                 >
                                     Search
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink 
+                                   </NavLink>
+                               </li>
+                           </ul>
+                       </li>
+                       <li className="nav-item">
+                           <NavLink 
                             to="/names" 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Names
-                        </NavLink>
-                    </li>
-                    <li className="nav-item dropdown">
-                        <a 
+                           </NavLink>
+                       </li>
+                       <li className="nav-item dropdown">
+                           <a 
                             className={`nav-link dropdown-toggle ${showDropdown('rules') ? 'active' : ''}`} 
                             href="#" 
                             id="navbarDropdownRules" 
@@ -292,51 +293,51 @@ function NavTop() {
                             onClick={(e) => {
                                 e.preventDefault();
                                 handleSetSelected('rules');
-                            }}
-                        >
+                             }}
+                           >
                             Rules
-                        </a>
-                        <ul 
+                           </a>
+                           <ul 
                             className={`dropdown-menu ${showDropdown('rules') ? 'show' : ''}`}
                             aria-labelledby="navbarDropdownRules"
-                        >
-                            <li><NavLink to="/rules/general" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>General</NavLink></li>
-                            <li><NavLink to="/rules/ability-scores" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Abilities</NavLink></li>
-                            {ruleVersion === '2024' && (
-                                <li><NavLink to={backgroundsLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Backgrounds</NavLink></li>
-                            )}
-                            <li><NavLink to={classesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Classes</NavLink></li>
-                            <li><NavLink to="/rules/conditions" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Conditions</NavLink></li>
-                            <li><NavLink to={featsLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Feats</NavLink></li>
-                            <li><NavLink to={racesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Races</NavLink></li>
-                            {ruleVersion === '2024' && (
-                                <li><NavLink to="/2024/rules/weapon-mastery" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Weapon Mastery</NavLink></li>
-                            )}
-                        </ul>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink 
+                           >
+                               <li><NavLink to="/rules/general" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>General</NavLink></li>
+                               <li><NavLink to="/rules/ability-scores" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Abilities</NavLink></li>
+                               {ruleVersion === '2024' && (
+                                   <li><NavLink to={backgroundsLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Backgrounds</NavLink></li>
+                               )}
+                               <li><NavLink to={classesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Classes</NavLink></li>
+                               <li><NavLink to="/rules/conditions" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Conditions</NavLink></li>
+                               <li><NavLink to={featsLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Feats</NavLink></li>
+                               <li><NavLink to={racesLink} className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Races</NavLink></li>
+                               {ruleVersion === '2024' && (
+                                   <li><NavLink to="/2024/rules/weapon-mastery" className={({ isActive }) => `dropdown-item ${isActive ? 'active' : ''}`} onClick={() => setSelected('')}>Weapon Mastery</NavLink></li>
+                               )}
+                           </ul>
+                       </li>
+                       <li className="nav-item">
+                           <NavLink 
                             to={spellLink} 
                             className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
                         >
                             Spells
-                        </NavLink>
-                    </li>
-                </ul>
-                <div className="navTop-dropdown-spell-version">
-                    <select 
+                           </NavLink>
+                       </li>
+                   </ul>
+                   <div className="navTop-dropdown-spell-version">
+                       <select 
                         className="form-select form-select-sm"
                         value={ruleVersion}
                         onChange={handleRuleChange}
                         aria-label="Select rule version"
-                    >
-                        <option value="5e">5e</option>
-                        <option value="2024">2024</option>
-                    </select>
-                </div>
-            </div>
-        </nav>
-    );
+                       >
+                           <option value="5e">5e</option>
+                           <option value="2024">2024</option>
+                       </select>
+                   </div>
+               </div>
+           </nav>
+       );
 }
 
 export default NavTop;

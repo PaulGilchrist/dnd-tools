@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { LOCAL_STORAGE_KEYS, setLocalStorageItem } from '../../utils/localStorage';
 
 function NameFilterForm({ filter, setFilter, filterChanged }) {
     const typeOptions = [
@@ -31,7 +32,7 @@ function NameFilterForm({ filter, setFilter, filterChanged }) {
     const handleTypeChange = (e) => {
         const newFilter = { ...filter, type: e.target.value, index: 'Select' };
         setFilter(newFilter);
-        localStorage.setItem('namesFilter', JSON.stringify(newFilter));
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER, newFilter);
     };
 
     const handleIndexChange = (e) => {
@@ -134,3 +135,4 @@ function NameFilterForm({ filter, setFilter, filterChanged }) {
 }
 
 export default NameFilterForm;
+

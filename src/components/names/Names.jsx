@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNames } from '../../data/dataService';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import './Names.css';
 import NameFilterForm from './NameFilterForm';
 import NameListTable from './NameListTable';
@@ -27,14 +28,14 @@ function Names() {
             setNames(namesData);
 
             // Set search filters from localStorage
-            let filterJson = localStorage.getItem('namesFilter');
+            let filterJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER);
             if (filterJson) {
-                const savedFilter = JSON.parse(filterJson);
+                const savedFilter = filterJson;
                 
                 // Set used names from localStorage first
-                let namesUsedJson = localStorage.getItem('namesUsed');
+                let namesUsedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED);
                 if (namesUsedJson != null) {
-                    setNamesUsed(JSON.parse(namesUsedJson));
+                    setNamesUsed(namesUsedJson);
                 }
 
                 // Set the filter and then call getNames if we have valid selections
@@ -48,7 +49,7 @@ function Names() {
                     setTimeout(() => getNames(), 0);
                 }
             } else {
-                localStorage.setItem('namesFilter', JSON.stringify(filter));
+                setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER, filter);
                 setTimeout(() => getNames(), 0);
             }
         }
@@ -63,7 +64,7 @@ function Names() {
 
     const filterChanged = (newFilter) => {
         // if the index no longer matches the type, change it
-        localStorage.setItem('namesFilter', JSON.stringify(newFilter));
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER, newFilter);
         getNames(newFilter);
     };
 
@@ -149,7 +150,7 @@ function Names() {
             } else {
                 newUsed = prev.filter(n => n !== name);
             }
-            localStorage.setItem('namesUsed', JSON.stringify(newUsed));
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED, newUsed);
             return newUsed;
         });
     };
@@ -175,3 +176,4 @@ function Names() {
 }
 
 export default Names;
+

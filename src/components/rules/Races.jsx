@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useRaces } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import RaceItem from './RaceItem';
 
 function Races() {
@@ -25,18 +26,18 @@ function Races() {
                 if (race) {
                     setShownCard(index);
                     scrollIntoView(index);
-                }
-            } else {
-                // Set search filters from localStorage - default to "All" when no saved data
-                const savedFilter = localStorage.getItem('racesFilter');
-                if (savedFilter) {
-                    // Filter logic can be added here in the future
+                    }
                 } else {
-                    localStorage.setItem('racesFilter', JSON.stringify({ category: 'All' }));
-                }
-            }
-        }
-    }, [racesData]);
+                    // Set search filters from localStorage - default to "All" when no saved data
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.RACES_FILTER);
+                if (savedFilter) {
+                             // Filter logic can be added here in the future
+                     } else {
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.RACES_FILTER, { category: 'All' });
+                     }
+                 }
+             }
+         }, [racesData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -51,29 +52,29 @@ function Races() {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-        }
-    };
+              }
+           };
 
     if (racesLoading) {
         return <div className="list"><div>Loading races...</div></div>;
     }
 
     return (
-                    <div className="list">
-                        <div className="page-header">
-                            <h1 className="card-title">Races</h1>
-                            <div className="page-description">Choose a race for your character. Each race offers unique traits and abilities that reflect their culture, biology, and heritage.</div>
-                        </div>
-                        {races.map((race) => (
-                            <div key={race.index} id={race.index}>
-                                <RaceItem
+                            <div className="list">
+                                <div className="page-header">
+                                    <h1 className="card-title">Races</h1>
+                                    <div className="page-description">Choose a race for your character. Each race offers unique traits and abilities that reflect their culture, biology, and heritage.</div>
+                                </div>
+                                {races.map((race) => (
+                                    <div key={race.index} id={race.index}>
+                                        <RaceItem
                                   race={race}
                                   expand={shownCard === race.index}
                                   onExpand={(expanded) => expandCard(race.index, expanded)}
                                 />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
                 );
 }
 

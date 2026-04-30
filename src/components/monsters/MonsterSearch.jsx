@@ -4,6 +4,7 @@ import { useMonsters } from '../../data/dataService';
 import Monster from './Monster';
 import { useMonsterFilter } from '../../hooks/useMonsterFilter';
 import { useMonsterBookmarks } from '../../hooks/useMonsterBookmarks';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import FilterForm from './FilterForm';
 import FilterControls from './FilterControls';
 import MonsterList from './MonsterList';
@@ -36,20 +37,20 @@ function MonsterSearch() {
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        }
             }
+                }
 
-            // Set search filters from localStorage, only defaulting to "All" when there's no saved data
-            const savedFilter = localStorage.getItem('monsterFilter5e');
+                 // Set search filters from localStorage, only defaulting to "All" when there's no saved data
+            const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER_5E);
             if (savedFilter) {
-                // Filter already has defaults from hook, just need to update if saved exists
-            } else {
-                localStorage.setItem('monsterFilter5e', JSON.stringify(filter));
-            }
+                     // Filter already has defaults from hook, just need to update if saved exists
+                } else {
+                setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER_5E, filter);
+                }
 
             console.log(`${updatedMonsters.length} monsters`);
-        }
-    }, [monstersData, updateMonstersWithBookmarks]);
+            }
+        }, [monstersData, updateMonstersWithBookmarks]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -62,8 +63,6 @@ function MonsterSearch() {
             // Update URL query params using setSearchParams
             if (expanded) {
                 setSearchParams({ index });
-            } else {
-                setSearchParams({});
         }
         }
 
@@ -72,8 +71,8 @@ function MonsterSearch() {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-        }
-    };
+            }
+        };
 
     if (monstersLoading) {
         return <Loading />;
@@ -82,20 +81,19 @@ function MonsterSearch() {
     const filteredMonsters = updateMonstersWithBookmarks(monstersData).filter(showMonster);
 
     return (
-        <>
-            <FilterForm>
-                <FilterControls filter={filter} updateFilter={updateFilter} />
-            </FilterForm>
+            <>
+                <FilterForm>
+                    <FilterControls filter={filter} updateFilter={updateFilter} />
+                </FilterForm>
 
             <MonsterList
                 monsters={filteredMonsters}
                 shownCard={shownCard}
                 expandCard={expandCard}
                 handleBookmarkChange={handleBookmarkChange}
-            />
-        </>
-    );
+                />
+            </>
+        );
 }
 
 export default MonsterSearch;
-

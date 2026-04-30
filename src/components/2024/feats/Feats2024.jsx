@@ -3,6 +3,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { use2024Feats } from '../../../data/dataService';
 import Feat2024 from './Feat2024';
 import Feat2024Filter from './Feat2024Filter';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
 import { scrollIntoView } from '../../../data/utils';
 import './Feats2024.css';
 
@@ -34,18 +35,18 @@ function Feats2024() {
                 if (feat) {
                     setShownCard(index);
                     scrollIntoView(index);
-                }
-            } else {
-                // Set search filters from localStorage
-                const savedFilter = localStorage.getItem('featFilter2024');
+                      }
+                  } else {
+                      // Set search filters from localStorage
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024);
                 if (savedFilter) {
-                    setFilter(JSON.parse(savedFilter));
-                } else {
-                    localStorage.setItem('featFilter2024', JSON.stringify(filter));
-                }
-            }
-        }
-    }, [featsData]);
+                    setFilter(savedFilter);
+                      } else {
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024, filter);
+                      }
+                  }
+              }
+           }, [featsData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -60,12 +61,12 @@ function Feats2024() {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-        }
-    };
+                }
+             };
 
     const filterChanged = (newFilter) => {
-        localStorage.setItem('featFilter2024', JSON.stringify(newFilter));
-    };
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024, newFilter);
+             };
 
     const filterFeats = (feat) => {
         // Name filter
@@ -102,8 +103,8 @@ function Feats2024() {
             );
             if (!hasAbility) {
                 return false;
-            }
         }
+              }
 
         return true;
     };
@@ -115,31 +116,31 @@ function Feats2024() {
     const filteredFeats = feats.filter(filterFeats);
 
     return (
-        <div className="feats-2024">
-            <Feat2024Filter 
+              <div className="feats-2024">
+                  <Feat2024Filter 
                 filter={filter} 
                 onFilterChange={(newFilter) => { 
                     setFilter(newFilter); 
                     filterChanged(newFilter); 
-                }} 
-            />
-            
-            {/* Feats List */}
-            <div className="list">
-                {filteredFeats.map((feat) => (
-                    <div key={feat.name} id={feat.name}>
-                        {filterFeats(feat) && (
-                            <Feat2024
-                                feat={feat}
-                                expand={shownCard === feat.name}
-                                onExpand={(expanded) => expandCard(feat.name, expanded)}
-                            />
-                        )}
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+                  }} 
+                  />
+                 
+                  {/* Feats List */}
+                  <div className="list">
+                      {filteredFeats.map((feat) => (
+                          <div key={feat.name} id={feat.name}>
+                              {filterFeats(feat) && (
+                                  <Feat2024
+                                    feat={feat}
+                                    expand={shownCard === feat.name}
+                                    onExpand={(expanded) => expandCard(feat.name, expanded)}
+                                  />
+                              )}
+                          </div>
+                      ))}
+                  </div>
+              </div>
+          );
 }
 
 export default Feats2024;

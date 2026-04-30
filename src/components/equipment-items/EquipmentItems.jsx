@@ -3,6 +3,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { useEquipment, useWeaponProperties } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import { useRuleVersion } from '../../context/RuleVersionContext';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import EquipmentItem from './EquipmentItem';
 import EquipmentFilterForm from './EquipmentFilterForm';
 import WeaponPropertyDescription from './WeaponPropertyDescription';
@@ -40,23 +41,23 @@ function EquipmentItems() {
                 if (equipmentItem) {
                     setShownCard(index);
                     scrollIntoView(index);
-                }
-            } else {
-                // Set search filters from localStorage
-                const savedFilter = localStorage.getItem('equipmentItemsFilter');
+                    }
+               } else {
+                   // Set search filters from localStorage
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER);
                 if (savedFilter) {
-                    setFilter(JSON.parse(savedFilter));
-                } else {
-                    localStorage.setItem('equipmentItemsFilter', JSON.stringify(filter));
-                }
-            }
+                    setFilter(savedFilter);
+                   } else {
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER, filter);
+                   }
+               }
 
-            // Set bookmarked status from localStorage
-            const equipmentItemsBookmarkedJson = localStorage.getItem('equipmentItemsBookmarked');
+                   // Set bookmarked status from localStorage
+            const equipmentItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED);
             let equipmentItemsBookmarked = [];
             if (equipmentItemsBookmarkedJson) {
-                equipmentItemsBookmarked = JSON.parse(equipmentItemsBookmarkedJson);
-            }
+                equipmentItemsBookmarked = equipmentItemsBookmarkedJson;
+               }
 
             // Update bookmarked status for each item
             const updatedItems = equipmentData.map(item => ({
@@ -68,8 +69,8 @@ function EquipmentItems() {
 
         if (weaponPropertiesData) {
             setWeaponProperties(weaponPropertiesData);
-        }
-    }, [equipmentData, weaponPropertiesData]);
+           }
+       }, [equipmentData, weaponPropertiesData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -84,8 +85,8 @@ function EquipmentItems() {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-        }
-    };
+            }
+         };
 
     const getWeaponPropertyDescription = (name) => {
         const wp = weaponProperties.find(wp => wp.name === name);
@@ -93,44 +94,44 @@ function EquipmentItems() {
     };
 
     const filterChanged = (newFilter) => {
-        localStorage.setItem('equipmentItemsFilter', JSON.stringify(newFilter));
-    };
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER, newFilter);
+         };
 
     const saveBookmark = () => {
         const equipmentItemsBookmarked = equipmentItems
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-        localStorage.setItem('equipmentItemsBookmarked', JSON.stringify(equipmentItemsBookmarked));
-    };
+               .filter(item => item.bookmarked)
+               .map(item => item.index);
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, equipmentItemsBookmarked);
+         };
 
     const showEquipmentItem = (equipmentItem) => {
         // Bookmarked filter
         if (filter.bookmarked !== 'All' && !equipmentItem.bookmarked) {
             return false;
-        }
-        // Category filter
+            }
+             // Category filter
         if (filter.category !== 'All' && equipmentItem.equipment_category !== filter.category) {
             return false;
-        }
-        // Property filter (for weapons only)
+            }
+             // Property filter (for weapons only)
         if (filter.category === 'Weapon' && filter.property !== 'All') {
             const hasProperty = equipmentItem.properties?.some(p => p === filter.property);
             if (!hasProperty) {
                 return false;
+               }
             }
-        }
         // Name filter
         if (filter.name !== '' && !equipmentItem.name.toLowerCase().includes(filter.name.toLowerCase())) {
             return false;
-        }
-        // Range filter (for weapons only)
+            }
+             // Range filter (for weapons only)
         if (filter.category === 'Weapon' && filter.range !== 'All') {
             // Handle both "Melee" and "Meele" (typo in data)
             const weaponRange = equipmentItem.weapon_range?.toLowerCase().replace('meele', 'melee');
             if (weaponRange !== filter.range.toLowerCase()) {
                 return false;
+               }
             }
-        }
         return true;
     };
 
@@ -139,27 +140,27 @@ function EquipmentItems() {
         setEquipmentItems(prevItems => 
             prevItems.map(item => 
                 item.index === index ? { ...item, bookmarked: isBookmarked } : item
-            )
-        );
-        
-        // Save to localStorage - get current bookmarked items from state
+               )
+           );
+          
+             // Save to localStorage - get current bookmarked items from state
         const equipmentItemsBookmarked = equipmentItems
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-        
+               .filter(item => item.bookmarked)
+               .map(item => item.index);
+          
         if (isBookmarked) {
             // Add to bookmarked list
             equipmentItemsBookmarked.push(index);
-        } else {
-            // Remove from bookmarked list
+            } else {
+                // Remove from bookmarked list
             const filtered = equipmentItemsBookmarked.filter(i => i !== index);
-            localStorage.setItem('equipmentItemsBookmarked', JSON.stringify(filtered));
-        }
-        
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, filtered);
+            }
+          
         if (isBookmarked) {
-            localStorage.setItem('equipmentItemsBookmarked', JSON.stringify(equipmentItemsBookmarked));
-        }
-    };
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, equipmentItemsBookmarked);
+            }
+         };
 
     if (equipmentLoading || wpLoading) {
         return <div className="list"><div>Loading equipment...</div></div>;
@@ -169,29 +170,29 @@ function EquipmentItems() {
         // If equipmentItem.rules does not exist, show the item (applies to all rule versions)
         if (!equipmentItem.rules) {
             return true;
-        }
-        
-        // If equipmentItem.rules exists and matches ruleVersion, show the item.  Always show tools, just displayed differently based on ruleVersion
+            }
+          
+             // If equipmentItem.rules exists and matches ruleVersion, show the item.  Always show tools, just displayed differently based on ruleVersion
         if (equipmentItem.rules === ruleVersion) {
             return true;
-        }
-        
-        // Always show tools, just displayed differently based on ruleVersion
+            }
+          
+             // Always show tools, just displayed differently based on ruleVersion
         if (equipmentItem.equipment_category === 'Tools') {
             return true;
-        }
-        
-        // If equipmentItem.rules exists but does not match ruleVersion, skip the item
+            }
+          
+             // If equipmentItem.rules exists but does not match ruleVersion, skip the item
         return false;
     };
 
     const filteredItems = equipmentItems
-        .filter(showEquipmentItem)
-        .filter(filterByRuleVersion);
+         .filter(showEquipmentItem)
+         .filter(filterByRuleVersion);
 
     return (
-        <>
-            <EquipmentFilterForm 
+               <>
+                   <EquipmentFilterForm 
                 filter={filter}
                 setFilter={setFilter}
                 onFilterChange={filterChanged}
@@ -210,9 +211,9 @@ function EquipmentItems() {
                 expandCard={expandCard}
                 handleBookmarkChange={handleBookmarkChange}
                 ruleVersion={ruleVersion}
-            />
-        </>
-    );
+                   />
+               </>
+           );
 }
 
 export default EquipmentItems;

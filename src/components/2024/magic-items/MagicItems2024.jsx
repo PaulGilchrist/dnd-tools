@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { use2024MagicItems } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
 import MagicItem2024 from './MagicItem2024';
 import MagicItems2024FilterForm from './MagicItems2024FilterForm';
 import MagicItems2024List from './MagicItems2024List';
@@ -23,15 +24,15 @@ function MagicItems2024() {
     const { data: magicItemsData, loading: magicItemsLoading } = use2024MagicItems();
 
     useEffect(() => {
-        // Load saved filters from localStorage on mount
-        const savedFilter = localStorage.getItem('magicItems2024Filter');
+                  // Load saved filters from localStorage on mount
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER_2024);
         if (savedFilter) {
             try {
-                setFilter(JSON.parse(savedFilter));
-            } catch (e) {
+                setFilter(savedFilter);
+                  } catch (e) {
                 console.error('Error parsing saved filter:', e);
-            }
         }
+              }
 
         if (magicItemsData && magicItemsData.length > 0) {
             // Deduplicate items by index (keep first occurrence)
@@ -39,8 +40,8 @@ function MagicItems2024() {
             magicItemsData.forEach(item => {
                 if (!uniqueItemsMap.has(item.index)) {
                     uniqueItemsMap.set(item.index, item);
-                }
-            });
+                  }
+              });
             const uniqueItems = Array.from(uniqueItemsMap.values());
             
             setMagicItems(uniqueItems);
@@ -53,19 +54,19 @@ function MagicItems2024() {
                 if (magicItem) {
                     setShownCard(index);
                     scrollIntoView(index);
-                }
             }
+                  }
 
-            // Set bookmarked status from localStorage
-            const magicItemsBookmarkedJson = localStorage.getItem('magicItems2024Bookmarked');
+                      // Set bookmarked status from localStorage
+            const magicItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024);
             let magicItemsBookmarked = [];
             if (magicItemsBookmarkedJson) {
                 try {
-                    magicItemsBookmarked = JSON.parse(magicItemsBookmarkedJson);
-                } catch (e) {
+                    magicItemsBookmarked = magicItemsBookmarkedJson;
+                      } catch (e) {
                     console.error('Error parsing bookmarked items:', e);
-                }
             }
+                  }
 
             // Update bookmarked status for each item
             const updatedItems = uniqueItems.map(item => ({
@@ -73,8 +74,8 @@ function MagicItems2024() {
                 bookmarked: magicItemsBookmarked.includes(item.index)
             }));
             setMagicItems(updatedItems);
-        }
-    }, [magicItemsData]);
+              }
+           }, [magicItemsData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -89,34 +90,34 @@ function MagicItems2024() {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-        }
-    };
+                }
+             };
 
     const filterChanged = (newFilter) => {
-        localStorage.setItem('magicItems2024Filter', JSON.stringify(newFilter));
-    };
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER_2024, newFilter);
+             };
 
     const showMagicItem = (magicItem) => {
         // Attunement filter
         if (filter.attunement !== 'All' && (
-            (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
-            (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
-        )) {
+                  (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
+                  (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
+              )) {
             return false;
-        }
-        // Bookmarked filter
+              }
+                 // Bookmarked filter
         if (filter.bookmarked !== 'All' && !magicItem.bookmarked) {
             return false;
-        }
-        // Name filter
+              }
+                 // Name filter
         if (filter.name !== '' && !magicItem.name.toLowerCase().includes(filter.name.toLowerCase())) {
             return false;
-        }
-        // Rarity filter (case-insensitive)
+              }
+                 // Rarity filter (case-insensitive)
         if (filter.rarity !== 'All' && magicItem.rarity && magicItem.rarity.toLowerCase() !== filter.rarity.toLowerCase()) {
             return false;
-        }
-        // Type filter (case-insensitive)
+              }
+                 // Type filter (case-insensitive)
         if (filter.type !== 'All' && magicItem.type.toLowerCase() !== filter.type.toLowerCase()) {
             return false;
         }
@@ -128,27 +129,27 @@ function MagicItems2024() {
         setMagicItems(prevItems => 
             prevItems.map(item => 
                 item.index === index ? { ...item, bookmarked: isBookmarked } : item
-            )
-        );
-        
-        // Save to localStorage - get current bookmarked items from state
+                  )
+              );
+          
+                 // Save to localStorage - get current bookmarked items from state
         const magicItemsBookmarked = magicItems
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-        
+                  .filter(item => item.bookmarked)
+                  .map(item => item.index);
+          
         if (isBookmarked) {
             // Add to bookmarked list
             magicItemsBookmarked.push(index);
-        } else {
-            // Remove from bookmarked list
+              } else {
+                  // Remove from bookmarked list
             const filtered = magicItemsBookmarked.filter(i => i !== index);
-            localStorage.setItem('magicItems2024Bookmarked', JSON.stringify(filtered));
-        }
-        
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024, filtered);
+              }
+          
         if (isBookmarked) {
-            localStorage.setItem('magicItems2024Bookmarked', JSON.stringify(magicItemsBookmarked));
-        }
-    };
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024, magicItemsBookmarked);
+              }
+             };
 
     if (magicItemsLoading) {
         return <div className="list"><div>Loading magic items...</div></div>;
@@ -157,8 +158,8 @@ function MagicItems2024() {
     const filteredItems = magicItems.filter(showMagicItem);
 
     return (
-        <>
-            <MagicItems2024FilterForm
+                  <>
+                      <MagicItems2024FilterForm
                 filter={filter}
                 setFilter={setFilter}
                 onFilterChange={filterChanged}
@@ -170,9 +171,9 @@ function MagicItems2024() {
                 shownCard={shownCard}
                 expandCard={expandCard}
                 handleBookmarkChange={handleBookmarkChange}
-            />
-        </>
-    );
+                      />
+                  </>
+              );
 }
 
 export default MagicItems2024;

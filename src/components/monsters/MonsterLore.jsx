@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useMonsters, useMonsterTypes } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import Monster from './Monster';
 
 function MonsterLore() {
@@ -29,10 +30,10 @@ function MonsterLore() {
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
-                const savedFilter = localStorage.getItem('monsterLoreFilter');
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER);
                 if (!savedFilter) {
                     const defaultFilter = { category: 'All' };
-                    localStorage.setItem('monsterLoreFilter', JSON.stringify(defaultFilter));
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER, defaultFilter);
                 }
             }
         }
@@ -85,7 +86,7 @@ function MonsterLore() {
                         {shownSubtype === subtype.index && (
                             <div className="card-body">
                                 <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
-                                <br/>
+                                <br />
                                 <h5>Monsters</h5>
                                 {monsters.map((monster) => (
                                     <div className="inner-list" key={monster.index} id={monster.index}>
@@ -112,3 +113,4 @@ function MonsterLore() {
 }
 
 export default MonsterLore;
+

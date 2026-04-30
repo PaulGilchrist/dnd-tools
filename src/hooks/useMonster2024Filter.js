@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
 
 export function useMonster2024Filter() {
     const [filter, setFilter] = useState(() => {
-        // Try to load from localStorage on initial mount
-        const savedFilter = localStorage.getItem('monsterFilter2024');
+           // Try to load from localStorage on initial mount
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER_2024);
         if (savedFilter) {
             try {
-                return JSON.parse(savedFilter);
-            } catch (e) {
+                return savedFilter;
+               } catch (e) {
                 console.error('Failed to parse saved filter:', e);
-            }
-        }
-        
-        // Return default values
+               }
+           }
+         
+           // Return default values
         return {
             bookmarked: 'All',
             challengeRatingMin: 0,
@@ -23,20 +24,20 @@ export function useMonster2024Filter() {
             type: 'All',
             xpMin: 0,
             xpMax: 50000
-        };
-    });
+           };
+       });
 
     // Save to localStorage whenever filter changes
     useEffect(() => {
-        localStorage.setItem('monsterFilter2024', JSON.stringify(filter));
-    }, [filter]);
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER_2024, filter);
+       }, [filter]);
 
     const updateFilter = (key, value) => {
         setFilter(prevFilter => ({
-            ...prevFilter,
-            [key]: value
-        }));
-    };
+               ...prevFilter,
+               [key]: value
+           }));
+       };
 
     return {
         filter,

@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useMonsters } from '../../data/dataService';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import Loading from './Loading';
 import './Encounters.css';
 
@@ -28,16 +29,15 @@ function Encounters() {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        const savedFilter = localStorage.getItem('encounterFilter');
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER);
         if (savedFilter) {
             try {
-                const parsedFilter = JSON.parse(savedFilter);
-                setFilter(parsedFilter);
+                setFilter(savedFilter);
             } catch (e) {
                 console.error('Error parsing saved encounter filter:', e);
             }
         } else {
-            localStorage.setItem('encounterFilter', JSON.stringify(filter));
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, filter);
         }
     }, []);
 
@@ -149,7 +149,7 @@ function Encounters() {
 
     const updateFilter = (newFilter) => {
         setFilter(newFilter);
-        localStorage.setItem('encounterFilter', JSON.stringify(newFilter));
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, newFilter);
     };
 
     const addPlayer = () => {
@@ -383,3 +383,4 @@ function Encounters() {
 }
 
 export default Encounters;
+

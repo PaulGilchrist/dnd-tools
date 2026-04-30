@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
 
 export function useMonsterBookmarks(monsters = []) {
     const [monstersBookmarked, setMonstersBookmarked] = useState([]);
 
     // Load bookmarked monsters from localStorage on mount
     useEffect(() => {
-        const monstersBookmarkedJson = localStorage.getItem('monstersBookmarked');
+        const monstersBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED);
         if (monstersBookmarkedJson) {
-            setMonstersBookmarked(JSON.parse(monstersBookmarkedJson));
-        }
-    }, []);
+            setMonstersBookmarked(monstersBookmarkedJson);
+         }
+     }, []);
 
     // Update monsters with bookmarked status when monsters data changes
     const updateMonstersWithBookmarks = (monstersData) => {
@@ -30,20 +31,20 @@ export function useMonsterBookmarks(monsters = []) {
                 return [...prevBookmarks, index];
             } else {
                 return prevBookmarks.filter(i => i !== index);
-            }
-        });
+             }
+         });
 
         // Save to localStorage
         const newBookmarks = isBookmarked 
-            ? [...monstersBookmarked, index]
-            : monstersBookmarked.filter(i => i !== index);
+             ? [...monstersBookmarked, index]
+             : monstersBookmarked.filter(i => i !== index);
 
-        localStorage.setItem('monstersBookmarked', JSON.stringify(newBookmarks));
-    };
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED, newBookmarks);
+     };
 
     const saveBookmark = () => {
-        localStorage.setItem('monstersBookmarked', JSON.stringify(monstersBookmarked));
-    };
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED, monstersBookmarked);
+     };
 
     return {
         monstersBookmarked,

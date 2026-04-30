@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
 
 export function useMonsterFilter(initialFilter = {}) {
     const [filter, setFilter] = useState(() => {
-        // Try to load from localStorage on initial mount
-        const savedFilter = localStorage.getItem('monsterFilter');
+          // Try to load from localStorage on initial mount
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER);
         if (savedFilter) {
             try {
-                return JSON.parse(savedFilter);
-            } catch (e) {
+                return savedFilter;
+              } catch (e) {
                 console.error('Failed to parse saved filter:', e);
-            }
         }
+          }
         
         // Return default values
         return {
@@ -23,41 +24,41 @@ export function useMonsterFilter(initialFilter = {}) {
             type: 'All',
             xpMin: 0,
             xpMax: 50000,
-            ...initialFilter
-        };
-    });
+             ...initialFilter
+          };
+      });
 
     // Save to localStorage whenever filter changes
     useEffect(() => {
-        localStorage.setItem('monsterFilter', JSON.stringify(filter));
-    }, [filter]);
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER, filter);
+      }, [filter]);
 
     const showMonster = (monster) => {
         // Bookmarked filter
         if (filter.bookmarked !== 'All' && !monster.bookmarked) {
             return false;
-        }
-        // Challenge Range
+          }
+          // Challenge Range
         if (monster.challenge_rating < filter.challengeRatingMin || monster.challenge_rating > filter.challengeRatingMax) {
             return false;
-        }
-        // Environment filter
+          }
+          // Environment filter
         if (filter.environment !== 'All' && (!monster.environments || !monster.environments.includes(filter.environment))) {
             return false;
-        }
-        // Name filter
+          }
+          // Name filter
         if (filter.name !== '' && !monster.name.toLowerCase().includes(filter.name.toLowerCase())) {
             return false;
-        }
-        // Size filter
+          }
+          // Size filter
         if (filter.size !== 'All' && filter.size !== monster.size) {
             return false;
-        }
-        // Type filter
+          }
+          // Type filter
         if (filter.type !== 'All' && filter.type !== monster.type) {
             return false;
-        }
-        // XP
+          }
+          // XP
         if (monster.xp < filter.xpMin || monster.xp > filter.xpMax) {
             return false;
         }
@@ -66,10 +67,10 @@ export function useMonsterFilter(initialFilter = {}) {
 
     const updateFilter = (key, value) => {
         setFilter(prevFilter => ({
-            ...prevFilter,
-            [key]: value
-        }));
-    };
+              ...prevFilter,
+              [key]: value
+          }));
+      };
 
     return {
         filter,
