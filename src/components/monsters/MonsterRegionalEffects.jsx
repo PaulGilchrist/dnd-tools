@@ -1,25 +1,7 @@
-import { getNameString } from '../../utils/monsterUtils';
-import { renderHtmlContent } from '../../utils/htmlUtils';
+import MonsterRegionalEffects from '../common/MonsterRegionalEffects';
 
-function MonsterRegionalEffects({ monster }) {
-    if (!monster || !monster.regional_effects) {
-        return null;
-    }
-
-    return (
-        <div>
-            <h5>Regional Effects</h5>
-            <span dangerouslySetInnerHTML={renderHtmlContent(monster.regional_effects.summary)} /><br />
-            <ul>
-                {monster.regional_effects.effects.map((effect, index) => (
-                    <li key={index}>
-                        <span dangerouslySetInnerHTML={renderHtmlContent(effect)} />
-                    </li>
-                ))}
-            </ul>
-            <span dangerouslySetInnerHTML={renderHtmlContent(monster.regional_effects.usage)} /><br />
-        </div>
-    );
-}
-
+/**
+ * 5e MonsterRegionalEffects component - Re-exports common MonsterRegionalEffects
+ * The adapter normalizes the data before passing to common component
+ */
 export default MonsterRegionalEffects;

@@ -1,21 +1,7 @@
-import { getNameString } from '../../utils/monsterUtils';
-import { renderHtmlContent } from '../../utils/htmlUtils';
+import MonsterLegendaryActions from '../common/MonsterLegendaryActions';
 
-function MonsterLegendaryActions({ monster }) {
-    if (!monster || !monster.legendary_actions) {
-        return null;
-    }
-
-    return (
-        <div>
-            {monster.legendary_actions.map((legendary_action, index) => (
-                <span key={index}>
-                    <b>{legendary_action.name}:</b>&nbsp;
-                    <span dangerouslySetInnerHTML={renderHtmlContent(legendary_action.desc)} />
-                </span>
-            ))}
-        </div>
-    );
-}
-
+/**
+ * 5e MonsterLegendaryActions component - Re-exports common MonsterLegendaryActions
+ * The adapter normalizes the data before passing to common component
+ */
 export default MonsterLegendaryActions;

@@ -1,93 +1,29 @@
-import { useState, useEffect } from 'react';
+import MagicItemCard from '../common/MagicItemCard';
+import { normalizeMagicItem5e } from '../adapters/magicItemAdapters';
 
+/**
+ * 5e MagicItem component - Wraps common MagicItemCard with 5e adapter
+ * @param {object} magicItem - The 5e magic item data object
+ * @param {boolean} expand - Whether the card should be initially expanded
+ * @param {function} onExpand - Callback when expand/collapse is toggled
+ * @param {function} onBookmarkChange - Callback when bookmark status changes
+ */
 function MagicItem({ magicItem, expand, onExpand, onBookmarkChange }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-
-    // Update local state when prop changes
-    useEffect(() => {
-        if (expand !== isExpanded) {
-            setIsExpanded(expand);
-        }
-    }, [expand]);
-
-    const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
-        onExpand(!isExpanded);
-    };
-
-    const toggleBookmark = () => {
-        magicItem.bookmarked = !magicItem.bookmarked;
-        onBookmarkChange(magicItem.index, magicItem.bookmarked);
-    };
-
-    const handleCheckboxChange = (e) => {
-        e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation();
-        magicItem.bookmarked = e.target.checked;
-        onBookmarkChange(magicItem.index, magicItem.bookmarked);
-    };
-
-    const handleLabelClick = (e) => {
-        e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation();
-    };
-
     if (!magicItem) {
         return null;
     }
 
+       // Normalize the 5e magic item data for the common component
+    const normalizedMagicItem = normalizeMagicItem5e(magicItem);
+
     return (
-        <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={magicItem.index}>
-            <div className="card-header clickable">
-                <div onClick={toggleDetails}>
-                    <div className="card-title">{magicItem.name}</div>
-                    <div>
-                        <i>{magicItem.type}, {magicItem.rarity}</i>
-                        {magicItem.requiresAttunement && (
-                            <span>, Requires Attunement</span>
-                        )}
-                    </div>
-                </div>
-                <div className="form-check">
-                    <input 
-                        className="form-check-input" 
-                        type="checkbox" 
-                        id={`bookmarked-${magicItem.index}`}
-                        checked={magicItem.bookmarked || false}
-                        onChange={handleCheckboxChange}
-                    />
-                    <label 
-                        className="form-check-label" 
-                        htmlFor={`bookmarked-${magicItem.index}`}
-                        onClick={handleLabelClick}
-                    >
-                        Bookmarked
-                    </label>
-                </div>
-            </div>
-
-            {isExpanded && (
-                <div className="card-body">
-                    <div className="card-text">
-                        {/* Description */}
-                        {magicItem.description && (
-                            <div>
-                                <b>Description:</b><br />
-                                <div dangerouslySetInnerHTML={{ __html: magicItem.description }} />
-                            </div>
-                        )}
-
-                        {/* Subtype */}
-                        {magicItem.subtype && (
-                            <div>
-                                <b>Subtype:</b>&nbsp;{magicItem.subtype}<br />
-                            </div>
-                        )}
-                    </div>
-                </div>
-            )}
-        </div>
-    );
+            <MagicItemCard
+               magicItem={normalizedMagicItem}
+               expand={expand}
+               onExpand={onExpand}
+               onBookmarkChange={onBookmarkChange}
+            />
+        );
 }
 
 export default MagicItem;

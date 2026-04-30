@@ -1,0 +1,6 @@
+/* SpellFilter component styles */
+
+.spell-filter-level-range {
+    display: flex;
+    gap: 10px;
+}
