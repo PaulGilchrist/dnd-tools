@@ -1,35 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
 const BASE_URL = import.meta.env.BASE_URL || '';
 
 // Cache for storing loaded data to avoid repeated fetches
-const dataCache = {
-    abilityScores: [],
-    conditions: [],
-    equipment: [],
-    feats: [],
-    feats2024: [],
-    locations: [],
-    magicItems: [],
-    magicItems2024: [],
-    monsters: [],
-    monsterTypes: [],
-    names: [],
-    playerClasses: [],
-    races: [],
-    races2024: [],
-    rules: [],
-    spells: [],
-    spells2024: [],
-    monsters2024: [],
-    monsters2024Types: [],
-    weaponProperties: [],
-    classes2024: [],
-    backgrounds2024: [],
-    weaponMastery2024: []
-};
+const dataCache = {};
 
+// Track which datasets have been loaded (even if still loading)
+const loadingPromises = {};
 // Helper function to sort array of objects by property name
 function sort(inputObjectArray, propertyName, descending = false) {
     if (inputObjectArray && propertyName) {
@@ -43,8 +21,8 @@ function sort(inputObjectArray, propertyName, descending = false) {
                 return descending ? -1 : 1;
             }
             return 0;
-        });
-    }
+          });
+      }
 }
 
 // Error handler function
@@ -53,20 +31,21 @@ function handleError(error) {
     throw error;
 }
 
-// Hook to fetch and cache data
-function useDataCache(key, url) {
-    const [data, setData] = useState(dataCache[key]);
-    const [loading, setLoading] = useState(!data || data.length === 0);
-    const [error, setError] = useState(null);
+// Fetch data with caching - never re-fetches once loaded or loading
+async function fetchAndCache(key, url) {
+     // Return cached data if already loaded
+    if (dataCache[key]) {
+        return dataCache[key];
+     }
 
-    useEffect(() => {
-        if (data && data.length > 0) {
-            return; // Data already loaded, skip fetch
-        }
+     // Reuse existing in-flight request if loading
+    if (loadingPromises[key]) {
+        return loadingPromises[key];
+     }
 
-        const fetchData = async () => {
-            try {
-                setLoading(true);
+     // Create new fetch promise and cache it
+    const promise = (async () => {
+        try {
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -78,18 +57,51 @@ function useDataCache(key, url) {
                     sort(jsonData, 'name');
                 }
 
-                setData(jsonData);
-                dataCache[key] = jsonData; // Update cache
-            } catch (err) {
-                setError(err);
-                handleError(err);
+            dataCache[key] = jsonData;
+            return jsonData;
             } finally {
-                setLoading(false);
+             // Clean up the promise reference after completion
+            delete loadingPromises[key];
             }
-        };
+     })();
 
-        fetchData();
-    }, [key, url]);
+    loadingPromises[key] = promise;
+    return promise;
+}
+
+// Hook to fetch and cache data lazily
+function useDataCache(key, url) {
+    const [data, setData] = useState(() => dataCache[key]);
+    const [loading, setLoading] = useState(!dataCache[key]);
+    const [error, setError] = useState(null);
+    const initialized = useRef(false);
+
+    useEffect(() => {
+         // Only fetch once per component lifetime
+        if (initialized.current) {
+            return;
+}
+        initialized.current = true;
+
+         // If data is already cached, resolve immediately
+        if (dataCache[key]) {
+            setData(dataCache[key]);
+            setLoading(false);
+            return;
+}
+
+         // Start fetch
+        setLoading(true);
+        fetchAndCache(key, url)
+             .then((jsonData) => {
+                setData(jsonData);
+                setLoading(false);
+             })
+             .catch((err) => {
+                setError(err);
+                setLoading(false);
+             });
+     }, [key, url]);
 
     return { data, loading, error };
 }
@@ -198,231 +210,54 @@ export class DataService {
     }
 
     async getAbilityScores() {
-        if (this.cache.abilityScores.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/ability-scores.json');
-                const data = await response.json();
-                this.cache.abilityScores = data;
-                console.log('Get - ability scores');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.abilityScores;
-    }
-
+        return fetchAndCache('abilityScores', BASE_URL + 'data/ability-scores.json');
+      }
     async getConditions() {
-        if (this.cache.conditions.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/conditions.json');
-                const data = await response.json();
-                this.cache.conditions = data;
-                console.log('Get - conditions');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.conditions;
-    }
-
+        return fetchAndCache('conditions', BASE_URL + 'data/conditions.json');
+      }
     async getEquipment() {
-        if (this.cache.equipment.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/equipment.json');
-                const data = await response.json();
-                this.cache.equipment = data;
-                console.log('Get - equipment');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.equipment;
-    }
-
+        return fetchAndCache('equipment', BASE_URL + 'data/equipment.json');
+      }
     async getFeats() {
-        if (this.cache.feats.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/feats.json');
-                const data = await response.json();
-                this.cache.feats = data;
-                console.log('Get - feats');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.feats;
-    }
-
+        return fetchAndCache('feats', BASE_URL + 'data/feats.json');
+      }
     async getLocations() {
-        if (this.cache.locations.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/locations.json');
-                const data = await response.json();
-                this.cache.locations = data;
-                console.log('Get - locations');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.locations;
-    }
-
+        return fetchAndCache('locations', BASE_URL + 'data/locations.json');
+      }
     async getMagicItems() {
-        if (this.cache.magicItems.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/magic-items.json');
-                const data = await response.json();
-                this.cache.magicItems = data;
-                console.log('Get - magic items');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.magicItems;
-    }
-
+        return fetchAndCache('magicItems', BASE_URL + 'data/magic-items.json');
+      }
     async getMonsters() {
-        if (this.cache.monsters.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/monsters.json');
-                const data = await response.json();
-                this.cache.monsters = data;
-                console.log('Get - monsters');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.monsters;
-    }
-
+        return fetchAndCache('monsters', BASE_URL + 'data/monsters.json');
+      }
     async getMonsterTypes() {
-        if (this.cache.monsterTypes.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/monster-types.json');
-                const data = await response.json();
-                this.cache.monsterTypes = data;
-                console.log('Get - monster subtypes');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.monsterTypes;
-    }
-
+        return fetchAndCache('monsterTypes', BASE_URL + 'data/monster-types.json');
+      }
     async get2024MonsterTypes() {
-        if (this.cache.monsters2024Types.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/2024/monster-types.json');
-                const data = await response.json();
-                this.cache.monsters2024Types = data;
-                console.log('Get - 2024 monster subtypes');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.monsters2024Types;
-    }
-
+        return fetchAndCache('monsters2024Types', BASE_URL + 'data/2024/monster-types.json');
+      }
     async getNames() {
-        if (this.cache.names.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/names.json');
-                const data = await response.json();
-                sort(data, 'name');
-                this.cache.names = data;
-                console.log('Get - names');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.names;
-    }
-
+        return fetchAndCache('names', BASE_URL + 'data/names.json');
+      }
     async getPlayerClasses() {
-        if (this.cache.playerClasses.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/classes.json');
-                const data = await response.json();
-                this.cache.playerClasses = data;
-                console.log('Get - player classes');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.playerClasses;
-    }
-
+        return fetchAndCache('playerClasses', BASE_URL + 'data/classes.json');
+      }
     async getRaces() {
-        if (this.cache.races.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/races.json');
-                const data = await response.json();
-                this.cache.races = data;
-                console.log('Get - races');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.races;
-    }
-
+        return fetchAndCache('races', BASE_URL + 'data/races.json');
+      }
     async getRules() {
-        if (this.cache.rules.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/rules.json');
-                const data = await response.json();
-                this.cache.rules = data;
-                console.log('Get - rules');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.rules;
-    }
-
+        return fetchAndCache('rules', BASE_URL + 'data/rules.json');
+      }
     async getSpells() {
-        if (this.cache.spells.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/spells.json');
-                const data = await response.json();
-                this.cache.spells = data;
-                console.log('Get - spells');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.spells;
-    }
-
+        return fetchAndCache('spells', BASE_URL + 'data/spells.json');
+      }
     async getWeaponProperties() {
-        if (this.cache.weaponProperties.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/weapon-properties.json');
-                const data = await response.json();
-                this.cache.weaponProperties = data;
-                console.log('Get - weapon properties');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.weaponProperties;
-    }
-
+        return fetchAndCache('weaponProperties', BASE_URL + 'data/weapon-properties.json');
+      }
     async getBackgrounds2024() {
-        if (this.cache.backgrounds2024.length === 0) {
-            try {
-                const response = await fetch(BASE_URL + 'data/2024/backgrounds.json');
-                const data = await response.json();
-                this.cache.backgrounds2024 = data;
-                console.log('Get - 2024 backgrounds');
-            } catch (error) {
-                handleError(error);
-            }
-        }
-        return this.cache.backgrounds2024;
-    }
+        return fetchAndCache('backgrounds2024', BASE_URL + 'data/2024/backgrounds.json');
+      }
 }
-
 // Export singleton instance for class-based usage
 export const dataService = new DataService();
 
