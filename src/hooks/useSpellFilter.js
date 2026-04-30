@@ -1,4 +1,4 @@
-export function useSpellFilter(filter, spell) {
+export function filterSpells(filter, spell) {
     // Casting Time filter
     if (filter.castingTime !== 'All' && (
         (filter.castingTime === 'Action' && !(spell.casting_time === '1 action')) ||

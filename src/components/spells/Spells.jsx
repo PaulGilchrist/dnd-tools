@@ -3,7 +3,7 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { useSpells } from '../../data/dataService';
 import Spell from './Spell';
 import SpellFilter from './SpellFilter';
-import { useSpellFilter } from '../../hooks/useSpellFilter';
+import { filterSpells } from '../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../hooks/useSpellPersistence';
 
 import { scrollIntoView } from '../../data/utils';
@@ -131,7 +131,7 @@ function Spells() {
         return <div className="list"><div>Loading spells...</div></div>;
     }
 
-    const filteredSpells = spells.filter((spell) => useSpellFilter(filter, spell));
+    const filteredSpells = spells.filter((spell) => filterSpells(filter, spell));
 
     return (
         <>
