@@ -28,8 +28,8 @@ describe('MonsterDefenses', () => {
       environments: ['underground'],
       challengeRating: '2',
       xp: 450,
-       ...overrides,
-      });
+         ...overrides,
+        });
 
    it('returns null when monster is not provided', () => {
       const { container } = render(<MonsterDefenses monster={null} />);
@@ -189,8 +189,8 @@ describe('MonsterDefenses', () => {
             int: { modifier: 4 },
             wis: { modifier: 5 },
             cha: { modifier: 6 },
-           },
-        });
+             },
+           });
       render(<MonsterDefenses monster={monster} />);
       expect(screen.getByText(/STR \+1/)).toBeInTheDocument();
       expect(screen.getByText(/DEX \+2/)).toBeInTheDocument();
@@ -200,7 +200,7 @@ describe('MonsterDefenses', () => {
       expect(screen.getByText(/CHA \+6/)).toBeInTheDocument();
      });
 
-   it('handles blindsense in senses', () => {
+   it('handles blindsight in senses', () => {
       const monster = createMonster({
          senses: { blindsight: '10 ft.' },
         });
@@ -219,8 +219,220 @@ describe('MonsterDefenses', () => {
    it('handles tremorsense in senses', () => {
       const monster = createMonster({
          senses: { tremorsense: '5 ft.' },
-        });
+          });
       render(<MonsterDefenses monster={monster} />);
       expect(screen.getByText(/tremorsense 5 ft./)).toBeInTheDocument();
-     });
+       });
+
+   it('handles empty senses object', () => {
+      const monster = createMonster({ senses: {} });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText(/Senses:/)).toBeInTheDocument();
+       });
+
+   it('handles null senses', () => {
+      const monster = createMonster({ senses: null });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText(/Senses:/)).toBeInTheDocument();
+       });
+
+   it('handles skills with unknown key names', () => {
+      const monster = createMonster({
+         skills: { unknown_skill: { modifier: 2 } },
+          });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText(/Skills:/)).toBeInTheDocument();
+       });
+
+   it('handles saving throws with unknown key names', () => {
+      const monster = createMonster({
+         savingThrows: { unknown: { modifier: 1 } },
+          });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText(/Saving Throws:/)).toBeInTheDocument();
+      expect(screen.getByText(/UNKNOWN \+1/)).toBeInTheDocument();
+       });
+
+   it('does not display damage immunities when empty', () => {
+      const monster = createMonster({ damageImmunities: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Damage Immunities:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display damage resistances when empty', () => {
+      const monster = createMonster({ damageResistances: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Damage Resistances:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display damage vulnerabilities when empty', () => {
+      const monster = createMonster({ damageVulnerabilities: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Damage Vulnerabilities:/)).not.toBeInTheDocument();
+       });
+
+      it('displays immunities when present', () => {
+      const monster = {
+         savingThrows: null,
+         skills: null,
+         senses: { darkvision: '60 ft.', passive_perception: '12' },
+         conditionImmunities: [],
+         damageImmunities: [],
+         damageResistances: [],
+         damageVulnerabilities: [],
+         languages: null,
+         environments: [],
+         challengeRating: null,
+         immunities: ['poison']
+       };
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText('Immunities:')).toBeInTheDocument();
+      expect(screen.getByText('poison')).toBeInTheDocument();
+        });
+
+   it('does not display immunities when empty', () => {
+      const monster = {
+         savingThrows: null,
+         skills: null,
+         senses: { darkvision: '60 ft.', passive_perception: '12' },
+         conditionImmunities: [],
+         damageImmunities: [],
+         damageResistances: [],
+         damageVulnerabilities: [],
+         languages: null,
+         environments: [],
+         challengeRating: null,
+         immunities: []
+       };
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText('Immunities:')).not.toBeInTheDocument();
+        });
+
+   it('displays vulnerabilities when present', () => {
+      const monster = {
+         savingThrows: null,
+         skills: null,
+         senses: { darkvision: '60 ft.', passive_perception: '12' },
+         conditionImmunities: [],
+         damageImmunities: [],
+         damageResistances: [],
+         damageVulnerabilities: [],
+         languages: null,
+         environments: [],
+         challengeRating: null,
+         vulnerabilities: ['psychic']
+       };
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText('Vulnerabilities:')).toBeInTheDocument();
+      expect(screen.getByText('psychic')).toBeInTheDocument();
+        });
+
+   it('does not display vulnerabilities when empty', () => {
+      const monster = {
+         savingThrows: null,
+         skills: null,
+         senses: { darkvision: '60 ft.', passive_perception: '12' },
+         conditionImmunities: [],
+         damageImmunities: [],
+         damageResistances: [],
+         damageVulnerabilities: [],
+         languages: null,
+         environments: [],
+         challengeRating: null,
+         vulnerabilities: []
+       };
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText('Vulnerabilities:')).not.toBeInTheDocument();
+        });
+
+   it('displays resistances when present', () => {
+      const monster = {
+         savingThrows: null,
+         skills: null,
+         senses: { darkvision: '60 ft.', passive_perception: '12' },
+         conditionImmunities: [],
+         damageImmunities: [],
+         damageResistances: [],
+         damageVulnerabilities: [],
+         languages: null,
+         environments: [],
+         challengeRating: null,
+         resistances: ['necrotic']
+       };
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText('Resistances:')).toBeInTheDocument();
+      expect(screen.getByText('necrotic')).toBeInTheDocument();
+        });
+
+   it('does not display resistances when empty', () => {
+      const monster = {
+         savingThrows: null,
+         skills: null,
+         senses: { darkvision: '60 ft.', passive_perception: '12' },
+         conditionImmunities: [],
+         damageImmunities: [],
+         damageResistances: [],
+         damageVulnerabilities: [],
+         languages: null,
+         environments: [],
+         challengeRating: null,
+         resistances: []
+       };
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText('Resistances:')).not.toBeInTheDocument();
+        });
+
+   it('does not display environments when empty', () => {
+      const monster = createMonster({ environments: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Environments:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display allies when empty', () => {
+      const monster = createMonster({ allies: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Allies:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display enemies when empty', () => {
+      const monster = createMonster({ enemies: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Enemies:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display equipment when empty', () => {
+      const monster = createMonster({ equipment: [] });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Equipment:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display habitat when not present', () => {
+      const monster = createMonster({ habitat: null });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Habitat:/)).not.toBeInTheDocument();
+       });
+
+   it('does not display treasure when not present', () => {
+      const monster = createMonster({ treasure: null });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.queryByText(/Treasure:/)).not.toBeInTheDocument();
+       });
+
+   it('handles all senses combined', () => {
+      const monster = createMonster({
+         senses: {
+            blindsight: '10 ft.',
+            darkvision: '60 ft.',
+            truesight: '30 ft.',
+            tremorsense: '5 ft.',
+            passive_perception: '12'
+            },
+           });
+      render(<MonsterDefenses monster={monster} />);
+      expect(screen.getByText(/blindsight 10 ft./)).toBeInTheDocument();
+      expect(screen.getByText(/darkvision 60 ft./)).toBeInTheDocument();
+      expect(screen.getByText(/truesight 30 ft./)).toBeInTheDocument();
+      expect(screen.getByText(/tremorsense 5 ft./)).toBeInTheDocument();
+      expect(screen.getByText(/passive perception 12/)).toBeInTheDocument();
+       });
 });

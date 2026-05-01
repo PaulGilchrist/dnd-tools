@@ -507,8 +507,8 @@ describe('SpellCard', () => {
                 onExpand={mockOnExpand}
                 onKnownChange={mockOnKnownChange}
                 onPreparedChange={mockOnPreparedChange}
-            />
-        );
+             />
+         );
         expect(screen.queryByText(/Casting Time:/)).not.toBeInTheDocument();
 
         rerender(
@@ -518,8 +518,230 @@ describe('SpellCard', () => {
                 onExpand={mockOnExpand}
                 onKnownChange={mockOnKnownChange}
                 onPreparedChange={mockOnPreparedChange}
-            />
-        );
+             />
+         );
         expect(screen.getByText(/Casting Time:/)).toBeInTheDocument();
     });
+
+    it('displays damage type when present', () => {
+        const spell = createSpell({ damage: { damage_type: 'Fire' } });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+              />
+          );
+        expect(screen.getByText(/Damage Type:/)).toBeInTheDocument();
+         // Use exact text match to avoid matching 'Fireball' spell name
+        const damageElements = screen.getAllByText('Fire');
+        expect(damageElements.length).toBeGreaterThan(0);
+      });
+
+    it('does not display damage when not present', () => {
+        const spell = createSpell({ damage: null });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/Damage Type:/)).not.toBeInTheDocument();
+     });
+
+    it('displays damage at higher levels', () => {
+        const spell = createSpell({
+            damage: {
+                damage_type: 'Fire',
+                damage_at_slot_level: { '4': '2d6', '5': '3d6' }
+            }
+        });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.getByText(/At Higher Levels:/)).toBeInTheDocument();
+     });
+
+    it('handles spell without school', () => {
+        const spell = createSpell({ school: null });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={false}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.getByText('Fireball')).toBeInTheDocument();
+     });
+
+    it('handles empty components array', () => {
+        const spell = createSpell({ components: [] });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.getByText(/Components:/)).toBeInTheDocument();
+     });
+
+    it('handles null components', () => {
+        const spell = createSpell({ components: null });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/Components:/)).toBeInTheDocument();
+     });
+
+    it('handles empty description array', () => {
+        const spell = createSpell({ desc: [] });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/A bright streak/)).not.toBeInTheDocument();
+     });
+
+    it('handles null description', () => {
+        const spell = createSpell({ desc: null });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/A bright streak/)).not.toBeInTheDocument();
+     });
+
+    it('handles empty higherLevel array', () => {
+        const spell = createSpell({ higherLevel: [] });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/At higher levels/)).not.toBeInTheDocument();
+     });
+
+    it('handles null higherLevel', () => {
+        const spell = createSpell({ higherLevel: null });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/At higher levels/)).not.toBeInTheDocument();
+     });
+
+    it('handles empty classes array', () => {
+        const spell = createSpell({ classes: [] });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/Classes:/)).toBeInTheDocument();
+     });
+
+    it('handles empty subclasses array', () => {
+        const spell = createSpell({ subclasses: [] });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/Subclasses:/)).not.toBeInTheDocument();
+     });
+
+    it('handles empty statusEffects array', () => {
+        const spell = createSpell({ statusEffects: [] });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={true}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        expect(screen.queryByText(/Status Effects:/)).not.toBeInTheDocument();
+     });
+
+    it('toggles known from true to false', () => {
+        const spell = createSpell({ known: true });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={false}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        const knownCheckbox = screen.getByRole('checkbox', { name: 'Known' });
+        fireEvent.click(knownCheckbox);
+        expect(mockOnKnownChange).toHaveBeenCalledWith('fireball', false);
+     });
+
+    it('toggles prepared from true to false', () => {
+        const spell = createSpell({ known: true, prepared: true });
+        render(
+             <SpellCard
+                spell={spell}
+                expand={false}
+                onExpand={mockOnExpand}
+                onKnownChange={mockOnKnownChange}
+                onPreparedChange={mockOnPreparedChange}
+             />
+         );
+        const preparedCheckbox = screen.getByRole('checkbox', { name: 'Prepared' });
+        fireEvent.click(preparedCheckbox);
+        expect(mockOnPreparedChange).toHaveBeenCalledWith('fireball', false);
+     });
 });

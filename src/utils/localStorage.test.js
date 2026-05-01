@@ -83,47 +83,88 @@ describe('localStorage helpers', () => {
     });
 
    describe('setLocalStorageItem', () => {
-      it('stores JSON stringified value', () => {
-         setLocalStorageItem('testKey', { foo: 'bar' });
-         expect(localStorageMock.setItem).toHaveBeenCalledWith('testKey', JSON.stringify({ foo: 'bar' }));
-      });
+       it('stores JSON stringified value', () => {
+          setLocalStorageItem('testKey', { foo: 'bar' });
+          expect(localStorageMock.setItem).toHaveBeenCalledWith('testKey', JSON.stringify({ foo: 'bar' }));
+        });
 
-      it('stores array as JSON', () => {
-         setLocalStorageItem('arrayKey', [1, 2, 3]);
-         expect(localStorageMock.setItem).toHaveBeenCalledWith('arrayKey', '[1,2,3]');
-      });
+       it('stores array as JSON', () => {
+          setLocalStorageItem('arrayKey', [1, 2, 3]);
+          expect(localStorageMock.setItem).toHaveBeenCalledWith('arrayKey', '[1,2,3]');
+        });
 
-      it('stores null value', () => {
-         setLocalStorageItem('nullKey', null);
-         expect(localStorageMock.setItem).toHaveBeenCalledWith('nullKey', 'null');
+       it('stores null value', () => {
+          setLocalStorageItem('nullKey', null);
+          expect(localStorageMock.setItem).toHaveBeenCalledWith('nullKey', 'null');
+        });
+
+       it('handles setItem error gracefully', () => {
+          const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+          localStorageMock.setItem = vi.fn(() => {
+              throw new Error('Quota exceeded');
+            });
+          setLocalStorageItem('testKey', { foo: 'bar' });
+          expect(consoleSpy).toHaveBeenCalled();
+          consoleSpy.mockRestore();
+        });
       });
-    });
 
    describe('removeLocalStorageItem', () => {
-      it('removes item from localStorage', () => {
-         localStorageMock.setItem('keyToRemove', 'value');
-         removeLocalStorageItem('keyToRemove');
-         expect(localStorageMock.removeItem).toHaveBeenCalledWith('keyToRemove');
-      });
-    });
+       it('removes item from localStorage', () => {
+          localStorageMock.setItem('keyToRemove', 'value');
+          removeLocalStorageItem('keyToRemove');
+          expect(localStorageMock.removeItem).toHaveBeenCalledWith('keyToRemove');
+         });
+
+       it('handles removeItem error gracefully', () => {
+          const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+          localStorageMock.removeItem = vi.fn(() => {
+              throw new Error('Remove failed');
+             });
+          removeLocalStorageItem('keyToRemove');
+          expect(consoleSpy).toHaveBeenCalled();
+          consoleSpy.mockRestore();
+         });
+       });
 
    describe('setLocalStorageString', () => {
-      it('stores raw string without JSON encoding', () => {
-         setLocalStorageString('stringKey', 'raw value');
-         expect(localStorageMock.setItem).toHaveBeenCalledWith('stringKey', 'raw value');
-      });
-    });
+       it('stores raw string without JSON encoding', () => {
+          setLocalStorageString('stringKey', 'raw value');
+          expect(localStorageMock.setItem).toHaveBeenCalledWith('stringKey', 'raw value');
+         });
+
+       it('handles setItem error gracefully', () => {
+          const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+          localStorageMock.setItem = vi.fn(() => {
+              throw new Error('Quota exceeded');
+              });
+          setLocalStorageString('stringKey', 'raw value');
+          expect(consoleSpy).toHaveBeenCalled();
+          consoleSpy.mockRestore();
+          });
+       });
 
    describe('getLocalStorageString', () => {
-      it('returns raw string value', () => {
-         localStorageMock.setItem('stringKey', 'raw value');
-         const result = getLocalStorageString('stringKey');
-         expect(result).toBe('raw value');
-      });
+       it('returns raw string value', () => {
+          localStorageMock.setItem('stringKey', 'raw value');
+          const result = getLocalStorageString('stringKey');
+          expect(result).toBe('raw value');
+         });
 
-      it('returns null for non-existent key', () => {
-         const result = getLocalStorageString('nonExistent');
-         expect(result).toBeNull();
-      });
-    });
+       it('returns null for non-existent key', () => {
+          const result = getLocalStorageString('nonExistent');
+          expect(result).toBeNull();
+         });
+
+       it('handles getItem error gracefully', () => {
+          const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+          localStorageMock.getItem = vi.fn(() => {
+              throw new Error('Read failed');
+              });
+          const result = getLocalStorageString('stringKey');
+          expect(result).toBeNull();
+          expect(consoleSpy).toHaveBeenCalled();
+          consoleSpy.mockRestore();
+          });
+       });
 });
