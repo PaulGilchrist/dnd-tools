@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useMonsters, useMonsterTypes } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 import Monster from './Monster';
 
 function MonsterLore() {
@@ -85,7 +86,7 @@ function MonsterLore() {
                         </div>
                         {shownSubtype === subtype.index && (
                             <div className="card-body">
-                                <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
+                                <div dangerouslySetInnerHTML={renderHtmlContent(subtype.desc)} />
                                 <br />
                                 <h5>Monsters</h5>
                                 {monsters.map((monster) => (

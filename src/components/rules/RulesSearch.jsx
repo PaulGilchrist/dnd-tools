@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { highlightText, ruleMatchesSearch } from './RuleSearchUtils';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 import './RulesSearch.css';
 
 function RulesSearch({ rules, ruleVersion }) {
@@ -239,7 +240,7 @@ function RulesSearch({ rules, ruleVersion }) {
                                 <>
                                     <h2 className="rules-flow-title">
                                         {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                            <span dangerouslySetInnerHTML={{ __html: highlightText(item.name, searchText) }} />
+                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, searchText))} />
                                         ) : (
                                             item.name
                                         )}
@@ -247,9 +248,9 @@ function RulesSearch({ rules, ruleVersion }) {
                                     {item.desc && (
                                         <div className="rules-flow-desc">
                                             {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                <span dangerouslySetInnerHTML={{ __html: highlightText(item.desc, searchText) }} />
+                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, searchText))} />
                                             ) : (
-                                                <div dangerouslySetInnerHTML={{ __html: item.desc }} />
+                                                 <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
                                             )}
                                         </div>
                                     )}
@@ -260,7 +261,7 @@ function RulesSearch({ rules, ruleVersion }) {
                                 <>
                                     <h3 className="subsection-title">
                                         {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                            <span dangerouslySetInnerHTML={{ __html: highlightText(item.name, searchText) }} />
+                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, searchText))} />
                                         ) : (
                                             item.name
                                         )}
@@ -268,9 +269,9 @@ function RulesSearch({ rules, ruleVersion }) {
                                     {item.desc && (
                                         <div className="subsection-desc">
                                             {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                <span dangerouslySetInnerHTML={{ __html: highlightText(item.desc, searchText) }} />
+                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, searchText))} />
                                             ) : (
-                                                <div dangerouslySetInnerHTML={{ __html: item.desc }} />
+                                                 <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
                                             )}
                                         </div>
                                     )}

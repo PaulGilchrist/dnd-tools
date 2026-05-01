@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 /**
  * Helper function to render charge system info
@@ -48,10 +49,10 @@ function SpellCasting({ magicItem }) {
         parts.push('<b>Spells:</b>');
         spells.forEach(spell => {
             parts.push(`- ${spell.name} (${spell.level} level, ${spell.charge_cost} charge${spell.charge_cost > 1 ? 's' : ''})`);
-         });
-     }
+          });
+      }
     
-    return <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} />;
+    return <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} />;
 }
 
 /**
@@ -70,7 +71,7 @@ function Damage({ magicItem }) {
         parts.push(`<b>Extra Damage:</b> ${extra_damage}`);
      }
     
-    return <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} />;
+    return <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} />;
 }
 
 /**
@@ -83,11 +84,11 @@ function SavingThrows({ magicItem }) {
     magicItem.saving_throws.forEach(st => {
         parts.push(`DC ${st.dc} ${st.ability}: ${st.effect_on_fail}`);
         if (st.effect_on_success) {
-            parts.push(`   (Success: ${st.effect_on_success})`);
-         }
-     });
+            parts.push(`    (Success: ${st.effect_on_success})`);
+          }
+      });
     
-    return <div dangerouslySetInnerHTML={{ __html: parts }} />;
+    return <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} />;
 }
 
 /**
@@ -109,7 +110,7 @@ function Bonuses({ magicItem }) {
         parts.push(`<b>Ability Score Increase:</b> +${ability_score_increase.amount} to ${ability_score_increase.ability} (max ${ability_score_increase.maximum})`);
      }
     
-    return <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} />;
+    return <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} />;
 }
 
 /**
@@ -128,7 +129,7 @@ function AdvantageDisadvantage({ magicItem }) {
         parts.push(`<b>Disadvantage on:</b> ${disadvantage_on.join(', ')}`);
      }
     
-    return parts.length > 0 ? <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} /> : null;
+    return parts.length > 0 ? <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} /> : null;
 }
 
 /**
@@ -153,7 +154,7 @@ function ResistancesImmunities({ magicItem }) {
         parts.push(`<b>Immunities:</b> ${magicItem.immunities.join(', ')}`);
      }
     
-    return parts.length > 0 ? <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} /> : null;
+    return parts.length > 0 ? <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} /> : null;
 }
 
 /**
@@ -164,12 +165,12 @@ function Curse({ magicItem }) {
     
     const { description, removal } = magicItem.curse;
     return (
-         <div className="text-danger">
-             <b>Curse:</b><br />
-             {description}<br />
-             {removal && <small><i>Removal: {removal}</i></small>}
-         </div>
-     );
+          <div className="text-danger">
+              <b>Curse:</b><br />
+              {description}<br />
+              {removal && <small><i>Removal: {removal}</i></small>}
+          </div>
+      );
 }
 
 /**
@@ -190,7 +191,7 @@ function Sentience({ magicItem }) {
     if (purpose) parts.push(`<b>Purpose:</b> ${purpose}`);
     if (communication) parts.push(`<b>Communication:</b> ${communication}`);
     
-    return <div dangerouslySetInnerHTML={{ __html: parts.join('<br />') }} />;
+    return <div dangerouslySetInnerHTML={renderHtmlContent(parts.join('<br />'))} />;
 }
 
 /**

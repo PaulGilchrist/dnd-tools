@@ -187,16 +187,16 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                  </div>
                              )}
                              {monster.desc && (
-                                 <div>
-                                     <hr />
-                                     <h5>Description</h5>
-                                     <div dangerouslySetInnerHTML={{ __html: monster.desc }} />
-                                     <br/>
-                                     {monster.page && (
-                                         <div>{monster.book} (page {monster.page})</div>
-                                     )}
-                                 </div>
-                             )}
+                                                               <div>
+                                                                   <hr />
+                                                                   <h5>Description</h5>
+                                                                   <div dangerouslySetInnerHTML={renderHtmlContent(monster.desc)} />
+                                                                   <br/>
+                                                                   {monster.page && (
+                                                                       <div>{monster.book} (page {monster.page})</div>
+                                                                   )}
+                                                               </div>
+                                                           )}
                          </div>
                      </div>
                  )}

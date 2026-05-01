@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useLocations } from '../data/dataService';
 import { scrollIntoView } from '../data/utils';
+import { renderHtmlContent } from '../utils/htmlUtils';
 import './Locations.css';
 import './common/Cover.css';
 
@@ -133,7 +134,7 @@ function Locations() {
                                             )}
                                         </div>
                                     </div>
-                                    <div dangerouslySetInnerHTML={{ __html: location.desc }}></div>
+                                    <div dangerouslySetInnerHTML={renderHtmlContent(location.desc)}></div>
                                     <br />
                                     {location.book && `(${location.book} page ${location.page})`}
                                 </div>

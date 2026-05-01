@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 /**
  * Common SpellCard component - Displays spell details
@@ -71,14 +72,6 @@ function SpellCard({ spell, expand, onExpand, onKnownChange, onPreparedChange })
         return null;
       }
 
-     // Handle HTML sanitization (simplified - in production use DOMPurify or similar)
-    const sanitizeHtml = (htmlString) => {
-        if (!htmlString) return '';
-         // Simple approach: just return the string
-         // In production, use DOMPurify: https://www.npmjs.com/package/dompurify
-        return htmlString;
-      };
-
     const renderDescription = () => {
         if (!spell.desc || spell.desc.length === 0) {
             return null;
@@ -86,7 +79,7 @@ function SpellCard({ spell, expand, onExpand, onKnownChange, onPreparedChange })
 
         return spell.desc.map((desc, index) => (
              <div key={index}>
-                 <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(desc) }} />
+                  <span dangerouslySetInnerHTML={renderHtmlContent(desc)} />
              </div>
          ));
       };
@@ -135,7 +128,7 @@ function SpellCard({ spell, expand, onExpand, onKnownChange, onPreparedChange })
              <div>
                  <b>Damage Type:</b>&nbsp;{damageType}<br />
                  {damageText && (
-                     <div dangerouslySetInnerHTML={{ __html: damageText }} />
+                      <div dangerouslySetInnerHTML={renderHtmlContent(damageText)} />
                  )}
              </div>
          );

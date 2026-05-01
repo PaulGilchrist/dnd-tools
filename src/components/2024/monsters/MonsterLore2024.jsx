@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { use2024Monsters, use2024MonsterTypes, use2024MonsterSubtypes } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 import Monster2024 from './Monster2024';
 
 /**
@@ -199,7 +200,7 @@ function MonsterLore2024() {
                             {shownSubtype === typeGroup.type && (
                                 <div className="card-body">
                                     {/* Show description and trait modifiers first */}
-                                    <div dangerouslySetInnerHTML={{ __html: typeGroup.desc || '' }} />
+                                    <div dangerouslySetInnerHTML={renderHtmlContent(typeGroup.desc || '')} />
                                     <br />
                                     {typeGroup.trait_modifiers && typeGroup.trait_modifiers.length > 0 && (
                                         <>
@@ -254,7 +255,7 @@ function MonsterLore2024() {
                                                                 {subtype.desc && (
                                                                     <div>
                                                                         <strong>Description:</strong>
-                                                                        <div dangerouslySetInnerHTML={{ __html: subtype.desc }} />
+                                                                        <div dangerouslySetInnerHTML={renderHtmlContent(subtype.desc)} />
                                                                     </div>
                                                                 )}
                                                                 <h6>Monsters in this subtype</h6>

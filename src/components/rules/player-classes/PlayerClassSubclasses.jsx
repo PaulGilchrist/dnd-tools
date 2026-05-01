@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 
 function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowSubclass, getSpells, classFeatures, subclassFeatures }) {
     useEffect(() => {
@@ -43,7 +44,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                 {subclass.spells && (
                                     <div className="playerClass-margin-bottom-small">
                                         <b>Spells:</b>
-                                        <div dangerouslySetInnerHTML={{ __html: getSpells(subclass.spells) }} className="playerClass-spell-list" />
+                                        <div dangerouslySetInnerHTML={renderHtmlContent(getSpells(subclass.spells))} className="playerClass-spell-list" />
                                     </div>
                                 )}
                                 {/* Features that are not level specific */}
@@ -77,12 +78,12 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                                     <b>{feature.name}:</b>&nbsp;
                                                     {feature.description && feature.description[0] && (
                                                         <div>
-                                                            <span dangerouslySetInnerHTML={{ __html: feature.description[0] }} />
+                                                            <span dangerouslySetInnerHTML={renderHtmlContent(feature.description[0])} />
                                                         </div>
                                                     )}
                                                     {feature.details && (
                                                         <div>
-                                                            <span dangerouslySetInnerHTML={{ __html: feature.details }} />
+                                                            <span dangerouslySetInnerHTML={renderHtmlContent(feature.details)} />
                                                         </div>
                                                     )}
                                                 </div>

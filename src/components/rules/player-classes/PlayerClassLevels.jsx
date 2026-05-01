@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 import LevelSelector from './LevelSelector';
 import AbilityScoreBonuses from './AbilityScoreBonuses';
 import ProficiencyBonus from './ProficiencyBonus';
@@ -105,12 +106,12 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel, classFeatures
                                                 <b>{feature.name}:</b>&nbsp;
                                                 {feature.description && feature.description[0] && (
                                                     <div>
-                                                        <span dangerouslySetInnerHTML={{ __html: feature.description[0] }} />
+                                                        <span dangerouslySetInnerHTML={renderHtmlContent(feature.description[0])} />
                                                     </div>
                                                 )}
                                                 {feature.details && (
                                                     <div>
-                                                        <span dangerouslySetInnerHTML={{ __html: feature.details }} />
+                                                        <span dangerouslySetInnerHTML={renderHtmlContent(feature.details)} />
                                                     </div>
                                                 )}
                                             </div>

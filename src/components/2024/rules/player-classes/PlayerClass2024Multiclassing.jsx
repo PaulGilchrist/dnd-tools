@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderHtmlContent } from '../../../../utils/htmlUtils';
 
 /**
  * Component to display multiclassing information
@@ -11,17 +12,17 @@ function PlayerClass2024Multiclassing({ multiclassing }) {
     return (
         <div className="multiclassing-info">
             <h4>Multiclassing</h4>
-            <div dangerouslySetInnerHTML={{ __html: multiclassing.requirements }} />
+            <div dangerouslySetInnerHTML={renderHtmlContent(multiclassing.requirements)} />
             {multiclassing.core_traits_gained && (
                 <div>
                     <b>Core Traits Gained:</b>
-                    <span dangerouslySetInnerHTML={{ __html: multiclassing.core_traits_gained }} />
+                    <span dangerouslySetInnerHTML={renderHtmlContent(multiclassing.core_traits_gained)} />
                 </div>
             )}
             {multiclassing.features_gained && (
                 <div>
                     <b>Features Gained:</b>
-                    <span dangerouslySetInnerHTML={{ __html: multiclassing.features_gained }} />
+                    <span dangerouslySetInnerHTML={renderHtmlContent(multiclassing.features_gained)} />
                 </div>
             )}
         </div>

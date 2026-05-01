@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import {
     Feats2024,
     ExtraAttacks,
@@ -125,7 +126,7 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
                         <span className="subclass-badge">(Subclass)</span>
                     )}
                     {feature.description && (
-                        <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                        <span dangerouslySetInnerHTML={renderHtmlContent(feature.description)} />
                     )}
                 </div>
             ))}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 /**
  * Common MagicItemCard component - Displays magic item details
@@ -85,7 +86,7 @@ function MagicItemCard({ magicItem, expand, onExpand, onBookmarkChange, sectionR
                            {magicItem.description && (
                                <div>
                                    <b>Description:</b><br />
-                                   <div dangerouslySetInnerHTML={{ __html: magicItem.description }} />
+                                   <div dangerouslySetInnerHTML={renderHtmlContent(magicItem.description)} />
                                </div>
                            )}
 

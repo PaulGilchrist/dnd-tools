@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../../data/utils';
+import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import PlayerClass2024Header from './PlayerClass2024Header';
 import PlayerClass2024Majors from './PlayerClass2024Majors';
 import PlayerClass2024CoreTraits from './PlayerClass2024CoreTraits';
@@ -111,7 +112,7 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
                 <div className="card-body">
                     {/* Class Description */}
                     {playerClass.class_description && (
-                        <span dangerouslySetInnerHTML={{ __html: playerClass.class_description }} />
+                        <span dangerouslySetInnerHTML={renderHtmlContent(playerClass.class_description)} />
                     )}
 
                     {/* Core Traits */}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 import '../common/index.css';
 import Subraces from './Subraces';
 
@@ -57,14 +58,14 @@ function RaceItem({ race, expand, onExpand }) {
                          <div className="trait-description-md">
                             <hr />
                             <h5>Description</h5>
-                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
+                            <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
                         </div>
                     )}
                     <hr />
                     <h5>Details</h5>
                     {trait.details && (
                          <div className="trait-details-md">
-                            <div dangerouslySetInnerHTML={{ __html: trait.details }} />
+                            <div dangerouslySetInnerHTML={renderHtmlContent(trait.details)} />
                         </div>
                     )}
                 </div>
@@ -81,7 +82,7 @@ function RaceItem({ race, expand, onExpand }) {
                     {traitDesc && (
                          <div className="trait-description-md">
                             <hr />
-                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
+                            <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
                         </div>
                     )}
                 </div>

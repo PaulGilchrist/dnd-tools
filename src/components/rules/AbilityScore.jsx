@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function AbilityScore({ abilityScore, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
@@ -46,9 +47,9 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
             {isExpanded && (
                 <div className="card-body">
                     <div 
-                        className="card-text"
-                        dangerouslySetInnerHTML={{ __html: abilityScore.desc }}
-                    />
+                                            className="card-text"
+                                            dangerouslySetInnerHTML={renderHtmlContent(abilityScore.desc)}
+                                         />
                 </div>
             )}
         </div>

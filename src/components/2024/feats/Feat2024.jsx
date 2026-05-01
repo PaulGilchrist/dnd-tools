@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 import '../../common/index.css';
 
 function Feat2024({ feat, expand, onExpand }) {
@@ -63,9 +64,9 @@ function Feat2024({ feat, expand, onExpand }) {
                     <div className="card-text">
                         {feat.description && (
                             <div 
-                                className="description"
-                                dangerouslySetInnerHTML={{ __html: feat.description }}
-                            />
+                                                            className="description"
+                                                            dangerouslySetInnerHTML={renderHtmlContent(feat.description)}
+                                                         />
                         )}
                         
                         {feat.prerequisites && (

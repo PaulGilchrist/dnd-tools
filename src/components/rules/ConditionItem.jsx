@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 
 function ConditionItem({ condition, expand = false, onExpand }) {
@@ -23,7 +24,7 @@ function ConditionItem({ condition, expand = false, onExpand }) {
         if (!condition.desc) {
             return null;
         }
-        return <div dangerouslySetInnerHTML={{ __html: condition.desc }} />;
+        return <div dangerouslySetInnerHTML={renderHtmlContent(condition.desc)} />;
     };
 
     return (

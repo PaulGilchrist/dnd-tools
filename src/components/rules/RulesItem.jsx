@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../data/utils';
+import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function RulesItem({ rule, expand = false, onExpand, ruleVersion }) {
     const [shownSubsection, setShownSubsection] = useState(null);
@@ -42,7 +43,7 @@ function RulesItem({ rule, expand = false, onExpand, ruleVersion }) {
                         <div className="card-title">{subsection.name}</div>
                     </div>
                     <div className={`inner card-body ${shownSubsection === subsection.index ? '' : 'hidden'}`}>
-                        <div dangerouslySetInnerHTML={{ __html: subsection.desc }}></div>
+                        <div dangerouslySetInnerHTML={renderHtmlContent(subsection.desc)}></div>
                         {subsection.page && (
                             <div>{subsection.book} (page {subsection.page})</div>
                         )}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../../data/utils';
+import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import '../../../common/index.css';
 function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }) {
     const [expandedMajor, setExpandedMajor] = useState('');
@@ -49,7 +50,7 @@ function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeat
                         <div className="card-body">
                             {major.description && (
                                 <div className="major-description">
-                                    <span dangerouslySetInnerHTML={{ __html: major.description }} />
+                                    <span dangerouslySetInnerHTML={renderHtmlContent(major.description)} />
                                 </div>
                             )}
                             
@@ -62,7 +63,7 @@ function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeat
                                             <b>Level {feature.level}: {feature.name}:</b>
                                             {feature.description && (
                                                 <div className="major-feature-description">
-                                                    <span dangerouslySetInnerHTML={{ __html: feature.description }} />
+                                                    <span dangerouslySetInnerHTML={renderHtmlContent(feature.description)} />
                                                 </div>
                                             )}
                                         </div>

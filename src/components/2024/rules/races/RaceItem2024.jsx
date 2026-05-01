@@ -1,3 +1,4 @@
+import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import '../../../common/index.css';
 
 function RaceItem2024({ race, expand, onExpand }) {
@@ -68,7 +69,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                      <span className="trait-name-sm">{traitName}</span>
                     {traitDesc && (
                          <div className="trait-description">
-                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
+                            <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
                         </div>
                     )}
                 </div>
@@ -89,7 +90,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                      <span className="trait-name-sm">{traitName}</span>
                     {traitDesc && (
                          <div className="trait-description">
-                            <div dangerouslySetInnerHTML={{ __html: traitDesc }} />
+                            <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
                         </div>
                     )}
                 </div>
@@ -114,7 +115,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                      <span className="subrace-item-name">{subraceName}</span>
                     {subraceDesc && (
                          <div className="subrace-item-description">
-                            <div dangerouslySetInnerHTML={{ __html: subraceDesc }} />
+                            <div dangerouslySetInnerHTML={renderHtmlContent(subraceDesc)} />
                         </div>
                     )}
                 </div>
@@ -129,7 +130,7 @@ function RaceItem2024({ race, expand, onExpand }) {
 
         return (
              <div className="description-section">
-                <div dangerouslySetInnerHTML={{ __html: race.description }} />
+                <div dangerouslySetInnerHTML={renderHtmlContent(race.description)} />
             </div>
         );
     };
@@ -226,7 +227,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                                         <b>{trait.name}</b>
                                         {trait.description && (
                                              <div className="lineage-description">
-                                                <div dangerouslySetInnerHTML={{ __html: trait.description }} />
+                                                <div dangerouslySetInnerHTML={renderHtmlContent(trait.description)} />
                                             </div>
                                         )}
                                     </div>
@@ -236,7 +237,7 @@ function RaceItem2024({ race, expand, onExpand }) {
                                                 <b>{subTrait.name}</b>
                                                 {subTrait.description && (
                                                      <div className="subtrait-description">
-                                                        <div dangerouslySetInnerHTML={{ __html: subTrait.description }} />
+                                                        <div dangerouslySetInnerHTML={renderHtmlContent(subTrait.description)} />
                                                     </div>
                                                 )}
                                             </div>
