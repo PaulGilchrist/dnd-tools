@@ -20,16 +20,17 @@ export function renderHtmlContent(htmlContent) {
     }
 
     const cleanHtml = DOMPurify.sanitize(htmlContent, {
-        ALLOWED_TAGS: [
-            'b', 'i', 'em', 'strong', 'br', 'hr',
-            'ul', 'ol', 'li',
-            'span', 'div', 'mark', 'small', 'a',
-            'h5', 'h6', 'p'
-        ],
-        ALLOWED_ATTR: [
-            'class', 'href', 'target', 'rel'
-        ],
-    });
+            ALLOWED_TAGS: [
+                 'b', 'i', 'em', 'strong', 'br', 'hr',
+                 'ul', 'ol', 'li',
+                 'span', 'div', 'mark', 'small', 'a',
+                 'h5', 'h6', 'p',
+                 'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'caption', 'colgroup', 'col'
+             ],
+            ALLOWED_ATTR: [
+                 'class', 'href', 'target', 'rel', 'style', 'scope', 'colspan', 'rowspan'
+             ],
+         });
 
     return { __html: cleanHtml };
 }
