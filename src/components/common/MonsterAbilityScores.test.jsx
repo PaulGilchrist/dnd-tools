@@ -19,9 +19,9 @@ describe('MonsterAbilityScores', () => {
          int: 0,
          wis: 1,
          cha: -1
-         },
-            ...overrides,
-            });
+          },
+             ...overrides,
+             });
 
    it('returns null when monster is not provided', () => {
       const { container } = render(<MonsterAbilityScores monster={null} />);
@@ -56,10 +56,12 @@ describe('MonsterAbilityScores', () => {
    it('displays positive modifiers with + sign', () => {
       const monster = createMonster();
       render(<MonsterAbilityScores monster={monster} />);
-      // The + and number are separate text nodes, so check for them individually
-      const plusSigns = screen.getAllTextContent();
-      expect(plusSigns).toContain('+');
-        });
+      // The modifier is rendered as "+4" in the text "(+4)"
+      expect(screen.getByText(/\+4/)).toBeInTheDocument();
+      expect(screen.getByText(/\+2/)).toBeInTheDocument();
+      expect(screen.getByText(/\+3/)).toBeInTheDocument();
+      expect(screen.getByText(/\+1/)).toBeInTheDocument();
+         });
 
    it('displays negative modifiers with - sign', () => {
       const monster = createMonster();

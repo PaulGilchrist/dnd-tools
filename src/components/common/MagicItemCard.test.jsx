@@ -125,10 +125,10 @@ describe('MagicItemCard', () => {
             expand={false}
             onExpand={mockOnExpand}
             onBookmarkChange={mockOnBookmarkChange}
-            />
-          );
-      const clickable = screen.getByText('Ring of Protection').closest('.clickable');
-      fireEvent.click(clickable);
+              />
+            );
+      const cardTitle = screen.getByText('Ring of Protection');
+      fireEvent.click(cardTitle);
       expect(mockOnExpand).toHaveBeenCalledWith(true);
          });
 
