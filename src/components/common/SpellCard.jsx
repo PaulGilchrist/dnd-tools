@@ -214,14 +214,14 @@ function SpellCard({ spell, expand, onExpand, onKnownChange, onPreparedChange })
 
     return (
           <div className={`card w-100 ${isExpanded ? 'active' : ''}`} id={spell.index}>
-              <div className="card-header clickable">
-                  <div onClick={toggleDetails}>
-                      <div className="card-title">{spell.name}</div>
-                      <i>{getLevelText(spell.level)}&nbsp;{spell.school && spell.school.toLowerCase()}</i>
-                      {spell.ritual && (
-                          <span> (ritual)</span>
-                      )}<br />
-                  </div>
+              <div className="card-header clickable" onClick={toggleDetails}>
+                                  <div>
+                                      <div className="card-title">{spell.name}</div>
+                                      <i>{getLevelText(spell.level)}&nbsp;{spell.school && spell.school.toLowerCase()}</i>
+                                      {spell.ritual && (
+                                          <span> (ritual)</span>
+                                      )}<br />
+                                  </div>
                   <div>
                       <div className="form-check">
                           <input 

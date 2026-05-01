@@ -37,51 +37,20 @@ function RaceItem({ race, expand, onExpand }) {
         }
 
         // Separate traits with details from those without
-        const traitsWithDetails = [];
         const traitsWithoutDetails = [];
         race.traits.forEach(trait => {
-            if (trait.details) {
-                traitsWithDetails.push(trait);
-            } else {
-                traitsWithoutDetails.push(trait);
-            }
-        });
-
-        // Build content for traits with details (HTML)
-        const traitsWithDetailsContent = traitsWithDetails.map(trait => {
-            const traitName = trait.name || 'Trait';
-            const traitDesc = trait.description || trait.desc || '';
-            return (
-                 <div key={trait.index} className="trait-container">
-                    <b>{traitName}</b>
-                    {traitDesc && (
-                         <div className="trait-description-md">
-                            <hr />
-                            <h5>Description</h5>
-                            <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
-                        </div>
-                    )}
-                    <hr />
-                    <h5>Details</h5>
-                    {trait.details && (
-                         <div className="trait-details-md">
-                            <div dangerouslySetInnerHTML={renderHtmlContent(trait.details)} />
-                        </div>
-                    )}
-                </div>
-            );
+            traitsWithoutDetails.push(trait);
         });
 
         // Build content for traits without details (text only)
         const traitsWithoutDetailsContent = traitsWithoutDetails.map(trait => {
                         const traitName = trait.name || 'Trait';
-            const traitDesc = trait.description || trait.desc || '';
+            const traitDesc = trait.description || '';
             return (
                  <div key={trait.index} className="trait-container">
                     <b>{traitName}</b>
                     {traitDesc && (
                          <div className="trait-description-md">
-                            <hr />
                             <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
                         </div>
                     )}
@@ -90,7 +59,7 @@ function RaceItem({ race, expand, onExpand }) {
         });
 
         // Combine all traits
-        return [...traitsWithDetailsContent, ...traitsWithoutDetailsContent];
+        return [...traitsWithoutDetailsContent];
     };
 
     if (!race) {
