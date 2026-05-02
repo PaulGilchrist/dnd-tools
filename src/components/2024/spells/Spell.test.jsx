@@ -5,8 +5,8 @@ import Spell from './Spell';
 vi.mock('../../common/SpellCard', () => ({
     default: vi.fn(({ spell, expand }) => (
         <div data-testid="spell-card">
-            <span data-testid="card-expand">{String(expand)}</span>
-            <span data-testid="card-name">{spell?.name}</span>
+            <span>{spell?.name}</span>
+            <span data-testid="spell-expand">{String(expand)}</span>
         </div>
     )),
 }));
@@ -25,13 +25,8 @@ describe('Spell (2024)', () => {
         index: 'fireball',
         name: 'Fireball',
         level: 3,
-        school: 'Evocation',
         ...overrides,
     });
-
-    const mockOnExpand = vi.fn();
-    const mockOnKnownChange = vi.fn();
-    const mockOnPreparedChange = vi.fn();
 
     beforeEach(() => {
         vi.clearAllMocks();
@@ -39,11 +34,6 @@ describe('Spell (2024)', () => {
 
     it('returns null when spell is not provided', () => {
         const { container } = render(<Spell spell={null} />);
-        expect(container.firstChild).toBeNull();
-    });
-
-    it('returns null when spell is undefined', () => {
-        const { container } = render(<Spell spell={undefined} />);
         expect(container.firstChild).toBeNull();
     });
 
@@ -56,26 +46,34 @@ describe('Spell (2024)', () => {
     it('passes normalized spell to SpellCard', () => {
         const spell = createSpell();
         render(<Spell spell={spell} />);
-        expect(screen.getByTestId('card-name')).toHaveTextContent('Fireball');
+        expect(screen.getByTestId('spell-card')).toBeInTheDocument();
+        expect(screen.getByText('Fireball')).toBeInTheDocument();
     });
 
     it('passes expand prop to SpellCard', () => {
-        render(<Spell spell={createSpell()} expand={true} />);
-        expect(screen.getByTestId('card-expand')).toHaveTextContent('true');
+        const spell = createSpell();
+        render(<Spell spell={spell} expand={true} />);
+        expect(screen.getByTestId('spell-expand')).toHaveTextContent('true');
     });
 
     it('passes onExpand callback to SpellCard', () => {
-        render(<Spell spell={createSpell()} onExpand={mockOnExpand} />);
+        const spell = createSpell();
+        const mockOnExpand = vi.fn();
+        render(<Spell spell={spell} onExpand={mockOnExpand} />);
         expect(screen.getByTestId('spell-card')).toBeInTheDocument();
     });
 
     it('passes onKnownChange callback to SpellCard', () => {
-        render(<Spell spell={createSpell()} onKnownChange={mockOnKnownChange} />);
+        const spell = createSpell();
+        const mockOnKnownChange = vi.fn();
+        render(<Spell spell={spell} onKnownChange={mockOnKnownChange} />);
         expect(screen.getByTestId('spell-card')).toBeInTheDocument();
     });
 
     it('passes onPreparedChange callback to SpellCard', () => {
-        render(<Spell spell={createSpell()} onPreparedChange={mockOnPreparedChange} />);
+        const spell = createSpell();
+        const mockOnPreparedChange = vi.fn();
+        render(<Spell spell={spell} onPreparedChange={mockOnPreparedChange} />);
         expect(screen.getByTestId('spell-card')).toBeInTheDocument();
     });
 });

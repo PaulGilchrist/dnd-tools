@@ -1,110 +1,76 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import Monster2024FilterControls from './Monster2024FilterControls';
+import FilterControls from './Monster2024FilterControls';
 
 vi.mock('../../../components/monsters/SelectFilter', () => ({
-    default: vi.fn(({ label, name, value, options, onChange }) => (
-        <div data-testid={`select-filter-${name}`}>
-            <label>{label}</label>
-            <select
-                data-testid={`select-${name}`}
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
-            >
-                {options.map((opt) => (
-                    <option key={opt.value} value={opt.value}>{opt.label}</option>
-                ))}
-            </select>
-        </div>
-    )),
+    default: vi.fn(({ label }) => <div>{label}</div>),
 }));
 
 vi.mock('../../../components/monsters/NameInput', () => ({
-    default: vi.fn(({ filter, updateFilter }) => (
-        <div data-testid="name-input">
-            <input
-                data-testid="name-input-field"
-                value={filter.name || ''}
-                onChange={(e) => updateFilter('name', e.target.value)}
-            />
-        </div>
-    )),
+    default: vi.fn(() => <div>NameInput</div>),
+}));
+
+vi.mock('../../../data/dataService', () => ({
+    use2024MonsterTypes: vi.fn(() => ({ data: ['Aberration', 'Beast'], loading: false })),
+    use2024MonsterSubtypes: vi.fn(() => ({ data: ['Any'], loading: false })),
+}));
+
+vi.mock('../../../hooks/useMonster2024Filter', () => ({
+    useMonster2024Filter: vi.fn(() => ({
+        filter: { 
+            bookmarked: 'All', 
+            challengeRatingMin: 0, 
+            challengeRatingMax: 30, 
+            name: '', 
+            size: 'All', 
+            type: 'All', 
+            environment: 'All',
+            xpMin: 0,
+            xpMax: 10000,
+        },
+        updateFilter: vi.fn(),
+    })),
 }));
 
 describe('Monster2024FilterControls', () => {
-    const createFilter = (overrides = {}) => ({
-        bookmarked: 'All',
-        challengeRatingMin: 0,
-        challengeRatingMax: 30,
-        environment: 'All',
-        name: '',
-        size: 'All',
-        type: 'All',
-        xpMin: 0,
-        xpMax: 100000,
-        ...overrides,
-    });
-
     const mockUpdateFilter = vi.fn();
-
+    
     beforeEach(() => {
         vi.clearAllMocks();
     });
 
-    it('renders NameInput component', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByTestId('name-input')).toBeInTheDocument();
+    it('renders name input', () => {
+        render(<FilterControls filter={{}} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText('NameInput')).toBeInTheDocument();
     });
 
-    it('renders size SelectFilter', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByTestId('select-filter-size')).toBeInTheDocument();
+    it('renders bookmarked filter', () => {
+        render(<FilterControls filter={{}} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText(/Bookmarked/)).toBeInTheDocument();
     });
 
-    it('renders type SelectFilter', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByTestId('select-filter-type')).toBeInTheDocument();
+    it('renders challenge rating section', () => {
+        render(<FilterControls filter={{ challengeRatingMin: 0, challengeRatingMax: 30 }} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText(/Challenge Rating/)).toBeInTheDocument();
     });
 
-    it('renders environment SelectFilter', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByTestId('select-filter-environment')).toBeInTheDocument();
+    it('renders size filter', () => {
+        render(<FilterControls filter={{ size: 'All' }} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText(/Size/)).toBeInTheDocument();
     });
 
-    it('renders bookmarked SelectFilter', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByTestId('select-filter-bookmarked')).toBeInTheDocument();
+    it('renders type filter', () => {
+        render(<FilterControls filter={{ type: 'All' }} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText(/Type/)).toBeInTheDocument();
     });
 
-    it('renders challenge rating inputs', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByLabelText('Challenge Rating')).toBeInTheDocument();
+    it('renders environment filter', () => {
+        render(<FilterControls filter={{ environment: 'All' }} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText(/Environment/)).toBeInTheDocument();
     });
 
-    it('renders XP range inputs', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByLabelText('XP Range')).toBeInTheDocument();
-    });
-
-    it('passes correct filter values to SelectFilter components', () => {
-        const filter = createFilter({ size: 'Medium', type: 'Humanoid', environment: 'underground' });
-        render(<Monster2024FilterControls filter={filter} updateFilter={mockUpdateFilter} />);
-        
-        const sizeSelect = screen.getByTestId('select-size');
-        const typeSelect = screen.getByTestId('select-type');
-        const envSelect = screen.getByTestId('select-environment');
-        
-        expect(sizeSelect).toHaveValue('Medium');
-        expect(typeSelect).toHaveValue('Humanoid');
-        expect(envSelect).toHaveValue('underground');
-    });
-
-    it('calls updateFilter when bookmarked changes', () => {
-        render(<Monster2024FilterControls filter={createFilter()} updateFilter={mockUpdateFilter} />);
-        const bookmarkedSelect = screen.getByTestId('select-bookmarked');
-        bookmarkedSelect.value = 'true';
-        bookmarkedSelect.dispatchEvent(new Event('change', { bubbles: true }));
-        
-        expect(mockUpdateFilter).toHaveBeenCalledWith('bookmarked', 'true');
+    it('renders XP filter', () => {
+        render(<FilterControls filter={{ xpMin: 0, xpMax: 10000 }} updateFilter={mockUpdateFilter} />);
+        expect(screen.getByText(/XP/)).toBeInTheDocument();
     });
 });

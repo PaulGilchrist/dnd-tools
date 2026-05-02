@@ -36,7 +36,7 @@ function EquipmentItems() {
             // Set bookmarked status from localStorage
             const equipmentItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED);
             let equipmentItemsBookmarked = [];
-            if (equipmentItemsBookmarkedJson) {
+            if (Array.isArray(equipmentItemsBookmarkedJson)) {
                 equipmentItemsBookmarked = equipmentItemsBookmarkedJson;
                }
 

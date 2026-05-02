@@ -260,6 +260,7 @@ describe('EquipmentItems', () => {
     beforeEach(() => {
         vi.clearAllMocks();
         localStorageModule.__resetStore?.();
+        getLocalStorageItem.mockImplementation((key) => null);
       });
 
     it('shows loading state when data is fetching', () => {
@@ -427,11 +428,11 @@ describe('EquipmentItems', () => {
       });
 
     it('filters by bookmarked', async () => {
-        const bookmarkedEquipment = mockEquipment.map(item => ({
-              ...item,
-             bookmarked: item.index === 'backpack'
-          }));
-        useEquipment.mockReturnValue({ data: bookmarkedEquipment, loading: false });
+        getLocalStorageItem.mockImplementation((key) => {
+            if (key === LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED) return ['backpack'];
+            return null;
+        });
+        useEquipment.mockReturnValue({ data: mockEquipment, loading: false });
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
 
         render(wrap(<EquipmentItems />));
@@ -448,7 +449,7 @@ describe('EquipmentItems', () => {
     it('expands a card via expandCard callback and updates URL params', async () => {
         const mockSetSearchParams = vi.fn();
         const mockParams = new URLSearchParams();
-        useSearchParams.mockReturnValueOnce([mockParams, mockSetSearchParams]);
+        useSearchParams.mockReturnValue([mockParams, mockSetSearchParams]);
         useEquipment.mockReturnValue({ data: mockEquipment, loading: false });
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
 
@@ -477,11 +478,11 @@ describe('EquipmentItems', () => {
       });
 
     it('toggles bookmark via handleBookmarkChange - remove bookmark', async () => {
-        const bookmarkedEquipment = mockEquipment.map(item => ({
-              ...item,
-             bookmarked: item.index === 'backpack' || item.index === 'longsword'
-          }));
-        useEquipment.mockReturnValue({ data: bookmarkedEquipment, loading: false });
+        getLocalStorageItem.mockImplementation((key) => {
+            if (key === LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED) return ['backpack', 'longsword'];
+            return null;
+        });
+        useEquipment.mockReturnValue({ data: mockEquipment, loading: false });
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
         setLocalStorageItem.mockClear();
 
@@ -522,10 +523,13 @@ describe('EquipmentItems', () => {
 
     it('loads saved filter from localStorage when no URL index', async () => {
         const savedFilter = { category: 'Weapon', bookmarked: 'All', name: '', property: 'All', range: 'All' };
-        getLocalStorageItem.mockReturnValueOnce(savedFilter);
-        getLocalStorageItem.mockReturnValueOnce(null);
+        getLocalStorageItem.mockImplementation((key) => {
+            if (key === LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER) return savedFilter;
+            if (key === LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED) return null;
+            return null;
+        });
         const mockParams = new URLSearchParams();
-        useSearchParams.mockReturnValueOnce([mockParams, vi.fn()]);
+        useSearchParams.mockReturnValue([mockParams, vi.fn()]);
         useEquipment.mockReturnValue({ data: mockEquipment, loading: false });
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
 
@@ -564,10 +568,12 @@ describe('EquipmentItems', () => {
 
     it('loads bookmarked items from localStorage on init', async () => {
         const savedBookmarks = ['backpack', 'longsword'];
-        getLocalStorageItem.mockReturnValueOnce(null);
-        getLocalStorageItem.mockReturnValueOnce(savedBookmarks);
+        getLocalStorageItem.mockImplementation((key) => {
+            if (key === LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED) return savedBookmarks;
+            return null;
+        });
         const mockParams = new URLSearchParams();
-        useSearchParams.mockReturnValueOnce([mockParams, vi.fn()]);
+        useSearchParams.mockReturnValue([mockParams, vi.fn()]);
         useEquipment.mockReturnValue({ data: mockEquipment, loading: false });
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
 
@@ -623,18 +629,23 @@ describe('EquipmentItems', () => {
             equipment_category: 'Weapon',
             weapon_range: 'Meele',
             cost: { quantity: 10, unit: 'gp' },
-          };
+           };
         useEquipment.mockReturnValue({ data: [meeleeWeapon], loading: false });
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
 
         render(wrap(<EquipmentItems />));
         await waitFor(() => expect(screen.getByTestId('filtered-item-count')).toHaveTextContent('1'));
 
+        // Click filter-category to set category to Weapon
         fireEvent.click(screen.getByTestId('filter-category'));
-        fireEvent.click(screen.getByTestId('filter-range'));
-        fireEvent.click(screen.getByTestId('filter-clear-range'));
         await waitFor(() => expect(screen.getByTestId('filtered-item-count')).toHaveTextContent('1'));
+
+        // Click filter-range to set range to Ranged (should show 0 since weapon is Melee)
         fireEvent.click(screen.getByTestId('filter-range'));
+        await waitFor(() => expect(screen.getByTestId('filtered-item-count')).toHaveTextContent('0'));
+
+        // Clear range filter - should show 1 again
+        fireEvent.click(screen.getByTestId('filter-clear-range'));
         await waitFor(() => expect(screen.getByTestId('filtered-item-count')).toHaveTextContent('1'));
       });
 
