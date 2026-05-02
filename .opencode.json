@@ -1,18 +1,13 @@
 {
-    "$schema": "https://opencode.ai/config.json",
-    "skills": [
-        "architecture",
-        "coding-standards",
-        "react-patterns",
-        "react-refactor",
-        "test-strategy"
-    ],
-    "instructions": {
-        "coding_standards": [
-            "Always load the coding-standards skill.",
-            "Never execute GIT commands without confirmation",
-            "Always generate a plan before making changes."
-        ]
-    },
-    "model": "ollama/qwen3.6:27b-coding-nvfp4"
+  "$schema": "https://opencode.ai/config.json",
+  "skills": [
+    "architecture-rules",
+    "coding-standards"
+  ],
+  "instructions": [
+    "Never execute GIT commands without explicit user confirmation.",
+    "Always generate a step-by-step plan before making any code changes.",
+    "Follow the project's coding-standards and architecture-rules skills at all times."
+  ],
+  "model": "ollama/qwen3.6:27b-coding-nvfp4"
 }
