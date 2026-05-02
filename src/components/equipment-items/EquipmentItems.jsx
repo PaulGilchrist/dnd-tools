@@ -31,28 +31,9 @@ function EquipmentItems() {
 
     useEffect(() => {
         if (equipmentData && equipmentData.length > 0) {
-            setEquipmentItems(equipmentData);
             console.log(`${equipmentData.length} equipment items`);
 
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
-            if (index) {
-                const equipmentItem = equipmentData.find(item => item.index === index);
-                if (equipmentItem) {
-                    setShownCard(index);
-                    scrollIntoView(index);
-                    }
-               } else {
-                   // Set search filters from localStorage
-                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER);
-                if (savedFilter) {
-                    setFilter(savedFilter);
-                   } else {
-                    setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER, filter);
-                   }
-               }
-
-                   // Set bookmarked status from localStorage
+            // Set bookmarked status from localStorage
             const equipmentItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED);
             let equipmentItemsBookmarked = [];
             if (equipmentItemsBookmarkedJson) {
@@ -65,6 +46,24 @@ function EquipmentItems() {
                 bookmarked: equipmentItemsBookmarked.includes(item.index)
             }));
             setEquipmentItems(updatedItems);
+
+            // Check for index parameter in URL
+            const index = searchParams.get('index');
+            if (index) {
+                const equipmentItem = equipmentData.find(item => item.index === index);
+                if (equipmentItem) {
+                    setShownCard(index);
+                    scrollIntoView(index);
+                }
+            } else {
+                // Set search filters from localStorage
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER);
+                if (savedFilter) {
+                    setFilter(savedFilter);
+                   } else {
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER, filter);
+                   }
+                }
         }
 
         if (weaponPropertiesData) {
@@ -137,29 +136,19 @@ function EquipmentItems() {
 
     const handleBookmarkChange = (index, isBookmarked) => {
         // Update local state immediately so UI reflects the change
-        setEquipmentItems(prevItems => 
-            prevItems.map(item => 
+        setEquipmentItems(prevItems => {
+            const updatedItems = prevItems.map(item =>
                 item.index === index ? { ...item, bookmarked: isBookmarked } : item
-               )
-           );
-          
-             // Save to localStorage - get current bookmarked items from state
-        const equipmentItemsBookmarked = equipmentItems
-               .filter(item => item.bookmarked)
-               .map(item => item.index);
-          
-        if (isBookmarked) {
-            // Add to bookmarked list
-            equipmentItemsBookmarked.push(index);
-            } else {
-                // Remove from bookmarked list
-            const filtered = equipmentItemsBookmarked.filter(i => i !== index);
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, filtered);
-            }
-          
-        if (isBookmarked) {
+            );
+
+            // Save to localStorage
+            const equipmentItemsBookmarked = updatedItems
+                .filter(item => item.bookmarked)
+                .map(item => item.index);
             setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, equipmentItemsBookmarked);
-            }
+
+            return updatedItems;
+        });
          };
 
     if (equipmentLoading || wpLoading) {

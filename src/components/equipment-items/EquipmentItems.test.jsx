@@ -19,18 +19,20 @@ vi.mock('../../data/utils', () => ({
 vi.mock('../../utils/localStorage', () => {
     const store = {};
     function resetStore() { Object.keys(store).forEach(k => delete store[k]); }
+    const __getMockStore = () => store;
     return {
         LOCAL_STORAGE_KEYS: {
             EQUIPMENT_ITEMS_FILTER: 'equipmentItemsFilter',
             EQUIPMENT_ITEMS_BOOKMARKED: 'equipmentItemsBookmarked',
-          },
+           },
         getLocalStorageItem: vi.fn((key) => store[key] ?? null),
         setLocalStorageItem: vi.fn((key, value) => { store[key] = value; }),
         removeLocalStorageItem: vi.fn((key) => { delete store[key]; }),
         getLocalStorageString: vi.fn((key) => store[key]?.toString() ?? null),
         setLocalStorageString: vi.fn((key, value) => { store[key] = value; }),
          __resetStore: resetStore,
-      };
+        __getMockStore: __getMockStore,
+       };
 });
 
 vi.mock('react-router-dom', () => {
