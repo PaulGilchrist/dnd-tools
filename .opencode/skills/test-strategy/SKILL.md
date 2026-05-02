@@ -14,6 +14,12 @@ Follow these rules when writing or modifying tests.
 - Use descriptive `describe` and `it` blocks
 - Prefer realistic user flows over shallow assertions
 
+## General Architecture
+
+- Vitest config: `vitest.config.js` — jsdom environment, globals enabled, setup file at `src/test/setup.js` (imports `@testing-library/jest-dom`).
+- Tests are co-located or in `src/**/*.test.{js,jsx}` — ~48 test files across components, hooks, utils, and data layers.
+- To run a single test: `npx vitest run src/path/to/file.test.jsx`
+
 ## Components
 
 - Use `render()` from @testing-library/react
