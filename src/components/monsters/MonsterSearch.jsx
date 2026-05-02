@@ -78,7 +78,7 @@ function MonsterSearch() {
         return <Loading />;
     }
 
-    const filteredMonsters = updateMonstersWithBookmarks(monstersData).filter(showMonster);
+    const filteredMonsters = (updateMonstersWithBookmarks(monstersData) || []).filter(showMonster);
 
     return (
             <>

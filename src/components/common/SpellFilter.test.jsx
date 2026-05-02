@@ -40,16 +40,18 @@ describe('SpellFilter', () => {
 
     it('renders class options', () => {
         render(<SpellFilter filter={createFilter()} />);
-        expect(screen.getByText('All')).toBeInTheDocument();
-        expect(screen.getByText('Bard')).toBeInTheDocument();
-        expect(screen.getByText('Cleric')).toBeInTheDocument();
-        expect(screen.getByText('Druid')).toBeInTheDocument();
-        expect(screen.getByText('Paladin')).toBeInTheDocument();
-        expect(screen.getByText('Ranger')).toBeInTheDocument();
-        expect(screen.getByText('Sorcerer')).toBeInTheDocument();
-        expect(screen.getByText('Warlock')).toBeInTheDocument();
-        expect(screen.getByText('Wizard')).toBeInTheDocument();
-     });
+        const select = document.querySelector('select[name="class"]');
+        const options = Array.from(select.options).map((o) => o.text);
+        expect(options).toContain('All');
+        expect(options).toContain('Bard');
+        expect(options).toContain('Cleric');
+        expect(options).toContain('Druid');
+        expect(options).toContain('Paladin');
+        expect(options).toContain('Ranger');
+        expect(options).toContain('Sorcerer');
+        expect(options).toContain('Warlock');
+        expect(options).toContain('Wizard');
+       });
 
     it('renders casting time options', () => {
         render(<SpellFilter filter={createFilter()} />);
@@ -122,27 +124,29 @@ describe('SpellFilter', () => {
          });
      });
 
-    it('defaults levelMin to 0 when empty string is entered', () => {
+    it('defaults levelMin to 0 when invalid value is entered', () => {
         const filter = createFilter();
         render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
         const levelMinInput = screen.getByLabelText('Level Range');
-        fireEvent.change(levelMinInput, { target: { value: '' } });
+        levelMinInput.value = 'abc';
+        levelMinInput.dispatchEvent(new Event('input', { bubbles: true }));
         expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
+               ...filter,
             levelMin: 0,
-         });
-     });
+           });
+       });
 
-    it('defaults levelMax to 9 when empty string is entered', () => {
+    it('defaults levelMax to 9 when invalid value is entered', () => {
         const filter = createFilter();
         const { container } = render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
         const levelMaxInput = container.querySelector('#levelMax');
-        fireEvent.change(levelMaxInput, { target: { value: '' } });
+        levelMaxInput.value = 'xyz';
+        levelMaxInput.dispatchEvent(new Event('input', { bubbles: true }));
         expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
+               ...filter,
             levelMax: 9,
-         });
-     });
+           });
+       });
 
     it('calls onFilterChange when castingTime selection changes', () => {
         const filter = createFilter();

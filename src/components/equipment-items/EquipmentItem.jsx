@@ -48,9 +48,9 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
         e.nativeEvent.stopImmediatePropagation();
     };
 
-    if (!equipmentItem) {
+    if (!equipmentItem || !equipmentItem.name) {
         return null;
-    }
+        }
 
     // Handle "Meele" typo in data
     const weaponRange = equipmentItem.weapon_range?.toLowerCase().replace('meele', 'melee');
@@ -92,11 +92,11 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
                         {equipmentItem.equipment_category === 'Adventuring Gear' && (
                             <div>
                                 <b>Category:</b>&nbsp;{equipmentItem.gear_category}<br />
-                                {equipmentItem.contents && (
-                                    <div>
-                                        <b>Contents:</b>&nbsp;{getContents()}<br />
-                                    </div>
-                                )}
+                      {equipmentItem.contents && equipmentItem.contents.length > 0 && (
+                          <div>
+                              <b>Contents:</b>&nbsp;{getContents()}<br />
+                          </div>
+                      )}
                             </div>
                         )}
 
@@ -245,29 +245,29 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
                         )}
 
                         {/* Description and Special */}
-                        {equipmentItem.desc && (
-                            <div>
-                                <hr />
-                                <h5>Description</h5>
-                                {equipmentItem.desc.map((desc, index) => (
-                                    <span key={index}>
-                                        {desc}<br /><br />
-                                    </span>
-                                ))}
-                            </div>
-                        )}
+                      {equipmentItem.desc && equipmentItem.desc.length > 0 && (
+                          <div>
+                              <hr />
+                              <h5>Description</h5>
+                              {equipmentItem.desc.map((desc, index) => (
+                                  <span key={index}>
+                                      {desc}<br /><br />
+                                  </span>
+                              ))}
+                          </div>
+                      )}
 
-                        {equipmentItem.special && (
-                            <div>
-                                <hr />
-                                <h5>Special</h5>
-                                {equipmentItem.special.map((spec, index) => (
-                                    <span key={index}>
-                                        {spec}<br /><br />
-                                    </span>
-                                ))}
-                            </div>
-                        )}
+                      {equipmentItem.special && equipmentItem.special.length > 0 && (
+                          <div>
+                              <hr />
+                              <h5>Special</h5>
+                              {equipmentItem.special.map((spec, index) => (
+                                  <span key={index}>
+                                      {spec}<br /><br />
+                                  </span>
+                              ))}
+                          </div>
+                      )}
 
                     </div>
                 </div>

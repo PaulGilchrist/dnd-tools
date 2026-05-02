@@ -2,18 +2,26 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react()],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/test/setup.js',
+   plugins: [react()],
+   test: {
+     globals: true,
+     environment: 'jsdom',
+     setupFiles: './src/test/setup.js',
+     environmentOptions: {
+        jsdom: {
+          url: 'http://localhost/',
+         },
+       },
+      define: {
+          'globalThis': 'globalThis',
+        },
     coverage: {
       provider: 'v8',
-      reportsDirectory: './coverage',
-      exclude: [
-            'node_modules/',
-            'src/test/',
-          ],
-        },
-      },
-});
+       reportsDirectory: './coverage',
+        exclude: [
+             'node_modules/',
+              'src/test/',
+           ],
+          },
+         },
+      });

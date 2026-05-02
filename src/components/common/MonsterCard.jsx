@@ -61,9 +61,9 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
         e.nativeEvent.stopImmediatePropagation();
      };
 
-    if (!monster) {
+    if (!monster || typeof monster.index !== 'string') {
         return null;
-     }
+       }
 
      // Handle image modal
     const handleImageClick = (e) => {
@@ -89,12 +89,12 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                  <div className="card-header clickable">
                      <div onClick={toggleDetails}>
                          <div className="card-title">{monster.name}</div>
-                         <i>
-                             {monster.size} {monster.type.toLowerCase()}
-                             {monster.subtype && monster.subtype !== monster.type && (
-                                 <span> ({monster.subtype})</span>
-                             )}, {monster.alignment}
-                         </i><br />
+                            <i>
+                                {monster.size} {monster.type && monster.type.toLowerCase()}
+                               {monster.subtype && monster.subtype !== monster.type && (
+                                   <span> ({monster.subtype})</span>
+                               )}, {monster.alignment}
+                           </i><br />
                      </div>
                      {cardType !== 'inner' && (
                          <div className="form-check">

@@ -125,7 +125,7 @@ describe('WeaponPropertyDescription', () => {
                          getWeaponPropertyDescription={getWeaponPropertyDescription}
                      />,
                  );
-                expect(screen.getByText(/Weapon Property - ${prop}/)).toBeInTheDocument();
+                expect(screen.getByText(new RegExp(`Weapon Property - ${prop}`))).toBeInTheDocument();
              });
          });
      });

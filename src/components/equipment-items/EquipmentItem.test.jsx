@@ -384,32 +384,34 @@ describe('EquipmentItem', () => {
         it('shows weapon mastery for 2024 rule version', () => {
             const item = createEquipmentItem({ mastery: 'Pommel' });
             render(
-                <RuleVersionProvider>
-                    <EquipmentItem
-                        equipmentItem={item}
-                        expand
-                        onExpand={onExpand}
-                        onBookmarkChange={onBookmarkChange}
-                    />
-                </RuleVersionProvider>,
-            );
+                 wrap(
+                      <EquipmentItem
+                         equipmentItem={item}
+                         expand
+                         onExpand={onExpand}
+                         onBookmarkChange={onBookmarkChange}
+                         ruleVersion="2024"
+                      />
+                  ),
+              );
             expect(document.body.textContent).toContain('Weapon Mastery');
-        });
+         });
 
         it('does not show weapon mastery for 5e rule version', () => {
             const item = createEquipmentItem({ mastery: 'Pommel', equipment_category: 'Weapon' });
             render(
-                <RuleVersionProvider>
-                    <EquipmentItem
-                        equipmentItem={item}
-                        expand
-                        onExpand={onExpand}
-                        onBookmarkChange={onBookmarkChange}
-                    />
-                </RuleVersionProvider>,
-            );
+                 wrap(
+                       <EquipmentItem
+                          equipmentItem={item}
+                          expand
+                          onExpand={onExpand}
+                          onBookmarkChange={onBookmarkChange}
+                          ruleVersion="5e"
+                       />
+                   ),
+               );
             expect(document.body.textContent).not.toContain('Weapon Mastery');
-        });
+          });
     });
 
     describe('adventuring gear details', () => {

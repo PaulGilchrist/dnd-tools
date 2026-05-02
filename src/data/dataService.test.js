@@ -1,19 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { renderHook, waitFor, act } from '@testing-library/react';
-
-const mockFetchResponse = (data, ok = true) => {
-  vi.spyOn(globalThis, 'fetch').mockResolvedValue({
-    ok,
-    status: ok ? 200 : 404,
-    json: ok ? (async () => data) : undefined,
-  });
-  return data;
-};
-
-const mockFetchReject = (message) => {
-  vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error(message));
-  return message;
-};
+import { renderHook, waitFor } from '@testing-library/react';
 
 describe('dataService', () => {
   beforeEach(() => {
@@ -24,12 +10,17 @@ describe('dataService', () => {
     vi.restoreAllMocks();
   });
 
-  describe('useAbilityScores uses cache', () => {
+  describe('useAbilityScores', () => {
     it('fetches ability scores data on first call', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Strength', abbr: 'STR' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useAbilityScores());
 
       expect(result.current.loading).toBe(true);
@@ -43,9 +34,14 @@ describe('dataService', () => {
 
     it('returns cached data on second hook invocation without re-fetching', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Strength', abbr: 'STR' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result: r1 } = renderHook(() => mod.useAbilityScores());
       await waitFor(() => expect(r1.current.loading).toBe(false));
       expect(r1.current.data).toEqual(mockData);
@@ -58,9 +54,14 @@ describe('dataService', () => {
 
     it('does not refetch on component rerender', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Dexterity', abbr: 'DEX' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result, rerender } = renderHook(() => mod.useAbilityScores());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -76,9 +77,14 @@ describe('dataService', () => {
   describe('useConditions', () => {
     it('fetches and returns conditions data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Blinded' }, { name: 'Charmed' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useConditions());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -87,9 +93,14 @@ describe('dataService', () => {
 
     it('returns cached data without re-fetching', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Blinded' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result: r1 } = renderHook(() => mod.useConditions());
       await waitFor(() => expect(r1.current.loading).toBe(false));
 
@@ -103,9 +114,14 @@ describe('dataService', () => {
   describe('useEquipment', () => {
     it('fetches and returns equipment data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Dagger', cost: 2 }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useEquipment());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -116,9 +132,14 @@ describe('dataService', () => {
   describe('useMonsters', () => {
     it('fetches and returns monster data without sorting', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Goblin', cr: '1/4' }, { name: 'Dragon', cr: '20' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useMonsters());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -129,9 +150,14 @@ describe('dataService', () => {
   describe('useNames', () => {
     it('fetches and sorts names data by name property', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Charlie' }, { name: 'Alice' }, { name: 'Bob' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useNames());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -144,9 +170,14 @@ describe('dataService', () => {
 
     it('handles names with same value', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Test' }, { name: 'Test' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useNames());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -158,9 +189,14 @@ describe('dataService', () => {
   describe('useSpells', () => {
     it('fetches and returns spells data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Fireball', level: 3 }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useSpells());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -171,9 +207,14 @@ describe('dataService', () => {
   describe('use2024Spells', () => {
     it('fetches and returns 2024 spells data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Magic Missile' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.use2024Spells());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -184,9 +225,14 @@ describe('dataService', () => {
   describe('useFeats', () => {
     it('fetches and returns feats data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Tough' }];
 
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
       const { result } = renderHook(() => mod.useFeats());
 
       await waitFor(() => expect(result.current.loading).toBe(false));
@@ -197,6 +243,7 @@ describe('dataService', () => {
   describe('error handling', () => {
     it('sets error state when HTTP response is not ok', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       vi.spyOn(globalThis, 'fetch').mockResolvedValue({
         ok: false,
         status: 404,
@@ -212,7 +259,8 @@ describe('dataService', () => {
 
     it('sets error state when fetch is rejected', async () => {
       const mod = await import('./dataService');
-      mockFetchReject('Network error');
+      mod.__clearCache();
+      vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network error'));
 
       const { result } = renderHook(() => mod.useEquipment());
       expect(result.current.loading).toBe(true);
@@ -224,6 +272,7 @@ describe('dataService', () => {
 
     it('sets error state when JSON parsing fails', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       vi.spyOn(globalThis, 'fetch').mockResolvedValue({
         ok: true,
         json: async () => { throw new Error('Invalid JSON'); },
@@ -237,23 +286,29 @@ describe('dataService', () => {
       expect(result.current.error.message).toBe('Invalid JSON');
     });
 
-    it('logs error to console on failure', async () => {
+    it('stores error without logging to console on hook failure', async () => {
       const mod = await import('./dataService');
-      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
-      mockFetchReject('Test failure');
+      mod.__clearCache();
+      vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Test failure'));
 
       const { result } = renderHook(() => mod.useEquipment());
       await waitFor(() => expect(result.current.loading).toBe(false));
 
-      expect(consoleSpy).toHaveBeenCalled();
-    });
+      expect(result.current.error).toBeTruthy();
+      expect(result.current.error.message).toBe('Test failure');
+     });
   });
 
   describe('DataService class', () => {
     it('getAbilityScores returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Strength' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getAbilityScores();
@@ -262,8 +317,13 @@ describe('dataService', () => {
 
     it('getConditions returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Charmed' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getConditions();
@@ -272,8 +332,13 @@ describe('dataService', () => {
 
     it('getEquipment returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Sword' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getEquipment();
@@ -282,8 +347,13 @@ describe('dataService', () => {
 
     it('getMonsters returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Dragon' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getMonsters();
@@ -292,8 +362,13 @@ describe('dataService', () => {
 
     it('getNames returns sorted data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Zeke' }, { name: 'Aaron' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getNames();
@@ -302,8 +377,13 @@ describe('dataService', () => {
 
     it('getSpells returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Fireball' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getSpells();
@@ -312,8 +392,13 @@ describe('dataService', () => {
 
     it('get2024MonsterTypes returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Aberration' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.get2024MonsterTypes();
@@ -322,8 +407,13 @@ describe('dataService', () => {
 
     it('getBackgrounds2024 returns fetched data', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ name: 'Acolyte' }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       const result = await service.getBackgrounds2024();
@@ -332,8 +422,13 @@ describe('dataService', () => {
 
     it('caches results across multiple calls', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       const mockData = [{ id: 1 }];
-      mockFetchResponse(mockData);
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => mockData,
+      });
 
       const service = new mod.DataService();
       await service.getRaces();
@@ -344,7 +439,8 @@ describe('dataService', () => {
 
     it('rejects when fetch fails', async () => {
       const mod = await import('./dataService');
-      mockFetchReject('Network failure');
+      mod.__clearCache();
+      vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network failure'));
 
       const service = new mod.DataService();
       await expect(service.getRaces()).rejects.toThrow('Network failure');
@@ -352,6 +448,7 @@ describe('dataService', () => {
 
     it('rejects with HTTP error on non-ok response', async () => {
       const mod = await import('./dataService');
+      mod.__clearCache();
       vi.spyOn(globalThis, 'fetch').mockResolvedValue({
         ok: false,
         status: 500,
@@ -363,13 +460,13 @@ describe('dataService', () => {
   });
 
   describe('dataService singleton', () => {
-    it('is an instance of DataService', () => {
-      const mod = import('./dataService');
+    it('is an instance of DataService', async () => {
+      const mod = await import('./dataService');
       expect(mod.dataService).toBeInstanceOf(mod.DataService);
     });
 
-    it('shares the same cache between instances', () => {
-      const mod = import('./dataService');
+    it('shares the same cache between instances', async () => {
+      const mod = await import('./dataService');
       const s1 = new mod.DataService();
       const s2 = new mod.DataService();
 

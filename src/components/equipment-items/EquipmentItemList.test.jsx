@@ -189,24 +189,22 @@ describe('EquipmentItemList', () => {
 
         it('passes ruleVersion through to all EquipmentItem components', () => {
             render(
-                  <EquipmentItemList
-                     filteredItems={mockItems}
-                     showEquipmentItem={showAll}
-                     shownCard=""
-                     expandCard={vi.fn()}
-                     handleBookmarkChange={vi.fn()}
-                     ruleVersion="2024"
-                  />,
-              );
+                    <EquipmentItemList
+                    filteredItems={mockItems}
+                    showEquipmentItem={showAll}
+                    shownCard=""
+                    expandCard={vi.fn()}
+                    handleBookmarkChange={vi.fn()}
+                    ruleVersion="2024"
+                    />,
+                );
             expect(EquipmentItem).toHaveBeenCalledTimes(3);
-            expect(EquipmentItem).toHaveBeenCalledWith(
-                  expect.objectContaining({
-                      equipmentItem: mockItems[0],
-                      ruleVersion: '2024',
-                  }),
-                  expect.any(Object),
-              );
-          });
+            const calls = EquipmentItem.mock.calls;
+            expect(calls[0][0]).toMatchObject({
+                    equipmentItem: mockItems[0],
+                    ruleVersion: '2024',
+               });
+              });
 
         it('passes collapse callback through to EquipmentItem', () => {
             const expandCard = vi.fn();
