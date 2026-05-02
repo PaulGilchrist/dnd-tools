@@ -9,6 +9,9 @@ import { normalizeMonster5e } from '../adapters/monsterAdapters';
  * @param {function} handleBookmarkChange - Callback when bookmark status changes
  */
 function MonsterList({ monsters, shownCard, expandCard, handleBookmarkChange }) {
+    if (!monsters) {
+        return null;
+    }
     return (
             <div className="list">
                 {monsters.map((monster) => {
