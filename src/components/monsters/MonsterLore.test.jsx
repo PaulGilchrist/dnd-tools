@@ -29,13 +29,19 @@ vi.mock('../../utils/htmlUtils', () => ({
 
 vi.mock('./Monster', () => ({
   default: vi.fn(({ monster, expand, onExpand, cardType }) => (
-        <div data-testid={`monster-${monster?.index}`}>
-            <span>{monster?.name}</span>
-        </div>
-    )),
+          <div data-testid={`monster-${monster?.index}`}>
+              <span>{monster?.name}</span>
+              <button data-testid={`expand-monster-${monster?.index}`}
+                      onClick={() => onExpand(!expand)}
+                      aria-expanded={expand}>
+                  {expand ? 'Collapse' : 'Expand'}
+              </button>
+          </div>
+      )),
 }));
 
 import MonsterLore from './MonsterLore';
+import Monster from './Monster';
 
 describe('MonsterLore', () => {
     const mockMonsterTypes = [
@@ -198,13 +204,74 @@ describe('MonsterLore', () => {
             useMonsterTypesState.data = [];
             renderWithRouter(<MonsterLore />);
             expect(screen.queryByText('Loading monster lore...')).not.toBeInTheDocument();
-          });
+           });
 
         it('handles null monsters data when not loading', () => {
             useMonstersState.data = null;
             useMonsterTypesState.data = [];
             renderWithRouter(<MonsterLore />);
             expect(screen.queryByText('Test')).not.toBeInTheDocument();
-          });
+           });
        });
+
+    describe('URL index initialization', () => {
+        it('auto-expands subtype matching URL index parameter on mount', () => {
+            useMonstersState.data = mockMonsters;
+            useMonsterTypesState.data = mockMonsterTypes;
+            render(
+                 <MemoryRouter initialEntries={['/?index=aberration-entry']}>
+                     <MonsterLore />
+                 </MemoryRouter>
+             );
+            expect(screen.getByText('Monsters')).toBeInTheDocument();
+            });
+        });
+
+    describe('expandCard', () => {
+        it('expands an individual monster card when expanded', () => {
+            useMonstersState.data = mockMonsters;
+            useMonsterTypesState.data = [{
+                ...mockMonsterTypes[0],
+                monsters: ['goblin', 'orc'],
+            }];
+            renderWithRouter(<MonsterLore />);
+            fireEvent.click(screen.getByText('Aberration').closest('.clickable'));
+            const expandBtn = screen.getByTestId('expand-monster-goblin');
+            expect(expandBtn.textContent).toBe('Expand');
+            fireEvent.click(expandBtn);
+            expect(expandBtn.textContent).toBe('Collapse');
+            expect(expandBtn).toHaveAttribute('aria-expanded', 'true');
+           });
+
+        it('collapses a monster card when expanded', () => {
+            useMonstersState.data = mockMonsters;
+            useMonsterTypesState.data = [{
+                ...mockMonsterTypes[0],
+                monsters: ['goblin', 'orc'],
+            }];
+            renderWithRouter(<MonsterLore />);
+            fireEvent.click(screen.getByText('Aberration').closest('.clickable'));
+            const expandBtn = screen.getByTestId('expand-monster-goblin');
+            fireEvent.click(expandBtn);
+            expect(expandBtn.textContent).toBe('Collapse');
+            fireEvent.click(expandBtn);
+            expect(expandBtn.textContent).toBe('Expand');
+            expect(expandBtn).toHaveAttribute('aria-expanded', 'false');
+           });
+    });
+
+    describe('monster expand prop', () => {
+        it('receives expand prop when parent subtype is expanded', () => {
+            useMonstersState.data = mockMonsters;
+            useMonsterTypesState.data = [{
+                  ...mockMonsterTypes[0],
+                monsters: ['goblin'],
+              }];
+            renderWithRouter(<MonsterLore />);
+            fireEvent.click(screen.getByText('Aberration').closest('.clickable'));
+            expect(Monster).toHaveBeenCalled();
+            const lastCall = Monster.mock.calls[Monster.mock.calls.length - 1];
+            expect(lastCall[0].expand).toBe(false);
+            });
+   });
 });

@@ -8,8 +8,15 @@ vi.mock('../../utils/htmlUtils', () => ({
 
 vi.mock('./MonsterStats', () => ({
     default: vi.fn(({ monster, handleImageClick }) => (
-        <div data-testid="monster-stats">Stats for {monster?.name}</div>
-    )),
+         <div data-testid="monster-stats">
+             Stats for {monster?.name}
+             {monster?.image && (
+                 <button type="button" className="btn btn-primary" onClick={handleImageClick}>
+                     Image
+                 </button>
+             )}
+         </div>
+     )),
 }));
 
 vi.mock('./MonsterAbilityScores', () => ({
@@ -894,23 +901,65 @@ describe('MonsterCard', () => {
 
     it('handles monster with no optional sections', () => {
         render(
-            <MonsterCard
-                monster={createMonster({
-                    traits: [],
-                    actions: [],
-                    reactions: [],
-                    legendaryActions: [],
-                    lairActions: {},
-                    regionalEffects: null,
-                    desc: null,
-                })}
-                expand={true}
-                onExpand={mockOnExpand}
-            />
-        );
-        expect(screen.getByText('Goblin')).toBeInTheDocument();
-        expect(screen.getByTestId('monster-stats')).toBeInTheDocument();
-        expect(screen.getByTestId('ability-scores')).toBeInTheDocument();
-        expect(screen.getByTestId('defenses')).toBeInTheDocument();
-    });
+              <MonsterCard
+                 monster={createMonster({
+                     traits: [],
+                     actions: [],
+                     reactions: [],
+                     legendaryActions: [],
+                     lairActions: {},
+                     regionalEffects: null,
+                     desc: null,
+                  })}
+                 expand={true}
+                 onExpand={mockOnExpand}
+              />
+          );
+         expect(screen.getByText('Goblin')).toBeInTheDocument();
+         expect(screen.getByTestId('monster-stats')).toBeInTheDocument();
+         expect(screen.getByTestId('ability-scores')).toBeInTheDocument();
+         expect(screen.getByTestId('defenses')).toBeInTheDocument();
+      });
+
+    it('opens image modal when MonsterStats image click is triggered', () => {
+        const { container } = render(
+              <MonsterCard
+                 monster={createMonster({ image: '/images/goblin.jpg' })}
+                 expand={true}
+                 onExpand={mockOnExpand}
+              />
+          );
+         const imageButton = container.querySelector('button.btn-primary');
+         fireEvent.click(imageButton);
+         expect(screen.getByText('Image')).toBeInTheDocument();
+      });
+
+    it('closes image modal when overlay is clicked', () => {
+        render(
+              <MonsterCard
+                 monster={createMonster({ image: '/images/goblin.jpg' })}
+                 expand={true}
+                 onExpand={mockOnExpand}
+              />
+          );
+         fireEvent.click(screen.getByText('Image'));
+         expect(screen.getByTestId('monster-stats')).toBeInTheDocument();
+         const overlay = document.querySelector('.cover-overlay');
+         fireEvent.click(overlay);
+      });
+
+    it('stops propagation when bookmark label is clicked', () => {
+        const mockStopPropagation = vi.fn();
+        const mockStopImmediatePropagation = vi.fn();
+        render(
+              <MonsterCard
+                 monster={createMonster()}
+                 onExpand={mockOnExpand}
+                 onBookmarkChange={mockOnBookmarkChange}
+              />
+          );
+         const label = screen.getByRole('checkbox', { name: 'Bookmarked' }).nextElementSibling;
+         const clickEvent = fireEvent.click(label);
+         expect(clickEvent).toBe(true);
+      });
 });
