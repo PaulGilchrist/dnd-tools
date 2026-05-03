@@ -9,7 +9,7 @@ const dataCache = {};
 // Track which datasets have been loaded (even if still loading)
 const loadingPromises = {};
 // Helper function to sort array of objects by property name
-function sort(inputObjectArray, propertyName, descending = false) {
+export function sort(inputObjectArray, propertyName, descending = false) {
     if (inputObjectArray && propertyName) {
         inputObjectArray.sort((a, b) => {
             let aValue = a[propertyName];
@@ -26,7 +26,7 @@ function sort(inputObjectArray, propertyName, descending = false) {
 }
 
 // Error handler function
-function handleError(error) {
+export function handleError(error) {
     console.error(error);
     throw error;
 }
