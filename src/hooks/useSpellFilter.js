@@ -7,20 +7,28 @@ export function filterSpells(filter, spell) {
         
         switch (filter.castingTime) {
             case 'Action':
-                matches = ct === '1 action';
+                // Matches "1 action" (5e) or "Action" (2024)
+                matches = ct === '1 action' || ct === 'action';
                 break;
             case 'Bonus Action':
-                matches = ct === '1 bonus action';
+                // Matches "1 bonus action" (5e) or "Bonus Action" (2024)
+                matches = ct === '1 bonus action' || ct === 'bonus action';
                 break;
             case 'Reaction':
-                matches = ct === '1 reaction';
+                // Matches "1 reaction" (5e) or "Reaction" (2024)
+                matches = ct === '1 reaction' || ct === 'reaction';
                 break;
             case 'Ritual':
                 matches = isRitual;
                 break;
             case 'Non-Ritual, Long Cast Time':
                 // Not a ritual AND not a standard quick casting time
-                matches = !isRitual && ct !== '1 action' && ct !== '1 bonus action' && ct !== '1 reaction';
+                // 5e: "1 action", "1 bonus action", "1 reaction"
+                // 2024: "Action", "Bonus Action", "Reaction"
+                const isQuick = ct === '1 action' || ct === 'action' || 
+                    ct === '1 bonus action' || ct === 'bonus action' ||
+                    ct === '1 reaction' || ct === 'reaction';
+                matches = !isRitual && !isQuick;
                 break;
             default:
                 matches = false;
