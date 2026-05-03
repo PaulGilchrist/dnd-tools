@@ -48,6 +48,8 @@ subtask: true
       - No flaky tests remain
 
 # RULES
+- NEVER CHANGE PRODUCTION CODE WHEN WRITING TESTS.  Test much match codes current behavior when written.
+- Never GIT commit any code when writing tests
 - Always prioritize: missing tests → failing tests → coverage gaps
 - Never reduce coverage or remove tests
 - Skip CSS-only files and main.jsx
