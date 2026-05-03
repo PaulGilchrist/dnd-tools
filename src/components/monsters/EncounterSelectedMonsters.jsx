@@ -4,7 +4,7 @@ import React from 'react';
  * Selected monsters detail list
  */
 function EncounterSelectedMonsters({ selectedMonsters, onRemoveMonster }) {
-    if (!selectedMonsters || selectedMonsters.length === 0) {
+    if (selectedMonsters.length === 0) {
         return null;
       }
 

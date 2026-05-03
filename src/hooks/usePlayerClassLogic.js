@@ -81,7 +81,7 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
     };
 
     const updateFeatures = () => {
-        if (!playerClass || !playerClass.class_levels) return [];
+        if (!playerClass.class_levels) return [];
         
         const classLevels = playerClass.class_levels.filter((classLevel) => classLevel.level <= shownLevel);
         // Go through levels highest to lowest so is an ability increases at higher levels, that is the one retained in the array
@@ -104,7 +104,7 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
     };
 
     const updateSubclassFeatures = () => {
-        if (!playerClass || !shownSubclass || !playerClass.subclasses) return [];
+        if (!shownSubclass || !playerClass.subclasses) return [];
         
         const subclass = playerClass.subclasses.find((clonedSubclass) => clonedSubclass.index === shownSubclass);
         if (!subclass || !subclass.class_levels) return [];

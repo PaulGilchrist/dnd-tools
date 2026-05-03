@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
-const BASE_URL = import.meta?.env?.BASE_URL || '';
+const BASE_URL = import.meta.env.BASE_URL || '';
 
 // Cache for storing loaded data to avoid repeated fetches
 const dataCache = {};
@@ -9,7 +9,7 @@ const dataCache = {};
 // Track which datasets have been loaded (even if still loading)
 const loadingPromises = {};
 // Helper function to sort array of objects by property name
-export function sort(inputObjectArray, propertyName, descending = false) {
+function sort(inputObjectArray, propertyName, descending = false) {
     if (inputObjectArray && propertyName) {
         inputObjectArray.sort((a, b) => {
             let aValue = a[propertyName];
@@ -26,7 +26,7 @@ export function sort(inputObjectArray, propertyName, descending = false) {
 }
 
 // Error handler function
-export function handleError(error) {
+function handleError(error) {
     console.error(error);
     throw error;
 }
@@ -261,9 +261,9 @@ export class DataService {
 // Export singleton instance for class-based usage
 export const dataService = new DataService();
 
-// Export cache for testing purposes only
+// Clear cache helper for testing
 export function __clearCache() {
-    Object.keys(dataCache).forEach((key) => delete dataCache[key]);
-    Object.keys(loadingPromises).forEach((key) => delete loadingPromises[key]);
+    Object.keys(dataCache).forEach(key => delete dataCache[key]);
+    Object.keys(loadingPromises).forEach(key => delete loadingPromises[key]);
 }
 

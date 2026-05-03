@@ -2,10 +2,6 @@ import { useState } from 'react';
 import './Names.css';
 
 function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {
-    if (!shownNames || !shownNames.firstNames) {
-        return null;
-    }
-
     const renderFirstTable = () => (
         <table className="table table-condensed table-striped table-hover">
             <thead>

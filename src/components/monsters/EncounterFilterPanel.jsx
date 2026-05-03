@@ -45,10 +45,10 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                       ))}
                   </div>
               </div>
-               <div className="threshold-mini">
-                   <span>Target: <strong style={{ color: filter.difficultyColors?.[filter.difficultyIndex] }}>{filter.totalThreshold} XP</strong></span>
-                   <span className="text-muted">({filter.difficultyLabels?.[filter.difficultyIndex] || ''})</span>
-               </div>
+              <div className="threshold-mini">
+                  <span>Target: <strong style={{ color: filter.difficultyColors[filter.difficultyIndex] }}>{filter.totalThreshold} XP</strong></span>
+                  <span className="text-muted">({filter.difficultyLabels[filter.difficultyIndex]})</span>
+              </div>
           </div>
       );
 }

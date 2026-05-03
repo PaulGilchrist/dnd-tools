@@ -8,10 +8,9 @@ import './SpellFilter.css';
  * @param {function} onFilterChange - Callback when filter changes
  */
 function SpellFilter({ filter, onFilterChange }) {
-    const safeFilter = filter || {};
     const handleChange = (field, value) => {
         if (onFilterChange) {
-            onFilterChange({ ...safeFilter, [field]: value });
+            onFilterChange({ ...filter, [field]: value });
            }
        };
 
@@ -19,18 +18,18 @@ function SpellFilter({ filter, onFilterChange }) {
            <form className="filter-form">
                {/* Name */}
                <label htmlFor="name" className="col-form-label">Name</label>
-               <div className={`has-error ${safeFilter.name && safeFilter.name.length >= 50 ? 'invalid' : ''}`}>
+               <div className={`has-error ${filter.name && filter.name.length >= 50 ? 'invalid' : ''}`}>
                    <input 
                       type="text" 
                       className="form-control" 
                       id="name" 
                       name="name"
-                      value={safeFilter.name || ''}
+                      value={filter.name}
                       onChange={(e) => handleChange('name', e.target.value)}
                       pattern="[A-Za-z ]+" 
                       maxLength="50"
                    />
-                   {safeFilter.name && safeFilter.name.length >= 50 && (
+                   {filter.name && filter.name.length >= 50 && (
                        <div className="alert alert-danger">
                           Name should be less than 50 characters
                        </div>
@@ -42,7 +41,7 @@ function SpellFilter({ filter, onFilterChange }) {
                <select 
                               name="class" 
                               className="form-control"
-                              value={safeFilter.class || 'All'}
+                              value={filter.class}
                               onChange={(e) => handleChange('class', e.target.value)}
                             >
                                 <option value="All">All</option>
@@ -64,7 +63,7 @@ function SpellFilter({ filter, onFilterChange }) {
                       className="form-control level-min-input" 
                       id="levelMin" 
                       name="levelMin"
-                      value={safeFilter.levelMin ?? ''}
+                      value={filter.levelMin}
                       onChange={(e) => handleChange('levelMin', parseInt(e.target.value) || 0)}
                       min="0" 
                       max="9" 
@@ -76,7 +75,7 @@ function SpellFilter({ filter, onFilterChange }) {
                       className="form-control level-max-input" 
                       id="levelMax" 
                       name="levelMax"
-                      value={safeFilter.levelMax ?? ''}
+                      value={filter.levelMax}
                       onChange={(e) => handleChange('levelMax', parseInt(e.target.value) || 9)}
                       min="0" 
                       max="9" 
@@ -90,7 +89,7 @@ function SpellFilter({ filter, onFilterChange }) {
                <select 
                               name="castingTime" 
                               className="form-control"
-                              value={safeFilter.castingTime || 'All'}
+                              value={filter.castingTime}
                               onChange={(e) => handleChange('castingTime', e.target.value)}
                              >
                                  <option value="All">All</option>
@@ -106,7 +105,7 @@ function SpellFilter({ filter, onFilterChange }) {
                <select 
                               name="status" 
                               className="form-control"
-                              value={safeFilter.status || 'All'}
+                              value={filter.status}
                               onChange={(e) => handleChange('status', e.target.value)}
                               >
                                   <option value="All">All</option>
