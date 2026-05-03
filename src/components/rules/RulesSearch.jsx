@@ -1,14 +1,33 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { highlightText, ruleMatchesSearch } from './RuleSearchUtils';
+import { highlightText } from './RuleSearchUtils';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 import './RulesSearch.css';
+
+// Reducer for managing search state
+function searchReducer(state, action) {
+    switch (action.type) {
+        case 'SET_MATCHES':
+            return {
+                ...state,
+                matches: action.matches,
+                highlightIndex: action.matches.length > 0 ? 0 : -1
+            };
+        case 'SET_HIGHLIGHT':
+            return {
+                ...state,
+                highlightIndex: action.index
+            };
+        default:
+            return state;
+    }
+}
 
 function RulesSearch({ rules, ruleVersion }) {
     const navigate = useNavigate();
     const [searchText, setSearchText] = useState('');
-    const [highlightIndex, setHighlightIndex] = useState(-1);
-    const [matches, setMatches] = useState([]);
+    const [searchState, dispatch] = useReducer(searchReducer, { matches: [], highlightIndex: -1 });
+    const { matches, highlightIndex } = searchState;
     const containerRef = useRef(null);
 
     // Flatten all rules and subsections into a single list
@@ -58,24 +77,21 @@ function RulesSearch({ rules, ruleVersion }) {
     // Get flattened rules - memoized to prevent infinite loop
     const flatRules = useMemo(() => flattenRules(rules || []), [rules, flattenRules]);
 
-    // Find all matches in the flattened rules
+    // Find all matches in the flattened rules and update state via reducer
     useEffect(() => {
-        if (flatRules.length === 0) {
-            setMatches([]);
-            setHighlightIndex(-1);
+        const trimmedSearch = searchText.trim();
+        
+        if (flatRules.length === 0 || !trimmedSearch) {
+            dispatch({ type: 'SET_MATCHES', matches: [] });
             return;
         }
 
-        if (!searchText || searchText.trim() === '') {
-            setMatches([]);
-            setHighlightIndex(-1);
-            return;
-        }
-
+        const searchLower = trimmedSearch.toLowerCase();
         const allMatches = [];
+        
         flatRules.forEach((item, idx) => {
             // Check name
-            if (item.name && item.name.toLowerCase().includes(searchText.toLowerCase())) {
+            if (item.name && item.name.toLowerCase().includes(searchLower)) {
                 allMatches.push({ 
                     index: idx, 
                     type: item.type,
@@ -84,19 +100,21 @@ function RulesSearch({ rules, ruleVersion }) {
                 });
             }
             
-            // Check desc
-            if (item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase())) {
-                allMatches.push({ 
-                    index: idx, 
-                    type: item.type,
-                    ruleIndex: item.index,
-                    matchText: item.desc
-                });
+            // Check desc - strip HTML tags for searching
+            if (item.desc) {
+                const descText = item.desc.replace(/<[^>]*>/g, '').toLowerCase();
+                if (descText.includes(searchLower)) {
+                    allMatches.push({ 
+                        index: idx, 
+                        type: item.type,
+                        ruleIndex: item.index,
+                        matchText: item.desc
+                    });
+                }
             }
         });
 
-        setMatches(allMatches);
-        setHighlightIndex(allMatches.length > 0 ? 0 : -1);
+        dispatch({ type: 'SET_MATCHES', matches: allMatches });
     }, [flatRules, searchText]);
 
     // Scroll to match
@@ -140,9 +158,9 @@ function RulesSearch({ rules, ruleVersion }) {
         if (newIndex < 0) newIndex = matches.length - 1;
         if (newIndex >= matches.length) newIndex = 0;
         
-        setHighlightIndex(newIndex);
+        dispatch({ type: 'SET_HIGHLIGHT', index: newIndex });
         scrollToMatch(newIndex);
-    }, [highlightIndex, matches.length, scrollToMatch]);
+    }, [highlightIndex, matches.length, scrollToMatch, dispatch]);
 
     // Handle keyboard navigation
     useEffect(() => {
@@ -228,6 +246,8 @@ function RulesSearch({ rules, ruleVersion }) {
             <div className="rules-flow-container" ref={containerRef}>
                 {flatRules.map((item, idx) => {
                     const isHighlighted = matches.some(m => m.index === idx);
+                    const trimmedSearch = searchText.trim();
+                    const searchLower = trimmedSearch.toLowerCase();
                     
                     return (
                         <div
@@ -239,16 +259,16 @@ function RulesSearch({ rules, ruleVersion }) {
                             {item.type === 'rule' && (
                                 <>
                                     <h2 className="rules-flow-title">
-                                        {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, searchText))} />
+                                        {trimmedSearch && item.name && item.name.toLowerCase().includes(searchLower) ? (
+                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, trimmedSearch))} />
                                         ) : (
                                             item.name
                                         )}
                                     </h2>
                                     {item.desc && (
                                         <div className="rules-flow-desc">
-                                            {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, searchText))} />
+                                            {trimmedSearch && item.desc && item.desc.toLowerCase().includes(searchLower) ? (
+                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, trimmedSearch))} />
                                             ) : (
                                                  <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
                                             )}
@@ -260,16 +280,16 @@ function RulesSearch({ rules, ruleVersion }) {
                             {item.type === 'subsection' && (
                                 <>
                                     <h3 className="subsection-title">
-                                        {searchText && item.name && item.name.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, searchText))} />
+                                        {trimmedSearch && item.name && item.name.toLowerCase().includes(searchLower) ? (
+                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, trimmedSearch))} />
                                         ) : (
                                             item.name
                                         )}
                                     </h3>
                                     {item.desc && (
                                         <div className="subsection-desc">
-                                            {searchText && item.desc && item.desc.toLowerCase().includes(searchText.toLowerCase()) ? (
-                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, searchText))} />
+                                            {trimmedSearch && item.desc && item.desc.toLowerCase().includes(searchLower) ? (
+                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, trimmedSearch))} />
                                             ) : (
                                                  <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
                                             )}
