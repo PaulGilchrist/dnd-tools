@@ -1,35 +1,39 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { act } from 'react';
 import PlayerClass from './PlayerClass';
 
-const mockPlayerClass = {
-  index: 'fighter',
-  name: 'Fighter',
-  hit_die: 'd10',
-  proficiencies: ['All armor', 'All weapons'],
-  spellcasting_ability: null,
-  class_levels: [
-    { level: 1, features: [{ name: 'Fighting Style', type: 'class_feature' }] }
-  ],
-  majors: [{ name: 'Champion', features: [] }],
-};
-
-vi.mock('../../../../hooks/usePlayerClassLogic', () => ({
-  usePlayerClassLogic: vi.fn(() => ({
-    isExpanded: false,
-    shownLevel: 0,
-    shownSubclass: '',
-    getNameString: vi.fn(() => 'Strength, Dexterity'),
-    getPrerequisites: vi.fn(() => 'Prerequisite: None'),
-    getSpells: vi.fn(() => []),
-    toggleDetails: vi.fn(),
-    showLevel: vi.fn(),
-    showSubclass: vi.fn(),
-    classFeatures: [],
-    subclassFeatures: [],
-  })),
+vi.mock('../../hooks/usePlayerClassLogic', () => ({
+  usePlayerClassLogic: vi.fn((playerClass) => {
+    if (!playerClass) {
+      return {
+        isExpanded: false,
+        shownLevel: 0,
+        shownSubclass: '',
+        getNameString: vi.fn(),
+        getPrerequisites: vi.fn(),
+        getSpells: vi.fn(),
+        toggleDetails: vi.fn(),
+        showLevel: vi.fn(),
+        showSubclass: vi.fn(),
+        classFeatures: [],
+        subclassFeatures: [],
+      };
+    }
+    return {
+      isExpanded: true,
+      shownLevel: 0,
+      shownSubclass: '',
+      getNameString: vi.fn(() => 'Strength, Dexterity'),
+      getPrerequisites: vi.fn(() => 'Prerequisite: None'),
+      getSpells: vi.fn(() => []),
+      toggleDetails: vi.fn(),
+      showLevel: vi.fn(),
+      showSubclass: vi.fn(),
+      classFeatures: [],
+      subclassFeatures: [],
+    };
+  }),
 }));
 
 vi.mock('./PlayerClassHeader', () => ({
@@ -58,6 +62,19 @@ vi.mock('./PlayerClassSubclasses', () => ({
 }));
 
 describe('PlayerClass', () => {
+  const mockPlayerClass = {
+    index: 'fighter',
+    name: 'Fighter',
+    hit_die: 'd10',
+    proficiencies: ['All armor', 'All weapons'],
+    spellcasting_ability: null,
+    features: [{ name: 'Fighting Style' }],
+    class_levels: [
+      { level: 1, features: [{ name: 'Fighting Style', type: 'class_feature' }] }
+    ],
+    subclasses: [{ name: 'Champion', features: [] }],
+  };
+
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -71,10 +88,10 @@ describe('PlayerClass', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('renders player class header', () => {
+  it('renders player class header when expanded', () => {
     render(
       <MemoryRouter>
-        <PlayerClass playerClass={mockPlayerClass} />
+        <PlayerClass playerClass={mockPlayerClass} expand={true} />
       </MemoryRouter>
     );
     expect(screen.getByTestId('player-class-header')).toBeInTheDocument();
@@ -84,7 +101,7 @@ describe('PlayerClass', () => {
   it('uses player class index as id', () => {
     render(
       <MemoryRouter>
-        <PlayerClass playerClass={mockPlayerClass} />
+        <PlayerClass playerClass={mockPlayerClass} expand={true} />
       </MemoryRouter>
     );
     expect(document.getElementById('fighter')).toBeInTheDocument();
