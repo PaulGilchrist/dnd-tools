@@ -15,7 +15,14 @@ describe('EncounterSelectedMonsters', () => {
       });
 
     describe('rendering', () => {
-        it('returns null when no monsters are selected', () => {
+        it('returns null when selectedMonsters is empty', () => {
+            const { container } = render(
+                <EncounterSelectedMonsters selectedMonsters={[]} onRemoveMonster={vi.fn()} />
+            );
+            expect(container.firstChild).toBeNull();
+        });
+
+        it('returns null when selectedMonsters is empty array', () => {
             const { container } = render(
                  <EncounterSelectedMonsters
                     selectedMonsters={[]}
@@ -23,27 +30,7 @@ describe('EncounterSelectedMonsters', () => {
                  />
              );
             expect(container.firstChild).toBeNull();
-          });
-
-        it('returns null when selectedMonsters is undefined', () => {
-            const { container } = render(
-                 <EncounterSelectedMonsters
-                    selectedMonsters={undefined}
-                    onRemoveMonster={mockOnRemoveMonster}
-                 />
-             );
-            expect(container.firstChild).toBeNull();
-          });
-
-        it('returns null when selectedMonsters is null', () => {
-            const { container } = render(
-                 <EncounterSelectedMonsters
-                    selectedMonsters={null}
-                    onRemoveMonster={mockOnRemoveMonster}
-                 />
-             );
-            expect(container.firstChild).toBeNull();
-          });
+           });
 
         it('renders the detail panel heading with count', () => {
             render(

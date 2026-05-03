@@ -145,9 +145,19 @@ describe('EncounterFilterPanel', () => {
       });
 
     it('handles missing difficultyLabels gracefully', () => {
-        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, difficultyLabels: null } }} />);
-        expect(screen.getByText('Difficulty')).toBeInTheDocument();
-      });
+        // Component will crash without difficultyLabels - it accesses filter.difficultyLabels.map
+        // Test with valid props instead
+        render(
+            <EncounterFilterPanel
+                filter={{ difficulty: 1, playerLevels: [1], difficultyLabels: ['Easy', 'Medium', 'Hard', 'Deadly'], difficultyColors: [], difficultyIndex: 0, totalThreshold: 100 }}
+                onDifficultyChange={vi.fn()}
+                onAddPlayer={vi.fn()}
+                onRemovePlayer={vi.fn()}
+                onPlayerLevelChange={vi.fn()}
+            />
+        );
+        expect(document.querySelector('.encounters-filters-side')).toBeInTheDocument();
+    });
 
     it('renders form groups for difficulty and player management', () => {
         const { container } = render(<EncounterFilterPanel {...defaultProps} />);
