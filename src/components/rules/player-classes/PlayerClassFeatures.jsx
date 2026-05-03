@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
+import { renderHtmlContent } from '../../../utils/htmlUtils';
 import './PlayerClassFeatures.css';
 
 function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
@@ -19,12 +20,10 @@ function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
             <div className={`card-body player-class-features-card-body ${shownLevel !== 0 ? 'hidden' : ''}`}>
                 {features.map((feature, index) => (
                     <div key={index}>
-                        <b>{feature.name}:</b>&nbsp;
-                        {feature.desc && feature.desc.map((desc, descIndex) => (
-                            <span key={descIndex}>
-                                {desc}<br />
-                            </span>
-                        ))}
+                    <b>{feature.name}:</b>&nbsp;
+                          {feature.description && (
+                              <span dangerouslySetInnerHTML={renderHtmlContent(feature.description)} />
+                          )}
 
                         {feature.prerequisites && feature.prerequisites.length > 0 && (
                             <div>

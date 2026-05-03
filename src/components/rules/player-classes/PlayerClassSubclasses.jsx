@@ -54,11 +54,11 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                             <div key={index}>
                                                 <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
-                                                    {feature.desc && feature.desc.map((desc, descIndex) => (
-                                                        <div key={descIndex} className="margin-bottom-small">
-                                                            {desc}
-                                                        </div>
-                                                    ))}
+                                                  {feature.description && (
+                                                          <div className="margin-bottom-small">
+                                                              <span dangerouslySetInnerHTML={renderHtmlContent(feature.description)} />
+                                                          </div>
+                                                      )}
                                                 </div>
                                                 {feature.prerequisites && feature.prerequisites.length > 0 && (
                                                     <div>
@@ -76,11 +76,11 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                             <div key={index}>
                                                 <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
-                                                    {feature.description && feature.description[0] && (
-                                                        <div>
-                                                            <span dangerouslySetInnerHTML={renderHtmlContent(feature.description[0])} />
-                                                        </div>
-                                                    )}
+                                                  {feature.description && (
+                                                          <div>
+                                                              <span dangerouslySetInnerHTML={renderHtmlContent(feature.description)} />
+                                                          </div>
+                                                      )}
                                                     {feature.details && (
                                                         <div>
                                                             <span dangerouslySetInnerHTML={renderHtmlContent(feature.details)} />
