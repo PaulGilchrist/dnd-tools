@@ -7,9 +7,9 @@ const mockSetLocalStorageItem = vi.fn();
 vi.mock('../utils/localStorage', () => ({
    LOCAL_STORAGE_KEYS: {
       MONSTERS_BOOKMARKED: 'monstersBookmarked',
-       },
+   },
    getLocalStorageItem: () => mockGetLocalStorageItem(),
-   setLocalStorageItem: () => mockSetLocalStorageItem(),
+   setLocalStorageItem: (...args) => mockSetLocalStorageItem(...args),
 }));
 
 import { useMonsterBookmarks } from './useMonsterBookmarks';
@@ -17,75 +17,97 @@ import { useMonsterBookmarks } from './useMonsterBookmarks';
 describe('useMonsterBookmarks', () => {
    beforeEach(() => {
       vi.clearAllMocks();
-     });
+   });
 
    it('initializes with empty bookmarks array', () => {
-      const { result } = renderHook(() => useMonsterBookmarks([]));
+      const { result } = renderHook(() => useMonsterBookmarks());
       expect(result.current.monstersBookmarked).toEqual([]);
-     });
+   });
 
    it('loads bookmarks from localStorage on mount', () => {
-      mockGetLocalStorageItem.mockReturnValueOnce(['goblin', 'orc']);
-      const { result } = renderHook(() => useMonsterBookmarks([]));
-      expect(result.current.monstersBookmarked).toEqual(['goblin', 'orc']);
-     });
+      const savedBookmarks = ['goblin', 'orc'];
+      mockGetLocalStorageItem.mockReturnValueOnce(savedBookmarks);
+      const { result } = renderHook(() => useMonsterBookmarks());
+      expect(result.current.monstersBookmarked).toEqual(savedBookmarks);
+   });
 
-   it('adds a bookmark when handleBookmarkChange is called with true', () => {
-      const { result } = renderHook(() => useMonsterBookmarks([]));
+   describe('updateMonstersWithBookmarks', () => {
+      it('returns empty array when monsters data is empty', () => {
+         const { result } = renderHook(() => useMonsterBookmarks());
+         const updated = result.current.updateMonstersWithBookmarks([]);
+         expect(updated).toEqual([]);
+      });
 
-      act(() => {
-         result.current.handleBookmarkChange('goblin', true);
-        });
+      it('returns empty array when monsters data is null', () => {
+         const { result } = renderHook(() => useMonsterBookmarks());
+         const updated = result.current.updateMonstersWithBookmarks(null);
+         expect(updated).toEqual([]);
+      });
 
-      expect(result.current.monstersBookmarked).toContain('goblin');
-     });
+      it('adds bookmarked property to monsters', () => {
+         const { result } = renderHook(() => useMonsterBookmarks());
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+         });
 
-   it('removes a bookmark when handleBookmarkChange is called with false', () => {
-      mockGetLocalStorageItem.mockReturnValueOnce(['goblin', 'orc']);
-      const { result } = renderHook(() => useMonsterBookmarks([]));
+         const monsters = [
+            { index: 'goblin', name: 'Goblin' },
+            { index: 'orc', name: 'Orc' },
+         ];
 
-      act(() => {
-         result.current.handleBookmarkChange('goblin', false);
-        });
+         const updated = result.current.updateMonstersWithBookmarks(monsters);
+         expect(updated[0].bookmarked).toBe(true);
+         expect(updated[1].bookmarked).toBe(false);
+      });
+   });
 
-      expect(result.current.monstersBookmarked).not.toContain('goblin');
-      expect(result.current.monstersBookmarked).toContain('orc');
-     });
+   describe('handleBookmarkChange', () => {
+      it('adds bookmark when isBookmarked is true', () => {
+         const { result } = renderHook(() => useMonsterBookmarks());
 
-   it('updates monsters with bookmark status', () => {
-      mockGetLocalStorageItem.mockReturnValueOnce(['goblin']);
-      const monsters = [
-           { index: 'goblin', name: 'Goblin' },
-           { index: 'orc', name: 'Orc' },
-           ];
-      const { result } = renderHook(() => useMonsterBookmarks(monsters));
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+         });
 
-      const updated = result.current.updateMonstersWithBookmarks(monsters);
-      expect(updated[0].bookmarked).toBe(true);
-      expect(updated[1].bookmarked).toBe(false);
-     });
+         expect(result.current.monstersBookmarked).toContain('goblin');
+         expect(mockSetLocalStorageItem).toHaveBeenCalled();
+      });
 
-   it('returns empty array for updateMonstersWithBookmarks with empty input', () => {
-      const { result } = renderHook(() => useMonsterBookmarks([]));
-      const updated = result.current.updateMonstersWithBookmarks([]);
-      expect(updated).toEqual([]);
-     });
+      it('removes bookmark when isBookmarked is false', () => {
+         const { result } = renderHook(() => useMonsterBookmarks());
 
-   it('returns empty array for updateMonstersWithBookmarks with null input', () => {
-      const { result } = renderHook(() => useMonsterBookmarks([]));
-      const updated = result.current.updateMonstersWithBookmarks(null);
-      expect(updated).toEqual([]);
-     });
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+            result.current.handleBookmarkChange('goblin', false);
+         });
 
-   it('handles multiple bookmark additions', () => {
-      const { result } = renderHook(() => useMonsterBookmarks([]));
+         expect(result.current.monstersBookmarked).not.toContain('goblin');
+      });
+   });
 
-      act(() => {
-         result.current.handleBookmarkChange('goblin', true);
-         result.current.handleBookmarkChange('orc', true);
-        });
+   describe('saveBookmark', () => {
+      it('saves current bookmarks to localStorage', () => {
+         const { result } = renderHook(() => useMonsterBookmarks());
 
-      expect(result.current.monstersBookmarked).toContain('goblin');
-      expect(result.current.monstersBookmarked).toContain('orc');
-     });
+         // Set up bookmarks directly via state
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+         });
+
+         // Verify state was updated
+         expect(result.current.monstersBookmarked).toContain('goblin');
+
+         // Clear mock calls from handleBookmarkChange
+         mockSetLocalStorageItem.mockClear();
+
+         act(() => {
+            result.current.saveBookmark();
+         });
+
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'monstersBookmarked',
+            ['goblin']
+         );
+      });
+   });
 });

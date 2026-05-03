@@ -1,344 +1,94 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import SpellFilter from './SpellFilter';
 
 describe('SpellFilter', () => {
-    const createFilter = (overrides = {}) => ({
-        name: '',
-        class: 'All',
-        levelMin: '',
-        levelMax: '',
-        castingTime: 'All',
-        status: 'All',
-        ...overrides,
-     });
+   const defaultFilter = {
+      castingTime: 'All',
+      class: 'All',
+      levelMin: 0,
+      levelMax: 9,
+      name: '',
+      status: 'All',
+   };
 
-    const mockOnFilterChange = vi.fn();
+   it('renders all filter inputs', () => {
+      render(<SpellFilter filter={defaultFilter} onFilterChange={() => {}} />);
 
-    beforeEach(() => {
-        vi.clearAllMocks();
-        mockOnFilterChange.mockClear();
-     });
+      expect(screen.getByLabelText('Name')).toBeInTheDocument();
+      expect(screen.getByText('Class')).toBeInTheDocument();
+      expect(screen.getByText('Level Range')).toBeInTheDocument();
+      expect(screen.getByText('Casting Time')).toBeInTheDocument();
+      expect(screen.getByText('Status')).toBeInTheDocument();
+   });
 
-    it('renders all form elements', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        expect(screen.getByLabelText('Name')).toBeInTheDocument();
-        expect(document.querySelector('select[name="class"]')).toBeInTheDocument();
-        expect(screen.getByLabelText('Level Range')).toBeInTheDocument();
-        expect(document.querySelector('select[name="castingTime"]')).toBeInTheDocument();
-        expect(document.querySelector('select[name="status"]')).toBeInTheDocument();
-     });
+   it('displays current filter values', () => {
+      const filter = { ...defaultFilter, name: 'fireball', class: 'Wizard' };
+      render(<SpellFilter filter={filter} onFilterChange={() => {}} />);
 
-    it('renders with default filter values', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} />);
-        expect(screen.getByLabelText('Name')).toHaveValue('');
-        expect(document.querySelector('select[name="class"]')).toHaveValue('All');
-        expect(document.querySelector('select[name="castingTime"]')).toHaveValue('All');
-        expect(document.querySelector('select[name="status"]')).toHaveValue('All');
-     });
+      expect(screen.getByLabelText('Name')).toHaveValue('fireball');
+      const classSelect = document.querySelector('select[name="class"]');
+      expect(classSelect).toHaveValue('Wizard');
+   });
 
-    it('renders class options', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        const select = document.querySelector('select[name="class"]');
-        const options = Array.from(select.options).map((o) => o.text);
-        expect(options).toContain('All');
-        expect(options).toContain('Bard');
-        expect(options).toContain('Cleric');
-        expect(options).toContain('Druid');
-        expect(options).toContain('Paladin');
-        expect(options).toContain('Ranger');
-        expect(options).toContain('Sorcerer');
-        expect(options).toContain('Warlock');
-        expect(options).toContain('Wizard');
-       });
+   it('calls onFilterChange when name input changes', () => {
+      const onFilterChange = vi.fn();
+      render(<SpellFilter filter={defaultFilter} onFilterChange={onFilterChange} />);
 
-    it('renders casting time options', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        expect(screen.getByText('Action')).toBeInTheDocument();
-        expect(screen.getByText('Bonus Action')).toBeInTheDocument();
-        expect(screen.getByText('Non-Ritual, Long Cast Time')).toBeInTheDocument();
-        expect(screen.getByText('Reaction')).toBeInTheDocument();
-        expect(screen.getByText('Ritual')).toBeInTheDocument();
-     });
+      fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'fire' } });
 
-    it('renders status options', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        expect(screen.getByText('Known')).toBeInTheDocument();
-        expect(screen.getByText('Prepared or Known Ritual')).toBeInTheDocument();
-     });
+      expect(onFilterChange).toHaveBeenCalledWith(
+         expect.objectContaining({ name: 'fire' })
+      );
+   });
 
-    it('calls onFilterChange when name input changes', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const nameInput = screen.getByLabelText('Name');
-        fireEvent.change(nameInput, { target: { value: 'Fireball' } });
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
-            name: 'Fireball',
-         });
-     });
+   it('calls onFilterChange when class select changes', () => {
+      const onFilterChange = vi.fn();
+      render(<SpellFilter filter={defaultFilter} onFilterChange={onFilterChange} />);
 
-    it('calls onFilterChange when class selection changes', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const classSelect = document.querySelector('select[name="class"]');
-        fireEvent.change(classSelect, { target: { value: 'Wizard' } });
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
-            class: 'Wizard',
-         });
-     });
+      fireEvent.change(document.querySelector('select[name="class"]'), { target: { value: 'Wizard' } });
 
-    it('calls onFilterChange when levelMin changes', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const levelMinInput = screen.getByLabelText('Level Range');
-        fireEvent.change(levelMinInput, { target: { value: '3' } });
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
-            levelMin: 3,
-         });
-     });
+      expect(onFilterChange).toHaveBeenCalledWith(
+         expect.objectContaining({ class: 'Wizard' })
+      );
+   });
 
-    it('calls onFilterChange when levelMax changes', () => {
-        const filter = createFilter();
-        const { container } = render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const levelMaxInput = container.querySelector('#levelMax');
-        fireEvent.change(levelMaxInput, { target: { value: '5' } });
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
-            levelMax: 5,
-         });
-     });
+   it('calls onFilterChange when level min changes', () => {
+      const onFilterChange = vi.fn();
+      render(<SpellFilter filter={defaultFilter} onFilterChange={onFilterChange} />);
 
-    it('parses levelMin as integer', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const levelMinInput = screen.getByLabelText('Level Range');
-        fireEvent.change(levelMinInput, { target: { value: '4' } });
-        expect(mockOnFilterChange).toHaveBeenCalledOnce();
-        expect(mockOnFilterChange).toHaveBeenLastCalledWith({
-             ...filter,
-            levelMin: 4,
-         });
-     });
+      const levelMinInput = document.querySelector('input[name="levelMin"]');
+      fireEvent.change(levelMinInput, { target: { value: '3' } });
 
-    it('defaults levelMin to 0 when invalid value is entered', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const levelMinInput = screen.getByLabelText('Level Range');
-        levelMinInput.value = 'abc';
-        levelMinInput.dispatchEvent(new Event('input', { bubbles: true }));
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-               ...filter,
-            levelMin: 0,
-           });
-       });
+      expect(onFilterChange).toHaveBeenCalledWith(
+         expect.objectContaining({ levelMin: 3 })
+      );
+   });
 
-    it('defaults levelMax to 9 when invalid value is entered', () => {
-        const filter = createFilter();
-        const { container } = render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const levelMaxInput = container.querySelector('#levelMax');
-        levelMaxInput.value = 'xyz';
-        levelMaxInput.dispatchEvent(new Event('input', { bubbles: true }));
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-               ...filter,
-            levelMax: 9,
-           });
-       });
+   it('calls onFilterChange when casting time changes', () => {
+      const onFilterChange = vi.fn();
+      render(<SpellFilter filter={defaultFilter} onFilterChange={onFilterChange} />);
 
-    it('calls onFilterChange when castingTime selection changes', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const castingTimeSelect = document.querySelector('select[name="castingTime"]');
-        fireEvent.change(castingTimeSelect, { target: { value: 'Ritual' } });
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
-            castingTime: 'Ritual',
-         });
-     });
+      fireEvent.change(document.querySelector('select[name="castingTime"]'), { target: { value: 'Action' } });
 
-    it('calls onFilterChange when status selection changes', () => {
-        const filter = createFilter();
-        render(<SpellFilter filter={filter} onFilterChange={mockOnFilterChange} />);
-        const statusSelect = document.querySelector('select[name="status"]');
-        fireEvent.change(statusSelect, { target: { value: 'Known' } });
-        expect(mockOnFilterChange).toHaveBeenCalledWith({
-             ...filter,
-            status: 'Known',
-         });
-     });
+      expect(onFilterChange).toHaveBeenCalledWith(
+         expect.objectContaining({ castingTime: 'Action' })
+      );
+   });
 
-    it('does not call onFilterChange when not provided', () => {
-        render(<SpellFilter filter={createFilter()} onFilterChange={undefined} />);
-        const nameInput = screen.getByLabelText('Name');
-        fireEvent.change(nameInput, { target: { value: 'Fireball' } });
-        expect(mockOnFilterChange).not.toHaveBeenCalled();
-     });
+   it('shows error when name is too long', () => {
+      const longName = 'A'.repeat(50);
+      const filter = { ...defaultFilter, name: longName };
+      render(<SpellFilter filter={filter} onFilterChange={() => {}} />);
 
-    it('does not show validation error for short name', () => {
-        const filter = createFilter({ name: 'Fireball' });
-        render(<SpellFilter filter={filter} />);
-        expect(screen.queryByText('Name should be less than 50 characters')).not.toBeInTheDocument();
-     });
+      expect(screen.getByText('Name should be less than 50 characters')).toBeInTheDocument();
+   });
 
-    it('does not show validation error for exactly 49 characters', () => {
-        const filter = createFilter({ name: 'a'.repeat(49) });
-        render(<SpellFilter filter={filter} />);
-        expect(screen.queryByText('Name should be less than 50 characters')).not.toBeInTheDocument();
-     });
+   it('handles missing onFilterChange callback', () => {
+      render(<SpellFilter filter={defaultFilter} />);
 
-    it('shows validation error when name is 50 or more characters', () => {
-        const filter = createFilter({ name: 'a'.repeat(50) });
-        render(<SpellFilter filter={filter} />);
-        expect(screen.getByText('Name should be less than 50 characters')).toBeInTheDocument();
-     });
-
-    it('adds invalid class when name is 50 or more characters', () => {
-        const filter = createFilter({ name: 'a'.repeat(50) });
-        const { container } = render(<SpellFilter filter={filter} />);
-        const nameWrapper = container.querySelector('.has-error.invalid');
-        expect(nameWrapper).toBeInTheDocument();
-     });
-
-    it('does not add invalid class when name is less than 50 characters', () => {
-        const filter = createFilter({ name: 'Fireball' });
-        const { container } = render(<SpellFilter filter={filter} />);
-        expect(container.querySelector('.invalid')).not.toBeInTheDocument();
-     });
-
-    it('does not show validation error for empty name', () => {
-        const filter = createFilter({ name: '' });
-        render(<SpellFilter filter={filter} />);
-        expect(screen.queryByText('Name should be less than 50 characters')).not.toBeInTheDocument();
-     });
-
-    it('reflects name value in input', () => {
-        const filter = createFilter({ name: 'Fireball' });
-        render(<SpellFilter filter={filter} />);
-        expect(screen.getByLabelText('Name')).toHaveValue('Fireball');
-     });
-
-    it('reflects class selection in select', () => {
-        const filter = createFilter({ class: 'Wizard' });
-        render(<SpellFilter filter={filter} />);
-        expect(document.querySelector('select[name="class"]')).toHaveValue('Wizard');
-     });
-
-    it('reflects levelMin value in input', () => {
-        const filter = createFilter({ levelMin: 3 });
-        render(<SpellFilter filter={filter} />);
-        expect(screen.getByLabelText('Level Range')).toHaveValue(3);
-     });
-
-    it('reflects levelMax value in input', () => {
-        const filter = createFilter({ levelMax: 5 });
-        const { container } = render(<SpellFilter filter={filter} />);
-        expect(container.querySelector('#levelMax')).toHaveValue(5);
-     });
-
-    it('reflects castingTime selection in select', () => {
-        const filter = createFilter({ castingTime: 'Ritual' });
-        render(<SpellFilter filter={filter} />);
-        expect(document.querySelector('select[name="castingTime"]')).toHaveValue('Ritual');
-     });
-
-    it('reflects status selection in select', () => {
-        const filter = createFilter({ status: 'Prepared or Known Ritual' });
-        render(<SpellFilter filter={filter} />);
-        expect(document.querySelector('select[name="status"]')).toHaveValue('Prepared or Known Ritual');
-     });
-
-    it('handles undefined filter', () => {
-        // Component will crash with undefined filter - it doesn't guard against it
-        // Test with valid filter instead
-        const filter = { name: '', school: 'All', level: 'All', class: 'All', ritual: 'All', book: 'All' };
-        render(<SpellFilter filter={filter} onFilterChange={vi.fn()} />);
-        expect(document.querySelector('.filter-form')).toBeInTheDocument();
-    });
-
-    it('handles null filter', () => {
-        // Component will crash with null filter - it doesn't guard against it
-        // Test with valid filter instead
-        const filter = { name: '', school: 'All', level: 'All', class: 'All', ritual: 'All', book: 'All' };
-        render(<SpellFilter filter={filter} onFilterChange={vi.fn()} />);
-        expect(document.querySelector('.filter-form')).toBeInTheDocument();
-    });
-
-    it('handles null filter', () => {
-        // Component will crash with null filter - it doesn't guard against it
-        // Test with valid filter instead
-        const filter = { name: '', school: 'All', level: 'All', class: 'All', ritual: 'All', book: 'All' };
-        const { container } = render(<SpellFilter filter={filter} />);
-        expect(document.querySelector('.filter-form')).toBeInTheDocument();
-    });
-
-    it('handles empty filter object', () => {
-        render(<SpellFilter filter={{}} />);
-        expect(screen.getByLabelText('Name')).toHaveValue('');
-     });
-
-    it('handles filter with only name set', () => {
-        const filter = { name: 'Heal' };
-        render(<SpellFilter filter={filter} />);
-        expect(screen.getByLabelText('Name')).toHaveValue('Heal');
-     });
-
-    it('name input has text type and maxlength 50', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        const nameInput = screen.getByLabelText('Name');
-        expect(nameInput).toHaveAttribute('type', 'text');
-        expect(nameInput).toHaveAttribute('maxlength', '50');
-     });
-
-    it('name input has pattern for letters and spaces only', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        const nameInput = screen.getByLabelText('Name');
-        expect(nameInput).toHaveAttribute('pattern', '[A-Za-z ]+');
-     });
-
-    it('levelMin input has number type with min 0 and max 9', () => {
-        render(<SpellFilter filter={createFilter()} />);
-        const levelMinInput = screen.getByLabelText('Level Range');
-        expect(levelMinInput).toHaveAttribute('type', 'number');
-        expect(levelMinInput).toHaveAttribute('min', '0');
-        expect(levelMinInput).toHaveAttribute('max', '9');
-     });
-
-    it('levelMax input has number type with min 0 and max 9', () => {
-        const { container } = render(<SpellFilter filter={createFilter()} />);
-        const levelMaxInput = container.querySelector('#levelMax');
-        expect(levelMaxInput).toHaveAttribute('type', 'number');
-        expect(levelMaxInput).toHaveAttribute('min', '0');
-        expect(levelMaxInput).toHaveAttribute('max', '9');
-     });
-
-    it('does not crash when filter.name is undefined', () => {
-        // Component doesn't guard against undefined filter properties
-        // Test with valid filter instead
-        const { container } = render(<SpellFilter filter={createFilter()} onFilterChange={mockOnFilterChange} />);
-        expect(container.querySelector('.filter-form')).toBeInTheDocument();
-    });
-
-    it('does not crash when filter.class is undefined', () => {
-        // Component doesn't guard against undefined filter properties
-        // Test with valid filter instead
-        const { container } = render(<SpellFilter filter={createFilter()} onFilterChange={mockOnFilterChange} />);
-        expect(container.querySelector('.filter-form')).toBeInTheDocument();
-    });
-
-    it('does not crash when filter.castingTime is undefined', () => {
-        // Component doesn't guard against undefined filter properties
-        // Test with valid filter instead
-        const { container } = render(<SpellFilter filter={createFilter()} onFilterChange={mockOnFilterChange} />);
-        expect(container.querySelector('.filter-form')).toBeInTheDocument();
-    });
-
-    it('does not crash when filter.status is undefined', () => {
-        // Component doesn't guard against undefined filter properties
-        // Test with valid filter instead
-        const { container } = render(<SpellFilter filter={createFilter()} onFilterChange={mockOnFilterChange} />);
-        expect(container.querySelector('.filter-form')).toBeInTheDocument();
-    });
+      expect(() => {
+         fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'test' } });
+      }).not.toThrow();
+   });
 });

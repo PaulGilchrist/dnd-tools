@@ -8,9 +8,9 @@ vi.mock('../utils/localStorage', () => ({
    LOCAL_STORAGE_KEYS: {
       SPELLS_KNOWN: 'spellsKnown',
       SPELLS_PREPARED: 'spellsPrepared',
-       },
+   },
    getLocalStorageItem: () => mockGetLocalStorageItem(),
-   setLocalStorageItem: () => mockSetLocalStorageItem(),
+   setLocalStorageItem: (...args) => mockSetLocalStorageItem(...args),
 }));
 
 import { useSpellPersistence } from './useSpellPersistence';
@@ -18,161 +18,204 @@ import { useSpellPersistence } from './useSpellPersistence';
 describe('useSpellPersistence', () => {
    beforeEach(() => {
       vi.clearAllMocks();
-    });
+   });
 
    it('initializes with empty arrays', () => {
       const { result } = renderHook(() => useSpellPersistence());
       expect(result.current.knownSpells).toEqual([]);
       expect(result.current.preparedSpells).toEqual([]);
-    });
+   });
 
    it('loads known spells from localStorage on mount', () => {
-      mockGetLocalStorageItem.mockReturnValueOnce(['fireball', 'magic-missile']);
-      mockGetLocalStorageItem.mockReturnValueOnce(null);
+      mockGetLocalStorageItem
+         .mockReturnValueOnce(['fireball', 'magic-missile'])
+         .mockReturnValueOnce(null);
+      
       const { result } = renderHook(() => useSpellPersistence());
       expect(result.current.knownSpells).toEqual(['fireball', 'magic-missile']);
-    });
+   });
 
    it('loads prepared spells from localStorage on mount', () => {
-      mockGetLocalStorageItem.mockReturnValueOnce(null);
-      mockGetLocalStorageItem.mockReturnValueOnce(['fireball']);
+      mockGetLocalStorageItem
+         .mockReturnValueOnce(null)
+         .mockReturnValueOnce(['fireball']);
+      
       const { result } = renderHook(() => useSpellPersistence());
       expect(result.current.preparedSpells).toEqual(['fireball']);
-    });
+   });
 
    describe('saveKnown', () => {
-      it('saves known spells from a list', () => {
+      it('saves known spell indices to localStorage', () => {
          const { result } = renderHook(() => useSpellPersistence());
-         const spells = [
-              { index: 'fireball', known: true },
-              { index: 'magic-missile', known: false },
-              ];
+         
+         const spellsList = [
+            { index: 'fireball', known: true },
+            { index: 'magic-missile', known: false },
+            { index: 'shield', known: true },
+         ];
 
          act(() => {
-            result.current.saveKnown(spells);
+            result.current.saveKnown(spellsList);
          });
 
-         expect(mockSetLocalStorageItem).toHaveBeenCalled();
-          });
-        });
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'spellsKnown',
+            ['fireball', 'shield']
+         );
+      });
+
+      it('returns the saved known spells', () => {
+         const { result } = renderHook(() => useSpellPersistence());
+         
+         const spellsList = [
+            { index: 'fireball', known: true },
+         ];
+
+         let saved;
+         act(() => {
+            saved = result.current.saveKnown(spellsList);
+         });
+
+         expect(saved).toEqual(['fireball']);
+      });
+   });
 
    describe('savePrepared', () => {
-      it('saves prepared spells from a list', () => {
+      it('saves prepared spell indices to localStorage', () => {
          const { result } = renderHook(() => useSpellPersistence());
-         const spells = [
-              { index: 'fireball', prepared: true },
-              { index: 'magic-missile', prepared: false },
-              ];
+         
+         const spellsList = [
+            { index: 'fireball', prepared: true },
+            { index: 'magic-missile', prepared: false },
+            { index: 'shield', prepared: true },
+         ];
 
          act(() => {
-            result.current.savePrepared(spells);
+            result.current.savePrepared(spellsList);
          });
 
-         expect(mockSetLocalStorageItem).toHaveBeenCalled();
-          });
-        });
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'spellsPrepared',
+            ['fireball', 'shield']
+         );
+      });
+   });
 
    describe('updateKnown', () => {
-      it('adds a spell to known when isKnown is true', () => {
+      it('adds spell to known list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
-            result.current.updateKnown('fireball', true, []);
+            result.current.updateKnown('fireball', true);
          });
 
          expect(result.current.knownSpells).toContain('fireball');
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'spellsKnown',
+            ['fireball']
+         );
       });
 
-      it('removes a spell from known when isKnown is false', () => {
-         mockGetLocalStorageItem.mockReturnValueOnce(['fireball', 'magic-missile']);
-         mockGetLocalStorageItem.mockReturnValueOnce(null);
+      it('removes spell from known list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
+         // First add it
          act(() => {
-            result.current.updateKnown('fireball', false, []);
+            result.current.updateKnown('fireball', true);
+         });
+
+         // Then remove it
+         act(() => {
+            result.current.updateKnown('fireball', false);
          });
 
          expect(result.current.knownSpells).not.toContain('fireball');
-         expect(result.current.knownSpells).toContain('magic-missile');
-       });
-        });
+      });
+
+      it('returns the updated known spells', () => {
+         const { result } = renderHook(() => useSpellPersistence());
+         
+         let updated;
+         act(() => {
+            updated = result.current.updateKnown('fireball', true);
+         });
+
+         expect(updated).toContain('fireball');
+      });
+   });
 
    describe('updatePrepared', () => {
-      it('adds a spell to prepared when isPrepared is true', () => {
+      it('adds spell to prepared list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
-            result.current.updatePrepared('fireball', true, []);
+            result.current.updatePrepared('fireball', true);
          });
 
          expect(result.current.preparedSpells).toContain('fireball');
       });
 
-      it('removes a spell from prepared when isPrepared is false', () => {
-         mockGetLocalStorageItem.mockReturnValueOnce(null);
-         mockGetLocalStorageItem.mockReturnValueOnce(['fireball', 'magic-missile']);
+      it('removes spell from prepared list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
-            result.current.updatePrepared('fireball', false, []);
+            result.current.updatePrepared('fireball', true);
+         });
+         act(() => {
+            result.current.updatePrepared('fireball', false);
          });
 
          expect(result.current.preparedSpells).not.toContain('fireball');
-         expect(result.current.preparedSpells).toContain('magic-missile');
-       });
-        });
+      });
+   });
 
    describe('addKnown', () => {
-      it('adds a spell to known spells', () => {
+      it('adds spell to known list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
             result.current.addKnown('fireball');
          });
 
          expect(result.current.knownSpells).toContain('fireball');
-       });
-        });
+      });
+   });
 
    describe('removeKnown', () => {
-      it('removes a spell from known spells', () => {
-         mockGetLocalStorageItem.mockReturnValueOnce(['fireball', 'magic-missile']);
-         mockGetLocalStorageItem.mockReturnValueOnce(null);
+      it('removes spell from known list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
+            result.current.addKnown('fireball');
             result.current.removeKnown('fireball');
          });
 
          expect(result.current.knownSpells).not.toContain('fireball');
-         expect(result.current.knownSpells).toContain('magic-missile');
-       });
-        });
+      });
+   });
 
    describe('addPrepared', () => {
-      it('adds a spell to prepared spells', () => {
+      it('adds spell to prepared list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
             result.current.addPrepared('fireball');
          });
 
          expect(result.current.preparedSpells).toContain('fireball');
-       });
-        });
+      });
+   });
 
    describe('removePrepared', () => {
-      it('removes a spell from prepared spells', () => {
-         mockGetLocalStorageItem.mockReturnValueOnce(null);
-         mockGetLocalStorageItem.mockReturnValueOnce(['fireball', 'magic-missile']);
+      it('removes spell from prepared list', () => {
          const { result } = renderHook(() => useSpellPersistence());
-
+         
          act(() => {
+            result.current.addPrepared('fireball');
             result.current.removePrepared('fireball');
          });
 
          expect(result.current.preparedSpells).not.toContain('fireball');
-         expect(result.current.preparedSpells).toContain('magic-missile');
-       });
-        });
+      });
+   });
 });

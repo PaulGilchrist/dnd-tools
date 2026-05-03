@@ -1,29 +1,21 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { renderHtmlContent } from './htmlUtils';
 
 describe('renderHtmlContent', () => {
-   beforeEach(() => {
-      // DOMPurify needs a DOM environment
+   it('returns empty object for null input', () => {
+      expect(renderHtmlContent(null)).toEqual({ __html: '' });
    });
 
-   it('returns empty html for null input', () => {
-      const result = renderHtmlContent(null);
-      expect(result.__html).toBe('');
+   it('returns empty object for undefined input', () => {
+      expect(renderHtmlContent(undefined)).toEqual({ __html: '' });
    });
 
-   it('returns empty html for undefined input', () => {
-      const result = renderHtmlContent(undefined);
-      expect(result.__html).toBe('');
+   it('returns empty object for non-string input', () => {
+      expect(renderHtmlContent(123)).toEqual({ __html: '' });
    });
 
-   it('returns empty html for non-string input', () => {
-      const result = renderHtmlContent(123);
-      expect(result.__html).toBe('');
-   });
-
-   it('returns empty html for empty string', () => {
-      const result = renderHtmlContent('');
-      expect(result.__html).toBe('');
+   it('returns empty object for empty string', () => {
+      expect(renderHtmlContent('')).toEqual({ __html: '' });
    });
 
    it('sanitizes script tags', () => {
@@ -68,5 +60,12 @@ describe('renderHtmlContent', () => {
    it('returns object with __html property', () => {
       const result = renderHtmlContent('Hello');
       expect(result).toHaveProperty('__html');
+   });
+
+   it('preserves table elements', () => {
+      const result = renderHtmlContent('<table><tr><th>Header</th></tr><tr><td>Data</td></tr></table>');
+      expect(result.__html).toContain('<table>');
+      expect(result.__html).toContain('<th>');
+      expect(result.__html).toContain('<td>');
    });
 });
