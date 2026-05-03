@@ -1,14 +1,32 @@
 export function filterSpells(filter, spell) {
     // Casting Time filter
-    if (filter.castingTime !== 'All' && (
-        (filter.castingTime === 'Action' && !(spell.casting_time === '1 action')) ||
-        (filter.castingTime === 'Bonus Action' && !(spell.casting_time === '1 bonus action')) ||
-        (filter.castingTime === 'Non-Ritual, Long Cast Time' && 
-            !(spell.ritual || spell.casting_time === '1 action' || spell.casting_time === '1 bonus action' || spell.casting_time === '1 reaction')) ||
-        (filter.castingTime === 'Reaction' && !(spell.casting_time === '1 reaction')) ||
-        (filter.castingTime === 'Ritual' && !spell.ritual)
-    )) {
-        return false;
+    if (filter.castingTime !== 'All') {
+        const ct = (spell.casting_time || '').toString().toLowerCase().trim();
+        const isRitual = spell.ritual === true;
+        let matches = false;
+        
+        switch (filter.castingTime) {
+            case 'Action':
+                matches = ct === '1 action';
+                break;
+            case 'Bonus Action':
+                matches = ct === '1 bonus action';
+                break;
+            case 'Reaction':
+                matches = ct === '1 reaction';
+                break;
+            case 'Ritual':
+                matches = isRitual;
+                break;
+            case 'Non-Ritual, Long Cast Time':
+                // Not a ritual AND not a standard quick casting time
+                matches = !isRitual && ct !== '1 action' && ct !== '1 bonus action' && ct !== '1 reaction';
+                break;
+            default:
+                matches = false;
+        }
+        
+        if (!matches) return false;
     }
 
     // Class filter
