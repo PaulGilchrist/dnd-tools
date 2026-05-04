@@ -9,5 +9,5 @@
     "Always generate a step-by-step plan before making any code changes.",
     "Follow the project's coding-standards and architecture-rules skills at all times."
   ],
-  "model": "ollama/qwen3.6:27b-coding-nvfp4"
+  "model": "ollama/qwen3.6:35b-a3b-coding-nvfp4"
 }
