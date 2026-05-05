@@ -1,22 +1,6 @@
 {
     "$schema": "https://opencode.ai/config.json",
-    "autoupdate": true,
-    "default_agent": "orchestrator",
     "instructions": [
-        "RULES.md",
-        "./.opencode/skills/architecture/SKILL.md",
-        "./.opencode/skills/coding-standards/SKILL.md"
-    ],
-    "mcp": {
-        "chrome-devtools": {
-            "type": "local",
-            "command": [
-                "npx",
-                "-y",
-                "chrome-devtools-mcp@latest"
-            ],
-            "enabled": true,
-            "timeout": 30000
-        }
-    }
+        "./.opencode/skills/architecture/SKILL.md"
+    ]
 }
