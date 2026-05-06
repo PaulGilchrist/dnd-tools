@@ -1,34 +1,29 @@
 import { useState } from 'react';
 
-function MagicItemsFilterForm({ filter, setFilter, onFilterChange }) {
+function MagicItemsFilterForm({ filter, setFilter }) {
     const handleNameChange = (e) => {
         const newFilter = { ...filter, name: e.target.value };
         setFilter(newFilter);
-        onFilterChange(newFilter);
     };
 
     const handleRarityChange = (e) => {
         const newFilter = { ...filter, rarity: e.target.value };
         setFilter(newFilter);
-        onFilterChange(newFilter);
     };
 
     const handleTypeChange = (e) => {
         const newFilter = { ...filter, type: e.target.value };
         setFilter(newFilter);
-        onFilterChange(newFilter);
     };
 
     const handleAttunementChange = (e) => {
         const newFilter = { ...filter, attunement: e.target.value };
         setFilter(newFilter);
-        onFilterChange(newFilter);
     };
 
     const handleBookmarkedChange = (e) => {
         const newFilter = { ...filter, bookmarked: e.target.value };
         setFilter(newFilter);
-        onFilterChange(newFilter);
     };
 
     return (

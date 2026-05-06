@@ -8,7 +8,7 @@ vi.mock('../../utils/htmlUtils', () => ({
 
 describe('MagicItemsFilterForm', () => {
   const defaultFilter = { bookmarked: 'All', attunement: 'All', name: '', rarity: 'All', type: 'All' };
-  const mocks = { setFilter: vi.fn(), onFilterChange: vi.fn() };
+  const mocks = { setFilter: vi.fn() };
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -16,7 +16,7 @@ describe('MagicItemsFilterForm', () => {
 
   const renderForm = (filter) =>
     render(
-         <MagicItemsFilterForm filter={filter} setFilter={mocks.setFilter} onFilterChange={mocks.onFilterChange} />
+         <MagicItemsFilterForm filter={filter} setFilter={mocks.setFilter} />
        );
 
   it('renders all form labels', () => {
@@ -36,12 +36,11 @@ describe('MagicItemsFilterForm', () => {
     expect(nameInput).toHaveAttribute('pattern', '[A-Za-z ]+');
      });
 
-  it('calls setFilter and onFilterChange when name input changes', () => {
+  it('calls setFilter when name input changes', () => {
     renderForm(defaultFilter);
     fireEvent.change(screen.getByRole('textbox'), { target: { value: 'ring' } });
     const expected = { ...defaultFilter, name: 'ring' };
     expect(mocks.setFilter).toHaveBeenCalledWith(expected);
-    expect(mocks.onFilterChange).toHaveBeenCalledWith(expected);
     });
 
   it('preserves other filter values when name changes', () => {
@@ -51,40 +50,36 @@ describe('MagicItemsFilterForm', () => {
     expect(mocks.setFilter).toHaveBeenCalledWith({ ...filter, name: 'protection' });
      });
 
-  it('calls setFilter and onFilterChange when rarity select changes', () => {
+  it('calls setFilter when rarity select changes', () => {
     renderForm(defaultFilter);
     const selects = screen.getAllByRole('combobox');
     fireEvent.change(selects[0], { target: { value: 'rare' } });
     const expected = { ...defaultFilter, rarity: 'rare' };
     expect(mocks.setFilter).toHaveBeenCalledWith(expected);
-    expect(mocks.onFilterChange).toHaveBeenCalledWith(expected);
    });
 
-  it('calls setFilter and onFilterChange when type select changes', () => {
+  it('calls setFilter when type select changes', () => {
     renderForm(defaultFilter);
     const selects = screen.getAllByRole('combobox');
     fireEvent.change(selects[1], { target: { value: 'Ring' } });
     const expected = { ...defaultFilter, type: 'Ring' };
     expect(mocks.setFilter).toHaveBeenCalledWith(expected);
-    expect(mocks.onFilterChange).toHaveBeenCalledWith(expected);
    });
 
-  it('calls setFilter and onFilterChange when attunement select changes', () => {
+  it('calls setFilter when attunement select changes', () => {
     renderForm(defaultFilter);
     const selects = screen.getAllByRole('combobox');
     fireEvent.change(selects[2], { target: { value: 'Required' } });
     const expected = { ...defaultFilter, attunement: 'Required' };
     expect(mocks.setFilter).toHaveBeenCalledWith(expected);
-    expect(mocks.onFilterChange).toHaveBeenCalledWith(expected);
    });
 
-  it('calls setFilter and onFilterChange when bookmarked select changes', () => {
+  it('calls setFilter when bookmarked select changes', () => {
     renderForm(defaultFilter);
     const selects = screen.getAllByRole('combobox');
     fireEvent.change(selects[3], { target: { value: 'Bookmarked' } });
     const expected = { ...defaultFilter, bookmarked: 'Bookmarked' };
     expect(mocks.setFilter).toHaveBeenCalledWith(expected);
-    expect(mocks.onFilterChange).toHaveBeenCalledWith(expected);
    });
 
   it('displays the name value in the input', () => {

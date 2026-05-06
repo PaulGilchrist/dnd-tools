@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useMonsters, useMonsterTypes } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../../utils/localStorage';
 import { renderHtmlContent } from '../../utils/htmlUtils';
+import { useRuleVersion } from '../../context/RuleVersionContext';
+import { useVersionedData } from '../../hooks/useVersionedData';
 import Monster from './Monster';
 
 function MonsterLore() {
@@ -12,10 +13,11 @@ function MonsterLore() {
     const [shownCard, setShownCard] = useState('');
     const [shownSubtype, setShownSubtype] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const { ruleVersion } = useRuleVersion();
 
-    // Fetch data
-    const { data: monstersData, loading: monstersLoading } = useMonsters();
-    const { data: monsterTypesData, loading: subtypeLoading } = useMonsterTypes();
+    // Fetch data using version-aware hooks
+    const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
+    const { data: monsterTypesData, loading: subtypeLoading } = useVersionedData('monsterTypes');
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -31,10 +33,11 @@ function MonsterLore() {
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
-                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER);
+                const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER, ruleVersion);
+                const savedFilter = getLocalStorageItem(versionedFilterKey);
                 if (!savedFilter) {
                     const defaultFilter = { category: 'All' };
-                    setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER, defaultFilter);
+                    setLocalStorageItem(versionedFilterKey, defaultFilter);
                 }
             }
         }
@@ -42,7 +45,7 @@ function MonsterLore() {
         if (monsterTypesData) {
             setMonsterTypes(monsterTypesData);
         }
-    }, [monstersData, monsterTypesData]);
+    }, [monstersData, monsterTypesData, ruleVersion]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

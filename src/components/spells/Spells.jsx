@@ -1,15 +1,25 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useSpells } from '../../data/dataService';
+import { useRuleVersion } from '../../context/RuleVersionContext';
+import { useVersionedData } from '../../hooks/useVersionedData';
 import Spell from './Spell';
 import SpellFilter from './SpellFilter';
 import { filterSpells } from '../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../hooks/useSpellPersistence';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
-
+import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import { scrollIntoView } from '../../data/utils';
 
 function Spells() {
+    const { ruleVersion } = useRuleVersion();
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    // Version-aware storage key for filter
+    const filterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.SPELL_FILTER, ruleVersion);
+
+    // Version-aware data fetching
+    const { data: spellsData, loading: spellsLoading } = useVersionedData('spells');
+
+    // Filter state with default value
     const [filter, setFilter] = useState({
         castingTime: 'All',
         class: 'All',
@@ -18,14 +28,24 @@ function Spells() {
         name: '',
         status: 'All'
     });
+
+    // Load filter from versioned localStorage on mount and when filterKey changes
+    useEffect(() => {
+        const savedFilter = getLocalStorageItem(filterKey);
+        if (savedFilter) {
+            setFilter(savedFilter);
+        }
+    }, [filterKey]);
+
+    // Save filter to versioned localStorage whenever it changes
+    useEffect(() => {
+        setLocalStorageItem(filterKey, filter);
+    }, [filter, filterKey]);
+
     const [shownCard, setShownCard] = useState('');
-    const [searchParams, setSearchParams] = useSearchParams();
 
-    // Fetch data
-    const { data: spellsData, loading: spellsLoading } = useSpells();
-
-    // Use extracted hooks
-    const { knownSpells, preparedSpells, addKnown, removeKnown, addPrepared, removePrepared } = useSpellPersistence();
+    // Use extracted hooks with versioning
+    const { knownSpells, preparedSpells, addKnown, removeKnown, addPrepared, removePrepared } = useSpellPersistence({ ruleVersion });
 
     // Derive enhanced spells from data + persistence state
     const spells = useMemo(() => {
@@ -37,11 +57,9 @@ function Spells() {
         }));
     }, [spellsData, knownSpells, preparedSpells]);
 
-    // Side effects: URL param checking and localStorage filter loading
+    // Side effect: URL param checking
     useEffect(() => {
         if (!spellsData || spellsData.length === 0) return;
-
-        console.log(`${spellsData.length} spells`);
 
         const index = searchParams.get('index');
         if (index) {
@@ -50,15 +68,8 @@ function Spells() {
                 setShownCard(index);
                 scrollIntoView(index);
             }
-        } else {
-            const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER);
-            if (savedFilter) {
-                setFilter(savedFilter);
-            } else {
-                setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER, filter);
-            }
         }
-    }, [spellsData]);
+    }, [spellsData, searchParams]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -73,10 +84,6 @@ function Spells() {
         } else {
             setSearchParams({});
         }
-    };
-
-    const filterChanged = (newFilter) => {
-        setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER, newFilter);
     };
 
     const handleKnownChange = (index, isKnown) => {
@@ -110,25 +117,25 @@ function Spells() {
     const filteredSpells = spells.filter((spell) => filterSpells(filter, spell));
 
     return (
-                <>
-                    <SpellFilter filter={filter} onFilterChange={(newFilter) => { setFilter(newFilter); filterChanged(newFilter); }} />
+        <>
+            <SpellFilter filter={filter} onFilterChange={setFilter} />
 
-                    {/* Spells List */}
-                    <div className="list">
-                        {filteredSpells.map((spell) => (
-                            <div key={spell.index} id={spell.index}>
-                                <Spell
-                                  spell={spell}
-                                  expand={shownCard === spell.index}
-                                  onExpand={(expanded) => expandCard(spell.index, expanded)}
-                                  onKnownChange={handleKnownChange}
-                                  onPreparedChange={handlePreparedChange}
-                                  />
-                            </div>
-                        ))}
+            {/* Spells List */}
+            <div className="list">
+                {filteredSpells.map((spell) => (
+                    <div key={spell.index} id={spell.index}>
+                        <Spell
+                            spell={spell}
+                            expand={shownCard === spell.index}
+                            onExpand={(expanded) => expandCard(spell.index, expanded)}
+                            onKnownChange={handleKnownChange}
+                            onPreparedChange={handlePreparedChange}
+                        />
                     </div>
-                </>
-            );
+                ))}
+            </div>
+        </>
+    );
 }
 
 export default Spells;

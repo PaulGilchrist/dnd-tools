@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../utils/localStorage';
 
 export function useSpellPersistence({ ruleVersion } = {}) {
@@ -8,6 +8,12 @@ export function useSpellPersistence({ ruleVersion } = {}) {
 
     const [knownSpells, setKnownSpells] = useState(() => getLocalStorageItem(knownKey) || []);
     const [preparedSpells, setPreparedSpells] = useState(() => getLocalStorageItem(preparedKey) || []);
+
+    // Reload from localStorage when version changes
+    useEffect(() => {
+        setKnownSpells(getLocalStorageItem(knownKey) || []);
+        setPreparedSpells(getLocalStorageItem(preparedKey) || []);
+    }, [knownKey, preparedKey]);
 
     const saveKnown = (spellsList) => {
         const spellsKnown = spellsList

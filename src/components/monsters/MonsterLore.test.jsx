@@ -1,12 +1,19 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { RuleVersionProvider } from '../../context/RuleVersionContext';
 
 // Mutable state for mocking hooks
 const useMonstersState = { data: [], loading: false };
 const useMonsterTypesState = { data: [], loading: false };
 
 vi.mock('../../data/dataService', () => ({
+  BASE_URL: '',
+  useDataCache: vi.fn((key) => {
+    if (key === 'monsters') return useMonstersState;
+    if (key === 'monsterTypes') return useMonsterTypesState;
+    return { data: [], loading: false };
+  }),
   useMonsters: vi.fn(() => useMonstersState),
   useMonsterTypes: vi.fn(() => useMonsterTypesState),
 }));
@@ -21,6 +28,14 @@ vi.mock('../../utils/localStorage', () => ({
   },
   getLocalStorageItem: vi.fn(() => null),
   setLocalStorageItem: vi.fn(),
+  getLocalStorageString: vi.fn(() => null),
+  setLocalStorageString: vi.fn(),
+  getVersionedStorageKey: (baseKey, ruleVersion) => {
+    if (ruleVersion === '2024') {
+      return `${baseKey}2024`;
+    }
+    return baseKey;
+  },
 }));
 
 vi.mock('../../utils/htmlUtils', () => ({
@@ -77,7 +92,11 @@ describe('MonsterLore', () => {
       });
 
     const renderWithRouter = (component) =>
-        render(<MemoryRouter>{component}</MemoryRouter>);
+        render(
+            <RuleVersionProvider>
+                <MemoryRouter>{component}</MemoryRouter>
+            </RuleVersionProvider>
+        );
 
     describe('loading state', () => {
         it('shows loading message when monstersLoading is true', () => {
@@ -219,9 +238,11 @@ describe('MonsterLore', () => {
             useMonstersState.data = mockMonsters;
             useMonsterTypesState.data = mockMonsterTypes;
             render(
-                 <MemoryRouter initialEntries={['/?index=aberration-entry']}>
-                     <MonsterLore />
-                 </MemoryRouter>
+                 <RuleVersionProvider>
+                     <MemoryRouter initialEntries={['/?index=aberration-entry']}>
+                         <MonsterLore />
+                     </MemoryRouter>
+                 </RuleVersionProvider>
              );
             expect(screen.getByText('Monsters')).toBeInTheDocument();
             });

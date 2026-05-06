@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
-import { useMonsters } from '../../data/dataService';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../../utils/localStorage';
+import { useRuleVersion } from '../../context/RuleVersionContext';
+import { useVersionedData } from '../../hooks/useVersionedData';
 import Loading from './Loading';
 import EncounterFilterPanel from './EncounterFilterPanel';
 import EncounterSummaryPanel from './EncounterSummaryPanel';
@@ -22,7 +23,8 @@ const difficultyLabels = ['Easy', 'Medium', 'Hard', 'Deadly'];
 const difficultyColors = ['#28a745', '#ffc107', '#fd7e14', '#dc3545'];
 
 function Encounters() {
-    const { data: monstersData, loading: monstersLoading } = useMonsters();
+    const { ruleVersion } = useRuleVersion();
+    const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
     
     const [filter, setFilter] = useState({
         difficulty: 2,
@@ -33,7 +35,8 @@ function Encounters() {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER);
+        const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
+        const savedFilter = getLocalStorageItem(versionedFilterKey);
         if (savedFilter) {
             try {
                 setFilter(savedFilter);
@@ -41,9 +44,9 @@ function Encounters() {
                 console.error('Error parsing saved encounter filter:', e);
             }
         } else {
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, filter);
+            setLocalStorageItem(versionedFilterKey, filter);
         }
-    }, []);
+    }, [ruleVersion]);
 
     const totalThreshold = useMemo(() => {
         let xpThreshold = 0;
@@ -149,7 +152,8 @@ function Encounters() {
 
     const updateFilter = (newFilter) => {
         setFilter(newFilter);
-        setLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, newFilter);
+        const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
+        setLocalStorageItem(versionedFilterKey, newFilter);
     };
 
     const addPlayer = () => {

@@ -1,14 +1,21 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { RuleVersionProvider } from '../../context/RuleVersionContext';
 import Encounters from './Encounters';
 
 // Create mock functions
 const mockUseMonsters = vi.fn(() => ({ data: [], loading: false }));
+const mockUseDataCache = vi.fn((key) => {
+  if (key === 'monsters') return mockUseMonsters();
+  return { data: [], loading: false };
+});
 const mockGetLocalStorageItem = vi.fn();
 const mockSetLocalStorageItem = vi.fn();
 
 vi.mock('../../data/dataService', () => ({
+  BASE_URL: '',
+  useDataCache: (...args) => mockUseDataCache(...args),
   useMonsters: (...args) => mockUseMonsters(...args),
 }));
 
@@ -18,6 +25,14 @@ vi.mock('../../utils/localStorage', () => ({
   },
   getLocalStorageItem: (...args) => mockGetLocalStorageItem(...args),
   setLocalStorageItem: (...args) => mockSetLocalStorageItem(...args),
+  getLocalStorageString: vi.fn(() => null),
+  setLocalStorageString: vi.fn(),
+  getVersionedStorageKey: (baseKey, ruleVersion) => {
+    if (ruleVersion === '2024') {
+      return `${baseKey}2024`;
+    }
+    return baseKey;
+  },
 }));
 
 vi.mock('./Loading', () => ({
@@ -35,11 +50,11 @@ vi.mock('./EncounterFilterPanel', () => ({
         <option value="2">Hard</option>
         <option value="3">Deadly</option>
       </select>
-      <input 
-        data-testid="player-level-input" 
-        type="number" 
-        value={filter.playerLevels[0]} 
-        onChange={(e) => onPlayerLevelChange(0, parseInt(e.target.value))} 
+      <input
+        data-testid="player-level-input"
+        type="number"
+        value={filter.playerLevels[0]}
+        onChange={(e) => onPlayerLevelChange(0, parseInt(e.target.value))}
       />
     </div>
   )),
@@ -56,10 +71,10 @@ vi.mock('./EncounterSummaryPanel', () => ({
 vi.mock('./EncounterMonsterTable', () => ({
   default: vi.fn(({ filteredMonsters, selectedMonsters, onToggleMonster, onIncreaseQty, onDecreaseQty, onRemoveMonster, searchQuery, onSearchQueryChange }) => (
     <div data-testid="monster-table">
-      <input 
-        data-testid="search-query" 
-        value={searchQuery} 
-        onChange={(e) => onSearchQueryChange(e.target.value)} 
+      <input
+        data-testid="search-query"
+        value={searchQuery}
+        onChange={(e) => onSearchQueryChange(e.target.value)}
       />
       {filteredMonsters.map((monster) => (
         <div key={monster.index} data-testid={`monster-${monster.index}`}>
@@ -91,6 +106,13 @@ vi.mock('./EncounterSelectedMonsters', () => ({
   )),
 }));
 
+const renderWithProviders = (component, initialEntries = ['/encounters']) =>
+  render(
+    <RuleVersionProvider>
+      <MemoryRouter initialEntries={initialEntries}>{component}</MemoryRouter>
+    </RuleVersionProvider>
+  );
+
 describe('Encounters', () => {
   const mockMonsters = [
     { index: 'goblin', name: 'Goblin', type: 'humanoid', xp: 50, challenge_rating: 0.25 },
@@ -106,21 +128,13 @@ describe('Encounters', () => {
   it('shows loading state', () => {
     mockUseMonsters.mockReturnValue({ data: [], loading: true });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 
   it('renders encounter builder title', () => {
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     expect(screen.getByText('Encounter Builder')).toBeInTheDocument();
   });
@@ -128,11 +142,7 @@ describe('Encounters', () => {
   it('renders all panels when data is loaded', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     expect(screen.getByTestId('filter-panel')).toBeInTheDocument();
     expect(screen.getByTestId('summary-panel')).toBeInTheDocument();
@@ -145,11 +155,7 @@ describe('Encounters', () => {
     mockGetLocalStorageItem.mockReturnValue(savedFilter);
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     expect(mockGetLocalStorageItem).toHaveBeenCalledWith('encounterFilter');
   });
@@ -158,11 +164,7 @@ describe('Encounters', () => {
     mockGetLocalStorageItem.mockReturnValue(null);
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     expect(mockSetLocalStorageItem).toHaveBeenCalledWith('encounterFilter', expect.any(Object));
   });
@@ -170,11 +172,7 @@ describe('Encounters', () => {
   it('renders monster list when data is loaded', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Check that monsters are passed to the table
     expect(screen.getByTestId('monster-goblin')).toBeInTheDocument();
@@ -183,14 +181,10 @@ describe('Encounters', () => {
   it('adds player', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     fireEvent.click(screen.getByTestId('add-player'));
-    
+
     // Filter should be updated (saved to localStorage)
     expect(mockSetLocalStorageItem).toHaveBeenCalledWith('encounterFilter', expect.any(Object));
   });
@@ -198,63 +192,47 @@ describe('Encounters', () => {
   it('removes player', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // First add a player
     fireEvent.click(screen.getByTestId('add-player'));
-    
+
     // Then remove the first player
     fireEvent.click(screen.getByTestId('remove-player'));
-    
+
     expect(mockSetLocalStorageItem).toHaveBeenCalledWith('encounterFilter', expect.any(Object));
   });
 
   it('changes difficulty', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     const select = screen.getByTestId('difficulty-select');
     fireEvent.change(select, { target: { value: '3' } });
-    
+
     expect(mockSetLocalStorageItem).toHaveBeenCalledWith('encounterFilter', expect.any(Object));
   });
 
   it('changes player level', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     const input = screen.getByTestId('player-level-input');
     fireEvent.change(input, { target: { value: '5' } });
-    
+
     expect(mockSetLocalStorageItem).toHaveBeenCalledWith('encounterFilter', expect.any(Object));
   });
 
   it('filters monsters by search query', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     const searchInput = screen.getByTestId('search-query');
     fireEvent.change(searchInput, { target: { value: 'goblin' } });
-    
+
     // Verify search query is updated
     expect(searchInput.value).toBe('goblin');
   });
@@ -262,15 +240,11 @@ describe('Encounters', () => {
   it('filters monsters by type in search', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     const searchInput = screen.getByTestId('search-query');
     fireEvent.change(searchInput, { target: { value: 'humanoid' } });
-    
+
     // Verify search query is updated
     expect(searchInput.value).toBe('humanoid');
   });
@@ -279,68 +253,20 @@ describe('Encounters', () => {
     mockGetLocalStorageItem.mockReturnValue(null);
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Should not crash
     expect(screen.getByTestId('filter-panel')).toBeInTheDocument();
   });
 
-  it('renders encounter builder title', () => {
-    mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
-
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByText('Encounter Builder')).toBeInTheDocument();
-  });
-
-  it('renders all panels when data is loaded', () => {
-    mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
-
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByTestId('filter-panel')).toBeInTheDocument();
-    expect(screen.getByTestId('summary-panel')).toBeInTheDocument();
-    expect(screen.getByTestId('monster-table')).toBeInTheDocument();
-    expect(screen.getByTestId('selected-monsters')).toBeInTheDocument();
-  });
-
-  it('renders monster list when data is loaded', () => {
-    mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
-
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
-
-    // Check that monsters are passed to the table
-    expect(screen.getByTestId('monster-goblin')).toBeInTheDocument();
-  });
-
   it('toggles monster selection', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Toggle goblin
     fireEvent.click(screen.getByTestId('toggle-goblin'));
-    
+
     // Check if selected monsters panel shows goblin
     expect(screen.getByTestId('selected-goblin')).toBeInTheDocument();
   });
@@ -348,18 +274,14 @@ describe('Encounters', () => {
   it('increases monster quantity', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Toggle goblin to add it
     fireEvent.click(screen.getByTestId('toggle-goblin'));
-    
+
     // Increase quantity
     fireEvent.click(screen.getByTestId('increase-goblin'));
-    
+
     // Check quantity increased
     expect(screen.getByTestId('selected-goblin')).toHaveTextContent('Qty: 2');
   });
@@ -367,22 +289,18 @@ describe('Encounters', () => {
   it('decreases monster quantity', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Toggle goblin to add it
     fireEvent.click(screen.getByTestId('toggle-goblin'));
-    
+
     // Increase quantity twice
     fireEvent.click(screen.getByTestId('increase-goblin'));
     fireEvent.click(screen.getByTestId('increase-goblin'));
-    
+
     // Decrease quantity
     fireEvent.click(screen.getByTestId('decrease-goblin'));
-    
+
     // Check quantity decreased
     expect(screen.getByTestId('selected-goblin')).toHaveTextContent('Qty: 2');
   });
@@ -390,18 +308,14 @@ describe('Encounters', () => {
   it('removes monster directly', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Toggle goblin to add it
     fireEvent.click(screen.getByTestId('toggle-goblin'));
-    
+
     // Remove directly
     fireEvent.click(screen.getByTestId('remove-goblin'));
-    
+
     // Goblin should be removed
     expect(screen.queryByTestId('selected-goblin')).not.toBeInTheDocument();
   });
@@ -409,18 +323,14 @@ describe('Encounters', () => {
   it('clears all selected monsters', () => {
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 
-    render(
-      <MemoryRouter>
-        <Encounters />
-      </MemoryRouter>
-    );
+    renderWithProviders(<Encounters />);
 
     // Toggle goblin
     fireEvent.click(screen.getByTestId('toggle-goblin'));
-    
+
     // Clear all
     fireEvent.click(screen.getByTestId('clear-monsters'));
-    
+
     // No selected monsters
     expect(screen.queryByTestId('selected-goblin')).not.toBeInTheDocument();
   });

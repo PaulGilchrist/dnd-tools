@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
 export const BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '';
@@ -74,32 +74,27 @@ export function useDataCache(key, url) {
     const [data, setData] = useState(() => dataCache[key]);
     const [loading, setLoading] = useState(!dataCache[key]);
     const [error, setError] = useState(null);
-    const initialized = useRef(false);
 
     useEffect(() => {
-         // Only fetch once per component lifetime
-        if (initialized.current) {
-            return;
-}
-        initialized.current = true;
-
-         // Data already set by lazy initializer if cached; only fetch if not
+        // Check if data is already cached
         if (dataCache[key]) {
+            setData(dataCache[key]);
+            setLoading(false);
             return;
         }
 
-         // Start fetch
+        // Start fetch
         setLoading(true);
         fetchAndCache(key, url)
-             .then((jsonData) => {
+            .then((jsonData) => {
                 setData(jsonData);
                 setLoading(false);
-             })
-             .catch((err) => {
+            })
+            .catch((err) => {
                 setError(err);
                 setLoading(false);
-             });
-     }, [key, url]);
+            });
+    }, [key, url]);
 
     return { data, loading, error };
 }

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useMonsters } from '../../data/dataService';
 import Monster from './Monster';
 import { useMonsterFilter } from '../../hooks/useMonsterFilter';
 import { useMonsterBookmarks } from '../../hooks/useMonsterBookmarks';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { useRuleVersion } from '../../context/RuleVersionContext';
+import { useVersionedData } from '../../hooks/useVersionedData';
 import FilterForm from './FilterForm';
 import FilterControls from './FilterControls';
 import MonsterList from './MonsterList';
@@ -14,13 +14,14 @@ function MonsterSearch() {
     const [shownCard, setShownCard] = useState('');
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
+    const { ruleVersion } = useRuleVersion();
 
-    // Fetch data
-    const { data: monstersData, loading: monstersLoading } = useMonsters();
+    // Fetch data using version-aware hook
+    const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
 
-    // Use custom hooks for filter and bookmark logic
-    const { filter, updateFilter, showMonster } = useMonsterFilter();
-    const { updateMonstersWithBookmarks, handleBookmarkChange } = useMonsterBookmarks();
+    // Use custom hooks for filter and bookmark logic (pass ruleVersion for versioned localStorage)
+    const { filter, updateFilter, showMonster } = useMonsterFilter({ ruleVersion });
+    const { updateMonstersWithBookmarks, handleBookmarkChange } = useMonsterBookmarks({ ruleVersion });
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -38,14 +39,6 @@ function MonsterSearch() {
                 element.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
             }
-                }
-
-                 // Set search filters from localStorage, only defaulting to "All" when there's no saved data
-            const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER_5E);
-            if (savedFilter) {
-                     // Filter already has defaults from hook, just need to update if saved exists
-                } else {
-                setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_FILTER_5E, filter);
                 }
 
             console.log(`${updatedMonsters.length} monsters`);

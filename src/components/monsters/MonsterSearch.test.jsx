@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { RuleVersionProvider } from '../../context/RuleVersionContext';
 
 const useMonstersState = { data: [], loading: false };
 
@@ -22,6 +23,11 @@ vi.mock('react-router-dom', async () => {
 });
 
 vi.mock('../../data/dataService', () => ({
+    BASE_URL: '',
+    useDataCache: vi.fn((key) => {
+        if (key === 'monsters') return useMonstersState;
+        return { data: [], loading: false };
+    }),
     useMonsters: vi.fn(() => useMonstersState),
 }));
 
@@ -46,6 +52,8 @@ vi.mock('../../utils/localStorage', () => ({
        },
     getLocalStorageItem: vi.fn(() => null),
     setLocalStorageItem: vi.fn(),
+    getLocalStorageString: vi.fn(() => null),
+    setLocalStorageString: vi.fn(),
 }));
 
 vi.mock('./FilterForm', () => ({
@@ -99,7 +107,11 @@ describe('MonsterSearch', () => {
        });
 
     const renderWithRouter = (component, initialEntries = ['/monsters']) =>
-        render(<MemoryRouter initialEntries={initialEntries}>{component}</MemoryRouter>);
+        render(
+            <RuleVersionProvider>
+                <MemoryRouter initialEntries={initialEntries}>{component}</MemoryRouter>
+            </RuleVersionProvider>
+        );
 
     describe('loading state', () => {
         it('shows Loading component when monstersLoading is true', () => {
