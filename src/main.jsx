@@ -3,14 +3,19 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './index.css'
+import { getBaseUrl } from './data/dataService'
 
 // Set favicon path dynamically based on base URL
-const BASE_URL = import.meta.env.BASE_URL || '';
-if (BASE_URL) {
-  const faviconLink = document.querySelector('link[rel="icon"]');
-  if (faviconLink) {
-    faviconLink.href = `${BASE_URL}favicon.svg`;
+try {
+  const baseUrl = getBaseUrl();
+  if (baseUrl && typeof document !== 'undefined') {
+    const faviconLink = document.querySelector('link[rel="icon"]');
+    if (faviconLink) {
+      faviconLink.href = `${baseUrl}favicon.svg`;
+    }
   }
+} catch (e) {
+  // Ignore errors in test environments
 }
 
 import App from './App.jsx'

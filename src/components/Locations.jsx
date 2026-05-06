@@ -7,9 +7,6 @@ import { renderHtmlContent } from '../utils/htmlUtils';
 import './Locations.css';
 import './common/Cover.css';
 
-// Get the base URL from Vite's environment variables (set by vite.config.js)
-const BASE_URL = import.meta.env.BASE_URL || '';
-
 // Import all location images dynamically
 const locationImages = import.meta.glob('../assets/locations/*.jpg', { eager: true });
 

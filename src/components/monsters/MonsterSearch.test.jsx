@@ -23,7 +23,7 @@ vi.mock('react-router-dom', async () => {
 });
 
 vi.mock('../../data/dataService', () => ({
-    BASE_URL: '',
+    getBaseUrl: vi.fn(() => ''),
     useDataCache: vi.fn((key) => {
         if (key === 'monsters') return useMonstersState;
         return { data: [], loading: false };

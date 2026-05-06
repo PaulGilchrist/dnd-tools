@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
-export const BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '';
+// Using lazy evaluation to avoid issues in test environments
+export function getBaseUrl() {
+    if (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) {
+        return import.meta.env.BASE_URL;
+    }
+    return '';
+}
 
 // Cache for storing loaded data to avoid repeated fetches
 const dataCache = {};
@@ -101,99 +107,99 @@ export function useDataCache(key, url) {
 
 // Individual hooks for each data type
 export function useAbilityScores() {
-    return useDataCache('abilityScores', BASE_URL + 'data/ability-scores.json');
+    return useDataCache('abilityScores', getBaseUrl() + 'data/ability-scores.json');
 }
 
 export function useConditions() {
-    return useDataCache('conditions', BASE_URL + 'data/conditions.json');
+    return useDataCache('conditions', getBaseUrl() + 'data/conditions.json');
 }
 
 export function useEquipment() {
-    return useDataCache('equipment', BASE_URL + 'data/equipment.json');
+    return useDataCache('equipment', getBaseUrl() + 'data/equipment.json');
 }
 
 export function useFeats() {
-    return useDataCache('feats', BASE_URL + 'data/feats.json');
+    return useDataCache('feats', getBaseUrl() + 'data/feats.json');
 }
 
 export function useLocations() {
-    return useDataCache('locations', BASE_URL + 'data/locations.json');
+    return useDataCache('locations', getBaseUrl() + 'data/locations.json');
 }
 
 export function useMagicItems() {
-    return useDataCache('magicItems', BASE_URL + 'data/magic-items.json');
+    return useDataCache('magicItems', getBaseUrl() + 'data/magic-items.json');
 }
 
 export function useMonsters() {
-    return useDataCache('monsters', BASE_URL + 'data/monsters.json');
+    return useDataCache('monsters', getBaseUrl() + 'data/monsters.json');
 }
 
 export function useMonsterTypes() {
-    return useDataCache('monsterTypes', BASE_URL + 'data/monster-types.json');
+    return useDataCache('monsterTypes', getBaseUrl() + 'data/monster-types.json');
 }
 
 export function useNames() {
-    return useDataCache('names', BASE_URL + 'data/names.json');
+    return useDataCache('names', getBaseUrl() + 'data/names.json');
 }
 
 export function usePlayerClasses() {
-    return useDataCache('playerClasses', BASE_URL + 'data/classes.json');
+    return useDataCache('playerClasses', getBaseUrl() + 'data/classes.json');
 }
 
 export function useRaces() {
-    return useDataCache('races', BASE_URL + 'data/races.json');
+    return useDataCache('races', getBaseUrl() + 'data/races.json');
 }
 
 export function useRules() {
-    return useDataCache('rules', BASE_URL + 'data/rules.json');
+    return useDataCache('rules', getBaseUrl() + 'data/rules.json');
 }
 
 export function useSpells() {
-    return useDataCache('spells', BASE_URL + 'data/spells.json');
+    return useDataCache('spells', getBaseUrl() + 'data/spells.json');
 }
 
 export function use2024Spells() {
-    return useDataCache('spells2024', BASE_URL + 'data/2024/spells.json');
+    return useDataCache('spells2024', getBaseUrl() + 'data/2024/spells.json');
 }
 
 export function use2024Monsters() {
-    return useDataCache('monsters2024', BASE_URL + 'data/2024/monsters.json');
+    return useDataCache('monsters2024', getBaseUrl() + 'data/2024/monsters.json');
 }
 
 export function use2024MonsterTypes() {
-    return useDataCache('monsters2024Types', BASE_URL + 'data/2024/monster-types.json');
+    return useDataCache('monsters2024Types', getBaseUrl() + 'data/2024/monster-types.json');
 }
 
 export function use2024MonsterSubtypes() {
-    return useDataCache('monsters2024Subtypes', BASE_URL + 'data/2024/monster-subtypes.json');
+    return useDataCache('monsters2024Subtypes', getBaseUrl() + 'data/2024/monster-subtypes.json');
 }
 
 export function use2024MagicItems() {
-    return useDataCache('magicItems2024', BASE_URL + 'data/2024/magic-items.json');
+    return useDataCache('magicItems2024', getBaseUrl() + 'data/2024/magic-items.json');
 }
 
 export function useWeaponProperties() {
-    return useDataCache('weaponProperties', BASE_URL + 'data/weapon-properties.json');
+    return useDataCache('weaponProperties', getBaseUrl() + 'data/weapon-properties.json');
 }
 
 export function use2024Classes() {
-    return useDataCache('classes2024', BASE_URL + 'data/2024/classes.json');
+    return useDataCache('classes2024', getBaseUrl() + 'data/2024/classes.json');
 }
 
 export function use2024Races() {
-    return useDataCache('races2024', BASE_URL + 'data/2024/races.json');
+    return useDataCache('races2024', getBaseUrl() + 'data/2024/races.json');
 }
 
 export function use2024Backgrounds() {
-    return useDataCache('backgrounds2024', BASE_URL + 'data/2024/backgrounds.json');
+    return useDataCache('backgrounds2024', getBaseUrl() + 'data/2024/backgrounds.json');
 }
 
 export function use2024Feats() {
-    return useDataCache('feats2024', BASE_URL + 'data/2024/feats.json');
+    return useDataCache('feats2024', getBaseUrl() + 'data/2024/feats.json');
 }
 
 export function useWeaponMastery2024() {
-    return useDataCache('weaponMastery2024', BASE_URL + 'data/2024/weapon-mastery.json');
+    return useDataCache('weaponMastery2024', getBaseUrl() + 'data/2024/weapon-mastery.json');
 }
 
 // Alternative: Create a DataService class for non-React usage or compatibility
@@ -203,52 +209,52 @@ export class DataService {
     }
 
     async getAbilityScores() {
-        return fetchAndCache('abilityScores', BASE_URL + 'data/ability-scores.json');
+        return fetchAndCache('abilityScores', getBaseUrl() + 'data/ability-scores.json');
       }
     async getConditions() {
-        return fetchAndCache('conditions', BASE_URL + 'data/conditions.json');
+        return fetchAndCache('conditions', getBaseUrl() + 'data/conditions.json');
       }
     async getEquipment() {
-        return fetchAndCache('equipment', BASE_URL + 'data/equipment.json');
+        return fetchAndCache('equipment', getBaseUrl() + 'data/equipment.json');
       }
     async getFeats() {
-        return fetchAndCache('feats', BASE_URL + 'data/feats.json');
+        return fetchAndCache('feats', getBaseUrl() + 'data/feats.json');
       }
     async getLocations() {
-        return fetchAndCache('locations', BASE_URL + 'data/locations.json');
+        return fetchAndCache('locations', getBaseUrl() + 'data/locations.json');
       }
     async getMagicItems() {
-        return fetchAndCache('magicItems', BASE_URL + 'data/magic-items.json');
+        return fetchAndCache('magicItems', getBaseUrl() + 'data/magic-items.json');
       }
     async getMonsters() {
-        return fetchAndCache('monsters', BASE_URL + 'data/monsters.json');
+        return fetchAndCache('monsters', getBaseUrl() + 'data/monsters.json');
       }
     async getMonsterTypes() {
-        return fetchAndCache('monsterTypes', BASE_URL + 'data/monster-types.json');
+        return fetchAndCache('monsterTypes', getBaseUrl() + 'data/monster-types.json');
       }
     async get2024MonsterTypes() {
-        return fetchAndCache('monsters2024Types', BASE_URL + 'data/2024/monster-types.json');
+        return fetchAndCache('monsters2024Types', getBaseUrl() + 'data/2024/monster-types.json');
       }
     async getNames() {
-        return fetchAndCache('names', BASE_URL + 'data/names.json');
+        return fetchAndCache('names', getBaseUrl() + 'data/names.json');
       }
     async getPlayerClasses() {
-        return fetchAndCache('playerClasses', BASE_URL + 'data/classes.json');
+        return fetchAndCache('playerClasses', getBaseUrl() + 'data/classes.json');
       }
     async getRaces() {
-        return fetchAndCache('races', BASE_URL + 'data/races.json');
+        return fetchAndCache('races', getBaseUrl() + 'data/races.json');
       }
     async getRules() {
-        return fetchAndCache('rules', BASE_URL + 'data/rules.json');
+        return fetchAndCache('rules', getBaseUrl() + 'data/rules.json');
       }
     async getSpells() {
-        return fetchAndCache('spells', BASE_URL + 'data/spells.json');
+        return fetchAndCache('spells', getBaseUrl() + 'data/spells.json');
       }
     async getWeaponProperties() {
-        return fetchAndCache('weaponProperties', BASE_URL + 'data/weapon-properties.json');
+        return fetchAndCache('weaponProperties', getBaseUrl() + 'data/weapon-properties.json');
       }
     async getBackgrounds2024() {
-        return fetchAndCache('backgrounds2024', BASE_URL + 'data/2024/backgrounds.json');
+        return fetchAndCache('backgrounds2024', getBaseUrl() + 'data/2024/backgrounds.json');
       }
 }
 // Export singleton instance for class-based usage

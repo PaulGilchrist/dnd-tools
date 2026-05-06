@@ -1,4 +1,4 @@
-import { BASE_URL, useDataCache } from '../data/dataService.js';
+import { getBaseUrl, useDataCache } from '../data/dataService.js';
 import { useRuleVersion } from '../context/RuleVersionContext.jsx';
 
 const entityMap = {
@@ -50,5 +50,5 @@ export function useVersionedData(entity) {
         );
     }
 
-    return useDataCache(config.cacheKey, BASE_URL + config.path);
+    return useDataCache(config.cacheKey, getBaseUrl() + config.path);
 }

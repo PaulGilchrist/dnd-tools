@@ -8,7 +8,7 @@ const useMonstersState = { data: [], loading: false };
 const useMonsterTypesState = { data: [], loading: false };
 
 vi.mock('../../data/dataService', () => ({
-  BASE_URL: '',
+  getBaseUrl: vi.fn(() => ''),
   useDataCache: vi.fn((key) => {
     if (key === 'monsters') return useMonstersState;
     if (key === 'monsterTypes') return useMonsterTypesState;

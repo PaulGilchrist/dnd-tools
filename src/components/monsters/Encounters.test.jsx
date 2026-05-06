@@ -14,7 +14,7 @@ const mockGetLocalStorageItem = vi.fn();
 const mockSetLocalStorageItem = vi.fn();
 
 vi.mock('../../data/dataService', () => ({
-  BASE_URL: '',
+  getBaseUrl: vi.fn(() => ''),
   useDataCache: (...args) => mockUseDataCache(...args),
   useMonsters: (...args) => mockUseMonsters(...args),
 }));

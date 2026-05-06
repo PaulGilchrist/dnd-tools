@@ -1,10 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-// Get the base path - Vite sets BASE_URL based on vite.config.js 'base' option
-// For GitHub Pages at https://PaulGilchrist.github.io/dnd-tools/, 
-const base = import.meta.env.BASE_URL || '/'
-
 import { RuleVersionProvider } from './context/RuleVersionContext'
+import { getBaseUrl } from './data/dataService'
 import NavTop from './components/NavTop'
 import EquipmentItems from './components/equipment-items/EquipmentItems'
 import Locations from './components/Locations'
@@ -25,6 +22,10 @@ import WeaponMastery2024 from './components/2024/WeaponMastery2024'
 import './App.css'
 
 function App() {
+    // Get the base path - Vite sets BASE_URL based on vite.config.js
+    // Using lazy evaluation to avoid issues in test environments
+    const base = getBaseUrl() || '/';
+
     return (
         <RuleVersionProvider>
             <BrowserRouter basename={base}>
