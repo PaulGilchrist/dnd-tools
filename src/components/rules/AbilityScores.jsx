@@ -1,21 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useAbilityScores } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import AbilityScore from './AbilityScore';
 
 
 function AbilityScores() {
-    const [abilityScores, setAbilityScores] = useState([]);
     const [shownCard, setShownCard] = useState('');
 
     // Fetch data
     const { data: abilityScoresData, loading } = useAbilityScores();
-
-    useEffect(() => {
-        if (abilityScoresData && abilityScoresData.length > 0) {
-            setAbilityScores(abilityScoresData);
-        }
-    }, [abilityScoresData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -36,7 +29,7 @@ function AbilityScores() {
                      <h1 className="card-title">Ability Scores</h1>
                      <div className="page-description">All creatures-characters and monsters-have six abilities that measure physical and mental characteristics, as detailed below</div>
                  </div>
-                 {abilityScores.map((abilityScore) => (
+                 {abilityScoresData?.map((abilityScore) => (
                      <div key={abilityScore.index} id={abilityScore.index}>
                          <AbilityScore 
                             abilityScore={abilityScore}

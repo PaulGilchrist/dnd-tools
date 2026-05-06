@@ -6,7 +6,6 @@ import PlayerClass from './PlayerClass';
 
 
 function PlayerClasses() {
-    const [playerClasses, setPlayerClasses] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
@@ -16,8 +15,6 @@ function PlayerClasses() {
 
     useEffect(() => {
         if (playerClassesData && playerClassesData.length > 0) {
-            setPlayerClasses(playerClassesData);
-
             // Check for index parameter in URL
             const index = searchParams.get('index');
             if (index) {
@@ -56,7 +53,7 @@ function PlayerClasses() {
                       <h1 className="card-title">Classes</h1>
                       <p className="page-description">Choose a class for your character. Your class defines your character's role in the game and determines their abilities, skills, and progression.</p>
                   </div>
-                  {playerClasses.map((playerClass) => (
+                  {playerClassesData?.map((playerClass) => (
                       <div key={playerClass.index} id={playerClass.index}>
                           <PlayerClass 
                              playerClass={playerClass}

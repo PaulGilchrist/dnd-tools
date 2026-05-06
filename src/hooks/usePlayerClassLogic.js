@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialShownSubclass = '') {
-    const [isExpanded, setIsExpanded] = useState(false);
-    const [shownLevel, setShownLevel] = useState(1);
+    const userOverrodeLevel = useRef(false);
+    const [shownLevel, setShownLevel] = useState(() => initialShownLevel > 0 ? initialShownLevel : 1);
+    const [isExpanded, setIsExpanded] = useState(() => !!initialShownLevel);
     const [shownSubclass, setShownSubclass] = useState(initialShownSubclass);
-
-    // Update local state when props change
-    useEffect(() => {
-        if (initialShownLevel > 0) {
-            setShownLevel(initialShownLevel);
-        }
-        if (isExpanded !== (initialShownLevel ? 1 : 0)) {
-            setIsExpanded(!!initialShownLevel);
-        }
-    }, [initialShownLevel]);
 
     const getNameString = (names) => {
         if (!names || names.length === 0) return '';
@@ -91,7 +82,7 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
                 classLevels[i].features.forEach((feature) => {
                     const featureSummary = {
                         name: feature.name,
-                        description: feature.description,
+                        description: feature.desc,
                         details: feature.details
                      };
                     if (!classFeatures.some((classFeature) => classFeature.name === feature.name)) {
@@ -116,7 +107,7 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
                 subclassLevels[i].features.forEach((feature) => {
                     const featureSummary = {
                         name: feature.name,
-                        description: feature.description,
+                        description: feature.desc,
                         details: feature.details
                     };
                     if (!subclassFeatures.some((subclassFeature) => subclassFeature.name === feature.name)) {
@@ -129,10 +120,12 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
     };
 
     const toggleDetails = () => {
+        userOverrodeLevel.current = true;
         setIsExpanded(!isExpanded);
     };
 
     const showLevel = (level) => {
+        userOverrodeLevel.current = true;
         if (level === shownLevel) {
             setShownLevel(0);
         } else {

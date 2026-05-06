@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useFeats } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
@@ -8,28 +8,20 @@ import Feat from './Feat';
 function Feats() {
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const urlParamsProcessed = useRef(false);
 
     // Fetch data
     const { data: featsData, loading: featsLoading } = useFeats();
 
     useEffect(() => {
-        if (featsData && featsData.length > 0) {
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
-            if (index) {
-                const feat = featsData.find(item => item.index === index);
-                if (feat) {
-                    setShownCard(index);
-                    scrollIntoView(index);
-                }
-            }
+        if (shownCard) {
+            scrollIntoView(shownCard);
         }
-    }, [featsData]);
+    }, [shownCard]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
         } else {
             setShownCard('');
         }
@@ -44,6 +36,18 @@ function Feats() {
 
     if (featsLoading) {
         return <div className="list"><div>Loading feats...</div></div>;
+    }
+
+    // Process URL params once when data is available
+    if (featsData && featsData.length > 0 && !urlParamsProcessed.current) {
+        urlParamsProcessed.current = true;
+        const index = searchParams.get('index');
+        if (index) {
+            const feat = featsData.find(item => item.index === index);
+            if (feat) {
+                setShownCard(index);
+            }
+        }
     }
 
     return (

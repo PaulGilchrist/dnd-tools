@@ -1,16 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
 
 export function useMonsterBookmarks(monsters = []) {
-    const [monstersBookmarked, setMonstersBookmarked] = useState([]);
-
-    // Load bookmarked monsters from localStorage on mount
-    useEffect(() => {
-        const monstersBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED);
-        if (monstersBookmarkedJson) {
-            setMonstersBookmarked(monstersBookmarkedJson);
-         }
-     }, []);
+    const [monstersBookmarked, setMonstersBookmarked] = useState(() => {
+        return getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED) || [];
+    });
 
     // Update monsters with bookmarked status when monsters data changes
     const updateMonstersWithBookmarks = (monstersData) => {

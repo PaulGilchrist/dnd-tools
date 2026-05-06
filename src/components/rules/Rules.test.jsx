@@ -1,23 +1,28 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import GeneralRules from './Rules';
+import { useRules } from '../../data/dataService';
 
 // Mock the hooks
 vi.mock('../../data/dataService', () => ({
-   useRules: () => ({ data: [], loading: false }),
+   useRules: vi.fn(() => ({ data: [], loading: false })),
 }));
 
 vi.mock('../../context/RuleVersionContext', () => ({
-   useRuleVersion: () => ({ ruleVersion: '5e' }),
+   useRuleVersion: vi.fn(() => ({ ruleVersion: '5e' })),
 }));
 
 vi.mock('./RulesSearch', () => ({
-   default: () => <div>RulesSearch Mock</div>,
+   default: vi.fn(() => <div>RulesSearch Mock</div>),
 }));
 
 describe('GeneralRules', () => {
+   beforeEach(() => {
+      vi.clearAllMocks();
+   });
+
    it('renders loading state', () => {
-      vi.mocked(require('../../data/dataService').useRules).mockReturnValueOnce({
+      useRules.mockReturnValueOnce({
          data: null,
          loading: true,
       });
@@ -27,7 +32,7 @@ describe('GeneralRules', () => {
    });
 
    it('renders RulesSearch when data is loaded', () => {
-      vi.mocked(require('../../data/dataService').useRules).mockReturnValueOnce({
+      useRules.mockReturnValueOnce({
          data: [{ index: 'rule1', name: 'Test Rule' }],
          loading: false,
       });
@@ -38,7 +43,7 @@ describe('GeneralRules', () => {
 
    it('passes rules and ruleVersion to RulesSearch', () => {
       const rulesData = [{ index: 'rule1', name: 'Test Rule' }];
-      vi.mocked(require('../../data/dataService').useRules).mockReturnValueOnce({
+      useRules.mockReturnValueOnce({
          data: rulesData,
          loading: false,
       });

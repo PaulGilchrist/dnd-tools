@@ -1,22 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
 
 export function useSpellPersistence() {
-    const [knownSpells, setKnownSpells] = useState([]);
-    const [preparedSpells, setPreparedSpells] = useState([]);
-
-    // Load from localStorage on mount
-    useEffect(() => {
-        const knownSpellsJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_KNOWN);
-        if (knownSpellsJson) {
-            setKnownSpells(knownSpellsJson);
-          }
-
-        const preparedSpellsJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_PREPARED);
-        if (preparedSpellsJson) {
-            setPreparedSpells(preparedSpellsJson);
-          }
-      }, []);
+    const [knownSpells, setKnownSpells] = useState(() => getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_KNOWN) || []);
+    const [preparedSpells, setPreparedSpells] = useState(() => getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_PREPARED) || []);
 
     const saveKnown = (spellsList) => {
         const spellsKnown = spellsList

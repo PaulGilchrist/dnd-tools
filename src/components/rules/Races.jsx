@@ -6,7 +6,6 @@ import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '..
 import RaceItem from './RaceItem';
 
 function Races() {
-    const [races, setRaces] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
@@ -16,7 +15,6 @@ function Races() {
 
     useEffect(() => {
         if (racesData && racesData.length > 0) {
-            setRaces(racesData);
             console.log(`${racesData.length} races`);
 
             // Check for index parameter in URL
@@ -31,13 +29,13 @@ function Races() {
                     // Set search filters from localStorage - default to "All" when no saved data
                 const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.RACES_FILTER);
                 if (savedFilter) {
-                             // Filter logic can be added here in the future
-                     } else {
+                              // Filter logic can be added here in the future
+                      } else {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.RACES_FILTER, { category: 'All' });
-                     }
-                 }
-             }
-         }, [racesData]);
+                      }
+                  }
+              }
+          }, [racesData]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
@@ -65,7 +63,7 @@ function Races() {
                                     <h1 className="card-title">Races</h1>
                                     <div className="page-description">Choose a race for your character. Each race offers unique traits and abilities that reflect their culture, biology, and heritage.</div>
                                 </div>
-                                {races.map((race) => (
+                                {racesData?.map((race) => (
                                     <div key={race.index} id={race.index}>
                                         <RaceItem
                                   race={race}

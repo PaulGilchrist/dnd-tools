@@ -29,25 +29,19 @@ describe('RulesFilter', () => {
     expect(mockOnFilterChange).toHaveBeenCalledWith('name', 'test');
   });
 
-  it('does not call onFilterChange when name length >= 100', () => {
+  it('calls onFilterChange for any value (validation delegated to parent)', () => {
     render(<RulesFilter filter={mockFilter} onFilterChange={mockOnFilterChange} />);
     const input = screen.getByLabelText('Name');
     const longValue = 'a'.repeat(100);
     fireEvent.change(input, { target: { value: longValue } });
-    expect(mockOnFilterChange).not.toHaveBeenCalled();
+    expect(mockOnFilterChange).toHaveBeenCalledWith('name', longValue);
   });
 
-  it('shows error when name length >= 100', () => {
-    render(<RulesFilter filter={mockFilter} onFilterChange={mockOnFilterChange} />);
-    const input = screen.getByLabelText('Name');
-    const longValue = 'a'.repeat(100);
-    fireEvent.change(input, { target: { value: longValue } });
-    expect(screen.getByText('Search text should be less than 100 characters')).toBeInTheDocument();
-  });
-
-  it('has maxLength of 100 on input', () => {
+  it('relies on input maxLength attribute for length limiting', () => {
     render(<RulesFilter filter={mockFilter} onFilterChange={mockOnFilterChange} />);
     const input = screen.getByLabelText('Name');
     expect(input).toHaveAttribute('maxLength', '100');
   });
+
+
 });

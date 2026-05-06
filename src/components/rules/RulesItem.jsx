@@ -1,22 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { scrollIntoView } from '../../data/utils';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function RulesItem({ rule, expand = false, onExpand, ruleVersion }) {
-    const [shownSubsection, setShownSubsection] = useState(null);
-
-    // Reset inner cards when parent collapses to ensure they start contracted
-    useEffect(() => {
-        if (!expand) {
-            setShownSubsection(null);
-        }
-    }, [expand]);
+    const [realShownSubsection, setRealShownSubsection] = useState(null);
+    const shownSubsection = expand ? realShownSubsection : null;
 
     const showSubsection = (subsection) => {
-        if (shownSubsection === subsection) {
-            setShownSubsection(null);
+        if (realShownSubsection === subsection) {
+            setRealShownSubsection(null);
         } else {
-            setShownSubsection(subsection);
+            setRealShownSubsection(subsection);
             scrollIntoView(subsection);
         }
     };
@@ -70,4 +64,3 @@ function RulesItem({ rule, expand = false, onExpand, ruleVersion }) {
 }
 
 export default RulesItem;
-

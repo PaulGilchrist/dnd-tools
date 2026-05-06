@@ -83,12 +83,10 @@ function useDataCache(key, url) {
 }
         initialized.current = true;
 
-         // If data is already cached, resolve immediately
+         // Data already set by lazy initializer if cached; only fetch if not
         if (dataCache[key]) {
-            setData(dataCache[key]);
-            setLoading(false);
             return;
-}
+        }
 
          // Start fetch
         setLoading(true);
