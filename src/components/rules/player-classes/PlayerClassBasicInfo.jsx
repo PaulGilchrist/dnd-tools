@@ -1,9 +1,11 @@
+import { renderHtmlContent } from '../../../utils/htmlUtils';
+
 function PlayerClassBasicInfo({ playerClass, getNameString }) {
     if (!playerClass) return null;
 
     return (
         <div>
-            {playerClass.desc}<br /><br />
+            <span dangerouslySetInnerHTML={renderHtmlContent(playerClass.desc)} /><br /><br />
             <b>Hit Die:</b>&nbsp;d{playerClass.hit_die}<br />
             
             {playerClass.proficiencies && playerClass.proficiencies.length > 0 && (

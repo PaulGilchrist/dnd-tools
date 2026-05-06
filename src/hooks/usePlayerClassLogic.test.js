@@ -10,13 +10,13 @@ describe('usePlayerClassLogic', () => {
          {
             level: 1,
             features: [
-               { name: 'Spellcasting', desc: ['You can cast spells'], details: '' },
+               { name: 'Spellcasting', description: ['You can cast spells'], details: '' },
             ],
          },
          {
             level: 2,
             features: [
-               { name: 'Arcane Recovery', desc: ['Recover spell slots'], details: '' },
+               { name: 'Arcane Recovery', description: ['Recover spell slots'], details: '' },
             ],
          },
       ],
@@ -28,7 +28,7 @@ describe('usePlayerClassLogic', () => {
                {
                   level: 2,
                   features: [
-                     { name: 'Evocation Savant', desc: ['Learn spells easier'], details: '' },
+                     { name: 'Evocation Savant', description: ['Learn spells easier'], details: '' },
                   ],
                },
             ],
@@ -188,13 +188,13 @@ describe('usePlayerClassLogic', () => {
                {
                   level: 1,
                   features: [
-                     { name: 'Feature A', desc: ['Level 1'], details: '' },
+                     { name: 'Feature A', description: ['Level 1'], details: '' },
                   ],
                },
                {
                   level: 2,
                   features: [
-                     { name: 'Feature A', desc: ['Level 2'], details: '' },
+                     { name: 'Feature A', description: ['Level 2'], details: '' },
                   ],
                },
             ],

@@ -38,7 +38,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                     <div key={subclass.index} id={subclass.index}>
                         {shownSubclass === subclass.index && (
                             <div className="playerClass-subtext">
-                                <strong>{subclass.subclass_flavor} - {subclass.name}</strong> - {subclass.desc}<br />
+                                <strong>{subclass.subclass_flavor} - {subclass.name}</strong> - <span dangerouslySetInnerHTML={renderHtmlContent(subclass.description)} /><br />
                                 <br/>
                                 {/* Subclass Spells */}
                                 {subclass.spells && (

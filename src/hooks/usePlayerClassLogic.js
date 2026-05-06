@@ -82,7 +82,7 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
                 classLevels[i].features.forEach((feature) => {
                     const featureSummary = {
                         name: feature.name,
-                        description: feature.desc,
+                        description: feature.description,
                         details: feature.details
                      };
                     if (!classFeatures.some((classFeature) => classFeature.name === feature.name)) {
@@ -107,7 +107,7 @@ export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialS
                 subclassLevels[i].features.forEach((feature) => {
                     const featureSummary = {
                         name: feature.name,
-                        description: feature.desc,
+                        description: feature.description,
                         details: feature.details
                     };
                     if (!subclassFeatures.some((subclassFeature) => subclassFeature.name === feature.name)) {
