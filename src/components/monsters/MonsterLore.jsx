@@ -6,6 +6,7 @@ import { renderHtmlContent } from '../../utils/htmlUtils';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { useVersionedData } from '../../hooks/useVersionedData';
 import Monster from './Monster';
+import Monster2024 from '../2024/monsters/Monster2024';
 
 function MonsterLore() {
     const [monsters, setMonsters] = useState([]);
@@ -95,12 +96,23 @@ function MonsterLore() {
                                 {monsters.map((monster) => (
                                     <div className="inner-list" key={monster.index} id={monster.index}>
                                         {subtype.monsters.includes(monster.index) && (
-                                            <Monster 
-                                                monster={monster}
-                                                expand={shownCard === monster.index}
-                                                onExpand={(expanded) => expandCard(monster.index, expanded)}
-                                                cardType="inner"
-                                            />
+                                            <>
+                                            {ruleVersion === '2024' ? (
+                                                <Monster2024 
+                                                    monster={monster}
+                                                    expand={shownCard === monster.index}
+                                                    onExpand={(expanded) => expandCard(monster.index, expanded)}
+                                                    cardType="inner"
+                                                />
+                                            ) : (
+                                                <Monster 
+                                                    monster={monster}
+                                                    expand={shownCard === monster.index}
+                                                    onExpand={(expanded) => expandCard(monster.index, expanded)}
+                                                    cardType="inner"
+                                                />
+                                            )}
+                                            </>
                                         )}
                                     </div>
                                 ))}

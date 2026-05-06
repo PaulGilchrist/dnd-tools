@@ -1,19 +1,11 @@
 import { useState, useRef } from 'react';
+import { getNameString } from '../utils/monsterUtils.js';
 
 export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialShownSubclass = '') {
     const userOverrodeLevel = useRef(false);
     const [shownLevel, setShownLevel] = useState(() => initialShownLevel > 0 ? initialShownLevel : 1);
     const [isExpanded, setIsExpanded] = useState(() => !!initialShownLevel);
     const [shownSubclass, setShownSubclass] = useState(initialShownSubclass);
-
-    const getNameString = (names) => {
-        if (!names || names.length === 0) return '';
-        let nameString = '';
-        names.forEach((name) => {
-            nameString += `${name}, `;
-        });
-        return nameString.substring(0, nameString.length - 2);
-    };
 
     const getPrerequisites = (prerequisites) => {
         if (!prerequisites || prerequisites.length === 0) return '';

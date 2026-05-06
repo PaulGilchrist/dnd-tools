@@ -8,6 +8,7 @@ import { useVersionedData } from '../../hooks/useVersionedData';
 import FilterForm from './FilterForm';
 import FilterControls from './FilterControls';
 import MonsterList from './MonsterList';
+import Monster2024List from '../2024/monsters/Monster2024List';
 import Loading from './Loading';
 
 function MonsterSearch() {
@@ -79,12 +80,21 @@ function MonsterSearch() {
                     <FilterControls filter={filter} updateFilter={updateFilter} />
                 </FilterForm>
 
-            <MonsterList
-                monsters={filteredMonsters}
-                shownCard={shownCard}
-                expandCard={expandCard}
-                handleBookmarkChange={handleBookmarkChange}
+            {ruleVersion === '2024' ? (
+                <Monster2024List
+                    monsters={filteredMonsters}
+                    shownCard={shownCard}
+                    expandCard={expandCard}
+                    handleBookmarkChange={handleBookmarkChange}
                 />
+            ) : (
+                <MonsterList
+                    monsters={filteredMonsters}
+                    shownCard={shownCard}
+                    expandCard={expandCard}
+                    handleBookmarkChange={handleBookmarkChange}
+                />
+            )}
             </>
         );
 }
