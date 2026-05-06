@@ -16,8 +16,6 @@ function Conditions() {
 
     useEffect(() => {
         if (conditionsData && conditionsData.length > 0) {
-            console.log(`${conditionsData.length} conditions`);
-
             // Check for index parameter in URL
             const index = searchParams.get('index');
             if (index) {
@@ -29,9 +27,8 @@ function Conditions() {
             } else {
                 // No filter needed for conditions - just display all
             }
-            console.log(`ruleVersion ${ruleVersion}`)
         }
-    }, [conditionsData]);
+    }, [conditionsData, searchParams]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

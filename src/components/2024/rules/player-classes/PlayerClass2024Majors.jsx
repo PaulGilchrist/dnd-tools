@@ -31,8 +31,8 @@ function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeat
                 Each major grants unique features at certain levels.
             </p>
             
-            {playerClass.majors.map((major, index) => (
-                <div key={index} className="card w-100 major-card">
+            {playerClass.majors.map((major) => (
+                <div key={major.name} className="card w-100 major-card">
                     <div 
                         className="card-header clickable major-header"
                         onClick={() => toggleMajor(major.name)}
@@ -58,8 +58,8 @@ function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeat
                             {major.features && major.features.length > 0 && (
                                 <div className="major-features">
                                     <h6>Features:</h6>
-                                    {major.features.map((feature, fIndex) => (
-                                        <div key={fIndex} className="major-feature">
+                                    {major.features.map((feature) => (
+                                        <div key={feature.name} className="major-feature">
                                             <b>Level {feature.level}: {feature.name}:</b>
                                             {feature.description && (
                                                 <div className="major-feature-description">
@@ -76,8 +76,8 @@ function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeat
                                 <div className="major-spells">
                                     <h6>Subclass Spells:</h6>
                                     <div className="spells-grid">
-                                        {major.spells.map((spell, sIndex) => (
-                                            <div key={sIndex} className="spell-item">
+                                        {major.spells.map((spell) => (
+                                            <div key={spell.name} className="spell-item">
                                                 <span className="spell-level">{spell.name}</span>
                                                 <small> (Level {spell.level})</small>
                                             </div>

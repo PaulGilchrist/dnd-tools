@@ -100,8 +100,8 @@ function PlayerClassLevels({ playerClass, shownLevel, onShowLevel, classFeatures
                             {/* Class Features */}
                             {classFeatures && classFeatures.length > 0 && (
                                 <div>
-                                    {classFeatures.map((feature, index) => (
-                                        <div key={index}>
+                                    {classFeatures.map((feature) => (
+                                        <div key={feature.name}>
                                             <div className="playerClass-feature">
                                                 <b>{feature.name}:</b>&nbsp;
                                                   {feature.description && (

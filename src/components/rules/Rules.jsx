@@ -11,9 +11,7 @@ function GeneralRules() {
     const { data: rulesData, loading: rulesLoading } = useRules();
 
     useEffect(() => {
-        if (rulesData && rulesData.length > 0) {
-            console.log(`${rulesData.length} rules`);
-        }
+        // Data loaded
     }, [rulesData]);
 
     if (rulesLoading) {

@@ -13,8 +13,8 @@ function MonsterLegendaryActions({ monster }) {
     return (
            <div>
                {monster.legendaryActions.find(a => a.name)?.uses ? `Monster can take ${monster.legendaryActions.find(a => a.name)?.uses} legendary actions, only one at a time. At the end of another creature's turn, the monster can take one of the following actions.` : ''}
-               {monster.legendaryActions.map((legendaryAction, index) => (
-                   <span key={index}>
+                {monster.legendaryActions.map((legendaryAction) => (
+                    <span key={legendaryAction.name}>
                        <b>{legendaryAction.name}:</b>&nbsp;
                        {legendaryAction.renderDescription && <span dangerouslySetInnerHTML={legendaryAction.renderDescription()} />}
                        <br />

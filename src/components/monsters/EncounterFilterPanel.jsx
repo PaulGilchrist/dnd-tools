@@ -15,8 +15,8 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                       value={filter.difficulty}
                       onChange={onDifficultyChange}
                   >
-                      {filter.difficultyLabels && filter.difficultyLabels.map((label, index) => (
-                          <option key={index} value={index}>{label}</option>
+                      {filter.difficultyLabels && filter.difficultyLabels.map((label) => (
+                          <option key={label} value={label}>{label}</option>
                       ))}
                   </select>
               </div>
@@ -24,7 +24,7 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                   <button type="button" className="btn btn-sm btn-outline-secondary mb-2" onClick={onAddPlayer}>+ Add Player</button>
                   <div className="player-levels-horizontal">
                       {filter.playerLevels.map((level, index) => (
-                          <div key={index} className="player-level-row">
+                            <div key={index} className="player-level-row">
                               <span className="player-level-label">Player {index + 1} Level</span>
                               <input 
                                   type="number" 

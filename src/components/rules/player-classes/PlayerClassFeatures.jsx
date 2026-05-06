@@ -18,8 +18,8 @@ function PlayerClassFeatures({ features, shownLevel, getPrerequisites }) {
                 <div className="card-title">Features</div>
             </div>
             <div className={`card-body player-class-features-card-body ${shownLevel !== 0 ? 'hidden' : ''}`}>
-                {features.map((feature, index) => (
-                    <div key={index}>
+                {features.map((feature) => (
+                    <div key={feature.name}>
                     <b>{feature.name}:</b>&nbsp;
                           {feature.description && (
                               <span dangerouslySetInnerHTML={renderHtmlContent(feature.description)} />

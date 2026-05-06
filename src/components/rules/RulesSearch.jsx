@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, useRef, useMemo, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { highlightText } from './RuleSearchUtils';
-import { renderHtmlContent } from '../../utils/htmlUtils';
+import { highlightText } from './RuleSearchUtils.jsx';
+import { flattenRules } from './RuleSearchUtils';
+import RuleSearchItem from './RuleSearchItem';
 import './RulesSearch.css';
 
 // Reducer for managing search state
@@ -30,52 +31,8 @@ function RulesSearch({ rules, ruleVersion }) {
     const { matches, highlightIndex } = searchState;
     const containerRef = useRef(null);
 
-    // Flatten all rules and subsections into a single list
-        const flattenRules = useCallback((rules) => {
-            const flatList = [];
-        
-            rules.forEach((rule, ruleIdx) => {
-                 // Filter main rule by rule version
-                if (rule.rules && rule.rules !== ruleVersion) {
-                    return;
-                 }
-            
-                 // Add the main rule
-                flatList.push({
-                    type: 'rule',
-                    index: rule.index,
-                    name: rule.name,
-                    desc: rule.desc,
-                    ruleIdx: ruleIdx
-                 });
-            
-                 // Add all subsections
-                if (rule.subsections) {
-                    rule.subsections.forEach((sub, subIdx) => {
-                         // Filter by rule version
-                        if (sub.rules && sub.rules !== ruleVersion) {
-                            return;
-                         }
-                    
-                        flatList.push({
-                            type: 'subsection',
-                            index: sub.index,
-                            name: sub.name,
-                            desc: sub.desc,
-                            book: sub.book,
-                            page: sub.page,
-                            ruleIdx: ruleIdx,
-                            subIdx: subIdx
-                         });
-                     });
-                 }
-             });
-        
-            return flatList;
-         }, [ruleVersion]);
-
     // Get flattened rules - memoized to prevent infinite loop
-    const flatRules = useMemo(() => flattenRules(rules || []), [rules, flattenRules]);
+    const flatRules = useMemo(() => flattenRules(rules || [], ruleVersion), [rules, ruleVersion]);
 
     // Find all matches in the flattened rules and update state via reducer
     useEffect(() => {
@@ -246,63 +203,14 @@ function RulesSearch({ rules, ruleVersion }) {
             <div className="rules-flow-container" ref={containerRef}>
                 {flatRules.map((item, idx) => {
                     const isHighlighted = matches.some(m => m.index === idx);
-                    const trimmedSearch = searchText.trim();
-                    const searchLower = trimmedSearch.toLowerCase();
-                    
                     return (
-                        <div
+                        <RuleSearchItem
                             key={`${item.type}-${item.index}`}
-                            id={item.index}
-                            className={`rules-flow-item ${isHighlighted ? 'highlighted-rule' : ''}`}
-                            onClick={() => handleRuleClick(item.index)}
-                        >
-                            {item.type === 'rule' && (
-                                <>
-                                    <h2 className="rules-flow-title">
-                                        {trimmedSearch && item.name && item.name.toLowerCase().includes(searchLower) ? (
-                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, trimmedSearch))} />
-                                        ) : (
-                                            item.name
-                                        )}
-                                    </h2>
-                                    {item.desc && (
-                                        <div className="rules-flow-desc">
-                                            {trimmedSearch && item.desc && item.desc.toLowerCase().includes(searchLower) ? (
-                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, trimmedSearch))} />
-                                            ) : (
-                                                 <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
-                                            )}
-                                        </div>
-                                    )}
-                                </>
-                            )}
-                            
-                            {item.type === 'subsection' && (
-                                <>
-                                    <h3 className="subsection-title">
-                                        {trimmedSearch && item.name && item.name.toLowerCase().includes(searchLower) ? (
-                                             <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.name, trimmedSearch))} />
-                                        ) : (
-                                            item.name
-                                        )}
-                                    </h3>
-                                    {item.desc && (
-                                        <div className="subsection-desc">
-                                            {trimmedSearch && item.desc && item.desc.toLowerCase().includes(searchLower) ? (
-                                                 <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, trimmedSearch))} />
-                                            ) : (
-                                                 <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
-                                            )}
-                                        </div>
-                                    )}
-                                    {item.page && (
-                                        <div className="subsection-page">
-                                            {item.book} (page {item.page})
-                                        </div>
-                                    )}
-                                </>
-                            )}
-                        </div>
+                            item={item}
+                            isHighlighted={isHighlighted}
+                            searchText={searchText}
+                            onRuleClick={handleRuleClick}
+                        />
                     );
                 })}
             </div>

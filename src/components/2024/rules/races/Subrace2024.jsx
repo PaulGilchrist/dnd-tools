@@ -20,7 +20,7 @@ function Subrace2024({ subrace }) {
 
     // Build traits with descriptions
     const traitsWithDescContent = traitsWithDesc.map(trait => (
-        <div key={trait.index} className="subrace-trait-sm">
+        <div key={trait.name} className="subrace-trait-sm">
             <span className="trait-name-sm">{trait.name}</span>
             <span className="trait-description-sm">
                 {Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc}
@@ -30,7 +30,7 @@ function Subrace2024({ subrace }) {
 
     // Build traits without descriptions
     const traitsWithoutDescContent = traitsWithoutDesc.map(trait => (
-        <div key={trait.index} className="subrace-trait-sm">
+        <div key={trait.name} className="subrace-trait-sm">
             <span className="trait-name-sm">{trait.name}</span>
         </div>
     ));
@@ -38,7 +38,7 @@ function Subrace2024({ subrace }) {
     const allTraits = [...traitsWithDescContent, ...traitsWithoutDescContent];
 
     return (
-        <div key={subrace.index} className="subrace-card">
+        <div key={subrace.name} className="subrace-card">
             <h5 className="subrace-heading-sm">{subrace.name}</h5>
 
             {subrace.desc && (
@@ -94,8 +94,8 @@ function Subrace2024({ subrace }) {
             {subrace.racial_traits && subrace.racial_traits.length > 0 && (
                 <div className="subrace-special-sm">
                     <b>Special Options:</b><br />
-                    {subrace.racial_traits.map((trait, idx) => (
-                        <div key={idx}>
+                    {subrace.racial_traits.map((trait) => (
+                        <div key={trait.name}>
                             {trait.name}:&nbsp;
                             {trait.desc && (
                                 Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc

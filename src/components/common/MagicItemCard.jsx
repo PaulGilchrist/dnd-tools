@@ -18,7 +18,7 @@ function MagicItemCard({ magicItem, expand, onExpand, onBookmarkChange, sectionR
         if (expand !== isExpanded) {
             setIsExpanded(expand);
            }
-       }, [expand]);
+       }, [expand, isExpanded]);
 
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);

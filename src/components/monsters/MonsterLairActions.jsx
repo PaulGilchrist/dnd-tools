@@ -10,8 +10,8 @@ function MonsterLairActions({ monster }) {
         <div>
             <span dangerouslySetInnerHTML={renderHtmlContent(monster.lair_actions.summary)} /><br />
             <ul>
-                {monster.lair_actions.actions.map((action, index) => (
-                    <li key={index}>
+                {monster.lair_actions.actions.map((action) => (
+                    <li key={action}>
                         <span dangerouslySetInnerHTML={renderHtmlContent(action)} />
                     </li>
                 ))}

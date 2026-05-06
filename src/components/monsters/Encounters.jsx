@@ -22,10 +22,112 @@ const xpThresholds = [
 const difficultyLabels = ['Easy', 'Medium', 'Hard', 'Deadly'];
 const difficultyColors = ['#28a745', '#ffc107', '#fd7e14', '#dc3545'];
 
+// Extracted: Calculate XP threshold from player levels and difficulty
+function calculateXPThreshold(filter) {
+    let xpThreshold = 0;
+    filter.playerLevels.forEach(pl => {
+        const levelIndex = parseInt(pl);
+        if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
+            xpThreshold += xpThresholds[levelIndex][filter.difficulty];
+        }
+    });
+    return xpThreshold;
+}
+
+// Extracted: Calculate max XP for filtering
+function calculateMaxXP(filter) {
+    let maxXP = 0;
+    filter.playerLevels.forEach(pl => {
+        const levelIndex = parseInt(pl);
+        if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
+            maxXP += xpThresholds[levelIndex][filter.difficulty];
+        }
+    });
+    return maxXP * 2;
+}
+
+// Extracted: Calculate difficulty multiplier from monster count
+function calculateDifficultyMultiplier(monsterCount) {
+    if (monsterCount === 0) return 1;
+    if (monsterCount === 1) return 1;
+    if (monsterCount === 2) return 1.5;
+    if (monsterCount <= 6) return 2;
+    if (monsterCount <= 10) return 2.5;
+    if (monsterCount <= 14) return 3;
+    return 4;
+}
+
+// Extracted: Calculate difficulty index from effective XP and threshold
+function calculateDifficultyIndex(effectiveXP, totalThreshold) {
+    if (totalThreshold === 0) return 0;
+    const ratio = effectiveXP / totalThreshold;
+    if (ratio < 0.5) return 0;
+    if (ratio < 1) return 1;
+    if (ratio < 1.5) return 2;
+    return 3;
+}
+
+// Extracted: Calculate total monster XP
+function calculateTotalMonsterXP(selectedMonsters) {
+    return selectedMonsters.reduce((sum, monster) => sum + (monster.xp || 0) * (monster.qty || 1), 0);
+}
+
+// Extracted: Calculate total monster count
+function calculateMonsterCount(selectedMonsters) {
+    return selectedMonsters.reduce((sum, monster) => sum + (monster.qty || 1), 0);
+}
+
+// Extracted: Filter monsters by max XP and search query
+function filterMonsters(monstersData, searchQuery, filter) {
+    if (!monstersData) return [];
+    const maxXP = calculateMaxXP(filter);
+    return monstersData.filter(monster => {
+        if (monster.xp > maxXP) {
+            return false;
+        }
+        if (searchQuery) {
+            const query = searchQuery.toLowerCase();
+            return monster.name.toLowerCase().includes(query) ||
+                (monster.type && monster.type.toLowerCase().includes(query)) ||
+                (monster.subtype && monster.subtype.toLowerCase().includes(query));
+        }
+        return true;
+    });
+}
+
+// Extracted: Toggle monster selection
+function toggleMonster(selectedMonsters, monster) {
+    if (selectedMonsters.some(m => m.index === monster.index)) {
+        return selectedMonsters.map(m =>
+            m.index === monster.index ? { ...m, qty: (m.qty || 1) - 1 } : m
+        ).filter(m => (m.qty || 1) > 0);
+    }
+    return [...selectedMonsters, { ...monster, qty: 1 }];
+}
+
+// Extracted: Update monster quantity
+function updateQty(selectedMonsters, monsterIndex, delta) {
+    return selectedMonsters.map(m =>
+        m.index === monsterIndex ? { ...m, qty: (m.qty || 1) + delta } : m
+    ).filter(m => (m.qty || 1) > 0);
+}
+
+// Extracted: Player management
+function updatePlayerLevels(filter, playerLevels) {
+    return { ...filter, playerLevels };
+}
+
+// Extracted: Update filter and save to localStorage
+function updateFilterAndSave(newFilter, ruleVersion) {
+    const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
+    setLocalStorageItem(versionedFilterKey, newFilter);
+    return newFilter;
+}
+
 function Encounters() {
     const { ruleVersion } = useRuleVersion();
     const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
-    
+
     const [filter, setFilter] = useState({
         difficulty: 2,
         playerLevels: [1]
@@ -48,102 +150,28 @@ function Encounters() {
         }
     }, [ruleVersion]);
 
-    const totalThreshold = useMemo(() => {
-        let xpThreshold = 0;
-        filter.playerLevels.forEach(pl => {
-            const levelIndex = parseInt(pl);
-            if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
-                xpThreshold += xpThresholds[levelIndex][filter.difficulty];
-            }
-        });
-        return xpThreshold;
-    }, [filter.playerLevels, filter.difficulty]);
-
-        const totalMonsterXP = useMemo(() => {
-        return selectedMonsters.reduce((sum, monster) => sum + (monster.xp || 0) * (monster.qty || 1), 0);
-     }, [selectedMonsters]);
-
-    const monsterCount = selectedMonsters.reduce((sum, monster) => sum + (monster.qty || 1), 0);
-    const difficultyMultiplier = useMemo(() => {
-        if (monsterCount === 0) return 1;
-        if (monsterCount === 1) return 1;
-        if (monsterCount === 2) return 1.5;
-        if (monsterCount <= 6) return 2;
-        if (monsterCount <= 10) return 2.5;
-        if (monsterCount <= 14) return 3;
-        return 4;
-    }, [monsterCount]);
-
+    const totalThreshold = useMemo(() => calculateXPThreshold(filter), [filter.playerLevels, filter.difficulty]);
+    const totalMonsterXP = useMemo(() => calculateTotalMonsterXP(selectedMonsters), [selectedMonsters]);
+    const monsterCount = useMemo(() => calculateMonsterCount(selectedMonsters), [selectedMonsters]);
+    const difficultyMultiplier = useMemo(() => calculateDifficultyMultiplier(monsterCount), [monsterCount]);
     const effectiveXP = Math.round(totalMonsterXP / difficultyMultiplier);
-    const difficultyIndex = useMemo(() => {
-        if (totalThreshold === 0) return 0;
-        const ratio = effectiveXP / totalThreshold;
-        if (ratio < 0.5) return 0;
-        if (ratio < 1) return 1;
-        if (ratio < 1.5) return 2;
-        return 3;
-    }, [effectiveXP, totalThreshold]);
+    const difficultyIndex = useMemo(() => calculateDifficultyIndex(effectiveXP, totalThreshold), [effectiveXP, totalThreshold]);
+    const filteredMonsters = useMemo(() => filterMonsters(monstersData, searchQuery, filter), [monstersData, searchQuery, filter.playerLevels, filter.difficulty]);
 
-    const filteredMonsters = useMemo(() => {
-        if (!monstersData) return [];
-        
-        // Calculate the max XP threshold (2x the selected difficulty threshold)
-        let maxXP = 0;
-        filter.playerLevels.forEach(pl => {
-            const levelIndex = parseInt(pl);
-            if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
-                maxXP += xpThresholds[levelIndex][filter.difficulty];
-            }
-        });
-        maxXP *= 2;
-        
-        // Always filter from the full monster list, not a previously filtered list
-        let result = monstersData.filter(monster => {
-            // Filter out monsters more than double the recommended difficulty
-            if (monster.xp > maxXP) {
-                return false;
-            }
-            
-            // Apply search query filter
-            if (searchQuery) {
-                const query = searchQuery.toLowerCase();
-                return monster.name.toLowerCase().includes(query) ||
-                    (monster.type && monster.type.toLowerCase().includes(query)) ||
-                    (monster.subtype && monster.subtype.toLowerCase().includes(query));
-            }
-            
-            return true;
-        });
-        
-        return result;
-    }, [monstersData, searchQuery, filter.playerLevels, filter.difficulty]);
-
-    const toggleMonster = (monster) => {
-        if (selectedMonsters.some(m => m.index === monster.index)) {
-            // If already selected, decrease quantity or remove if qty is 1
-            setSelectedMonsters(selectedMonsters.map(m => 
-                m.index === monster.index ? { ...m, qty: (m.qty || 1) - 1 } : m
-            ).filter(m => (m.qty || 1) > 0));
-        } else {
-            // Add new monster with qty 1
-            setSelectedMonsters([...selectedMonsters, { ...monster, qty: 1 }]);
-        }
+    const toggleMonsterHandler = (monster) => {
+        setSelectedMonsters(prev => toggleMonster(prev, monster));
     };
 
     const increaseQty = (monsterIndex) => {
-        setSelectedMonsters(selectedMonsters.map(m => 
-            m.index === monsterIndex ? { ...m, qty: (m.qty || 1) + 1 } : m
-        ));
+        setSelectedMonsters(prev => updateQty(prev, monsterIndex, 1));
     };
 
     const decreaseQty = (monsterIndex) => {
-        setSelectedMonsters(selectedMonsters.map(m => 
-            m.index === monsterIndex ? { ...m, qty: (m.qty || 1) - 1 } : m
-        ).filter(m => (m.qty || 1) > 0));
+        setSelectedMonsters(prev => updateQty(prev, monsterIndex, -1));
     };
 
     const removeMonster = (monsterIndex) => {
-        setSelectedMonsters(selectedMonsters.filter(m => m.index !== monsterIndex));
+        setSelectedMonsters(prev => prev.filter(m => m.index !== monsterIndex));
     };
 
     const clearMonsters = () => {
@@ -152,25 +180,24 @@ function Encounters() {
 
     const updateFilter = (newFilter) => {
         setFilter(newFilter);
-        const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
-        setLocalStorageItem(versionedFilterKey, newFilter);
+        updateFilterAndSave(newFilter, ruleVersion);
     };
 
     const addPlayer = () => {
-        updateFilter({ ...filter, playerLevels: [...filter.playerLevels, 1] });
+        updateFilter(updatePlayerLevels(filter, [...filter.playerLevels, 1]));
     };
 
     const removePlayer = (playerIndex) => {
         const newLevels = filter.playerLevels.filter((_, i) => i !== playerIndex);
         if (newLevels.length > 0) {
-            updateFilter({ ...filter, playerLevels: newLevels });
+            updateFilter(updatePlayerLevels(filter, newLevels));
         }
     };
 
     const onPlayerLevelChange = (playerLevelIndex, newValue) => {
         const newLevels = [...filter.playerLevels];
         newLevels[playerLevelIndex] = newValue;
-        updateFilter({ ...filter, playerLevels: newLevels });
+        updateFilter(updatePlayerLevels(filter, newLevels));
     };
 
     const onDifficultyChange = (event) => {
@@ -187,7 +214,7 @@ function Encounters() {
             <div className="encounters-compact">
                 {/* Top Row: Filters + Summary */}
                 <div className="encounters-top">
-                     <EncounterFilterPanel
+                    <EncounterFilterPanel
                         filter={{
                             ...filter,
                             difficultyLabels,
@@ -199,8 +226,8 @@ function Encounters() {
                         onAddPlayer={addPlayer}
                         onRemovePlayer={removePlayer}
                         onPlayerLevelChange={onPlayerLevelChange}
-                     />
-                     <EncounterSummaryPanel
+                    />
+                    <EncounterSummaryPanel
                         totalMonsterXP={totalMonsterXP}
                         monsterCount={monsterCount}
                         difficultyMultiplier={difficultyMultiplier}
@@ -210,28 +237,27 @@ function Encounters() {
                         difficultyColors={difficultyColors}
                         selectedMonsters={selectedMonsters}
                         onClearMonsters={clearMonsters}
-                                                        />
-                                                    </div>
-            {/* Monster Selection */}
-                 <EncounterMonsterTable
+                    />
+                </div>
+                {/* Monster Selection */}
+                <EncounterMonsterTable
                     filteredMonsters={filteredMonsters}
                     selectedMonsters={selectedMonsters}
-                    onToggleMonster={toggleMonster}
+                    onToggleMonster={toggleMonsterHandler}
                     onIncreaseQty={increaseQty}
                     onDecreaseQty={decreaseQty}
                     onRemoveMonster={removeMonster}
                     searchQuery={searchQuery}
                     onSearchQueryChange={setSearchQuery}
-                    />
-            {/* Selected Monsters Detail */}
-                 <EncounterSelectedMonsters
+                />
+                {/* Selected Monsters Detail */}
+                <EncounterSelectedMonsters
                     selectedMonsters={selectedMonsters}
                     onRemoveMonster={removeMonster}
-                 />
-                            </div>
-                    </div>
-     );
+                />
+            </div>
+        </div>
+    );
 }
 
 export default Encounters;
-

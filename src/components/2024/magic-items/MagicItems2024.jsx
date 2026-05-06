@@ -45,7 +45,6 @@ function MagicItems2024() {
             const uniqueItems = Array.from(uniqueItemsMap.values());
             
             setMagicItems(uniqueItems);
-            console.log(`${uniqueItems.length} magic items (2024 rules) - deduplicated from ${magicItemsData.length}`);
 
             // Check for index parameter in URL
             const index = searchParams.get('index');
@@ -75,7 +74,7 @@ function MagicItems2024() {
             }));
             setMagicItems(updatedItems);
               }
-           }, [magicItemsData]);
+            }, [magicItemsData, searchParams]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

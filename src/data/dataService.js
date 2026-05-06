@@ -18,8 +18,8 @@ const loadingPromises = {};
 export function sort(inputObjectArray, propertyName, descending = false) {
     if (inputObjectArray && propertyName) {
         inputObjectArray.sort((a, b) => {
-            let aValue = a[propertyName];
-            let bValue = b[propertyName];
+            const aValue = a[propertyName];
+            const bValue = b[propertyName];
             if (aValue < bValue) {
                 return descending ? 1 : -1;
             }

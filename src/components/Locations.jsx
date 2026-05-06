@@ -34,7 +34,7 @@ function Locations() {
                 }
             }
         }
-    }, [locationsData]);
+    }, [locationsData, searchParams]);
 
     // Scroll into view when card is expanded
     useEffect(() => {

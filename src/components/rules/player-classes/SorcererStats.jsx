@@ -6,8 +6,8 @@ function SorcererStats({ class_specific }) {
             return null;
         }
 
-        return class_specific.creating_spell_slots.map((spellSlot, index) => (
-            <span key={index}>
+        return class_specific.creating_spell_slots.map((spellSlot) => (
+            <span key={spellSlot.spell_slot_level}>
                 &nbsp;&nbsp;&nbsp;&nbsp;Level {spellSlot.spell_slot_level} Point Cost = {spellSlot.sorcery_point_cost}<br />
             </span>
         ));

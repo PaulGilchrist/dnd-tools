@@ -9,7 +9,7 @@ function Feat({ feat, expand, onExpand }) {
         if (expand !== isExpanded) {
             setIsExpanded(expand);
         }
-    }, [expand]);
+    }, [expand, isExpanded]);
 
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);
@@ -33,15 +33,15 @@ function Feat({ feat, expand, onExpand }) {
                                 <b>Prerequisite</b>: {feat.prerequisite}<br /><br />
                             </div>
                         )}
-                        {feat.desc && feat.desc.map((desc, index) => (
-                            <span key={index}>
+                        {feat.desc && feat.desc.map((desc) => (
+                            <span key={desc}>
                                 {desc}<br /><br />
                             </span>
                         ))}
                         {feat.benefits && feat.benefits.length > 0 && (
                             <ul>
-                                {feat.benefits.map((benefit, index) => (
-                                    <li key={index}>{benefit}</li>
+                                {feat.benefits.map((benefit) => (
+                                    <li key={benefit}>{benefit}</li>
                                 ))}
                             </ul>
                         )}

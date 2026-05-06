@@ -31,7 +31,6 @@ function Spells2024() {
     useEffect(() => {
         if (spellsData && spellsData.length > 0) {
             setSpells(spellsData);
-            console.log(`${spellsData.length} 2024 spells`);
 
             // Check for index parameter in URL
             const index = searchParams.get('index');
@@ -58,8 +57,8 @@ function Spells2024() {
                 prepared: preparedSpells.includes(spell.index)
             }));
             setSpells(updatedSpells);
-             }
-          }, [spellsData, knownSpells, preparedSpells]);
+              }
+           }, [spellsData, knownSpells, preparedSpells, searchParams]);
 
 
     const expandCard = (index, expanded) => {

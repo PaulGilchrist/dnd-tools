@@ -35,16 +35,14 @@ function MonsterSearch() {
                 if (monster) {
                     setShownCard(index);
                     // Get the DOM element by ID and scroll it into view
-            const element = document.getElementById(index);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-            }
+                    const element = document.getElementById(index);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                 }
-
-            console.log(`${updatedMonsters.length} monsters`);
             }
-        }, [monstersData, updateMonstersWithBookmarks]);
+        }
+    }, [monstersData, searchParams, updateMonstersWithBookmarks]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

@@ -19,8 +19,8 @@ function MonsterRegionalEffects({ monster }) {
                 <br />
                 {monster.regionalEffects.effects && monster.regionalEffects.effects.length > 0 && (
                     <ul>
-                        {monster.regionalEffects.effects.map((effect, index) => (
-                            <li key={index}>
+                        {monster.regionalEffects.effects.map((effect) => (
+                            <li key={effect}>
                                 <span dangerouslySetInnerHTML={renderHtmlContent(effect)} />
                             </li>
                         ))}

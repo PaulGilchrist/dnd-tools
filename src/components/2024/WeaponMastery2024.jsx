@@ -9,7 +9,6 @@ function WeaponMastery2024() {
     useEffect(() => {
         if (weaponsData && weaponsData.length > 0) {
             setWeapons(weaponsData);
-            console.log(`${weaponsData.length} weapon masteries`);
         }
     }, [weaponsData]);
 

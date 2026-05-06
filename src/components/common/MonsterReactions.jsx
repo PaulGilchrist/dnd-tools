@@ -12,8 +12,8 @@ function MonsterReactions({ monster }) {
 
     return (
           <div>
-              {monster.reactions.map((reaction, index) => (
-                  <span key={index} className="reaction-item">
+              {monster.reactions.map((reaction) => (
+                  <span key={reaction.name} className="reaction-item">
                       <b>{reaction.name}:</b>&nbsp;
                       {reaction.trigger && <i>{reaction.trigger}</i>}
                       {reaction.renderDescription && <span dangerouslySetInnerHTML={reaction.renderDescription()} />}

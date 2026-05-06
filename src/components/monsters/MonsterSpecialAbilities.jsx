@@ -9,8 +9,8 @@ function MonsterSpecialAbilities({ monster }) {
     return (
         <div>
             <h5>Special Traits</h5>
-            {monster.special_abilities.map((special_ability, index) => (
-                <span key={index}>
+            {monster.special_abilities.map((special_ability) => (
+                <span key={special_ability.name}>
                     <b>
                         {special_ability.name}
                         {special_ability.usage && special_ability.usage.type === 'per day' && (

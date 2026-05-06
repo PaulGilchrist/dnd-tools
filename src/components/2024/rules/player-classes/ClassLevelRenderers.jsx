@@ -1,73 +1,60 @@
 import React from 'react';
+import { SingleInfo, ClassInfo, SpellSlotsInfo } from './ClassInfoComponents';
 
-/**
- * Helper function to render feat information for 2024 rules
- * - Origin feat at level 1 (based on background)
- * - General feats at levels 4, 8, 12, and 16
- * - Epic Boon at level 19
- */
+// Generic field configs for single-value properties
+const singleFieldConfigs = {
+    rage_damage: { field: 'rage_damage', label: 'Rage Damage', prefix: '+', suffix: '' },
+    channel_divinity: { field: 'channel_divinity', label: 'Channel Divinity' },
+    wild_shape: { field: 'wild_shape', label: 'Wild Shape' },
+    beast_known_forms: { field: 'beast_known_forms', label: 'Beast Known Forms' },
+    beast_max_cr: { field: 'beast_max_cr', label: 'Beast Max CR' },
+    beast_fly_speed: { field: 'beast_fly_speed', label: 'Beast Fly Speed' },
+    favored_enemy: { field: 'favored_enemy', label: 'Favored Enemy' },
+    sorcery_points: { field: 'sorcery_points', label: 'Sorcery Points' },
+    eldritch_invocations: { field: 'eldritch_invocations', label: 'Eldritch Invocations' },
+};
+
+// Generic field configs for multi-value properties
+const multiFieldConfigs = {
+    barbarian: [
+        { field: 'rages', label: 'Rages' },
+        singleFieldConfigs.rage_damage,
+        { field: 'weapon_mastery', label: 'Weapon Mastery', condition: (level) => level.weapon_mastery && 'Fighter' !== 'Fighter' },
+    ],
+    fighter: [
+        { field: 'second_wind', label: 'Second Wind' },
+        { field: 'weapon_mastery', label: 'Weapon Mastery' },
+    ],
+    monk: [
+        { field: 'martial_arts_die', label: 'Martial Arts Die', prefix: 'd' },
+        { field: 'focus_points', label: 'Focus Points' },
+        { field: 'unarmored_movement_increase', label: 'Unarmored Movement Increase', prefix: '+', suffix: ' ft' },
+    ],
+    druid: [
+        { field: 'wild_shape', label: 'Wild Shape' },
+        { field: 'beast_known_forms', label: 'Beast Known Forms' },
+        { field: 'beast_max_cr', label: 'Beast Max CR' },
+        { field: 'beast_fly_speed', label: 'Beast Fly Speed' },
+    ],
+};
+
+// Spell slot config: renders slots from 1 to maxLevel
+const spellSlotConfig = { maxLevel: 9 };
+
+// Feat calculation: origin + general + epic boon
 function Feats2024({ level }) {
-    if (!level || level < 1) {
-        return null;
-    }
-
-    const parts = [];
-
-    // Origin feat at level 1
-    if (level >= 1) {
-        parts.push('1 Origin');
-    }
-
-    // General feats at levels 4, 8, 12, 16
-    const generalFeatLevels = [4, 8, 12, 16];
-    const generalFeats = generalFeatLevels.filter(featLevel => level >= featLevel).length;
-    if (generalFeats > 0) {
-        parts.push(`${generalFeats} General`);
-    }
-
-    // Epic Boon at level 19
-    if (level >= 19) {
-        parts.push('1 Epic Boon');
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return (
-        <div>
-            <b>Feats:</b>&nbsp;{parts.join(', ')}<br />
-        </div>
-    );
+    if (!level || level < 1) return null;
+    const parts = ['1 Origin'];
+    const generalFeats = [4, 8, 12, 16].filter(f => level >= f).length;
+    if (generalFeats > 0) parts.push(`${generalFeats} General`);
+    if (level >= 19) parts.push('1 Epic Boon');
+    if (parts.length === 0) return null;
+    return <div><b>Feats:</b>&nbsp;{parts.join(', ')}<br /></div>;
 }
 
-/**
- * Helper function to render Extra Attacks information
- * Displays the number of extra attacks for classes that have this feature (Fighter, Barbarian, Monk, Paladin, Ranger)
- */
-function ExtraAttacks({ level }) {
-    const parts = [];
-
-    if (level.extra_attacks !== undefined && level.extra_attacks !== null && level.extra_attacks > 0) {
-        parts.push(<div key="extra_attacks"><b>Extra Attacks:</b>&nbsp;{level.extra_attacks}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render energy information
- * Displays the energy die for subclasses like Psi Warrior
- */
+// EnergyInfo: formats energy_die_num + energy_die_type as "XdY" — kept standalone
 function EnergyInfo({ energy }) {
-    if (!energy || !energy.energy_die_type || !energy.energy_die_num) {
-        return null;
-    }
-
+    if (!energy?.energy_die_type || !energy.energy_die_num) return null;
     return (
         <div>
             <b>Energy:</b>&nbsp;{energy.energy_die_num}d{energy.energy_die_type}<br />
@@ -75,263 +62,55 @@ function EnergyInfo({ energy }) {
     );
 }
 
-/**
- * Helper function to render spellcasting information
- * Uses existing 5E styling classes for consistency
- */
+// Spellcasting: generic spell slots
 function SpellcastingInfo({ spellcasting }) {
-    const slots = [];
-
-    if (spellcasting.spell_slots_level_1 > 0) {
-        slots.push(<div key="level1">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_1} of level 1</div>);
-    }
-    if (spellcasting.spell_slots_level_2 > 0) {
-        slots.push(<div key="level2">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_2} of level 2</div>);
-    }
-    if (spellcasting.spell_slots_level_3 > 0) {
-        slots.push(<div key="level3">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_3} of level 3</div>);
-    }
-    if (spellcasting.spell_slots_level_4 > 0) {
-        slots.push(<div key="level4">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_4} of level 4</div>);
-    }
-    if (spellcasting.spell_slots_level_5 > 0) {
-        slots.push(<div key="level5">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_5} of level 5</div>);
-    }
-    if (spellcasting.spell_slots_level_6 > 0) {
-        slots.push(<div key="level6">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_6} of level 6</div>);
-    }
-    if (spellcasting.spell_slots_level_7 > 0) {
-        slots.push(<div key="level7">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_7} of level 7</div>);
-    }
-    if (spellcasting.spell_slots_level_8 > 0) {
-        slots.push(<div key="level8">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_8} of level 8</div>);
-    }
-    if (spellcasting.spell_slots_level_9 > 0) {
-        slots.push(<div key="level9">&nbsp;&nbsp;&nbsp;&nbsp;{spellcasting.spell_slots_level_9} of level 9</div>);
-    }
-
-    return (
-        <div className="playerClass-margin-bottom-small">
-            {spellcasting.cantrips_known > 0 && (
-                <div>
-                    <b>Cantrips Known:</b>&nbsp;{spellcasting.cantrips_known}<br />
-                </div>
-            )}
-
-            {spellcasting.prepared_spells > 0 && (
-                <div>
-                    <b>Prepared Spells:</b>&nbsp;{spellcasting.prepared_spells}<br />
-                </div>
-            )}
-
-            {slots.length > 0 && (
-                <div>
-                    <b>Spell Slots:</b><br />
-                    {slots}
-                </div>
-            )}
-        </div>
-    );
+    if (!spellcasting) return null;
+    return <SpellSlotsInfo spellcasting={spellcasting} config={spellSlotConfig} />;
 }
 
-/**
- * Helper function to render Barbarian-specific information
- * Displays rages, rage damage, and weapon mastery for Barbarian class levels
- */
-function BarbarianInfo({ level, className }) {
-    const parts = [];
-
-    if (level.rages) {
-        parts.push(<div key="rages"><b>Rages:</b>&nbsp;{level.rages}</div>);
-    }
-    if (level.rage_damage) {
-        parts.push(<div key="rage_damage"><b>Rage Damage:</b>&nbsp;+{level.rage_damage}</div>);
-    }
-    if (level.weapon_mastery && className === 'Barbarian') {
-        parts.push(<div key="weapon_mastery"><b>Weapon Mastery:</b>&nbsp;{level.weapon_mastery}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
+// Class-specific wrappers using generic ClassInfo
+function BarbarianInfo({ level }) {
+    return <ClassInfo level={level} config={{ fields: multiFieldConfigs.barbarian }} />;
 }
-
-/**
- * Helper function to render Bard-specific information
- * Displays the bardic die for Bard class levels
- */
 function BardicInfo({ level }) {
-    if (!level.bardic_die) {
-        return null;
-    }
-
-    return (
-        <div>
-            <b>Bardic Die:</b>&nbsp;d{level.bardic_die}<br />
-        </div>
-    );
+    return <SingleInfo level={level} config={{ field: 'bardic_die', label: 'Bardic Die', prefix: 'd' }} />;
 }
-
-/**
- * Helper function to render Cleric-specific information
- * Displays the Channel Divinity uses for Cleric class levels
- */
+function DruidInfo({ level }) {
+    return <ClassInfo level={level} config={{ fields: multiFieldConfigs.druid }} />;
+}
+function FighterInfo({ level }) {
+    return <ClassInfo level={level} config={{ fields: multiFieldConfigs.fighter }} />;
+}
+function MonkInfo({ level }) {
+    return <ClassInfo level={level} config={{ fields: multiFieldConfigs.monk }} />;
+}
+function RangerInfo({ level }) {
+    return <SingleInfo level={level} config={singleFieldConfigs.favored_enemy} />;
+}
+function RogueInfo({ level }) {
+    return <SingleInfo level={level} config={{ field: 'sneak_attack_num_d6', label: 'Sneak Attack', suffix: 'd6' }} />;
+}
+function SorcererInfo({ level }) {
+    return <SingleInfo level={level} config={singleFieldConfigs.sorcery_points} />;
+}
+function WarlockInfo({ level }) {
+    return <SingleInfo level={level} config={singleFieldConfigs.eldritch_invocations} />;
+}
+// ChannelDivinity: conditional suffix (use vs uses) — kept standalone
 function ChannelDivinity({ level }) {
-    if (level.channel_divinity === undefined || level.channel_divinity === null) {
-        return null;
-    }
-
+    if (level?.channel_divinity === undefined || level?.channel_divinity === null) return null;
     return (
         <div>
             <b>Channel Divinity:</b>&nbsp;{level.channel_divinity} use{level.channel_divinity !== 1 ? 's' : ''}<br />
         </div>
     );
 }
-
-/**
- * Helper function to render Druid-specific information
- * Displays Wild Shape, Beast Known Forms, Max CR, and Fly Speed for Druid class levels
- */
-function DruidInfo({ level }) {
-    const parts = [];
-
-    if (level.wild_shape !== undefined && level.wild_shape !== null) {
-        parts.push(<div key="wild_shape"><b>Wild Shape:</b>&nbsp;{level.wild_shape}</div>);
+// ExtraAttacks: generic single-field
+function ExtraAttacks({ level }) {
+    if (level?.extra_attacks > 0) {
+        return <SingleInfo level={level} config={{ field: 'extra_attacks', label: 'Extra Attacks' }} />;
     }
-    if (level.beast_known_forms !== undefined && level.beast_known_forms !== null) {
-        parts.push(<div key="beast_known_forms"><b>Beast Known Forms:</b>&nbsp;{level.beast_known_forms}</div>);
-    }
-    if (level.beast_max_cr !== undefined && level.beast_max_cr !== null) {
-        parts.push(<div key="beast_max_cr"><b>Beast Max CR:</b>&nbsp;{level.beast_max_cr}</div>);
-    }
-    if (level.beast_fly_speed !== undefined && level.beast_fly_speed !== null) {
-        parts.push(<div key="beast_fly_speed"><b>Beast Fly Speed:</b>&nbsp;{level.beast_fly_speed}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render Fighter-specific information
- * Displays Second Wind uses and Weapon Mastery for Fighter class levels
- */
-function FighterInfo({ level, className }) {
-    const parts = [];
-
-    if (level.second_wind !== undefined && level.second_wind !== null && level.second_wind > 0) {
-        parts.push(<div key="second_wind"><b>Second Wind:</b>&nbsp;{level.second_wind} use{level.second_wind !== 1 ? 's' : ''}</div>);
-    }
-    if (level.weapon_mastery !== undefined && level.weapon_mastery !== null && level.weapon_mastery > 0 && className === 'Fighter') {
-        parts.push(<div key="weapon_mastery"><b>Weapon Mastery:</b>&nbsp;{level.weapon_mastery}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render Monk-specific information
- * Displays Martial Arts Die, Focus Points, and Unarmored Movement Increase for Monk class levels
- */
-function MonkInfo({ level }) {
-    const parts = [];
-
-    if (level.martial_arts_die !== undefined && level.martial_arts_die !== null) {
-        parts.push(<div key="martial_arts_die"><b>Martial Arts Die:</b>&nbsp;d{level.martial_arts_die}</div>);
-    }
-    if (level.focus_points !== undefined && level.focus_points !== null) {
-        parts.push(<div key="focus_points"><b>Focus Points:</b>&nbsp;{level.focus_points}</div>);
-    }
-    if (level.unarmored_movement_increase !== undefined && level.unarmored_movement_increase !== null) {
-        parts.push(<div key="unarmored_movement_increase"><b>Unarmored Movement Increase:</b>&nbsp;+{level.unarmored_movement_increase} ft</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render Ranger-specific information
- * Displays the number of Favored Enemy types for Ranger class levels
- */
-function RangerInfo({ level }) {
-    const parts = [];
-
-    if (level.favored_enemy !== undefined && level.favored_enemy !== null) {
-        parts.push(<div key="favored_enemy"><b>Favored Enemy:</b>&nbsp;{level.favored_enemy}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render Rogue-specific information
- * Displays the Sneak Attack damage dice for Rogue class levels
- */
-function RogueInfo({ level }) {
-    const parts = [];
-
-    if (level.sneak_attack_num_d6 !== undefined && level.sneak_attack_num_d6 !== null) {
-        parts.push(<div key="sneak_attack"><b>Sneak Attack:</b>&nbsp;{level.sneak_attack_num_d6}d6</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render Sorcerer-specific information
- * Displays the Sorcery Points for Sorcerer class levels
- */
-function SorcererInfo({ level }) {
-    const parts = [];
-
-    if (level.sorcery_points !== undefined && level.sorcery_points !== null) {
-        parts.push(<div key="sorcery_points"><b>Sorcery Points:</b>&nbsp;{level.sorcery_points}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
-}
-
-/**
- * Helper function to render Warlock-specific information
- * Displays the Eldritch Invocations for Warlock class levels
- */
-function WarlockInfo({ level }) {
-    const parts = [];
-
-    if (level.eldritch_invocations !== undefined && level.eldritch_invocations !== null) {
-        parts.push(<div key="eldritch_invocations"><b>Eldritch Invocations:</b>&nbsp;{level.eldritch_invocations}</div>);
-    }
-
-    if (parts.length === 0) {
-        return null;
-    }
-
-    return <div>{parts}</div>;
+    return null;
 }
 
 export {

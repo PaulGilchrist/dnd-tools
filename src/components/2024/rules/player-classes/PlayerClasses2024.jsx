@@ -27,7 +27,7 @@ function PlayerClasses2024() {
                 }
             }
         }
-    }, [classesData]);
+    }, [classesData, searchParams]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

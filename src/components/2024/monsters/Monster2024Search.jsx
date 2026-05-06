@@ -39,9 +39,6 @@ function Monster2024Search() {
                     scrollIntoView(index);
                 }
             }
-
-
-            console.log(`${updatedMonsters.length} 2024 monsters`);
         }
     }, [monstersData, searchParams]);
 

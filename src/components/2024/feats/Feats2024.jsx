@@ -25,7 +25,6 @@ function Feats2024() {
     useEffect(() => {
         if (featsData && featsData.length > 0) {
             setFeats(featsData);
-            console.log(`${featsData.length} 2024 feats`);
 
             // Check for index parameter in URL
             const index = searchParams.get('index');
@@ -44,8 +43,8 @@ function Feats2024() {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024, filter);
                       }
                   }
-              }
-           }, [featsData]);
+            }
+               }, [featsData, searchParams]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

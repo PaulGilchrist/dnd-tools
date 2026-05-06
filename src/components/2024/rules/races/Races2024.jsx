@@ -17,7 +17,6 @@ function Races2024() {
     useEffect(() => {
         if (racesData && racesData.length > 0) {
             setRaces(racesData);
-            console.log(`${racesData.length} races`);
 
             // Check for index parameter in URL
             const index = searchParams.get('index');
@@ -36,8 +35,8 @@ function Races2024() {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.RACES_FILTER_2024, { category: 'All' });
                       }
                   }
-              }
-          }, [racesData]);
+                  }
+              }, [racesData, searchParams]);
 
     const expandCard = (index, expanded) => {
                   // expanded is the desired NEW state

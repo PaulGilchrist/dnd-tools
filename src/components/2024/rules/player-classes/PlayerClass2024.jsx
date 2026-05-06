@@ -17,7 +17,7 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
         if (isExpanded !== (expand ? 1 : 0)) {
             setIsExpanded(!!expand);
         }
-    }, [expand]);
+    }, [expand, isExpanded]);
 
     const getNameString = (names) => {
         if (!names || names.length === 0) return '';
@@ -52,7 +52,7 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
         if (!playerClass.class_levels) return [];
         
         const classLevels = playerClass.class_levels.filter((classLevel) => classLevel.level <= shownLevel);
-        let classFeatures = [];
+         const classFeatures = [];
         for (let i = classLevels.length - 1; i >= 0; i--) {
             if (classLevels[i].features) {
                 classLevels[i].features.forEach((feature) => {

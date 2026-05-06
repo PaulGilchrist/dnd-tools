@@ -9,7 +9,7 @@ function Feat2024({ feat, expand, onExpand }) {
         if (expand !== isExpanded) {
             setIsExpanded(expand);
         }
-    }, [expand]);
+    }, [expand, isExpanded]);
 
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);
@@ -79,8 +79,8 @@ function Feat2024({ feat, expand, onExpand }) {
                               <div className="benefits-list">
                                 <b>Benefits:</b>
                                 <ul>
-                                    {feat.benefits.map((benefit, index) => (
-                                        <li key={index}>
+                                    {feat.benefits.map((benefit) => (
+                                        <li key={benefit.name}>
                                             <b>{benefit.name}:</b> {benefit.description}
                                         </li>
                                     ))}
@@ -91,8 +91,8 @@ function Feat2024({ feat, expand, onExpand }) {
                         {feat.ability_score_increase && (
                             <div className="ability-score-increase">
                                 <b>Ability Score Increase:</b>
-                                {feat.ability_score_increase.scores?.map((score, index) => (
-                                    <span key={index} className="ability-score-item">
+                                {feat.ability_score_increase.scores?.map((score) => (
+                                    <span key={score} className="ability-score-item">
                                         &nbsp;{score} +{feat.ability_score_increase.amount}
                                     </span>
                                 ))}
@@ -102,8 +102,8 @@ function Feat2024({ feat, expand, onExpand }) {
 
                         {feat.tags && feat.tags.length > 0 && (
                               <div className="tags-container">
-                                {feat.tags.map((tag, index) => (
-                                      <span key={index} className="tag-item">
+                                {feat.tags.map((tag) => (
+                                      <span key={tag} className="tag-item">
                                         {tag.replace(/_/g, ' ')}
                                     </span>
                                 ))}

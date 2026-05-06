@@ -28,12 +28,12 @@ function Names() {
             setNames(namesData);
 
             // Set search filters from localStorage
-            let filterJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER);
+             const filterJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER);
             if (filterJson) {
                 const savedFilter = filterJson;
                 
                 // Set used names from localStorage first
-                let namesUsedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED);
+                 const namesUsedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED);
                 if (namesUsedJson != null) {
                     setNamesUsed(namesUsedJson);
                 }
@@ -53,7 +53,7 @@ function Names() {
                 setTimeout(() => getNames(), 0);
             }
         }
-    }, [namesData]);
+    }, [namesData, filter]);
 
     useEffect(() => {
         // Call getNames when filter changes after initial load
@@ -88,7 +88,6 @@ function Names() {
         }
 
         // Debug: log availableNames to see structure
-        console.log('availableNames:', availableNames);
 
         let firstNames = [];
         let lastNames = [];
@@ -109,8 +108,6 @@ function Names() {
                 firstNames = [];
                 lastNames = [];
         }
-
-        console.log('firstNames:', firstNames, 'lastNames:', lastNames);
 
         switch (filterToUse.used) {
             case 'available':

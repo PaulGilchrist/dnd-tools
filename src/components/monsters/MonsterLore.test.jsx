@@ -6,6 +6,7 @@ import { RuleVersionProvider } from '../../context/RuleVersionContext';
 // Mutable state for mocking hooks
 const useMonstersState = { data: [], loading: false };
 const useMonsterTypesState = { data: [], loading: false };
+const use2024SubtypesState = { data: [], loading: false };
 
 vi.mock('../../data/dataService', () => ({
   getBaseUrl: vi.fn(() => ''),
@@ -16,6 +17,15 @@ vi.mock('../../data/dataService', () => ({
   }),
   useMonsters: vi.fn(() => useMonstersState),
   useMonsterTypes: vi.fn(() => useMonsterTypesState),
+  use2024MonsterSubtypes: vi.fn(() => use2024SubtypesState),
+}));
+
+vi.mock('../../hooks/useVersionedData', () => ({
+  useVersionedData: vi.fn((entity) => {
+    if (entity === 'monsters') return useMonstersState;
+    if (entity === 'monsterTypes') return useMonsterTypesState;
+    return { data: [], loading: false };
+  }),
 }));
 
 vi.mock('../../data/utils', () => ({
@@ -55,6 +65,31 @@ vi.mock('./Monster', () => ({
       )),
 }));
 
+vi.mock('../2024/monsters/Monster2024', () => ({
+  default: vi.fn(({ monster, expand, onExpand, cardType }) => (
+          <div data-testid={`monster2024-${monster?.index}`}>
+              <span>{monster?.name}</span>
+              <button data-testid={`expand-monster2024-${monster?.index}`}
+                      onClick={() => onExpand(!expand)}
+                      aria-expanded={expand}>
+                  {expand ? 'Collapse' : 'Expand'}
+              </button>
+          </div>
+      )),
+}));
+
+vi.mock('../2024/monsters/SubtypeCard', () => ({
+  default: vi.fn(({ subtype, shownCard, shownMonster, expandCard, expandMonsterCard }) => (
+          <div data-testid={`subtype-card-${subtype?.index}`}>
+              <div className="card w-100">
+                  <div className="card-header clickable">
+                      <div className="card-title">{subtype?.name}</div>
+                  </div>
+              </div>
+          </div>
+      )),
+}));
+
 import MonsterLore from './MonsterLore';
 import Monster from './Monster';
 
@@ -88,6 +123,8 @@ describe('MonsterLore', () => {
         useMonstersState.loading = false;
         useMonsterTypesState.data = [];
         useMonsterTypesState.loading = false;
+        use2024SubtypesState.data = [];
+        use2024SubtypesState.loading = false;
         vi.clearAllMocks();
       });
 

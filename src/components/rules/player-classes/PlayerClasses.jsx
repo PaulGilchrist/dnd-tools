@@ -37,7 +37,7 @@ function PlayerClasses() {
                 }
             }
         }
-    }, [playerClassesData]);
+    }, [playerClassesData, searchParams]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {

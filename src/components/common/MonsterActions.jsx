@@ -26,8 +26,8 @@ function MonsterActions({ monster, sectionType = 'actions' }) {
 
     return (
          <div>
-              {items.map((item, index) => (
-                  <div key={index}>
+              {items.map((item) => (
+                  <div key={item.name}>
                       <b>
                           {item.name}
                           {/* 5e usage format */}

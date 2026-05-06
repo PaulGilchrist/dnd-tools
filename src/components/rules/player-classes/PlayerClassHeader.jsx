@@ -6,7 +6,7 @@ function PlayerClassHeader({ playerClass, isExpanded, onToggle }) {
         if (isExpanded) {
             scrollIntoView(playerClass.index);
         }
-    }, [isExpanded]);
+    }, [isExpanded, playerClass.index]);
 
     return (
         <div className="card-header clickable" onClick={onToggle}>

@@ -32,8 +32,6 @@ function Races() {
     // Initialize filter in localStorage if not already set
     useEffect(() => {
         if (racesData && racesData.length > 0) {
-            console.log(`${racesData.length} races`);
-
             const storageKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.RACES_FILTER, ruleVersion);
             if (!getLocalStorageItem(storageKey)) {
                 setLocalStorageItem(storageKey, { category: 'All' });

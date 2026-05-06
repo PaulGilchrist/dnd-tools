@@ -32,7 +32,7 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
         if (expand !== isExpanded) {
             setIsExpanded(expand);
          }
-     }, [expand]);
+     }, [expand, isExpanded]);
 
     const toggleDetails = (e) => {
         e.stopPropagation();
@@ -165,11 +165,11 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                          )}
                                          <br />
                                          <ul>
-                                             {monster.lairActions.actions.map((action, index) => (
-                                                 <li key={index}>
-                                                     <span dangerouslySetInnerHTML={renderHtmlContent(action)} />
-                                                 </li>
-                                             ))}
+                                              {monster.lairActions.actions.map((action) => (
+                                                  <li key={action}>
+                                                      <span dangerouslySetInnerHTML={renderHtmlContent(action)} />
+                                                  </li>
+                                              ))}
                                          </ul>
                                          {monster.lairActions.usage && (
                                              <div>
