@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
+import { parseChallengeRating } from '../utils/monsterUtils';
 
 const defaultFilter = {
     bookmarked: 'All',
@@ -54,8 +55,11 @@ export function useMonsterFilter({ initialFilter, ruleVersion = '5e' } = {}) {
             return false;
         }
 
-        // Challenge rating range (both 5e and 2024 use numeric challenge_rating)
-        if (monster.challenge_rating < filter.challengeRatingMin || monster.challenge_rating > filter.challengeRatingMax) {
+        // Challenge rating range
+        const cr = parseChallengeRating(monster.challenge_rating);
+        const crMin = filter.challengeRatingMin === '' ? 0 : filter.challengeRatingMin;
+        const crMax = filter.challengeRatingMax === '' ? 25 : filter.challengeRatingMax;
+        if (cr < crMin || cr > crMax) {
             return false;
         }
 
@@ -63,17 +67,17 @@ export function useMonsterFilter({ initialFilter, ruleVersion = '5e' } = {}) {
         if (filter.environment !== 'All') {
             if (Array.isArray(monster.environments)) {
                 // 5e: environments is an array of strings
-                if (!monster.environments.includes(filter.environment)) {
+                const envs = monster.environments.map(e => e.toLowerCase());
+                if (!envs.includes(filter.environment.toLowerCase())) {
                     return false;
                 }
             } else if (typeof monster.environment === 'string') {
                 // 2024: environment is a single string
-                if (monster.environment !== filter.environment) {
+                if (monster.environment.toLowerCase() !== filter.environment.toLowerCase()) {
                     return false;
                 }
-            } else {
-                return false;
             }
+            // If no environment data exists, skip this filter (don't hide the monster)
         }
 
         // Name filter (case-insensitive)
@@ -87,12 +91,14 @@ export function useMonsterFilter({ initialFilter, ruleVersion = '5e' } = {}) {
         }
 
         // Type filter
-        if (filter.type !== 'All' && filter.type !== monster.type) {
+        if (filter.type !== 'All' && monster.type.toLowerCase() !== filter.type.toLowerCase()) {
             return false;
         }
 
         // XP range
-        if (monster.xp < filter.xpMin || monster.xp > filter.xpMax) {
+        const xpMin = filter.xpMin === '' ? 0 : filter.xpMin;
+        const xpMax = filter.xpMax === '' ? 50000 : filter.xpMax;
+        if (monster.xp < xpMin || monster.xp > xpMax) {
             return false;
         }
 

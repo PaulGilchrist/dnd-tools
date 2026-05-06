@@ -6,10 +6,30 @@ function capitalizeFirstLetter(string) {
 
 function FilterControls({ filter, updateFilter }) {
     const [localName, setLocalName] = useState(filter.name);
+    const [localCrMin, setLocalCrMin] = useState(filter.challengeRatingMin?.toString() ?? '');
+    const [localCrMax, setLocalCrMax] = useState(filter.challengeRatingMax?.toString() ?? '');
+    const [localXpMin, setLocalXpMin] = useState(filter.xpMin?.toString() ?? '');
+    const [localXpMax, setLocalXpMax] = useState(filter.xpMax?.toString() ?? '');
 
     useEffect(() => {
         setLocalName(filter.name);
     }, [filter.name]);
+
+    useEffect(() => {
+        setLocalCrMin(filter.challengeRatingMin?.toString() ?? '');
+    }, [filter.challengeRatingMin]);
+
+    useEffect(() => {
+        setLocalCrMax(filter.challengeRatingMax?.toString() ?? '');
+    }, [filter.challengeRatingMax]);
+
+    useEffect(() => {
+        setLocalXpMin(filter.xpMin?.toString() ?? '');
+    }, [filter.xpMin]);
+
+    useEffect(() => {
+        setLocalXpMax(filter.xpMax?.toString() ?? '');
+    }, [filter.xpMax]);
 
     const handleNameChange = (e) => {
         const value = e.target.value;
@@ -58,9 +78,11 @@ function FilterControls({ filter, updateFilter }) {
                         className="column form-control" 
                         id="challengeRatingMin" 
                         name="challengeRatingMin"
-                        value={filter.challengeRatingMin}
+                        value={localCrMin}
                         onChange={(e) => {
-                            updateFilter('challengeRatingMin', parseFloat(e.target.value) || 0);
+                            const value = e.target.value;
+                            setLocalCrMin(value);
+                            updateFilter('challengeRatingMin', value === '' ? '' : parseFloat(value));
                         }}
                         min="0" 
                         max="25" 
@@ -74,9 +96,11 @@ function FilterControls({ filter, updateFilter }) {
                         className="column form-control" 
                         id="challengeRatingMax" 
                         name="challengeRatingMax"
-                        value={filter.challengeRatingMax}
+                        value={localCrMax}
                         onChange={(e) => {
-                            updateFilter('challengeRatingMax', parseFloat(e.target.value) || 0);
+                            const value = e.target.value;
+                            setLocalCrMax(value);
+                            updateFilter('challengeRatingMax', value === '' ? '' : parseFloat(value));
                         }}
                         min="0" 
                         max="25" 
@@ -95,9 +119,11 @@ function FilterControls({ filter, updateFilter }) {
                         className="column form-control" 
                         id="xpMin" 
                         name="xpMin"
-                        value={filter.xpMin}
+                        value={localXpMin}
                         onChange={(e) => {
-                            updateFilter('xpMin', parseInt(e.target.value) || 0);
+                            const value = e.target.value;
+                            setLocalXpMin(value);
+                            updateFilter('xpMin', value === '' ? '' : parseInt(value));
                         }}
                         min="0" 
                         max="50000" 
@@ -111,9 +137,11 @@ function FilterControls({ filter, updateFilter }) {
                         className="column form-control" 
                         id="xpMax" 
                         name="xpMax"
-                        value={filter.xpMax}
+                        value={localXpMax}
                         onChange={(e) => {
-                            updateFilter('xpMax', parseInt(e.target.value) || 0);
+                            const value = e.target.value;
+                            setLocalXpMax(value);
+                            updateFilter('xpMax', value === '' ? '' : parseInt(value));
                         }}
                         min="0" 
                         max="50000" 

@@ -112,6 +112,22 @@ describe('useMonsterFilter', () => {
             expect(result.current.showMonster(highCRMonster)).toBe(false);
         });
 
+        it('filters by fractional challenge rating (string CR like "1/2")', () => {
+            const { result } = renderHook(() => useMonsterFilter());
+            act(() => {
+                result.current.updateFilter('challengeRatingMin', 0.25);
+                result.current.updateFilter('challengeRatingMax', 1);
+            });
+
+            const halfCRMonster = create5eMonster({ challenge_rating: '1/2' });
+            const quarterCRMonster = create5eMonster({ challenge_rating: '1/4' });
+            const highCRMonster = create5eMonster({ challenge_rating: '7' });
+
+            expect(result.current.showMonster(halfCRMonster)).toBe(true);
+            expect(result.current.showMonster(quarterCRMonster)).toBe(true);
+            expect(result.current.showMonster(highCRMonster)).toBe(false);
+        });
+
         it('filters by environment using 5e array format', () => {
             const { result } = renderHook(() => useMonsterFilter());
             act(() => {
@@ -123,6 +139,17 @@ describe('useMonsterFilter', () => {
 
             expect(result.current.showMonster(undergroundMonster)).toBe(true);
             expect(result.current.showMonster(noEnvironmentMonster)).toBe(false);
+        });
+
+        it('filters by environment case-insensitively', () => {
+            const { result } = renderHook(() => useMonsterFilter());
+            act(() => {
+                result.current.updateFilter('environment', 'underground');
+            });
+
+            const undergroundMonster = create5eMonster({ environments: ['Underground'] });
+
+            expect(result.current.showMonster(undergroundMonster)).toBe(true);
         });
 
         it('filters by name (case-insensitive)', () => {
@@ -162,6 +189,17 @@ describe('useMonsterFilter', () => {
 
             expect(result.current.showMonster(humanoidMonster)).toBe(true);
             expect(result.current.showMonster(beastMonster)).toBe(false);
+        });
+
+        it('filters by type case-insensitively', () => {
+            const { result } = renderHook(() => useMonsterFilter());
+            act(() => {
+                result.current.updateFilter('type', 'humanoid');
+            });
+
+            const humanoidMonster = create5eMonster({ type: 'Humanoid' });
+
+            expect(result.current.showMonster(humanoidMonster)).toBe(true);
         });
 
         it('filters by XP range', () => {
@@ -229,6 +267,20 @@ describe('useMonsterFilter', () => {
             expect(result.current.showMonster(highCRMonster)).toBe(false);
         });
 
+        it('filters 2024 monster by fractional challenge rating', () => {
+            const { result } = renderHook(() => useMonsterFilter({ ruleVersion: '2024' }));
+            act(() => {
+                result.current.updateFilter('challengeRatingMin', 0.25);
+                result.current.updateFilter('challengeRatingMax', 2);
+            });
+
+            const halfCRMonster = create2024Monster({ challenge_rating: '1/2' });
+            const highCRMonster = create2024Monster({ challenge_rating: '5' });
+
+            expect(result.current.showMonster(halfCRMonster)).toBe(true);
+            expect(result.current.showMonster(highCRMonster)).toBe(false);
+        });
+
         it('filters 2024 monster by bookmarked status', () => {
             const { result } = renderHook(() => useMonsterFilter({ ruleVersion: '2024' }));
             act(() => {
@@ -242,7 +294,7 @@ describe('useMonsterFilter', () => {
             expect(result.current.showMonster(unbookmarkedMonster)).toBe(false);
         });
 
-        it('hides 2024 monster when environment filter is active but monster has no environment', () => {
+        it('shows 2024 monster even when environment filter is active and monster has no environment field', () => {
             const { result } = renderHook(() => useMonsterFilter({ ruleVersion: '2024' }));
             act(() => {
                 result.current.updateFilter('environment', 'Underground');
@@ -250,7 +302,67 @@ describe('useMonsterFilter', () => {
 
             const noEnvMonster = create2024Monster({ environment: undefined });
 
-            expect(result.current.showMonster(noEnvMonster)).toBe(false);
+            expect(result.current.showMonster(noEnvMonster)).toBe(true);
+        });
+
+        it('filters 2024 monster by environment when field exists', () => {
+            const { result } = renderHook(() => useMonsterFilter({ ruleVersion: '2024' }));
+            act(() => {
+                result.current.updateFilter('environment', 'Underground');
+            });
+
+            const undergroundMonster = create2024Monster({ environment: 'Underground' });
+            const mountainsMonster = create2024Monster({ environment: 'Mountains' });
+
+            expect(result.current.showMonster(undergroundMonster)).toBe(true);
+            expect(result.current.showMonster(mountainsMonster)).toBe(false);
+        });
+
+        it('filters 2024 monster by environment case-insensitively', () => {
+            const { result } = renderHook(() => useMonsterFilter({ ruleVersion: '2024' }));
+            act(() => {
+                result.current.updateFilter('environment', 'underground');
+            });
+
+            const undergroundMonster = create2024Monster({ environment: 'Underground' });
+
+            expect(result.current.showMonster(undergroundMonster)).toBe(true);
+        });
+    });
+
+    describe('showMonster with empty string filter values', () => {
+        const create5eMonster = (overrides = {}) => ({
+            index: 'goblin',
+            name: 'Goblin',
+            challenge_rating: 1,
+            environments: ['Underground'],
+            size: 'Small',
+            type: 'Humanoid',
+            xp: 50,
+            bookmarked: false,
+            ...overrides,
+        });
+
+        it('treats empty string challengeRatingMin as 0', () => {
+            const { result } = renderHook(() => useMonsterFilter());
+            act(() => {
+                result.current.updateFilter('challengeRatingMin', '');
+            });
+
+            const lowCRMonster = create5eMonster({ challenge_rating: 0.25 });
+
+            expect(result.current.showMonster(lowCRMonster)).toBe(true);
+        });
+
+        it('treats empty string xpMax as 50000', () => {
+            const { result } = renderHook(() => useMonsterFilter());
+            act(() => {
+                result.current.updateFilter('xpMax', '');
+            });
+
+            const highXPMonster = create5eMonster({ xp: 45000 });
+
+            expect(result.current.showMonster(highXPMonster)).toBe(true);
         });
     });
 
