@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 // Get the base URL from Vite's environment variables (set by vite.config.js)
-const BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '';
+export const BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '';
 
 // Cache for storing loaded data to avoid repeated fetches
 const dataCache = {};
@@ -70,7 +70,7 @@ async function fetchAndCache(key, url) {
 }
 
 // Hook to fetch and cache data lazily
-function useDataCache(key, url) {
+export function useDataCache(key, url) {
     const [data, setData] = useState(() => dataCache[key]);
     const [loading, setLoading] = useState(!dataCache[key]);
     const [error, setError] = useState(null);

@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../utils/localStorage';
 
-export function useMonsterBookmarks(monsters = []) {
+export function useMonsterBookmarks({ ruleVersion } = {}) {
+    const version = ruleVersion || '5e';
+    const bookmarkedKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED, version);
+
     const [monstersBookmarked, setMonstersBookmarked] = useState(() => {
-        return getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED) || [];
+        return getLocalStorageItem(bookmarkedKey) || [];
     });
 
     // Update monsters with bookmarked status when monsters data changes
@@ -19,26 +22,18 @@ export function useMonsterBookmarks(monsters = []) {
     };
 
     const handleBookmarkChange = (index, isBookmarked) => {
-        // Update local state immediately so UI reflects the change
-        setMonstersBookmarked(prevBookmarks => {
-            if (isBookmarked) {
-                return [...prevBookmarks, index];
-            } else {
-                return prevBookmarks.filter(i => i !== index);
-             }
-         });
+        // Compute new array inline to avoid stale closure, then use for both state and localStorage
+        const newBookmarks = isBookmarked
+            ? [...monstersBookmarked, index]
+            : monstersBookmarked.filter(i => i !== index);
 
-        // Save to localStorage
-        const newBookmarks = isBookmarked 
-             ? [...monstersBookmarked, index]
-             : monstersBookmarked.filter(i => i !== index);
-
-        setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED, newBookmarks);
-     };
+        setLocalStorageItem(bookmarkedKey, newBookmarks);
+        setMonstersBookmarked(newBookmarks);
+    };
 
     const saveBookmark = () => {
-        setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED, monstersBookmarked);
-     };
+        setLocalStorageItem(bookmarkedKey, monstersBookmarked);
+    };
 
     return {
         monstersBookmarked,

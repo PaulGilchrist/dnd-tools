@@ -4,10 +4,15 @@ import { MemoryRouter } from 'react-router-dom';
 import { act } from 'react';
 import Races from './Races';
 
-const useRacesState = { data: [], loading: false };
+const useVersionedDataState = { data: [], loading: false };
+const mockRuleVersionState = { ruleVersion: '5e', setRuleVersion: vi.fn() };
 
-vi.mock('../../data/dataService', () => ({
-  useRaces: vi.fn(() => useRacesState),
+vi.mock('../../hooks/useVersionedData', () => ({
+  useVersionedData: vi.fn(() => useVersionedDataState),
+}));
+
+vi.mock('../../context/RuleVersionContext', () => ({
+  useRuleVersion: vi.fn(() => mockRuleVersionState),
 }));
 
 vi.mock('../../data/utils', () => ({
@@ -16,6 +21,7 @@ vi.mock('../../data/utils', () => ({
 
 vi.mock('../../utils/localStorage', () => ({
   LOCAL_STORAGE_KEYS: { RACES_FILTER: 'races-filter' },
+  getVersionedStorageKey: vi.fn((key) => key),
   getLocalStorageItem: vi.fn(() => null),
   setLocalStorageItem: vi.fn(),
 }));
@@ -29,6 +35,15 @@ vi.mock('./RaceItem', () => ({
   )),
 }));
 
+vi.mock('../2024/rules/races/RaceItem2024', () => ({
+  default: vi.fn(({ race, expand, onExpand }) => (
+    <div data-testid={`race-2024-${race?.name}`}>
+      <span>{race?.name}</span>
+      <button onClick={() => onExpand(!expand)}>Toggle</button>
+    </div>
+  )),
+}));
+
 describe('Races', () => {
   const mockRaces = [
     { index: 'hill-dwarf', name: 'Hill Dwarf' },
@@ -36,8 +51,9 @@ describe('Races', () => {
   ];
 
   beforeEach(() => {
-    useRacesState.data = [];
-    useRacesState.loading = false;
+    useVersionedDataState.data = [];
+    useVersionedDataState.loading = false;
+    mockRuleVersionState.ruleVersion = '5e';
     vi.clearAllMocks();
   });
 
@@ -45,14 +61,14 @@ describe('Races', () => {
     render(<MemoryRouter>{component}</MemoryRouter>);
 
   it('shows loading message when loading', () => {
-    useRacesState.loading = true;
+    useVersionedDataState.loading = true;
     renderWithRouter(<Races />);
     expect(screen.getByText('Loading races...')).toBeInTheDocument();
   });
 
   it('renders page header', async () => {
     await act(async () => {
-      useRacesState.data = mockRaces;
+      useVersionedDataState.data = mockRaces;
       renderWithRouter(<Races />);
     });
     expect(screen.getByText('Races')).toBeInTheDocument();
@@ -60,7 +76,7 @@ describe('Races', () => {
 
   it('renders all races', async () => {
     await act(async () => {
-      useRacesState.data = mockRaces;
+      useVersionedDataState.data = mockRaces;
       renderWithRouter(<Races />);
     });
     expect(screen.getByTestId('race-hill-dwarf')).toBeInTheDocument();
@@ -69,7 +85,7 @@ describe('Races', () => {
 
   it('uses race index as id', async () => {
     await act(async () => {
-      useRacesState.data = [{ index: 'hill-dwarf', name: 'Hill Dwarf' }];
+      useVersionedDataState.data = [{ index: 'hill-dwarf', name: 'Hill Dwarf' }];
       renderWithRouter(<Races />);
     });
     expect(document.getElementById('hill-dwarf')).toBeInTheDocument();

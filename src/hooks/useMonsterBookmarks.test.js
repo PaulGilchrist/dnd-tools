@@ -10,6 +10,12 @@ vi.mock('../utils/localStorage', () => ({
    },
    getLocalStorageItem: () => mockGetLocalStorageItem(),
    setLocalStorageItem: (...args) => mockSetLocalStorageItem(...args),
+   getVersionedStorageKey: (baseKey, ruleVersion) => {
+      if (ruleVersion === '2024') {
+         return `${baseKey}2024`;
+      }
+      return baseKey;
+   },
 }));
 
 import { useMonsterBookmarks } from './useMonsterBookmarks';
@@ -107,6 +113,57 @@ describe('useMonsterBookmarks', () => {
          expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
             'monstersBookmarked',
             ['goblin']
+         );
+      });
+   });
+
+   describe('version-aware storage', () => {
+      it('uses versioned key for 2024 rule version', () => {
+         const { result } = renderHook(() => useMonsterBookmarks({ ruleVersion: '2024' }));
+
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+         });
+
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'monstersBookmarked2024',
+            ['goblin']
+         );
+      });
+
+      it('uses base key for 5e rule version', () => {
+         const { result } = renderHook(() => useMonsterBookmarks({ ruleVersion: '5e' }));
+
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+         });
+
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'monstersBookmarked',
+            ['goblin']
+         );
+      });
+   });
+
+   describe('stale closure fix', () => {
+      it('writes the computed value to localStorage, not the stale closure value', () => {
+         // Start with existing bookmarks in state
+         mockGetLocalStorageItem.mockReturnValueOnce(['existing']);
+         const { result } = renderHook(() => useMonsterBookmarks());
+         expect(result.current.monstersBookmarked).toEqual(['existing']);
+
+         mockSetLocalStorageItem.mockClear();
+
+         // Add a new bookmark - the computed value should include BOTH
+         // existing and new, proving we write the computed result not stale state
+         act(() => {
+            result.current.handleBookmarkChange('goblin', true);
+         });
+
+         // localStorage should receive the computed array with both entries
+         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+            'monstersBookmarked',
+            ['existing', 'goblin']
          );
       });
    });

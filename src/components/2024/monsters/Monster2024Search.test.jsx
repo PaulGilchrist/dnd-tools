@@ -16,10 +16,11 @@ vi.mock('../../../data/dataService', () => ({
     use2024Monsters: vi.fn(),
 }));
 
-vi.mock('../../../hooks/useMonster2024Filter', () => ({
-    useMonster2024Filter: vi.fn(() => ({
+vi.mock('../../../hooks/useMonsterFilter', () => ({
+    useMonsterFilter: vi.fn(() => ({
         filter: { bookmarked: 'All', challengeRatingMin: 0, challengeRatingMax: 30, name: '', size: 'All', type: 'All', environment: 'All', xpMin: 0, xpMax: 10000 },
         updateFilter: vi.fn(),
+        showMonster: vi.fn(() => true),
     })),
 }));
 

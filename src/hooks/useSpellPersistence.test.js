@@ -9,8 +9,14 @@ vi.mock('../utils/localStorage', () => ({
       SPELLS_KNOWN: 'spellsKnown',
       SPELLS_PREPARED: 'spellsPrepared',
    },
-   getLocalStorageItem: () => mockGetLocalStorageItem(),
+   getLocalStorageItem: (...args) => mockGetLocalStorageItem(...args),
    setLocalStorageItem: (...args) => mockSetLocalStorageItem(...args),
+   getVersionedStorageKey: (baseKey, ruleVersion) => {
+      if (ruleVersion === '2024') {
+         return `${baseKey}2024`;
+      }
+      return baseKey;
+   },
 }));
 
 import { useSpellPersistence } from './useSpellPersistence';
@@ -20,11 +26,44 @@ describe('useSpellPersistence', () => {
       vi.clearAllMocks();
    });
 
-   it('initializes with empty arrays', () => {
-      const { result } = renderHook(() => useSpellPersistence());
-      expect(result.current.knownSpells).toEqual([]);
-      expect(result.current.preparedSpells).toEqual([]);
-   });
+    it('initializes with empty arrays', () => {
+       const { result } = renderHook(() => useSpellPersistence());
+       expect(result.current.knownSpells).toEqual([]);
+       expect(result.current.preparedSpells).toEqual([]);
+    });
+
+    it('uses versioned keys for 2024 rule version', () => {
+       mockGetLocalStorageItem
+          .mockReturnValueOnce(['fireball2024'])
+          .mockReturnValueOnce(null);
+
+       const { result } = renderHook(() => useSpellPersistence({ ruleVersion: '2024' }));
+       expect(result.current.knownSpells).toEqual(['fireball2024']);
+       expect(mockGetLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown2024');
+       expect(mockGetLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared2024');
+    });
+
+    it('uses base keys for 5e rule version', () => {
+       mockGetLocalStorageItem
+          .mockReturnValueOnce(['fireball'])
+          .mockReturnValueOnce(null);
+
+       const { result } = renderHook(() => useSpellPersistence({ ruleVersion: '5e' }));
+       expect(result.current.knownSpells).toEqual(['fireball']);
+       expect(mockGetLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown');
+       expect(mockGetLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared');
+    });
+
+    it('defaults to 5e keys when no ruleVersion provided', () => {
+       mockGetLocalStorageItem
+          .mockReturnValueOnce(['fireball'])
+          .mockReturnValueOnce(null);
+
+       const { result } = renderHook(() => useSpellPersistence());
+       expect(result.current.knownSpells).toEqual(['fireball']);
+       expect(mockGetLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown');
+       expect(mockGetLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared');
+    });
 
    it('loads known spells from localStorage on mount', () => {
       mockGetLocalStorageItem
@@ -169,17 +208,28 @@ describe('useSpellPersistence', () => {
       });
    });
 
-   describe('addKnown', () => {
-      it('adds spell to known list', () => {
-         const { result } = renderHook(() => useSpellPersistence());
-         
-         act(() => {
-            result.current.addKnown('fireball');
-         });
+    describe('addKnown', () => {
+       it('adds spell to known list', () => {
+          const { result } = renderHook(() => useSpellPersistence());
 
-         expect(result.current.knownSpells).toContain('fireball');
-      });
-   });
+          act(() => {
+             result.current.addKnown('fireball');
+          });
+
+          expect(result.current.knownSpells).toContain('fireball');
+       });
+
+       it('does not duplicate if spell already known', () => {
+          const { result } = renderHook(() => useSpellPersistence());
+
+          act(() => {
+             result.current.addKnown('fireball');
+             result.current.addKnown('fireball');
+          });
+
+          expect(result.current.knownSpells).toEqual(['fireball']);
+       });
+    });
 
    describe('removeKnown', () => {
       it('removes spell from known list', () => {
@@ -194,17 +244,28 @@ describe('useSpellPersistence', () => {
       });
    });
 
-   describe('addPrepared', () => {
-      it('adds spell to prepared list', () => {
-         const { result } = renderHook(() => useSpellPersistence());
-         
-         act(() => {
-            result.current.addPrepared('fireball');
-         });
+    describe('addPrepared', () => {
+       it('adds spell to prepared list', () => {
+          const { result } = renderHook(() => useSpellPersistence());
 
-         expect(result.current.preparedSpells).toContain('fireball');
-      });
-   });
+          act(() => {
+             result.current.addPrepared('fireball');
+          });
+
+          expect(result.current.preparedSpells).toContain('fireball');
+       });
+
+       it('does not duplicate if spell already prepared', () => {
+          const { result } = renderHook(() => useSpellPersistence());
+
+          act(() => {
+             result.current.addPrepared('fireball');
+             result.current.addPrepared('fireball');
+          });
+
+          expect(result.current.preparedSpells).toEqual(['fireball']);
+       });
+    });
 
    describe('removePrepared', () => {
       it('removes spell from prepared list', () => {

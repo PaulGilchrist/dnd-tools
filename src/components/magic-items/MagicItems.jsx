@@ -1,170 +1,222 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import { useMagicItems } from '../../data/dataService';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useVersionedData } from '../../hooks/useVersionedData';
+import { useRuleVersion } from '../../context/RuleVersionContext';
 import { scrollIntoView } from '../../data/utils';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
-import MagicItem from './MagicItem';
+import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import MagicItemCard from '../common/MagicItemCard';
+import MagicItemSections from '../common/MagicItemSections';
+import { normalizeMagicItem5e, normalizeMagicItem2024 } from '../adapters/magicItemAdapters';
 import MagicItemsFilterForm from './MagicItemsFilterForm';
-import MagicItemList from './MagicItemList';
+import MagicItems2024FilterForm from '../2024/magic-items/MagicItems2024FilterForm';
 
+const defaultFilter = {
+    bookmarked: 'All',
+    attunement: 'All',
+    name: '',
+    rarity: 'All',
+    type: 'All'
+};
+
+/**
+ * Unified MagicItems component that works with both 5e and 2024 rule versions.
+ * Uses version-aware data fetching, filter persistence, and bookmarks.
+ * Conditionally renders the appropriate filter form and normalizes items
+ * based on the active rule version.
+ */
 function MagicItems() {
-    const [magicItems, setMagicItems] = useState([]);
-    const [filter, setFilter] = useState({
-        bookmarked: 'All',
-        attunement: 'All',
-        name: '',
-        rarity: 'All',
-        type: 'All'
-    });
-    const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
+    const { ruleVersion } = useRuleVersion();
     const [searchParams, setSearchParams] = useSearchParams();
 
-    // Fetch data
-    const { data: magicItemsData, loading: magicItemsLoading } = useMagicItems();
+    // Version-aware data fetching
+    const { data: magicItemsData, loading: magicItemsLoading } = useVersionedData('magicItems');
 
-    useEffect(() => {
-            // Load saved filters from localStorage on mount
-        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER);
+    // Version-aware storage keys
+    const filterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER, ruleVersion);
+    const bookmarkedKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED, ruleVersion);
+
+    // Filter state with version-aware localStorage persistence
+    const [filter, setFilter] = useState(() => {
+        const savedFilter = getLocalStorageItem(filterKey);
         if (savedFilter) {
             try {
-                setFilter(savedFilter);
-                 } catch (e) {
+                return savedFilter;
+            } catch (e) {
                 console.error('Error parsing saved filter:', e);
-                 }
             }
+        }
+        return { ...defaultFilter };
+    });
 
-        if (magicItemsData && magicItemsData.length > 0) {
-            setMagicItems(magicItemsData);
-            console.log(`${magicItemsData.length} magic items`);
+    // Save filter to localStorage whenever it changes
+    useEffect(() => {
+        setLocalStorageItem(filterKey, filter);
+    }, [filter, filterKey]);
 
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
-            if (index) {
-                const magicItem = magicItemsData.find(item => item.index === index);
-                if (magicItem) {
-                    setShownCard(index);
-                    scrollIntoView(index);
+    // Magic items state with bookmarks merged in
+    const [magicItems, setMagicItems] = useState([]);
+    const [shownCard, setShownCard] = useState('');
+
+    // Process data: deduplicate, merge bookmarks, handle URL index param
+    useEffect(() => {
+        if (!magicItemsData || magicItemsData.length === 0) {
+            setMagicItems([]);
+            return;
+        }
+
+        // Deduplicate items by index (keep first occurrence) - needed for 2024 data
+        const uniqueItemsMap = new Map();
+        magicItemsData.forEach(item => {
+            if (!uniqueItemsMap.has(item.index)) {
+                uniqueItemsMap.set(item.index, item);
             }
-               }
+        });
+        const uniqueItems = Array.from(uniqueItemsMap.values());
 
-                   // Set bookmarked status from localStorage
-            const magicItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED);
-            let magicItemsBookmarked = [];
-            if (magicItemsBookmarkedJson) {
-                try {
-                    magicItemsBookmarked = magicItemsBookmarkedJson;
-                    } catch (e) {
-                    console.error('Error parsing bookmarked items:', e);
+        // Load bookmarked items from localStorage
+        const bookmarkedJson = getLocalStorageItem(bookmarkedKey);
+        let bookmarkedIndexes = [];
+        if (bookmarkedJson) {
+            try {
+                bookmarkedIndexes = bookmarkedJson;
+            } catch (e) {
+                console.error('Error parsing bookmarked items:', e);
             }
-               }
+        }
 
-            // Update bookmarked status for each item
-            const updatedItems = magicItemsData.map(item => ({
-                ...item,
-                bookmarked: magicItemsBookmarked.includes(item.index)
-            }));
-            setMagicItems(updatedItems);
+        // Merge bookmarked status into items
+        const itemsWithBookmarks = uniqueItems.map(item => ({
+            ...item,
+            bookmarked: bookmarkedIndexes.includes(item.index)
+        }));
+
+        setMagicItems(itemsWithBookmarks);
+
+        // Check for index parameter in URL to expand/scroll to specific item
+        const index = searchParams.get('index');
+        if (index) {
+            const found = itemsWithBookmarks.find(item => item.index === index);
+            if (found) {
+                setShownCard(index);
+                scrollIntoView(index);
             }
-        }, [magicItemsData]);
+        }
+    }, [magicItemsData, bookmarkedKey, searchParams]);
 
-    const expandCard = (index, expanded) => {
+    // Expand/collapse card handler
+    const expandCard = useCallback((index, expanded) => {
         if (expanded) {
             setShownCard(index);
             scrollIntoView(index);
-        } else {
-            setShownCard('');
-        }
-
-        // Update URL query params using setSearchParams
-        if (expanded) {
             setSearchParams({ index });
         } else {
+            setShownCard('');
             setSearchParams({});
-           }
-        };
+        }
+    }, [setSearchParams]);
 
-    const filterChanged = (newFilter) => {
-        setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER, newFilter);
-        };
-
-    const showMagicItem = (magicItem) => {
+    // Filter predicate - handles both 5e and 2024 item shapes
+    const showMagicItem = useCallback((magicItem) => {
         // Attunement filter
         if (filter.attunement !== 'All' && (
-               (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
-               (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
-          )) {
-            return false;
-           }
-           // Bookmarked filter
-        if (filter.bookmarked !== 'All' && !magicItem.bookmarked) {
-            return false;
-           }
-           // Name filter
-        if (filter.name !== '' && !magicItem.name.toLowerCase().includes(filter.name.toLowerCase())) {
-            return false;
-           }
-           // Rarity filter
-        if (filter.rarity !== 'All' && magicItem.rarity !== filter.rarity) {
-            return false;
-           }
-           // Type filter
-        if (filter.type !== 'All' && magicItem.type !== filter.type) {
+            (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
+            (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
+        )) {
             return false;
         }
+
+        // Bookmarked filter
+        if (filter.bookmarked !== 'All' && !magicItem.bookmarked) {
+            return false;
+        }
+
+        // Name filter (case-insensitive)
+        if (filter.name !== '' && !magicItem.name.toLowerCase().includes(filter.name.toLowerCase())) {
+            return false;
+        }
+
+        // Rarity filter (case-insensitive for 2024 compatibility)
+        if (filter.rarity !== 'All' && magicItem.rarity) {
+            if (magicItem.rarity.toLowerCase() !== filter.rarity.toLowerCase()) {
+                return false;
+            }
+        } else if (filter.rarity !== 'All' && !magicItem.rarity) {
+            return false;
+        }
+
+        // Type filter (case-insensitive for 2024 compatibility)
+        if (filter.type !== 'All' && magicItem.type) {
+            if (magicItem.type.toLowerCase() !== filter.type.toLowerCase()) {
+                return false;
+            }
+        } else if (filter.type !== 'All' && !magicItem.type) {
+            return false;
+        }
+
         return true;
-    };
+    }, [filter]);
 
-    const handleBookmarkChange = (index, isBookmarked) => {
+    // Bookmark change handler with version-aware persistence
+    const handleBookmarkChange = useCallback((index, isBookmarked) => {
         // Update local state immediately so UI reflects the change
-        setMagicItems(prevItems => 
-            prevItems.map(item => 
+        setMagicItems(prevItems =>
+            prevItems.map(item =>
                 item.index === index ? { ...item, bookmarked: isBookmarked } : item
-              )
-          );
-         
-            // Save to localStorage - get current bookmarked items from state
-        const magicItemsBookmarked = magicItems
-              .filter(item => item.bookmarked)
-              .map(item => item.index);
-         
-        if (isBookmarked) {
-            // Add to bookmarked list
-            magicItemsBookmarked.push(index);
-           } else {
-               // Remove from bookmarked list
-            const filtered = magicItemsBookmarked.filter(i => i !== index);
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED, filtered);
-           }
-         
-        if (isBookmarked) {
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED, magicItemsBookmarked);
-           }
-        };
+            )
+        );
 
+        // Compute current bookmarked indexes from state and persist
+        const currentBookmarked = magicItems
+            .map(item => ({ ...item, bookmarked: item.index === index ? isBookmarked : item.bookmarked }))
+            .filter(item => item.bookmarked)
+            .map(item => item.index);
+
+        setLocalStorageItem(bookmarkedKey, currentBookmarked);
+    }, [magicItems, bookmarkedKey]);
+
+    // Memoized filtered items
+    const filteredItems = useMemo(
+        () => magicItems.filter(showMagicItem),
+        [magicItems, showMagicItem]
+    );
+
+    // Loading state
     if (magicItemsLoading) {
         return <div className="list"><div>Loading magic items...</div></div>;
     }
 
-    const filteredItems = magicItems.filter(showMagicItem);
+    // Normalize function and section renderers based on rule version
+    const normalizeItem = ruleVersion === '2024' ? normalizeMagicItem2024 : normalizeMagicItem5e;
+    const sectionRenderers = ruleVersion === '2024' ? MagicItemSections : undefined;
+
+    // Filter form component based on rule version
+    const FilterForm = ruleVersion === '2024' ? MagicItems2024FilterForm : MagicItemsFilterForm;
 
     return (
-              <>
-                  <MagicItemsFilterForm
+        <>
+            <FilterForm
                 filter={filter}
                 setFilter={setFilter}
-                onFilterChange={filterChanged}
             />
 
-            <MagicItemList
-                filteredItems={filteredItems}
-                showMagicItem={showMagicItem}
-                shownCard={shownCard}
-                expandCard={expandCard}
-                handleBookmarkChange={handleBookmarkChange}
-                  />
-              </>
-          );
+            <div className="list">
+                {filteredItems.map((magicItem) => {
+                    const normalizedItem = normalizeItem(magicItem);
+                    return (
+                        <div key={magicItem.index} id={magicItem.index} data-item-index={magicItem.index}>
+                            <MagicItemCard
+                                magicItem={normalizedItem}
+                                expand={shownCard === magicItem.index}
+                                onExpand={(expanded) => expandCard(magicItem.index, expanded)}
+                                onBookmarkChange={handleBookmarkChange}
+                                sectionRenderers={sectionRenderers}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
+        </>
+    );
 }
 
 export default MagicItems;

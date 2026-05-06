@@ -7,7 +7,7 @@ import FilterForm from './Monster2024FilterForm';
 import FilterControls from './Monster2024FilterControls';
 import Loading from './Monster2024Loading';
 import { scrollIntoView } from '../../../data/utils';
-import { useMonster2024Filter } from '../../../hooks/useMonster2024Filter';
+import { useMonsterFilter } from '../../../hooks/useMonsterFilter';
 
 /**
  * Monster2024Search component - Main search and filter page for 2024 monsters
@@ -20,8 +20,8 @@ function Monster2024Search() {
     // Fetch data
     const { data: monstersData, loading: monstersLoading } = use2024Monsters();
 
-    // Use custom hook for filter state and persistence
-    const { filter, updateFilter } = useMonster2024Filter();
+    // Use custom hook for filter state, persistence, and showMonster predicate
+    const { filter, updateFilter, showMonster } = useMonsterFilter({ ruleVersion: '2024' });
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -70,37 +70,7 @@ function Monster2024Search() {
         return <Loading />;
     }
 
-    const filteredMonsters = (monstersData || []).filter((monster) => {
-        // Bookmarked filter
-        if (filter.bookmarked !== 'All' && !monster.bookmarked) {
-            return false;
-        }
-        // Challenge Range
-        if (monster.challenge_rating < filter.challengeRatingMin || monster.challenge_rating > filter.challengeRatingMax) {
-            return false;
-        }
-        // Name filter
-        if (filter.name !== '' && !monster.name.toLowerCase().includes(filter.name.toLowerCase())) {
-            return false;
-        }
-        // Size filter
-        if (filter.size !== 'All' && filter.size !== monster.size) {
-            return false;
-        }
-        // Type filter
-        if (filter.type !== 'All' && filter.type !== monster.type) {
-            return false;
-        }
-        // Environment filter
-        if (filter.environment !== 'All' && filter.environment !== monster.environment) {
-            return false;
-        }
-        // XP
-        if (monster.xp < filter.xpMin || monster.xp > filter.xpMax) {
-            return false;
-        }
-        return true;
-    });
+    const filteredMonsters = (monstersData || []).filter(showMonster);
 
     return (
         <>

@@ -20,14 +20,7 @@ import Conditions from './components/rules/Conditions'
 import Feats from './components/rules/Feats'
 import Races from './components/rules/Races'
 import Spells from './components/spells/Spells'
-import Spells2024 from './components/2024/spells/Spells'
-import Monster2024Search from './components/2024/monsters/Monster2024Search'
-import MonsterLore2024 from './components/2024/monsters/MonsterLore2024'
-import MagicItems2024 from './components/2024/magic-items/MagicItems2024'
-import PlayerClasses2024 from './components/2024/rules/player-classes/PlayerClasses2024'
-import Races2024 from './components/2024/rules/races/Races2024'
 import Backgrounds2024 from './components/2024/rules/Backgrounds2024'
-import Feats2024 from './components/2024/feats/Feats2024'
 import WeaponMastery2024 from './components/2024/WeaponMastery2024'
 import './App.css'
 
@@ -54,20 +47,23 @@ function App() {
                     <Route path="/rules/feats" element={<Feats />} />
                     <Route path="/rules/races" element={<Races />} />
                     <Route path="/spells" element={<Spells />} />
-                    <Route path="/2024/spells" element={<Spells2024 />} />
-                    <Route path="/2024/monsters/search" element={<Monster2024Search />} />
-                    <Route path="/2024/monsters/lore" element={<MonsterLore2024 />} />
-                    <Route path="/2024/magic-items" element={<MagicItems2024 />} />
-                    <Route path="/2024/rules/classes" element={<PlayerClasses2024 />} />
-                    <Route path="/2024/classes" element={<Navigate to="/2024/rules/classes" replace />} />
-                    <Route path="/2024/rules/races" element={<Races2024 />} />
-                    <Route path="/2024/races" element={<Navigate to="/2024/rules/races" replace />} />
+                    {/* 2024-only features (no 5e equivalent) */}
                     <Route path="/2024/rules/backgrounds" element={<Backgrounds2024 />} />
                     <Route path="/2024/backgrounds" element={<Navigate to="/2024/rules/backgrounds" replace />} />
-                    <Route path="/2024/rules/feats" element={<Feats2024 />} />
-                    <Route path="/2024/feats" element={<Navigate to="/2024/rules/feats" replace />} />
                     <Route path="/2024/rules/weapon-mastery" element={<WeaponMastery2024 />} />
                     <Route path="/2024/weapon-mastery" element={<Navigate to="/2024/rules/weapon-mastery" replace />} />
+
+                    {/* Redirects from old /2024/ paths to unified routes */}
+                    <Route path="/2024/spells" element={<Navigate to="/spells" replace />} />
+                    <Route path="/2024/monsters/search" element={<Navigate to="/monsters/search" replace />} />
+                    <Route path="/2024/monsters/lore" element={<Navigate to="/monsters/lore" replace />} />
+                    <Route path="/2024/magic-items" element={<Navigate to="/magic-items" replace />} />
+                    <Route path="/2024/rules/classes" element={<Navigate to="/rules/classes" replace />} />
+                    <Route path="/2024/classes" element={<Navigate to="/rules/classes" replace />} />
+                    <Route path="/2024/rules/races" element={<Navigate to="/rules/races" replace />} />
+                    <Route path="/2024/races" element={<Navigate to="/rules/races" replace />} />
+                    <Route path="/2024/rules/feats" element={<Navigate to="/rules/feats" replace />} />
+                    <Route path="/2024/feats" element={<Navigate to="/rules/feats" replace />} />
                 </Routes>
                 </div>
             </BrowserRouter>

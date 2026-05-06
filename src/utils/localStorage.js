@@ -1,29 +1,22 @@
 // Centralized localStorage keys to avoid typos and collisions
+// These are BASE keys. Use getVersionedStorageKey() to get the versioned variant.
 export const LOCAL_STORAGE_KEYS = {
   // Monsters
   MONSTERS_BOOKMARKED: 'monstersBookmarked',
   MONSTER_FILTER: 'monsterFilter',
-  MONSTER_FILTER_5E: 'monsterFilter5e',
-  MONSTER_FILTER_2024: 'monsterFilter2024',
   MONSTER_LORE_FILTER: 'monsterLoreFilter',
-  MONSTER_LORE_FILTER_2024: 'monsterLore2024Filter',
 
   // Encounters
   ENCOUNTER_FILTER: 'encounterFilter',
 
   // Spells
   SPELL_FILTER: 'spellFilter',
-  SPELL_FILTER_2024: 'spellFilter2024',
   SPELLS_KNOWN: 'spellsKnown',
   SPELLS_PREPARED: 'spellsPrepared',
-  SPELLS_KNOWN_2024: 'spellsKnown2024',
-  SPELLS_PREPARED_2024: 'spellsPrepared2024',
 
   // Magic Items
   MAGIC_ITEMS_FILTER: 'magicItemsFilter',
   MAGIC_ITEMS_BOOKMARKED: 'magicItemsBookmarked',
-  MAGIC_ITEMS_FILTER_2024: 'magicItems2024Filter',
-  MAGIC_ITEMS_BOOKMARKED_2024: 'magicItems2024Bookmarked',
 
   // Equipment Items
   EQUIPMENT_ITEMS_FILTER: 'equipmentItemsFilter',
@@ -35,14 +28,36 @@ export const LOCAL_STORAGE_KEYS = {
 
   // Races
   RACES_FILTER: 'racesFilter',
-  RACES_FILTER_2024: 'races2024Filter',
 
   // Feats
-  FEAT_FILTER_2024: 'featFilter2024',
+  FEAT_FILTER: 'featFilter',
 
   // Navigation / App
   URL: 'url',
   RULE_VERSION: 'ruleVersion'
+};
+
+// Generate a versioned storage key from a base key and rule version
+// - '5e' or undefined/null returns the base key as-is
+// - '2024' appends '2024' to the base key
+// Example: getVersionedStorageKey('spellFilter', '2024') -> 'spellFilter2024'
+// Example: getVersionedStorageKey('spellsKnown', '5e') -> 'spellsKnown'
+export const getVersionedStorageKey = (baseKey, ruleVersion) => {
+  if (ruleVersion === '2024') {
+    return `${baseKey}2024`;
+  }
+  return baseKey;
+};
+
+// Map over an object of base keys, applying versioning to each value
+// Example: getVersionedStorageKeys({ known: 'spellsKnown', prepared: 'spellsPrepared' }, '2024')
+//   -> { known: 'spellsKnown2024', prepared: 'spellsPrepared2024' }
+export const getVersionedStorageKeys = (baseKeys, ruleVersion) => {
+  const keys = {};
+  for (const [name, baseKey] of Object.entries(baseKeys)) {
+    keys[name] = getVersionedStorageKey(baseKey, ruleVersion);
+  }
+  return keys;
 };
 
 // Helper functions for localStorage operations

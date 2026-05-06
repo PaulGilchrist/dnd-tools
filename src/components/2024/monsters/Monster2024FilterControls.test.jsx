@@ -15,23 +15,6 @@ vi.mock('../../../data/dataService', () => ({
     use2024MonsterSubtypes: vi.fn(() => ({ data: ['Any'], loading: false })),
 }));
 
-vi.mock('../../../hooks/useMonster2024Filter', () => ({
-    useMonster2024Filter: vi.fn(() => ({
-        filter: { 
-            bookmarked: 'All', 
-            challengeRatingMin: 0, 
-            challengeRatingMax: 30, 
-            name: '', 
-            size: 'All', 
-            type: 'All', 
-            environment: 'All',
-            xpMin: 0,
-            xpMax: 10000,
-        },
-        updateFilter: vi.fn(),
-    })),
-}));
-
 describe('Monster2024FilterControls', () => {
     const mockUpdateFilter = vi.fn();
     
