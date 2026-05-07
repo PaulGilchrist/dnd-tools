@@ -9,6 +9,8 @@ import FilterForm from './FilterForm';
 import FilterControls from './FilterControls';
 import MonsterList from './MonsterList';
 import Monster2024List from '../2024/monsters/Monster2024List';
+import Monster2024FilterForm from '../2024/monsters/Monster2024FilterForm';
+import Monster2024FilterControls from '../2024/monsters/Monster2024FilterControls';
 import Loading from './Loading';
 
 function MonsterSearch() {
@@ -74,9 +76,15 @@ function MonsterSearch() {
 
     return (
             <>
+            {ruleVersion === '2024' ? (
+                <Monster2024FilterForm>
+                    <Monster2024FilterControls filter={filter} updateFilter={updateFilter} />
+                </Monster2024FilterForm>
+            ) : (
                 <FilterForm>
                     <FilterControls filter={filter} updateFilter={updateFilter} />
                 </FilterForm>
+            )}
 
             {ruleVersion === '2024' ? (
                 <Monster2024List

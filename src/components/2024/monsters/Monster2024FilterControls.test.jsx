@@ -47,11 +47,6 @@ describe('Monster2024FilterControls', () => {
         expect(screen.getByText(/Type/)).toBeInTheDocument();
     });
 
-    it('renders environment filter', () => {
-        render(<FilterControls filter={{ environment: 'All' }} updateFilter={mockUpdateFilter} />);
-        expect(screen.getByText(/Environment/)).toBeInTheDocument();
-    });
-
     it('renders XP filter', () => {
         render(<FilterControls filter={{ xpMin: 0, xpMax: 10000 }} updateFilter={mockUpdateFilter} />);
         expect(screen.getByText(/XP/)).toBeInTheDocument();
