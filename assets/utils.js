@@ -1,0 +1,1 @@
+var e=e=>{setTimeout(()=>{let t=document.getElementById(e);if(t){let e=t.getBoundingClientRect(),n=(window.pageYOffset||document.documentElement.scrollTop)+e.top-61;window.scrollTo({top:n,behavior:`smooth`})}},300)};export{e as t};

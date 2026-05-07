@@ -1,0 +1,1 @@
+.cover-overlay{background-color:var(--background-color-main);z-index:100;flex-direction:column;justify-content:center;align-items:center;width:100vw;height:100dvh;margin:0;padding:0;display:flex;position:fixed;top:0;left:0}.cover-overlay img{z-index:200;object-fit:contain;width:auto;max-width:100vw;height:auto;max-height:100dvh;margin:0;padding:0;display:block}
