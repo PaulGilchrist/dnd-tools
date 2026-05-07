@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import { renderHtmlContent } from '../../../../utils/htmlUtils';
-
 function Feat({ feat, expand, onExpand }) {
     const isExpanded = !!expand;
 
