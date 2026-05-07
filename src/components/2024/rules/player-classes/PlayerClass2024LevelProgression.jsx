@@ -120,7 +120,7 @@ function SelectedLevelView({ playerClass, shownLevel, shownMajor }) {
              <br />
              {shouldShowSpellcasting && <SpellcastingInfo spellcasting={selectedLevel.spellcasting} />}
             {allFeatures.map((feature) => (
-                <div key={feature.name} className="feature-item class2024-feature-item">
+                <div key={`${feature.name}-${feature.sourceLevel}`} className="feature-item class2024-feature-item">
                     <b>Level {feature.sourceLevel}: {feature.name}:</b>&nbsp;
                     {feature.type === 'subclass_feature' && (
                         <span className="subclass-badge">(Subclass)</span>

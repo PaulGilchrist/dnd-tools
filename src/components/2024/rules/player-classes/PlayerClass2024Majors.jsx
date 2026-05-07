@@ -59,7 +59,7 @@ function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeat
                                 <div className="major-features">
                                     <h6>Features:</h6>
                                     {major.features.map((feature) => (
-                                        <div key={feature.name} className="major-feature">
+                                        <div key={`${feature.name}-${feature.level}`} className="major-feature">
                                             <b>Level {feature.level}: {feature.name}:</b>
                                             {feature.description && (
                                                 <div className="major-feature-description">

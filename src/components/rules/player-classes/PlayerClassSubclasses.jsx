@@ -50,8 +50,8 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                 {/* Features that are not level specific */}
                                 {subclass.features && subclass.features.length > 0 && (
                                     <div>
-                                        {subclass.features.map((feature) => (
-                                            <div key={feature.name}>
+                                        {subclass.features.map((feature, index) => (
+                                            <div key={`${feature.name}-${index}`}>
                                                 <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                   {feature.description && (
@@ -73,7 +73,7 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                 {subclassFeatures && subclassFeatures.length > 0 && (
                                     <div>
                                         {subclassFeatures.map((feature) => (
-                                            <div key={feature.name}>
+                                            <div key={`${feature.name}-${feature.level}`}>
                                                 <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                   {feature.description && (
