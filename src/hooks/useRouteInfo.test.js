@@ -221,7 +221,7 @@ describe('useRouteInfo', () => {
         it('returns false when dropdown has no items', () => {
             useLocation.mockReturnValue({ pathname: '/test' });
 
-            const { result } = renderHook(() => useRouteInfo());
+            renderHook(() => useRouteInfo());
 
             // Create a scenario where a dropdown might have no items after filtering
             // This would happen if all items have requiredVersion not matching

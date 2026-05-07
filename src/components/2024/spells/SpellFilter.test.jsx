@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import SpellFilter from './SpellFilter';
 
 vi.mock('../../common/SpellFilter', () => ({
-    default: vi.fn(({ filter, onFilterChange }) => (
+    default: vi.fn(({ filter }) => (
         <div data-testid="spell-filter">
             <span data-testid="filter-casting-time">{filter?.castingTime}</span>
             <span data-testid="filter-class">{filter?.class}</span>

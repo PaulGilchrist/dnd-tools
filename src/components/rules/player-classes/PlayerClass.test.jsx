@@ -37,7 +37,7 @@ vi.mock('../../hooks/usePlayerClassLogic', () => ({
 }));
 
 vi.mock('./PlayerClassHeader', () => ({
-  default: vi.fn(({ playerClass, isExpanded, onToggle }) => (
+  default: vi.fn(({ playerClass, onToggle }) => (
     <div data-testid="player-class-header">
       <span>{playerClass?.name}</span>
       <button onClick={onToggle}>Toggle</button>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { scrollIntoView } from '../../../../data/utils';
 import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import '../../../common/index.css';
-function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor, majorFeatures }) {
+function PlayerClass2024Majors({ playerClass, shownMajor, onShowMajor }) {
     const [expandedMajor, setExpandedMajor] = useState('');
 
     useEffect(() => {

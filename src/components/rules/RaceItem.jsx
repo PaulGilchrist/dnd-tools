@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 import '../common/index.css';
 import Subraces from './Subraces';

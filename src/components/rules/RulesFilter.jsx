@@ -13,7 +13,7 @@ function RulesFilter({ filter, onFilterChange }) {
                     className="form-control"
                     id="rulesName"
                     name="name"
-                    value={filter.name}
+                    value={filter.name ?? ''}
                     onChange={handleNameChange}
                     maxLength="100"
                     placeholder="Filter rules..."

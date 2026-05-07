@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { act } from 'react';
 import MagicItems2024 from './MagicItems2024';
@@ -21,7 +21,7 @@ vi.mock('../../../utils/localStorage', () => ({
 }));
 
 vi.mock('./MagicItem2024', () => ({
-  default: vi.fn(({ item, expand, onExpand, onBookmarkChange }) => (
+  default: vi.fn(({ item }) => (
     <div data-testid={`magic-item-2024-${item?.index}`}>
       <span>{item?.name}</span>
     </div>

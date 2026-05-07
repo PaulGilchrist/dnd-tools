@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { use2024Backgrounds } from '../../../data/dataService';
 
 function Backgrounds2024() {
-    const [backgrounds, setBackgrounds] = useState([]);
     const [shownCard, setShownCard] = useState('');
 
     const { data: backgroundsData, loading } = use2024Backgrounds();

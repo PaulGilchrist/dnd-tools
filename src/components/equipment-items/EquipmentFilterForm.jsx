@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
     const handleNameChange = (e) => {
         const newFilter = { ...filter, name: e.target.value };
@@ -42,7 +40,7 @@ function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
                         className="form-control" 
                         id="name" 
                         name="name"
-                        value={filter.name}
+                        value={filter.name ?? ''}
                         onChange={handleNameChange}
                         pattern="[A-Za-z ]+" 
                         maxLength="50"
@@ -59,7 +57,7 @@ function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
                 <select 
                     name="category" 
                     className="form-control"
-                    value={filter.category}
+                    value={filter.category ?? 'All'}
                     onChange={handleCategoryChange}
                 >
                     <option>All</option>
@@ -78,7 +76,7 @@ function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
                         <select 
                             name="range" 
                             className="form-control"
-                            value={filter.range}
+                            value={filter.range ?? 'All'}
                             onChange={handleRangeChange}
                         >
                             <option>All</option>
@@ -95,7 +93,7 @@ function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
                         <select 
                             name="property" 
                             className="form-control"
-                            value={filter.property}
+                            value={filter.property ?? 'All'}
                             onChange={handlePropertyChange}
                         >
                             <option>All</option>
@@ -118,7 +116,7 @@ function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
                 <select 
                     name="bookmarked" 
                     className="form-control"
-                    value={filter.bookmarked}
+                    value={filter.bookmarked ?? 'All'}
                     onChange={handleBookmarkedChange}
                 >
                     <option>All</option>

@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { act } from 'react';
 import PlayerClass2024 from './PlayerClass2024';
@@ -25,7 +25,7 @@ vi.mock('../../../hooks/usePlayerClassLogic', () => ({
 }));
 
 vi.mock('./PlayerClass2024Header', () => ({
-  default: vi.fn(({ playerClass, isExpanded, onToggle }) => (
+  default: vi.fn(({ playerClass, onToggle }) => (
     <div data-testid="player-class-2024-header">
       <span>{playerClass?.name}</span>
       <button onClick={onToggle}>Toggle</button>

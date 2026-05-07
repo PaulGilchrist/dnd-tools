@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNames } from '../../data/dataService';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
 import './Names.css';
 import NameFilterForm from './NameFilterForm';
 import NameListTable from './NameListTable';
@@ -43,7 +43,8 @@ function Names() {
             }
 
             // Set the filter and then call getNames if we have valid selections
-            setFilter({ ...filter, ...savedFilter });
+            const namesDefaultFilter = { index: '', type: 'Select', sex: 'Select', used: 'All' };
+            setFilter(sanitizeFilter(namesDefaultFilter, savedFilter));
             
             // If we have valid selections from localStorage, call getNames after filter is set
             if (savedFilter.index && savedFilter.index !== '' && savedFilter.index !== 'Select') {
@@ -154,11 +155,6 @@ function Names() {
             setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED, newUsed);
             return newUsed;
         });
-    };
-
-    const typeChanged = (newFilter) => {
-        setFilter(prev => ({ ...prev, index: 'Select' }));
-        filterChanged(newFilter);
     };
 
     if (loading) {

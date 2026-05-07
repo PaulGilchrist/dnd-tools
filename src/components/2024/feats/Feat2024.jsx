@@ -30,7 +30,7 @@ function Feat2024({ feat, expand, onExpand }) {
         }
         
         if (prereq.ability_scores && prereq.ability_scores.length > 0) {
-            prereq.ability_scores.forEach((abs, idx) => {
+            prereq.ability_scores.forEach((abs) => {
                 parts.push(`${abs.name} ${abs.minimum}+`);
             });
         }

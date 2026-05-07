@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { scrollIntoView } from '../../../../data/utils';
 import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import PlayerClass2024Header from './PlayerClass2024Header';
 import PlayerClass2024Majors from './PlayerClass2024Majors';
@@ -19,15 +18,6 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
         }
     }, [expand, isExpanded]);
 
-    const getNameString = (names) => {
-        if (!names || names.length === 0) return '';
-        let nameString = '';
-        names.forEach((name) => {
-            nameString += `${name}, `;
-        });
-        return nameString.substring(0, nameString.length - 2);
-    };
-
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);
     };
@@ -46,30 +36,6 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
         } else {
             setShownMajor(majorIndex);
         }
-    };
-
-    const getClassFeatures = () => {
-        if (!playerClass.class_levels) return [];
-        
-        const classLevels = playerClass.class_levels.filter((classLevel) => classLevel.level <= shownLevel);
-         const classFeatures = [];
-        for (let i = classLevels.length - 1; i >= 0; i--) {
-            if (classLevels[i].features) {
-                classLevels[i].features.forEach((feature) => {
-                    if (feature.type === 'class_feature') {
-                        const featureSummary = {
-                            name: feature.name,
-                            description: feature.description,
-                            level: feature.level
-                        };
-                        if (!classFeatures.some((classFeature) => classFeature.name === feature.name)) {
-                            classFeatures.push(featureSummary);
-                        }
-                    }
-                });
-            }
-        }
-        return classFeatures;
     };
 
     const getMajorFeatures = () => {
@@ -97,7 +63,6 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
         return null;
     }
 
-    const classFeatures = getClassFeatures();
     const majorFeatures = getMajorFeatures();
 
     return (

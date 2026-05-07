@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 function SelectFilter({ label, name, value, options, onChange }) {
     return (
         <>

@@ -106,7 +106,6 @@ describe('FilterControls', () => {
 
         it('calls updateFilter with float value for challenge rating min', () => {
             render(<FilterControls {...defaultProps} />);
-            const inputs = screen.getAllByText('Challenge Rating');
          });
 
         it('renders challenge rating with correct min/max/step', () => {

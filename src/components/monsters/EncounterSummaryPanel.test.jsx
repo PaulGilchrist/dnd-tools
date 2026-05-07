@@ -51,7 +51,6 @@ describe('EncounterSummaryPanel', () => {
 
     it('uses correct color for difficulty index', () => {
         const { container } = render(<EncounterSummaryPanel {...defaultProps} />);
-        const effectiveEl = container.querySelector('[data-testid="stat-value"]');
         const mediumColorEl = container.querySelectorAll('.stat-value')[4];
         expect(mediumColorEl).toHaveStyle({ color: '#ffc107' });
      });

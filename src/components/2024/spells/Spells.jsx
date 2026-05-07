@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { use2024Spells } from '../../../data/dataService';
 import Spell from './Spell';
 import SpellFilter from './SpellFilter';
 import { filterSpells } from '../../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../../hooks/useSpellPersistence';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../../utils/localStorage';
 import { scrollIntoView } from '../../../data/utils';
 
 function Spells2024() {
@@ -19,7 +19,6 @@ function Spells2024() {
         status: 'All'
     });
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
@@ -44,7 +43,8 @@ function Spells2024() {
                      // Set search filters from localStorage
                 const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER_2024);
                 if (savedFilter) {
-                    setFilter(savedFilter);
+                    const spellsDefaultFilter = { castingTime: 'All', class: 'All', levelMin: 0, levelMax: 9, name: '', status: 'All' };
+                    setFilter(sanitizeFilter(spellsDefaultFilter, savedFilter));
                      } else {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER_2024, filter);
                      }

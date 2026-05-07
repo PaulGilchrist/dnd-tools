@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { use2024Monsters } from '../../../data/dataService';
 import Monster2024 from './Monster2024';
 import Monster2024List from './Monster2024List';
@@ -14,7 +14,6 @@ import { useMonsterFilter } from '../../../hooks/useMonsterFilter';
  */
 function Monster2024Search() {
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
@@ -58,7 +57,7 @@ function Monster2024Search() {
         }
     };
 
-    const handleBookmarkChange = (index, isBookmarked) => {
+    const handleBookmarkChange = () => {
         // Update local state immediately so UI reflects the change
         // This would typically use a hook, but for now we'll update the filter state
     };

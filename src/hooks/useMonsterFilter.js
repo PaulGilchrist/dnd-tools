@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../utils/localStorage';
 import { parseChallengeRating } from '../utils/monsterUtils';
 
 const defaultFilter = {
@@ -30,13 +30,12 @@ export function useMonsterFilter({ initialFilter, ruleVersion = '5e' } = {}) {
         const savedFilter = getLocalStorageItem(storageKey);
         if (savedFilter) {
             try {
-                return savedFilter;
+                return sanitizeFilter(defaultFilter, savedFilter);
             } catch (e) {
                 console.error('Failed to parse saved filter:', e);
             }
         }
 
-        // Return default values merged with initialFilter overrides
         return { ...defaultFilter, ...initialFilter };
     });
 

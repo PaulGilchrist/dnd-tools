@@ -1,5 +1,5 @@
 import { renderHtmlContent } from '../../utils/htmlUtils';
-import { getClasses, getLevelText } from '../../utils/spellUtils';
+import { getClasses } from '../../utils/spellUtils';
 
 /**
  * SpellDetails - Renders the expanded body of a spell card

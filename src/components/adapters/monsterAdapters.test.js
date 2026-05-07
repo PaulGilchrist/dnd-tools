@@ -10,8 +10,6 @@ vi.mock('../../utils/monsterUtils', () => ({
 }));
 
 describe('monsterAdapters', () => {
-    const renderHtmlContentMock = vi.fn((html) => ({ __html: html }));
-
     beforeEach(() => {
         vi.clearAllMocks();
     });

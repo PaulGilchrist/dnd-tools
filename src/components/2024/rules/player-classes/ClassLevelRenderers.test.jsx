@@ -20,17 +20,17 @@ describe('Feats2024', () => {
     });
 
     it('shows general feats at level 4', () => {
-        const { container } = render(<Feats2024 level={4} />);
+        render(<Feats2024 level={4} />);
         expect(screen.getByText(/1 General/)).toBeInTheDocument();
     });
 
     it('shows multiple general feats at higher levels', () => {
-        const { container } = render(<Feats2024 level={12} />);
+        render(<Feats2024 level={12} />);
         expect(screen.getByText(/3 General/)).toBeInTheDocument();
     });
 
     it('shows epic boon at level 19', () => {
-        const { container } = render(<Feats2024 level={19} />);
+        render(<Feats2024 level={19} />);
         expect(screen.getByText(/1 Epic Boon/)).toBeInTheDocument();
     });
 

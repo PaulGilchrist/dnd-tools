@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function MagicItemsFilterForm({ filter, setFilter }) {
     const handleNameChange = (e) => {
         const newFilter = { ...filter, name: e.target.value };
@@ -36,7 +34,7 @@ function MagicItemsFilterForm({ filter, setFilter }) {
                     className="form-control" 
                     id="name" 
                     name="name"
-                    value={filter.name}
+                    value={filter.name ?? ''}
                     onChange={handleNameChange}
                     pattern="[A-Za-z ]+" 
                     maxLength="50"
@@ -53,7 +51,7 @@ function MagicItemsFilterForm({ filter, setFilter }) {
             <select 
                 name="rarity" 
                 className="form-control"
-                value={filter.rarity}
+                value={filter.rarity ?? 'All'}
                 onChange={handleRarityChange}
             >
                 <option>All</option>
@@ -69,7 +67,7 @@ function MagicItemsFilterForm({ filter, setFilter }) {
             <select 
                 name="type" 
                 className="form-control"
-                value={filter.type}
+                value={filter.type ?? 'All'}
                 onChange={handleTypeChange}
             >
                 <option>All</option>
@@ -87,7 +85,7 @@ function MagicItemsFilterForm({ filter, setFilter }) {
             <select 
                 name="attunement" 
                 className="form-control"
-                value={filter.attunement}
+                value={filter.attunement ?? 'All'}
                 onChange={handleAttunementChange}
             >
                 <option>All</option>
@@ -100,7 +98,7 @@ function MagicItemsFilterForm({ filter, setFilter }) {
             <select 
                 name="bookmarked" 
                 className="form-control"
-                value={filter.bookmarked}
+                value={filter.bookmarked ?? 'All'}
                 onChange={handleBookmarkedChange}
             >
                 <option>All</option>

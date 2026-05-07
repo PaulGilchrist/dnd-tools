@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { sort, handleError, __clearCache } from './dataService';
 
 describe('dataService', () => {
@@ -48,7 +48,7 @@ describe('dataService', () => {
          const error = new Error('Test error');
          try {
             handleError(error);
-         } catch (e) {
+          } catch {
             // Expected to throw
          }
          expect(consoleSpy).toHaveBeenCalledWith(error);

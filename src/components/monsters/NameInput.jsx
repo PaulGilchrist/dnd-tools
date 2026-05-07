@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
 function NameInput({ filter, updateFilter }) {
-    const [localValue, setLocalValue] = useState(filter.name);
+    const [localValue, setLocalValue] = useState(filter.name ?? '');
 
     useEffect(() => {
-        setLocalValue(filter.name);
+        setLocalValue(filter.name ?? '');
     }, [filter.name]);
 
     const handleChange = (e) => {

@@ -155,13 +155,13 @@ vi.mock('./EquipmentFilterForm', () => ({
 }));
 
 vi.mock('./WeaponPropertyDescription', () => ({
-    default: vi.fn(({ category, property, getWeaponPropertyDescription }) => (
+    default: vi.fn(() => (
         <div data-testid="weapon-property-description">WeaponPropertyDescription</div>
     )),
 }));
 
 vi.mock('./EquipmentItemList', () => ({
-    default: vi.fn(({ filteredItems, showEquipmentItem, shownCard, expandCard, handleBookmarkChange, ruleVersion }) => (
+    default: vi.fn(({ filteredItems, expandCard, handleBookmarkChange }) => (
         <div data-testid="equipment-item-list">
             <div data-testid="filtered-item-count">
                 {filteredItems.length}
@@ -260,7 +260,7 @@ describe('EquipmentItems', () => {
     beforeEach(() => {
         vi.clearAllMocks();
         localStorageModule.__resetStore?.();
-        getLocalStorageItem.mockImplementation((key) => null);
+        getLocalStorageItem.mockImplementation(() => null);
       });
 
     it('shows loading state when data is fetching', () => {

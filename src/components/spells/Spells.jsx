@@ -6,7 +6,7 @@ import Spell from './Spell';
 import SpellFilter from './SpellFilter';
 import { filterSpells } from '../../hooks/useSpellFilter';
 import { useSpellPersistence } from '../../hooks/useSpellPersistence';
-import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
 import { scrollIntoView } from '../../data/utils';
 
 function Spells() {
@@ -33,7 +33,8 @@ function Spells() {
     useEffect(() => {
         const savedFilter = getLocalStorageItem(filterKey);
         if (savedFilter) {
-            setFilter(savedFilter);
+            const spellsDefaultFilter = { castingTime: 'All', class: 'All', levelMin: 0, levelMax: 9, name: '', status: 'All' };
+            setFilter(sanitizeFilter(spellsDefaultFilter, savedFilter));
         }
     }, [filterKey]);
 

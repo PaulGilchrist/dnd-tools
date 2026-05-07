@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey, sanitizeFilter } from '../../utils/localStorage';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { useVersionedData } from '../../hooks/useVersionedData';
 import Loading from './Loading';
@@ -141,7 +141,8 @@ function Encounters() {
         const savedFilter = getLocalStorageItem(versionedFilterKey);
         if (savedFilter) {
             try {
-                setFilter(savedFilter);
+                const encounterDefaultFilter = { difficulty: 2, playerLevels: [1] };
+                setFilter(sanitizeFilter(encounterDefaultFilter, savedFilter));
             } catch (e) {
                 console.error('Error parsing saved encounter filter:', e);
             }

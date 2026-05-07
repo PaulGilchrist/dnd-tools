@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useRuleVersion } from '../../context/RuleVersionContext';
 
 // Sub-components for category-specific rendering
 function AdventuringGearDetails({ equipmentItem, getContents }) {
@@ -193,7 +192,7 @@ function ItemSpecial({ equipmentItem }) {
 }
 
 // Category renderer
-function CategoryDetails({ equipmentItem, weaponRange, getProperties, ruleVersion }) {
+function CategoryDetails({ equipmentItem, weaponRange, ruleVersion }) {
     const getContents = () => {
         if (!equipmentItem.contents || equipmentItem.contents.length === 0) {
             return '';
@@ -239,11 +238,6 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
-    };
-
-    const toggleBookmark = () => {
-        equipmentItem.bookmarked = !equipmentItem.bookmarked;
-        onBookmarkChange(equipmentItem.index, equipmentItem.bookmarked);
     };
 
     const handleCheckboxChange = (e) => {

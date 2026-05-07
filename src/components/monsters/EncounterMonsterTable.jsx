@@ -4,10 +4,6 @@ import React from 'react';
  * Monster table for selecting monsters in the encounter builder
  */
 function EncounterMonsterTable({ filteredMonsters, selectedMonsters, onToggleMonster, onIncreaseQty, onDecreaseQty, onRemoveMonster, searchQuery, onSearchQueryChange }) {
-    const isSelected = (monsterIndex) => {
-        return selectedMonsters.some(m => m.index === monsterIndex);
-    };
-
     return (
             <div className="encounters-monsters">
                 <div className="input-group input-group-sm mb-2">

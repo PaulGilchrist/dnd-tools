@@ -53,7 +53,7 @@ vi.mock('../../utils/htmlUtils', () => ({
 }));
 
 vi.mock('./Monster', () => ({
-  default: vi.fn(({ monster, expand, onExpand, cardType }) => (
+  default: vi.fn(({ monster, expand, onExpand }) => (
           <div data-testid={`monster-${monster?.index}`}>
               <span>{monster?.name}</span>
               <button data-testid={`expand-monster-${monster?.index}`}
@@ -66,7 +66,7 @@ vi.mock('./Monster', () => ({
 }));
 
 vi.mock('../2024/monsters/Monster2024', () => ({
-  default: vi.fn(({ monster, expand, onExpand, cardType }) => (
+  default: vi.fn(({ monster, expand, onExpand }) => (
           <div data-testid={`monster2024-${monster?.index}`}>
               <span>{monster?.name}</span>
               <button data-testid={`expand-monster2024-${monster?.index}`}
@@ -79,11 +79,11 @@ vi.mock('../2024/monsters/Monster2024', () => ({
 }));
 
 vi.mock('../2024/monsters/SubtypeCard', () => ({
-  default: vi.fn(({ subtype, shownCard, shownMonster, expandCard, expandMonsterCard }) => (
-          <div data-testid={`subtype-card-${subtype?.index}`}>
+  default: vi.fn(() => (
+          <div data-testid="subtype-card">
               <div className="card w-100">
                   <div className="card-header clickable">
-                      <div className="card-title">{subtype?.name}</div>
+                      <div className="card-title">Subtype</div>
                   </div>
               </div>
           </div>

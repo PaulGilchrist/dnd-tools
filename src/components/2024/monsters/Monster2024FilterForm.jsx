@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 /**
  * Monster2024FilterForm component - Wrapper for filter controls
  * @param {object} children - Filter control components

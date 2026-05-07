@@ -156,7 +156,7 @@ function FilterControls({ filter, updateFilter }) {
             <select 
                 name="environment" 
                 className="form-control"
-                value={filter.environment}
+                value={filter.environment ?? 'All'}
                 onChange={(e) => {
                     updateFilter('environment', e.target.value);
                 }}
@@ -172,7 +172,7 @@ function FilterControls({ filter, updateFilter }) {
             <select 
                 name="type" 
                 className="form-control"
-                value={filter.type}
+                value={filter.type ?? 'All'}
                 onChange={(e) => {
                     updateFilter('type', e.target.value);
                 }}
@@ -188,7 +188,7 @@ function FilterControls({ filter, updateFilter }) {
             <select 
                 name="size" 
                 className="form-control"
-                value={filter.size}
+                value={filter.size ?? 'All'}
                 onChange={(e) => {
                     updateFilter('size', e.target.value);
                 }}
@@ -204,7 +204,7 @@ function FilterControls({ filter, updateFilter }) {
             <select 
                 name="bookmarked" 
                 className="form-control"
-                value={filter.bookmarked}
+                value={filter.bookmarked ?? 'All'}
                 onChange={(e) => {
                     updateFilter('bookmarked', e.target.value);
                 }}

@@ -1,4 +1,3 @@
-import { getNameString } from '../../utils/monsterUtils';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function MonsterLairActions({ monster }) {

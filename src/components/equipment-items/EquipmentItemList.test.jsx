@@ -7,7 +7,7 @@ vi.mock('../../utils/htmlUtils', () => ({
 }));
 
 vi.mock('./EquipmentItem', () => ({
-    default: vi.fn(({ equipmentItem, expand, onExpand, onBookmarkChange, ruleVersion }) => (
+    default: vi.fn(({ equipmentItem, expand, onExpand, onBookmarkChange }) => (
           <div data-testid={`equipment-item-${equipmentItem?.index}`}>
               {equipmentItem?.name}
               {expand ? <span data-testid="expanded">expanded</span> : null}

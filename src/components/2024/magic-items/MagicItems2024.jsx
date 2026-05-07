@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { use2024MagicItems } from '../../../data/dataService';
 import { scrollIntoView } from '../../../data/utils';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../../utils/localStorage';
 import MagicItem2024 from './MagicItem2024';
 import MagicItems2024FilterForm from './MagicItems2024FilterForm';
 import MagicItems2024List from './MagicItems2024List';
@@ -17,7 +17,6 @@ function MagicItems2024() {
         type: 'All'
     });
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
@@ -28,7 +27,8 @@ function MagicItems2024() {
         const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER_2024);
         if (savedFilter) {
             try {
-                setFilter(savedFilter);
+                const miDefaultFilter = { bookmarked: 'All', attunement: 'All', name: '', rarity: 'All', type: 'All' };
+                setFilter(sanitizeFilter(miDefaultFilter, savedFilter));
                   } catch (e) {
                 console.error('Error parsing saved filter:', e);
         }

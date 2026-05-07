@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useVersionedData } from '../../hooks/useVersionedData';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { scrollIntoView } from '../../data/utils';
-import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
 import MagicItemCard from '../common/MagicItemCard';
 import MagicItemSections from '../common/MagicItemSections';
 import { normalizeMagicItem5e, normalizeMagicItem2024 } from '../adapters/magicItemAdapters';
@@ -40,7 +40,7 @@ function MagicItems() {
         const savedFilter = getLocalStorageItem(filterKey);
         if (savedFilter) {
             try {
-                return savedFilter;
+                return sanitizeFilter(defaultFilter, savedFilter);
             } catch (e) {
                 console.error('Error parsing saved filter:', e);
             }

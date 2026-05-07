@@ -25,11 +25,6 @@ function MagicItemCard({ magicItem, expand, onExpand, onBookmarkChange, sectionR
         onExpand(!isExpanded);
        };
 
-    const toggleBookmark = () => {
-        magicItem.bookmarked = !magicItem.bookmarked;
-        onBookmarkChange(magicItem.index, magicItem.bookmarked);
-       };
-
     const handleCheckboxChange = (e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Monster from './Monster';
 import { useMonsterFilter } from '../../hooks/useMonsterFilter';
 import { useMonsterBookmarks } from '../../hooks/useMonsterBookmarks';
@@ -15,7 +15,6 @@ import Loading from './Loading';
 
 function MonsterSearch() {
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
     const { ruleVersion } = useRuleVersion();
 

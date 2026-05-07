@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { act } from 'react';
 import Races2024 from './Races2024';
@@ -21,7 +21,7 @@ vi.mock('../../../../utils/localStorage', () => ({
 }));
 
 vi.mock('./RaceItem2024', () => ({
-  default: vi.fn(({ race, expand, onExpand }) => (
+  default: vi.fn(({ race }) => (
     <div data-testid={`race-2024-${race?.index}`}>
       <span>{race?.name}</span>
     </div>

@@ -12,7 +12,7 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                   <select 
                       id="difficulty"
                       className="form-control form-control-sm" 
-                      value={filter.difficulty}
+                      value={filter.difficulty ?? ''}
                       onChange={onDifficultyChange}
                   >
                       {filter.difficultyLabels && filter.difficultyLabels.map((label) => (

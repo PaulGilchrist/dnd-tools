@@ -1,21 +1,9 @@
-import { useState, useEffect } from 'react';
 import { LOCAL_STORAGE_KEYS, setLocalStorageItem } from '../../utils/localStorage';
 
 function NameFilterForm({ filter, setFilter, filterChanged }) {
     const typeOptions = [
         { value: 'building', label: 'Building' },
         { value: 'race', label: 'Race' }
-    ];
-
-    const raceOptions = [
-        { value: 'dragonborn', label: 'Dragonborn' },
-        { value: 'dwarf', label: 'Dwarf' },
-        { value: 'elf', label: 'Elf' },
-        { value: 'gnome', label: 'Gnome' },
-        { value: 'halfling', label: 'Halfling' },
-        { value: 'half-orc', label: 'Half Orc' },
-        { value: 'tiefling', label: 'Tiefling' },
-        { value: 'human-celtic', label: 'Human (Celtic)' }
     ];
 
     const sexOptions = [
@@ -60,7 +48,7 @@ function NameFilterForm({ filter, setFilter, filterChanged }) {
             <select 
                 name="type" 
                 className="form-control"
-                value={filter.type}
+                value={filter.type ?? 'Select'}
                 onChange={handleTypeChange}
             >
                 <option disabled>Select</option>
@@ -77,7 +65,7 @@ function NameFilterForm({ filter, setFilter, filterChanged }) {
             <select 
                 name="index" 
                 className="form-control"
-                value={filter.index}
+                value={filter.index ?? 'Select'}
                 onChange={handleIndexChange}
             >
                 <option disabled>Select</option>
@@ -107,7 +95,7 @@ function NameFilterForm({ filter, setFilter, filterChanged }) {
                     <select 
                         name="sex" 
                         className="form-control"
-                        value={filter.sex}
+                        value={filter.sex ?? 'Select'}
                         onChange={handleSexChange}
                     >
                         <option disabled>Select</option>
@@ -123,7 +111,7 @@ function NameFilterForm({ filter, setFilter, filterChanged }) {
             <select 
                 name="used" 
                 className="form-control"
-                value={filter.used}
+                value={filter.used ?? 'All'}
                 onChange={handleUsedChange}
             >
                 {usedOptions.map(opt => (

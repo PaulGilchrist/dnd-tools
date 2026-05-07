@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { use2024Classes } from '../../../../data/dataService';
 import { scrollIntoView } from '../../../../data/utils';
 import PlayerClass2024 from './PlayerClass2024';
@@ -7,7 +7,6 @@ import PlayerClass2024 from './PlayerClass2024';
 function PlayerClasses2024() {
     const [classes2024, setClasses2024] = useState([]);
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch 2024 class data

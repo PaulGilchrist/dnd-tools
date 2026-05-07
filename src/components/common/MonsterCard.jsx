@@ -22,7 +22,7 @@ const monsterImages = import.meta.glob('../../assets/monsters/*.jpg', { eager: t
  * @param {function} props.onBookmarkChange - Callback when bookmark status changes
  * @param {string} props.version - '5e' or '2024' to determine which renderers to use
  */
-function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmarkChange, version = '5e' }) {
+function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmarkChange }) {
     const [isExpanded, setIsExpanded] = useState(expand);
     const [imageActive, setImageActive] = useState(false);
     const [monsterImage, setMonsterImage] = useState('');
@@ -38,13 +38,6 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
         e.stopPropagation();
         setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
-     };
-
-    const toggleBookmark = () => {
-        if (monster) {
-            monster.bookmarked = !monster.bookmarked;
-            onBookmarkChange(monster.index, monster.bookmarked);
-         }
      };
 
     const handleCheckboxChange = (e) => {

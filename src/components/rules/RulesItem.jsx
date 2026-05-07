@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { scrollIntoView } from '../../data/utils';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
-function RulesItem({ rule, expand = false, onExpand, ruleVersion }) {
+function RulesItem({ rule, expand = false, onExpand }) {
     const [realShownSubsection, setRealShownSubsection] = useState(null);
     const shownSubsection = expand ? realShownSubsection : null;
 

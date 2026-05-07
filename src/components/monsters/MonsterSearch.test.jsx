@@ -61,13 +61,13 @@ vi.mock('./FilterForm', () => ({
 }));
 
 vi.mock('./FilterControls', () => ({
-    default: vi.fn(({ filter, updateFilter }) => (
+    default: vi.fn(() => (
            <div data-testid="filter-controls">Filter Controls</div>
        )),
 }));
 
 vi.mock('./MonsterList', () => ({
-    default: vi.fn(({ monsters, shownCard, expandCard, handleBookmarkChange }) => (
+    default: vi.fn(({ monsters, shownCard }) => (
            <div data-testid="monster-list">
              MonsterList with {monsters.length} monsters, shownCard: {shownCard || 'none'}
            </div>

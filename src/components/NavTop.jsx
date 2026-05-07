@@ -7,7 +7,7 @@ import './NavTop.css';
 
 function NavTop() {
     const { ruleVersion, setRuleVersion } = useRuleVersion();
-    const { navRoutes, selected, setSelected, showDropdown, handleSetSelected, isDropdownActive } = useRouteInfo(ruleVersion);
+    const { navRoutes, setSelected, showDropdown, handleSetSelected, isDropdownActive } = useRouteInfo(ruleVersion);
 
     useEffect(() => {
         const url = getLocalStorageString(LOCAL_STORAGE_KEYS.URL);

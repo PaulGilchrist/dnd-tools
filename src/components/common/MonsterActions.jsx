@@ -1,5 +1,3 @@
-import { renderHtmlContent } from '../../utils/htmlUtils';
-
 /**
  * Common MonsterActions component - Displays monster actions, traits, and lair actions
  * Works with normalized monster data from both 5e and 2024 versions

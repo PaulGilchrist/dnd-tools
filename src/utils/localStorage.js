@@ -60,6 +60,26 @@ export const getVersionedStorageKeys = (baseKeys, ruleVersion) => {
   return keys;
 };
 
+/**
+ * Sanitize a saved filter object by filling null/undefined values with defaults.
+ * This prevents React warnings about null `value` props on `<input>` elements
+ * when localStorage contains incomplete or corrupted filter data.
+ *
+ * @param {Object} defaults - The default filter values (all keys must be present)
+ * @param {Object|null} saved - The saved filter loaded from localStorage
+ * @returns {Object} A cleaned filter object with no null/undefined values
+ */
+export function sanitizeFilter(defaults, saved) {
+  if (!saved) return { ...defaults };
+  const result = { ...defaults };
+  for (const key of Object.keys(defaults)) {
+    if (Object.prototype.hasOwnProperty.call(saved, key) && saved[key] != null) {
+      result[key] = saved[key];
+    }
+  }
+  return result;
+}
+
 // Helper functions for localStorage operations
 export const getLocalStorageItem = (key) => {
   try {

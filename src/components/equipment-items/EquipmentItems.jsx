@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useEquipment, useWeaponProperties } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import { useRuleVersion } from '../../context/RuleVersionContext';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
 import EquipmentItem from './EquipmentItem';
 import EquipmentFilterForm from './EquipmentFilterForm';
 import WeaponPropertyDescription from './WeaponPropertyDescription';
@@ -56,14 +56,6 @@ function filterByRuleVersion(equipmentItem, ruleVersion) {
     return false;
 }
 
-// Extracted: Bookmark save logic
-function saveBookmark(equipmentItems) {
-    const equipmentItemsBookmarked = equipmentItems
-        .filter(item => item.bookmarked)
-        .map(item => item.index);
-    setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, equipmentItemsBookmarked);
-}
-
 // Extracted: Bookmark change handler
 function handleBookmarkChange(equipmentItems, setEquipmentItems, index, isBookmarked) {
     setEquipmentItems(prevItems =>
@@ -97,7 +89,6 @@ function EquipmentItems() {
         range: 'All'
     });
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
@@ -120,7 +111,8 @@ function EquipmentItems() {
                 // Set search filters from localStorage
                 const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER);
                 if (savedFilter) {
-                    setFilter({ ...filter, ...savedFilter });
+                    const equipDefaultFilter = { category: 'All', bookmarked: 'All', name: '', property: 'All', range: 'All' };
+                    setFilter(sanitizeFilter(equipDefaultFilter, savedFilter));
                 } else {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER, filter);
                 }

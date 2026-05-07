@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import SpellDetails from './SpellDetails';
-import { getClasses, getLevelText } from '../../utils/spellUtils';
+import { getLevelText } from '../../utils/spellUtils';
 
 /**
  * SpellCard component - Displays spell details

@@ -14,7 +14,7 @@ try {
       faviconLink.href = `${baseUrl}favicon.svg`;
     }
   }
-} catch (e) {
+} catch {
   // Ignore errors in test environments
 }
 

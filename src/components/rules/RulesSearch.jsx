@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useRef, useMemo, useReducer } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { highlightText } from './RuleSearchUtils.jsx';
 import { flattenRules } from './RuleSearchUtils';
 import RuleSearchItem from './RuleSearchItem';
 import './RulesSearch.css';

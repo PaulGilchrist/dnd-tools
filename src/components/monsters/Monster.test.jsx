@@ -50,7 +50,7 @@ vi.mock('../common/MonsterCard', () => ({
 }));
 
 vi.mock('../common/MonsterCard', () => ({
-    default: vi.fn(({ monster, cardType, expand, onExpand, onBookmarkChange, version }) => (
+    default: vi.fn(({ monster, cardType, expand, version }) => (
         <div data-testid="monster-card">
             <span data-testid="card-type">{cardType}</span>
             <span data-testid="card-expand">{String(expand)}</span>

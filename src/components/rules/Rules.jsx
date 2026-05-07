@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
 import { useRules } from '../../data/dataService';
-import { scrollIntoView } from '../../data/utils';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import RulesSearch from './RulesSearch';
 

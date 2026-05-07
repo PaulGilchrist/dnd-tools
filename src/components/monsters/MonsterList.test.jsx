@@ -39,7 +39,7 @@ vi.mock('../common/MonsterRegionalEffects', () => ({
 }));
 
 vi.mock('../common/MonsterCard', () => ({
-    default: vi.fn(({ monster, expand, onExpand, onBookmarkChange, version }) => (
+    default: vi.fn(({ monster, expand, onExpand }) => (
           <div data-testid={`monster-card-${monster?.index}`}>
               <span data-testid="card-name">{monster?.name}</span>
               <span data-testid="card-expand">{String(expand)}</span>
@@ -49,7 +49,7 @@ vi.mock('../common/MonsterCard', () => ({
 }));
 
 vi.mock('../common/MonsterCard', () => ({
-    default: vi.fn(({ monster, expand, onExpand, onBookmarkChange, version }) => (
+    default: vi.fn(({ monster, expand, onExpand }) => (
          <div data-testid={`monster-card-${monster?.index}`}>
              <span data-testid="card-name">{monster?.name}</span>
              <span data-testid="card-expand">{String(expand)}</span>

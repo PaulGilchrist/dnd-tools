@@ -77,7 +77,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
             <SelectFilter
                 label="Size"
                 name="size"
-                value={filter.size}
+                value={filter.size ?? 'All'}
                 options={SIZE_OPTIONS}
                 onChange={handleSizeChange}
             />
@@ -86,7 +86,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
             <SelectFilter
                 label="Type"
                 name="type"
-                value={filter.type}
+                value={filter.type ?? 'All'}
                 options={TYPE_OPTIONS}
                 onChange={handleTypeChange}
             />
@@ -100,7 +100,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                         className="form-control"
                         id="challengeRatingMin"
                         name="challengeRatingMin"
-                        value={filter.challengeRatingMin}
+                        value={filter.challengeRatingMin ?? ''}
                         onChange={(e) => handleChallengeMinChange(e.target.value)}
                         min="0"
                         max="30"
@@ -114,7 +114,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                         className="form-control"
                         id="challengeRatingMax"
                         name="challengeRatingMax"
-                        value={filter.challengeRatingMax}
+                        value={filter.challengeRatingMax ?? ''}
                         onChange={(e) => handleChallengeMaxChange(e.target.value)}
                         min="0"
                         max="30"
@@ -133,7 +133,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                         className="form-control"
                         id="xpMin"
                         name="xpMin"
-                        value={filter.xpMin}
+                        value={filter.xpMin ?? ''}
                         onChange={(e) => handleXpMinChange(e.target.value)}
                         min="0"
                         max="100000"
@@ -147,7 +147,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                         className="form-control"
                         id="xpMax"
                         name="xpMax"
-                        value={filter.xpMax}
+                        value={filter.xpMax ?? ''}
                         onChange={(e) => handleXpMaxChange(e.target.value)}
                         min="0"
                         max="100000"
@@ -161,7 +161,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
             <SelectFilter
                 label="Bookmarked"
                 name="bookmarked"
-                value={filter.bookmarked}
+                value={filter.bookmarked ?? 'All'}
                 options={[
                     { value: 'All', label: 'All' },
                     { value: 'true', label: 'Bookmarked Only' },

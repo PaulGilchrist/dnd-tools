@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
 import { renderHtmlContent } from '../../../utils/htmlUtils';
 
-function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowSubclass, getSpells, classFeatures, subclassFeatures }) {
+function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowSubclass, getSpells, subclassFeatures }) {
     useEffect(() => {
         if (shownSubclass) {
             scrollIntoView(shownSubclass);

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Spell from './Spell';
 
 vi.mock('../common/SpellCard', () => ({
-  default: vi.fn(({ spell, expand, onKnownChange, onPreparedChange }) => (
+  default: vi.fn(({ spell, expand }) => (
     <div data-testid="spell-card">
       <span>{spell?.name}</span>
       <span>Expand: {String(expand)}</span>

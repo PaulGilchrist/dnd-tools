@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useConditions } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
 import { useRuleVersion } from '../../context/RuleVersionContext';
@@ -8,7 +8,6 @@ import ConditionItem from './ConditionItem';
 function Conditions() {
     const { ruleVersion } = useRuleVersion();
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data

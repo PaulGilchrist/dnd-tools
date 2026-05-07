@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { use2024Feats } from '../../../data/dataService';
 import Feat2024 from './Feat2024';
 import Feat2024Filter from './Feat2024Filter';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../../utils/localStorage';
 import { scrollIntoView } from '../../../data/utils';
 
 function Feats2024() {
@@ -16,7 +16,6 @@ function Feats2024() {
         abilityScore: 'All'
     });
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data
@@ -38,7 +37,8 @@ function Feats2024() {
                       // Set search filters from localStorage
                 const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024);
                 if (savedFilter) {
-                    setFilter(savedFilter);
+                    const featDefaultFilter = { name: '', type: 'All', repeatable: 'All', minLevel: 0, abilityScore: 'All' };
+                    setFilter(sanitizeFilter(featDefaultFilter, savedFilter));
                       } else {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024, filter);
                       }

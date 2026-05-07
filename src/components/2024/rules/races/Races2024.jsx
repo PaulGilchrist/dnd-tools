@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { use2024Races } from '../../../../data/dataService';
 import { scrollIntoView } from '../../../../data/utils';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../../../utils/localStorage';
@@ -8,7 +8,6 @@ import RaceItem2024 from './RaceItem2024';
 function Races2024() {
     const [races, setRaces] = useState([]);
     const [shownCard, setShownCard] = useState('');
-    const location = useLocation();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch data

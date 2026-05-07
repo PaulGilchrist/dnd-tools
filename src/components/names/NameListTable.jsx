@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './Names.css';
 
 function NameListTable({ filter, shownNames, isNameUsed, toggleUsed }) {

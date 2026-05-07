@@ -335,7 +335,6 @@ describe('MonsterCard', () => {
       });
 
     it('does not call onExpand when not provided', () => {
-        const noOpExpand = vi.fn();
         render(
             <MonsterCard
                 monster={createMonster()}
@@ -957,8 +956,6 @@ describe('MonsterCard', () => {
       });
 
     it('stops propagation when bookmark label is clicked', () => {
-        const mockStopPropagation = vi.fn();
-        const mockStopImmediatePropagation = vi.fn();
         render(
               <MonsterCard
                  monster={createMonster()}

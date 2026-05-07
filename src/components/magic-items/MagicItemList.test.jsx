@@ -7,7 +7,7 @@ vi.mock('../../utils/htmlUtils', () => ({
 }));
 
 vi.mock('../common/MagicItemCard', () => ({
-   default: function MockMagicItemCard({ magicItem, expand, onExpand, onBookmarkChange }) {
+    default: function MockMagicItemCard({ magicItem, expand, onExpand }) {
      return (
          <div data-testid="magic-item-card">
            <span data-testid="item-name">{magicItem?.name}</span>

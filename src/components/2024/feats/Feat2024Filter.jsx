@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function Feat2024Filter({ filter, onFilterChange }) {
     const handleChange = (field, value) => {
         if (onFilterChange) {
@@ -20,7 +18,7 @@ function Feat2024Filter({ filter, onFilterChange }) {
                 className="form-control"
                 id="name"
                 name="name"
-                value={filter.name}
+                value={filter.name ?? ''}
                 onChange={(e) => handleChange('name', e.target.value)}
                 placeholder="Search feats..."
              />
@@ -31,7 +29,7 @@ function Feat2024Filter({ filter, onFilterChange }) {
                 name="type"
                 className="form-control"
                 id="type"
-                value={filter.type}
+                value={filter.type ?? 'All'}
                 onChange={(e) => handleChange('type', e.target.value)}
              >
                  {featTypes.map((type) => (
@@ -47,7 +45,7 @@ function Feat2024Filter({ filter, onFilterChange }) {
                 name="repeatable"
                 className="form-control"
                 id="repeatable"
-                value={filter.repeatable}
+                value={filter.repeatable ?? 'All'}
                 onChange={(e) => handleChange('repeatable', e.target.value)}
              >
                  {repeatableOptions.map((option) => (
@@ -64,7 +62,7 @@ function Feat2024Filter({ filter, onFilterChange }) {
                 className="form-control"
                 id="minLevel"
                 name="minLevel"
-                value={filter.minLevel}
+                value={filter.minLevel ?? ''}
                 onChange={(e) => handleChange('minLevel', parseInt(e.target.value) || 0)}
                 min="0"
                 max="20"
@@ -77,7 +75,7 @@ function Feat2024Filter({ filter, onFilterChange }) {
                 name="abilityScore"
                 className="form-control"
                 id="abilityScore"
-                value={filter.abilityScore}
+                value={filter.abilityScore ?? 'All'}
                 onChange={(e) => handleChange('abilityScore', e.target.value)}
              >
                  {abilities.map((ability) => (

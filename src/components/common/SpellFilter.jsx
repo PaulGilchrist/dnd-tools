@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './SpellFilter.css';
 
 /**
@@ -24,7 +23,7 @@ function SpellFilter({ filter, onFilterChange }) {
                       className="form-control" 
                       id="name" 
                       name="name"
-                      value={filter.name}
+                      value={filter.name ?? ''}
                       onChange={(e) => handleChange('name', e.target.value)}
                       pattern="[A-Za-z ]+" 
                       maxLength="50"
@@ -41,7 +40,7 @@ function SpellFilter({ filter, onFilterChange }) {
                <select 
                               name="class" 
                               className="form-control"
-                              value={filter.class}
+                              value={filter.class ?? 'All'}
                               onChange={(e) => handleChange('class', e.target.value)}
                             >
                                 <option value="All">All</option>
@@ -63,7 +62,7 @@ function SpellFilter({ filter, onFilterChange }) {
                       className="form-control level-min-input" 
                       id="levelMin" 
                       name="levelMin"
-                      value={filter.levelMin}
+                      value={filter.levelMin ?? ''}
                       onChange={(e) => handleChange('levelMin', parseInt(e.target.value) || 0)}
                       min="0" 
                       max="9" 
@@ -75,7 +74,7 @@ function SpellFilter({ filter, onFilterChange }) {
                       className="form-control level-max-input" 
                       id="levelMax" 
                       name="levelMax"
-                      value={filter.levelMax}
+                      value={filter.levelMax ?? ''}
                       onChange={(e) => handleChange('levelMax', parseInt(e.target.value) || 9)}
                       min="0" 
                       max="9" 
@@ -89,7 +88,7 @@ function SpellFilter({ filter, onFilterChange }) {
                <select 
                               name="castingTime" 
                               className="form-control"
-                              value={filter.castingTime}
+                              value={filter.castingTime ?? 'All'}
                               onChange={(e) => handleChange('castingTime', e.target.value)}
                              >
                                  <option value="All">All</option>
@@ -105,7 +104,7 @@ function SpellFilter({ filter, onFilterChange }) {
                <select 
                               name="status" 
                               className="form-control"
-                              value={filter.status}
+                              value={filter.status ?? 'All'}
                               onChange={(e) => handleChange('status', e.target.value)}
                               >
                                   <option value="All">All</option>
