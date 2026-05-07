@@ -1,5 +1,5 @@
 ---
-name: project-architecture
+name: architecture
 description: D&D Tools SPA — static reference app, no backend
 ---
 
