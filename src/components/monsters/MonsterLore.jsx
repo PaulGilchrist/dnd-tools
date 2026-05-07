@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { scrollIntoView } from '../../data/utils';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../../utils/localStorage';
@@ -114,7 +114,7 @@ function MonsterLore() {
         else { setShownMonster(''); }
     };
 
-    const showSubtype = (index, updateUrl = true) => {
+    const showSubtype = useCallback((index, updateUrl = true) => {
         if (shownSubtype === index) {
             setShownSubtype('');
             if (updateUrl) setSearchParams({});
@@ -123,7 +123,7 @@ function MonsterLore() {
             scrollIntoView(index);
             if (updateUrl) setSearchParams({ index });
         }
-    };
+    }, [shownSubtype, setSearchParams]);
 
     useEffect(() => {
         if (monstersData && monstersData.length > 0) {
@@ -137,7 +137,7 @@ function MonsterLore() {
                 const foundSubtype = subtypesData?.find(subtype => subtype.index === index);
                 const found = foundType || foundSubtype;
                 if (found) {
-                    showSubtype(index, false);
+                    setShownSubtype(index);
                     scrollIntoView(index);
                 }
             } else {
@@ -153,7 +153,7 @@ function MonsterLore() {
 
         if (monsterTypesData) setMonsterTypes(monsterTypesData);
         if (subtypesData) setMonsterSubtypes(subtypesData);
-    }, [monstersData, monsterTypesData, subtypesData, ruleVersion, searchParams, showSubtype, setSearchParams]);
+    }, [monstersData, monsterTypesData, subtypesData, ruleVersion, searchParams.get('index')]);
 
     // Loading check: for 2024 also wait for subtypes
     const isLoading = monstersLoading || subtypeLoading || (ruleVersion === '2024' && subtypesLoading);

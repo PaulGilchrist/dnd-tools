@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 import MonsterStats from './MonsterStats';
 import MonsterAbilityScores from './MonsterAbilityScores';
@@ -26,14 +26,16 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
     const [isExpanded, setIsExpanded] = useState(expand);
     const [imageActive, setImageActive] = useState(false);
     const [monsterImage, setMonsterImage] = useState('');
+    const expandRef = useRef(expand);
 
      // Update local state when prop changes
-    useEffect(() => {
-        if (expand !== isExpanded) {
+     useEffect(() => {
+        if (expand !== expandRef.current) {
             // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsExpanded(expand);
+            expandRef.current = expand;
          }
-     }, [expand, isExpanded]);
+      }, [expand]);
 
     const toggleDetails = (e) => {
         e.stopPropagation();
