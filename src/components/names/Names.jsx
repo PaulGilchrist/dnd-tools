@@ -24,46 +24,50 @@ function Names() {
     const { data: namesData, loading } = useNames();
 
     useEffect(() => {
-        if (namesData && namesData.length > 0) {
-            setNames(namesData);
+        // Initialization guard: only run when namesData is first loaded and names haven't been set yet
+        if (!namesData || namesData.length === 0 || names.length > 0) {
+            return;
+        }
 
-            // Set search filters from localStorage
-             const filterJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER);
-            if (filterJson) {
-                const savedFilter = filterJson;
-                
-                // Set used names from localStorage first
-                 const namesUsedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED);
-                if (namesUsedJson != null) {
-                    setNamesUsed(namesUsedJson);
-                }
+        setNames(namesData);
 
-                // Set the filter and then call getNames if we have valid selections
-                setFilter({ ...filter, ...savedFilter });
-                
-                // If we have valid selections from localStorage, call getNames after filter is set
-                if (savedFilter.index && savedFilter.index !== '' && savedFilter.index !== 'Select') {
-                    setTimeout(() => getNames(), 0);
-                } else {
-                    // Otherwise just call getNames once to initialize
-                    setTimeout(() => getNames(), 0);
-                }
+        // Set search filters from localStorage
+        const filterJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER);
+        if (filterJson) {
+            const savedFilter = filterJson;
+            
+            // Set used names from localStorage first
+            const namesUsedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_USED);
+            if (namesUsedJson != null) {
+                setNamesUsed(namesUsedJson);
+            }
+
+            // Set the filter and then call getNames if we have valid selections
+            setFilter({ ...filter, ...savedFilter });
+            
+            // If we have valid selections from localStorage, call getNames after filter is set
+            if (savedFilter.index && savedFilter.index !== '' && savedFilter.index !== 'Select') {
+                setTimeout(() => getNames(), 0);
             } else {
-                setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER, filter);
+                // Otherwise just call getNames once to initialize
                 setTimeout(() => getNames(), 0);
             }
+        } else {
+            setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER, filter);
+            setTimeout(() => getNames(), 0);
         }
-    }, [namesData, filter]);
+    }, [namesData]);
 
     useEffect(() => {
         // Call getNames when filter changes after initial load
         if (names.length > 0 && filter.index !== '') {
             getNames();
         }
-    }, [filter, names]);
+    }, [filter]);
 
     const filterChanged = (newFilter) => {
         // if the index no longer matches the type, change it
+        setFilter(newFilter);
         setLocalStorageItem(LOCAL_STORAGE_KEYS.NAMES_FILTER, newFilter);
         getNames(newFilter);
     };
