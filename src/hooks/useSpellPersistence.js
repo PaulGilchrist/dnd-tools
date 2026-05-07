@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../utils/localStorage';
 
 export function useSpellPersistence({ ruleVersion } = {}) {
@@ -6,14 +6,8 @@ export function useSpellPersistence({ ruleVersion } = {}) {
     const knownKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.SPELLS_KNOWN, version);
     const preparedKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.SPELLS_PREPARED, version);
 
-    const [knownSpells, setKnownSpells] = useState(() => getLocalStorageItem(knownKey) || []);
-    const [preparedSpells, setPreparedSpells] = useState(() => getLocalStorageItem(preparedKey) || []);
-
-    // Reload from localStorage when version changes
-    useEffect(() => {
-        setKnownSpells(getLocalStorageItem(knownKey) || []);
-        setPreparedSpells(getLocalStorageItem(preparedKey) || []);
-    }, [knownKey, preparedKey]);
+    const [knownSpells] = useState(() => getLocalStorageItem(knownKey) || []);
+    const [preparedSpells] = useState(() => getLocalStorageItem(preparedKey) || []);
 
     const saveKnown = (spellsList) => {
         const spellsKnown = spellsList
@@ -39,19 +33,17 @@ export function useSpellPersistence({ ruleVersion } = {}) {
             spellsKnown = knownSpells.filter(i => i !== index);
           }
         setLocalStorageItem(knownKey, spellsKnown);
-        setKnownSpells(spellsKnown);
         return spellsKnown;
     };
 
     const updatePrepared = (index, isPrepared) => {
         let spellsPrepared;
         if (isPrepared) {
-            spellsPrepared = preparedSpells.includes(index) ? preparedSpells : [...preparedSpells, index];
+            spellsPrepared = preparedSpells.includes(index) ? spellsPrepared : [...spellsPrepared, index];
         } else {
-            spellsPrepared = preparedSpells.filter(i => i !== index);
+            spellsPrepared = spellsPrepared.filter(i => i !== index);
           }
         setLocalStorageItem(preparedKey, spellsPrepared);
-        setPreparedSpells(spellsPrepared);
         return spellsPrepared;
     };
 
@@ -59,26 +51,26 @@ export function useSpellPersistence({ ruleVersion } = {}) {
         if (knownSpells.includes(index)) return;
         const spellsKnown = [...knownSpells, index];
         setLocalStorageItem(knownKey, spellsKnown);
-        setKnownSpells(spellsKnown);
+        return spellsKnown;
     };
 
     const removeKnown = (index) => {
         const spellsKnown = knownSpells.filter(i => i !== index);
         setLocalStorageItem(knownKey, spellsKnown);
-        setKnownSpells(spellsKnown);
+        return spellsKnown;
     };
 
     const addPrepared = (index) => {
         if (preparedSpells.includes(index)) return;
-        const spellsPrepared = [...preparedSpells, index];
+        const spellsPrepared = [...spellsPrepared, index];
         setLocalStorageItem(preparedKey, spellsPrepared);
-        setPreparedSpells(spellsPrepared);
+        return spellsPrepared;
     };
 
     const removePrepared = (index) => {
-        const spellsPrepared = preparedSpells.filter(i => i !== index);
+        const spellsPrepared = spellsPrepared.filter(i => i !== index);
         setLocalStorageItem(preparedKey, spellsPrepared);
-        setPreparedSpells(spellsPrepared);
+        return spellsPrepared;
     };
 
     return {

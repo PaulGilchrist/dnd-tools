@@ -6,7 +6,7 @@ import { renderHtmlContent } from '../../utils/htmlUtils';
 export function normalizeMonster5e(monster) {
     if (!monster) return null;
 
-    // Extract ability scores
+    // Extract ability scores and modifiers
     const abilityScores = {
         str: monster.strength,
         dex: monster.dexterity,
@@ -16,98 +16,25 @@ export function normalizeMonster5e(monster) {
         cha: monster.charisma
     };
 
-    const getAbilityModifier = (score) => Math.floor((score - 10) / 2);
-    const abilityScoreModifiers = {
-        str: getAbilityModifier(monster.strength),
-        dex: getAbilityModifier(monster.dexterity),
-        con: getAbilityModifier(monster.constitution),
-        int: getAbilityModifier(monster.intelligence),
-        wis: getAbilityModifier(monster.wisdom),
-        cha: getAbilityModifier(monster.charisma)
-    };
+    const abilityScoreModifiers = getAbilityModifiers(
+        monster.strength, monster.dexterity, monster.constitution,
+        monster.intelligence, monster.wisdom, monster.charisma
+    );
 
-    // Extract saving throws from proficiencies
-    const savingThrows = {};
-    if (monster.proficiencies) {
-        monster.proficiencies.forEach((proficiency) => {
-            if (proficiency.name.startsWith('Saving Throw:')) {
-                const abilityName = proficiency.name.substring(14, 17).toLowerCase();
-                const abilityKey = abilityName === 'str' ? 'str' :
-                                  abilityName === 'dex' ? 'dex' :
-                                  abilityName === 'con' ? 'con' :
-                                  abilityName === 'int' ? 'int' :
-                                  abilityName === 'wis' ? 'wis' : 'cha';
-                savingThrows[abilityKey] = {
-                    modifier: proficiency.value
-                };
-            }
-        });
-    }
+    // Extract saving throws and skills from proficiencies
+    const { savingThrows, skills } = extractProficiencies(monster.proficiencies);
 
-    // Extract skills from proficiencies
-    const skills = {};
-    if (monster.proficiencies) {
-        monster.proficiencies.forEach((proficiency) => {
-            if (proficiency.name.startsWith('Skill:')) {
-                const skillName = proficiency.name.substring(7);
-                skills[skillName] = {
-                    modifier: proficiency.value
-                };
-            }
-        });
-    }
+    // Normalize actions, traits, reactions, legendary actions
+    const normalizedActions = normalizeActionsList(monster.actions, 'desc');
+    const normalizedTraits = normalizeActionsList(monster.special_abilities, 'desc');
+    const normalizedReactions = normalizeActionsList(monster.reactions, 'desc');
+    const normalizedLegendaryActions = normalizeActionsList(monster.legendary_actions, 'desc');
 
-    // Normalize actions
-    const actions = monster.actions || [];
-    const normalizedActions = actions.map(action => ({
-        name: action.name,
-        description: action.desc,
-        usage: action.usage,
-        renderDescription: () => renderHtmlContent(action.desc)
-    }));
-
-    // Normalize special abilities (traits)
-    const traits = monster.special_abilities || [];
-    const normalizedTraits = traits.map(trait => ({
-        name: trait.name,
-        description: trait.desc,
-        renderDescription: () => renderHtmlContent(trait.desc)
-    }));
-
-    // Normalize reactions
-    const reactions = monster.reactions || [];
-    const normalizedReactions = reactions.map(reaction => ({
-        name: reaction.name,
-        description: reaction.desc,
-        renderDescription: () => renderHtmlContent(reaction.desc)
-    }));
-
-    // Normalize legendary actions
-    const legendaryActions = monster.legendary_actions || [];
-    const normalizedLegendaryActions = legendaryActions.map(action => ({
-        name: action.name,
-        description: action.desc,
-        renderDescription: () => renderHtmlContent(action.desc)
-    }));
-
-    // Normalize lair actions
-    // 5e lair_actions is an object with summary, actions (array of HTML strings), and usage
-    const lairActions = {};
-    if (monster.lair_actions) {
-       lairActions.summary = monster.lair_actions.summary;
-       lairActions.actions = monster.lair_actions.actions || [];
-       lairActions.usage = monster.lair_actions.usage;
-    }
+    // Normalize lair actions (5e format)
+    const lairActions = normalizeLairActions5e(monster.lair_actions);
 
     // Normalize senses
-    const senses = {};
-    if (monster.senses) {
-        if (monster.senses.blindsight) senses.blindsight = monster.senses.blindsight;
-        if (monster.senses.darkvision) senses.darkvision = monster.senses.darkvision;
-        if (monster.senses.passive_perception) senses.passive_perception = monster.senses.passive_perception;
-        if (monster.senses.tremorsense) senses.tremorsense = monster.senses.tremorsense;
-        if (monster.senses.truesight) senses.truesight = monster.senses.truesight;
-    }
+    const senses = normalizeSenses(monster.senses);
 
     // Normalize speed
     const speed = monster.speed || {};
@@ -185,83 +112,21 @@ export function normalizeMonster5e(monster) {
 export function normalizeMonster2024(monster) {
     if (!monster) return null;
 
-    // Extract saving throws
+    // Extract saving throws and skills
     const savingThrows = monster.saving_throws || {};
-
-    // Extract skills
     const skills = monster.skills || {};
 
-    // Normalize actions
-    const actions = monster.actions || [];
-    const normalizedActions = actions.map(action => ({
-        name: action.name,
-        description: action.description,
-        recharge: action.recharge,
-        attackBonus: action.attack_bonus,
-        damageDice: action.damage_dice,
-        damage: action.damage,
-        saveDc: action.save_dc,
-        saveType: action.save_type,
-        saveEffect: action.save_effect,
-        renderDescription: () => renderHtmlContent(action.description)
-    }));
+    // Normalize actions, traits, reactions, legendary actions
+    const normalizedActions = normalizeActionsList2024(monster.actions);
+    const normalizedTraits = normalizeActionsList2024(monster.traits);
+    const normalizedReactions = normalizeActionsList2024(monster.reactions);
+    const normalizedLegendaryActions = normalizeActionsList2024(monster.legendary_actions);
 
-    // Normalize traits
-    const traits = monster.traits || [];
-    const normalizedTraits = traits.map(trait => ({
-        name: trait.name,
-        description: trait.description,
-        renderDescription: () => renderHtmlContent(trait.description)
-    }));
+    // Normalize lair actions (2024 format)
+    const lairActions = normalizeLairActions2024(monster.lair_actions);
 
-    // Normalize reactions
-    const reactions = monster.reactions || [];
-    const normalizedReactions = reactions.map(reaction => ({
-        name: reaction.name,
-        description: reaction.description,
-        renderDescription: () => renderHtmlContent(reaction.description)
-    }));
-
-    // Normalize legendary actions
-    const legendaryActions = monster.legendary_actions || [];
-    const normalizedLegendaryActions = legendaryActions.map(action => ({
-        name: action.name,
-        description: action.description,
-        renderDescription: () => renderHtmlContent(action.description)
-    }));
-
-    // Normalize lair actions
-     // 2024 lair_actions might be an array, object, or undefined
-    const lairActions = {};
-    if (monster.lair_actions) {
-       if (Array.isArray(monster.lair_actions)) {
-           lairActions.summary = null;
-           lairActions.actions = monster.lair_actions.map(action => {
-               if (typeof action === 'string') {
-                   return action;
-               } else if (action && typeof action === 'object') {
-                   return action.description || '';
-               }
-               return '';
-           });
-           lairActions.usage = null;
-       } else if (typeof monster.lair_actions === 'object') {
-           // Handle object format similar to 5e
-           lairActions.summary = monster.lair_actions.summary || null;
-           lairActions.actions = monster.lair_actions.actions || [];
-           lairActions.usage = monster.lair_actions.usage || null;
-       } else {
-           // Handle string format
-           lairActions.summary = null;
-           lairActions.actions = [monster.lair_actions];
-           lairActions.usage = null;
-       }
-    }
-
-    // Normalize senses
+    // Normalize senses and speed
     const senses = monster.senses || {};
-
-    // Normalize speed
     const speed = monster.speed || {};
 
     return {
@@ -323,4 +188,112 @@ export function normalizeMonster2024(monster) {
         // Version metadata
         version: '2024'
     };
+}
+
+// ─── Helper Functions ───────────────────────────────────────────────
+
+function getAbilityModifiers(str, dex, con, int, wis, cha) {
+    const getModifier = (score) => Math.floor((score - 10) / 2);
+    return {
+        str: getModifier(str),
+        dex: getModifier(dex),
+        con: getModifier(con),
+        int: getModifier(int),
+        wis: getModifier(wis),
+        cha: getModifier(cha)
+    };
+}
+
+function extractProficiencies(proficiencies) {
+    const savingThrows = {};
+    const skills = {};
+
+    if (proficiencies) {
+        proficiencies.forEach((proficiency) => {
+            if (proficiency.name.startsWith('Saving Throw:')) {
+                const abilityName = proficiency.name.substring(14, 17).toLowerCase();
+                const abilityKey = abilityName === 'str' ? 'str' :
+                                  abilityName === 'dex' ? 'dex' :
+                                  abilityName === 'con' ? 'con' :
+                                  abilityName === 'int' ? 'int' :
+                                  abilityName === 'wis' ? 'wis' : 'cha';
+                savingThrows[abilityKey] = { modifier: proficiency.value };
+            } else if (proficiency.name.startsWith('Skill:')) {
+                const skillName = proficiency.name.substring(7);
+                skills[skillName] = { modifier: proficiency.value };
+            }
+        });
+    }
+
+    return { savingThrows, skills };
+}
+
+function normalizeActionsList(actions, descKey) {
+    return (actions || []).map(action => ({
+        name: action.name,
+        description: action[descKey],
+        usage: action.usage,
+        renderDescription: () => renderHtmlContent(action[descKey])
+    }));
+}
+
+function normalizeActionsList2024(actions) {
+    return (actions || []).map(action => ({
+        name: action.name,
+        description: action.description,
+        recharge: action.recharge,
+        attackBonus: action.attack_bonus,
+        damageDice: action.damage_dice,
+        damage: action.damage,
+        saveDc: action.save_dc,
+        saveType: action.save_type,
+        saveEffect: action.save_effect,
+        renderDescription: () => renderHtmlContent(action.description)
+    }));
+}
+
+function normalizeLairActions5e(lairActions) {
+    const result = {};
+    if (lairActions) {
+        result.summary = lairActions.summary;
+        result.actions = lairActions.actions || [];
+        result.usage = lairActions.usage;
+    }
+    return result;
+}
+
+function normalizeLairActions2024(lairActions) {
+    const result = {};
+    if (lairActions) {
+        if (Array.isArray(lairActions)) {
+            result.summary = null;
+            result.actions = lairActions.map(action => {
+                if (typeof action === 'string') return action;
+                if (action && typeof action === 'object') return action.description || '';
+                return '';
+            });
+            result.usage = null;
+        } else if (typeof lairActions === 'object') {
+            result.summary = lairActions.summary || null;
+            result.actions = lairActions.actions || [];
+            result.usage = lairActions.usage || null;
+        } else {
+            result.summary = null;
+            result.actions = [lairActions];
+            result.usage = null;
+        }
+    }
+    return result;
+}
+
+function normalizeSenses(senses) {
+    const result = {};
+    if (senses) {
+        if (senses.blindsight) result.blindsight = senses.blindsight;
+        if (senses.darkvision) result.darkvision = senses.darkvision;
+        if (senses.passive_perception) result.passive_perception = senses.passive_perception;
+        if (senses.tremorsense) result.tremorsense = senses.tremorsense;
+        if (senses.truesight) result.truesight = senses.truesight;
+    }
+    return result;
 }

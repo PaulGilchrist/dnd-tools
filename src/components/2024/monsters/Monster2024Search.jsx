@@ -22,29 +22,30 @@ function Monster2024Search() {
     // Use custom hook for filter state, persistence, and showMonster predicate
     const { filter, updateFilter, showMonster } = useMonsterFilter({ ruleVersion: '2024' });
 
-    useEffect(() => {
-        if (monstersData && monstersData.length > 0) {
-            const updatedMonsters = monstersData.map(monster => ({
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
+            const updatedMonsters = data.map(monster => ({
                 ...monster,
                 bookmarked: monster.bookmarked || false
             }));
 
             // Check for index parameter in URL
-            const index = searchParams.get('index');
+            const index = params.get('index');
             if (index) {
                 const monster = updatedMonsters.find((monster) => monster.index === index);
                 if (monster) {
                     setShownCard(index);
-                    scrollIntoView(index);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
                 }
             }
         }
-    }, [monstersData, searchParams]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -61,6 +62,11 @@ function Monster2024Search() {
         // Update local state immediately so UI reflects the change
         // This would typically use a hook, but for now we'll update the filter state
     };
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(monstersData, searchParams);
+    }, [monstersData, searchParams]);
 
     if (monstersLoading) {
         return <Loading />;

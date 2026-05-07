@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react';
 import { renderHtmlContent } from '../../../utils/htmlUtils';
 import '../../common/index.css';
 
 function Feat2024({ feat, expand, onExpand }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-
-    useEffect(() => {
-        if (expand !== isExpanded) {
-            setIsExpanded(expand);
-        }
-    }, [expand, isExpanded]);
+    const isExpanded = !!expand;
 
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
     };
 
@@ -64,9 +56,9 @@ function Feat2024({ feat, expand, onExpand }) {
                     <div className="card-text">
                         {feat.description && (
                             <div 
-                                                            className="description"
-                                                            dangerouslySetInnerHTML={renderHtmlContent(feat.description)}
-                                                         />
+                                                             className="description"
+                                                             dangerouslySetInnerHTML={renderHtmlContent(feat.description)}
+                                                          />
                         )}
                         
                         {feat.prerequisites && (

@@ -18,7 +18,7 @@ function Backgrounds2024() {
               <div className="list">
                   <div className="page-header">
                       <h1 className="card-title">Backgrounds</h1>
-                      <div className="page-description">A background represents the character's origins and life before becoming an adventurer. Each background provides ability score increases, a feat, skill proficiencies, tool proficiencies, and starting equipment options.</div>
+                      <div className="page-description">A background represents the character&apos;s origins and life before becoming an adventurer. Each background provides ability score increases, a feat, skill proficiencies, tool proficiencies, and starting equipment options.</div>
                   </div>
                   {backgroundsData && backgroundsData.map((background) => (
                       <div key={background.index} id={background.index}>

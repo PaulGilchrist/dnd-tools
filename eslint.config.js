@@ -37,6 +37,9 @@ export default defineConfig([
   },
   {
     files: ['src/**/*.test.js', 'src/**/*.test.jsx', 'src/**/*.spec.js', 'src/**/*.spec.jsx'],
+    languageOptions: {
+      globals: globals.vitest,
+    },
     rules: {
       'max-lines': 'off',
       'max-lines-per-function': 'off',

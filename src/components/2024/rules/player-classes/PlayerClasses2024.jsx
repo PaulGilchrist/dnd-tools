@@ -5,33 +5,31 @@ import { scrollIntoView } from '../../../../data/utils';
 import PlayerClass2024 from './PlayerClass2024';
 
 function PlayerClasses2024() {
-    const [classes2024, setClasses2024] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Fetch 2024 class data
     const { data: classesData, loading: classesLoading } = use2024Classes();
 
-    useEffect(() => {
-        if (classesData && classesData.length > 0) {
-            setClasses2024(classesData);
-
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
+    // Handle URL index parameter
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
+            const index = params.get('index');
             if (index) {
-                const playerClass = classesData.find(item => item.index === index);
+                const playerClass = data.find(item => item.index === index);
                 if (playerClass) {
                     setShownCard(index);
-                    scrollIntoView(index);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
                 }
             }
         }
-    }, [classesData, searchParams]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -44,6 +42,11 @@ function PlayerClasses2024() {
         }
     };
 
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(classesData, searchParams);
+    }, [classesData, searchParams]);
+
     if (classesLoading) {
         return <div className="list"><div>Loading classes...</div></div>;
     }
@@ -54,7 +57,7 @@ function PlayerClasses2024() {
                 <h1 className="card-title">Player Classes</h1>
                 <div className="page-description">Classes from the 2024 Dungeons & Dragons rules update. Each class includes core traits, level progression, and major options (replacing traditional subclasses).</div>
             </div>
-            {classes2024.map((playerClass) => (
+            {classesData.map((playerClass) => (
                 <div key={playerClass.index} id={playerClass.index}>
                     <PlayerClass2024
                         playerClass={playerClass}

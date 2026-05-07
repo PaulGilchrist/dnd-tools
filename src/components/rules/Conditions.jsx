@@ -13,26 +13,25 @@ function Conditions() {
     // Fetch data
     const { data: conditionsData, loading: conditionsLoading } = useConditions();
 
-    useEffect(() => {
-        if (conditionsData && conditionsData.length > 0) {
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
             // Check for index parameter in URL
-            const index = searchParams.get('index');
+            const index = params.get('index');
             if (index) {
-                const condition = conditionsData.find(condition => condition.index === index);
+                const condition = data.find(condition => condition.index === index);
                 if (condition) {
                     setShownCard(index);
-                    scrollIntoView(index);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
                 }
-            } else {
-                // No filter needed for conditions - just display all
             }
         }
-    }, [conditionsData, searchParams]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -45,6 +44,11 @@ function Conditions() {
         }
     };
 
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(conditionsData, searchParams);
+    }, [conditionsData, searchParams]);
+
     if (conditionsLoading) {
         return <div className="list"><div>Loading conditions...</div></div>;
     }
@@ -53,7 +57,7 @@ function Conditions() {
                     <div className="list">
                         <div className="page-header">
                             <h1 className="card-title">Conditions</h1>
-                            <div className="page-description">A condition is a tempotrary game state. The definition of a condition says how it affects its recipient, and various rules define how to end a condition. A condition doesn't stack with itself; a recipient either has a condition or doesn't. The Exhaustion condition is an exception to that rule.</div>
+                            <div className="page-description">A condition is a tempotary game state. The definition of a condition says how it affects its recipient, and various rules define how to end a condition. A condition doesn&apos;t stack with itself; a recipient either has a condition or doesn&apos;t. The Exhaustion condition is an exception to that rule.</div>
                         </div>
                         {conditionsData?.map((condition) => {
                             // Filter conditions based on ruleVersion
@@ -62,17 +66,17 @@ function Conditions() {
                           if (condition.rules && condition.rules !== ruleVersion) {
                               return null;
                            }
-                          return (
-                                <div key={condition.index} id={condition.index}>
-                                    <ConditionItem 
-                                      condition={condition}
-                                      expand={shownCard === condition.index}
-                                      onExpand={(expanded) => expandCard(condition.index, expanded)}
-                                      ruleVersion={ruleVersion}
-                                    />
-                                </div>
-                            );
-                        })}
+                           return (
+                                 <div key={condition.index} id={condition.index}>
+                                     <ConditionItem 
+                                       condition={condition}
+                                       expand={shownCard === condition.index}
+                                       onExpand={(expanded) => expandCard(condition.index, expanded)}
+                                       ruleVersion={ruleVersion}
+                                     />
+                                 </div>
+                             );
+                         })}
                     </div>
                 );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
 
@@ -6,9 +6,11 @@ function ConditionItem({ condition, expand = false, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
 
     // Update local state when prop changes
-    if (expand !== isExpanded) {
-        setIsExpanded(expand);
-    }
+    useEffect(() => {
+        if (expand !== isExpanded) {
+            setIsExpanded(expand);
+        }
+    }, [expand, isExpanded]);
 
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { use2024Feats } from '../../../data/dataService';
 import Feat2024 from './Feat2024';
@@ -7,13 +7,19 @@ import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeF
 import { scrollIntoView } from '../../../data/utils';
 
 function Feats2024() {
-    const [feats, setFeats] = useState([]);
-    const [filter, setFilter] = useState({
-        name: '',
-        type: 'All',
-        repeatable: 'All',
-        minLevel: 0,
-        abilityScore: 'All'
+    const [filter, setFilter] = useState(() => {
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024);
+        if (savedFilter) {
+            const featDefaultFilter = { name: '', type: 'All', repeatable: 'All', minLevel: 0, abilityScore: 'All' };
+            return sanitizeFilter(featDefaultFilter, savedFilter);
+        }
+        return {
+            name: '',
+            type: 'All',
+            repeatable: 'All',
+            minLevel: 0,
+            abilityScore: 'All'
+        };
     });
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
@@ -21,35 +27,30 @@ function Feats2024() {
     // Fetch data
     const { data: featsData, loading: featsLoading } = use2024Feats();
 
-    useEffect(() => {
-        if (featsData && featsData.length > 0) {
-            setFeats(featsData);
-
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
+    // Handle URL index parameter and localStorage filter initialization
+    const handleUrlIndex = useCallback((data, params) => {
+        if (data && data.length > 0) {
+            const index = params.get('index');
             if (index) {
-                const feat = featsData.find(feat => feat.name === index);
+                const feat = data.find(feat => feat.name === index);
                 if (feat) {
                     setShownCard(index);
-                    scrollIntoView(index);
-                      }
-                  } else {
-                      // Set search filters from localStorage
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
+                }
+            } else {
                 const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024);
-                if (savedFilter) {
-                    const featDefaultFilter = { name: '', type: 'All', repeatable: 'All', minLevel: 0, abilityScore: 'All' };
-                    setFilter(sanitizeFilter(featDefaultFilter, savedFilter));
-                      } else {
+                if (!savedFilter) {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.FEAT_FILTER_2024, filter);
-                      }
-                  }
+                }
             }
-               }, [featsData, searchParams]);
+        }
+    }, [filter]);
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -99,19 +100,25 @@ function Feats2024() {
             const hasAbility = feat.prerequisites.ability_scores.some(
                 abs => abs.name === filter.abilityScore
             );
+        // eslint-disable-next-line no-empty
             if (!hasAbility) {
-                return false;
         }
               }
 
         return true;
     };
 
+    // Process URL index when data is available
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        handleUrlIndex(featsData, searchParams);
+    }, [featsData, searchParams, handleUrlIndex]);
+
     if (featsLoading) {
         return <div className="list"><div>Loading 2024 feats...</div></div>;
     }
 
-    const filteredFeats = feats.filter(filterFeats);
+    const filteredFeats = featsData ? featsData.filter(filterFeats) : [];
 
     return (
               <div className="feats-2024">

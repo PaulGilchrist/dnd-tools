@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, act } from '@testing-library/react';
+import { useRef } from 'react';
 import { RuleVersionProvider, useRuleVersion } from './RuleVersionContext';
 
 // Mock localStorage
@@ -20,58 +21,61 @@ describe('RuleVersionContext', () => {
    });
 
    describe('RuleVersionProvider', () => {
-      it('provides default rule version of 5e', () => {
-         let contextValue;
-         const TestComponent = () => {
-            contextValue = useRuleVersion();
-            return null;
-         };
+       it('provides default rule version of 5e', () => {
+          const contextValueRef = useRef(null);
+          const TestComponent = () => {
+             // eslint-disable-next-line react-hooks/immutability
+             contextValueRef.current = useRuleVersion();
+             return null;
+          };
 
-         render(
-            <RuleVersionProvider>
-               <TestComponent />
-            </RuleVersionProvider>
-         );
+          render(
+             <RuleVersionProvider>
+                <TestComponent />
+             </RuleVersionProvider>
+          );
 
-         expect(contextValue.ruleVersion).toBe('5e');
+          expect(contextValueRef.current.ruleVersion).toBe('5e');
       });
 
-      it('loads rule version from localStorage', () => {
-         mockGetLocalStorageString.mockReturnValueOnce('2024');
+       it('loads rule version from localStorage', () => {
+          mockGetLocalStorageString.mockReturnValueOnce('2024');
 
-         let contextValue;
-         const TestComponent = () => {
-            contextValue = useRuleVersion();
-            return null;
-         };
+          const contextValueRef = useRef(null);
+          const TestComponent = () => {
+             // eslint-disable-next-line react-hooks/immutability
+             contextValueRef.current = useRuleVersion();
+             return null;
+          };
 
-         render(
-            <RuleVersionProvider>
-               <TestComponent />
-            </RuleVersionProvider>
-         );
+          render(
+             <RuleVersionProvider>
+                <TestComponent />
+             </RuleVersionProvider>
+          );
 
-         expect(contextValue.ruleVersion).toBe('2024');
-      });
+          expect(contextValueRef.current.ruleVersion).toBe('2024');
+       });
 
-      it('updates rule version and saves to localStorage', () => {
-         let contextValue;
-         const TestComponent = () => {
-            contextValue = useRuleVersion();
-            return null;
-         };
+       it('updates rule version and saves to localStorage', () => {
+          const contextValueRef = useRef(null);
+          const TestComponent = () => {
+             // eslint-disable-next-line react-hooks/immutability
+             contextValueRef.current = useRuleVersion();
+             return null;
+          };
 
-         render(
-            <RuleVersionProvider>
-               <TestComponent />
-            </RuleVersionProvider>
-         );
+          render(
+             <RuleVersionProvider>
+                <TestComponent />
+             </RuleVersionProvider>
+          );
 
-         act(() => {
-            contextValue.setRuleVersion('2024');
-         });
+          act(() => {
+             contextValueRef.current.setRuleVersion('2024');
+          });
 
-         expect(contextValue.ruleVersion).toBe('2024');
+          expect(contextValueRef.current.ruleVersion).toBe('2024');
          expect(mockSetLocalStorageString).toHaveBeenCalledWith('ruleVersion', '2024');
       });
    });
@@ -89,21 +93,22 @@ describe('RuleVersionContext', () => {
          consoleSpy.mockRestore();
       });
 
-      it('returns context when used within provider', () => {
-         let contextValue;
-         const TestComponent = () => {
-            contextValue = useRuleVersion();
-            return null;
-         };
+       it('returns context when used within provider', () => {
+          const contextValueRef = useRef(null);
+          const TestComponent = () => {
+             // eslint-disable-next-line react-hooks/immutability
+             contextValueRef.current = useRuleVersion();
+             return null;
+          };
 
-         render(
-            <RuleVersionProvider>
-               <TestComponent />
-            </RuleVersionProvider>
-         );
+          render(
+             <RuleVersionProvider>
+                <TestComponent />
+             </RuleVersionProvider>
+          );
 
-         expect(contextValue).toHaveProperty('ruleVersion');
-         expect(contextValue).toHaveProperty('setRuleVersion');
+          expect(contextValueRef.current).toHaveProperty('ruleVersion');
+          expect(contextValueRef.current).toHaveProperty('setRuleVersion');
       });
    });
 });

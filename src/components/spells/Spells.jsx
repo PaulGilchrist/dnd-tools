@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { useVersionedData } from '../../hooks/useVersionedData';
@@ -19,29 +19,30 @@ function Spells() {
     // Version-aware data fetching
     const { data: spellsData, loading: spellsLoading } = useVersionedData('spells');
 
-    // Filter state with default value
-    const [filter, setFilter] = useState({
-        castingTime: 'All',
-        class: 'All',
-        levelMin: 0,
-        levelMax: 9,
-        name: '',
-        status: 'All'
-    });
-
-    // Load filter from versioned localStorage on mount and when filterKey changes
-    useEffect(() => {
+    // Filter state with default value and localStorage initialization
+    const [filter, setFilter] = useState(() => {
         const savedFilter = getLocalStorageItem(filterKey);
         if (savedFilter) {
             const spellsDefaultFilter = { castingTime: 'All', class: 'All', levelMin: 0, levelMax: 9, name: '', status: 'All' };
-            setFilter(sanitizeFilter(spellsDefaultFilter, savedFilter));
+            return sanitizeFilter(spellsDefaultFilter, savedFilter);
         }
-    }, [filterKey]);
+        return {
+            castingTime: 'All',
+            class: 'All',
+            levelMin: 0,
+            levelMax: 9,
+            name: '',
+            status: 'All'
+        };
+    });
 
     // Save filter to versioned localStorage whenever it changes
-    useEffect(() => {
+    const saveFilterToStorage = () => {
         setLocalStorageItem(filterKey, filter);
-    }, [filter, filterKey]);
+    };
+    useEffect(() => {
+        saveFilterToStorage();
+    }, [saveFilterToStorage]);
 
     const [shownCard, setShownCard] = useState('');
 
@@ -58,24 +59,25 @@ function Spells() {
         }));
     }, [spellsData, knownSpells, preparedSpells]);
 
-    // Side effect: URL param checking
-    useEffect(() => {
-        if (!spellsData || spellsData.length === 0) return;
+    // Handle URL index parameter
+    const handleUrlIndex = (data, params) => {
+        if (!data || data.length === 0) return;
 
-        const index = searchParams.get('index');
+        const index = params.get('index');
         if (index) {
-            const spell = spellsData.find(spell => spell.index === index);
+            const spell = data.find(spell => spell.index === index);
             if (spell) {
                 setShownCard(index);
-                scrollIntoView(index);
+                // Scroll after state update completes
+                requestAnimationFrame(() => scrollIntoView(index));
             }
         }
-    }, [spellsData, searchParams]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -110,6 +112,11 @@ function Spells() {
             removePrepared(index);
         }
     };
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(spellsData, searchParams);
+    }, [spellsData, searchParams]);
 
     if (spellsLoading) {
         return <div className="list"><div>Loading spells...</div></div>;

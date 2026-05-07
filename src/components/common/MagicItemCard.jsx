@@ -16,6 +16,7 @@ function MagicItemCard({ magicItem, expand, onExpand, onBookmarkChange, sectionR
       // Update local state when prop changes
     useEffect(() => {
         if (expand !== isExpanded) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsExpanded(expand);
            }
        }, [expand, isExpanded]);
@@ -28,8 +29,7 @@ function MagicItemCard({ magicItem, expand, onExpand, onBookmarkChange, sectionR
     const handleCheckboxChange = (e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        magicItem.bookmarked = e.target.checked;
-        onBookmarkChange(magicItem.index, magicItem.bookmarked);
+        onBookmarkChange(magicItem.index, e.target.checked);
        };
 
     const handleLabelClick = (e) => {

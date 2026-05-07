@@ -1,112 +1,78 @@
-import { useState, useEffect } from 'react';
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function FilterControls({ filter, updateFilter }) {
-    const [localName, setLocalName] = useState(filter.name);
-    const [localCrMin, setLocalCrMin] = useState(filter.challengeRatingMin?.toString() ?? '');
-    const [localCrMax, setLocalCrMax] = useState(filter.challengeRatingMax?.toString() ?? '');
-    const [localXpMin, setLocalXpMin] = useState(filter.xpMin?.toString() ?? '');
-    const [localXpMax, setLocalXpMax] = useState(filter.xpMax?.toString() ?? '');
+// ─── Filter section helpers (extracted to reduce function line count) ───
 
-    useEffect(() => {
-        setLocalName(filter.name);
-    }, [filter.name]);
-
-    useEffect(() => {
-        setLocalCrMin(filter.challengeRatingMin?.toString() ?? '');
-    }, [filter.challengeRatingMin]);
-
-    useEffect(() => {
-        setLocalCrMax(filter.challengeRatingMax?.toString() ?? '');
-    }, [filter.challengeRatingMax]);
-
-    useEffect(() => {
-        setLocalXpMin(filter.xpMin?.toString() ?? '');
-    }, [filter.xpMin]);
-
-    useEffect(() => {
-        setLocalXpMax(filter.xpMax?.toString() ?? '');
-    }, [filter.xpMax]);
-
+function NameFilter({ filter, updateFilter }) {
     const handleNameChange = (e) => {
         const value = e.target.value;
-        setLocalName(value);
-        
-        if (value.length < 50) {
-            updateFilter('name', value);
-        }
+        if (value.length < 50) updateFilter('name', value);
     };
 
+    return (
+        <>
+            <label htmlFor="name" className="col-form-label">Name</label>
+            <div className={`has-error ${(filter.name && filter.name.length >= 50) ? 'invalid' : ''}`}>
+                <input
+                    type="text" className="form-control" id="name" name="name"
+                    value={filter.name}
+                    onChange={handleNameChange}
+                    pattern="[A-Za-z ]+" maxLength="50"
+                />
+                {filter.name && filter.name.length >= 50 && (
+                    <div className="alert alert-danger">Name should be less than 50 characters</div>
+                )}
+            </div>
+        </>
+    );
+}
+
+function RangeInput({ id, value, onChange, min, max, step, placeholder }) {
+    return (
+        <input
+            type="number" className="column form-control" id={id} name={id}
+            value={value?.toString() ?? ''}
+            onChange={onChange}
+            min={min} max={max} step={step} placeholder={placeholder}
+        />
+    );
+}
+
+function SelectOption({ opt, capitalize }) {
+    return (
+        <option key={opt} value={opt}>{capitalize ? capitalizeFirstLetter(opt) : opt}</option>
+    );
+}
+
+function FilterControls({ filter, updateFilter }) {
     const environments = ['arctic', 'coastal', 'desert', 'forest', 'grassland', 'hill', 'mountain', 'swamp', 'underdark', 'underwater', 'urban'];
     const types = ['aberration', 'beast', 'celestial', 'construct', 'dragon', 'elemental', 'fey', 'fiend', 'giant', 'humanoid', 'monstrosity', 'ooze', 'plant', 'undead'];
     const sizes = ['Tiny', 'Small', 'Medium', 'Large', 'Huge', 'Gargantuan'];
     const bookmarkedOptions = ['Bookmarked'];
 
+    const handleNumberChange = (filterKey, parseFn) => (e) => {
+        const value = e.target.value;
+        updateFilter(filterKey, value === '' ? '' : parseFn(value));
+    };
+
     return (
         <>
             {/* Name */}
-            <label htmlFor="name" className="col-form-label">Name</label>
-            <div className={`has-error ${localName && localName.length >= 50 ? 'invalid' : ''}`}>
-                <input 
-                    type="text" 
-                    className="form-control" 
-                    id="name" 
-                    name="name"
-                    value={localName}
-                    onChange={(e) => {
-                        handleNameChange(e);
-                    }}
-                    pattern="[A-Za-z ]+" 
-                    maxLength="50"
-                />
-                {localName && localName.length >= 50 && (
-                    <div className="alert alert-danger">
-                        Name should be less than 50 characters
-                    </div>
-                )}
-            </div>
+            <NameFilter filter={filter} updateFilter={updateFilter} />
 
             {/* Challenge Rating */}
             <label htmlFor="challengeRatingMin" className="col-form-label">Challenge Rating</label>
             <div className="row">
                 <div className="col">
-                    <input 
-                        type="number" 
-                        className="column form-control" 
-                        id="challengeRatingMin" 
-                        name="challengeRatingMin"
-                        value={localCrMin}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setLocalCrMin(value);
-                            updateFilter('challengeRatingMin', value === '' ? '' : parseFloat(value));
-                        }}
-                        min="0" 
-                        max="25" 
-                        step="0.25" 
-                        placeholder="min"
-                    />
+                    <RangeInput id="challengeRatingMin" value={filter.challengeRatingMin}
+                        onChange={handleNumberChange('challengeRatingMin', v => (v === '' ? '' : parseFloat(v)))}
+                        min="0" max="25" step="0.25" placeholder="min" />
                 </div>
                 <div className="col">
-                    <input 
-                        type="number" 
-                        className="column form-control" 
-                        id="challengeRatingMax" 
-                        name="challengeRatingMax"
-                        value={localCrMax}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setLocalCrMax(value);
-                            updateFilter('challengeRatingMax', value === '' ? '' : parseFloat(value));
-                        }}
-                        min="0" 
-                        max="25" 
-                        step="0.25" 
-                        placeholder="max"
-                    />
+                    <RangeInput id="challengeRatingMax" value={filter.challengeRatingMax}
+                        onChange={handleNumberChange('challengeRatingMax', v => (v === '' ? '' : parseFloat(v)))}
+                        min="0" max="25" step="0.25" placeholder="max" />
                 </div>
             </div>
 
@@ -114,104 +80,54 @@ function FilterControls({ filter, updateFilter }) {
             <label htmlFor="xpMin" className="col-form-label">XP</label>
             <div className="row">
                 <div className="col">
-                    <input 
-                        type="number" 
-                        className="column form-control" 
-                        id="xpMin" 
-                        name="xpMin"
-                        value={localXpMin}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setLocalXpMin(value);
-                            updateFilter('xpMin', value === '' ? '' : parseInt(value));
-                        }}
-                        min="0" 
-                        max="50000" 
-                        step="25" 
-                        placeholder="min"
-                    />
+                    <RangeInput id="xpMin" value={filter.xpMin}
+                        onChange={handleNumberChange('xpMin', v => (v === '' ? '' : parseInt(v)))}
+                        min="0" max="50000" step="25" placeholder="min" />
                 </div>
                 <div className="col">
-                    <input 
-                        type="number" 
-                        className="column form-control" 
-                        id="xpMax" 
-                        name="xpMax"
-                        value={localXpMax}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setLocalXpMax(value);
-                            updateFilter('xpMax', value === '' ? '' : parseInt(value));
-                        }}
-                        min="0" 
-                        max="50000" 
-                        step="25" 
-                        placeholder="max"
-                    />
+                    <RangeInput id="xpMax" value={filter.xpMax}
+                        onChange={handleNumberChange('xpMax', v => (v === '' ? '' : parseInt(v)))}
+                        min="0" max="50000" step="25" placeholder="max" />
                 </div>
             </div>
 
             {/* Environment */}
             <label htmlFor="environment" className="col-form-label">Environment</label>
-            <select 
-                name="environment" 
-                className="form-control"
-                value={filter.environment ?? 'All'}
-                onChange={(e) => {
-                    updateFilter('environment', e.target.value);
-                }}
-            >
+            <select name="environment" className="form-control" value={filter.environment ?? 'All'}
+                onChange={(e) => updateFilter('environment', e.target.value)}>
                 <option>All</option>
                 {environments.map((env) => (
-                    <option key={env} value={env}>{capitalizeFirstLetter(env)}</option>
+                    <SelectOption key={env} opt={env} capitalize />
                 ))}
             </select>
 
             {/* Type */}
             <label htmlFor="type" className="col-form-label">Type</label>
-            <select 
-                name="type" 
-                className="form-control"
-                value={filter.type ?? 'All'}
-                onChange={(e) => {
-                    updateFilter('type', e.target.value);
-                }}
-            >
+            <select name="type" className="form-control" value={filter.type ?? 'All'}
+                onChange={(e) => updateFilter('type', e.target.value)}>
                 <option>All</option>
                 {types.map((type) => (
-                    <option key={type} value={type}>{capitalizeFirstLetter(type)}</option>
+                    <SelectOption key={type} opt={type} capitalize />
                 ))}
             </select>
 
             {/* Size */}
             <label htmlFor="size" className="col-form-label">Size</label>
-            <select 
-                name="size" 
-                className="form-control"
-                value={filter.size ?? 'All'}
-                onChange={(e) => {
-                    updateFilter('size', e.target.value);
-                }}
-            >
+            <select name="size" className="form-control" value={filter.size ?? 'All'}
+                onChange={(e) => updateFilter('size', e.target.value)}>
                 <option>All</option>
                 {sizes.map((size) => (
-                    <option key={size} value={size}>{capitalizeFirstLetter(size)}</option>
+                    <SelectOption key={size} opt={size} capitalize />
                 ))}
             </select>
 
             {/* Bookmarked */}
             <label htmlFor="bookmarked" className="col-form-label">Bookmarked</label>
-            <select 
-                name="bookmarked" 
-                className="form-control"
-                value={filter.bookmarked ?? 'All'}
-                onChange={(e) => {
-                    updateFilter('bookmarked', e.target.value);
-                }}
-            >
+            <select name="bookmarked" className="form-control" value={filter.bookmarked ?? 'All'}
+                onChange={(e) => updateFilter('bookmarked', e.target.value)}>
                 <option>All</option>
                 {bookmarkedOptions.map((opt) => (
-                    <option key={opt} value={opt}>{capitalizeFirstLetter(opt)}</option>
+                    <SelectOption key={opt} opt={opt} />
                 ))}
             </select>
         </>

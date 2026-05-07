@@ -47,7 +47,7 @@ function RaceSubraces({ race }) {
     return (
         <div className="section-divider">
             <h5>Subraces</h5>
-            {race.subraces.map((subrace) => (
+            {race.subraces.map((subrace, idx) => (
                 <div key={subrace.name} className="subrace-item">
                     <span className="subrace-item-name">{subrace.name || `Subrace ${idx + 1}`}</span>
                     {subrace.description && (

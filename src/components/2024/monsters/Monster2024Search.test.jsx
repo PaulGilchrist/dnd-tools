@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+
 import Monster2024Search from './Monster2024Search';
 
 vi.mock('react-router-dom', () => {
@@ -53,7 +53,6 @@ vi.mock('./Monster2024Loading', () => ({
 }));
 
 const { use2024Monsters } = vi.mocked(await import('../../../data/dataService'));
-const { useSearchParams } = vi.mocked(await import('react-router-dom'));
 
 describe('Monster2024Search', () => {
     beforeEach(() => {

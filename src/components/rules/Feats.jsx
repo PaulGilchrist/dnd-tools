@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useFeats } from '../../data/dataService';
 import { scrollIntoView } from '../../data/utils';
@@ -8,20 +8,28 @@ import Feat from './Feat';
 function Feats() {
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
-    const urlParamsProcessed = useRef(false);
 
     // Fetch data
     const { data: featsData, loading: featsLoading } = useFeats();
 
-    useEffect(() => {
-        if (shownCard) {
-            scrollIntoView(shownCard);
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
+            const index = params.get('index');
+            if (index) {
+                const feat = data.find(item => item.index === index);
+                if (feat) {
+                    setShownCard(index);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
+                }
+            }
         }
-    }, [shownCard]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -34,20 +42,14 @@ function Feats() {
         }
     };
 
+    // Process URL index when data is available
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        handleUrlIndex(featsData, searchParams);
+    }, [featsData, searchParams]);
+
     if (featsLoading) {
         return <div className="list"><div>Loading feats...</div></div>;
-    }
-
-    // Process URL params once when data is available
-    if (featsData && featsData.length > 0 && !urlParamsProcessed.current) {
-        urlParamsProcessed.current = true;
-        const index = searchParams.get('index');
-        if (index) {
-            const feat = featsData.find(item => item.index === index);
-            if (feat) {
-                setShownCard(index);
-            }
-        }
     }
 
     return (

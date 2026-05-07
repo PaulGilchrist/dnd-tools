@@ -50,8 +50,8 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
                                 {/* Features that are not level specific */}
                                 {subclass.features && subclass.features.length > 0 && (
                                     <div>
-                                        {subclass.features.map((feature, index) => (
-                                            <div key={`${feature.name}-${index}`}>
+                                        {subclass.features.map((feature) => (
+                                            <div key={feature.name}>
                                                 <div className="playerClass-feature">
                                                     <b>{feature.name}:</b>&nbsp;
                                                   {feature.description && (
@@ -188,11 +188,12 @@ function getPrerequisites(prerequisites) {
             case 'Spell':
                 prerequisitesText += `spell ${prerequisite.spell.substr(12)}, `;
                 break;
-            default:
+            default: {
                 const key = Object.keys(prerequisite).find(key => key !== 'type');
                 if (key) {
                     prerequisitesText += `${prerequisite.type} ${prerequisite[key]} , `;
                 }
+            }
         }
     });
     

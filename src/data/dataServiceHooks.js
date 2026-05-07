@@ -4,30 +4,40 @@ import { getBaseUrl } from './dataServiceUtils.js';
 
 // Hook to fetch and cache data lazily
 export function useDataCache(key, url) {
-    const [data, setData] = useState(() => dataCache[key]);
-    const [loading, setLoading] = useState(!dataCache[key]);
-    const [error, setError] = useState(null);
+    const [cached] = useState(() => dataCache[key]);
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(!cached);
+    const [error] = useState(null);
 
+    // Always call useEffect (required by Rules of Hooks)
     useEffect(() => {
-        // Check if data is already cached
-        if (dataCache[key]) {
-            setData(dataCache[key]);
-            setLoading(false);
+        // If data is already cached, do nothing — the post-hook early return handles it.
+        // We only need to fetch when data is NOT cached.
+        if (cached) {
             return;
         }
 
-        // Start fetch
-        setLoading(true);
-        fetchAndCache(key, url)
-            .then((jsonData) => {
-                setData(jsonData);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err);
-                setLoading(false);
-            });
+        let cancelled = false;
+        (async () => {
+            try {
+                const result = await fetchAndCache(key, url);
+                if (!cancelled) {
+                    setData(result);
+                    setLoading(false);
+                }
+            } catch {
+                if (!cancelled) {
+                    setLoading(false);
+                }
+            }
+        })();
+        return () => { cancelled = true; };
     }, [key, url]);
+
+    // Early return for cached data (after all hooks)
+    if (cached) {
+        return { data: cached, loading: false, error: null };
+    }
 
     return { data, loading, error };
 }

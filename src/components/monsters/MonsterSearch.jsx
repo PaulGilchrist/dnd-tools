@@ -25,47 +25,50 @@ function MonsterSearch() {
     const { filter, updateFilter, showMonster } = useMonsterFilter({ ruleVersion });
     const { updateMonstersWithBookmarks, handleBookmarkChange } = useMonsterBookmarks({ ruleVersion });
 
-    useEffect(() => {
-        if (monstersData && monstersData.length > 0) {
-            const updatedMonsters = updateMonstersWithBookmarks(monstersData);
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
+            const updatedMonsters = updateMonstersWithBookmarks(data);
 
             // Check for index parameter in URL
-            const index = searchParams.get('index');
+            const index = params.get('index');
             if (index) {
                 const monster = updatedMonsters.find((monster) => monster.index === index);
                 if (monster) {
                     setShownCard(index);
-                    // Get the DOM element by ID and scroll it into view
-                    const element = document.getElementById(index);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => {
+                        const element = document.getElementById(index);
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    });
                 }
             }
         }
-    }, [monstersData, searchParams, updateMonstersWithBookmarks]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            const element = document.getElementById(index);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+            requestAnimationFrame(() => {
+                const element = document.getElementById(index);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
 
             // Update URL query params using setSearchParams
-            if (expanded) {
-                setSearchParams({ index });
-        }
-        }
-
-        // Update URL query params using setSearchParams
-        if (expanded) {
             setSearchParams({ index });
         } else {
+            setShownCard('');
             setSearchParams({});
-            }
-        };
+        }
+    };
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(monstersData, searchParams);
+    }, [monstersData, searchParams]);
 
     if (monstersLoading) {
         return <Loading />;

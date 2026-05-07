@@ -8,13 +8,23 @@ import MagicItems2024FilterForm from './MagicItems2024FilterForm';
 import MagicItems2024List from './MagicItems2024List';
 
 function MagicItems2024() {
-    const [magicItems, setMagicItems] = useState([]);
-    const [filter, setFilter] = useState({
-        bookmarked: 'All',
-        attunement: 'All',
-        name: '',
-        rarity: 'All',
-        type: 'All'
+    const [filter, setFilter] = useState(() => {
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER_2024);
+        if (savedFilter) {
+            try {
+                const miDefaultFilter = { bookmarked: 'All', attunement: 'All', name: '', rarity: 'All', type: 'All' };
+                return sanitizeFilter(miDefaultFilter, savedFilter);
+            } catch (e) {
+                console.error('Error parsing saved filter:', e);
+            }
+        }
+        return {
+            bookmarked: 'All',
+            attunement: 'All',
+            name: '',
+            rarity: 'All',
+            type: 'All'
+        };
     });
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
@@ -22,64 +32,32 @@ function MagicItems2024() {
     // Fetch data
     const { data: magicItemsData, loading: magicItemsLoading } = use2024MagicItems();
 
-    useEffect(() => {
-                  // Load saved filters from localStorage on mount
-        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER_2024);
-        if (savedFilter) {
-            try {
-                const miDefaultFilter = { bookmarked: 'All', attunement: 'All', name: '', rarity: 'All', type: 'All' };
-                setFilter(sanitizeFilter(miDefaultFilter, savedFilter));
-                  } catch (e) {
-                console.error('Error parsing saved filter:', e);
-        }
-              }
-
-        if (magicItemsData && magicItemsData.length > 0) {
-            // Deduplicate items by index (keep first occurrence)
-            const uniqueItemsMap = new Map();
-            magicItemsData.forEach(item => {
-                if (!uniqueItemsMap.has(item.index)) {
-                    uniqueItemsMap.set(item.index, item);
-                  }
-              });
-            const uniqueItems = Array.from(uniqueItemsMap.values());
-            
-            setMagicItems(uniqueItems);
-
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
+    // Handle URL index parameter
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
+            const index = params.get('index');
             if (index) {
+                const uniqueItemsMap = new Map();
+                data.forEach(item => {
+                    if (!uniqueItemsMap.has(item.index)) {
+                        uniqueItemsMap.set(item.index, item);
+                    }
+                });
+                const uniqueItems = Array.from(uniqueItemsMap.values());
                 const magicItem = uniqueItems.find(item => item.index === index);
                 if (magicItem) {
                     setShownCard(index);
-                    scrollIntoView(index);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
+                }
             }
-                  }
-
-                      // Set bookmarked status from localStorage
-            const magicItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024);
-            let magicItemsBookmarked = [];
-            if (magicItemsBookmarkedJson) {
-                try {
-                    magicItemsBookmarked = magicItemsBookmarkedJson;
-                      } catch (e) {
-                    console.error('Error parsing bookmarked items:', e);
-            }
-                  }
-
-            // Update bookmarked status for each item
-            const updatedItems = uniqueItems.map(item => ({
-                ...item,
-                bookmarked: magicItemsBookmarked.includes(item.index)
-            }));
-            setMagicItems(updatedItems);
-              }
-            }, [magicItemsData, searchParams]);
+        }
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -124,37 +102,57 @@ function MagicItems2024() {
     };
 
     const handleBookmarkChange = (index, isBookmarked) => {
-        // Update local state immediately so UI reflects the change
-        setMagicItems(prevItems => 
-            prevItems.map(item => 
-                item.index === index ? { ...item, bookmarked: isBookmarked } : item
-                  )
-              );
-          
-                 // Save to localStorage - get current bookmarked items from state
-        const magicItemsBookmarked = magicItems
-                  .filter(item => item.bookmarked)
-                  .map(item => item.index);
-          
+        // Save to localStorage
+        const magicItemsBookmarked = magicItemsData
+            .filter(item => item.bookmarked)
+            .map(item => item.index);
+
         if (isBookmarked) {
-            // Add to bookmarked list
             magicItemsBookmarked.push(index);
-              } else {
-                  // Remove from bookmarked list
+        } else {
             const filtered = magicItemsBookmarked.filter(i => i !== index);
             setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024, filtered);
-              }
-          
+        }
+
         if (isBookmarked) {
             setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024, magicItemsBookmarked);
-              }
-             };
+        }
+    };
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(magicItemsData, searchParams);
+    }, [magicItemsData, searchParams]);
 
     if (magicItemsLoading) {
         return <div className="list"><div>Loading magic items...</div></div>;
     }
 
-    const filteredItems = magicItems.filter(showMagicItem);
+    // Deduplicate and merge bookmarks for rendering
+    const uniqueItemsMap = new Map();
+    magicItemsData.forEach(item => {
+        if (!uniqueItemsMap.has(item.index)) {
+            uniqueItemsMap.set(item.index, item);
+        }
+    });
+    const uniqueItems = Array.from(uniqueItemsMap.values());
+
+    const magicItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024);
+    let magicItemsBookmarked = [];
+    if (magicItemsBookmarkedJson) {
+        try {
+            magicItemsBookmarked = magicItemsBookmarkedJson;
+        } catch (e) {
+            console.error('Error parsing bookmarked items:', e);
+        }
+    }
+
+    const processedItems = uniqueItems.map(item => ({
+        ...item,
+        bookmarked: magicItemsBookmarked.includes(item.index)
+    }));
+
+    const filteredItems = processedItems.filter(showMagicItem);
 
     return (
                   <>

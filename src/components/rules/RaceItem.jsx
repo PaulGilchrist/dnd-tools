@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 import '../common/index.css';
 import Subraces from './Subraces';
@@ -7,9 +7,11 @@ function RaceItem({ race, expand, onExpand }) {
     const [isExpanded, setIsExpanded] = useState(expand);
 
     // Update local state when prop changes
-    if (expand !== isExpanded) {
-        setIsExpanded(expand);
-    }
+    useEffect(() => {
+        if (expand !== isExpanded) {
+            setIsExpanded(expand);
+        }
+    }, [expand, isExpanded]);
 
     const getAbilityBonuses = () => {
         if (!race.ability_bonuses || race.ability_bonuses.length === 0) {

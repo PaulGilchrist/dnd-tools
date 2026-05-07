@@ -217,7 +217,7 @@ function RulesSearch({ rules, ruleVersion }) {
             {/* Empty State */}
             {matches.length === 0 && searchText && (
                 <div className="empty-search-results">
-                    <p>No rules found matching "{searchText}"</p>
+                    <p>No rules found matching &quot;{searchText}&quot;</p>
                 </div>
             )}
         </div>

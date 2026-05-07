@@ -25,24 +25,25 @@ function PlayerClasses() {
     // Fetch data directly from versioned hook — no local state copy
     const { data: playerClassesData, loading: playerClassesLoading } = useVersionedData('classes');
 
-    useEffect(() => {
-        if (playerClassesData && playerClassesData.length > 0) {
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
             // Check for index parameter in URL
-            const index = searchParams.get('index');
+            const index = params.get('index');
             if (index) {
-                const playerClass = playerClassesData.find(item => item.index === index);
+                const playerClass = data.find(item => item.index === index);
                 if (playerClass) {
                     setShownCard(index);
-                    scrollIntoView(index);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
                 }
             }
         }
-    }, [playerClassesData, searchParams]);
+    };
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -54,6 +55,11 @@ function PlayerClasses() {
             setSearchParams({});
         }
     };
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(playerClassesData, searchParams);
+    }, [playerClassesData, searchParams]);
 
     if (playerClassesLoading) {
         return <div className="list"><div>Loading player classes...</div></div>;

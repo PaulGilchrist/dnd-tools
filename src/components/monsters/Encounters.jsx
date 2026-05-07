@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey, sanitizeFilter } from '../../utils/localStorage';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { useVersionedData } from '../../hooks/useVersionedData';
@@ -128,36 +128,33 @@ function Encounters() {
     const { ruleVersion } = useRuleVersion();
     const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
 
-    const [filter, setFilter] = useState({
-        difficulty: 2,
-        playerLevels: [1]
-    });
-
-    const [selectedMonsters, setSelectedMonsters] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
-
-    useEffect(() => {
+    // Initialize filter from localStorage directly
+    const initializeFilter = () => {
         const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
         const savedFilter = getLocalStorageItem(versionedFilterKey);
         if (savedFilter) {
             try {
                 const encounterDefaultFilter = { difficulty: 2, playerLevels: [1] };
-                setFilter(sanitizeFilter(encounterDefaultFilter, savedFilter));
+                return sanitizeFilter(encounterDefaultFilter, savedFilter);
             } catch (e) {
                 console.error('Error parsing saved encounter filter:', e);
             }
-        } else {
-            setLocalStorageItem(versionedFilterKey, filter);
         }
-    }, [ruleVersion]);
+        return { difficulty: 2, playerLevels: [1] };
+    };
 
-    const totalThreshold = useMemo(() => calculateXPThreshold(filter), [filter.playerLevels, filter.difficulty]);
+    const [filter, setFilter] = useState(initializeFilter);
+
+    const [selectedMonsters, setSelectedMonsters] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const totalThreshold = useMemo(() => calculateXPThreshold(filter), [filter]);
     const totalMonsterXP = useMemo(() => calculateTotalMonsterXP(selectedMonsters), [selectedMonsters]);
     const monsterCount = useMemo(() => calculateMonsterCount(selectedMonsters), [selectedMonsters]);
     const difficultyMultiplier = useMemo(() => calculateDifficultyMultiplier(monsterCount), [monsterCount]);
     const effectiveXP = Math.round(totalMonsterXP / difficultyMultiplier);
     const difficultyIndex = useMemo(() => calculateDifficultyIndex(effectiveXP, totalThreshold), [effectiveXP, totalThreshold]);
-    const filteredMonsters = useMemo(() => filterMonsters(monstersData, searchQuery, filter), [monstersData, searchQuery, filter.playerLevels, filter.difficulty]);
+    const filteredMonsters = useMemo(() => filterMonsters(monstersData, searchQuery, filter), [monstersData, searchQuery, filter]);
 
     const toggleMonsterHandler = (monster) => {
         setSelectedMonsters(prev => toggleMonster(prev, monster));

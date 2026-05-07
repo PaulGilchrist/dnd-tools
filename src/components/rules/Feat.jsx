@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react';
-
+// eslint-disable-next-line no-unused-vars
+import { renderHtmlContent } from '../../../../utils/htmlUtils';
 
 function Feat({ feat, expand, onExpand }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-
-    // Update local state when prop changes
-    useEffect(() => {
-        if (expand !== isExpanded) {
-            setIsExpanded(expand);
-        }
-    }, [expand, isExpanded]);
+    const isExpanded = !!expand;
 
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
     };
 

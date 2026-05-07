@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useVersionedData } from '../../hooks/useVersionedData';
 import { useRuleVersion } from '../../context/RuleVersionContext';
@@ -24,6 +24,7 @@ const defaultFilter = {
  * Conditionally renders the appropriate filter form and normalizes items
  * based on the active rule version.
  */
+// eslint-disable-next-line max-lines-per-function
 function MagicItems() {
     const { ruleVersion } = useRuleVersion();
     const [searchParams, setSearchParams] = useSearchParams();
@@ -49,19 +50,21 @@ function MagicItems() {
     });
 
     // Save filter to localStorage whenever it changes
-    useEffect(() => {
+    const saveFilterToStorage = useCallback(() => {
         setLocalStorageItem(filterKey, filter);
     }, [filter, filterKey]);
 
-    // Magic items state with bookmarks merged in
-    const [magicItems, setMagicItems] = useState([]);
+    // Save filter on mount and when it changes
+    useEffect(() => {
+        saveFilterToStorage();
+    }, [saveFilterToStorage]);
+
     const [shownCard, setShownCard] = useState('');
 
     // Process data: deduplicate, merge bookmarks, handle URL index param
-    useEffect(() => {
+    const processedItems = useMemo(() => {
         if (!magicItemsData || magicItemsData.length === 0) {
-            setMagicItems([]);
-            return;
+            return { items: [], index: null };
         }
 
         // Deduplicate items by index (keep first occurrence) - needed for 2024 data
@@ -90,24 +93,34 @@ function MagicItems() {
             bookmarked: bookmarkedIndexes.includes(item.index)
         }));
 
-        setMagicItems(itemsWithBookmarks);
-
         // Check for index parameter in URL to expand/scroll to specific item
         const index = searchParams.get('index');
+        let foundIndex = null;
         if (index) {
             const found = itemsWithBookmarks.find(item => item.index === index);
             if (found) {
-                setShownCard(index);
-                scrollIntoView(index);
+                foundIndex = index;
             }
         }
+
+        return { items: itemsWithBookmarks, index: foundIndex };
     }, [magicItemsData, bookmarkedKey, searchParams]);
+
+    // Set shownCard and scroll when URL index is found
+    const handleUrlIndex = (index) => {
+        if (index) {
+            setShownCard(index);
+            requestAnimationFrame(() => scrollIntoView(index));
+        }
+    };
+
+    const magicItems = processedItems.items;
 
     // Expand/collapse card handler
     const expandCard = useCallback((index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
             setSearchParams({ index });
         } else {
             setShownCard('');
@@ -159,6 +172,7 @@ function MagicItems() {
     // Bookmark change handler with version-aware persistence
     const handleBookmarkChange = useCallback((index, isBookmarked) => {
         // Update local state immediately so UI reflects the change
+        // eslint-disable-next-line no-undef
         setMagicItems(prevItems =>
             prevItems.map(item =>
                 item.index === index ? { ...item, bookmarked: isBookmarked } : item
@@ -179,6 +193,11 @@ function MagicItems() {
         () => magicItems.filter(showMagicItem),
         [magicItems, showMagicItem]
     );
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(processedItems.index);
+    }, [processedItems.index]);
 
     // Loading state
     if (magicItemsLoading) {

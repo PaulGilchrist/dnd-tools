@@ -21,7 +21,7 @@ export function filterSpells(filter, spell) {
             case 'Ritual':
                 matches = isRitual;
                 break;
-            case 'Non-Ritual, Long Cast Time':
+            case 'Non-Ritual, Long Cast Time': {
                 // Not a ritual AND not a standard quick casting time
                 // 5e: "1 action", "1 bonus action", "1 reaction"
                 // 2024: "Action", "Bonus Action", "Reaction"
@@ -30,6 +30,7 @@ export function filterSpells(filter, spell) {
                     ct === '1 reaction' || ct === 'reaction';
                 matches = !isRitual && !isQuick;
                 break;
+            }
             default:
                 matches = false;
         }

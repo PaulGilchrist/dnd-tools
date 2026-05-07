@@ -11,7 +11,6 @@ import './common/Cover.css';
 const locationImages = import.meta.glob('../assets/locations/*.jpg', { eager: true });
 
 function Locations() {
-    const [locations, setLocations] = useState([]);
     const [image, setImage] = useState('');
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
@@ -19,30 +18,20 @@ function Locations() {
     // Fetch data
     const { data: locationsData, loading } = useLocations();
 
-    useEffect(() => {
-        if (locationsData && locationsData.length > 0) {
-            setLocations(locationsData);
-
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
+    // Handle URL index parameter
+    const handleUrlIndex = (data, params) => {
+        if (data && data.length > 0) {
+            const index = params.get('index');
             if (index) {
-                const location = locationsData.find(loc => loc.index === index);
+                const location = data.find(loc => loc.index === index);
                 if (location) {
                     setShownCard(index);
-                    // Scroll into view after a small delay to ensure element is rendered
-                    setTimeout(() => scrollIntoView(index), 100);
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
                 }
             }
         }
-    }, [locationsData, searchParams]);
-
-    // Scroll into view when card is expanded
-    useEffect(() => {
-        if (shownCard) {
-            // Use a longer timeout to ensure the card body has fully rendered
-            setTimeout(() => scrollIntoView(shownCard), 300);
-        }
-    }, [shownCard]);
+    };
 
     const expandCard = (index) => {
         if (shownCard === index) {
@@ -51,6 +40,7 @@ function Locations() {
         } else {
             // Open the card
             setShownCard(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         }
 
         // Update URL query params using setSearchParams
@@ -65,13 +55,18 @@ function Locations() {
 
     const showImage = (locationIndex) => {
         // Show full-screen image when clicking the Image button
-        const location = locations.find(loc => loc.index === locationIndex);
+        const location = locationsData.find(loc => loc.index === locationIndex);
         if (location && location.image) {
             // Use relative path to look up in locationImages object
             const imagePath = `../assets/locations/${location.image}`;
             setImage(locationImages[imagePath]?.default || '');
         }
     };
+
+    // Process URL index when data is available
+    useEffect(() => {
+        handleUrlIndex(locationsData, searchParams);
+    }, [locationsData, searchParams]);
 
     if (loading) {
         return <div className="list"><div>Loading locations...</div></div>;
@@ -88,7 +83,7 @@ function Locations() {
             )}
             
             <div className="list">
-                {locations.map((location) => (
+                {locationsData.map((location) => (
                     <div key={location.index} id={location.index}>
                         {/* Scroll anchor - must be in document flow */}
                         <div

@@ -30,6 +30,7 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
      // Update local state when prop changes
     useEffect(() => {
         if (expand !== isExpanded) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsExpanded(expand);
          }
      }, [expand, isExpanded]);
@@ -44,10 +45,9 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         if (monster) {
-            monster.bookmarked = e.target.checked;
-            onBookmarkChange(monster.index, monster.bookmarked);
+            onBookmarkChange(monster.index, e.target.checked);
          }
-     };
+      };
 
     const handleLabelClick = (e) => {
         e.stopPropagation();

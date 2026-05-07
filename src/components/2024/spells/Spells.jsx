@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { use2024Spells } from '../../../data/dataService';
 import Spell from './Spell';
@@ -9,14 +9,20 @@ import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeF
 import { scrollIntoView } from '../../../data/utils';
 
 function Spells2024() {
-    const [spells, setSpells] = useState([]);
-    const [filter, setFilter] = useState({
-        castingTime: 'All',
-        class: 'All',
-        levelMin: 0,
-        levelMax: 9,
-        name: '',
-        status: 'All'
+    const [filter, setFilter] = useState(() => {
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER_2024);
+        if (savedFilter) {
+            const spellsDefaultFilter = { castingTime: 'All', class: 'All', levelMin: 0, levelMax: 9, name: '', status: 'All' };
+            return sanitizeFilter(spellsDefaultFilter, savedFilter);
+        }
+        return {
+            castingTime: 'All',
+            class: 'All',
+            levelMin: 0,
+            levelMax: 9,
+            name: '',
+            status: 'All'
+        };
     });
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
@@ -25,46 +31,33 @@ function Spells2024() {
     const { data: spellsData, loading: spellsLoading } = use2024Spells();
 
     // Use extracted hooks
-    const { knownSpells, preparedSpells } = useSpellPersistence();
+    const { knownSpells, preparedSpells, addKnown, removeKnown, addPrepared, removePrepared } = useSpellPersistence();
 
-    useEffect(() => {
-        if (spellsData && spellsData.length > 0) {
-            setSpells(spellsData);
-
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
+    // Handle URL index parameter and localStorage filter initialization
+    const handleUrlIndex = useCallback((data, params) => {
+        if (data && data.length > 0) {
+            const index = params.get('index');
             if (index) {
-                const spell = spellsData.find(spell => spell.index === index);
+                const spell = data.find(spell => spell.index === index);
                 if (spell) {
                     setShownCard(index);
-                    scrollIntoView(index);
-                     }
-                 } else {
-                     // Set search filters from localStorage
+                    // Scroll after state update completes
+                    requestAnimationFrame(() => scrollIntoView(index));
+                }
+            } else {
                 const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER_2024);
-                if (savedFilter) {
-                    const spellsDefaultFilter = { castingTime: 'All', class: 'All', levelMin: 0, levelMax: 9, name: '', status: 'All' };
-                    setFilter(sanitizeFilter(spellsDefaultFilter, savedFilter));
-                     } else {
+                if (!savedFilter) {
                     setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELL_FILTER_2024, filter);
-                     }
-                 }
-
-            // Update spells with known and prepared status
-            const updatedSpells = spellsData.map(spell => ({
-                ...spell,
-                known: knownSpells.includes(spell.index),
-                prepared: preparedSpells.includes(spell.index)
-            }));
-            setSpells(updatedSpells);
-              }
-           }, [spellsData, knownSpells, preparedSpells, searchParams]);
+                }
+            }
+        }
+    }, [filter]);
 
 
     const expandCard = (index, expanded) => {
         if (expanded) {
             setShownCard(index);
-            scrollIntoView(index);
+            requestAnimationFrame(() => scrollIntoView(index));
         } else {
             setShownCard('');
         }
@@ -82,53 +75,45 @@ function Spells2024() {
             };
 
     const handleKnownChange = (index, isKnown) => {
-        // Update local state immediately so UI reflects the change
-        setSpells(prevSpells => 
-            prevSpells.map(spell => 
-                spell.index === index ? { ...spell, known: isKnown } : spell
-                 )
-             );
-
-        // Save to localStorage using the knownSpells from hook
         if (isKnown) {
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_KNOWN_2024, [...knownSpells, index]);
-               } else {
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_KNOWN_2024, knownSpells.filter(i => i !== index));
-               }
-
-        // Also save prepared if needed
-        const updatedSpell = spells.find(s => s.index === index);
-        if (updatedSpell && !isKnown && updatedSpell.prepared) {
-            updatedSpell.prepared = false;
-             }
-            };
+            addKnown(index);
+        } else {
+            removeKnown(index);
+            // If unmarking known and spell is prepared, also unprepare
+            const spell = spellsData?.find(s => s.index === index);
+            if (spell && preparedSpells.includes(index)) {
+                removePrepared(index);
+            }
+        }
+    };
 
     const handlePreparedChange = (index, isPrepared) => {
-        // Update local state immediately so UI reflects the change
-        setSpells(prevSpells => 
-            prevSpells.map(spell => 
-                spell.index === index ? { ...spell, prepared: isPrepared } : spell
-                 )
-             );
-
-        // Save to localStorage using the preparedSpells from hook
         if (isPrepared) {
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_PREPARED_2024, [...preparedSpells, index]);
-               } else {
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_PREPARED_2024, preparedSpells.filter(i => i !== index));
-               }
+            addPrepared(index);
+            // If preparing and not known, also mark as known
+            if (!knownSpells.includes(index)) {
+                addKnown(index);
+            }
+        } else {
+            removePrepared(index);
+        }
+    };
 
-        // If not prepared, ensure it's known
-        const updatedSpell = spells.find(s => s.index === index);
-        if (updatedSpell && isPrepared && !updatedSpell.known) {
-            updatedSpell.known = true;
-            setLocalStorageItem(LOCAL_STORAGE_KEYS.SPELLS_KNOWN_2024, [...knownSpells, index]);
-             }
-            };
+    // Process URL index when data is available
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        handleUrlIndex(spellsData, searchParams);
+    }, [spellsData, searchParams, handleUrlIndex]);
 
     if (spellsLoading) {
         return <div className="list"><div>Loading 2024 spells...</div></div>;
     }
+
+    const spells = spellsData ? spellsData.map(spell => ({
+        ...spell,
+        known: knownSpells.includes(spell.index),
+        prepared: preparedSpells.includes(spell.index)
+    })) : [];
 
     const filteredSpells = spells.filter((spell) => filterSpells(filter, spell));
 

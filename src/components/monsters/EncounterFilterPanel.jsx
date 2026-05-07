@@ -24,7 +24,7 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                   <button type="button" className="btn btn-sm btn-outline-secondary mb-2" onClick={onAddPlayer}>+ Add Player</button>
                   <div className="player-levels-horizontal">
                       {filter.playerLevels.map((level, index) => (
-                            <div key={index} className="player-level-row">
+                            <div key={level} className="player-level-row">
                               <span className="player-level-label">Player {index + 1} Level</span>
                               <input 
                                   type="number" 

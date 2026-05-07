@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageString, setLocalStorageString } from '../utils/localStorage';
 
 const RuleVersionContext = createContext(null);
@@ -13,13 +13,16 @@ export function RuleVersionProvider({ children }) {
         setLocalStorageString(LOCAL_STORAGE_KEYS.RULE_VERSION, newVersion);
     };
 
+    const contextValue = useMemo(() => ({ ruleVersion, setRuleVersion: updateRuleVersion }), [ruleVersion, updateRuleVersion]);
+
     return (
-        <RuleVersionContext.Provider value={{ ruleVersion, setRuleVersion: updateRuleVersion }}>
+        <RuleVersionContext.Provider value={contextValue}>
             {children}
         </RuleVersionContext.Provider>
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useRuleVersion() {
     const context = useContext(RuleVersionContext);
     if (!context) {

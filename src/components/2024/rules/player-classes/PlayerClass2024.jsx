@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { renderHtmlContent } from '../../../../utils/htmlUtils';
 import PlayerClass2024Header from './PlayerClass2024Header';
 import PlayerClass2024Majors from './PlayerClass2024Majors';
@@ -7,19 +7,12 @@ import PlayerClass2024LevelProgression from './PlayerClass2024LevelProgression';
 import PlayerClass2024Multiclassing from './PlayerClass2024Multiclassing';
 
 function PlayerClass2024({ playerClass, expand, onExpand }) {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const isExpanded = !!expand;
     const [shownLevel, setShownLevel] = useState(1);
     const [shownMajor, setShownMajor] = useState('');
 
-    // Update local state when props change
-    useEffect(() => {
-        if (isExpanded !== (expand ? 1 : 0)) {
-            setIsExpanded(!!expand);
-        }
-    }, [expand, isExpanded]);
-
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
+        onExpand(!isExpanded);
     };
 
     const showLevel = (level) => {
@@ -124,4 +117,3 @@ function PlayerClass2024({ playerClass, expand, onExpand }) {
 }
 
 export default PlayerClass2024;
-

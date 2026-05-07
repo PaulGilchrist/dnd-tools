@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Sub-components for category-specific rendering
 function AdventuringGearDetails({ equipmentItem, getContents }) {
@@ -194,18 +194,12 @@ function ItemSpecial({ equipmentItem }) {
 // Category renderer
 function CategoryDetails({ equipmentItem, weaponRange, ruleVersion }) {
     const getContents = () => {
-        if (!equipmentItem.contents || equipmentItem.contents.length === 0) {
-            return '';
-        }
-        return equipmentItem.contents.map(content =>
-            `${content.quantity} ${content.item.name}`
-        ).join(', ');
+        if (!equipmentItem.contents || equipmentItem.contents.length === 0) return '';
+        return equipmentItem.contents.map(content => `${content.quantity} ${content.item.name}`).join(', ');
     };
 
     const getPropertiesHelper = () => {
-        if (!equipmentItem.properties || equipmentItem.properties.length === 0) {
-            return '';
-        }
+        if (!equipmentItem.properties || equipmentItem.properties.length === 0) return '';
         return equipmentItem.properties.join(', ');
     };
 
@@ -229,11 +223,11 @@ function CategoryDetails({ equipmentItem, weaponRange, ruleVersion }) {
 
 function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, ruleVersion }) {
     const [isExpanded, setIsExpanded] = useState(expand);
-
-    // Update local state when prop changes
-    if (expand !== isExpanded) {
-        setIsExpanded(expand);
-    }
+    useEffect(() => {
+        if (expand !== isExpanded) {
+            setIsExpanded(expand);
+        }
+    }, [expand, isExpanded]);
 
     const toggleDetails = () => {
         setIsExpanded(!isExpanded);
@@ -243,8 +237,7 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
     const handleCheckboxChange = (e) => {
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        equipmentItem.bookmarked = e.target.checked;
-        onBookmarkChange(equipmentItem.index, equipmentItem.bookmarked);
+        onBookmarkChange(equipmentItem.index, e.target.checked);
     };
 
     const handleLabelClick = (e) => {
@@ -252,11 +245,8 @@ function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, rule
         e.nativeEvent.stopImmediatePropagation();
     };
 
-    if (!equipmentItem) {
-        return null;
-    }
+    if (!equipmentItem) return null;
 
-    // Handle "Meele" typo in data
     const weaponRange = equipmentItem.weapon_range?.toLowerCase().replace('meele', 'melee');
 
     return (

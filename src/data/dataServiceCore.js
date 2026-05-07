@@ -6,9 +6,6 @@ export const loadingPromises = {};
 
 // Import the utility function for sorting names
 import { sort } from './dataServiceUtils.js';
-// Import the base URL helper
-import { getBaseUrl } from './dataServiceUtils.js';
-
 // Fetch data with caching - never re-fetches once loaded or loading
 export async function fetchAndCache(key, url) {
     // Return cached data if already loaded

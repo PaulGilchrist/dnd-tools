@@ -16,6 +16,7 @@ function SpellCard({ spell, expand, onExpand, onKnownChange, onPreparedChange })
 
     useEffect(() => {
         if (expand !== isExpanded) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsExpanded(expand);
         }
     }, [expand, isExpanded]);
@@ -26,19 +27,18 @@ function SpellCard({ spell, expand, onExpand, onKnownChange, onPreparedChange })
     };
 
     const toggleKnown = () => {
-        spell.known = !spell.known;
-        
-        if (spell.known === false && spell.prepared === true) {
-            spell.prepared = false;
+        const newKnown = !spell.known;
+
+        if (newKnown === false && spell.prepared === true) {
             onPreparedChange(spell.index, false);
         }
-        
-        onKnownChange(spell.index, spell.known);
+
+        onKnownChange(spell.index, newKnown);
     };
 
     const togglePrepared = () => {
-        spell.prepared = !spell.prepared;
-        onPreparedChange(spell.index, spell.prepared);
+        const newPrepared = !spell.prepared;
+        onPreparedChange(spell.index, newPrepared);
     };
 
     if (!spell) {
