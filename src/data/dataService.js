@@ -1,268 +1,36 @@
-import { useState, useEffect } from 'react';
+// Backward-compatible barrel — all existing imports from './dataService' continue to work
 
-// Get the base URL from Vite's environment variables (set by vite.config.js)
-// Using lazy evaluation to avoid issues in test environments
-export function getBaseUrl() {
-    if (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) {
-        return import.meta.env.BASE_URL;
-    }
-    return '';
-}
+// Core caching layer
+export { dataCache, loadingPromises, fetchAndCache } from './dataServiceCore.js';
 
-// Cache for storing loaded data to avoid repeated fetches
-const dataCache = {};
+// Hooks (core + 18 individual)
+export {
+    useDataCache,
+    useAbilityScores,
+    useConditions,
+    useEquipment,
+    useFeats,
+    useLocations,
+    useMagicItems,
+    useMonsters,
+    useMonsterTypes,
+    useNames,
+    usePlayerClasses,
+    useRaces,
+    useRules,
+    useSpells,
+    use2024Spells,
+    use2024Monsters,
+    use2024MonsterTypes,
+    use2024MonsterSubtypes,
+    use2024MagicItems,
+    useWeaponProperties,
+    use2024Classes,
+    use2024Races,
+    use2024Backgrounds,
+    use2024Feats,
+    useWeaponMastery2024,
+} from './dataServiceHooks.js';
 
-// Track which datasets have been loaded (even if still loading)
-const loadingPromises = {};
-// Helper function to sort array of objects by property name
-export function sort(inputObjectArray, propertyName, descending = false) {
-    if (inputObjectArray && propertyName) {
-        inputObjectArray.sort((a, b) => {
-            const aValue = a[propertyName];
-            const bValue = b[propertyName];
-            if (aValue < bValue) {
-                return descending ? 1 : -1;
-            }
-            if (bValue < aValue) {
-                return descending ? -1 : 1;
-            }
-            return 0;
-          });
-      }
-}
-
-// Error handler function
-export function handleError(error) {
-    console.error(error);
-    throw error;
-}
-
-// Fetch data with caching - never re-fetches once loaded or loading
-async function fetchAndCache(key, url) {
-     // Return cached data if already loaded
-    if (dataCache[key]) {
-        return dataCache[key];
-     }
-
-     // Reuse existing in-flight request if loading
-    if (loadingPromises[key]) {
-        return loadingPromises[key];
-     }
-
-     // Create new fetch promise and cache it
-    const promise = (async () => {
-        try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const jsonData = await response.json();
-                
-                // Special handling for names - sort by name
-                if (key === 'names') {
-                    sort(jsonData, 'name');
-                }
-
-            dataCache[key] = jsonData;
-            return jsonData;
-            } finally {
-             // Clean up the promise reference after completion
-            delete loadingPromises[key];
-            }
-     })();
-
-    loadingPromises[key] = promise;
-    return promise;
-}
-
-// Hook to fetch and cache data lazily
-export function useDataCache(key, url) {
-    const [data, setData] = useState(() => dataCache[key]);
-    const [loading, setLoading] = useState(!dataCache[key]);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        // Check if data is already cached
-        if (dataCache[key]) {
-            setData(dataCache[key]);
-            setLoading(false);
-            return;
-        }
-
-        // Start fetch
-        setLoading(true);
-        fetchAndCache(key, url)
-            .then((jsonData) => {
-                setData(jsonData);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err);
-                setLoading(false);
-            });
-    }, [key, url]);
-
-    return { data, loading, error };
-}
-
-// Individual hooks for each data type
-export function useAbilityScores() {
-    return useDataCache('abilityScores', getBaseUrl() + 'data/ability-scores.json');
-}
-
-export function useConditions() {
-    return useDataCache('conditions', getBaseUrl() + 'data/conditions.json');
-}
-
-export function useEquipment() {
-    return useDataCache('equipment', getBaseUrl() + 'data/equipment.json');
-}
-
-export function useFeats() {
-    return useDataCache('feats', getBaseUrl() + 'data/feats.json');
-}
-
-export function useLocations() {
-    return useDataCache('locations', getBaseUrl() + 'data/locations.json');
-}
-
-export function useMagicItems() {
-    return useDataCache('magicItems', getBaseUrl() + 'data/magic-items.json');
-}
-
-export function useMonsters() {
-    return useDataCache('monsters', getBaseUrl() + 'data/monsters.json');
-}
-
-export function useMonsterTypes() {
-    return useDataCache('monsterTypes', getBaseUrl() + 'data/monster-types.json');
-}
-
-export function useNames() {
-    return useDataCache('names', getBaseUrl() + 'data/names.json');
-}
-
-export function usePlayerClasses() {
-    return useDataCache('playerClasses', getBaseUrl() + 'data/classes.json');
-}
-
-export function useRaces() {
-    return useDataCache('races', getBaseUrl() + 'data/races.json');
-}
-
-export function useRules() {
-    return useDataCache('rules', getBaseUrl() + 'data/rules.json');
-}
-
-export function useSpells() {
-    return useDataCache('spells', getBaseUrl() + 'data/spells.json');
-}
-
-export function use2024Spells() {
-    return useDataCache('spells2024', getBaseUrl() + 'data/2024/spells.json');
-}
-
-export function use2024Monsters() {
-    return useDataCache('monsters2024', getBaseUrl() + 'data/2024/monsters.json');
-}
-
-export function use2024MonsterTypes() {
-    return useDataCache('monsters2024Types', getBaseUrl() + 'data/2024/monster-types.json');
-}
-
-export function use2024MonsterSubtypes() {
-    return useDataCache('monsters2024Subtypes', getBaseUrl() + 'data/2024/monster-subtypes.json');
-}
-
-export function use2024MagicItems() {
-    return useDataCache('magicItems2024', getBaseUrl() + 'data/2024/magic-items.json');
-}
-
-export function useWeaponProperties() {
-    return useDataCache('weaponProperties', getBaseUrl() + 'data/weapon-properties.json');
-}
-
-export function use2024Classes() {
-    return useDataCache('classes2024', getBaseUrl() + 'data/2024/classes.json');
-}
-
-export function use2024Races() {
-    return useDataCache('races2024', getBaseUrl() + 'data/2024/races.json');
-}
-
-export function use2024Backgrounds() {
-    return useDataCache('backgrounds2024', getBaseUrl() + 'data/2024/backgrounds.json');
-}
-
-export function use2024Feats() {
-    return useDataCache('feats2024', getBaseUrl() + 'data/2024/feats.json');
-}
-
-export function useWeaponMastery2024() {
-    return useDataCache('weaponMastery2024', getBaseUrl() + 'data/2024/weapon-mastery.json');
-}
-
-// Alternative: Create a DataService class for non-React usage or compatibility
-export class DataService {
-    constructor() {
-        this.cache = dataCache;
-    }
-
-    async getAbilityScores() {
-        return fetchAndCache('abilityScores', getBaseUrl() + 'data/ability-scores.json');
-      }
-    async getConditions() {
-        return fetchAndCache('conditions', getBaseUrl() + 'data/conditions.json');
-      }
-    async getEquipment() {
-        return fetchAndCache('equipment', getBaseUrl() + 'data/equipment.json');
-      }
-    async getFeats() {
-        return fetchAndCache('feats', getBaseUrl() + 'data/feats.json');
-      }
-    async getLocations() {
-        return fetchAndCache('locations', getBaseUrl() + 'data/locations.json');
-      }
-    async getMagicItems() {
-        return fetchAndCache('magicItems', getBaseUrl() + 'data/magic-items.json');
-      }
-    async getMonsters() {
-        return fetchAndCache('monsters', getBaseUrl() + 'data/monsters.json');
-      }
-    async getMonsterTypes() {
-        return fetchAndCache('monsterTypes', getBaseUrl() + 'data/monster-types.json');
-      }
-    async get2024MonsterTypes() {
-        return fetchAndCache('monsters2024Types', getBaseUrl() + 'data/2024/monster-types.json');
-      }
-    async getNames() {
-        return fetchAndCache('names', getBaseUrl() + 'data/names.json');
-      }
-    async getPlayerClasses() {
-        return fetchAndCache('playerClasses', getBaseUrl() + 'data/classes.json');
-      }
-    async getRaces() {
-        return fetchAndCache('races', getBaseUrl() + 'data/races.json');
-      }
-    async getRules() {
-        return fetchAndCache('rules', getBaseUrl() + 'data/rules.json');
-      }
-    async getSpells() {
-        return fetchAndCache('spells', getBaseUrl() + 'data/spells.json');
-      }
-    async getWeaponProperties() {
-        return fetchAndCache('weaponProperties', getBaseUrl() + 'data/weapon-properties.json');
-      }
-    async getBackgrounds2024() {
-        return fetchAndCache('backgrounds2024', getBaseUrl() + 'data/2024/backgrounds.json');
-      }
-}
-// Export singleton instance for class-based usage
-export const dataService = new DataService();
-
-// Clear cache helper for testing
-export function __clearCache() {
-    Object.keys(dataCache).forEach(key => delete dataCache[key]);
-    Object.keys(loadingPromises).forEach(key => delete loadingPromises[key]);
-}
-
+// Utilities + test helpers
+export { getBaseUrl, sort, handleError, __clearCache } from './dataServiceUtils.js';
