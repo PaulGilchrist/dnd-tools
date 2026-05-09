@@ -1,6 +1,9 @@
 ---
 name: architecture
-description: D&D Tools SPA — static reference app, no backend
+description: >
+  When exploring, explaining, or making structural changes to the project,
+  to understand the tech stack, folder layout, data layer, server setup,
+  and dual-ruleset architecture
 ---
 
 ## Project Overview
