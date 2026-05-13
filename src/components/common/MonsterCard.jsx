@@ -9,9 +9,6 @@ import MonsterLegendaryActions from './MonsterLegendaryActions';
 import MonsterRegionalEffects from './MonsterRegionalEffects';
 import './Cover.css';
 
-// Import all monster images dynamically
-const monsterImages = import.meta.glob('../../assets/monsters/*.jpg', { eager: true });
-
 /**
  * Common Monster component that works with normalized monster data
  * @param {object} props
@@ -64,9 +61,7 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
     const handleImageClick = (e) => {
         e.stopPropagation();
         if (monster && monster.image) {
-            const imagePath = `../../assets/monsters/${monster.index}.jpg`;
-            const imageModule = monsterImages[imagePath];
-            setMonsterImage(imageModule ? imageModule.default : '');
+            setMonsterImage(`${import.meta.env.BASE_URL}images/${monster.index}.jpg`);
             setImageActive(true);
          }
      };

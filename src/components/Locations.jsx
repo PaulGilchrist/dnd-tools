@@ -7,9 +7,6 @@ import { renderHtmlContent } from '../utils/htmlUtils';
 import './Locations.css';
 import './common/Cover.css';
 
-// Import all location images dynamically
-const locationImages = import.meta.glob('../assets/locations/*.jpg', { eager: true });
-
 function Locations() {
     const [image, setImage] = useState('');
     const [shownCard, setShownCard] = useState('');
@@ -57,9 +54,7 @@ function Locations() {
         // Show full-screen image when clicking the Image button
         const location = locationsData.find(loc => loc.index === locationIndex);
         if (location && location.image) {
-            // Use relative path to look up in locationImages object
-            const imagePath = `../assets/locations/${location.image}`;
-            setImage(locationImages[imagePath]?.default || '');
+            setImage(`${import.meta.env.BASE_URL}images/${location.image}`);
         }
     };
 
