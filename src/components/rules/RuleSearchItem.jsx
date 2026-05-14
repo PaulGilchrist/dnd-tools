@@ -1,4 +1,4 @@
-import { highlightText } from './RuleSearchUtils.jsx';
+import { highlightText } from './ruleSearchUtils';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
 /**

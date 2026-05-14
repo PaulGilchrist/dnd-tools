@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { escapeRegExp, createHighlightPattern, highlightText, extractRuleText, ruleMatchesSearch } from './RuleSearchUtils';
+import { escapeRegExp, createHighlightPattern, highlightText, extractRuleText, ruleMatchesSearch } from './ruleSearchUtils';
 
 describe('escapeRegExp', () => {
     it('escapes special regex characters', () => {
