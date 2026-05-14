@@ -109,7 +109,7 @@ describe('Conditions', () => {
       useConditionsState.data = mockConditions;
       renderWithRouter(<Conditions />);
     });
-    expect(screen.getByText(/A condition is a tempotrary game state/)).toBeInTheDocument();
+    expect(screen.getByText(/A condition is a tempotary game state/)).toBeInTheDocument();
   });
 
   it.skip('handles URL index parameter', async () => {

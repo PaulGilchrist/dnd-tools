@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { RuleVersionProvider } from '../../context/RuleVersionContext';
 
@@ -168,14 +168,16 @@ describe('MonsterSearch', () => {
             expect(screen.getByTestId('monster-list')).toHaveTextContent('MonsterList with 0 monsters, shownCard: none');
               });
 
-        it('sets shownCard and scrolls into view when URL index matches a monster', () => {
+        it('sets shownCard and scrolls into view when URL index matches a monster', async () => {
             searchParamsState.params = new URLSearchParams({ index: 'goblin' });
             useMonstersState.data = mockMonsters;
             useMonstersState.loading = false;
             renderWithRouter(<MonsterSearch />);
             expect(screen.getByTestId('monster-list')).toHaveTextContent('shownCard: goblin');
-            expect(document.getElementById).toHaveBeenCalledWith('goblin');
-            expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'center' });
+            await waitFor(() => {
+                expect(document.getElementById).toHaveBeenCalledWith('goblin');
+                expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'center' });
+            });
            });
 
         it('does not set shownCard when URL index does not match any monster', () => {
@@ -206,14 +208,16 @@ describe('MonsterSearch', () => {
             expect(searchParamsState.setParamsFn).toHaveBeenCalledWith({});
            });
 
-        it('scrolls into view when expanding a card', () => {
+        it('scrolls into view when expanding a card', async () => {
             useMonstersState.data = mockMonsters;
             useMonstersState.loading = false;
             renderWithRouter(<MonsterSearch />);
             const expandCard = MonsterList.mock.calls[0][0].expandCard;
             expandCard('orc', true);
-            expect(document.getElementById).toHaveBeenCalledWith('orc');
-            expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'center' });
+            await waitFor(() => {
+                expect(document.getElementById).toHaveBeenCalledWith('orc');
+                expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'center' });
+            });
            });
         });
     });

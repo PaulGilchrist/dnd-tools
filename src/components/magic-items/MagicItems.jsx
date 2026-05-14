@@ -59,6 +59,19 @@ function MagicItems() {
         saveFilterToStorage();
     }, [saveFilterToStorage]);
 
+    // Bookmarked indexes state with localStorage persistence
+    const [bookmarkedIndexes, setBookmarkedIndexes] = useState(() => {
+        const saved = getLocalStorageItem(bookmarkedKey);
+        if (saved) {
+            try {
+                return saved;
+            } catch (e) {
+                console.error('Error parsing bookmarked items:', e);
+            }
+        }
+        return [];
+    });
+
     const [shownCard, setShownCard] = useState('');
 
     // Process data: deduplicate, merge bookmarks, handle URL index param
@@ -76,18 +89,7 @@ function MagicItems() {
         });
         const uniqueItems = Array.from(uniqueItemsMap.values());
 
-        // Load bookmarked items from localStorage
-        const bookmarkedJson = getLocalStorageItem(bookmarkedKey);
-        let bookmarkedIndexes = [];
-        if (bookmarkedJson) {
-            try {
-                bookmarkedIndexes = bookmarkedJson;
-            } catch (e) {
-                console.error('Error parsing bookmarked items:', e);
-            }
-        }
-
-        // Merge bookmarked status into items
+        // Merge bookmarked status into items using state
         const itemsWithBookmarks = uniqueItems.map(item => ({
             ...item,
             bookmarked: bookmarkedIndexes.includes(item.index)
@@ -104,7 +106,7 @@ function MagicItems() {
         }
 
         return { items: itemsWithBookmarks, index: foundIndex };
-    }, [magicItemsData, bookmarkedKey, searchParams]);
+    }, [magicItemsData, bookmarkedIndexes, searchParams]);
 
     // Set shownCard and scroll when URL index is found
     const handleUrlIndex = (index) => {
@@ -171,22 +173,16 @@ function MagicItems() {
 
     // Bookmark change handler with version-aware persistence
     const handleBookmarkChange = useCallback((index, isBookmarked) => {
-        // Update local state immediately so UI reflects the change
-        // eslint-disable-next-line no-undef
-        setMagicItems(prevItems =>
-            prevItems.map(item =>
-                item.index === index ? { ...item, bookmarked: isBookmarked } : item
-            )
-        );
-
-        // Compute current bookmarked indexes from state and persist
-        const currentBookmarked = magicItems
-            .map(item => ({ ...item, bookmarked: item.index === index ? isBookmarked : item.bookmarked }))
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-
-        setLocalStorageItem(bookmarkedKey, currentBookmarked);
-    }, [magicItems, bookmarkedKey]);
+        if (isBookmarked) {
+            const updated = [...bookmarkedIndexes, index];
+            setBookmarkedIndexes(updated);
+            setLocalStorageItem(bookmarkedKey, updated);
+        } else {
+            const updated = bookmarkedIndexes.filter(i => i !== index);
+            setBookmarkedIndexes(updated);
+            setLocalStorageItem(bookmarkedKey, updated);
+        }
+    }, [bookmarkedIndexes, bookmarkedKey]);
 
     // Memoized filtered items
     const filteredItems = useMemo(

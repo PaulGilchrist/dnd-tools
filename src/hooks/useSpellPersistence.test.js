@@ -33,73 +33,57 @@ describe('useSpellPersistence', () => {
       expect(result.current.preparedSpells).toEqual([]);
    });
 
-   it('uses versioned keys for 2024 rule version', () => {
-      // The hook calls getLocalStorageItem twice initially (useState),
-      // then the useEffect runs and calls it again (2 more times).
-      // We need to set up 4 return values:
-      // 1. useState knownSpells: ['fireball2024']
-      // 2. useState preparedSpells: null
-      // 3. useEffect knownSpells: ['fireball2024'] (reload)
-      // 4. useEffect preparedSpells: null (reload)
-      getLocalStorageItem
-         .mockReturnValueOnce(['fireball2024'])  // useState - known
-         .mockReturnValueOnce(null)              // useState - prepared
-         .mockReturnValueOnce(['fireball2024'])  // useEffect - known (reload)
-         .mockReturnValueOnce(null);             // useEffect - prepared (reload)
+    it('uses versioned keys for 2024 rule version', () => {
+       // The hook calls getLocalStorageItem twice (one per useState initializer).
+       getLocalStorageItem
+          .mockReturnValueOnce(['fireball2024'])  // useState - known
+          .mockReturnValueOnce(null);              // useState - prepared
 
-      const { result } = renderHook(() => useSpellPersistence({ ruleVersion: '2024' }));
-      expect(result.current.knownSpells).toEqual(['fireball2024']);
-      expect(getLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown2024');
-      expect(getLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared2024');
-   });
+       const { result } = renderHook(() => useSpellPersistence({ ruleVersion: '2024' }));
+       expect(result.current.knownSpells).toEqual(['fireball2024']);
+       expect(getLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown2024');
+       expect(getLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared2024');
+    });
 
-   it('uses base keys for 5e rule version', () => {
-      getLocalStorageItem
-         .mockReturnValueOnce(['fireball'])  // useState - known
-         .mockReturnValueOnce(null)           // useState - prepared
-         .mockReturnValueOnce(['fireball'])  // useEffect - known (reload)
-         .mockReturnValueOnce(null);          // useEffect - prepared (reload)
+    it('uses base keys for 5e rule version', () => {
+       getLocalStorageItem
+          .mockReturnValueOnce(['fireball'])  // useState - known
+          .mockReturnValueOnce(null);          // useState - prepared
 
-      const { result } = renderHook(() => useSpellPersistence({ ruleVersion: '5e' }));
-      expect(result.current.knownSpells).toEqual(['fireball']);
-      expect(getLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown');
-      expect(getLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared');
-   });
+       const { result } = renderHook(() => useSpellPersistence({ ruleVersion: '5e' }));
+       expect(result.current.knownSpells).toEqual(['fireball']);
+       expect(getLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown');
+       expect(getLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared');
+    });
 
-   it('defaults to 5e keys when no ruleVersion provided', () => {
-      getLocalStorageItem
-         .mockReturnValueOnce(['fireball'])  // useState - known
-         .mockReturnValueOnce(null)           // useState - prepared
-         .mockReturnValueOnce(['fireball'])  // useEffect - known (reload)
-         .mockReturnValueOnce(null);          // useEffect - prepared (reload)
+    it('defaults to 5e keys when no ruleVersion provided', () => {
+       getLocalStorageItem
+          .mockReturnValueOnce(['fireball'])  // useState - known
+          .mockReturnValueOnce(null);          // useState - prepared
 
-      const { result } = renderHook(() => useSpellPersistence());
-      expect(result.current.knownSpells).toEqual(['fireball']);
-      expect(getLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown');
-      expect(getLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared');
-   });
+       const { result } = renderHook(() => useSpellPersistence());
+       expect(result.current.knownSpells).toEqual(['fireball']);
+       expect(getLocalStorageItem).toHaveBeenNthCalledWith(1, 'spellsKnown');
+       expect(getLocalStorageItem).toHaveBeenNthCalledWith(2, 'spellsPrepared');
+    });
 
-   it('loads known spells from localStorage on mount', () => {
-      getLocalStorageItem
-         .mockReturnValueOnce(['fireball', 'magic-missile'])  // useState - known
-         .mockReturnValueOnce(null)                            // useState - prepared
-         .mockReturnValueOnce(['fireball', 'magic-missile'])  // useEffect - known (reload)
-         .mockReturnValueOnce(null);                           // useEffect - prepared (reload)
+    it('loads known spells from localStorage on mount', () => {
+       getLocalStorageItem
+          .mockReturnValueOnce(['fireball', 'magic-missile'])  // useState - known
+          .mockReturnValueOnce(null);                           // useState - prepared
 
-      const { result } = renderHook(() => useSpellPersistence());
-      expect(result.current.knownSpells).toEqual(['fireball', 'magic-missile']);
-   });
+       const { result } = renderHook(() => useSpellPersistence());
+       expect(result.current.knownSpells).toEqual(['fireball', 'magic-missile']);
+    });
 
-   it('loads prepared spells from localStorage on mount', () => {
-      getLocalStorageItem
-         .mockReturnValueOnce(null)                // useState - known
-         .mockReturnValueOnce(['fireball'])        // useState - prepared
-         .mockReturnValueOnce(null)                // useEffect - known (reload)
-         .mockReturnValueOnce(['fireball']);      // useEffect - prepared (reload)
+    it('loads prepared spells from localStorage on mount', () => {
+       getLocalStorageItem
+          .mockReturnValueOnce(null)                // useState - known
+          .mockReturnValueOnce(['fireball']);       // useState - prepared
 
-      const { result } = renderHook(() => useSpellPersistence());
-      expect(result.current.preparedSpells).toEqual(['fireball']);
-   });
+       const { result } = renderHook(() => useSpellPersistence());
+       expect(result.current.preparedSpells).toEqual(['fireball']);
+    });
 
    describe('saveKnown', () => {
       it('saves known spell indices to localStorage', () => {

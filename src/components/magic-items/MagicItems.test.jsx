@@ -329,12 +329,14 @@ describe('MagicItems', () => {
             mockVersionedDataState.loading = false;
         });
 
-        it('handles expand card', () => {
+        it('handles expand card', async () => {
             renderWithRouter(<MagicItems />);
 
             fireEvent.click(screen.getByTestId('expand-item1'));
 
-            expect(mockScrollIntoView).toHaveBeenCalledWith('item1');
+            await waitFor(() => {
+                expect(mockScrollIntoView).toHaveBeenCalledWith('item1');
+            });
         });
     });
 

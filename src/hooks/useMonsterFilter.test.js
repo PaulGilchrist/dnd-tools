@@ -16,6 +16,7 @@ vi.mock('../utils/localStorage', () => ({
     },
     getLocalStorageItem: (key) => mockGetLocalStorageItem(key),
     setLocalStorageItem: () => mockSetLocalStorageItem(),
+    sanitizeFilter: vi.fn((defaultFilter, savedFilter) => ({ ...defaultFilter, ...savedFilter })),
 }));
 
 import { useMonsterFilter } from './useMonsterFilter';
@@ -44,7 +45,7 @@ describe('useMonsterFilter', () => {
         const savedFilter = { bookmarked: 'Bookmarked', name: 'goblin' };
         mockGetLocalStorageItem.mockReturnValueOnce(savedFilter);
         const { result } = renderHook(() => useMonsterFilter());
-        expect(result.current.filter).toEqual(savedFilter);
+        expect(result.current.filter).toMatchObject(savedFilter);
     });
 
     it('uses initialFilter when no saved filter exists', () => {

@@ -99,21 +99,20 @@ function PropertyDetails({ equipmentItem }) {
 }
 
 function ToolsDetails({ equipmentItem, ruleVersion }) {
-    if (ruleVersion !== '2024') return null;
     return (
         <div>
             <b>Category:</b>&nbsp;{equipmentItem.tool_category}<br />
-            {equipmentItem.ability && (
+            {ruleVersion === '2024' && equipmentItem.ability && (
                 <div>
                     <b>Ability:</b>&nbsp;{equipmentItem.ability}<br />
                 </div>
             )}
-            {equipmentItem.utilize && (
+            {ruleVersion === '2024' && equipmentItem.utilize && (
                 <div>
                     <b>Utilize:</b>&nbsp;{equipmentItem.utilize}<br />
                 </div>
             )}
-            {equipmentItem.craft && (
+            {ruleVersion === '2024' && equipmentItem.craft && (
                 <div>
                     <b>Craft:</b>&nbsp;{equipmentItem.craft}<br />
                 </div>
@@ -122,7 +121,7 @@ function ToolsDetails({ equipmentItem, ruleVersion }) {
     );
 }
 
-function WeaponDetails({ equipmentItem, weaponRange, getProperties }) {
+function WeaponDetails({ equipmentItem, weaponRange, getProperties, ruleVersion }) {
     return (
         <div>
             <b>Category:</b>&nbsp;{equipmentItem.weapon_category}<br />
@@ -152,7 +151,7 @@ function WeaponDetails({ equipmentItem, weaponRange, getProperties }) {
                     <b>Properties:</b>&nbsp;{getProperties()}<br />
                 </div>
             )}
-            {equipmentItem.mastery && equipmentItem.mastery.length > 0 && (
+            {ruleVersion === '2024' && equipmentItem.mastery && equipmentItem.mastery.length > 0 && (
                 <div>
                     <b>Weapon Mastery:</b>&nbsp;{equipmentItem.mastery}<br />
                 </div>
@@ -215,7 +214,7 @@ function CategoryDetails({ equipmentItem, weaponRange, ruleVersion }) {
         case 'Tools':
             return <ToolsDetails equipmentItem={equipmentItem} ruleVersion={ruleVersion} />;
         case 'Weapon':
-            return <WeaponDetails equipmentItem={equipmentItem} weaponRange={weaponRange} getProperties={getPropertiesHelper} />;
+            return <WeaponDetails equipmentItem={equipmentItem} weaponRange={weaponRange} getProperties={getPropertiesHelper} ruleVersion={ruleVersion} />;
         default:
             return null;
     }

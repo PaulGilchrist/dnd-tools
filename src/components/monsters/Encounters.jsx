@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey, sanitizeFilter } from '../../utils/localStorage';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { useVersionedData } from '../../hooks/useVersionedData';
@@ -147,6 +147,12 @@ function Encounters() {
 
     const [selectedMonsters, setSelectedMonsters] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+
+    // Save filter to localStorage on mount
+    useEffect(() => {
+        const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
+        setLocalStorageItem(versionedFilterKey, filter);
+    }, []);
 
     const totalThreshold = useMemo(() => calculateXPThreshold(filter), [filter]);
     const totalMonsterXP = useMemo(() => calculateTotalMonsterXP(selectedMonsters), [selectedMonsters]);

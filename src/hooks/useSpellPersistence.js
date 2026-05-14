@@ -6,8 +6,8 @@ export function useSpellPersistence({ ruleVersion } = {}) {
     const knownKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.SPELLS_KNOWN, version);
     const preparedKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.SPELLS_PREPARED, version);
 
-    const [knownSpells] = useState(() => getLocalStorageItem(knownKey) || []);
-    const [preparedSpells] = useState(() => getLocalStorageItem(preparedKey) || []);
+    const [knownSpells, setKnownSpells] = useState(() => getLocalStorageItem(knownKey) || []);
+    const [preparedSpells, setPreparedSpells] = useState(() => getLocalStorageItem(preparedKey) || []);
 
     const saveKnown = (spellsList) => {
         const spellsKnown = spellsList
@@ -32,6 +32,7 @@ export function useSpellPersistence({ ruleVersion } = {}) {
         } else {
             spellsKnown = knownSpells.filter(i => i !== index);
           }
+        setKnownSpells(spellsKnown);
         setLocalStorageItem(knownKey, spellsKnown);
         return spellsKnown;
     };
@@ -39,10 +40,11 @@ export function useSpellPersistence({ ruleVersion } = {}) {
     const updatePrepared = (index, isPrepared) => {
         let spellsPrepared;
         if (isPrepared) {
-            spellsPrepared = preparedSpells.includes(index) ? spellsPrepared : [...spellsPrepared, index];
+            spellsPrepared = preparedSpells.includes(index) ? preparedSpells : [...preparedSpells, index];
         } else {
-            spellsPrepared = spellsPrepared.filter(i => i !== index);
+            spellsPrepared = preparedSpells.filter(i => i !== index);
           }
+        setPreparedSpells(spellsPrepared);
         setLocalStorageItem(preparedKey, spellsPrepared);
         return spellsPrepared;
     };
@@ -50,25 +52,29 @@ export function useSpellPersistence({ ruleVersion } = {}) {
     const addKnown = (index) => {
         if (knownSpells.includes(index)) return;
         const spellsKnown = [...knownSpells, index];
+        setKnownSpells(spellsKnown);
         setLocalStorageItem(knownKey, spellsKnown);
         return spellsKnown;
     };
 
     const removeKnown = (index) => {
         const spellsKnown = knownSpells.filter(i => i !== index);
+        setKnownSpells(spellsKnown);
         setLocalStorageItem(knownKey, spellsKnown);
         return spellsKnown;
     };
 
     const addPrepared = (index) => {
         if (preparedSpells.includes(index)) return;
-        const spellsPrepared = [...spellsPrepared, index];
+        const spellsPrepared = [...preparedSpells, index];
+        setPreparedSpells(spellsPrepared);
         setLocalStorageItem(preparedKey, spellsPrepared);
         return spellsPrepared;
     };
 
     const removePrepared = (index) => {
-        const spellsPrepared = spellsPrepared.filter(i => i !== index);
+        const spellsPrepared = preparedSpells.filter(i => i !== index);
+        setPreparedSpells(spellsPrepared);
         setLocalStorageItem(preparedKey, spellsPrepared);
         return spellsPrepared;
     };

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -5,8 +7,12 @@ function capitalizeFirstLetter(string) {
 // ─── Filter section helpers (extracted to reduce function line count) ───
 
 function NameFilter({ filter, updateFilter }) {
+    const [localName, setLocalName] = useState(filter.name);
+    useEffect(() => { setLocalName(filter.name); }, [filter.name]);
+
     const handleNameChange = (e) => {
         const value = e.target.value;
+        setLocalName(value);
         if (value.length < 50) updateFilter('name', value);
     };
 
@@ -16,7 +22,7 @@ function NameFilter({ filter, updateFilter }) {
             <div className={`has-error ${(filter.name && filter.name.length >= 50) ? 'invalid' : ''}`}>
                 <input
                     type="text" className="form-control" id="name" name="name"
-                    value={filter.name}
+                    value={localName}
                     onChange={handleNameChange}
                     pattern="[A-Za-z ]+" maxLength="50"
                 />

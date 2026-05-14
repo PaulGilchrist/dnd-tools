@@ -51,8 +51,8 @@ describe('NameInput', () => {
     it('updates local value on input change', () => {
         render(<NameInput {...defaultProps} />);
         fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'dragon' } });
-        expect(screen.getByDisplayValue('dragon')).toBeInTheDocument();
-     });
+        expect(defaultProps.updateFilter).toHaveBeenCalledWith('name', 'dragon');
+      });
 
     it('does not call updateFilter when name reaches 50 characters', () => {
         render(<NameInput {...defaultProps} />);

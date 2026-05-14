@@ -15,8 +15,8 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                       value={filter.difficulty ?? ''}
                       onChange={onDifficultyChange}
                   >
-                      {filter.difficultyLabels && filter.difficultyLabels.map((label) => (
-                          <option key={label} value={label}>{label}</option>
+                    {filter.difficultyLabels && filter.difficultyLabels.map((label, index) => (
+                        <option key={label} value={index}>{label}</option>
                       ))}
                   </select>
               </div>

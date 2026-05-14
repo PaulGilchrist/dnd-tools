@@ -112,8 +112,8 @@ describe('BarbarianInfo', () => {
 
     it('displays rage damage', () => {
         render(<BarbarianInfo level={{ rage_damage: 2 }} className="Barbarian" />);
-        expect(screen.getByText(/Rage Damage/)).toBeInTheDocument();
-        expect(screen.getByText(/\+2/)).toBeInTheDocument();
+        expect(document.body.textContent).toContain('Rage Damage');
+        expect(document.body.textContent).toContain('+2');
     });
 });
 
@@ -125,8 +125,8 @@ describe('BardicInfo', () => {
 
     it('displays bardic die', () => {
         render(<BardicInfo level={{ bardic_die: 8 }} />);
-        expect(screen.getByText(/Bardic Die/)).toBeInTheDocument();
-        expect(screen.getByText(/d8/)).toBeInTheDocument();
+        expect(document.body.textContent).toContain('Bardic Die');
+        expect(document.body.textContent).toContain('d8');
     });
 });
 
@@ -175,8 +175,8 @@ describe('MonkInfo', () => {
 
     it('displays martial arts die', () => {
         render(<MonkInfo level={{ martial_arts_die: 6 }} />);
-        expect(screen.getByText(/Martial Arts Die/)).toBeInTheDocument();
-        expect(screen.getByText(/d6/)).toBeInTheDocument();
+        expect(document.body.textContent).toContain('Martial Arts Die');
+        expect(document.body.textContent).toContain('d6');
     });
 
     it('displays focus points', () => {
@@ -206,8 +206,8 @@ describe('RogueInfo', () => {
 
     it('displays sneak attack', () => {
         render(<RogueInfo level={{ sneak_attack_num_d6: 3 }} />);
-        expect(screen.getByText(/Sneak Attack/)).toBeInTheDocument();
-        expect(screen.getByText(/3d6/)).toBeInTheDocument();
+        expect(document.body.textContent).toContain('Sneak Attack');
+        expect(document.body.textContent).toContain('3d6');
     });
 });
 

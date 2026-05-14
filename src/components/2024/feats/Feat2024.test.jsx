@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import Feat2024 from './Feat2024';
 
 vi.mock('../../../utils/htmlUtils', () => ({
     renderHtmlContent: vi.fn((html) => ({ __html: html })),
 }));
+
+function FeatWrapper({ feat }) {
+    const [expanded, setExpanded] = useState(false);
+    return <Feat2024 feat={feat} expand={expanded} onExpand={setExpanded} />;
+}
 
 describe('Feat2024', () => {
     const createFeat = (overrides = {}) => ({
@@ -45,56 +51,45 @@ describe('Feat2024', () => {
         expect(screen.getByText('General')).toBeInTheDocument();
     });
 
-    it('renders description after clicking to expand', () => {
-        render(<Feat2024 feat={createFeat()} onExpand={mockOnExpand} />);
+    it('renders description after clicking to expand', async () => {
+        const { container } = render(<FeatWrapper feat={createFeat()} />);
         const cardHeader = screen.getByText('Alert').closest('.card-header');
-        act(() => {
-            cardHeader.click();
-        });
-        // Check for description div
-        const descriptionDiv = document.querySelector('.description');
+        fireEvent.click(cardHeader);
+        const descriptionDiv = await waitFor(() => container.querySelector('.description'));
         expect(descriptionDiv).toBeInTheDocument();
         expect(descriptionDiv).toHaveTextContent('You gain a +5 bonus to initiative.');
     });
 
-    it('renders prerequisites after clicking to expand', () => {
-        render(<Feat2024 feat={createFeat()} onExpand={mockOnExpand} />);
+    it('renders prerequisites after clicking to expand', async () => {
+        render(<FeatWrapper feat={createFeat()} />);
         const cardHeader = screen.getByText('Alert').closest('.card-header');
-        act(() => {
-            cardHeader.click();
-        });
-        expect(screen.getByText(/Prerequisites:/)).toBeInTheDocument();
-        expect(screen.getByText(/Level 4\+/)).toBeInTheDocument();
+        cardHeader.click();
+        await waitFor(() => expect(screen.getByText(/Prerequisites:/)).toBeInTheDocument());
+        await waitFor(() => expect(screen.getByText(/Level 4\+/)).toBeInTheDocument());
     });
 
-    it('renders benefits list after clicking to expand', () => {
-        render(<Feat2024 feat={createFeat()} onExpand={mockOnExpand} />);
+    it('renders benefits list after clicking to expand', async () => {
+        render(<FeatWrapper feat={createFeat()} />);
         const cardHeader = screen.getByText('Alert').closest('.card-header');
-        act(() => {
-            cardHeader.click();
-        });
-        expect(screen.getByText(/Benefits:/)).toBeInTheDocument();
-        expect(screen.getByText(/Alert:/)).toBeInTheDocument();
+        cardHeader.click();
+        await waitFor(() => expect(screen.getByText(/Benefits:/)).toBeInTheDocument());
+        await waitFor(() => expect(screen.getByText(/Alert:/)).toBeInTheDocument());
     });
 
-    it('renders ability score increase after clicking to expand', () => {
-        render(<Feat2024 feat={createFeat()} onExpand={mockOnExpand} />);
+    it('renders ability score increase after clicking to expand', async () => {
+        render(<FeatWrapper feat={createFeat()} />);
         const cardHeader = screen.getByText('Alert').closest('.card-header');
-        act(() => {
-            cardHeader.click();
-        });
-        expect(screen.getByText(/Ability Score Increase:/)).toBeInTheDocument();
-        expect(screen.getByText(/Dexterity \+1/)).toBeInTheDocument();
+        cardHeader.click();
+        await waitFor(() => expect(screen.getByText(/Ability Score Increase:/)).toBeInTheDocument());
+        await waitFor(() => expect(screen.getByText(/Dexterity \+1/)).toBeInTheDocument());
     });
 
-    it('renders tags after clicking to expand', () => {
-        render(<Feat2024 feat={createFeat()} onExpand={mockOnExpand} />);
+    it('renders tags after clicking to expand', async () => {
+        render(<FeatWrapper feat={createFeat()} />);
         const cardHeader = screen.getByText('Alert').closest('.card-header');
-        act(() => {
-            cardHeader.click();
-        });
-        expect(screen.getByText('combat')).toBeInTheDocument();
-        expect(screen.getByText('initiative')).toBeInTheDocument();
+        cardHeader.click();
+        await waitFor(() => expect(screen.getByText('combat')).toBeInTheDocument());
+        await waitFor(() => expect(screen.getByText('initiative')).toBeInTheDocument());
     });
 
     it('shows repeatable badge when feat is repeatable', () => {

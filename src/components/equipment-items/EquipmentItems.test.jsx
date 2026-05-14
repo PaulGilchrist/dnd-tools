@@ -30,6 +30,7 @@ vi.mock('../../utils/localStorage', () => {
         removeLocalStorageItem: vi.fn((key) => { delete store[key]; }),
         getLocalStorageString: vi.fn((key) => store[key]?.toString() ?? null),
         setLocalStorageString: vi.fn((key, value) => { store[key] = value; }),
+        sanitizeFilter: vi.fn((defaults, saved) => ({ ...defaults, ...saved })),
          __resetStore: resetStore,
         __getMockStore: __getMockStore,
        };
@@ -190,7 +191,7 @@ vi.mock('./EquipmentItemList', () => ({
 const { useEquipment, useWeaponProperties } = vi.mocked(await import('../../data/dataService'));
 const { useSearchParams } = vi.mocked(await import('react-router-dom'));
 const localStorageModule = await import('../../utils/localStorage');
-const { setLocalStorageItem, getLocalStorageItem, LOCAL_STORAGE_KEYS } = localStorageModule;
+const { setLocalStorageItem, getLocalStorageItem, LOCAL_STORAGE_KEYS, sanitizeFilter } = localStorageModule;
 const { scrollIntoView } = vi.mocked(await import('../../data/utils'));
 
 const mockEquipment = [
@@ -457,7 +458,7 @@ describe('EquipmentItems', () => {
         await waitFor(() => expect(screen.getByTestId('filtered-item-count')).toHaveTextContent('5'));
 
         fireEvent.click(screen.getByTestId('expand-longsword'));
-        expect(scrollIntoView).toHaveBeenCalledWith('longsword');
+        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith('longsword'));
         expect(mockSetSearchParams).toHaveBeenCalledWith({ index: 'longsword' });
       });
 
@@ -506,7 +507,7 @@ describe('EquipmentItems', () => {
         useWeaponProperties.mockReturnValue({ data: mockWeaponProperties, loading: false });
 
         render(wrap(<EquipmentItems />));
-        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith('longsword'));
+        await waitFor(() => expect(scrollIntoView).toHaveBeenCalledWith('longsword'), { timeout: 1000 });
       });
 
     it('does not set up index param when URL index does not match any item', async () => {

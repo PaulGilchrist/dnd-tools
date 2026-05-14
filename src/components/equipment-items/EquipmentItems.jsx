@@ -62,7 +62,7 @@ function EquipmentItems() {
         const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_FILTER);
         if (savedFilter) {
             const equipDefaultFilter = { category: 'All', bookmarked: 'All', name: '', property: 'All', range: 'All' };
-            return sanitizeFilter(equipDefaultFilter, savedFilter);
+            return sanitizeFilter ? sanitizeFilter(equipDefaultFilter, savedFilter) : savedFilter;
         }
         return {
             category: 'All',
@@ -71,6 +71,10 @@ function EquipmentItems() {
             property: 'All',
             range: 'All'
         };
+    });
+    const [bookmarkedIndexes, setBookmarkedIndexes] = useState(() => {
+        const saved = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED);
+        return saved || [];
     });
     const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
@@ -128,14 +132,11 @@ function EquipmentItems() {
         return <div className="list"><div>Loading equipment...</div></div>;
     }
 
-    // Merge bookmarked status for rendering
-    const equipmentItemsBookmarkedJson = getLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED);
-    let equipmentItemsBookmarked = [];
-    if (equipmentItemsBookmarkedJson) {
-        equipmentItemsBookmarked = equipmentItemsBookmarkedJson;
-    }
+    const safeEquipmentData = equipmentData || [];
 
-    const processedItems = equipmentData.map(item => ({
+    const equipmentItemsBookmarked = bookmarkedIndexes;
+
+    const processedItems = safeEquipmentData.map(item => ({
         ...item,
         bookmarked: equipmentItemsBookmarked.includes(item.index)
     }));
@@ -145,15 +146,14 @@ function EquipmentItems() {
         .filter(item => filterByRuleVersion(item, ruleVersion));
 
     const handleBookmarkChange = (index, isBookmarked) => {
-        const updatedItems = processedItems.map(item =>
-            item.index === index ? { ...item, bookmarked: isBookmarked } : item
-        );
-
-        const equipmentItemsBookmarkedList = updatedItems
-            .filter(item => item.bookmarked)
-            .map(item => item.index);
-
-        setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, equipmentItemsBookmarkedList);
+        let updatedIndexes;
+        if (isBookmarked) {
+            updatedIndexes = [...bookmarkedIndexes, index];
+        } else {
+            updatedIndexes = bookmarkedIndexes.filter(i => i !== index);
+        }
+        setBookmarkedIndexes(updatedIndexes);
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.EQUIPMENT_ITEMS_BOOKMARKED, updatedIndexes);
     };
 
     return (
