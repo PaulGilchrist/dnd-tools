@@ -7,7 +7,15 @@ const useMonstersState = { data: [], loading: false };
 
 const searchParamsState = {
     params: new URLSearchParams(),
-    setParamsFn: vi.fn(),
+    setParamsFn: vi.fn((newParams) => {
+        if (typeof newParams === 'function') {
+            searchParamsState.params = new URLSearchParams(newParams(searchParamsState.params));
+        } else if (typeof newParams === 'object') {
+            searchParamsState.params = new URLSearchParams(newParams);
+        } else {
+            searchParamsState.params = new URLSearchParams(newParams);
+        }
+    }),
 };
 
 vi.mock('react-router-dom', async () => {
@@ -211,13 +219,18 @@ describe('MonsterSearch', () => {
         it('scrolls into view when expanding a card', async () => {
             useMonstersState.data = mockMonsters;
             useMonstersState.loading = false;
-            renderWithRouter(<MonsterSearch />);
+            const { rerender } = renderWithRouter(<MonsterSearch />);
             const expandCard = MonsterList.mock.calls[0][0].expandCard;
             expandCard('orc', true);
+            rerender(
+                <RuleVersionProvider>
+                    <MemoryRouter><MonsterSearch /></MemoryRouter>
+                </RuleVersionProvider>
+            );
             await waitFor(() => {
                 expect(document.getElementById).toHaveBeenCalledWith('orc');
                 expect(mockElement.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'center' });
             });
-           });
+         });
         });
     });

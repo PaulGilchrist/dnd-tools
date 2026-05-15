@@ -1,5 +1,9 @@
 import React from 'react';
 
+function getDifficultyColorClass(index) {
+    return `difficulty-color-${Math.max(0, Math.min(3, index ?? 0))}`;
+}
+
 /**
  * Filter panel for the Encounter Builder
  * Handles difficulty selection and player level management
@@ -46,7 +50,7 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
                   </div>
               </div>
               <div className="threshold-mini">
-                  <span>Target: <strong style={{ color: filter.difficultyColors[filter.difficultyIndex] }}>{filter.totalThreshold} XP</strong></span>
+                  <span>Target: <strong className={getDifficultyColorClass(filter.difficultyIndex)}>{filter.totalThreshold} XP</strong></span>
                   <span className="text-muted">({filter.difficultyLabels[filter.difficultyIndex]})</span>
               </div>
           </div>

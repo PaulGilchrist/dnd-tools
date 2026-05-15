@@ -128,11 +128,11 @@ describe('EncounterFilterPanel', () => {
         expect(screen.getByText('Player 3 Level')).toBeInTheDocument();
       });
 
-    it('uses correct difficulty color index', () => {
+it('uses correct difficulty color class', () => {
         render(<EncounterFilterPanel {...defaultProps} />);
         const strongEl = screen.getByText('100 XP');
-        expect(strongEl).toHaveStyle({ color: '#ffc107' });
-      });
+        expect(strongEl).toHaveClass('difficulty-color-1');
+       });
 
     it('renders container with correct class', () => {
         const { container } = render(<EncounterFilterPanel {...defaultProps} />);

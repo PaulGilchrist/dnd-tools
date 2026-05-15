@@ -1,15 +1,7 @@
-import { useState, useEffect } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 
 function AbilityScore({ abilityScore, expand, onExpand }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-
-    // Update local state when prop changes
-    useEffect(() => {
-        if (expand !== isExpanded) {
-            setIsExpanded(expand);
-        }
-    }, [expand, isExpanded]);
+    const isExpanded = expand;
 
     const getSkills = () => {
         if (!abilityScore.skills || abilityScore.skills.length === 0) {
@@ -20,7 +12,6 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
     };
 
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
     };
 
@@ -59,4 +50,3 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
 }
 
 export default AbilityScore;
-

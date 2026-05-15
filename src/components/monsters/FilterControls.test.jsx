@@ -49,9 +49,8 @@ describe('FilterControls', () => {
             expect(defaultProps.updateFilter).toHaveBeenCalledWith('name', 'goblin');
          });
 
-        it('sets local name state on change', () => {
-            render(<FilterControls {...defaultProps} />);
-            fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'orc' } });
+        it('input value reflects filter.name prop', () => {
+            render(<FilterControls {...{ ...defaultProps, filter: { ...defaultProps.filter, name: 'orc' } }} />);
             expect(screen.getByDisplayValue('orc')).toBeInTheDocument();
          });
 

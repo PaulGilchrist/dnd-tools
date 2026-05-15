@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import { RuleVersionProvider } from './context/RuleVersionContext'
-import { getBaseUrl } from './data/dataService'
+import { getBaseUrl } from './data/dataService.js'
 import NavTop from './components/NavTop'
 import './App.css'
 

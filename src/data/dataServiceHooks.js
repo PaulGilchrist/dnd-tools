@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchAndCache, dataCache } from './dataServiceCore.js';
-import { getBaseUrl } from './dataServiceUtils.js';
+import { fetchAndCache } from './dataServiceCore.js';
+import { dataCache, getBaseUrl } from './dataServiceUtils.js';
 
 // Hook to fetch and cache data lazily
 export function useDataCache(key, url) {
@@ -32,7 +32,7 @@ export function useDataCache(key, url) {
             }
         })();
         return () => { cancelled = true; };
-    }, [key, url]);
+    }, [key, url, cached]);
 
     // Early return for cached data (after all hooks)
     if (cached) {

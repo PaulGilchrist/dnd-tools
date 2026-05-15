@@ -1,3 +1,9 @@
+// Cache for storing loaded data to avoid repeated fetches
+export const dataCache = {};
+
+// Track which datasets have been loaded (even if still loading)
+export const loadingPromises = {};
+
 // Get the base URL from Vite's environment variables (set by vite.config.js)
 // Using lazy evaluation to avoid issues in test environments
 export function getBaseUrl() {
@@ -6,9 +12,6 @@ export function getBaseUrl() {
     }
     return '';
 }
-
-// Import the cache objects for __clearCache
-import { dataCache, loadingPromises } from './dataServiceCore.js';
 
 // Helper function to sort array of objects by property name
 export function sort(inputObjectArray, propertyName, descending = false) {

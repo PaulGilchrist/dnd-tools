@@ -221,15 +221,9 @@ function CategoryDetails({ equipmentItem, weaponRange, ruleVersion }) {
 }
 
 function EquipmentItem({ equipmentItem, expand, onExpand, onBookmarkChange, ruleVersion }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-    useEffect(() => {
-        if (expand !== isExpanded) {
-            setIsExpanded(expand);
-        }
-    }, [expand, isExpanded]);
+    const isExpanded = expand;
 
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
     };
 

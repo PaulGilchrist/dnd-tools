@@ -7,14 +7,10 @@
  * Get comma-separated classes string from spell data
  */
 export const getClasses = (spell) => {
-    if (!spell.classes || spell.classes.length === 0) {
+    if (!spell?.classes || spell.classes.length === 0) {
         return '';
     }
-    let classes = '';
-    spell.classes.forEach((spellClass) => {
-        classes += `${spellClass}, `;
-    });
-    return classes.substring(0, classes.length - 2);
+    return spell.classes.join(', ');
 };
 
 /**

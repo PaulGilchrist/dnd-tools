@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useVersionedData } from '../../../hooks/useVersionedData';
 import { useRuleVersion } from '../../../context/RuleVersionContext';
@@ -18,48 +18,29 @@ const headerConfig = {
 };
 
 function PlayerClasses() {
-    const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const { ruleVersion } = useRuleVersion();
+
+    // Derive shownCard from URL params
+    const shownCard = searchParams.get('index') || '';
+
+    // Scroll to shown card when it changes
+    useEffect(() => {
+        if (shownCard) {
+            requestAnimationFrame(() => scrollIntoView(shownCard));
+        }
+    }, [shownCard]);
 
     // Fetch data directly from versioned hook — no local state copy
     const { data: playerClassesData, loading: playerClassesLoading } = useVersionedData('classes');
 
-    const handleUrlIndex = (data, params) => {
-        if (data && data.length > 0) {
-            // Check for index parameter in URL
-            const index = params.get('index');
-            if (index) {
-                const playerClass = data.find(item => item.index === index);
-                if (playerClass) {
-                    setShownCard(index);
-                    // Scroll after state update completes
-                    requestAnimationFrame(() => scrollIntoView(index));
-                }
-            }
-        }
-    };
-
     const expandCard = (index, expanded) => {
-        if (expanded) {
-            setShownCard(index);
-            requestAnimationFrame(() => scrollIntoView(index));
-        } else {
-            setShownCard('');
-        }
-
-        // Update URL query params using setSearchParams
         if (expanded) {
             setSearchParams({ index });
         } else {
             setSearchParams({});
         }
     };
-
-    // Process URL index when data is available
-    useEffect(() => {
-        handleUrlIndex(playerClassesData, searchParams);
-    }, [playerClassesData, searchParams]);
 
     if (playerClassesLoading) {
         return <div className="list"><div>Loading player classes...</div></div>;

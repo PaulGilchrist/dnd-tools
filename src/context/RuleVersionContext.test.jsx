@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { RuleVersionProvider, useRuleVersion } from './RuleVersionContext';
 
 // Mock localStorage
@@ -21,57 +21,31 @@ describe('RuleVersionContext', () => {
 
    describe('RuleVersionProvider', () => {
        it('provides default rule version of 5e', () => {
-          let contextValue = null;
-          const TestComponent = () => {
-             contextValue = useRuleVersion();
-             return null;
-          };
+          const { result } = renderHook(() => useRuleVersion(), {
+             wrapper: RuleVersionProvider,
+          });
 
-          render(
-             <RuleVersionProvider>
-                <TestComponent />
-             </RuleVersionProvider>
-          );
-
-          expect(contextValue.ruleVersion).toBe('5e');
+          expect(result.current.ruleVersion).toBe('5e');
        });
 
        it('loads rule version from localStorage', () => {
-          mockGetLocalStorageString.mockReturnValueOnce('2024');
+          mockGetLocalStorageString.mockReturnValue('2024');
 
-          let contextValue = null;
-          const TestComponent = () => {
-             contextValue = useRuleVersion();
-             return null;
-          };
+          const { result } = renderHook(() => useRuleVersion(), {
+             wrapper: RuleVersionProvider,
+          });
 
-          render(
-             <RuleVersionProvider>
-                <TestComponent />
-             </RuleVersionProvider>
-          );
-
-          expect(contextValue.ruleVersion).toBe('2024');
+          expect(result.current.ruleVersion).toBe('2024');
        });
 
        it('updates rule version and saves to localStorage', () => {
-          let contextValue = null;
-          const TestComponent = () => {
-             contextValue = useRuleVersion();
-             return null;
-          };
-
-          render(
-             <RuleVersionProvider>
-                <TestComponent />
-             </RuleVersionProvider>
-          );
-
-          act(() => {
-             contextValue.setRuleVersion('2024');
+          const { result } = renderHook(() => useRuleVersion(), {
+             wrapper: RuleVersionProvider,
           });
 
-          expect(contextValue.ruleVersion).toBe('2024');
+          result.current.setRuleVersion('2024');
+
+          expect(result.current.ruleVersion).toBe('2024');
          expect(mockSetLocalStorageString).toHaveBeenCalledWith('ruleVersion', '2024');
        });
    });
@@ -82,28 +56,19 @@ describe('RuleVersionContext', () => {
          const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
          expect(() => {
-            render(<div>Test</div>);
-            // This won't actually call useRuleVersion, but we can test the hook directly
-         }).not.toThrow(); // We can't easily test this without a proper setup
+            renderHook(() => useRuleVersion());
+         }).toThrow();
 
          consoleSpy.mockRestore();
-      });
+       });
 
        it('returns context when used within provider', () => {
-          let contextValue = null;
-          const TestComponent = () => {
-             contextValue = useRuleVersion();
-             return null;
-          };
+          const { result } = renderHook(() => useRuleVersion(), {
+             wrapper: RuleVersionProvider,
+          });
 
-          render(
-             <RuleVersionProvider>
-                <TestComponent />
-             </RuleVersionProvider>
-          );
-
-          expect(contextValue).toHaveProperty('ruleVersion');
-          expect(contextValue).toHaveProperty('setRuleVersion');
+          expect(result.current).toHaveProperty('ruleVersion');
+          expect(result.current).toHaveProperty('setRuleVersion');
        });
    });
 });

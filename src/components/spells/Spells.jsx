@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useRuleVersion } from '../../context/RuleVersionContext';
 import { useVersionedData } from '../../hooks/useVersionedData';
@@ -37,51 +37,31 @@ function Spells() {
     });
 
     // Save filter to versioned localStorage whenever it changes
-    const saveFilterToStorage = () => {
-        setLocalStorageItem(filterKey, filter);
-    };
     useEffect(() => {
-        saveFilterToStorage();
-    }, [saveFilterToStorage]);
+        setLocalStorageItem(filterKey, filter);
+    }, [filter]);
 
-    const [shownCard, setShownCard] = useState('');
+    // Derive shownCard from URL params
+    const shownCard = searchParams.get('index') || '';
+
+    // Scroll to shown card when it changes
+    useEffect(() => {
+        if (shownCard) {
+            requestAnimationFrame(() => scrollIntoView(shownCard));
+        }
+    }, [shownCard]);
 
     // Use extracted hooks with versioning
     const { knownSpells, preparedSpells, addKnown, removeKnown, addPrepared, removePrepared } = useSpellPersistence({ ruleVersion });
 
     // Derive enhanced spells from data + persistence state
-    const spells = useMemo(() => {
-        if (!spellsData || spellsData.length === 0) return [];
-        return spellsData.map(spell => ({
-            ...spell,
-            known: knownSpells.includes(spell.index),
-            prepared: preparedSpells.includes(spell.index)
-        }));
-    }, [spellsData, knownSpells, preparedSpells]);
-
-    // Handle URL index parameter
-    const handleUrlIndex = (data, params) => {
-        if (!data || data.length === 0) return;
-
-        const index = params.get('index');
-        if (index) {
-            const spell = data.find(spell => spell.index === index);
-            if (spell) {
-                setShownCard(index);
-                // Scroll after state update completes
-                requestAnimationFrame(() => scrollIntoView(index));
-            }
-        }
-    };
+    const spells = spellsData && spellsData.length > 0 ? spellsData.map(spell => ({
+        ...spell,
+        known: knownSpells.includes(spell.index),
+        prepared: preparedSpells.includes(spell.index)
+    })) : [];
 
     const expandCard = (index, expanded) => {
-        if (expanded) {
-            setShownCard(index);
-            requestAnimationFrame(() => scrollIntoView(index));
-        } else {
-            setShownCard('');
-        }
-
         if (expanded) {
             setSearchParams({ index });
         } else {
@@ -112,11 +92,6 @@ function Spells() {
             removePrepared(index);
         }
     };
-
-    // Process URL index when data is available
-    useEffect(() => {
-        handleUrlIndex(spellsData, searchParams);
-    }, [spellsData, searchParams]);
 
     if (spellsLoading) {
         return <div className="list"><div>Loading spells...</div></div>;

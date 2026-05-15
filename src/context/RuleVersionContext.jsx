@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo, useCallback } from 'react';
 import { LOCAL_STORAGE_KEYS, getLocalStorageString, setLocalStorageString } from '../utils/localStorage';
 
 const RuleVersionContext = createContext(null);
@@ -8,10 +8,10 @@ export function RuleVersionProvider({ children }) {
         return getLocalStorageString(LOCAL_STORAGE_KEYS.RULE_VERSION) || '5e';
     });
 
-    const updateRuleVersion = (newVersion) => {
+    const updateRuleVersion = useCallback((newVersion) => {
         setRuleVersion(newVersion);
         setLocalStorageString(LOCAL_STORAGE_KEYS.RULE_VERSION, newVersion);
-    };
+    }, []);
 
     const contextValue = useMemo(() => ({ ruleVersion, setRuleVersion: updateRuleVersion }), [ruleVersion, updateRuleVersion]);
 

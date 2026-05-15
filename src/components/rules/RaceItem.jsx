@@ -1,17 +1,9 @@
-import { useState, useEffect } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
 import '../common/index.css';
 import Subraces from './Subraces';
 
 function RaceItem({ race, expand, onExpand }) {
-    const [isExpanded, setIsExpanded] = useState(expand);
-
-    // Update local state when prop changes
-    useEffect(() => {
-        if (expand !== isExpanded) {
-            setIsExpanded(expand);
-        }
-    }, [expand, isExpanded]);
+    const isExpanded = expand;
 
     const getAbilityBonuses = () => {
         if (!race.ability_bonuses || race.ability_bonuses.length === 0) {
@@ -47,29 +39,28 @@ function RaceItem({ race, expand, onExpand }) {
         // Build content for traits without details (text only)
         const traitsWithoutDetailsContent = traitsWithoutDetails.map(trait => {
                         const traitName = trait.name || 'Trait';
-            const traitDesc = trait.description || '';
-            return (
-                 <div key={trait.index} className="trait-container">
-                    <b>{traitName}</b>
-                    {traitDesc && (
-                         <div className="trait-description-md">
-                            <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
-                        </div>
-                    )}
-                </div>
-            );
-        });
+        const traitDesc = trait.description || '';
+        return (
+             <div key={trait.index} className="trait-container">
+                <b>{traitName}</b>
+                {traitDesc && (
+                     <div className="trait-description-md">
+                        <div dangerouslySetInnerHTML={renderHtmlContent(traitDesc)} />
+                    </div>
+                )}
+            </div>
+        );
+    });
 
-        // Combine all traits
-        return [...traitsWithoutDetailsContent];
-    };
+    // Combine all traits
+    return [...traitsWithoutDetailsContent];
+};
 
     if (!race) {
         return null;
     }
 
     const toggleDetails = () => {
-        setIsExpanded(!isExpanded);
         onExpand(!isExpanded);
     };
 
@@ -140,4 +131,3 @@ function RaceItem({ race, expand, onExpand }) {
 }
 
 export default RaceItem;
-

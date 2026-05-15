@@ -13,7 +13,7 @@
 
 .encounters-compact select.form-control,
 .encounters-compact .input-group .form-control {
-    width: 300px !important;
+    width: 300px;
     max-width: 300px;
 }
 
@@ -275,3 +275,8 @@
       .summary-stats { grid-template-columns: 1fr; }
       .monster-table th, .monster-table td { padding: 4px 6px; }
 }
+
+.difficulty-color-0 { color: #28a745; }
+.difficulty-color-1 { color: #ffc107; }
+.difficulty-color-2 { color: #fd7e14; }
+.difficulty-color-3 { color: #dc3545; }

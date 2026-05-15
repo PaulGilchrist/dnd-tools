@@ -26,75 +26,54 @@ function MagicItems2024() {
             type: 'All'
         };
     });
-    const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+
+    // Derive shownCard from URL params
+    const shownCard = searchParams.get('index') || '';
+
+    // Scroll to shown card when it changes
+    useEffect(() => {
+        if (shownCard) {
+            requestAnimationFrame(() => scrollIntoView(shownCard));
+        }
+    }, [shownCard]);
 
     // Fetch data
     const { data: magicItemsData, loading: magicItemsLoading } = use2024MagicItems();
 
-    // Handle URL index parameter
-    const handleUrlIndex = (data, params) => {
-        if (data && data.length > 0) {
-            const index = params.get('index');
-            if (index) {
-                const uniqueItemsMap = new Map();
-                data.forEach(item => {
-                    if (!uniqueItemsMap.has(item.index)) {
-                        uniqueItemsMap.set(item.index, item);
-                    }
-                });
-                const uniqueItems = Array.from(uniqueItemsMap.values());
-                const magicItem = uniqueItems.find(item => item.index === index);
-                if (magicItem) {
-                    setShownCard(index);
-                    // Scroll after state update completes
-                    requestAnimationFrame(() => scrollIntoView(index));
-                }
-            }
-        }
-    };
-
     const expandCard = (index, expanded) => {
-        if (expanded) {
-            setShownCard(index);
-            requestAnimationFrame(() => scrollIntoView(index));
-        } else {
-            setShownCard('');
-        }
-
-        // Update URL query params using setSearchParams
         if (expanded) {
             setSearchParams({ index });
         } else {
             setSearchParams({});
-                }
-             };
+        }
+    };
 
     const filterChanged = (newFilter) => {
         setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER_2024, newFilter);
-             };
+    };
 
     const showMagicItem = (magicItem) => {
         // Attunement filter
         if (filter.attunement !== 'All' && (
-                  (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
-                  (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
-              )) {
+              (filter.attunement === 'Required' && !magicItem.requiresAttunement) ||
+              (filter.attunement === 'Not Required' && magicItem.requiresAttunement)
+          )) {
             return false;
-              }
-                 // Bookmarked filter
+        }
+        // Bookmarked filter
         if (filter.bookmarked !== 'All' && !magicItem.bookmarked) {
             return false;
-              }
-                 // Name filter
+        }
+        // Name filter
         if (filter.name !== '' && !magicItem.name.toLowerCase().includes(filter.name.toLowerCase())) {
             return false;
-              }
-                 // Rarity filter (case-insensitive)
+        }
+        // Rarity filter (case-insensitive)
         if (filter.rarity !== 'All' && magicItem.rarity && magicItem.rarity.toLowerCase() !== filter.rarity.toLowerCase()) {
             return false;
-              }
-                 // Type filter (case-insensitive)
+        }
+        // Type filter (case-insensitive)
         if (filter.type !== 'All' && magicItem.type.toLowerCase() !== filter.type.toLowerCase()) {
             return false;
         }
@@ -118,11 +97,6 @@ function MagicItems2024() {
             setLocalStorageItem(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED_2024, magicItemsBookmarked);
         }
     };
-
-    // Process URL index when data is available
-    useEffect(() => {
-        handleUrlIndex(magicItemsData, searchParams);
-    }, [magicItemsData, searchParams]);
 
     if (magicItemsLoading) {
         return <div className="list"><div>Loading magic items...</div></div>;
@@ -155,8 +129,8 @@ function MagicItems2024() {
     const filteredItems = processedItems.filter(showMagicItem);
 
     return (
-                  <>
-                      <MagicItems2024FilterForm
+        <>
+            <MagicItems2024FilterForm
                 filter={filter}
                 setFilter={setFilter}
                 onFilterChange={filterChanged}
@@ -168,9 +142,9 @@ function MagicItems2024() {
                 shownCard={shownCard}
                 expandCard={expandCard}
                 handleBookmarkChange={handleBookmarkChange}
-                      />
-                  </>
-              );
+            />
+        </>
+    );
 }
 
 export default MagicItems2024;

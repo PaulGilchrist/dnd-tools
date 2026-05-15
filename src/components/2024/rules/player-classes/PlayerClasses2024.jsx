@@ -1,51 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { use2024Classes } from '../../../../data/dataService';
 import { scrollIntoView } from '../../../../data/utils';
 import PlayerClass2024 from './PlayerClass2024';
 
 function PlayerClasses2024() {
-    const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+
+    // Derive shownCard from URL params
+    const shownCard = searchParams.get('index') || '';
+
+    // Scroll to shown card when it changes
+    useEffect(() => {
+        if (shownCard) {
+            requestAnimationFrame(() => scrollIntoView(shownCard));
+        }
+    }, [shownCard]);
 
     // Fetch 2024 class data
     const { data: classesData, loading: classesLoading } = use2024Classes();
 
-    // Handle URL index parameter
-    const handleUrlIndex = (data, params) => {
-        if (data && data.length > 0) {
-            const index = params.get('index');
-            if (index) {
-                const playerClass = data.find(item => item.index === index);
-                if (playerClass) {
-                    setShownCard(index);
-                    // Scroll after state update completes
-                    requestAnimationFrame(() => scrollIntoView(index));
-                }
-            }
-        }
-    };
-
     const expandCard = (index, expanded) => {
-        if (expanded) {
-            setShownCard(index);
-            requestAnimationFrame(() => scrollIntoView(index));
-        } else {
-            setShownCard('');
-        }
-
-        // Update URL query params using setSearchParams
         if (expanded) {
             setSearchParams({ index });
         } else {
             setSearchParams({});
         }
     };
-
-    // Process URL index when data is available
-    useEffect(() => {
-        handleUrlIndex(classesData, searchParams);
-    }, [classesData, searchParams]);
 
     if (classesLoading) {
         return <div className="list"><div>Loading classes...</div></div>;

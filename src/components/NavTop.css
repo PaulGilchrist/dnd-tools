@@ -44,7 +44,7 @@
 
 /* Push spell rule dropdown to far right */
 .navbar-nav .nav-item.ms-auto {
-    margin-left: auto !important;
+    margin-left: auto;
     flex-shrink: 0;
 }
 

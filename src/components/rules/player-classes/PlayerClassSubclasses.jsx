@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { scrollIntoView } from '../../../data/utils';
 import { renderHtmlContent } from '../../../utils/htmlUtils';
+import { getPrerequisites } from '../../../utils/classUtils.js';
 
 function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowSubclass, getSpells, subclassFeatures }) {
     useEffect(() => {
@@ -168,36 +169,6 @@ function PlayerClassSubclasses({ playerClass, shownLevel, shownSubclass, onShowS
             </div>
         </>
     );
-}
-
-// Helper function for prerequisites (moved from PlayerClass)
-function getPrerequisites(prerequisites) {
-    if (!prerequisites || prerequisites.length === 0) return '';
-    
-    let prerequisitesText = '';
-    prerequisites.forEach((prerequisite) => {
-        switch (prerequisite.type) {
-            case 'feature':
-                prerequisitesText += `feature ${prerequisite.feature.substr(14)}, `;
-                break;
-            case 'level':
-                break;
-            case 'proficiency':
-                prerequisitesText += `proficiency ${prerequisite.proficiency.substr(19)}, `;
-                break;
-            case 'Spell':
-                prerequisitesText += `spell ${prerequisite.spell.substr(12)}, `;
-                break;
-            default: {
-                const key = Object.keys(prerequisite).find(key => key !== 'type');
-                if (key) {
-                    prerequisitesText += `${prerequisite.type} ${prerequisite[key]} , `;
-                }
-            }
-        }
-    });
-    
-    return prerequisitesText.substring(0, prerequisitesText.length - 2);
 }
 
 export default PlayerClassSubclasses;

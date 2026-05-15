@@ -49,11 +49,11 @@ describe('EncounterSummaryPanel', () => {
         expect(screen.getByText('Medium')).toBeInTheDocument();
      });
 
-    it('uses correct color for difficulty index', () => {
+it('uses correct difficulty color class', () => {
         const { container } = render(<EncounterSummaryPanel {...defaultProps} />);
         const mediumColorEl = container.querySelectorAll('.stat-value')[4];
-        expect(mediumColorEl).toHaveStyle({ color: '#ffc107' });
-     });
+        expect(mediumColorEl).toHaveClass('difficulty-color-1');
+      });
 
     it('shows Clear All button when monsters are selected', () => {
         render(<EncounterSummaryPanel {...defaultProps} />);
@@ -76,7 +76,7 @@ describe('EncounterSummaryPanel', () => {
         expect(defaultProps.onClearMonsters).toHaveBeenCalled();
      });
 
-    it('uses difficulty color for effective XP', () => {
+it('uses difficulty color class for effective XP', () => {
         const { container } = render(
             <EncounterSummaryPanel
                 {...defaultProps}
@@ -85,8 +85,8 @@ describe('EncounterSummaryPanel', () => {
             />
         );
         const colorEls = container.querySelectorAll('.stat-value');
-        expect(colorEls[3]).toHaveStyle({ color: '#28a745' });
-     });
+        expect(colorEls[3]).toHaveClass('difficulty-color-0');
+      });
 
     it('renders container with correct class', () => {
         const { container } = render(<EncounterSummaryPanel {...defaultProps} />);

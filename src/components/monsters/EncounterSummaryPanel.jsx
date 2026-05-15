@@ -1,5 +1,9 @@
 import React from 'react';
 
+function getDifficultyColorClass(index) {
+    return `difficulty-color-${Math.max(0, Math.min(3, index ?? 0))}`;
+}
+
 /**
  * Summary panel showing encounter stats
  */
@@ -21,11 +25,11 @@ function EncounterSummaryPanel({ totalMonsterXP, monsterCount, difficultyMultipl
                    </div>
                    <div className="stat-item stat-item-main">
                        <span className="stat-label">Effective</span>
-                       <span className="stat-value" style={{ color: difficultyColors[difficultyIndex] }}> {effectiveXP}</span>
+                       <span className={`stat-value ${getDifficultyColorClass(difficultyIndex)}`}> {effectiveXP}</span>
                    </div>
                    <div className="stat-item stat-item-main">
                        <span className="stat-label">Difficulty</span>
-                       <span className="stat-value" style={{ color: difficultyColors[difficultyIndex] }}> {difficultyLabels[difficultyIndex]}</span>
+                       <span className={`stat-value ${getDifficultyColorClass(difficultyIndex)}`}> {difficultyLabels[difficultyIndex]}</span>
                    </div>
                </div>
                {selectedMonsters.length > 0 && (

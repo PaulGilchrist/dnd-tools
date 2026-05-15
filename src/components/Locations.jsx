@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useLocations } from '../data/dataService';
+import { useLocations } from '../data/dataService.js';
 import { scrollIntoView } from '../data/utils';
 import { renderHtmlContent } from '../utils/htmlUtils';
 import './Locations.css';
@@ -9,43 +9,27 @@ import './common/Cover.css';
 
 function Locations() {
     const [image, setImage] = useState('');
-    const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+
+    // Derive shownCard from URL params
+    const shownCard = searchParams.get('index') || '';
+
+    // Scroll to shown card when it changes
+    useEffect(() => {
+        if (shownCard) {
+            requestAnimationFrame(() => scrollIntoView(shownCard));
+        }
+    }, [shownCard]);
 
     // Fetch data
     const { data: locationsData, loading } = useLocations();
 
-    // Handle URL index parameter
-    const handleUrlIndex = (data, params) => {
-        if (data && data.length > 0) {
-            const index = params.get('index');
-            if (index) {
-                const location = data.find(loc => loc.index === index);
-                if (location) {
-                    setShownCard(index);
-                    // Scroll after state update completes
-                    requestAnimationFrame(() => scrollIntoView(index));
-                }
-            }
-        }
-    };
-
     const expandCard = (index) => {
         if (shownCard === index) {
             // Close the card
-            setShownCard('');
-        } else {
-            // Open the card
-            setShownCard(index);
-            requestAnimationFrame(() => scrollIntoView(index));
-        }
-
-        // Update URL query params using setSearchParams
-        if (shownCard === index) {
-            // Closing, remove query param
             setSearchParams({});
         } else {
-            // Opening, add query param
+            // Open the card
             setSearchParams({ index });
         }
     };
@@ -57,11 +41,6 @@ function Locations() {
             setImage(`${import.meta.env.BASE_URL}images/${location.image}`);
         }
     };
-
-    // Process URL index when data is available
-    useEffect(() => {
-        handleUrlIndex(locationsData, searchParams);
-    }, [locationsData, searchParams]);
 
     if (loading) {
         return <div className="list"><div>Loading locations...</div></div>;

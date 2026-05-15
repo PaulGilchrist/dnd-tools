@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import Monster from './Monster';
 import { useMonsterFilter } from '../../hooks/useMonsterFilter';
 import { useMonsterBookmarks } from '../../hooks/useMonsterBookmarks';
 import { useRuleVersion } from '../../context/RuleVersionContext';
@@ -14,9 +13,23 @@ import Monster2024FilterControls from '../2024/monsters/Monster2024FilterControl
 import Loading from './Loading';
 
 function MonsterSearch() {
-    const [shownCard, setShownCard] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
     const { ruleVersion } = useRuleVersion();
+
+    // Derive shownCard from URL params
+    const shownCard = searchParams.get('index') || '';
+
+    // Scroll to shown card when it changes
+    useEffect(() => {
+        if (shownCard) {
+            requestAnimationFrame(() => {
+                const element = document.getElementById(shownCard);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+    }, [shownCard]);
 
     // Fetch data using version-aware hook
     const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
@@ -25,50 +38,13 @@ function MonsterSearch() {
     const { filter, updateFilter, showMonster } = useMonsterFilter({ ruleVersion });
     const { updateMonstersWithBookmarks, handleBookmarkChange } = useMonsterBookmarks({ ruleVersion });
 
-    const handleUrlIndex = (data, params) => {
-        if (data && data.length > 0) {
-            const updatedMonsters = updateMonstersWithBookmarks(data);
-
-            // Check for index parameter in URL
-            const index = params.get('index');
-            if (index) {
-                const monster = updatedMonsters.find((monster) => monster.index === index);
-                if (monster) {
-                    setShownCard(index);
-                    // Scroll after state update completes
-                    requestAnimationFrame(() => {
-                        const element = document.getElementById(index);
-                        if (element) {
-                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
-                    });
-                }
-            }
-        }
-    };
-
     const expandCard = (index, expanded) => {
         if (expanded) {
-            setShownCard(index);
-            requestAnimationFrame(() => {
-                const element = document.getElementById(index);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-
-            // Update URL query params using setSearchParams
             setSearchParams({ index });
         } else {
-            setShownCard('');
             setSearchParams({});
         }
     };
-
-    // Process URL index when data is available
-    useEffect(() => {
-        handleUrlIndex(monstersData, searchParams);
-    }, [monstersData, searchParams]);
 
     if (monstersLoading) {
         return <Loading />;

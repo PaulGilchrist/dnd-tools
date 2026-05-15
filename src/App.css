@@ -139,7 +139,7 @@ ul {
 }
 
 /* Hidden class for inner card bodies */
-.hidden {
-  display: none !important;
+.card-body.hidden {
+  display: none;
 }
 

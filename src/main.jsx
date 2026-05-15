@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './index.css'
-import { getBaseUrl } from './data/dataService'
+import { getBaseUrl } from './data/dataService.js'
 
 // Set favicon path dynamically based on base URL
 try {

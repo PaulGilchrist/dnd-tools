@@ -1,34 +1,12 @@
 import { useState, useRef } from 'react';
 import { getNameString } from '../utils/monsterUtils.js';
+import { getPrerequisites } from '../utils/classUtils.js';
 
 export function usePlayerClassLogic(playerClass, initialShownLevel = 0, initialShownSubclass = '') {
     const userOverrodeLevel = useRef(false);
     const [shownLevel, setShownLevel] = useState(() => initialShownLevel > 0 ? initialShownLevel : 1);
     const [isExpanded, setIsExpanded] = useState(() => !!initialShownLevel);
     const [shownSubclass, setShownSubclass] = useState(initialShownSubclass);
-
-    const getPrerequisites = (prerequisites) => {
-        if (!prerequisites || prerequisites.length === 0) return '';
-        let prerequisitesText = '';
-        prerequisites.forEach((prerequisite) => {
-            switch (prerequisite.type) {
-                case 'feature':
-                    prerequisitesText += `feature ${prerequisite.feature.substr(14)}, `;
-                    break;
-                case 'level':
-                    break;
-                case 'proficiency':
-                    prerequisitesText += `proficiency ${prerequisite.proficiency.substr(19)}, `;
-                    break;
-                case 'Spell':
-                    prerequisitesText += `spell ${prerequisite.spell.substr(12)}, `;
-                    break;
-                default:
-                    prerequisitesText += `${prerequisite.type} ${prerequisite[Object.keys(prerequisite).find(key => key !== 'type')]} , `;
-            }
-        });
-        return prerequisitesText.substring(0, prerequisitesText.length - 2);
-    };
 
     const getSpells = (spells) => {
         if (!spells || spells.length === 0) return '';

@@ -1,7 +1,8 @@
 // Backward-compatible barrel — all existing imports from './dataService' continue to work
 
 // Core caching layer
-export { dataCache, loadingPromises, fetchAndCache } from './dataServiceCore.js';
+export { dataCache, loadingPromises } from './dataServiceUtils.js';
+export { fetchAndCache } from './dataServiceCore.js';
 
 // Hooks (core + 18 individual)
 export {
