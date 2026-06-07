@@ -18,7 +18,7 @@ export function flattenRules(rules, ruleVersion) {
             type: 'rule',
             index: rule.index,
             name: rule.name,
-            desc: rule.desc,
+            description: rule.description,
             ruleIdx: ruleIdx
         });
 
@@ -34,7 +34,7 @@ export function flattenRules(rules, ruleVersion) {
                     type: 'subsection',
                     index: sub.index,
                     name: sub.name,
-                    desc: sub.desc,
+                    description: sub.description,
                     book: sub.book,
                     page: sub.page,
                     ruleIdx: ruleIdx,
@@ -86,7 +86,7 @@ export function extractRuleText(rule) {
     if (rule.subsections) {
         rule.subsections.forEach(sub => {
             if (sub.name) text += ' ' + sub.name;
-            if (sub.desc) text += ' ' + sub.desc;
+            if (sub.description) text += ' ' + sub.desc;
          });
      }
      

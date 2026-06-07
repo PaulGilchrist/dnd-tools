@@ -22,7 +22,7 @@ function Feat({ feat, expand, onExpand }) {
                                 <b>Prerequisite</b>: {feat.prerequisite}<br /><br />
                             </div>
                         )}
-                        {feat.desc && feat.desc.map((desc) => (
+                        {feat.description && feat.description.map((desc) => (
                             <span key={desc}>
                                 {desc}<br /><br />
                             </span>

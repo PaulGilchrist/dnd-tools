@@ -98,7 +98,7 @@ export const groupSubtypesByType = (monsterSubtypes, monsters, monsterTypesData)
             grouped[displayName] = {
                 type: displayName,
                 name: displayName,
-                desc: typeData?.desc || '',
+                description: typeData?.description || '',
                 trait_modifiers: typeData?.trait_modifiers || [],
                 book: typeData?.book || '',
                 page: typeData?.page || '',
@@ -140,7 +140,7 @@ export const groupSubtypesByType = (monsterSubtypes, monsters, monsterTypesData)
             grouped[displayName] = {
                 type: displayName,
                 name: displayName,
-                desc: typeData.desc || '',
+                description: typeData.description || '',
                 trait_modifiers: typeData.trait_modifiers || [],
                 book: typeData.book || '',
                 page: typeData.page || '',

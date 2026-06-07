@@ -65,13 +65,13 @@ describe('MonsterCard', () => {
         alignment: 'neutral evil',
         bookmarked: false,
         image: '/images/goblin.jpg',
-        traits: [{ name: 'Ambush', desc: 'Surprise on ambush' }],
+        traits: [{ name: 'Ambush', description: 'Surprise on ambush' }],
         actions: [{ name: 'Scimitar', damage: '4 slashing' }],
         reactions: [],
         legendaryActions: [],
         lairActions: {},
         regionalEffects: null,
-        desc: null,
+        description: null,
         page: null,
         book: null,
         ...overrides,
@@ -770,7 +770,7 @@ describe('MonsterCard', () => {
     it('renders description section when desc is present', () => {
         render(
             <MonsterCard
-                monster={createMonster({ desc: 'A goblin is a cunning creature.' })}
+                monster={createMonster({ description: 'A goblin is a cunning creature.' })}
                 expand={true}
                 onExpand={mockOnExpand}
             />
@@ -781,7 +781,7 @@ describe('MonsterCard', () => {
     it('does not render description section when desc is null', () => {
         render(
             <MonsterCard
-                monster={createMonster({ desc: null })}
+                monster={createMonster({ description: null })}
                 expand={true}
                 onExpand={mockOnExpand}
             />
@@ -792,7 +792,7 @@ describe('MonsterCard', () => {
     it('does not render description section when desc is empty string', () => {
         render(
             <MonsterCard
-                monster={createMonster({ desc: '' })}
+                monster={createMonster({ description: '' })}
                 expand={true}
                 onExpand={mockOnExpand}
             />
@@ -804,7 +804,7 @@ describe('MonsterCard', () => {
         render(
             <MonsterCard
                 monster={createMonster({
-                    desc: 'A goblin is a cunning creature.',
+                    description: 'A goblin is a cunning creature.',
                     book: 'Monster Manual',
                     page: 123,
                 })}
@@ -819,7 +819,7 @@ describe('MonsterCard', () => {
         render(
             <MonsterCard
                 monster={createMonster({
-                    desc: 'A goblin is a cunning creature.',
+                    description: 'A goblin is a cunning creature.',
                     book: 'Monster Manual',
                     page: null,
                 })}
@@ -834,7 +834,7 @@ describe('MonsterCard', () => {
         render(
             <MonsterCard
                 monster={createMonster({
-                    desc: 'A goblin is a cunning creature.',
+                    description: 'A goblin is a cunning creature.',
                     book: 'Monster Manual',
                     page: undefined,
                 })}
@@ -916,7 +916,7 @@ describe('MonsterCard', () => {
                      legendaryActions: [],
                      lairActions: {},
                      regionalEffects: null,
-                     desc: null,
+                     description: null,
                   })}
                  expand={true}
                  onExpand={mockOnExpand}

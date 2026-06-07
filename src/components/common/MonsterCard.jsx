@@ -176,11 +176,11 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                      <MonsterRegionalEffects monster={monster} />
                                  </div>
                              )}
-                             {monster.desc && (
+                             {monster.description && (
                                                                <div>
                                                                    <hr />
                                                                    <h5>Description</h5>
-                                                                   <div dangerouslySetInnerHTML={renderHtmlContent(monster.desc)} />
+                                                                   <div dangerouslySetInnerHTML={renderHtmlContent(monster.description)} />
                                                                    <br/>
                                                                    {monster.page && (
                                                                        <div>{monster.book} (page {monster.page})</div>

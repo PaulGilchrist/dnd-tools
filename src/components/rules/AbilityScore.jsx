@@ -41,7 +41,7 @@ function AbilityScore({ abilityScore, expand, onExpand }) {
                 <div className="card-body">
                     <div 
                                             className="card-text"
-                                            dangerouslySetInnerHTML={renderHtmlContent(abilityScore.desc)}
+                                            dangerouslySetInnerHTML={renderHtmlContent(abilityScore.description)}
                                          />
                 </div>
             )}

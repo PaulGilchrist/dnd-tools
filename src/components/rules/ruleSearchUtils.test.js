@@ -68,13 +68,13 @@ describe('highlightText', () => {
 
 describe('extractRuleText', () => {
     it('extracts text from rule name', () => {
-        const rule = { name: 'Combat', desc: 'Rules for combat' };
+        const rule = { name: 'Combat', description: 'Rules for combat' };
         expect(extractRuleText(rule)).toContain('Combat');
     });
 
     it('extracts text from rule description', () => {
         // extractRuleText only includes name and subsections, not the main desc
-        const rule = { name: 'Combat', desc: 'Rules for combat' };
+        const rule = { name: 'Combat', description: 'Rules for combat' };
         const result = extractRuleText(rule);
         expect(result).toContain('Combat');
         // desc is not included in extractRuleText output
@@ -85,8 +85,8 @@ describe('extractRuleText', () => {
         const rule = {
             name: 'Combat',
             subsections: [
-                { name: 'Attacking', desc: 'How to attack' },
-                { name: 'Damage', desc: 'How to deal damage' },
+                { name: 'Attacking', description: 'How to attack' },
+                { name: 'Damage', description: 'How to deal damage' },
             ],
         };
         const text = extractRuleText(rule);
@@ -97,7 +97,7 @@ describe('extractRuleText', () => {
 
     it('handles rule with no subsections', () => {
         // extractRuleText only includes name and subsections, not the main desc
-        const rule = { name: 'Combat', desc: 'Rules' };
+        const rule = { name: 'Combat', description: 'Rules' };
         const result = extractRuleText(rule);
         expect(result).toContain('Combat');
         // desc is not included in extractRuleText output
@@ -107,38 +107,38 @@ describe('extractRuleText', () => {
 
 describe('ruleMatchesSearch', () => {
     it('returns true when search text is empty', () => {
-        const rule = { name: 'Combat', desc: 'Rules' };
+        const rule = { name: 'Combat', description: 'Rules' };
         expect(ruleMatchesSearch(rule, '')).toBe(true);
         expect(ruleMatchesSearch(rule, '  ')).toBe(true);
     });
 
     it('returns true when rule name matches', () => {
-        const rule = { name: 'Combat', desc: 'Rules' };
+        const rule = { name: 'Combat', description: 'Rules' };
         expect(ruleMatchesSearch(rule, 'combat')).toBe(true);
     });
 
     it('returns true when rule description matches', () => {
         // ruleMatchesSearch uses extractRuleText which doesn't include main desc
         // So this should be false
-        const rule = { name: 'Combat', desc: 'Rules for fighting' };
+        const rule = { name: 'Combat', description: 'Rules for fighting' };
         expect(ruleMatchesSearch(rule, 'fighting')).toBe(false);
     });
 
     it('returns true when subsection matches', () => {
         const rule = {
             name: 'Combat',
-            subsections: [{ name: 'Attacking', desc: 'How to attack' }],
+            subsections: [{ name: 'Attacking', description: 'How to attack' }],
         };
         expect(ruleMatchesSearch(rule, 'attacking')).toBe(true);
     });
 
     it('returns false when no match', () => {
-        const rule = { name: 'Combat', desc: 'Rules' };
+        const rule = { name: 'Combat', description: 'Rules' };
         expect(ruleMatchesSearch(rule, 'magic')).toBe(false);
     });
 
     it('is case-insensitive', () => {
-        const rule = { name: 'Combat', desc: 'Rules' };
+        const rule = { name: 'Combat', description: 'Rules' };
         expect(ruleMatchesSearch(rule, 'COMBAT')).toBe(true);
     });
 });

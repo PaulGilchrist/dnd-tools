@@ -11,7 +11,7 @@ describe('AbilityScore', () => {
   const mockAbilityScore = {
     index: 'str',
     full_name: 'Strength',
-    desc: '<p>Strength measures bodily power.</p>',
+    description: '<p>Strength measures bodily power.</p>',
     skills: ['Athletics'],
   };
 

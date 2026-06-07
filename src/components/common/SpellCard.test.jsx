@@ -21,7 +21,7 @@ describe('SpellCard', () => {
         ritual: false,
         classes: ['Wizard'],
         subclasses: [],
-        desc: ['A bright streak flashes from your pointing finger.'],
+        description: ['A bright streak flashes from your pointing finger.'],
         damage: null,
         savingThrow: 'Dexterity',
         areaOfEffect: null,
@@ -616,7 +616,7 @@ describe('SpellCard', () => {
      });
 
     it('handles empty description array', () => {
-        const spell = createSpell({ desc: [] });
+        const spell = createSpell({ description: [] });
         render(
              <SpellCard
                 spell={spell}
@@ -630,7 +630,7 @@ describe('SpellCard', () => {
      });
 
     it('handles null description', () => {
-        const spell = createSpell({ desc: null });
+        const spell = createSpell({ description: null });
         render(
              <SpellCard
                 spell={spell}

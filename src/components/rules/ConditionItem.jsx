@@ -14,10 +14,10 @@ function ConditionItem({ condition, expand = false, onExpand }) {
 
     // Render desc as HTML string
     const renderDescription = () => {
-        if (!condition.desc) {
+        if (!condition.description) {
             return null;
         }
-        return <div dangerouslySetInnerHTML={renderHtmlContent(condition.desc)} />;
+        return <div dangerouslySetInnerHTML={renderHtmlContent(condition.description)} />;
     };
 
     return (

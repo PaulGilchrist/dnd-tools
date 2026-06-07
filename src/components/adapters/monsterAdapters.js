@@ -97,7 +97,7 @@ export function normalizeMonster5e(monster) {
         regionalEffects: monster.regional_effects,
 
         // Description
-        desc: monster.desc,
+        description: monster.description,
         book: monster.book,
         page: monster.page,
 
@@ -181,7 +181,7 @@ export function normalizeMonster2024(monster) {
         regionalEffects: monster.regional_effects,
 
         // Description
-        desc: monster.desc,
+        description: monster.description,
         book: monster.book,
         page: monster.page,
 

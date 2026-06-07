@@ -98,7 +98,7 @@ describe('MonsterLore', () => {
          {
             index: 'aberration-entry',
             name: 'Aberration',
-            desc: '<p>Aberrations are strange creatures.</p>',
+            description: '<p>Aberrations are strange creatures.</p>',
             monsters: [],
             book: 'Monster Manual',
             page: 1,
@@ -106,7 +106,7 @@ describe('MonsterLore', () => {
           {
             index: 'beast-entry',
             name: 'Beast',
-            desc: '<p>Beasts are animals.</p>',
+            description: '<p>Beasts are animals.</p>',
             monsters: [],
             book: 'Monster Manual',
             page: 2,
@@ -163,21 +163,21 @@ describe('MonsterLore', () => {
 
         it('shows subtype name in card header', () => {
             useMonstersState.data = mockMonsters;
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test Type', desc: '', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test Type', description: '', monsters: [], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             expect(screen.getByText('Test Type')).toBeInTheDocument();
           });
 
         it('uses subtype index as card id', () => {
             useMonstersState.data = mockMonsters;
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '', monsters: [], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             expect(document.getElementById('test-entry')).toBeInTheDocument();
           });
 
         it('does not render body when subtype is collapsed', () => {
             useMonstersState.data = mockMonsters;
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '<p>Test</p>', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '<p>Test</p>', monsters: [], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             expect(screen.queryByText('Monsters')).not.toBeInTheDocument();
           });
@@ -186,7 +186,7 @@ describe('MonsterLore', () => {
     describe('subtype expansion', () => {
         it('expands subtype on header click', () => {
             useMonstersState.data = [];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '<p>Test</p>', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '<p>Test</p>', monsters: [], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('Test').closest('.clickable'));
             expect(screen.getByText('Monsters')).toBeInTheDocument();
@@ -194,7 +194,7 @@ describe('MonsterLore', () => {
 
         it('closes subtype on second header click', () => {
             useMonstersState.data = [];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test Type', desc: '<p>Description text.</p>', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test Type', description: '<p>Description text.</p>', monsters: [], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('Test Type').closest('.clickable'));
             expect(screen.getByText('Monsters')).toBeInTheDocument();
@@ -204,7 +204,7 @@ describe('MonsterLore', () => {
 
         it('adds active class when expanded', () => {
             useMonstersState.data = [];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '', monsters: [], book: 'MM', page: 1 }];
             const { container } = renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('Test').closest('.clickable'));
             expect(container.querySelector('.outer.card.active')).toBeInTheDocument();
@@ -212,7 +212,7 @@ describe('MonsterLore', () => {
 
         it('does not add active class when collapsed', () => {
             useMonstersState.data = [];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '', monsters: [], book: 'MM', page: 1 }];
             const { container } = renderWithRouter(<MonsterLore />);
             expect(container.querySelector('.outer.card')).not.toHaveClass('active');
           });
@@ -221,7 +221,7 @@ describe('MonsterLore', () => {
     describe('monster display within subtypes', () => {
         it('renders monsters that match the subtype', () => {
             useMonstersState.data = [{ index: 'goblin', name: 'Goblin' }];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '', monsters: ['goblin'], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '', monsters: ['goblin'], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('Test').closest('.clickable'));
             expect(screen.getByTestId('monster-goblin')).toBeInTheDocument();
@@ -229,7 +229,7 @@ describe('MonsterLore', () => {
 
         it('does not render monsters not in the subtype', () => {
             useMonstersState.data = [{ index: 'goblin', name: 'Goblin' }];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '', monsters: ['orc'], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '', monsters: ['orc'], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('Test').closest('.clickable'));
             expect(screen.queryByTestId('monster-goblin')).not.toBeInTheDocument();
@@ -239,7 +239,7 @@ describe('MonsterLore', () => {
     describe('subtype footer', () => {
         it('renders book and page reference', () => {
             useMonstersState.data = [];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', desc: '', monsters: [], book: 'Monster Manual', page: 42 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: 'Test', description: '', monsters: [], book: 'Monster Manual', page: 42 }];
             renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('Test').closest('.clickable'));
             expect(screen.getByText('Monster Manual (page 42)')).toBeInTheDocument();
@@ -247,7 +247,7 @@ describe('MonsterLore', () => {
 
         it('renders description via dangerouslySetInnerHTML', () => {
             useMonstersState.data = [];
-            useMonsterTypesState.data = [{ index: 'test-entry', name: '<p>Description</p>', desc: '<p>Description</p>', monsters: [], book: 'MM', page: 1 }];
+            useMonsterTypesState.data = [{ index: 'test-entry', name: '<p>Description</p>', description: '<p>Description</p>', monsters: [], book: 'MM', page: 1 }];
             renderWithRouter(<MonsterLore />);
             fireEvent.click(screen.getByText('<p>Description</p>').closest('.clickable'));
             expect(screen.getByText('Monsters')).toBeInTheDocument();

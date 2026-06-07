@@ -12,7 +12,7 @@ describe('Subrace2024', () => {
         const subrace = {
             index: 'hill-dwarf',
             name: 'Hill Dwarf',
-            desc: 'Hill dwarves are...',
+            description: 'Hill dwarves are...',
             ability_bonuses: [{ ability_score: 'WIS', bonus: 1 }],
             speed: 25,
             racial_traits: [],
@@ -25,7 +25,7 @@ describe('Subrace2024', () => {
         const subrace = {
             index: 'hill-dwarf',
             name: 'Hill Dwarf',
-            desc: 'Hill dwarves are sturdy.',
+            description: 'Hill dwarves are sturdy.',
             ability_bonuses: [],
             speed: 25,
             racial_traits: [],
@@ -83,7 +83,7 @@ describe('Subrace2024', () => {
             speed: 25,
             ability_bonuses: [],
             racial_traits: [
-                { index: 'dwarven-toughness', name: 'Dwarven Toughness', desc: 'Your hit points increase.' },
+                { index: 'dwarven-toughness', name: 'Dwarven Toughness', description: 'Your hit points increase.' },
             ],
         };
         render(<Subrace2024 subrace={subrace} />);
@@ -126,7 +126,7 @@ describe('Subrace2024', () => {
             speed: 25,
             ability_bonuses: [],
             racial_traits: [
-                { name: 'Stonecunning', desc: 'You have advantage on History checks.' },
+                { name: 'Stonecunning', description: 'You have advantage on History checks.' },
             ],
         };
         render(<Subrace2024 subrace={subrace} />);

@@ -21,7 +21,7 @@ function TypeGroupCard2024({ typeGroup, shownSubtype, showSubtype, shownCard, sh
             </div>
             {shownSubtype === typeGroup.type && (
                 <div className="card-body">
-                    <div dangerouslySetInnerHTML={renderHtmlContent(typeGroup.desc || '')} />
+                    <div dangerouslySetInnerHTML={renderHtmlContent(typeGroup.description || '')} />
                     <br />
                     {typeGroup.trait_modifiers && typeGroup.trait_modifiers.length > 0 && (
                         <>
@@ -71,7 +71,7 @@ function TypeGroupCard5e({ subtype, shownSubtype, showSubtype, monsters, shownCa
             </div>
             {shownSubtype === subtype.index && (
                 <div className="card-body">
-                    <div dangerouslySetInnerHTML={renderHtmlContent(subtype.desc)} />
+                    <div dangerouslySetInnerHTML={renderHtmlContent(subtype.description)} />
                     <br />
                     <h5>Monsters</h5>
                     {monsters.map((monster) => (

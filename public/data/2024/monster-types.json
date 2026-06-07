@@ -3,7 +3,7 @@
     "index": "aberration",
     "name": "Aberration",
     "book": "Monster Manual 2024",
-    "desc": "Aberrations are creatures of unnatural origin, often from the Far Realm or other planes of existence. They are typically mindless or incomprehensible in their motives.",
+    "description": "Aberrations are creatures of unnatural origin, often from the Far Realm or other planes of existence. They are typically mindless or incomprehensible in their motives.",
     "monsters": [
       "aboleth",
       "beholder",
@@ -49,7 +49,7 @@
     "index": "beast",
     "name": "Beast",
     "book": "Monster Manual 2024",
-    "desc": "Beasts are animals and magical beasts that inhabit the Material Plane. They range from tiny creatures to massive dragons and other legendary beasts.",
+    "description": "Beasts are animals and magical beasts that inhabit the Material Plane. They range from tiny creatures to massive dragons and other legendary beasts.",
     "monsters": [
       "allosaurus",
       "ankylosaurus",
@@ -141,7 +141,7 @@
     "index": "celestial",
     "name": "Celestial",
     "book": "Monster Manual 2024",
-    "desc": "Celestials are creatures of pure good that hail from the Upper Planes. They serve as messengers and warriors for the gods of good.",
+    "description": "Celestials are creatures of pure good that hail from the Upper Planes. They serve as messengers and warriors for the gods of good.",
     "monsters": [
       "animal-lord",
       "couatl",
@@ -172,7 +172,7 @@
     "index": "construct",
     "name": "Construct",
     "book": "Monster Manual 2024",
-    "desc": "Constructs are animated objects or machines created through magic. They have no self-awareness and follow their programming or the will of their creator.",
+    "description": "Constructs are animated objects or machines created through magic. They have no self-awareness and follow their programming or the will of their creator.",
     "monsters": [
       "animated-armor",
       "animated-broom",
@@ -207,7 +207,7 @@
     "index": "dragon",
     "name": "Dragon",
     "book": "Monster Manual 2024",
-    "desc": "Dragons are powerful, intelligent reptilian creatures with innate magical abilities. They are among the most dangerous creatures in the multiverse.",
+    "description": "Dragons are powerful, intelligent reptilian creatures with innate magical abilities. They are among the most dangerous creatures in the multiverse.",
     "monsters": [
       "adult-black-dragon",
       "adult-blue-dragon",
@@ -270,7 +270,7 @@
     "index": "elemental",
     "name": "Elemental",
     "book": "Monster Manual 2024",
-    "desc": "Elementals are creatures composed of one of the four elements: air, earth, fire, or water. They are native to the Elemental Planes.",
+    "description": "Elementals are creatures composed of one of the four elements: air, earth, fire, or water. They are native to the Elemental Planes.",
     "monsters": [
       "aarakocra-aeromancer",
       "aarakocra-skirmisher",
@@ -313,7 +313,7 @@
     "index": "fey",
     "name": "Fey",
     "book": "Monster Manual 2024",
-    "desc": "Fey are creatures from the Feywild, a plane of existence filled with magic, wonder, and danger. They are often capricious and unpredictable.",
+    "description": "Fey are creatures from the Feywild, a plane of existence filled with magic, wonder, and danger. They are often capricious and unpredictable.",
     "monsters": [
       "arch-hag",
       "blink-dog",
@@ -350,7 +350,7 @@
     "index": "giant",
     "name": "Giant",
     "book": "Monster Manual 2024",
-    "desc": "Giants are large, powerful humanoids with varying degrees of intelligence. They can be found in many different environments.",
+    "description": "Giants are large, powerful humanoids with varying degrees of intelligence. They can be found in many different environments.",
     "monsters": [
       "cloud-giant",
       "cyclops-oracle",
@@ -374,7 +374,7 @@
     "index": "humanoid",
     "name": "Humanoid",
     "book": "Monster Manual 2024",
-    "desc": "Humanoids are the most common creatures in the multiverse, including humans and their many kin and cousins.",
+    "description": "Humanoids are the most common creatures in the multiverse, including humans and their many kin and cousins.",
     "monsters": [
       "aberrant-cultist",
       "archmage",
@@ -428,7 +428,7 @@
     "index": "monstrosity",
     "name": "Monstrosity",
     "book": "Monster Manual 2024",
-    "desc": "Monstrosities are creatures of unnatural origin or monstrous appearance. They are often the result of magical experimentation or corruption.",
+    "description": "Monstrosities are creatures of unnatural origin or monstrous appearance. They are often the result of magical experimentation or corruption.",
     "monsters": [
       "abominable-yeti",
       "ankheg",
@@ -497,7 +497,7 @@
     "index": "plant",
     "name": "Plant",
     "book": "Monster Manual 2024",
-    "desc": "Plants are creatures with the characteristics of plants, often animated by magic or natural forces.",
+    "description": "Plants are creatures with the characteristics of plants, often animated by magic or natural forces.",
     "monsters": [
       "awakened-shrub",
       "awakened-tree",
@@ -528,7 +528,7 @@
     "index": "undead",
     "name": "Undead",
     "book": "Monster Manual 2024",
-    "desc": "Undead are creatures that have been returned to a form of life after death, often through necromantic magic.",
+    "description": "Undead are creatures that have been returned to a form of life after death, often through necromantic magic.",
     "monsters": [
       "-wisp",
       "banshee",
@@ -580,7 +580,7 @@
     "index": "fiend",
     "name": "Fiend",
     "book": "Monster Manual 2024",
-    "desc": "Fiends are creatures from the Lower Planes, including demons and devils. They are inherently evil and seek to corrupt and destroy.",
+    "description": "Fiends are creatures from the Lower Planes, including demons and devils. They are inherently evil and seek to corrupt and destroy.",
     "monsters": [
       "arcanaloth",
       "balor",

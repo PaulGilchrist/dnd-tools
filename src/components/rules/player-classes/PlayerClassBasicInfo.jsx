@@ -5,7 +5,7 @@ function PlayerClassBasicInfo({ playerClass, getNameString }) {
 
     return (
         <div>
-            <span dangerouslySetInnerHTML={renderHtmlContent(playerClass.desc)} /><br /><br />
+            <span dangerouslySetInnerHTML={renderHtmlContent(playerClass.description)} /><br /><br />
             <b>Hit Die:</b>&nbsp;d{playerClass.hit_die}<br />
             
             {playerClass.proficiencies && playerClass.proficiencies.length > 0 && (

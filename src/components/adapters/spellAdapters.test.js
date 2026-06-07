@@ -58,7 +58,7 @@ describe('spellAdapters', () => {
                 damage: { dc: 'constitution', dice: '8d6', type: 'fire' },
                 known: false,
                 prepared: true,
-                desc: ['<p>A bright flash erupts...</p>'],
+                description: ['<p>A bright flash erupts...</p>'],
                 higher_level: '<p>2 additional d6 per slot level.</p>'
             };
             const result = normalizeSpell5e(spell);
@@ -82,7 +82,7 @@ describe('spellAdapters', () => {
             expect(result.statusEffects).toEqual([]);
             expect(result.known).toBe(false);
             expect(result.prepared).toBe(true);
-            expect(result.desc).toEqual(['<p>A bright flash erupts...</p>']);
+            expect(result.description).toEqual(['<p>A bright flash erupts...</p>']);
             expect(result.higherLevel).toBe('<p>2 additional d6 per slot level.</p>');
             expect(result.version).toBe('5e');
         });
@@ -96,7 +96,7 @@ describe('spellAdapters', () => {
         it('defaults desc to empty array when missing', () => {
             const spell = { index: 'test', name: 'Test' };
             const result = normalizeSpell5e(spell);
-            expect(result.desc).toEqual([]);
+            expect(result.description).toEqual([]);
         });
 
         it('defaults subclasses to empty array', () => {
@@ -118,19 +118,19 @@ describe('spellAdapters', () => {
         });
 
         it('handles spell with empty desc string (falsy value defaults to [])', () => {
-            const spell = { index: 'test', name: 'Test', desc: '' };
+            const spell = { index: 'test', name: 'Test', description: '' };
             const result = normalizeSpell5e(spell);
-            expect(result.desc).toEqual([]);
+            expect(result.description).toEqual([]);
          });
 
         it('preserves desc when provided as array', () => {
             const spell = {
                 index: 'test',
                 name: 'Test',
-                desc: ['<p>Line 1</p>', '<p>Line 2</p>']
+                description: ['<p>Line 1</p>', '<p>Line 2</p>']
             };
             const result = normalizeSpell5e(spell);
-            expect(result.desc).toEqual(['<p>Line 1</p>', '<p>Line 2</p>']);
+            expect(result.description).toEqual(['<p>Line 1</p>', '<p>Line 2</p>']);
         });
     });
 
@@ -185,7 +185,7 @@ describe('spellAdapters', () => {
                 status_effects: ['blinded'],
                 known: true,
                 prepared: false,
-                desc: ['<p>A bright flash erupts...</p>'],
+                description: ['<p>A bright flash erupts...</p>'],
                 higher_level: ['<p>2 additional d6 per slot level.</p>']
             };
             const result = normalizeSpell2024(spell);
@@ -196,7 +196,7 @@ describe('spellAdapters', () => {
             expect(result.subclasses).toEqual(['Warlock']);
             expect(result.savingThrow).toBe('Constitution');
             expect(result.statusEffects).toEqual(['blinded']);
-            expect(result.desc).toEqual(['<p>A bright flash erupts...</p>']);
+            expect(result.description).toEqual(['<p>A bright flash erupts...</p>']);
             expect(result.higherLevel).toEqual(['<p>2 additional d6 per slot level.</p>']);
         });
 
@@ -227,7 +227,7 @@ describe('spellAdapters', () => {
         it('defaults desc to empty array when missing', () => {
             const spell = { index: 'test', name: 'Test' };
             const result = normalizeSpell2024(spell);
-            expect(result.desc).toEqual([]);
+            expect(result.description).toEqual([]);
         });
 
         it('defaults higherLevel to empty array when missing', () => {

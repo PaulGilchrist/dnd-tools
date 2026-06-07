@@ -7,12 +7,12 @@ describe('Subraces', () => {
     {
       index: 'hill-dwarf',
       name: 'Hill Dwarf',
-      desc: 'The hill dwarf is...',
+      description: 'The hill dwarf is...',
       ability_bonuses: [{ ability_score: 'WIS', bonus: 1 }],
       speed: 25,
       starting_proficiencies: ['Battleaxe', 'Handaxe'],
       racial_traits: [
-        { index: 'dwarven-toughness', name: 'Dwarven Toughness', desc: 'Your hit point maximum increases.' },
+        { index: 'dwarven-toughness', name: 'Dwarven Toughness', description: 'Your hit point maximum increases.' },
       ],
       language_options: { from: ['Common', 'Dwarvish'] },
     },

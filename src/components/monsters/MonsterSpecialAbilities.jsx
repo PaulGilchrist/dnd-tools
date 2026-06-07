@@ -16,7 +16,7 @@ function MonsterSpecialAbilities({ monster }) {
                             <span>&nbsp;({special_ability.usage.times}/day)</span>
                         )}:
                     </b>&nbsp;
-                    <span dangerouslySetInnerHTML={renderHtmlContent(special_ability.desc)} />
+                    <span dangerouslySetInnerHTML={renderHtmlContent(special_ability.description)} />
                 </span>
             ))}
         </div>

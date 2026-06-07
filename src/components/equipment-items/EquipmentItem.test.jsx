@@ -17,7 +17,7 @@ const createEquipmentItem = (overrides = {}) => ({
     weight: 3,
     damage: { damage_dice: '1d8', damage_type: { name: 'slashing' } },
     properties: ['Versatile'],
-    desc: ['A long blade with a sharp edge.'],
+    description: ['A long blade with a sharp edge.'],
     bookmarked: false,
     ...overrides,
 });
@@ -1001,7 +1001,7 @@ describe('EquipmentItem', () => {
         });
 
         it('shows each description entry', () => {
-            const item = createEquipmentItem({ desc: ['First paragraph.', 'Second paragraph.'] });
+            const item = createEquipmentItem({ description: ['First paragraph.', 'Second paragraph.'] });
             render(
                 wrap(
                     <EquipmentItem
@@ -1017,7 +1017,7 @@ describe('EquipmentItem', () => {
         });
 
         it('does not show description when desc is undefined', () => {
-            const item = createEquipmentItem({ desc: undefined });
+            const item = createEquipmentItem({ description: undefined });
             render(
                 wrap(
                     <EquipmentItem
@@ -1032,7 +1032,7 @@ describe('EquipmentItem', () => {
         });
 
         it('does not show description when desc is empty array', () => {
-            const item = createEquipmentItem({ desc: [] });
+            const item = createEquipmentItem({ description: [] });
             render(
                 wrap(
                     <EquipmentItem

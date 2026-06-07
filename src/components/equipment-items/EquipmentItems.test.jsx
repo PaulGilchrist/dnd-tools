@@ -201,7 +201,7 @@ const mockEquipment = [
         equipment_category: 'Adventuring Gear',
         cost: { quantity: 2, unit: 'gp' },
         weight: 5,
-        desc: ['A familiar container'],
+        description: ['A familiar container'],
     },
     {
         index: 'chain-mail',
@@ -223,7 +223,7 @@ const mockEquipment = [
         weight: 3,
         damage: { damage_dice: '1d8', damage_type: { name: 'slashing' } },
         properties: ['Versatile'],
-        desc: ['A long blade'],
+        description: ['A long blade'],
     },
     {
         index: 'shortbow',
@@ -248,9 +248,9 @@ const mockEquipment = [
 ];
 
 const mockWeaponProperties = [
-    { name: 'Versatile', desc: 'Can be used one or two handed.' },
-    { name: 'Ammunition', desc: 'Used to make ranged attacks.' },
-    { name: 'Finesse', desc: 'Use DEX or STR for attack and damage.' },
+    { name: 'Versatile', description: 'Can be used one or two handed.' },
+    { name: 'Ammunition', description: 'Used to make ranged attacks.' },
+    { name: 'Finesse', description: 'Use DEX or STR for attack and damage.' },
 ];
 
 const wrap = (ui) => (

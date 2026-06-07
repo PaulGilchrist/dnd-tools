@@ -161,12 +161,12 @@ function WeaponDetails({ equipmentItem, weaponRange, getProperties, ruleVersion 
 }
 
 function ItemDescription({ equipmentItem }) {
-    if (!equipmentItem.desc) return null;
+    if (!equipmentItem.description) return null;
     return (
         <div>
             <hr />
             <h5>Description</h5>
-            {equipmentItem.desc.map((desc) => (
+            {equipmentItem.description.map((desc) => (
                 <span key={desc}>
                     {desc}<br /><br />
                 </span>

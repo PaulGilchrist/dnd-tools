@@ -10,7 +10,7 @@ function Subrace2024({ subrace }) {
 
     if (subrace.racial_traits) {
         subrace.racial_traits.forEach(trait => {
-            if (trait.desc && trait.desc.length > 0) {
+            if (trait.description && trait.description.length > 0) {
                 traitsWithDesc.push(trait);
             } else {
                 traitsWithoutDesc.push(trait);
@@ -23,7 +23,7 @@ function Subrace2024({ subrace }) {
         <div key={trait.name} className="subrace-trait-sm">
             <span className="trait-name-sm">{trait.name}</span>
             <span className="trait-description-sm">
-                {Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc}
+                {Array.isArray(trait.description) ? trait.description.join(' ') : trait.desc}
             </span>
         </div>
     ));
@@ -41,7 +41,7 @@ function Subrace2024({ subrace }) {
         <div key={subrace.name} className="subrace-card">
             <h5 className="subrace-heading-sm">{subrace.name}</h5>
 
-            {subrace.desc && (
+            {subrace.description && (
                 <div className="subrace-description-sm">
                                     {subrace.desc}
                                 </div>
@@ -97,8 +97,8 @@ function Subrace2024({ subrace }) {
                     {subrace.racial_traits.map((trait) => (
                         <div key={trait.name}>
                             {trait.name}:&nbsp;
-                            {trait.desc && (
-                                Array.isArray(trait.desc) ? trait.desc.join(' ') : trait.desc
+                            {trait.description && (
+                                Array.isArray(trait.description) ? trait.description.join(' ') : trait.desc
                             )}
                         </div>
                     ))}

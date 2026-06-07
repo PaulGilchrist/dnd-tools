@@ -76,31 +76,31 @@ const fixtureTypesData = [
   {
     index: 'humanoid',
     name: 'Humanoid',
-    desc: 'Humanoid creatures',
+    description: 'Humanoid creatures',
     monsters: ['goblin', 'bugbear', 'hobgoblin', 'kobold'],
   },
   {
     index: 'aberration',
     name: 'Aberration',
-    desc: 'Alien creatures',
+    description: 'Alien creatures',
     monsters: ['mind-flayer', 'intellect-devourer'],
   },
   {
     index: 'fey',
     name: 'Fey',
-    desc: 'Magical creatures',
+    description: 'Magical creatures',
     monsters: ['wisp', 'will-o-wisp'],
   },
   {
     index: 'elemental',
     name: 'Elemental',
-    desc: 'Elemental beings',
+    description: 'Elemental beings',
     monsters: ['gargoyle', 'mephitis'],
   },
   {
     index: 'construct',
     name: 'Construct',
-    desc: 'Artificial beings',
+    description: 'Artificial beings',
     monsters: [],
   },
 ];

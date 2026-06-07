@@ -57,8 +57,8 @@ function RulesSearch({ rules, ruleVersion }) {
             }
             
             // Check desc - strip HTML tags for searching
-            if (item.desc) {
-                const descText = item.desc.replace(/<[^>]*>/g, '').toLowerCase();
+            if (item.description) {
+                const descText = item.description.replace(/<[^>]*>/g, '').toLowerCase();
                 if (descText.includes(searchLower)) {
                     allMatches.push({ 
                         index: idx, 

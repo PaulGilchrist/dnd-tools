@@ -15,7 +15,7 @@ describe('PlayerClassBasicInfo', () => {
     it('displays description', () => {
         render(
             <PlayerClassBasicInfo
-                playerClass={{ desc: 'A brave warrior' }}
+                playerClass={{ description: 'A brave warrior' }}
                 getNameString={mockGetNameString}
             />
         );
@@ -25,7 +25,7 @@ describe('PlayerClassBasicInfo', () => {
     it('displays hit die', () => {
         render(
             <PlayerClassBasicInfo
-                playerClass={{ desc: 'test', hit_die: 10 }}
+                playerClass={{ description: 'test', hit_die: 10 }}
                 getNameString={mockGetNameString}
             />
         );
@@ -37,7 +37,7 @@ describe('PlayerClassBasicInfo', () => {
         render(
             <PlayerClassBasicInfo
                 playerClass={{
-                    desc: 'test',
+                    description: 'test',
                     hit_die: 10,
                     proficiencies: ['Simple weapons', 'Martial weapons'],
                 }}
@@ -52,7 +52,7 @@ describe('PlayerClassBasicInfo', () => {
         render(
             <PlayerClassBasicInfo
                 playerClass={{
-                    desc: 'test',
+                    description: 'test',
                     hit_die: 10,
                     proficiency_choices: [{ choose: 2, from: ['History', 'Perception'] }],
                 }}
@@ -67,7 +67,7 @@ describe('PlayerClassBasicInfo', () => {
         render(
             <PlayerClassBasicInfo
                 playerClass={{
-                    desc: 'test',
+                    description: 'test',
                     hit_die: 10,
                     saving_throws: ['Strength', 'Constitution'],
                 }}
@@ -82,7 +82,7 @@ describe('PlayerClassBasicInfo', () => {
         render(
             <PlayerClassBasicInfo
                 playerClass={{
-                    desc: 'test',
+                    description: 'test',
                     hit_die: 10,
                     starting_wealth: '5d4 x 10 gp',
                 }}

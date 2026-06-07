@@ -44,6 +44,7 @@ function MonsterActions({ monster, sectionType = 'actions' }) {
                           )}
                           :
                       </b>&nbsp;
+                      {console.log(item)}
                       {item.renderDescription && <span dangerouslySetInnerHTML={item.renderDescription()} />}
                       {/* 2024-specific attack and save info */}
                       {item.attackBonus && (

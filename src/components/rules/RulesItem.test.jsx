@@ -16,9 +16,9 @@ describe('RulesItem', () => {
   const mockRule = {
     index: 'coins',
     name: 'Coins',
-    desc: '<p>Coins come in different denominations.</p>',
+    description: '<p>Coins come in different denominations.</p>',
     subsections: [
-      { index: 'coin-values', name: 'Coin Values', desc: '<p>Different values.</p>', book: 'PHB', page: 143 },
+      { index: 'coin-values', name: 'Coin Values', description: '<p>Different values.</p>', book: 'PHB', page: 143 },
     ],
   };
 

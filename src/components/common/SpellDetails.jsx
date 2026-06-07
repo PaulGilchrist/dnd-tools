@@ -116,7 +116,7 @@ function SpellDetails({ spell }) {
 
                 <hr />
 
-                {spell.desc && spell.desc.length > 0 && spell.desc.map((desc) => (
+                {spell.description && spell.description.length > 0 && spell.description.map((desc) => (
                     <div key={desc}>
                         <span dangerouslySetInnerHTML={renderHtmlContent(desc)} />
                     </div>

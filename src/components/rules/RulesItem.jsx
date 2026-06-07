@@ -37,7 +37,7 @@ function RulesItem({ rule, expand = false, onExpand }) {
                         <div className="card-title">{subsection.name}</div>
                     </div>
                     <div className={`inner card-body ${shownSubsection === subsection.index ? '' : 'hidden'}`}>
-                        <div dangerouslySetInnerHTML={renderHtmlContent(subsection.desc)}></div>
+                        <div dangerouslySetInnerHTML={renderHtmlContent(subsection.description)}></div>
                         {subsection.page && (
                             <div>{subsection.book} (page {subsection.page})</div>
                         )}

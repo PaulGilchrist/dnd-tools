@@ -28,12 +28,12 @@ function RuleSearchItem({ item, isHighlighted, searchText, onRuleClick }) {
                             item.name
                         )}
                     </h2>
-                    {item.desc && (
+                    {item.description && (
                         <div className="rules-flow-desc">
-                            {trimmedSearch && item.desc && item.desc.toLowerCase().includes(searchLower) ? (
-                                <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, trimmedSearch))} />
+                            {trimmedSearch && item.description && item.description.toLowerCase().includes(searchLower) ? (
+                                <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.description, trimmedSearch))} />
                             ) : (
-                                <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
+                                <div dangerouslySetInnerHTML={renderHtmlContent(item.description)} />
                             )}
                         </div>
                     )}
@@ -49,12 +49,12 @@ function RuleSearchItem({ item, isHighlighted, searchText, onRuleClick }) {
                             item.name
                         )}
                     </h3>
-                    {item.desc && (
+                    {item.description && (
                         <div className="subsection-desc">
-                            {trimmedSearch && item.desc && item.desc.toLowerCase().includes(searchLower) ? (
-                                <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.desc, trimmedSearch))} />
+                            {trimmedSearch && item.description && item.description.toLowerCase().includes(searchLower) ? (
+                                <span dangerouslySetInnerHTML={renderHtmlContent(highlightText(item.description, trimmedSearch))} />
                             ) : (
-                                <div dangerouslySetInnerHTML={renderHtmlContent(item.desc)} />
+                                <div dangerouslySetInnerHTML={renderHtmlContent(item.description)} />
                             )}
                         </div>
                     )}

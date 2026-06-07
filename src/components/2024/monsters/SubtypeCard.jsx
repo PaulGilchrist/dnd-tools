@@ -37,10 +37,10 @@ function SubtypeCard({ subtype, shownCard, shownMonster, expandCard, expandMonst
                                 <strong>Habitat:</strong> {subtype.habitat}
                             </div>
                         )}
-                        {subtype.desc && (
+                        {subtype.description && (
                             <div>
                                 <strong>Description:</strong>
-                                <div dangerouslySetInnerHTML={renderHtmlContent(subtype.desc)} />
+                                <div dangerouslySetInnerHTML={renderHtmlContent(subtype.description)} />
                             </div>
                         )}
                         <h6>Monsters in this subtype</h6>

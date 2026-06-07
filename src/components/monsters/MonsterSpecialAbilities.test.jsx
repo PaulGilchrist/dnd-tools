@@ -19,12 +19,12 @@ describe('MonsterSpecialAbilities', () => {
         special_abilities: [
               {
                 name: 'Amphibious',
-                desc: 'The dragon can breathe air and water.',
+                description: 'The dragon can breathe air and water.',
                 usage: null,
               },
               {
                 name: 'Legendary Resistance',
-                desc: 'The dragon rerolls a failed save.',
+                description: 'The dragon rerolls a failed save.',
                 usage: { times: 3, type: 'per day' },
               },
           ],
@@ -100,7 +100,7 @@ describe('MonsterSpecialAbilities', () => {
              <MonsterSpecialAbilities
                 monster={createMonster({
                     special_abilities: [
-                         { name: 'Breath Weapon', desc: 'Fire breath.', usage: { times: '1', type: 'recharge' } },
+                         { name: 'Breath Weapon', description: 'Fire breath.', usage: { times: '1', type: 'recharge' } },
                       ],
                   })}
              />
@@ -111,7 +111,7 @@ describe('MonsterSpecialAbilities', () => {
     it('does not show usage when usage is null', () => {
         render(
              <MonsterSpecialAbilities
-                monster={createMonster({ special_abilities: [{ name: 'Test', desc: 'Test desc.', usage: null }] })}
+                monster={createMonster({ special_abilities: [{ name: 'Test', description: 'Test desc.', usage: null }] })}
              />
          );
         expect(screen.queryByText(/null\/day/)).not.toBeInTheDocument();
@@ -120,7 +120,7 @@ describe('MonsterSpecialAbilities', () => {
     it('does not show usage when usage is undefined', () => {
         render(
              <MonsterSpecialAbilities
-                monster={createMonster({ special_abilities: [{ name: 'Test', desc: 'Test desc.', usage: undefined }] })}
+                monster={createMonster({ special_abilities: [{ name: 'Test', description: 'Test desc.', usage: undefined }] })}
              />
          );
         expect(screen.queryByText(/null\/day/)).not.toBeInTheDocument();
@@ -129,9 +129,9 @@ describe('MonsterSpecialAbilities', () => {
     it('renders multiple abilities', () => {
         const monster = createMonster({
             special_abilities: [
-                 { name: 'Ability 1', desc: 'Desc 1' },
-                 { name: 'Ability 2', desc: 'Desc 2' },
-                 { name: 'Ability 3', desc: 'Desc 3' },
+                 { name: 'Ability 1', description: 'Desc 1' },
+                 { name: 'Ability 2', description: 'Desc 2' },
+                 { name: 'Ability 3', description: 'Desc 3' },
               ],
           });
         render(<MonsterSpecialAbilities monster={monster} />);
@@ -159,7 +159,7 @@ describe('MonsterSpecialAbilities', () => {
              <MonsterSpecialAbilities
                 monster={createMonster({
                     special_abilities: [
-                         { name: 'Special', desc: 'Test.', usage: { times: 'recharge 5-6', type: 'per day' } },
+                         { name: 'Special', description: 'Test.', usage: { times: 'recharge 5-6', type: 'per day' } },
                       ],
                   })}
              />

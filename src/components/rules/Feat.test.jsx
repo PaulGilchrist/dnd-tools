@@ -6,7 +6,7 @@ describe('Feat', () => {
   const mockFeat = {
     index: 'alert',
     name: 'Alert',
-    desc: ['You are never surprised while you are conscious.'],
+    description: ['You are never surprised while you are conscious.'],
     prerequisite: 'Dexterity 13 or higher',
     benefits: ['You gain a +5 bonus to initiative.'],
   };
@@ -58,7 +58,7 @@ describe('Feat', () => {
   it('renders multiple description paragraphs', () => {
     const featMultiDesc = {
       ...mockFeat,
-      desc: ['First paragraph.', 'Second paragraph.'],
+      description: ['First paragraph.', 'Second paragraph.'],
     };
     render(<Feat feat={featMultiDesc} expand={true} />);
     expect(screen.getByText('First paragraph.')).toBeInTheDocument();

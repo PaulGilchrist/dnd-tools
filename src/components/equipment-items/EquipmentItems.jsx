@@ -101,7 +101,7 @@ function EquipmentItems() {
 
     const getWeaponPropertyDescription = (name) => {
         const wp = weaponPropertiesData.find(wp => wp.name === name);
-        return wp ? wp.desc : '';
+        return wp ? wp.description : '';
     };
 
     const filterChanged = (newFilter) => {

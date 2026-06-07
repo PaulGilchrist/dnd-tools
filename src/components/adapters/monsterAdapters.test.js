@@ -151,7 +151,7 @@ describe('monsterAdapters', () => {
                 wisdom: 10,
                 charisma: 10,
                 actions: [
-                    { name: 'Bite', desc: '<p>Bite attack.</p>' }
+                    { name: 'Bite', description: '<p>Bite attack.</p>' }
                 ]
             };
             const result = normalizeMonster5e(monster);
@@ -185,7 +185,7 @@ describe('monsterAdapters', () => {
                 wisdom: 10,
                 charisma: 10,
                 special_abilities: [
-                    { name: 'Darkvision', desc: '<p>60 ft.</p>' }
+                    { name: 'Darkvision', description: '<p>60 ft.</p>' }
                 ]
             };
             const result = normalizeMonster5e(monster);
@@ -204,7 +204,7 @@ describe('monsterAdapters', () => {
                 wisdom: 10,
                 charisma: 10,
                 reactions: [
-                    { name: 'Opportunity Attack', desc: '<p>When a creature moves...</p>' }
+                    { name: 'Opportunity Attack', description: '<p>When a creature moves...</p>' }
                 ]
             };
             const result = normalizeMonster5e(monster);
@@ -222,7 +222,7 @@ describe('monsterAdapters', () => {
                 wisdom: 10,
                 charisma: 10,
                 legendary_actions: [
-                    { name: 'Horrifying Visage', desc: '<p>DC 18 Wisdom save.</p>' }
+                    { name: 'Horrifying Visage', description: '<p>DC 18 Wisdom save.</p>' }
                 ]
             };
             const result = normalizeMonster5e(monster);
@@ -402,10 +402,10 @@ describe('monsterAdapters', () => {
                 wisdom: 16,
                 charisma: 24,
                 speed: { walk: '40 ft.', fly: '80 ft.' },
-                actions: [{ name: 'Bite', desc: '<p>+14 to hit, 23 damage.</p>' }],
-                special_abilities: [{ name: 'Legends Fear', desc: '<p>DC 18.</p>' }],
-                reactions: [{ name: 'Magic Resistance', desc: '<p>Advantage on saves.</p>' }],
-                legendary_actions: [{ name: 'Wing Attack', desc: '<p>2d10 blunt.</p>' }],
+                actions: [{ name: 'Bite', description: '<p>+14 to hit, 23 damage.</p>' }],
+                special_abilities: [{ name: 'Legends Fear', description: '<p>DC 18.</p>' }],
+                reactions: [{ name: 'Magic Resistance', description: '<p>Advantage on saves.</p>' }],
+                legendary_actions: [{ name: 'Wing Attack', description: '<p>2d10 blunt.</p>' }],
                 damage_immunities: ['cold'],
                 damage_resistances: ['bludgeoning'],
                 damage_vulnerabilities: ['fire'],
@@ -415,7 +415,7 @@ describe('monsterAdapters', () => {
                 environments: ['underground'],
                 challenge_rating: 20,
                 xp: 21000,
-                desc: '<p>A fearsome creature.</p>',
+                description: '<p>A fearsome creature.</p>',
                 book: 'Monster Manual',
                 page: 45
             };
@@ -437,7 +437,7 @@ describe('monsterAdapters', () => {
             expect(result.environments).toEqual(['underground']);
             expect(result.challengeRating).toBe(20);
             expect(result.xp).toBe(21000);
-            expect(result.desc).toBe('<p>A fearsome creature.</p>');
+            expect(result.description).toBe('<p>A fearsome creature.</p>');
             expect(result.book).toBe('Monster Manual');
             expect(result.page).toBe(45);
         });
@@ -520,8 +520,8 @@ describe('monsterAdapters', () => {
                 traits: [{ name: 'Fear', description: '<p>DC 18.</p>' }],
                 reactions: [{ name: 'Counter', description: '<p>Reaction.</p>' }],
                 legendary_actions: [{ name: 'Wing', description: '<p>Damage.</p>' }],
-                regional_effects: [{ name: 'Wild Magic', desc: '<p>Effects.</p>' }],
-                desc: '<p>Description.</p>',
+                regional_effects: [{ name: 'Wild Magic', description: '<p>Effects.</p>' }],
+                description: '<p>Description.</p>',
                 book: 'Monster Manual',
                 page: 45
             };
@@ -540,7 +540,7 @@ describe('monsterAdapters', () => {
             expect(result.equipment).toEqual(['sword']);
             expect(result.habitat).toBe('mountains');
             expect(result.treasure).toBe('c');
-            expect(result.regionalEffects).toEqual([{ name: 'Wild Magic', desc: '<p>Effects.</p>' }]);
+            expect(result.regionalEffects).toEqual([{ name: 'Wild Magic', description: '<p>Effects.</p>' }]);
         });
 
         it('normalizes actions with 2024 fields', () => {

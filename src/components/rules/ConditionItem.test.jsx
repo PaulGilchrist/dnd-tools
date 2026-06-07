@@ -11,7 +11,7 @@ describe('ConditionItem', () => {
   const mockCondition = {
     index: 'blinded',
     name: 'Blinded',
-    desc: '<p>A blinded creature cannot see.</p>',
+    description: '<p>A blinded creature cannot see.</p>',
   };
 
   it('returns null when condition is not provided', () => {

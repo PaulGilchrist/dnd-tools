@@ -27,7 +27,7 @@ export function normalizeSpell5e(spell) {
         prepared: spell.prepared,
 
          // Description
-        desc: spell.desc || [],
+        description: spell.description || [],
         higherLevel: spell.higher_level,
 
          // Version metadata
@@ -64,7 +64,7 @@ export function normalizeSpell2024(spell) {
         prepared: spell.prepared,
 
          // Description
-        desc: spell.desc || [],
+        description: spell.description || [],
         higherLevel: spell.higher_level || [],
 
          // Version metadata

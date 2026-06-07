@@ -100,7 +100,7 @@ function Locations() {
                                             )}
                                         </div>
                                     </div>
-                                    <div dangerouslySetInnerHTML={renderHtmlContent(location.desc)}></div>
+                                    <div dangerouslySetInnerHTML={renderHtmlContent(location.description)}></div>
                                     <br />
                                     {location.book && `(${location.book} page ${location.page})`}
                                 </div>
