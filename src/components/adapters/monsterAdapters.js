@@ -25,10 +25,10 @@ export function normalizeMonster5e(monster) {
     const { savingThrows, skills } = extractProficiencies(monster.proficiencies);
 
     // Normalize actions, traits, reactions, legendary actions
-    const normalizedActions = normalizeActionsList(monster.actions, 'desc');
-    const normalizedTraits = normalizeActionsList(monster.special_abilities, 'desc');
-    const normalizedReactions = normalizeActionsList(monster.reactions, 'desc');
-    const normalizedLegendaryActions = normalizeActionsList(monster.legendary_actions, 'desc');
+    const normalizedActions = normalizeActionsList(monster.actions, 'description');
+    const normalizedTraits = normalizeActionsList(monster.special_abilities, 'description');
+    const normalizedReactions = normalizeActionsList(monster.reactions, 'description');
+    const normalizedLegendaryActions = normalizeActionsList(monster.legendary_actions, 'description');
 
     // Normalize lair actions (5e format)
     const lairActions = normalizeLairActions5e(monster.lair_actions);
