@@ -41,15 +41,13 @@ function MonsterStats({ monster, handleImageClick }) {
                 )}<br />
             </div>
             <div>
-                {monster.image && (
-                    <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={handleImageClick}
-                    >
-                        Image
-                    </button>
-                )}
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleImageClick}
+                >
+                    Image
+                </button>
             </div>
         </div>
     );

@@ -60,7 +60,7 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
      // Handle image modal
     const handleImageClick = (e) => {
         e.stopPropagation();
-        if (monster && monster.image) {
+        if (monster) {
             setMonsterImage(`${import.meta.env.BASE_URL}images/${monster.index}.jpg`);
             setImageActive(true);
          }
