@@ -103,9 +103,20 @@
     "feat": "Healer",
     "skill_proficiencies": "Medicine and Religion",
     "tool_proficiencies": "Herbalism Kit",
-    "equipment": "Choose A or B: (A) Quarterstaff Herbalism Kit, Bedroll, Book (philosophy), Lamp, Oil (3 flasks), Traveler's Clothes, 16 GP; or (8) 50 GP",
+     "equipment": "Choose A or B: (A) Quarterstaff Herbalism Kit, Bedroll, Book (philosophy), Lamp, Oil (3 flasks), Traveler's Clothes, 16 GP; or (8) 50 GP",
     "book": "Player's Handbook 2024",
-    "page": 182
+    "page": 182,
+    "features": [
+      {
+        "name": "Hermit's Wit",
+        "description": "You can draw on your solitude to gain insight into the world around you. You add your Wisdom modifier to your initiative rolls.",
+        "automation": {
+          "type": "passive_buff",
+          "effect": "initiative_bonus",
+          "bonusExpression": "WIS modifier"
+        }
+      }
+    ]
   },
   {
     "index": "merchant",
@@ -127,7 +138,7 @@
     "feat": "Skilled",
     "skill_proficiencies": "History and Persuasion",
     "tool_proficiencies": "Choose one kind of Gaming Set",
-    "equipment": "Choose A or B: (A) Gaming Set (same as above), Fine Clothes, Perfume, 29 GP; or (B) SO GP",
+    "equipment": "Choose A or B: (A) Gaming Set (same as above), Fine Clothes, Perfume, 29 GP; or (B) 5O GP",
     "book": "Player's Handbook 2024",
     "page": 183
   },
@@ -139,7 +150,7 @@
     "feat": "Magic Initiate (Wizard)",
     "skill_proficiencies": "Arcana and History",
     "tool_proficiencies": "Calligrapher's Supplies",
-    "equipment": "Choose A or B: (A) Quarterstaff, Calligrapher's Supplies, Book (history), Parchment (8 sheets), Robe, 8 GP; or (B) SO GP",
+    "equipment": "Choose A or B: (A) Quarterstaff, Calligrapher's Supplies, Book (history), Parchment (8 sheets), Robe, 8 GP; or (B) 5O GP",
     "book": "Player's Handbook 2024",
     "page": 183
   },
