@@ -108,14 +108,6 @@ function MagicItems() {
         return { items: itemsWithBookmarks, index: foundIndex };
     }, [magicItemsData, bookmarkedIndexes, searchParams]);
 
-    // Set shownCard and scroll when URL index is found
-    const handleUrlIndex = (index) => {
-        if (index) {
-            setShownCard(index);
-            requestAnimationFrame(() => scrollIntoView(index));
-        }
-    };
-
     const magicItems = processedItems.items;
 
     // Expand/collapse card handler
@@ -192,7 +184,10 @@ function MagicItems() {
 
     // Process URL index when data is available
     useEffect(() => {
-        handleUrlIndex(processedItems.index);
+        if (processedItems.index) {
+            setShownCard(processedItems.index); // eslint-disable-line react-hooks/set-state-in-effect
+            requestAnimationFrame(() => scrollIntoView(processedItems.index));
+        }
     }, [processedItems.index]);
 
     // Loading state

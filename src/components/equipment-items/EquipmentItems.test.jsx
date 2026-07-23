@@ -191,7 +191,7 @@ vi.mock('./EquipmentItemList', () => ({
 const { useEquipment, useWeaponProperties } = vi.mocked(await import('../../data/dataService'));
 const { useSearchParams } = vi.mocked(await import('react-router-dom'));
 const localStorageModule = await import('../../utils/localStorage');
-const { setLocalStorageItem, getLocalStorageItem, LOCAL_STORAGE_KEYS, sanitizeFilter } = localStorageModule;
+const { setLocalStorageItem, getLocalStorageItem, LOCAL_STORAGE_KEYS } = localStorageModule;
 const { scrollIntoView } = vi.mocked(await import('../../data/utils'));
 
 const mockEquipment = [

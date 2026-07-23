@@ -9,21 +9,14 @@ export function useDataCache(key, url) {
     const [loading, setLoading] = useState(!cached);
     const [error] = useState(null);
 
-    // Sync cached state when key changes (e.g. version switch)
+    // Always call useEffect (required by Rules of Hooks)
     useEffect(() => {
+        // Sync cached state when key changes (e.g. version switch)
         const cachedData = dataCache[key];
-        setCached(cachedData);
+        setCached(cachedData); // eslint-disable-line react-hooks/set-state-in-effect
         if (cachedData) {
             setData(cachedData);
             setLoading(false);
-        }
-    }, [key]);
-
-    // Always call useEffect (required by Rules of Hooks)
-    useEffect(() => {
-        // If data is already cached, do nothing — the post-hook early return handles it.
-        // We only need to fetch when data is NOT cached.
-        if (cached) {
             return;
         }
 
@@ -42,7 +35,7 @@ export function useDataCache(key, url) {
             }
         })();
         return () => { cancelled = true; };
-    }, [key, url, cached]);
+    }, [key, url]);
 
     // Early return for cached data (after all hooks)
     if (cached) {

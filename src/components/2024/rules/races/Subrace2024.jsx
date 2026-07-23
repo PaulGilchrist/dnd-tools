@@ -23,7 +23,7 @@ function Subrace2024({ subrace }) {
         <div key={trait.name} className="subrace-trait-sm">
             <span className="trait-name-sm">{trait.name}</span>
             <span className="trait-description-sm">
-                {Array.isArray(trait.description) ? trait.description.join(' ') : trait.desc}
+                {Array.isArray(trait.description) ? trait.description.join(' ') : trait.description}
             </span>
         </div>
     ));
@@ -43,7 +43,7 @@ function Subrace2024({ subrace }) {
 
             {subrace.description && (
                 <div className="subrace-description-sm">
-                                    {subrace.desc}
+                                    {subrace.description}
                                 </div>
                             )}
 
@@ -98,7 +98,7 @@ function Subrace2024({ subrace }) {
                         <div key={trait.name}>
                             {trait.name}:&nbsp;
                             {trait.description && (
-                                Array.isArray(trait.description) ? trait.description.join(' ') : trait.desc
+                                Array.isArray(trait.description) ? trait.description.join(' ') : trait.description
                             )}
                         </div>
                     ))}

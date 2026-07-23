@@ -22,11 +22,26 @@ const xpThresholds = [
 const difficultyLabels = ['Easy', 'Medium', 'Hard', 'Deadly'];
 const difficultyColors = ['#28a745', '#ffc107', '#fd7e14', '#dc3545'];
 
+// Default player levels with IDs
+const DEFAULT_PLAYER_LEVELS = [{ id: 1, level: 1 }];
+
+// Migrate old [1, 3, 5] format to [{id: 1, level: 1}, ...]
+function migratePlayerLevels(playerLevels) {
+    if (!Array.isArray(playerLevels) || playerLevels.length === 0) return [];
+    if (typeof playerLevels[0] === 'object') return playerLevels;
+    return playerLevels.map((level, index) => ({ id: index + 1, level }));
+}
+
+// Get next unique player ID
+function getNextPlayerId(playerLevels) {
+    return playerLevels.reduce((maxId, p) => Math.max(maxId, p.id), 0) + 1;
+}
+
 // Extracted: Calculate XP threshold from player levels and difficulty
 function calculateXPThreshold(filter) {
     let xpThreshold = 0;
     filter.playerLevels.forEach(pl => {
-        const levelIndex = parseInt(pl);
+        const levelIndex = parseInt(pl.level);
         if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
             xpThreshold += xpThresholds[levelIndex][filter.difficulty];
         }
@@ -38,7 +53,7 @@ function calculateXPThreshold(filter) {
 function calculateMaxXP(filter) {
     let maxXP = 0;
     filter.playerLevels.forEach(pl => {
-        const levelIndex = parseInt(pl);
+        const levelIndex = parseInt(pl.level);
         if (!isNaN(levelIndex) && levelIndex >= 0 && levelIndex <= 20) {
             maxXP += xpThresholds[levelIndex][filter.difficulty];
         }
@@ -134,13 +149,18 @@ function Encounters() {
         const savedFilter = getLocalStorageItem(versionedFilterKey);
         if (savedFilter) {
             try {
-                const encounterDefaultFilter = { difficulty: 2, playerLevels: [1] };
-                return sanitizeFilter(encounterDefaultFilter, savedFilter);
+                const encounterDefaultFilter = { difficulty: 2, playerLevels: DEFAULT_PLAYER_LEVELS };
+                const sanitized = sanitizeFilter(encounterDefaultFilter, savedFilter);
+                // Migrate old format [1, 3] → [{id: 1, level: 1}, ...]
+                if (Array.isArray(sanitized.playerLevels) && sanitized.playerLevels.length > 0 && typeof sanitized.playerLevels[0] !== 'object') {
+                    sanitized.playerLevels = migratePlayerLevels(sanitized.playerLevels);
+                }
+                return sanitized;
             } catch (e) {
                 console.error('Error parsing saved encounter filter:', e);
             }
         }
-        return { difficulty: 2, playerLevels: [1] };
+        return { difficulty: 2, playerLevels: [{ id: 1, level: 1 }] };
     };
 
     const [filter, setFilter] = useState(initializeFilter);
@@ -188,19 +208,21 @@ function Encounters() {
     };
 
     const addPlayer = () => {
-        updateFilter(updatePlayerLevels(filter, [...filter.playerLevels, 1]));
+        const nextId = getNextPlayerId(filter.playerLevels);
+        updateFilter(updatePlayerLevels(filter, [...filter.playerLevels, { id: nextId, level: 1 }]));
     };
 
-    const removePlayer = (playerIndex) => {
-        const newLevels = filter.playerLevels.filter((_, i) => i !== playerIndex);
+    const removePlayer = (playerId) => {
+        const newLevels = filter.playerLevels.filter(p => p.id !== playerId);
         if (newLevels.length > 0) {
             updateFilter(updatePlayerLevels(filter, newLevels));
         }
     };
 
-    const onPlayerLevelChange = (playerLevelIndex, newValue) => {
-        const newLevels = [...filter.playerLevels];
-        newLevels[playerLevelIndex] = newValue;
+    const onPlayerLevelChange = (playerId, newValue) => {
+        const newLevels = filter.playerLevels.map(p =>
+            p.id === playerId ? { ...p, level: newValue } : p
+        );
         updateFilter(updatePlayerLevels(filter, newLevels));
     };
 

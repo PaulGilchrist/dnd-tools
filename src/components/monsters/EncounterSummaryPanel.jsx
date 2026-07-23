@@ -7,7 +7,7 @@ function getDifficultyColorClass(index) {
 /**
  * Summary panel showing encounter stats
  */
-function EncounterSummaryPanel({ totalMonsterXP, monsterCount, difficultyMultiplier, effectiveXP, difficultyIndex, difficultyLabels, difficultyColors, selectedMonsters, onClearMonsters }) {
+function EncounterSummaryPanel({ totalMonsterXP, monsterCount, difficultyMultiplier, effectiveXP, difficultyIndex, difficultyLabels, selectedMonsters, onClearMonsters }) {
     return (
            <div className="encounters-summary-side">
                <div className="summary-stats">

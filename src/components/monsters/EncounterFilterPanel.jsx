@@ -27,21 +27,21 @@ function EncounterFilterPanel({ filter, onDifficultyChange, onAddPlayer, onRemov
               <div className="form-group">
                   <button type="button" className="btn btn-sm btn-outline-secondary mb-2" onClick={onAddPlayer}>+ Add Player</button>
                   <div className="player-levels-horizontal">
-                      {filter.playerLevels.map((level, index) => (
-                            <div key={index} className="player-level-row">
+                      {filter.playerLevels.map((player, index) => (
+                            <div key={player.id} className="player-level-row">
                               <span className="player-level-label">Player {index + 1} Level</span>
                               <input 
                                   type="number" 
                                   className="player-level-input"
-                                  value={level}
-                                  onChange={(e) => onPlayerLevelChange(index, e.target.value)}
+                                  value={player.level}
+                                  onChange={(e) => onPlayerLevelChange(player.id, e.target.value)}
                                   min="1" 
                                   max="20" 
                               />
                               <button 
                                   type="button" 
                                   className="btn btn-sm btn-outline-danger level-delete-btn" 
-                                  onClick={() => onRemovePlayer(index)}
+                                  onClick={() => onRemovePlayer(player.id)}
                                   disabled={filter.playerLevels.length <= 1}
                                   title="Remove player"
                               >×</button>

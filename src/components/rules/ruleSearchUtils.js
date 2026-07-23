@@ -86,7 +86,7 @@ export function extractRuleText(rule) {
     if (rule.subsections) {
         rule.subsections.forEach(sub => {
             if (sub.name) text += ' ' + sub.name;
-            if (sub.description) text += ' ' + sub.desc;
+            if (sub.description) text += ' ' + sub.description;
          });
      }
      

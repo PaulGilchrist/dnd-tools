@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-
 // Sub-components for category-specific rendering
 function AdventuringGearDetails({ equipmentItem, getContents }) {
     return (

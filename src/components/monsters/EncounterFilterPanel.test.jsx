@@ -6,7 +6,7 @@ describe('EncounterFilterPanel', () => {
     const defaultProps = {
         filter: {
             difficulty: 2,
-            playerLevels: [1],
+            playerLevels: [{ id: 1, level: 1 }],
             difficultyLabels: ['Easy', 'Medium', 'Hard', 'Deadly'],
             difficultyColors: ['#28a745', '#ffc107', '#fd7e14', '#dc3545'],
             difficultyIndex: 1,
@@ -59,19 +59,19 @@ describe('EncounterFilterPanel', () => {
       });
 
     it('renders one player level row per player', () => {
-        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [1, 3, 5] } }} />);
+        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 1 }, { id: 2, level: 3 }, { id: 3, level: 5 }] } }} />);
         expect(screen.getByText('Player 1 Level')).toBeInTheDocument();
         expect(screen.getByText('Player 2 Level')).toBeInTheDocument();
         expect(screen.getByText('Player 3 Level')).toBeInTheDocument();
       });
 
     it('sets player level input value correctly', () => {
-        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [5] } }} />);
+        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 5 }] } }} />);
         expect(screen.getByDisplayValue(5)).toBeInTheDocument();
       });
 
     it('renders remove player button when 2 or more players', () => {
-        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [1, 3] } }} />);
+        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 1 }, { id: 2, level: 3 }] } }} />);
         expect(screen.getAllByText('\u00d7').length).toBeGreaterThanOrEqual(0);
       });
 
@@ -101,7 +101,7 @@ describe('EncounterFilterPanel', () => {
     it('calls onPlayerLevelChange when level input changes', () => {
         render(<EncounterFilterPanel {...defaultProps} />);
         fireEvent.change(screen.getByDisplayValue(1), { target: { value: '5' } });
-        expect(defaultProps.onPlayerLevelChange).toHaveBeenCalledWith(0, '5');
+        expect(defaultProps.onPlayerLevelChange).toHaveBeenCalledWith(1, '5');
       });
 
     it('disables remove button when only one player exists', () => {
@@ -114,7 +114,7 @@ describe('EncounterFilterPanel', () => {
     it('enables remove button when multiple players exist', () => {
         const { container } = render(
              <EncounterFilterPanel
-                 {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [1, 3] } }}
+                  {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 1 }, { id: 2, level: 3 }] } }}
              />
          );
         const row1 = container.querySelectorAll('.player-level-row')[0].querySelector('button.level-delete-btn');
@@ -122,7 +122,7 @@ describe('EncounterFilterPanel', () => {
       });
 
     it('displays correct player numbers starting from 1', () => {
-        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [1, 2, 3] } }} />);
+        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 1 }, { id: 2, level: 2 }, { id: 3, level: 3 }] } }} />);
         expect(screen.getByText('Player 1 Level')).toBeInTheDocument();
         expect(screen.getByText('Player 2 Level')).toBeInTheDocument();
         expect(screen.getByText('Player 3 Level')).toBeInTheDocument();
@@ -149,7 +149,7 @@ it('uses correct difficulty color class', () => {
         // Test with valid props instead
         render(
             <EncounterFilterPanel
-                filter={{ difficulty: 1, playerLevels: [1], difficultyLabels: ['Easy', 'Medium', 'Hard', 'Deadly'], difficultyColors: [], difficultyIndex: 0, totalThreshold: 100 }}
+                filter={{ difficulty: 1, playerLevels: [{ id: 1, level: 1 }], difficultyLabels: ['Easy', 'Medium', 'Hard', 'Deadly'], difficultyColors: [], difficultyIndex: 0, totalThreshold: 100 }}
                 onDifficultyChange={vi.fn()}
                 onAddPlayer={vi.fn()}
                 onRemovePlayer={vi.fn()}
@@ -176,8 +176,8 @@ it('uses correct difficulty color class', () => {
       });
 
     it('renders title attribute on remove button', () => {
-        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [1, 2] } }} />);
-        const { container } = render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [1, 2] } }} />);
+        render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 1 }, { id: 2, level: 2 }] } }} />);
+        const { container } = render(<EncounterFilterPanel {...{ ...defaultProps, filter: { ...defaultProps.filter, playerLevels: [{ id: 1, level: 1 }, { id: 2, level: 2 }] } }} />);
         const removeBtn = container.querySelectorAll('.level-delete-btn')[0];
         expect(removeBtn).toHaveAttribute('title', 'Remove player');
       });

@@ -43,7 +43,7 @@ vi.mock('./EncounterFilterPanel', () => ({
   default: vi.fn(({ filter, onDifficultyChange, onAddPlayer, onRemovePlayer, onPlayerLevelChange }) => (
     <div data-testid="filter-panel">
       <button data-testid="add-player" onClick={onAddPlayer}>Add Player</button>
-      <button data-testid="remove-player" onClick={() => onRemovePlayer(0)}>Remove Player</button>
+      <button data-testid="remove-player" onClick={() => onRemovePlayer(filter.playerLevels[0]?.id)}>Remove Player</button>
       <select data-testid="difficulty-select" value={filter.difficulty} onChange={onDifficultyChange}>
         <option value="0">Easy</option>
         <option value="1">Medium</option>
@@ -53,8 +53,8 @@ vi.mock('./EncounterFilterPanel', () => ({
       <input
         data-testid="player-level-input"
         type="number"
-        value={filter.playerLevels[0]}
-        onChange={(e) => onPlayerLevelChange(0, parseInt(e.target.value))}
+        value={filter.playerLevels[0]?.level}
+        onChange={(e) => onPlayerLevelChange(filter.playerLevels[0]?.id, parseInt(e.target.value))}
       />
     </div>
   )),
@@ -151,7 +151,7 @@ describe('Encounters', () => {
   });
 
   it('loads saved filter from localStorage', () => {
-    const savedFilter = { difficulty: 2, playerLevels: [3, 4] };
+    const savedFilter = { difficulty: 2, playerLevels: [{ id: 1, level: 3 }, { id: 2, level: 4 }] };
     mockGetLocalStorageItem.mockReturnValue(savedFilter);
     mockUseMonsters.mockReturnValue({ data: mockMonsters, loading: false });
 

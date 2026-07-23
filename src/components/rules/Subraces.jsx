@@ -25,7 +25,7 @@ function Subraces({ subraces }) {
             return (
                 <div key={trait.name} className="subrace-trait">
                     <b>{trait.name}</b>
-                    {Array.isArray(trait.description) ? trait.description.join(' ') : trait.desc}
+                    {Array.isArray(trait.description) ? trait.description.join(' ') : trait.description}
                 </div>
             );
         });
@@ -48,7 +48,7 @@ function Subraces({ subraces }) {
 
                 {subrace.description && (
                     <div className="subrace-description-sm">
-                        {subrace.desc}
+                        {subrace.description}
                     </div>
                 )}
 
