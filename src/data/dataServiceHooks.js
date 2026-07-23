@@ -4,10 +4,20 @@ import { dataCache, getBaseUrl } from './dataServiceUtils.js';
 
 // Hook to fetch and cache data lazily
 export function useDataCache(key, url) {
-    const [cached] = useState(() => dataCache[key]);
+    const [cached, setCached] = useState(() => dataCache[key]);
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(!cached);
     const [error] = useState(null);
+
+    // Sync cached state when key changes (e.g. version switch)
+    useEffect(() => {
+        const cachedData = dataCache[key];
+        setCached(cachedData);
+        if (cachedData) {
+            setData(cachedData);
+            setLoading(false);
+        }
+    }, [key]);
 
     // Always call useEffect (required by Rules of Hooks)
     useEffect(() => {
