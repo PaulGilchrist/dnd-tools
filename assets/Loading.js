@@ -1,1 +1,1 @@
-import{t as e}from"./jsx-runtime.js";var t=e();function n(){return(0,t.jsx)(`div`,{className:`list`,children:(0,t.jsx)(`div`,{children:`Loading monsters...`})})}export{n as t};
+import{l as e}from"./index.js";var t=e();function n(){return(0,t.jsx)(`div`,{className:`list`,children:(0,t.jsx)(`div`,{children:`Loading monsters...`})})}export{n as t};
