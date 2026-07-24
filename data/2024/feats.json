@@ -269,7 +269,7 @@
                 "description": "You gain Resistance to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you finish a Long Rest, you can change your choices.",
                 "type": "resistance",
                 "automation": {
-                    "type": "passive_buff",
+                    "type": "boon_of_energy_resistance",
                     "effect": "damage_resistance",
                     "resistanceType": [
                         "player_choice_2_from_list"
@@ -286,7 +286,7 @@
                         "Thunder"
                     ],
                     "recharge": "long_rest",
-                    "casting_time": "1 action"
+                    "casting_time": "passive"
                 }
             },
             {
@@ -345,14 +345,13 @@
                 "description": "When you or another creature within 60 feet of you succeeds on or fails a d20 Test, you can roll 2d4 and apply the total rolled as a bonus or penalty to the d20 roll. Once you use this benefit, you can't use it again until you roll Initiative or finish a Short or Long Rest.",
                 "type": "utility",
                 "automation": {
-                    "type": "buff_ally",
+                    "type": "modify_d20_roll",
                     "trigger": "d20_test_by_self_or_ally_in_60ft",
-                    "effect": "modify_d20_roll",
                     "modifier": "2d4",
                     "canBeBonusOrPenalty": true,
                     "range": "60 ft",
                     "recharge": "initiative_or_short_or_long_rest",
-                    "casting_time": "1 bonus action"
+                    "casting_time": "1 reaction"
                 }
             }
         ],
@@ -395,13 +394,13 @@
                 "type": "passive",
                 "automation": {
                     "type": "passive_buff",
-                    "effect": "max_hp_increase",
+                    "effect": "fortified_health",
                     "amount": 40,
                     "alsoSelfHealing": {
                         "extraHealingExpression": "CON modifier",
                         "oncePerTurn": true
                     },
-                    "casting_time": "1 action"
+                    "casting_time": "passive"
                 }
             }
         ],
@@ -807,7 +806,7 @@
                     "effect": "extra_healing_hit_dice",
                     "extraHealing": "1d8",
                     "targets": "4 + proficiency_bonus",
-                    "casting_time": "1 action"
+                    "casting_time": "passive"
                 }
             },
             {
@@ -821,7 +820,7 @@
                     "craftCount": "proficiency_bonus",
                     "craftTime": "1_hour_or_long_rest",
                     "duration": "8_hours",
-                    "casting_time": "1 bonus action"
+                    "casting_time": "passive"
                 }
             }
         ],
@@ -1697,17 +1696,17 @@
     {
         "name": "Lucky",
         "type": "Origin Feat",
-        "description": "<p><b>Lucid Points.</b> You have a number of Lucid Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Lucid Points when you finish a Long Rest.</p><p><b>Advantage.</b> When you roll a d20 for a D20 Test, you can spend 1 Lucid Point to give yourself Advantage on the roll.</p><p><b>Disadvantage.</b> When a creature rolls a d20 for an attack roll against you, you can spend 1 Lucid Point to impose Disadvantage on that roll.</p>",
+        "description": "<p><b>Luck Points.</b> You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest.</p><p><b>Advantage.</b> When you roll a d20 for a D20 Test, you can spend 1 Luck Point to give yourself Advantage on the roll.</p><p><b>Disadvantage.</b> When a creature rolls a d20 for an attack roll against you, you can spend 1 Luck Point to impose Disadvantage on that roll.</p>",
         "prerequisites": null,
         "benefits": [
             {
-                "name": "Lucid Points",
-                "description": "You have a number of Lucid Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Lucid Points when you finish a Long Rest.",
+                "name": "Luck Points",
+                "description": "You have a number of Luck Points equal to your Proficiency Bonus and can spend the points on the benefits below. You regain your expended Luck Points when you finish a Long Rest.",
                 "type": "passive"
             },
             {
                 "name": "Advantage",
-                "description": "When you roll a d20 for a D20 Test, you can spend 1 Lucid Point to give yourself Advantage on the roll.",
+                "description": "When you roll a d20 for a D20 Test, you can spend 1 Luck Point to give yourself Advantage on the roll.",
                 "type": "utility",
                 "automation": {
                     "type": "lucky_point",
@@ -1719,7 +1718,7 @@
             },
             {
                 "name": "Disadvantage",
-                "description": "When a creature rolls a d20 for an attack roll against you, you can spend 1 Lucid Point to impose Disadvantage on that roll.",
+                "description": "When a creature rolls a d20 for an attack roll against you, you can spend 1 Luck Point to impose Disadvantage on that roll.",
                 "type": "utility",
                 "automation": {
                     "type": "lucky_point",
