@@ -63,6 +63,7 @@ function EquipmentFilterForm({ filter, setFilter, onFilterChange }) {
                     <option>All</option>
                     <option>Adventuring Gear</option>
                     <option>Armor</option>
+                    <option>Material</option>
                     <option>Mounts and Vehicles</option>
                     <option>Property</option>
                     <option>Tools</option>

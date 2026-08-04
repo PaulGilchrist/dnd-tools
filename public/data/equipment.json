@@ -46,6 +46,19 @@
     ]
   },
   {
+    "index": "agate",
+    "name": "Agate",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "description": [
+      "Used as a material component for the Awaken spell(s)."
+    ]
+  },
+  {
     "index": "airship",
     "name": "Airship",
     "equipment_category": "Mounts and Vehicles",
@@ -69,6 +82,22 @@
     }
   },
   {
+    "index": "alchemists-fire-flask",
+    "name": "Alchemist's fire (flask)",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "description": [
+      "This sticky, adhesive fluid ignites when exposed to air.",
+      "As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon.",
+      "On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames."
+    ],
+    "weight": 1
+  },
+  {
     "index": "alchemists-supplies",
     "name": "Alchemist's Supplies",
     "equipment_category": "Tools",
@@ -85,22 +114,6 @@
     "utilize": "Identify a substance (DC 15), or start a fire (DC 15)",
     "craft": "Acid, Alchemist's Fire, Component Pouch, Oil, Paper, Perfume",
     "rules": "2024"
-  },
-  {
-    "index": "alchemists-fire-flask",
-    "name": "Alchemist's fire (flask)",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 50,
-      "unit": "gp"
-    },
-    "description": [
-      "This sticky, adhesive fluid ignites when exposed to air.",
-      "As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon.",
-      "On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames."
-    ],
-    "weight": 1
   },
   {
     "index": "alms-box",
@@ -614,6 +627,20 @@
     "weight": 2
   },
   {
+    "index": "bullseye-lantern",
+    "name": "Bullseye Lantern",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 2,
+    "description": [
+      "A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil."
+    ]
+  },
+  {
     "index": "burglars-pack",
     "name": "Burglar's Pack",
     "equipment_category": "Adventuring Gear",
@@ -679,6 +706,19 @@
         "item": "Rope, Hempen (50 feet)",
         "quantity": 1
       }
+    ]
+  },
+  {
+    "index": "burning-incense",
+    "name": "Burning Incense",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Find Familiar spell(s)."
     ]
   },
   {
@@ -801,35 +841,7 @@
     "ability": "Wisdom",
     "utilize": "Draft a map of a small area (DC 15)",
     "craft": "Map",
-   "rules": "2024"
-  },
-  {
-    "index": "crossbow-bolt-case",
-    "name": "Crossbow Bolt Case",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 1,
-      "unit": "gp"
-    },
-    "weight": 1,
-    "description": [
-      "This wooden case can hold up to twenty crossbow bolts."
-    ]
-  },
-  {
-    "index": "map-or-scroll-case",
-    "name": "Map or Scroll Case",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 1,
-      "unit": "gp"
-    },
-    "weight": 1,
-    "description": [
-      "This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment."
-    ]
+    "rules": "2024"
   },
   {
     "index": "censer",
@@ -943,50 +955,6 @@
     ]
   },
   {
-    "index": "common-clothes",
-    "name": "Common Clothes",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 5,
-      "unit": "sp"
-    },
-    "weight": 3
-  },
-  {
-    "index": "costume-clothes",
-    "name": "Costume Clothes",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 5,
-      "unit": "gp"
-    },
-    "weight": 4
-  },
-  {
-    "index": "fine-clothes",
-    "name": "Fine Clothes",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 15,
-      "unit": "gp"
-    },
-    "weight": 6
-  },
-  {
-    "index": "travelers-clothes",
-    "name": "Traveler's Clothes",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 2,
-      "unit": "gp"
-    },
-    "weight": 4
-  },
-  {
     "index": "club",
     "name": "Club",
     "equipment_category": "Weapon",
@@ -1031,6 +999,17 @@
     "rules": "2024"
   },
   {
+    "index": "common-clothes",
+    "name": "Common Clothes",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 5,
+      "unit": "sp"
+    },
+    "weight": 3
+  },
+  {
     "index": "component-pouch",
     "name": "Component pouch",
     "equipment_category": "Adventuring Gear",
@@ -1046,7 +1025,7 @@
   },
   {
     "index": "cooks-utensils",
-    "name": "Cook's utensils",
+    "name": "Cook's Utensils",
     "equipment_category": "Tools",
     "tool_category": "Artisan's Tools",
     "cost": {
@@ -1063,6 +1042,30 @@
     "rules": "2024"
   },
   {
+    "index": "copper-piece",
+    "name": "Copper Piece",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 2,
+      "unit": "cp"
+    },
+    "weight": 0.02,
+    "description": [
+      "Used as a material component for the Gentle Repose (two) spell(s)."
+    ]
+  },
+  {
+    "index": "costume-clothes",
+    "name": "Costume Clothes",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 4
+  },
+  {
     "index": "crossbow-bolt",
     "name": "Crossbow bolt",
     "equipment_category": "Adventuring Gear",
@@ -1075,86 +1078,18 @@
     "weight": 1.5
   },
   {
-    "index": "hand-crossbow-hand",
-    "name": "Hand Crossbow",
-    "equipment_category": "Weapon",
-    "weapon_category": "Martial",
-    "weapon_range": "Ranged",
-    "category_range": "Martial Ranged",
+    "index": "crossbow-bolt-case",
+    "name": "Crossbow Bolt Case",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
     "cost": {
-      "quantity": 75,
+      "quantity": 1,
       "unit": "gp"
     },
-    "damage": {
-      "damage_dice": "1d6",
-      "damage_type": "Piercing"
-    },
-    "range": {
-      "normal": 30,
-      "long": 120
-    },
-    "weight": 3,
-    "properties": [
-      "Ammunition",
-      "Light",
-      "Loading"
-    ],
-    "mastery": "Vex"
-  },
-  {
-    "index": "heavy-crossbow",
-    "name": "Heavy Crossbow",
-    "equipment_category": "Weapon",
-    "weapon_category": "Martial",
-    "weapon_range": "Ranged",
-    "category_range": "Martial Ranged",
-    "cost": {
-      "quantity": 50,
-      "unit": "gp"
-    },
-    "damage": {
-      "damage_dice": "1d10",
-      "damage_type": "Piercing"
-    },
-    "range": {
-      "normal": 100,
-      "long": 400
-    },
-    "weight": 18,
-    "properties": [
-      "Ammunition",
-      "Light",
-      "Loading",
-      "Two-Handed"
-    ],
-    "mastery": "Push"
-  },
-  {
-    "index": "light-crossbow",
-    "name": "Light Crossbow",
-    "equipment_category": "Weapon",
-    "weapon_category": "Simple",
-    "weapon_range": "Ranged",
-    "category_range": "Simple Ranged",
-    "cost": {
-      "quantity": 25,
-      "unit": "gp"
-    },
-    "damage": {
-      "damage_dice": "1d8",
-      "damage_type": "Piercing"
-    },
-    "range": {
-      "normal": 80,
-      "long": 320
-    },
-    "weight": 5,
-    "properties": [
-      "Ammunition",
-      "Loading",
-      "Two-Handed"
-    ],
-    "mastery": "Slow"
+    "weight": 1,
+    "description": [
+      "This wooden case can hold up to twenty crossbow bolts."
+    ]
   },
   {
     "index": "crowbar",
@@ -1245,6 +1180,97 @@
       "long": 60
     },
     "mastery": "Vex"
+  },
+  {
+    "index": "diamond-1000-gp",
+    "name": "Diamond (1,000 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Resurrection, Clone spell(s)."
+    ]
+  },
+  {
+    "index": "diamond-25-gp",
+    "name": "Diamond (25 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "description": [
+      "Used as a material component for the Nondetection spell(s)."
+    ]
+  },
+  {
+    "index": "diamond-25000-gp",
+    "name": "Diamond (25,000 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25000,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the True Resurrection spell(s)."
+    ]
+  },
+  {
+    "index": "diamond-300-gp",
+    "name": "Diamond (300 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 300,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Revivify spell."
+    ]
+  },
+  {
+    "index": "diamond-500-gp",
+    "name": "Diamond (500 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 500,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Raise Dead spell(s)."
+    ]
+  },
+  {
+    "index": "diamond-dust",
+    "name": "Diamond Dust",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Greater Restoration, Stone Skin spell(s)."
+    ]
+  },
+  {
+    "index": "diamond-dust-25-gp",
+    "name": "Diamond Dust (25 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Nondetection spell(s)."
+    ]
   },
   {
     "index": "dice-set",
@@ -1347,6 +1373,21 @@
       "unit": "ft/round"
     },
     "capacity": "420 lb."
+  },
+  {
+    "index": "draft-horse",
+    "name": "Draft Horse",
+    "equipment_category": "Mounts and Vehicles",
+    "vehicle_category": "Mounts and Other Animals",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "speed": {
+      "quantity": 40,
+      "unit": "ft/round"
+    },
+    "capacity": "540 lb."
   },
   {
     "index": "drum",
@@ -1501,6 +1542,20 @@
     ]
   },
   {
+    "index": "exotic-saddle",
+    "name": "Exotic Saddle",
+    "equipment_category": "Mounts and Vehicles",
+    "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+    "cost": {
+      "quantity": 60,
+      "unit": "gp"
+    },
+    "weight": 50,
+    "description": [
+      "An exotic saddle is required for riding any aquatic or flying mount."
+    ]
+  },
+  {
     "index": "explorers-pack",
     "name": "Explorer's Pack",
     "equipment_category": "Adventuring Gear",
@@ -1565,6 +1620,17 @@
     "untrained_hirelings": 2
   },
   {
+    "index": "fine-clothes",
+    "name": "Fine Clothes",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 15,
+      "unit": "gp"
+    },
+    "weight": 6
+  },
+  {
     "index": "fishing-tackle",
     "name": "Fishing tackle",
     "equipment_category": "Adventuring Gear",
@@ -1600,6 +1666,19 @@
     "weight": 2,
     "properties": [],
     "mastery": "Sap"
+  },
+  {
+    "index": "flask-of-holy-water",
+    "name": "Flask of Holy Water",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Protection from Evil and Good spell(s)."
+    ]
   },
   {
     "index": "flask-or-tankard",
@@ -1698,6 +1777,32 @@
     "passengers": 40
   },
   {
+    "index": "gem-dust",
+    "name": "Gem Dust",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Sequester spell(s)."
+    ]
+  },
+  {
+    "index": "gem-encrusted-bowl",
+    "name": "Gem-Encrusted Bowl",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Heroes Feast spell(s)."
+    ]
+  },
+  {
     "index": "glaive",
     "name": "Glaive",
     "equipment_category": "Weapon",
@@ -1741,6 +1846,19 @@
     "utilize": "Discern what a glass object held in the past 24 hours (DC 15)",
     "craft": "Glass Bottle, Magnifying Glass, Spyglass, Vial",
     "rules": "2024"
+  },
+  {
+    "index": "gold-dust",
+    "name": "Gold Dust",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Arcane Lock spell(s)."
+    ]
   },
   {
     "index": "grappling-hook",
@@ -1907,15 +2025,31 @@
     "weight": 3
   },
   {
-    "index": "sledge-hammer",
-    "name": "Sledge Hammer",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
+    "index": "hand-crossbow-hand",
+    "name": "Hand Crossbow",
+    "equipment_category": "Weapon",
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
     "cost": {
-      "quantity": 2,
+      "quantity": 75,
       "unit": "gp"
     },
-    "weight": 10
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": "Piercing"
+    },
+    "range": {
+      "normal": 30,
+      "long": 120
+    },
+    "weight": 3,
+    "properties": [
+      "Ammunition",
+      "Light",
+      "Loading"
+    ],
+    "mastery": "Vex"
   },
   {
     "index": "handaxe",
@@ -1960,6 +2094,48 @@
     "weight": 3,
     "description": [
       "This kit is a leather pouch containing bandages, salves, and splints. The kit has ten uses. As an action, you can expend one use of the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check."
+    ]
+  },
+  {
+    "index": "heavy-crossbow",
+    "name": "Heavy Crossbow",
+    "equipment_category": "Weapon",
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d10",
+      "damage_type": "Piercing"
+    },
+    "range": {
+      "normal": 100,
+      "long": 400
+    },
+    "weight": 18,
+    "properties": [
+      "Ammunition",
+      "Light",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Push"
+  },
+  {
+    "index": "hempen-rope",
+    "name": "Hempen Rope",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 10,
+    "description": [
+      "Rope (in feet), whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
     ]
   },
   {
@@ -2016,6 +2192,20 @@
     ]
   },
   {
+    "index": "hooded-lantern",
+    "name": "Hooded Lantern",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 2,
+    "description": [
+      "A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius."
+    ]
+  },
+  {
     "index": "horn",
     "name": "Horn",
     "equipment_category": "Tools",
@@ -2033,36 +2223,6 @@
     "rules": "2024"
   },
   {
-    "index": "draft-horse",
-    "name": "Draft Horse",
-    "equipment_category": "Mounts and Vehicles",
-    "vehicle_category": "Mounts and Other Animals",
-    "cost": {
-      "quantity": 50,
-      "unit": "gp"
-    },
-    "speed": {
-      "quantity": 40,
-      "unit": "ft/round"
-    },
-    "capacity": "540 lb."
-  },
-  {
-    "index": "riding-horse",
-    "name": "Riding Horse",
-    "equipment_category": "Mounts and Vehicles",
-    "vehicle_category": "Mounts and Other Animals",
-    "cost": {
-      "quantity": 75,
-      "unit": "gp"
-    },
-    "speed": {
-      "quantity": 60,
-      "unit": "ft/round"
-    },
-    "capacity": "480 lb."
-  },
-  {
     "index": "hourglass",
     "name": "Hourglass",
     "equipment_category": "Adventuring Gear",
@@ -2072,6 +2232,26 @@
       "unit": "gp"
     },
     "weight": 1
+  },
+  {
+    "index": "hunting-lodge",
+    "name": "Hunting Lodge",
+    "cost": {
+      "quantity": 7500,
+      "unit": "gp"
+    },
+    "construction_time": {
+      "quantity": 80,
+      "unit": "days"
+    },
+    "equipment_category": "Property",
+    "maintenance_cost": {
+      "interval": "per day",
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "skilled_hirelings": 1,
+    "untrained_hirelings": 0
   },
   {
     "index": "hunting-trap",
@@ -2088,6 +2268,45 @@
       "A creature can use its action to make a DC 13 Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1 piercing damage to the trapped creature."
     ],
     "weight": 25
+  },
+  {
+    "index": "incense",
+    "name": "Incense",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Divination spell(s)."
+    ]
+  },
+  {
+    "index": "incense-1000-gp",
+    "name": "Incense (1,000 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Hallow spell(s)."
+    ]
+  },
+  {
+    "index": "incense-250-gp",
+    "name": "Incense (250 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 250,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Legend Lore spell(s)."
+    ]
   },
   {
     "index": "ink-1-ounce-bottle",
@@ -2112,44 +2331,65 @@
     "weight": 0
   },
   {
-    "index": "rural-roadside-inn",
-    "name": "Rural Roadside Inn",
+    "index": "iron-pot",
+    "name": "Iron Pot",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
     "cost": {
-      "quantity": 5000,
+      "quantity": 2,
       "unit": "gp"
     },
-    "construction_time": {
-      "quantity": 60,
-      "unit": "days"
+    "weight": 10
+  },
+  {
+    "index": "iron-spike",
+    "name": "Iron Spike",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 1,
+      "unit": "sp"
     },
-    "equipment_category": "Property",
-    "maintenance_cost": {
-      "interval": "per day",
+    "weight": 5
+  },
+  {
+    "index": "ivory-strip",
+    "name": "Ivory Strip",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "description": [
+      "Used as a material component for the Legend Lore (four) spell(s)."
+    ]
+  },
+  {
+    "index": "jacinth",
+    "name": "Jacinth",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "description": [
+      "Used as a material component for the Astral Projection spell(s)."
+    ]
+  },
+  {
+    "index": "jade-dust",
+    "name": "Jade Dust",
+    "equipment_category": "Material",
+    "cost": {
       "quantity": 10,
       "unit": "gp"
     },
-    "skilled_hirelings": 5,
-    "untrained_hirelings": 10
-  },
-  {
-    "index": "town-inn",
-    "name": "Town or City Inn",
-    "cost": {
-      "quantity": 5000,
-      "unit": "gp"
-    },
-    "construction_time": {
-      "quantity": 60,
-      "unit": "days"
-    },
-    "equipment_category": "Property",
-    "maintenance_cost": {
-      "interval": "per day",
-      "quantity": 5,
-      "unit": "gp"
-    },
-    "skilled_hirelings": 1,
-    "untrained_hirelings": 5
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Magic Mouth spell(s)."
+    ]
   },
   {
     "index": "javelin",
@@ -2180,6 +2420,19 @@
       "long": 120
     },
     "mastery": "Slow"
+  },
+  {
+    "index": "jewel",
+    "name": "Jewel",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "description": [
+      "Used as a material component for the Planar Binding spell(s)."
+    ]
   },
   {
     "index": "jewelers-tools",
@@ -2332,32 +2585,24 @@
     "mastery": "Topple"
   },
   {
-    "index": "bullseye-lantern",
-    "name": "Bullseye Lantern",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
+    "index": "large-temple",
+    "name": "Large Temple",
+    "equipment_category": "Property",
     "cost": {
-      "quantity": 10,
+      "quantity": 50000,
       "unit": "gp"
     },
-    "weight": 2,
-    "description": [
-      "A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil."
-    ]
-  },
-  {
-    "index": "hooded-lantern",
-    "name": "Hooded Lantern",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 5,
+    "construction_time": {
+      "quantity": 400,
+      "unit": "days"
+    },
+    "maintenance_cost": {
+      "interval": "per day",
+      "quantity": 25,
       "unit": "gp"
     },
-    "weight": 2,
-    "description": [
-      "A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius."
-    ]
+    "skilled_hirelings": 10,
+    "untrained_hirelings": 10
   },
   {
     "index": "leather",
@@ -2394,6 +2639,33 @@
     "utilize": "Add a design to a leather item (DC l 0)",
     "craft": "Sling, Whip, Hide Armor, Leather Armor, Studded Leather Armor, Backpack, Crossbow Bolt Case, Map or Scroll Case, Parchment, Pouch, Quiver, Waterskin",
     "rules": "2024"
+  },
+  {
+    "index": "light-crossbow",
+    "name": "Light Crossbow",
+    "equipment_category": "Weapon",
+    "weapon_category": "Simple",
+    "weapon_range": "Ranged",
+    "category_range": "Simple Ranged",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": "Piercing"
+    },
+    "range": {
+      "normal": 80,
+      "long": 320
+    },
+    "weight": 5,
+    "properties": [
+      "Ammunition",
+      "Loading",
+      "Two-Handed"
+    ],
+    "mastery": "Slow"
   },
   {
     "index": "light-hammer",
@@ -2453,26 +2725,6 @@
     "description": [
       "A key is provided with the lock. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check. Your GM may decide that better locks are available for higher prices."
     ]
-  },
-  {
-    "index": "hunting-lodge",
-    "name": "Hunting Lodge",
-    "cost": {
-      "quantity": 7500,
-      "unit": "gp"
-    },
-    "construction_time": {
-      "quantity": 80,
-      "unit": "days"
-    },
-    "equipment_category": "Property",
-    "maintenance_cost": {
-      "interval": "per day",
-      "quantity": 5,
-      "unit": "gp"
-    },
-    "skilled_hirelings": 1,
-    "untrained_hirelings": 0
   },
   {
     "index": "longbow",
@@ -2660,6 +2912,20 @@
     ]
   },
   {
+    "index": "map-or-scroll-case",
+    "name": "Map or Scroll Case",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 1,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment."
+    ]
+  },
+  {
     "index": "masons-tools",
     "name": "Mason's Tools",
     "equipment_category": "Tools",
@@ -2719,6 +2985,20 @@
     "mastery": "Topple"
   },
   {
+    "index": "merchants-scale",
+    "name": "Merchant's Scale",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 3,
+    "description": [
+      "A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. With it, you can measure the exact weight of small objects, such as raw precious metals or trade goods, to help determine their worth."
+    ]
+  },
+  {
     "index": "mess-kit",
     "name": "Mess Kit",
     "equipment_category": "Adventuring Gear",
@@ -2733,15 +3013,29 @@
     ]
   },
   {
-    "index": "steel mirror",
-    "name": "Steel Mirror",
+    "index": "military-saddle",
+    "name": "Military Saddle",
+    "equipment_category": "Mounts and Vehicles",
+    "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+    "cost": {
+      "quantity": 20,
+      "unit": "gp"
+    },
+    "weight": 30,
+    "description": [
+      "A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted."
+    ]
+  },
+  {
+    "index": "miners-pick",
+    "name": "Miner's Pick",
     "equipment_category": "Adventuring Gear",
     "gear_category": "Standard Gear",
     "cost": {
-      "quantity": 5,
+      "quantity": 2,
       "unit": "gp"
     },
-    "weight": 0.5
+    "weight": 10
   },
   {
     "index": "morningstar",
@@ -2780,6 +3074,19 @@
       "unit": "ft/round"
     },
     "capacity": "420 lb."
+  },
+  {
+    "index": "mushroom-powder",
+    "name": "Mushroom Powder",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the True Seeing spell(s)."
+    ]
   },
   {
     "index": "navigators-tools",
@@ -3006,17 +3313,6 @@
     "weight": 0
   },
   {
-    "index": "miners-pick",
-    "name": "Miner's Pick",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 2,
-      "unit": "gp"
-    },
-    "weight": 10
-  },
-  {
     "index": "pike",
     "name": "Pike",
     "equipment_category": "Weapon",
@@ -3144,15 +3440,18 @@
     "capacity": "225 lb."
   },
   {
-    "index": "iron-pot",
-    "name": "Iron Pot",
+    "index": "portable-ram",
+    "name": "Portable Ram",
     "equipment_category": "Adventuring Gear",
     "gear_category": "Standard Gear",
     "cost": {
-      "quantity": 2,
+      "quantity": 4,
       "unit": "gp"
     },
-    "weight": 10
+    "weight": 35,
+    "description": [
+      "You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. One other character can help you use the ram, giving you advantage on this check."
+    ]
   },
   {
     "index": "potion-of-healing-5e",
@@ -3214,6 +3513,45 @@
     "weight": 1,
     "description": [
       "A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch (described earlier in this section)."
+    ]
+  },
+  {
+    "index": "powdered-diamond",
+    "name": "Powdered Diamond",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 200,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Glyph of Warding spell(s)."
+    ]
+  },
+  {
+    "index": "powdered-diamond-1000-gp",
+    "name": "Powdered Diamond (1,000 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Symbol spell(s)."
+    ]
+  },
+  {
+    "index": "powdered-ruby",
+    "name": "Powdered Ruby",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1500,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Simulacrum spell(s)."
     ]
   },
   {
@@ -3313,20 +3651,6 @@
     ]
   },
   {
-    "index": "portable-ram",
-    "name": "Portable Ram",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 4,
-      "unit": "gp"
-    },
-    "weight": 35,
-    "description": [
-      "You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. One other character can help you use the ram, giving you advantage on this check."
-    ]
-  },
-  {
     "index": "rapier",
     "name": "Rapier",
     "equipment_category": "Weapon",
@@ -3350,6 +3674,32 @@
       "Finesse"
     ],
     "mastery": "Vex"
+  },
+  {
+    "index": "rare-inks",
+    "name": "Rare Inks",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Teleportation Circle spell(s)."
+    ]
+  },
+  {
+    "index": "rare-oils",
+    "name": "Rare Oils",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1000,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "description": [
+      "Used as a material component for the Reincarnate spell(s)."
+    ]
   },
   {
     "index": "ration",
@@ -3379,6 +3729,32 @@
       "A holy symbol is a representation of a god or pantheon. It might be an amulet depicting a symbol representing a deity, the same symbol carefully engraved or inlaid as an emblem on a shield, or a tiny box holding a fragment of a sacred relic.",
       "Appendix B lists the symbols commonly associated with many gods in the multiverse. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
     ]
+  },
+  {
+    "index": "riding-horse",
+    "name": "Riding Horse",
+    "equipment_category": "Mounts and Vehicles",
+    "vehicle_category": "Mounts and Other Animals",
+    "cost": {
+      "quantity": 75,
+      "unit": "gp"
+    },
+    "speed": {
+      "quantity": 60,
+      "unit": "ft/round"
+    },
+    "capacity": "480 lb."
+  },
+  {
+    "index": "riding-saddle",
+    "name": "Riding Saddle",
+    "equipment_category": "Mounts and Vehicles",
+    "vehicle_category": "Tack, Harness, and Drawn Vehicles",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 25
   },
   {
     "index": "ring-mail",
@@ -3421,34 +3797,6 @@
     "weight": 2,
     "description": [
       "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
-    ]
-  },
-  {
-    "index": "hempen-rope",
-    "name": "Hempen Rope",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 50,
-      "unit": "gp"
-    },
-    "weight": 10,
-    "description": [
-      "Rope (in feet), whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
-    ]
-  },
-  {
-    "index": "silk-rope",
-    "name": "Silk Rope",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 50,
-      "unit": "gp"
-    },
-    "weight": 5,
-    "description": [
-      "Rope (in feet), whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
     ]
   },
   {
@@ -3495,6 +3843,52 @@
     "passengers": 2
   },
   {
+    "index": "ruby-dust",
+    "name": "Ruby Dust",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Continual Flame spell(s)."
+    ]
+  },
+  {
+    "index": "ruby-dust-1500-gp",
+    "name": "Ruby Dust (1,500 gp)",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 1500,
+      "unit": "gp"
+    },
+    "weight": 0.1,
+    "description": [
+      "Used as a material component for the Forcecage spell(s)."
+    ]
+  },
+  {
+    "index": "rural-roadside-inn",
+    "name": "Rural Roadside Inn",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "construction_time": {
+      "quantity": 60,
+      "unit": "days"
+    },
+    "equipment_category": "Property",
+    "maintenance_cost": {
+      "interval": "per day",
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "skilled_hirelings": 5,
+    "untrained_hirelings": 10
+  },
+  {
     "index": "sack",
     "name": "Sack",
     "equipment_category": "Adventuring Gear",
@@ -3506,34 +3900,6 @@
     "weight": 0.5
   },
   {
-    "index": "exotic-saddle",
-    "name": "Exotic Saddle",
-    "equipment_category": "Mounts and Vehicles",
-    "vehicle_category": "Tack, Harness, and Drawn Vehicles",
-    "cost": {
-      "quantity": 60,
-      "unit": "gp"
-    },
-    "weight": 50,
-    "description": [
-      "An exotic saddle is required for riding any aquatic or flying mount."
-    ]
-  },
-  {
-    "index": "military-saddle",
-    "name": "Military Saddle",
-    "equipment_category": "Mounts and Vehicles",
-    "vehicle_category": "Tack, Harness, and Drawn Vehicles",
-    "cost": {
-      "quantity": 20,
-      "unit": "gp"
-    },
-    "weight": 30,
-    "description": [
-      "A military saddle braces the rider, helping you keep your seat on an active mount in battle. It gives you advantage on any check you make to remain mounted."
-    ]
-  },
-  {
     "index": "saddle-pack",
     "name": "Saddle Pack",
     "equipment_category": "Mounts and Vehicles",
@@ -3543,17 +3909,6 @@
       "unit": "gp"
     },
     "weight": 15
-  },
-  {
-    "index": "riding-saddle",
-    "name": "Riding Saddle",
-    "equipment_category": "Mounts and Vehicles",
-    "vehicle_category": "Tack, Harness, and Drawn Vehicles",
-    "cost": {
-      "quantity": 10,
-      "unit": "gp"
-    },
-    "weight": 25
   },
   {
     "index": "saddlebags",
@@ -3615,6 +3970,19 @@
     "passengers": 20
   },
   {
+    "index": "salt-and-powdered-silver",
+    "name": "Salt and Powdered Silver",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "weight": 0.5,
+    "description": [
+      "Used as a material component for the Magic Circle spell(s)."
+    ]
+  },
+  {
     "index": "scale-mail",
     "name": "Scale Mail",
     "equipment_category": "Armor",
@@ -3631,20 +3999,6 @@
       "quantity": 50,
       "unit": "gp"
     }
-  },
-  {
-    "index": "merchants-scale",
-    "name": "Merchant's Scale",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 5,
-      "unit": "gp"
-    },
-    "weight": 3,
-    "description": [
-      "A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. With it, you can measure the exact weight of small objects, such as raw precious metals or trade goods, to help determine their worth."
-    ]
   },
   {
     "index": "scholars-pack",
@@ -3891,6 +4245,33 @@
     "weight": 0
   },
   {
+    "index": "silk-rope",
+    "name": "Silk Rope",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "weight": 5,
+    "description": [
+      "Rope (in feet), whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
+    ]
+  },
+  {
+    "index": "silver-bar",
+    "name": "Silver Bar",
+    "equipment_category": "Material",
+    "cost": {
+      "quantity": 100,
+      "unit": "gp"
+    },
+    "weight": 5,
+    "description": [
+      "Used as a material component for the Astral Projection spell(s)."
+    ]
+  },
+  {
     "index": "sled",
     "name": "Sled",
     "equipment_category": "Mounts and Vehicles",
@@ -3900,6 +4281,17 @@
       "unit": "gp"
     },
     "weight": 300
+  },
+  {
+    "index": "sledge-hammer",
+    "name": "Sledge Hammer",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 10
   },
   {
     "index": "sling",
@@ -3951,6 +4343,26 @@
     "description": [
       "A small knife, typically found in a scholar's pack."
     ]
+  },
+  {
+    "index": "small-temple",
+    "name": "Small Temple",
+    "equipment_category": "Property",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "construction_time": {
+      "quantity": 60,
+      "unit": "days"
+    },
+    "maintenance_cost": {
+      "interval": "per day",
+      "quantity": 1,
+      "unit": "gp"
+    },
+    "skilled_hirelings": 2,
+    "untrained_hirelings": 0
   },
   {
     "index": "smiths-tools",
@@ -4031,17 +4443,6 @@
     ]
   },
   {
-    "index": "iron-spike",
-    "name": "Iron Spike",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 1,
-      "unit": "sp"
-    },
-    "weight": 5
-  },
-  {
     "index": "splint-armor",
     "name": "Splint Armor",
     "equipment_category": "Armor",
@@ -4113,6 +4514,17 @@
     ]
   },
   {
+    "index": "steel mirror",
+    "name": "Steel Mirror",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 0.5
+  },
+  {
     "index": "string-10-feet",
     "name": "String (10 feet)",
     "equipment_category": "Adventuring Gear",
@@ -4143,60 +4555,6 @@
       "quantity": 45,
       "unit": "gp"
     }
-  },
-  {
-    "index": "large-temple",
-    "name": "Large Temple",
-    "equipment_category": "Property",
-    "cost": {
-      "quantity": 50000,
-      "unit": "gp"
-    },
-    "construction_time": {
-      "quantity": 400,
-      "unit": "days"
-    },
-    "maintenance_cost": {
-      "interval": "per day",
-      "quantity": 25,
-      "unit": "gp"
-    },
-    "skilled_hirelings": 10,
-    "untrained_hirelings": 10
-  },
-  {
-    "index": "small-temple",
-    "name": "Small Temple",
-    "equipment_category": "Property",
-    "cost": {
-      "quantity": 5000,
-      "unit": "gp"
-    },
-    "construction_time": {
-      "quantity": 60,
-      "unit": "days"
-    },
-    "maintenance_cost": {
-      "interval": "per day",
-      "quantity": 1,
-      "unit": "gp"
-    },
-    "skilled_hirelings": 2,
-    "untrained_hirelings": 0
-  },
-  {
-    "index": "two-person-tent",
-    "name": "Two Person Tent",
-    "equipment_category": "Adventuring Gear",
-    "gear_category": "Standard Gear",
-    "cost": {
-      "quantity": 2,
-      "unit": "gp"
-    },
-    "weight": 20,
-    "description": [
-      "A simple and portable canvas shelter, a tent sleeps two."
-    ]
   },
   {
     "index": "thieves-tools",
@@ -4297,6 +4655,26 @@
     "untrained_hirelings": 0
   },
   {
+    "index": "town-inn",
+    "name": "Town or City Inn",
+    "cost": {
+      "quantity": 5000,
+      "unit": "gp"
+    },
+    "construction_time": {
+      "quantity": 60,
+      "unit": "days"
+    },
+    "equipment_category": "Property",
+    "maintenance_cost": {
+      "interval": "per day",
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "skilled_hirelings": 1,
+    "untrained_hirelings": 5
+  },
+  {
     "index": "trading-post",
     "name": "Trading post",
     "equipment_category": "Property",
@@ -4315,6 +4693,17 @@
     },
     "skilled_hirelings": 4,
     "untrained_hirelings": 2
+  },
+  {
+    "index": "travelers-clothes",
+    "name": "Traveler's Clothes",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 4
   },
   {
     "index": "trident",
@@ -4349,6 +4738,20 @@
       "damage_type": "Piercing"
     },
     "mastery": "Sap"
+  },
+  {
+    "index": "two-person-tent",
+    "name": "Two Person Tent",
+    "equipment_category": "Adventuring Gear",
+    "gear_category": "Standard Gear",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 20,
+    "description": [
+      "A simple and portable canvas shelter, a tent sleeps two."
+    ]
   },
   {
     "index": "vestments",
