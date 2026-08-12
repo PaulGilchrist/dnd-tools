@@ -3,7 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 import { useMonsterFilter } from '../../hooks/useMonsterFilter';
 import { useMonsterBookmarks } from '../../hooks/useMonsterBookmarks';
 import { useRuleVersion } from '../../context/RuleVersionContext';
-import { useVersionedData } from '../../hooks/useVersionedData';
+import { useMonsters } from '../../data/dataServiceHooks';
+import { use2024Monsters } from '../../data/dataServiceHooks';
 import FilterForm from './FilterForm';
 import FilterControls from './FilterControls';
 import MonsterList from './MonsterList';
@@ -31,8 +32,9 @@ function MonsterSearch() {
         }
     }, [shownCard]);
 
-    // Fetch data using version-aware hook
-    const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
+    // Fetch both 5e and 2024 monsters
+    const { data: monstersData, loading: monstersLoading } = useMonsters();
+    const { data: monsters2024Data, loading: monsters2024Loading } = use2024Monsters();
 
     // Use custom hooks for filter and bookmark logic (pass ruleVersion for versioned localStorage)
     const { filter, updateFilter, showMonster } = useMonsterFilter({ ruleVersion });
@@ -46,11 +48,20 @@ function MonsterSearch() {
         }
     };
 
-    if (monstersLoading) {
+    const isLoading = monstersLoading || monsters2024Loading;
+
+    if (isLoading) {
         return <Loading />;
     }
 
-    const filteredMonsters = updateMonstersWithBookmarks(monstersData).filter(showMonster);
+    const allMonsters = [...(monstersData || []), ...(monsters2024Data || [])];
+    const seen = new Set();
+    const uniqueMonsters = allMonsters.filter((monster) => {
+        if (seen.has(monster.index)) return false;
+        seen.add(monster.index);
+        return true;
+    });
+    const filteredMonsters = updateMonstersWithBookmarks(uniqueMonsters).filter(showMonster);
 
     return (
             <>

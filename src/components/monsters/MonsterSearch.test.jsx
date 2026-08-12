@@ -5,6 +5,8 @@ import { RuleVersionProvider } from '../../context/RuleVersionContext';
 
 const useMonstersState = { data: [], loading: false };
 
+const useMonsters2024State = { data: [], loading: false };
+
 const searchParamsState = {
     params: new URLSearchParams(),
     setParamsFn: vi.fn((newParams) => {
@@ -30,13 +32,9 @@ vi.mock('react-router-dom', async () => {
         };
 });
 
-vi.mock('../../data/dataService', () => ({
-    getBaseUrl: vi.fn(() => ''),
-    useDataCache: vi.fn((key) => {
-        if (key === 'monsters') return useMonstersState;
-        return { data: [], loading: false };
-    }),
+vi.mock('../../data/dataServiceHooks', () => ({
     useMonsters: vi.fn(() => useMonstersState),
+    use2024Monsters: vi.fn(() => useMonsters2024State),
 }));
 
 vi.mock('../../hooks/useMonsterFilter', () => ({
@@ -104,6 +102,8 @@ describe('MonsterSearch', () => {
     beforeEach(() => {
         useMonstersState.data = [];
         useMonstersState.loading = false;
+        useMonsters2024State.data = [];
+        useMonsters2024State.loading = false;
         searchParamsState.params = new URLSearchParams();
         searchParamsState.setParamsFn.mockReset();
         mockElement = { scrollIntoView: vi.fn() };

@@ -100,17 +100,11 @@ describe('MonsterStats', () => {
       expect(screen.getByText(/swim 30 ft\./)).toBeInTheDocument();
          });
 
-   it('displays image button when monster has image', () => {
-      const monster = createMonster();
-      render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
-      expect(screen.getByRole('button', { name: 'Image' })).toBeInTheDocument();
-    });
-
-   it('does not display image button when no image', () => {
-      const monster = createMonster({ image: null });
-      render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
-      expect(screen.queryByRole('button', { name: 'Image' })).not.toBeInTheDocument();
-    });
+    it('always displays image button', () => {
+       const monster = createMonster({ image: null });
+       render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
+       expect(screen.getByRole('button', { name: 'Image' })).toBeInTheDocument();
+     });
 
    it('calls handleImageClick when image button is clicked', () => {
       const monster = createMonster();

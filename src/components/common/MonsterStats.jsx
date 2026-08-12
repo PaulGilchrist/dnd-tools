@@ -40,17 +40,15 @@ function MonsterStats({ monster, handleImageClick }) {
                     <span>, {monster.speed.other.join(', ')}</span>
                 )}<br />
             </div>
-            {monster.image && (
-                <div>
-                    <button
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={handleImageClick}
-                    >
-                        Image
-                    </button>
-                </div>
-            )}
+            <div>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleImageClick}
+                >
+                    Image
+                </button>
+            </div>
         </div>
     );
 }
