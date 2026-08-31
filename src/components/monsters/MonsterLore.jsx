@@ -130,8 +130,8 @@ function MonsterLore() {
             // eslint-disable-next-line react-hooks/set-state-in-effect
             setMonsters(monstersData);
 
-            // Check for index parameter in URL
-            const index = searchParams.get('index');
+            // Check for index parameter in URL (normalize spaces to hyphens)
+            const index = (searchParams.get('index') || '').replace(/[\s+]/g, '-');
             if (index) {
                 const foundType = monsterTypesData?.find(subtype => subtype.index === index);
                 const foundSubtype = subtypesData?.find(subtype => subtype.index === index);
