@@ -21,8 +21,8 @@ function PlayerClasses() {
     const [searchParams, setSearchParams] = useSearchParams();
     const { ruleVersion } = useRuleVersion();
 
-    // Derive shownCard from URL params
-    const shownCard = searchParams.get('index') || '';
+    // Derive shownCard from URL params (normalize spaces to hyphens to match card indices)
+    const shownCard = (searchParams.get('index') || '').replace(/[\s+]/g, '-');
 
     // Scroll to shown card when it changes
     useEffect(() => {

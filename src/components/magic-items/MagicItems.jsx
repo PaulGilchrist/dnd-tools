@@ -96,7 +96,7 @@ function MagicItems() {
         }));
 
         // Check for index parameter in URL to expand/scroll to specific item
-        const index = searchParams.get('index');
+        const index = (searchParams.get('index') || '').replace(/[\s+]/g, '-');
         let foundIndex = null;
         if (index) {
             const found = itemsWithBookmarks.find(item => item.index === index);

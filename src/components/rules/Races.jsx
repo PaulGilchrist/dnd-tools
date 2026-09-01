@@ -8,9 +8,9 @@ import RaceItem from './RaceItem';
 import RaceItem2024 from '../2024/rules/races/RaceItem2024';
 
 function Races() {
-    // Derive shownCard from URL params to avoid setState-in-effect
+    // Derive shownCard from URL params to avoid setState-in-effect (normalize spaces to hyphens)
     const [searchParams, setSearchParams] = useSearchParams();
-    const shownCard = searchParams.get('index') || '';
+    const shownCard = (searchParams.get('index') || '').replace(/[\s+]/g, '-');
     const { ruleVersion } = useRuleVersion();
 
     // Fetch versioned data

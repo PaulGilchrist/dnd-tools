@@ -111,7 +111,7 @@ function EquipmentItems() {
     // Process URL index when data is available (moved to effect to avoid setState during render)
     useEffect(() => {
         if (equipmentData && equipmentData.length > 0) {
-            const index = searchParams.get('index');
+            const index = (searchParams.get('index') || '').replace(/[\s+]/g, '-');
             if (index) {
                 const equipmentItem = equipmentData.find(item => item.index === index);
                 if (equipmentItem) {

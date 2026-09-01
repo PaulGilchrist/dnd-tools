@@ -13,8 +13,8 @@ function Feats() {
     const [searchParams, setSearchParams] = useSearchParams();
     const { ruleVersion } = useRuleVersion();
 
-    // Derive shownCard from URL params
-    const shownCard = searchParams.get('index') || '';
+    // Derive shownCard from URL params (normalize spaces to hyphens to match card indices)
+    const shownCard = (searchParams.get('index') || '').replace(/[\s+]/g, '-');
 
     // Filter state for 2024 feats
     const [filter, setFilter] = useState(() => {
