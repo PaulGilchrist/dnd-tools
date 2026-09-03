@@ -1,0 +1,150 @@
+[
+  {
+    "name": "adult-gold-dragon",
+    "desc": "A majestic adult gold dragon with gleaming golden scales, powerful membranous wings, sharp curved horns, fierce amber eyes, muscular serpentine body, long tail with pointed tip, standing proudly with mouth open showing sharp teeth, regal and powerful appearance"
+  },
+  {
+    "name": "ancient-brass-dragon",
+    "desc": "An ancient brass dragon with aged bronze-colored metallic scales, large wings spread wide, long snout, prominent backward-curving horns, fierce ancient expression, massive serpentine body, long tail, weathered appearance showing great age and power"
+  },
+  {
+    "name": "ancient-copper-dragon",
+    "desc": "An ancient copper dragon with aged copper-colored metallic scales, large wings, long snout, distinctive backward-curving horns, fierce ancient expression, massive serpentine body, long tail with arrowhead tip, weathered metallic copper appearance"
+  },
+  {
+    "name": "animated-armor",
+    "desc": "A suit of medieval full plate armor animated by arcane magic, armor pieces hovering slightly apart with visible magical energy between them, glowing supernatural eyes in the helmet visor, mystical purple or blue magical energy emanating from within, floating slightly off the ground"
+  },
+  {
+    "name": "arcanaloth",
+    "desc": "A three-headed fiendish canine creature from D&D, each head resembling a demonic wolf or hound with purple skin, sharp fangs, glowing yellow eyes, each head looking in different directions, muscular body, bat-like wings, spade-tipped tail, wearing a spiked purple collar, three-headed demonic dog appearance"
+  },
+  {
+    "name": "basilisk",
+    "desc": "A large reptilian creature resembling a massive lizard or small crocodile, scaly greenish-brown skin, powerful four legs, long thick tail, wide reptilian snout with sharp teeth, small membranous wings on its back, low to the ground, petrifying gaze, not a dragon"
+  },
+  {
+    "name": "bearded-devil",
+    "desc": "A tall humanoid devil with pale reddish skin, three distinctive beard-like tendrils hanging from its chin, pointed horns, cloven hooves, holding a barbed whip, wearing dark armor, menacing expression with glowing eyes, fiendish appearance"
+  },
+  {
+    "name": "brazen-gorgon",
+    "desc": "A female humanoid creature with living snake hair instead of normal hair, pale greenish skin, serpentine facial features, sharp fangs, glowing eyes, multiple snakes writhing for hair, wearing ancient Greek-style bronze armor or robes, Medusa-like appearance with snake hair"
+  },
+  {
+    "name": "cambion",
+    "desc": "A half-fiend humanoid with demonic features, dark or reddish skin, curved horns on head, pointed ears, sharp menacing features, wearing dark elegant clothing or armor, possibly with small wings or tail, powerful fiendish humanoid appearance"
+  },
+  {
+    "name": "centaur-trooper",
+    "desc": "A centaur from D&D - the upper body is a muscular human warrior in armor holding weapons, the lower body seamlessly continues as a horse body from the human waist, fully fused creature not a human riding a horse, brown horse body with armored human torso, warrior stance, half human half horse"
+  },
+  {
+    "name": "cult-fanatic",
+    "desc": "A fanatical human cult member wearing dark ritualistic robes or ceremonial clothing, holding a dark occult symbol or artifact, intense fanatical expression, possibly carrying a dagger or weapon, dark ritual atmosphere, hooded or with ritual markings on face"
+  },
+  {
+    "name": "death-tyrant",
+    "desc": "A powerful undead lich-like ruler, skeletal or decayed humanoid face with glowing eyes, wearing a dark royal crown and tattered dark robes, holding a powerful dark necromantic staff or scepter, pale greenish or grayish skin, menacing authoritative undead presence"
+  },
+  {
+    "name": "deep-gnome-svirfneblin",
+    "desc": "A deep gnome svirfneblin from D&D - small statured underground dweller with gray or gray-blue skin, large dark eyes adapted for darkness, pointed ears, wearing practical dark leather or metal armor suitable for underground, carrying a short sword or light crossbow, serious dangerous expression, small but menacing, gray skin tone"
+  },
+  {
+    "name": "dire-worg",
+    "desc": "A dire worg from D&D - a massive wolf creature on all four legs, large wolf body with thick gray or brown fur, sharp teeth visible, glowing red or yellow eyes, wearing a spiked collar or saddle for goblin riders, powerful quadrupedal predator stance, NOT standing on two feet, realistic wolf anatomy"
+  },
+  {
+    "name": "djinni",
+    "desc": "A powerful air djinni elemental spirit, muscular humanoid with ethereal smoky or translucent body, wearing ornate Middle Eastern-style clothing and jewelry, turban or crown, wielding elemental air power, majestic and powerful genie appearance"
+  },
+  {
+    "name": "dracolich",
+    "desc": "A powerful undead dragon skeleton with glowing red or orange eyes, decaying dragon scales clinging to bones, tattered dark magical energy wrapping around skeletal body, wearing a phylactery or dark gem, necromantic green or purple magical aura, terrifying skeletal dragon"
+  },
+  {
+    "name": "dretch",
+    "desc": "A low-ranking impish demon with green or grayish skin, hunched posture, drooling mouth with sharp teeth, wearing tattered clothing, holding a crude spiked club, small horns, ugly grotesque bestial appearance, demonic but lowly"
+  },
+  {
+    "name": "drider",
+    "desc": "A horrific creature that is half spider half drow elf - the upper body is a dark drow elf with spider features, the lower body is a large spider abdomen replacing legs, eight large spider legs extending from the abdomen, combining humanoid torso with spider body, dark menacing appearance"
+  },
+  {
+    "name": "halfling-druid",
+    "desc": "A halfling druid - small statured humanoid with curly hair, wearing natural green or brown druidic robes and armor made from natural materials like wood and leather, carrying a wooden staff, peaceful but determined expression, surrounded by nature elements"
+  },
+  {
+    "name": "duergar",
+    "desc": "A duergar gray dwarf from D&D - gray-skinned dwarf with bald or short hair, wearing dark heavy metal armor, holding a warhammer or repeating rifle, hardened dangerous expression, shorter stockier than surface dwarves, gray or ashen skin tone, underground miner appearance, dwarf proportions not human"
+  },
+  {
+    "name": "efreeti",
+    "desc": "A powerful fire efreeti elemental humanoid made of smokeless fire, muscular humanoid body with flames and smoke, wearing ornate Middle Eastern clothing and jewelry, turban or crown, wielding elemental fire power, terrifying and majestic fire genie"
+  },
+  {
+    "name": "empyrean",
+    "desc": "A powerful celestial empyrean with radiant golden or white appearance, beautiful humanoid form with glowing divine skin, large feathered angelic wings, wearing golden armor or radiant robes, divine light emanating, majestic celestial being"
+  },
+  {
+    "name": "erinyes",
+    "desc": "A fallen angel erinyes demoness with beautiful but menacing humanoid female form, dark or red skin, large black bat-like wings, curved horns, wearing dark elegant armor or clothing, wielding a whip, seductive but deadly fallen angel appearance"
+  },
+  {
+    "name": "ettercap",
+    "desc": "A spider-humanoid hybrid creature, upper body is a humanoid spider with chitinous armor-like skin and spider features, lower body is a large spider abdomen with eight spider legs, holding a crude wooden bow, menacing arachnid humanoid appearance"
+  },
+  {
+    "name": "ettin",
+    "desc": "A massive two-headed giant, extremely tall greenish or grayish humanoid with two separate heads on a single body, each head looking in different directions, wearing crude animal skins or minimal armor, holding a massive stone club, intimidating giant appearance"
+  },
+  {
+    "name": "flesh-golem",
+    "desc": "A grotesque humanoid flesh golem creature made of stitched together body parts, visible stitches and scars across mismatched body parts, decaying flesh appearance, muscular but unnatural proportions, terrifying undead construction, Frankenstein-like monster"
+  },
+  {
+    "name": "ghast-gravecaller",
+    "desc": "A grotesque undead ghast gravecaller, hunched humanoid with gray decaying skin, large bat-like wings, sharp claws and fangs, wearing tattered grave clothing or bone armor, necromantic green energy, foul and menacing undead appearance"
+  },
+  {
+    "name": "gorgon",
+    "desc": "A massive gorgon from D&D - a powerful bull-like creature with enormous curved horns, muscular bovine body, bronze or metallic colored skin or fur, fierce expression, standing powerfully on hooves, with tail, imposing bovine predator, NOT a woman with snakes"
+  },
+  {
+    "name": "gray-slaad",
+    "desc": "A gray slaad demon - frog-like humanoid with gray or pale skin, powerful amphibian features, webbed hands and feet, wearing a dark cloak or minimal armor, holding chaotic energy or dice, otherworldly demonic frog appearance, unpredictable chaotic entity"
+  },
+  {
+    "name": "green-hag",
+    "desc": "A terrifying green hag witch humanoid with green or grayish wrinkled skin, twisted aging features, wild gray or green hair, wearing dark tattered robes, holding a dark potion or artifact, surrounded by green magical energy, menacing crone appearance"
+  },
+  {
+    "name": "grell",
+    "desc": "A terrifying grell deep-underwater creature - a humanoid head with tentacles attached to a large jellyfish-like body with many dangling tentacles below, pale or translucent skin on the head, many tentacles hanging below, floating or swimming appearance, Lovecraftian horror"
+  },
+  {
+    "name": "grimlock",
+    "desc": "A blind grimlock humanoid creature with pale or gray skin, large dark eyes adapted for darkness underground, using a wooden staff to feel surroundings, wearing crude leather armor, rat-like facial features, navigating by senses other than sight, dark underground dweller"
+  },
+  {
+    "name": "guardian-naga",
+    "desc": "A powerful guardian naga - serpentine humanoid with a beautiful but dangerous humanoid female upper body and a massive cobra snake lower body, snake hood flaring like a cobra, wearing ornate jewelry or clothing, coiled serpent body, majestic and dangerous"
+  },
+  {
+    "name": "hill-giant",
+    "desc": "A massive hill giant humanoid standing extremely tall, greenish or grayish skin, wearing crude animal skin clothing or minimal armor, holding a massive stone club or boulder, brutish features, intimidating giant stature, powerful and dangerous"
+  },
+  {
+    "name": "hydra",
+    "desc": "A massive hydra serpent creature, a large serpentine body with multiple (5-7) snake heads rising from branching necks, each head able to move independently with sharp teeth, green or brown scaly skin, fierce multiple mouths, regenerating necks, terrifying multi-headed beast"
+  },
+  {
+    "name": "imp",
+    "desc": "A small mischievous imp demon with bat-like wings, tail with heart or spade tip, pointed ears, small horns, wearing dark clothing or minimal armor, holding a small dagger or poison needle, cute but evil appearance, small fiendish creature, mischievous grin"
+  },
+  {
+    "name": "thri-kreen-psion",
+    "desc": "A thri-kreen psion from D&D - a massive insectoid humanoid resembling a giant mantis shrimp or praying mantis, green or blue exoskeleton, four arms with clawed hands, large multifaceted eyes, insectoid face with mandibles, standing on two legs with powerful hind legs, psionic energy emanating from hands, menacing insect warrior appearance"
+  }
+]
