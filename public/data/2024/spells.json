@@ -20,6 +20,7 @@
         "damage": {
             "damage_type": "Acid",
             "damage_at_slot_level": {
+                "0": "1d6",
                 "5": "2d6",
                 "11": "3d6",
                 "17": "4d6"
@@ -264,13 +265,16 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "animal_shapes"
+        }
     },
     {
         "index": "animate-dead",
         "name": "Animate Dead",
         "description": [
-            "Level 3 Necromancy (Cleric, Wizard) Casting Time: 1 minute Range: 10 feet Components: V, S, M (a drop of blood, a piece of flesh, and a pinch of bone dust) Duration: Instantaneous Choose a pile of bones or a corpse of a Medium or Small Humanoid within range. The target becomes an Undead creature: a Skeleton if you chose bones or a Zombie if you chose a corpse (see appendix B for the stat blocks). On each of your turns, you can take a Bonus Action to mentally command any creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move on its next turn, or you can issue a general command, such as to guard a chamber or corridor. If you issue no commands, the creature takes the Dodge action and moves only to avoid harm. Once given an order, the creature continues to follow it until its task is complete. The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell rather than animating a new creature. Using a Higher-Level Spell Slot. You animate or reassert control over two additional Undead creatures for each spell slot level above 3. Each of the creatures must come from a different corpse or pile of bones."
+            "Choose a pile of bones or a corpse of a Medium or Small Humanoid within range. The target becomes an Undead creature: a Skeleton if you chose bones or a Zombie if you chose a corpse (see appendix B for the stat blocks). On each of your turns, you can take a Bonus Action to mentally command any creature you made with this spell if the creature is within 60 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move on its next turn, or you can issue a general command, such as to guard a chamber or corridor. If you issue no commands, the creature takes the Dodge action and moves only to avoid harm. Once given an order, the creature continues to follow it until its task is complete. The creature is under your control for 24 hours, after which it stops obeying any command you've given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature again before the current 24-hour period ends. This use of the spell reasserts your control over up to four creatures you have animated with this spell rather than animating a new creature. Using a Higher-Level Spell Slot. You animate or reassert control over two additional Undead creatures for each spell slot level above 3. Each of the creatures must come from a different corpse or pile of bones."
         ],
         "range": "10 feet",
         "components": [
@@ -284,6 +288,9 @@
         "concentration": false,
         "casting_time": "1 minute",
         "level": 3,
+        "automation": {
+            "type": "animate_dead"
+        },
         "attack_type": null,
         "damage": null,
         "school": "Necromancy",
@@ -295,12 +302,13 @@
         "area_of_effect": null,
         "status_effects": [],
         "upcast_at_slot_level": {
-            "4": "2 additional targets",
-            "5": "4 additional targets",
-            "6": "6 additional targets",
-            "7": "8 additional targets",
-            "8": "10 additional targets",
-            "9": "12 additional targets"
+            "3": "1 target",
+            "4": "3 targets",
+            "5": "5 targets",
+            "6": "7 targets",
+            "7": "9 targets",
+            "8": "11 targets",
+            "9": "13 targets"
         }
     },
     {
@@ -330,7 +338,26 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Animated Object",
+            "scale": false,
+            "variants": [
+                {
+                    "name": "Animated Object (Medium)",
+                    "monsterIndex": "animated-object-medium"
+                },
+                {
+                    "name": "Animated Object (Large)",
+                    "monsterIndex": "animated-object-large"
+                },
+                {
+                    "name": "Animated Object (Huge)",
+                    "monsterIndex": "animated-object-huge"
+                }
+            ]
+        }
     },
     {
         "index": "antimagic-field",
@@ -1141,8 +1168,8 @@
         ],
         "material": null,
         "ritual": false,
-        "duration": "1 minute",
-        "concentration": false,
+        "duration": "Concentration, up to 1 hour",
+        "concentration": true,
         "casting_time": "Action",
         "level": 2,
         "attack_type": null,
@@ -1154,7 +1181,27 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Bestial Spirit",
+            "baseLevel": 2,
+            "hpPerLevelAbove": 5,
+            "variants": [
+                {
+                    "name": "Bestial Spirit (Air)",
+                    "monsterIndex": "bestial-spirit-air"
+                },
+                {
+                    "name": "Bestial Spirit (Land)",
+                    "monsterIndex": "bestial-spirit-land"
+                },
+                {
+                    "name": "Bestial Spirit (Water)",
+                    "monsterIndex": "bestial-spirit-water"
+                }
+            ]
+        }
     },
     {
         "index": "bestow-curse",
@@ -3117,8 +3164,17 @@
         "ritual": false,
         "duration": "Instantaneous",
         "concentration": false,
-        "casting_time": "1 minute",
+        "casting_time": "1 bonus action",
         "level": 6,
+        "automation": {
+            "type": "create_undead"
+        },
+        "upcast_at_slot_level": {
+            "6": "3 targets",
+            "7": "4 targets",
+            "8": "5 targets",
+            "9": "6 targets"
+        },
         "attack_type": null,
         "damage": null,
         "school": "Necromancy",
@@ -4145,8 +4201,8 @@
         ],
         "material": null,
         "ritual": false,
-        "duration": "1 minute",
-        "concentration": false,
+        "duration": "Concentration, up to 1 hour",
+        "concentration": true,
         "casting_time": "Action",
         "level": 5,
         "attack_type": null,
@@ -4158,7 +4214,19 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Draconic Spirit",
+            "baseLevel": 5,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Draconic Spirit",
+                    "monsterIndex": "draconic-spirit"
+                }
+            ]
+        }
     },
     {
         "index": "dragons-breath",
@@ -4816,6 +4884,7 @@
         "automation": {
             "type": "eyebite",
             "saveType": "WIS",
+            "saveDc": "spell_save_dc",
             "range": "60 ft",
             "duration": "1_minute"
         }
@@ -5052,8 +5121,8 @@
         ],
         "material": null,
         "ritual": false,
-        "duration": "1 minute",
-        "concentration": false,
+        "duration": "Concentration, up to 1 hour",
+        "concentration": true,
         "casting_time": "Action",
         "level": 3,
         "attack_type": null,
@@ -5065,7 +5134,19 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Fey Spirit",
+            "baseLevel": 3,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Fey Spirit",
+                    "monsterIndex": "fey-spirit"
+                }
+            ]
+        }
     },
     {
         "index": "fiendish-spirit",
@@ -5080,8 +5161,8 @@
         ],
         "material": null,
         "ritual": false,
-        "duration": "1 minute",
-        "concentration": false,
+        "duration": "Concentration, up to 1 hour",
+        "concentration": true,
         "casting_time": "Action",
         "level": 6,
         "attack_type": null,
@@ -5093,7 +5174,27 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Fiendish Spirit",
+            "baseLevel": 6,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Fiendish Spirit (Demon)",
+                    "monsterIndex": "fiendish-spirit-demon"
+                },
+                {
+                    "name": "Fiendish Spirit (Devil)",
+                    "monsterIndex": "fiendish-spirit-devil"
+                },
+                {
+                    "name": "Fiendish Spirit (Yugoloth)",
+                    "monsterIndex": "fiendish-spirit-yugoloth"
+                }
+            ]
+        }
     },
     {
         "index": "find-familiar",
@@ -5240,6 +5341,7 @@
         "damage": {
             "damage_type": "Fire",
             "damage_at_slot_level": {
+                "0": "1d10",
                 "5": "2d10",
                 "11": "3d10",
                 "17": "4d10"
@@ -6140,6 +6242,25 @@
             "7": "Uses stat block for level 7",
             "8": "Uses stat block for level 8",
             "9": "Uses stat block for level 9"
+        },
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Giant Insect",
+            "scale": false,
+            "variants": [
+                {
+                    "name": "Giant Centipede",
+                    "monsterIndex": "giant-centipede"
+                },
+                {
+                    "name": "Giant Spider",
+                    "monsterIndex": "giant-spider"
+                },
+                {
+                    "name": "Giant Wasp",
+                    "monsterIndex": "giant-wasp"
+                }
+            ]
         }
     },
     {
@@ -8828,6 +8949,7 @@
         "damage": {
             "damage_type": "Psychic",
             "damage_at_slot_level": {
+                "0": "1d6",
                 "5": "2d6",
                 "11": "3d6",
                 "17": "4d6"
@@ -9929,6 +10051,7 @@
         "damage": {
             "damage_type": "Poison",
             "damage_at_slot_level": {
+                "0": "1d12",
                 "5": "2d12",
                 "11": "3d12",
                 "17": "4d12"
@@ -10305,6 +10428,7 @@
         "damage": {
             "damage_type": "Fire",
             "damage_at_slot_level": {
+                "0": "1d8",
                 "5": "2d8",
                 "11": "3d8",
                 "17": "4d8"
@@ -10632,6 +10756,7 @@
         "damage": {
             "damage_type": "Cold",
             "damage_at_slot_level": {
+                "0": "1d8",
                 "5": "2d8",
                 "11": "3d8",
                 "17": "4d8"
@@ -11010,6 +11135,7 @@
         "damage": {
             "damage_type": "Radiant",
             "damage_at_slot_level": {
+                "0": "1d8",
                 "5": "2d8",
                 "11": "3d8",
                 "17": "4d8"
@@ -11482,6 +11608,7 @@
         "damage": {
             "damage_type": "Force",
             "damage_at_slot_level": {
+                "0": "d8",
                 "5": "d10",
                 "11": "d12",
                 "17": "2d6"
@@ -11557,6 +11684,7 @@
         "damage": {
             "damage_type": "Lightning",
             "damage_at_slot_level": {
+                "0": "1d8",
                 "5": "2d8",
                 "11": "3d8",
                 "17": "4d8"
@@ -11869,6 +11997,7 @@
         "damage": {
             "damage_type": "Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder",
             "damage_at_slot_level": {
+                "0": "1d8",
                 "5": "2d8",
                 "11": "3d8",
                 "17": "4d8"
@@ -12229,6 +12358,7 @@
         "damage": {
             "damage_type": "Radiant",
             "damage_at_slot_level": {
+                "0": "1d8",
                 "5": "2d8",
                 "11": "3d8",
                 "17": "4d8"
@@ -12505,7 +12635,27 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Aberrant Spirit",
+            "baseLevel": 4,
+            "hpPerLevelAbove": 5,
+            "variants": [
+                {
+                    "name": "Aberrant Spirit (Beholderkin)",
+                    "monsterIndex": "aberrant-spirit-beholderkin"
+                },
+                {
+                    "name": "Aberrant Spirit (Mind Flayer)",
+                    "monsterIndex": "aberrant-spirit-mind-flayer"
+                },
+                {
+                    "name": "Aberrant Spirit (Slaad)",
+                    "monsterIndex": "aberrant-spirit-slaad"
+                }
+            ]
+        }
     },
     {
         "index": "summon-beast",
@@ -12534,7 +12684,27 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Bestial Spirit",
+            "baseLevel": 2,
+            "hpPerLevelAbove": 5,
+            "variants": [
+                {
+                    "name": "Bestial Spirit (Air)",
+                    "monsterIndex": "bestial-spirit-air"
+                },
+                {
+                    "name": "Bestial Spirit (Land)",
+                    "monsterIndex": "bestial-spirit-land"
+                },
+                {
+                    "name": "Bestial Spirit (Water)",
+                    "monsterIndex": "bestial-spirit-water"
+                }
+            ]
+        }
     },
     {
         "index": "summon-celestial",
@@ -12563,7 +12733,23 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Celestial Spirit",
+            "baseLevel": 5,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Celestial Spirit (Avenger)",
+                    "monsterIndex": "celestial-spirit-avenger"
+                },
+                {
+                    "name": "Celestial Spirit (Defender)",
+                    "monsterIndex": "celestial-spirit-defender"
+                }
+            ]
+        }
     },
     {
         "index": "summon-construct",
@@ -12598,6 +12784,26 @@
             "7": "Uses stat block for level 7",
             "8": "Uses stat block for level 8",
             "9": "Uses stat block for level 9"
+        },
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Construct Spirit",
+            "baseLevel": 4,
+            "hpPerLevelAbove": 5,
+            "variants": [
+                {
+                    "name": "Construct Spirit (Clay)",
+                    "monsterIndex": "construct-spirit-clay"
+                },
+                {
+                    "name": "Construct Spirit (Metal)",
+                    "monsterIndex": "construct-spirit-metal"
+                },
+                {
+                    "name": "Construct Spirit (Stone)",
+                    "monsterIndex": "construct-spirit-stone"
+                }
+            ]
         }
     },
     {
@@ -12628,7 +12834,31 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Elemental Spirit",
+            "baseLevel": 4,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Elemental Spirit (Air)",
+                    "monsterIndex": "elemental-spirit-air"
+                },
+                {
+                    "name": "Elemental Spirit (Earth)",
+                    "monsterIndex": "elemental-spirit-earth"
+                },
+                {
+                    "name": "Elemental Spirit (Fire)",
+                    "monsterIndex": "elemental-spirit-fire"
+                },
+                {
+                    "name": "Elemental Spirit (Water)",
+                    "monsterIndex": "elemental-spirit-water"
+                }
+            ]
+        }
     },
     {
         "index": "summon-fiend",
@@ -12657,7 +12887,27 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Fiendish Spirit",
+            "baseLevel": 6,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Fiendish Spirit (Demon)",
+                    "monsterIndex": "fiendish-spirit-demon"
+                },
+                {
+                    "name": "Fiendish Spirit (Devil)",
+                    "monsterIndex": "fiendish-spirit-devil"
+                },
+                {
+                    "name": "Fiendish Spirit (Yugoloth)",
+                    "monsterIndex": "fiendish-spirit-yugoloth"
+                }
+            ]
+        }
     },
     {
         "index": "summon-undead",
@@ -12694,6 +12944,26 @@
             "7": "Uses stat block for level 7",
             "8": "Uses stat block for level 8",
             "9": "Uses stat block for level 9"
+        },
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Undead Spirit",
+            "baseLevel": 3,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Undead Spirit (Ghostly)",
+                    "monsterIndex": "undead-spirit-ghostly"
+                },
+                {
+                    "name": "Undead Spirit (Putrid)",
+                    "monsterIndex": "undead-spirit-putrid"
+                },
+                {
+                    "name": "Undead Spirit (Skeletal)",
+                    "monsterIndex": "undead-spirit-skeletal"
+                }
+            ]
         }
     },
     {
@@ -12724,7 +12994,19 @@
             "Fey Wanderer"
         ],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Fey Spirit",
+            "baseLevel": 4,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Fey Spirit",
+                    "monsterIndex": "fey-spirit"
+                }
+            ]
+        }
     },
     {
         "index": "sunbeam",
@@ -13233,6 +13515,7 @@
         "damage": {
             "damage_type": "Piercing",
             "damage_at_slot_level": {
+                "0": "1d6",
                 "5": "2d6",
                 "11": "3d6",
                 "17": "4d6"
@@ -13434,6 +13717,7 @@
         "damage": {
             "damage_type": "Necrotic",
             "damage_at_slot_level": {
+                "0": "1d8 or 1d12",
                 "5": "2d8 or 2d12",
                 "11": "3d8 or 3d12",
                 "17": "4d8 or 4d12"
@@ -13658,6 +13942,7 @@
         "damage": {
             "damage_type": "Radiant",
             "damage_at_slot_level": {
+                "0": "0d6",
                 "5": "1d6",
                 "11": "2d6",
                 "17": "3d6"
@@ -13813,6 +14098,7 @@
         "damage": {
             "damage_type": "Psychic",
             "damage_at_slot_level": {
+                "0": "1d6",
                 "5": "2d6",
                 "11": "3d6",
                 "17": "4d6"
@@ -14385,6 +14671,7 @@
         "damage": {
             "damage_type": "Radiant",
             "damage_at_slot_level": {
+                "0": "1d6",
                 "5": "2d6",
                 "11": "3d6",
                 "17": "4d6"
