@@ -5,8 +5,9 @@ import MonsterStats from './MonsterStats';
 describe('MonsterStats', () => {
    const mockHandleImageClick = vi.fn();
 
-   const createMonster = (overrides = {}) => ({
-      armorClass: 15,
+    const createMonster = (overrides = {}) => ({
+       name: 'Goblin',
+       armorClass: 15,
       armorClassDetails: 'natural armor',
       hitPoints: 45,
       hitDice: '5d10',
@@ -100,17 +101,17 @@ describe('MonsterStats', () => {
       expect(screen.getByText(/swim 30 ft\./)).toBeInTheDocument();
          });
 
-    it('always displays image button', () => {
-       const monster = createMonster({ image: null });
-       render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
-       expect(screen.getByRole('button', { name: 'Image' })).toBeInTheDocument();
-     });
+    it('always displays image thumbnail', () => {
+        const monster = createMonster({ image: null });
+        render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
+        expect(screen.getByRole('img', { name: 'Goblin' })).toBeInTheDocument();
+      });
 
-   it('calls handleImageClick when image button is clicked', () => {
-      const monster = createMonster();
-      render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
-      const button = screen.getByRole('button', { name: 'Image' });
-      button.click();
-      expect(mockHandleImageClick).toHaveBeenCalled();
-       });
+    it('calls handleImageClick when image thumbnail is clicked', () => {
+       const monster = createMonster();
+       render(<MonsterStats monster={monster} handleImageClick={mockHandleImageClick} />);
+       const thumbnail = screen.getByRole('img', { name: 'Goblin' });
+       thumbnail.click();
+       expect(mockHandleImageClick).toHaveBeenCalled();
+        });
 });

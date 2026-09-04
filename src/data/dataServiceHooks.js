@@ -78,6 +78,10 @@ export function useMonsterTypes() {
     return useDataCache('monsterTypes', getBaseUrl() + 'data/monster-types.json');
 }
 
+export function useMonsterSubtypes() {
+    return useDataCache('monsterSubtypes', getBaseUrl() + 'data/monster-subtypes.json');
+}
+
 export function useNames() {
     return useDataCache('names', getBaseUrl() + 'data/names.json');
 }
@@ -100,22 +104,6 @@ export function useSpells() {
 
 export function use2024Spells() {
     return useDataCache('spells2024', getBaseUrl() + 'data/2024/spells.json');
-}
-
-export function use2024Monsters() {
-    return useDataCache('monsters2024', getBaseUrl() + 'data/2024/monsters.json');
-}
-
-export function use2024MonsterTypes() {
-    return useDataCache('monsters2024Types', getBaseUrl() + 'data/2024/monster-types.json');
-}
-
-export function use2024MonsterSubtypes() {
-    return useDataCache('monsters2024Subtypes', getBaseUrl() + 'data/2024/monster-subtypes.json');
-}
-
-export function use2024MagicItems() {
-    return useDataCache('magicItems2024', getBaseUrl() + 'data/2024/magic-items.json');
 }
 
 export function useWeaponProperties() {

@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey, sanitizeFilter } from '../../utils/localStorage';
-import { useRuleVersion } from '../../context/RuleVersionContext';
-import { useVersionedData } from '../../hooks/useVersionedData';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
+import { useMonsters } from '../../data/dataServiceHooks';
 import Loading from './Loading';
 import EncounterFilterPanel from './EncounterFilterPanel';
 import EncounterSummaryPanel from './EncounterSummaryPanel';
@@ -133,20 +132,17 @@ function updatePlayerLevels(filter, playerLevels) {
 }
 
 // Extracted: Update filter and save to localStorage
-function updateFilterAndSave(newFilter, ruleVersion) {
-    const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
-    setLocalStorageItem(versionedFilterKey, newFilter);
+function updateFilterAndSave(newFilter) {
+    setLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, newFilter);
     return newFilter;
 }
 
 function Encounters() {
-    const { ruleVersion } = useRuleVersion();
-    const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
+    const { data: monstersData, loading: monstersLoading } = useMonsters();
 
     // Initialize filter from localStorage directly
     const initializeFilter = () => {
-        const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
-        const savedFilter = getLocalStorageItem(versionedFilterKey);
+        const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER);
         if (savedFilter) {
             try {
                 const encounterDefaultFilter = { difficulty: 2, playerLevels: DEFAULT_PLAYER_LEVELS };
@@ -170,8 +166,7 @@ function Encounters() {
 
     // Save filter to localStorage on mount
     useEffect(() => {
-        const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, ruleVersion);
-        setLocalStorageItem(versionedFilterKey, filter);
+        setLocalStorageItem(LOCAL_STORAGE_KEYS.ENCOUNTER_FILTER, filter);
     }, []);
 
     const totalThreshold = useMemo(() => calculateXPThreshold(filter), [filter]);
@@ -204,7 +199,7 @@ function Encounters() {
 
     const updateFilter = (newFilter) => {
         setFilter(newFilter);
-        updateFilterAndSave(newFilter, ruleVersion);
+        updateFilterAndSave(newFilter);
     };
 
     const addPlayer = () => {

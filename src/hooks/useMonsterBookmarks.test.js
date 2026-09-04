@@ -117,33 +117,20 @@ describe('useMonsterBookmarks', () => {
       });
    });
 
-   describe('version-aware storage', () => {
-      it('uses versioned key for 2024 rule version', () => {
-         const { result } = renderHook(() => useMonsterBookmarks({ ruleVersion: '2024' }));
+    describe('storage key', () => {
+       it('uses the bookmarked storage key', () => {
+          const { result } = renderHook(() => useMonsterBookmarks());
 
-         act(() => {
-            result.current.handleBookmarkChange('goblin', true);
-         });
+          act(() => {
+             result.current.handleBookmarkChange('goblin', true);
+          });
 
-         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
-            'monstersBookmarked2024',
-            ['goblin']
-         );
-      });
-
-      it('uses base key for 5e rule version', () => {
-         const { result } = renderHook(() => useMonsterBookmarks({ ruleVersion: '5e' }));
-
-         act(() => {
-            result.current.handleBookmarkChange('goblin', true);
-         });
-
-         expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
-            'monstersBookmarked',
-            ['goblin']
-         );
-      });
-   });
+          expect(mockSetLocalStorageItem).toHaveBeenCalledWith(
+             'monstersBookmarked',
+             ['goblin']
+          );
+       });
+    });
 
    describe('stale closure fix', () => {
       it('writes the computed value to localStorage, not the stale closure value', () => {

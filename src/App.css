@@ -121,6 +121,19 @@ form {
     grid-template-columns: 1fr 1fr; 
 }
 
+.monster-image {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.monster-thumbnail {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
 ul {
     margin-bottom: 0;
     padding-bottom: 0;

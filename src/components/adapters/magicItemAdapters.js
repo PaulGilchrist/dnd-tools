@@ -1,47 +1,4 @@
 /**
- * Normalize a 5e magic item into a common data shape
- */
-export function normalizeMagicItem5e(magicItem) {
-    if (!magicItem) return null;
-
-    return {
-          // Basic info
-        index: magicItem.index,
-        name: magicItem.name,
-        type: magicItem.type,
-        rarity: magicItem.rarity,
-        requiresAttunement: magicItem.requiresAttunement,
-        subtype: magicItem.subtype,
-        bookmarked: magicItem.bookmarked,
-
-          // Description
-        description: magicItem.description,
-
-          // 2024-specific fields (not in 5e)
-        chargeSystem: null,
-        spellCasting: null,
-        damage: null,
-        savingThrows: [],
-        bonuses: null,
-        advantageDisadvantage: null,
-        conditions: [],
-        resistances: [],
-        immunities: [],
-        curse: null,
-        sentience: null,
-        itemSlot: null,
-        usageLimit: null,
-        duration: null,
-        actionTypes: [],
-        properties: [],
-        attunementRequirements: null,
-
-          // Version metadata
-        version: '5e'
-      };
-}
-
-/**
  * Normalize a 2024 magic item into a common data shape
  */
 export function normalizeMagicItem2024(magicItem) {

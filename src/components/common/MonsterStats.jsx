@@ -1,3 +1,5 @@
+import { getMonsterImageUrl } from '../../utils/monsterUtils';
+
 /**
  * Common MonsterStats component - Displays basic monster statistics
  * Works with normalized monster data from both 5e and 2024 versions
@@ -40,14 +42,13 @@ function MonsterStats({ monster, handleImageClick }) {
                     <span>, {monster.speed.other.join(', ')}</span>
                 )}<br />
             </div>
-            <div>
-                <button
-                    type="button"
-                    className="btn btn-primary"
+            <div className="monster-image">
+                <img
+                    className="monster-thumbnail"
+                    src={getMonsterImageUrl(monster.index)}
+                    alt={monster.name}
                     onClick={handleImageClick}
-                >
-                    Image
-                </button>
+                />
             </div>
         </div>
     );

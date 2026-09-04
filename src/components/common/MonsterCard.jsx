@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { renderHtmlContent } from '../../utils/htmlUtils';
+import { getMonsterImageUrl } from '../../utils/monsterUtils';
 import MonsterStats from './MonsterStats';
 import MonsterAbilityScores from './MonsterAbilityScores';
 import MonsterDefenses from './MonsterDefenses';
@@ -61,10 +62,10 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
     const handleImageClick = (e) => {
         e.stopPropagation();
         if (monster) {
-            setMonsterImage(`${import.meta.env.BASE_URL}images/${monster.index}.jpg`);
+            setMonsterImage(getMonsterImageUrl(monster.index));
             setImageActive(true);
-         }
-     };
+        }
+    };
 
     return (
          <>

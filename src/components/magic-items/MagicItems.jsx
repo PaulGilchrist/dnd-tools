@@ -1,13 +1,11 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useVersionedData } from '../../hooks/useVersionedData';
-import { useRuleVersion } from '../../context/RuleVersionContext';
+import { useMagicItems } from '../../data/dataServiceHooks';
 import { scrollIntoView } from '../../data/utils';
-import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../../utils/localStorage';
 import MagicItemCard from '../common/MagicItemCard';
 import MagicItemSections from '../common/MagicItemSections';
-import { normalizeMagicItem5e, normalizeMagicItem2024 } from '../adapters/magicItemAdapters';
-import MagicItemsFilterForm from './MagicItemsFilterForm';
+import { normalizeMagicItem2024 } from '../adapters/magicItemAdapters';
 import MagicItems2024FilterForm from '../2024/magic-items/MagicItems2024FilterForm';
 
 const defaultFilter = {
@@ -26,15 +24,14 @@ const defaultFilter = {
  */
 // eslint-disable-next-line max-lines-per-function
 function MagicItems() {
-    const { ruleVersion } = useRuleVersion();
     const [searchParams, setSearchParams] = useSearchParams();
 
-    // Version-aware data fetching
-    const { data: magicItemsData, loading: magicItemsLoading } = useVersionedData('magicItems');
+    // Fetch the consolidated magic items list
+    const { data: magicItemsData, loading: magicItemsLoading } = useMagicItems();
 
-    // Version-aware storage keys
-    const filterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER, ruleVersion);
-    const bookmarkedKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED, ruleVersion);
+    // Storage keys
+    const filterKey = LOCAL_STORAGE_KEYS.MAGIC_ITEMS_FILTER;
+    const bookmarkedKey = LOCAL_STORAGE_KEYS.MAGIC_ITEMS_BOOKMARKED;
 
     // Filter state with version-aware localStorage persistence
     const [filter, setFilter] = useState(() => {
@@ -195,12 +192,12 @@ function MagicItems() {
         return <div className="list"><div>Loading magic items...</div></div>;
     }
 
-    // Normalize function and section renderers based on rule version
-    const normalizeItem = ruleVersion === '2024' ? normalizeMagicItem2024 : normalizeMagicItem5e;
-    const sectionRenderers = ruleVersion === '2024' ? MagicItemSections : undefined;
+    // Normalize using the consolidated (2024-style) data shape
+    const normalizeItem = normalizeMagicItem2024;
+    const sectionRenderers = MagicItemSections;
 
-    // Filter form component based on rule version
-    const FilterForm = ruleVersion === '2024' ? MagicItems2024FilterForm : MagicItemsFilterForm;
+    // Filter form component
+    const FilterForm = MagicItems2024FilterForm;
 
     return (
         <>

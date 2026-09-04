@@ -6,18 +6,6 @@ const entityMap = {
         '5e': { cacheKey: 'spells', path: 'data/spells.json' },
         '2024': { cacheKey: 'spells2024', path: 'data/2024/spells.json' },
     },
-    monsters: {
-        '5e': { cacheKey: 'monsters', path: 'data/monsters.json' },
-        '2024': { cacheKey: 'monsters2024', path: 'data/2024/monsters.json' },
-    },
-    monsterTypes: {
-        '5e': { cacheKey: 'monsterTypes', path: 'data/monster-types.json' },
-        '2024': { cacheKey: 'monsterTypes2024', path: 'data/2024/monster-types.json' },
-    },
-    magicItems: {
-        '5e': { cacheKey: 'magicItems', path: 'data/magic-items.json' },
-        '2024': { cacheKey: 'magicItems2024', path: 'data/2024/magic-items.json' },
-    },
     classes: {
         '5e': { cacheKey: 'playerClasses', path: 'data/classes.json' },
         '2024': { cacheKey: 'playerClasses2024', path: 'data/2024/classes.json' },

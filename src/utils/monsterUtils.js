@@ -4,6 +4,14 @@ export const getNameString = (names) => {
 };
 
 /**
+ * Build the full URL for a monster's image based on its index.
+ * @param {string} index - The monster index
+ * @returns {string}
+ */
+export const getMonsterImageUrl = (index) =>
+    `${import.meta.env.BASE_URL}images/${index}.jpg`;
+
+/**
  * Parse a challenge rating string or number into a numeric value.
  * Handles whole numbers, fractions (e.g. "1/2"), and decimals.
  * @param {string|number|undefined} cr

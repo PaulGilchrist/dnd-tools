@@ -1,17 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { scrollIntoView } from '../../data/utils';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../../utils/localStorage';
 import { renderHtmlContent } from '../../utils/htmlUtils';
-import { useRuleVersion } from '../../context/RuleVersionContext';
-import { useVersionedData } from '../../hooks/useVersionedData';
-import { use2024MonsterSubtypes } from '../../data/dataService';
+import { useMonsters, useMonsterTypes, useMonsterSubtypes } from '../../data/dataService';
 import { groupSubtypesByType } from '../../utils/monsterGrouping';
-import Monster from './Monster';
 import Monster2024 from '../2024/monsters/Monster2024';
 import SubtypeCard from '../2024/monsters/SubtypeCard';
 
-// ─── Helper components (extracted to reduce MonsterLore function line count) ───
+// ─── Helper component (extracted to reduce MonsterLore function line count) ───
 
 function TypeGroupCard2024({ typeGroup, shownSubtype, showSubtype, shownCard, shownMonster, expandCard, expandMonsterCard }) {
     return (
@@ -63,46 +60,18 @@ function TypeGroupCard2024({ typeGroup, shownSubtype, showSubtype, shownCard, sh
     );
 }
 
-function TypeGroupCard5e({ subtype, shownSubtype, showSubtype, monsters, shownCard, expandCard }) {
-    return (
-        <div className={`outer card w-100 ${shownSubtype === subtype.index ? 'active' : ''}`} id={subtype.index}>
-            <div className="card-header clickable" onClick={() => showSubtype(subtype.index)}>
-                <div className="card-title">{subtype.name}</div>
-            </div>
-            {shownSubtype === subtype.index && (
-                <div className="card-body">
-                    <div dangerouslySetInnerHTML={renderHtmlContent(subtype.description)} />
-                    <br />
-                    <h5>Monsters</h5>
-                    {monsters.map((monster) => (
-                        <div className="inner-list" key={monster.index} id={monster.index}>
-                            {subtype.monsters && subtype.monsters.includes(monster.index) && (
-                                <Monster monster={monster} expand={shownCard === monster.index}
-                                    onExpand={(expanded) => expandCard(monster.index, expanded)} cardType="inner" />
-                            )}
-                        </div>
-                    ))}
-                    <div className="card-footer">{subtype.book} (page {subtype.page})</div>
-                </div>
-            )}
-        </div>
-    );
-}
-
 function MonsterLore() {
     const [monsters, setMonsters] = useState([]);
-    const [monsterTypes, setMonsterTypes] = useState([]);
     const [monsterSubtypes, setMonsterSubtypes] = useState([]);
     const [shownCard, setShownCard] = useState('');
     const [shownSubtype, setShownSubtype] = useState('');
     const [shownMonster, setShownMonster] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
-    const { ruleVersion } = useRuleVersion();
 
-    // Fetch data using version-aware hooks
-    const { data: monstersData, loading: monstersLoading } = useVersionedData('monsters');
-    const { data: monsterTypesData, loading: subtypeLoading } = useVersionedData('monsterTypes');
-    const { data: subtypesData, loading: subtypesLoading } = use2024MonsterSubtypes();
+    // Fetch consolidated data
+    const { data: monstersData, loading: monstersLoading } = useMonsters();
+    const { data: monsterTypesData, loading: subtypeLoading } = useMonsterTypes();
+    const { data: subtypesData, loading: subtypesLoading } = useMonsterSubtypes();
 
     const expandCard = (index, expanded) => {
         if (expanded) { setShownCard(index); setShownMonster(''); scrollIntoView(index); }
@@ -142,47 +111,30 @@ function MonsterLore() {
                 }
             } else {
                 // Set search filters from localStorage - default to "All" when no saved data
-                const versionedFilterKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER, ruleVersion);
-                const savedFilter = getLocalStorageItem(versionedFilterKey);
+                const savedFilter = getLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER);
                 if (!savedFilter) {
                     const defaultFilter = { category: 'All' };
-                    setLocalStorageItem(versionedFilterKey, defaultFilter);
+                    setLocalStorageItem(LOCAL_STORAGE_KEYS.MONSTER_LORE_FILTER, defaultFilter);
                 }
             }
         }
 
-        if (monsterTypesData) setMonsterTypes(monsterTypesData);
         if (subtypesData) setMonsterSubtypes(subtypesData);
-    }, [monstersData, monsterTypesData, subtypesData, ruleVersion, searchParams.get('index')]);
+    }, [monstersData, monsterTypesData, subtypesData, searchParams.get('index')]);
 
-    // Loading check: for 2024 also wait for subtypes
-    const isLoading = monstersLoading || subtypeLoading || (ruleVersion === '2024' && subtypesLoading);
+    // Loading check: wait for monsters, types, and subtypes
+    const isLoading = monstersLoading || subtypeLoading || subtypesLoading;
     if (isLoading) return <div className="list"><div className="hidden">Loading monster lore...</div></div>;
 
-    // 2024: grouped structure (Type -> Subtypes -> Monsters)
-    if (ruleVersion === '2024') {
-        const typeGroups = groupSubtypesByType(monsterSubtypes, monsters, monsterTypesData);
-        return (
-            <>
-                {typeGroups.map((typeGroup) => (
-                    <div className="list" key={typeGroup.type}>
-                        <TypeGroupCard2024 typeGroup={typeGroup} shownSubtype={shownSubtype}
-                            showSubtype={showSubtype} shownCard={shownCard} shownMonster={shownMonster}
-                            expandCard={expandCard} expandMonsterCard={expandMonsterCard} />
-                    </div>
-                ))}
-            </>
-        );
-    }
-
-    // 5e: flat structure (Type -> Monsters)
+    // Grouped structure (Type -> Subtypes -> Monsters)
+    const typeGroups = groupSubtypesByType(monsterSubtypes, monsters, monsterTypesData);
     return (
         <>
-            {monsterTypes.map((subtype) => (
-                <div className="list" key={subtype.index}>
-                    <TypeGroupCard5e subtype={subtype} shownSubtype={shownSubtype}
-                        showSubtype={showSubtype} monsters={monsters}
-                        shownCard={shownCard} expandCard={expandCard} />
+            {typeGroups.map((typeGroup) => (
+                <div className="list" key={typeGroup.type}>
+                    <TypeGroupCard2024 typeGroup={typeGroup} shownSubtype={shownSubtype}
+                        showSubtype={showSubtype} shownCard={shownCard} shownMonster={shownMonster}
+                        expandCard={expandCard} expandMonsterCard={expandMonsterCard} />
                 </div>
             ))}
         </>

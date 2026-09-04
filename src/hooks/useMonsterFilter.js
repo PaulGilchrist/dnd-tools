@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LOCAL_STORAGE_KEYS, getVersionedStorageKey, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, sanitizeFilter } from '../utils/localStorage';
 import { parseChallengeRating } from '../utils/monsterUtils';
 
 const defaultFilter = {
@@ -15,15 +15,14 @@ const defaultFilter = {
 };
 
 /**
- * Version-aware monster filter hook that works with both 5e and 2024 monster data.
+ * Monster filter hook that works with the consolidated monster data.
  *
  * @param {Object} opts
  * @param {Object} opts.initialFilter - Override default filter values
- * @param {'5e'|'2024'} opts.ruleVersion - Rule version for storage key and monster shape detection (default: '5e')
  * @returns {{ filter: Object, setFilter: Function, updateFilter: Function, showMonster: Function }}
  */
-export function useMonsterFilter({ initialFilter, ruleVersion = '5e' } = {}) {
-    const storageKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MONSTER_FILTER, ruleVersion);
+export function useMonsterFilter({ initialFilter } = {}) {
+    const storageKey = LOCAL_STORAGE_KEYS.MONSTER_FILTER;
 
     const [filter, setFilter] = useState(() => {
         // Try to load from localStorage on initial mount

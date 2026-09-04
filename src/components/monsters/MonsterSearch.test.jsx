@@ -5,8 +5,6 @@ import { RuleVersionProvider } from '../../context/RuleVersionContext';
 
 const useMonstersState = { data: [], loading: false };
 
-const useMonsters2024State = { data: [], loading: false };
-
 const searchParamsState = {
     params: new URLSearchParams(),
     setParamsFn: vi.fn((newParams) => {
@@ -34,7 +32,6 @@ vi.mock('react-router-dom', async () => {
 
 vi.mock('../../data/dataServiceHooks', () => ({
     useMonsters: vi.fn(() => useMonstersState),
-    use2024Monsters: vi.fn(() => useMonsters2024State),
 }));
 
 vi.mock('../../hooks/useMonsterFilter', () => ({
@@ -52,27 +49,17 @@ vi.mock('../../hooks/useMonsterBookmarks', () => ({
         })),
     }));
 
-vi.mock('../../utils/localStorage', () => ({
-    LOCAL_STORAGE_KEYS: {
-        MONSTER_FILTER_5E: 'monster-filter-5e',
-       },
-    getLocalStorageItem: vi.fn(() => null),
-    setLocalStorageItem: vi.fn(),
-    getLocalStorageString: vi.fn(() => null),
-    setLocalStorageString: vi.fn(),
-}));
-
-vi.mock('./FilterForm', () => ({
+vi.mock('../2024/monsters/Monster2024FilterForm', () => ({
     default: vi.fn(({ children }) => <div data-testid="filter-form">{children}</div>),
 }));
 
-vi.mock('./FilterControls', () => ({
+vi.mock('../2024/monsters/Monster2024FilterControls', () => ({
     default: vi.fn(() => (
            <div data-testid="filter-controls">Filter Controls</div>
        )),
 }));
 
-vi.mock('./MonsterList', () => ({
+vi.mock('../2024/monsters/Monster2024List', () => ({
     default: vi.fn(({ monsters, shownCard }) => (
            <div data-testid="monster-list">
              MonsterList with {monsters.length} monsters, shownCard: {shownCard || 'none'}
@@ -84,12 +71,8 @@ vi.mock('./Loading', () => ({
     default: vi.fn(() => <div data-testid="loading">Loading...</div>),
 }));
 
-vi.mock('./Monster', () => ({
-    default: vi.fn(() => <div data-testid="monster">Monster</div>),
-}));
-
 import MonsterSearch from './MonsterSearch';
-import MonsterList from './MonsterList';
+import Monster2024List from '../2024/monsters/Monster2024List';
 
 describe('MonsterSearch', () => {
     const mockMonsters = [
@@ -102,8 +85,6 @@ describe('MonsterSearch', () => {
     beforeEach(() => {
         useMonstersState.data = [];
         useMonstersState.loading = false;
-        useMonsters2024State.data = [];
-        useMonsters2024State.loading = false;
         searchParamsState.params = new URLSearchParams();
         searchParamsState.setParamsFn.mockReset();
         mockElement = { scrollIntoView: vi.fn() };
@@ -202,7 +183,7 @@ describe('MonsterSearch', () => {
             useMonstersState.data = mockMonsters;
             useMonstersState.loading = false;
             renderWithRouter(<MonsterSearch />);
-            const expandCard = MonsterList.mock.calls[0][0].expandCard;
+            const expandCard = Monster2024List.mock.calls[0][0].expandCard;
             expandCard('goblin', true);
             expect(searchParamsState.setParamsFn).toHaveBeenCalledWith({ index: 'goblin' });
            });
@@ -211,7 +192,7 @@ describe('MonsterSearch', () => {
             useMonstersState.data = mockMonsters;
             useMonstersState.loading = false;
             renderWithRouter(<MonsterSearch />);
-            const expandCard = MonsterList.mock.calls[0][0].expandCard;
+            const expandCard = Monster2024List.mock.calls[0][0].expandCard;
             expandCard('goblin', false);
             expect(searchParamsState.setParamsFn).toHaveBeenCalledWith({});
            });
@@ -220,7 +201,7 @@ describe('MonsterSearch', () => {
             useMonstersState.data = mockMonsters;
             useMonstersState.loading = false;
             const { rerender } = renderWithRouter(<MonsterSearch />);
-            const expandCard = MonsterList.mock.calls[0][0].expandCard;
+            const expandCard = Monster2024List.mock.calls[0][0].expandCard;
             expandCard('orc', true);
             rerender(
                 <RuleVersionProvider>

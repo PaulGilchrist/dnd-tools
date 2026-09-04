@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem, getVersionedStorageKey } from '../utils/localStorage';
+import { LOCAL_STORAGE_KEYS, getLocalStorageItem, setLocalStorageItem } from '../utils/localStorage';
 
-export function useMonsterBookmarks({ ruleVersion } = {}) {
-    const version = ruleVersion || '5e';
-    const bookmarkedKey = getVersionedStorageKey(LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED, version);
+export function useMonsterBookmarks() {
+    const bookmarkedKey = LOCAL_STORAGE_KEYS.MONSTERS_BOOKMARKED;
 
     const [monstersBookmarked, setMonstersBookmarked] = useState(() => {
         return getLocalStorageItem(bookmarkedKey) || [];

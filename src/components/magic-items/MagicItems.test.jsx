@@ -4,18 +4,13 @@ import { MemoryRouter } from 'react-router-dom';
 import MagicItems from './MagicItems';
 
 // Mock state objects so we can change return values between tests
-const mockVersionedDataState = { data: [], loading: false };
-const mockRuleVersionState = { ruleVersion: '5e', setRuleVersion: vi.fn() };
+const mockMagicItemsState = { data: [], loading: false };
 const mockScrollIntoView = vi.fn();
 const mockGetLocalStorageItem = vi.fn();
 const mockSetLocalStorageItem = vi.fn();
 
-vi.mock('../../hooks/useVersionedData', () => ({
-    useVersionedData: vi.fn(() => mockVersionedDataState),
-}));
-
-vi.mock('../../context/RuleVersionContext', () => ({
-    useRuleVersion: vi.fn(() => mockRuleVersionState),
+vi.mock('../../data/dataServiceHooks', () => ({
+    useMagicItems: vi.fn(() => mockMagicItemsState),
 }));
 
 vi.mock('../../data/utils', () => ({
@@ -27,12 +22,9 @@ vi.mock('../../utils/localStorage', () => ({
         MAGIC_ITEMS_FILTER: 'magicItemsFilter',
         MAGIC_ITEMS_BOOKMARKED: 'magicItemsBookmarked',
     },
-    getVersionedStorageKey: vi.fn((baseKey, ruleVersion) => {
-        if (ruleVersion === '2024') return `${baseKey}2024`;
-        return baseKey;
-    }),
     getLocalStorageItem: (...args) => mockGetLocalStorageItem(...args),
     setLocalStorageItem: (...args) => mockSetLocalStorageItem(...args),
+    sanitizeFilter: vi.fn((defaultFilter, savedFilter) => ({ ...defaultFilter, ...savedFilter })),
 }));
 
 vi.mock('../common/MagicItemCard', () => ({
@@ -60,20 +52,7 @@ vi.mock('../common/MagicItemSections', () => ({
 }));
 
 vi.mock('../adapters/magicItemAdapters', () => ({
-    normalizeMagicItem5e: vi.fn((item) => item),
     normalizeMagicItem2024: vi.fn((item) => item),
-}));
-
-vi.mock('./MagicItemsFilterForm', () => ({
-    default: vi.fn(({ filter, setFilter }) => (
-        <div data-testid="filter-form">
-            <input
-                data-testid="name-filter"
-                value={filter.name}
-                onChange={(e) => setFilter({ ...filter, name: e.target.value })}
-            />
-        </div>
-    )),
 }));
 
 vi.mock('../2024/magic-items/MagicItems2024FilterForm', () => ({
@@ -110,9 +89,8 @@ describe('MagicItems', () => {
 
     beforeEach(() => {
         vi.clearAllMocks();
-        mockVersionedDataState.data = [];
-        mockVersionedDataState.loading = false;
-        mockRuleVersionState.ruleVersion = '5e';
+        mockMagicItemsState.data = [];
+        mockMagicItemsState.loading = false;
         mockGetLocalStorageItem.mockReturnValue(null);
     });
 
@@ -121,51 +99,21 @@ describe('MagicItems', () => {
 
     describe('loading state', () => {
         it('shows loading message when loading', () => {
-            mockVersionedDataState.loading = true;
+            mockMagicItemsState.loading = true;
             renderWithRouter(<MagicItems />);
             expect(screen.getByText('Loading magic items...')).toBeInTheDocument();
         });
     });
 
-    describe('5e rule version', () => {
+    describe('rendering', () => {
         beforeEach(() => {
-            mockRuleVersionState.ruleVersion = '5e';
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
         });
 
-        it('renders 5e filter form', () => {
-            renderWithRouter(<MagicItems />);
-            expect(screen.getByTestId('filter-form')).toBeInTheDocument();
-        });
-
-        it('does not render 2024 filter form', () => {
-            renderWithRouter(<MagicItems />);
-            expect(screen.queryByTestId('filter-form-2024')).not.toBeInTheDocument();
-        });
-
-        it('renders magic item cards', () => {
-            renderWithRouter(<MagicItems />);
-            expect(screen.getByTestId('magic-item-card-item1')).toBeInTheDocument();
-            expect(screen.getByTestId('magic-item-card-item2')).toBeInTheDocument();
-        });
-    });
-
-    describe('2024 rule version', () => {
-        beforeEach(() => {
-            mockRuleVersionState.ruleVersion = '2024';
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
-        });
-
-        it('renders 2024 filter form', () => {
+        it('renders the 2024 filter form', () => {
             renderWithRouter(<MagicItems />);
             expect(screen.getByTestId('filter-form-2024')).toBeInTheDocument();
-        });
-
-        it('does not render 5e filter form', () => {
-            renderWithRouter(<MagicItems />);
-            expect(screen.queryByTestId('filter-form')).not.toBeInTheDocument();
         });
 
         it('renders magic item cards', () => {
@@ -177,19 +125,19 @@ describe('MagicItems', () => {
 
     describe('filtering', () => {
         beforeEach(() => {
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
         });
 
         it('filters by name', () => {
             renderWithRouter(<MagicItems />);
-            const nameFilter = screen.getByTestId('name-filter');
+            const nameFilter = screen.getByTestId('name-filter-2024');
             fireEvent.change(nameFilter, { target: { value: 'Sword' } });
             expect(nameFilter.value).toBe('Sword');
         });
 
         it('case-insensitive rarity filtering works', () => {
-            mockVersionedDataState.data = [
+            mockMagicItemsState.data = [
                 ...mockMagicItems,
                 {
                     index: 'item3',
@@ -210,8 +158,8 @@ describe('MagicItems', () => {
 
     describe('localStorage persistence', () => {
         beforeEach(() => {
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
         });
 
         it('loads saved filter from localStorage', () => {
@@ -231,14 +179,6 @@ describe('MagicItems', () => {
             expect(mockGetLocalStorageItem).toHaveBeenCalledWith('magicItemsFilter');
         });
 
-        it('loads 2024 filter from versioned key', () => {
-            mockRuleVersionState.ruleVersion = '2024';
-            mockGetLocalStorageItem.mockReturnValue(null);
-
-            renderWithRouter(<MagicItems />);
-            expect(mockGetLocalStorageItem).toHaveBeenCalledWith('magicItemsFilter2024');
-        });
-
         it('loads bookmarked items from localStorage', () => {
             mockGetLocalStorageItem.mockImplementation((key) => {
                 if (key === 'magicItemsBookmarked') return ['item1'];
@@ -248,20 +188,12 @@ describe('MagicItems', () => {
             renderWithRouter(<MagicItems />);
             expect(mockGetLocalStorageItem).toHaveBeenCalledWith('magicItemsBookmarked');
         });
-
-        it('loads 2024 bookmarks from versioned key', () => {
-            mockRuleVersionState.ruleVersion = '2024';
-            mockGetLocalStorageItem.mockReturnValue(null);
-
-            renderWithRouter(<MagicItems />);
-            expect(mockGetLocalStorageItem).toHaveBeenCalledWith('magicItemsBookmarked2024');
-        });
     });
 
     describe('URL index parameter', () => {
         beforeEach(() => {
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
         });
 
         it('expands and scrolls to item from URL', async () => {
@@ -275,8 +207,8 @@ describe('MagicItems', () => {
 
     describe('bookmarks', () => {
         beforeEach(() => {
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
         });
 
         it('handles bookmark change - bookmark item', () => {
@@ -290,7 +222,7 @@ describe('MagicItems', () => {
             // Click bookmark button for item1
             fireEvent.click(screen.getByTestId('bookmark-item1'));
 
-            // Should save to localStorage with versioned key
+            // Should save to localStorage
             expect(mockSetLocalStorageItem).toHaveBeenCalledWith('magicItemsBookmarked', expect.any(Array));
         });
 
@@ -307,26 +239,12 @@ describe('MagicItems', () => {
 
             expect(mockSetLocalStorageItem).toHaveBeenCalledWith('magicItemsBookmarked', expect.any(Array));
         });
-
-        it('uses versioned key for 2024 bookmarks', () => {
-            mockRuleVersionState.ruleVersion = '2024';
-            mockGetLocalStorageItem.mockImplementation((key) => {
-                if (key === 'magicItemsBookmarked2024') return ['item2'];
-                return null;
-            });
-
-            renderWithRouter(<MagicItems />);
-
-            fireEvent.click(screen.getByTestId('bookmark-item1'));
-
-            expect(mockSetLocalStorageItem).toHaveBeenCalledWith('magicItemsBookmarked2024', expect.any(Array));
-        });
     });
 
     describe('expand/collapse', () => {
         beforeEach(() => {
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
         });
 
         it('handles expand card', async () => {
@@ -341,14 +259,13 @@ describe('MagicItems', () => {
     });
 
     describe('deduplication', () => {
-        it('deduplicates items by index for 2024 data', () => {
-            mockRuleVersionState.ruleVersion = '2024';
-            mockVersionedDataState.data = [
+        it('deduplicates items by index', () => {
+            mockMagicItemsState.data = [
                 { index: 'item1', name: 'Item One', rarity: 'common', type: 'Potion', requiresAttunement: false, bookmarked: false },
                 { index: 'item1', name: 'Item One Duplicate', rarity: 'common', type: 'Potion', requiresAttunement: false, bookmarked: false },
                 { index: 'item2', name: 'Item Two', rarity: 'rare', type: 'Ring', requiresAttunement: true, bookmarked: false },
             ];
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.loading = false;
 
             renderWithRouter(<MagicItems />);
 
@@ -362,22 +279,22 @@ describe('MagicItems', () => {
 
     describe('missing data', () => {
         it('handles empty data gracefully', () => {
-            mockVersionedDataState.data = [];
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = [];
+            mockMagicItemsState.loading = false;
 
             renderWithRouter(<MagicItems />);
 
-            expect(screen.getByTestId('filter-form')).toBeInTheDocument();
+            expect(screen.getByTestId('filter-form-2024')).toBeInTheDocument();
         });
 
         it('handles missing localStorage gracefully', () => {
             mockGetLocalStorageItem.mockReturnValue(null);
-            mockVersionedDataState.data = mockMagicItems;
-            mockVersionedDataState.loading = false;
+            mockMagicItemsState.data = mockMagicItems;
+            mockMagicItemsState.loading = false;
 
             renderWithRouter(<MagicItems />);
 
-            expect(screen.getByTestId('filter-form')).toBeInTheDocument();
+            expect(screen.getByTestId('filter-form-2024')).toBeInTheDocument();
         });
     });
 });

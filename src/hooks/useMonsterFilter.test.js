@@ -53,16 +53,10 @@ describe('useMonsterFilter', () => {
         expect(result.current.filter.name).toBe('orc');
     });
 
-    it('uses 5e storage key by default', () => {
+    it('uses the monster filter storage key', () => {
         mockGetLocalStorageItem.mockReturnValueOnce(null);
         renderHook(() => useMonsterFilter());
         expect(mockGetLocalStorageItem).toHaveBeenCalledWith('monsterFilter');
-    });
-
-    it('uses 2024 storage key when ruleVersion is 2024', () => {
-        mockGetLocalStorageItem.mockReturnValueOnce(null);
-        renderHook(() => useMonsterFilter({ ruleVersion: '2024' }));
-        expect(mockGetLocalStorageItem).toHaveBeenCalledWith('monsterFilter2024');
     });
 
     describe('showMonster with 5e monster shape', () => {
