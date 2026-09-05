@@ -1,0 +1,1 @@
+import{_ as e}from"./index-BNZKvyg1.js";var t=e();function n(){return(0,t.jsx)(`div`,{className:`list`,children:(0,t.jsx)(`div`,{children:`Loading monsters...`})})}export{n as t};
