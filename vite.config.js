@@ -9,14 +9,14 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        entryFileNames: 'assets/index.js',
-        chunkFileNames: 'assets/[name].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: (chunkInfo) => {
           // Don't hash image files - keep original names for faster deployments
           if (chunkInfo.type === 'asset' && chunkInfo.name && /\.(jpg|jpeg|png|gif|webp)$/i.test(chunkInfo.name)) {
             return `assets/${chunkInfo.name}`;
           }
-          return 'assets/[name].[ext]';
+          return 'assets/[name]-[hash][extname]';
         }
       }
     },
