@@ -268,7 +268,10 @@
         "classes": [
             "Druid"
         ],
-        "subclasses": []
+        "subclasses": [],
+        "automation": {
+            "type": "animal_shapes"
+        }
     },
     {
         "index": "animate-dead",
@@ -2202,6 +2205,7 @@
         "automation": {
             "type": "reaction_counterspell",
             "casting_time": "1 reaction",
+            "saveDc": "spell_save_dc",
             "saveType": "CON",
             "saveAbility": "CHA",
             "range": "60 ft",
@@ -2258,6 +2262,12 @@
         "concentration": false,
         "casting_time": "1 minute",
         "level": 6,
+        "upcast_at_slot_level": {
+            "6": "3 targets",
+            "7": "4 targets",
+            "8": "5 targets",
+            "9": "6 targets"
+        },
         "school": "Necromancy",
         "classes": [
             "Cleric",
@@ -3463,6 +3473,7 @@
         "automation": {
             "type": "eyebite",
             "saveType": "WIS",
+            "saveDc": "spell_save_dc",
             "range": "60 ft",
             "duration": "1_minute"
         }
@@ -3632,6 +3643,7 @@
         "automation": {
             "type": "fear",
             "saveType": "WIS",
+            "saveDc": "spell_save_dc",
             "range": "Self (30-foot Cone)",
             "duration": "Concentration, up to 1 minute"
         }
@@ -3661,7 +3673,12 @@
         ],
         "subclasses": [
             "Lore"
-        ]
+        ],
+        "automation": {
+            "type": "feather_fall",
+            "trigger": "falling",
+            "casting_time": "1 reaction"
+        }
     },
     {
         "index": "feeblemind",
@@ -3747,7 +3764,39 @@
         ],
         "subclasses": [
             "Lore"
-        ]
+        ],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Otherworldly Steed",
+            "scale": false,
+            "variants": [
+                {
+                    "name": "Warhorse",
+                    "monsterIndex": "warhorse"
+                },
+                {
+                    "name": "Riding Horse",
+                    "monsterIndex": "riding-horse"
+                },
+                {
+                    "name": "Mastiff",
+                    "monsterIndex": "mastiff"
+                },
+                {
+                    "name": "Pony",
+                    "monsterIndex": "pony"
+                },
+                {
+                    "name": "Camel",
+                    "monsterIndex": "camel"
+                },
+                {
+                    "name": "Elk",
+                    "monsterIndex": "elk"
+                }
+            ],
+            "noConcentration": true
+          }
     },
     {
         "index": "find-traps",
@@ -5589,6 +5638,7 @@
         "concentration": false,
         "casting_time": "1 action",
         "level": 1,
+        "attack_type": "ranged",
         "damage": {
             "damage_type": "Piercing",
             "damage_at_slot_level": {
@@ -6010,6 +6060,21 @@
         ]
     },
     {
+        "index": "jallarsis-storm-of-radiance",
+        "name": "Jallarsi's Storm of Radiance",
+        "description": [
+            "Homebrew spell attested only on the Cultist Hierophant statblock: the cultist calls down a storm of radiance, casting it as the 7th-level version using Charisma as the spellcasting ability (spell save DC 17). RAW area, damage and duration numerics are unattested; the effect is adjudicated by the GM."
+        ],
+        "range": "Self",
+        "casting_time": "1 action",
+        "level": 7,
+        "classes": [],
+        "dc": {
+            "dc_type": "CHA",
+            "dc_success": "none"
+        }
+    },
+    {
         "index": "knock",
         "name": "Knock",
         "description": [
@@ -6092,7 +6157,7 @@
         "automation": {
             "type": "lesser_restoration",
             "range": "Touch",
-            "casting_time": "bonus_action",
+            "casting_time": "1 bonus action",
             "conditions": [
                 "blinded",
                 "deafened",
@@ -6145,10 +6210,7 @@
         "concentration": false,
         "casting_time": "1 action",
         "level": 0,
-        "dc": {
-            "dc_type": "DEX",
-            "dc_success": "none"
-        },
+        "dc": null,
         "school": "Evocation",
         "classes": [
             "Bard",
@@ -7292,7 +7354,8 @@
         "damage": {
             "damage_type": "Psychic",
             "damage_at_slot_level": {
-                "4": "4d10"
+                "4": "4d10",
+                "6": "6d10"
             }
         },
         "dc": {
@@ -8405,6 +8468,7 @@
             "When you cast this spell using a spell slot of 3rd level or higher, you create one additional ray for each slot level above 2nd."
         ],
         "range": "120 feet",
+        "attack_type": "ranged",
         "components": [
             "V",
             "S"
@@ -8415,7 +8479,17 @@
         "casting_time": "1 action",
         "level": 2,
         "damage": {
-            "damage_type": "Fire"
+            "damage_type": "Fire",
+            "damage_at_slot_level": {
+                "2": "2d6",
+                "3": "2d6",
+                "4": "2d6",
+                "5": "2d6",
+                "6": "2d6",
+                "7": "2d6",
+                "8": "2d6",
+                "9": "2d6"
+            }
         },
         "school": "Evocation",
         "classes": [
@@ -8756,7 +8830,7 @@
             "type": "shield_of_faith",
             "target": "willing_creature",
             "duration": "Concentration, up to 10 minutes",
-            "casting_time": "Bonus Action",
+            "casting_time": "1 bonus action",
             "range": "60 feet"
         }
     },
@@ -9037,6 +9111,7 @@
         ],
         "automation": {
             "type": "slow",
+            "saveDc": "spell_save_dc",
             "saveType": "WIS",
             "range": "120 feet",
             "duration": "Concentration, up to 1 minute",
@@ -10641,5 +10716,38 @@
             "Lore",
             "Devotion"
         ]
+    },
+    {
+        "index": "friends",
+        "name": "Friends",
+        "description": [
+            "You attempt to beguile a creature. Choose one creature within 30 feet of you. It must succeed on a WIS saving throw or have Disadvantage on all attack rolls and ability checks until the spell ends, or until you or your companions deal damage to it."
+        ],
+        "range": "30 feet",
+        "components": [
+            "V",
+            "S"
+        ],
+        "ritual": false,
+        "duration": "1 minute",
+        "concentration": true,
+        "casting_time": "1 action",
+        "level": 1,
+        "attack_type": null,
+        "damage": null,
+        "school": "Enchantment",
+        "classes": [
+            "Bard"
+        ],
+        "subclasses": [
+            "Lore"
+        ],
+        "status_effects": [
+            "charmed"
+        ],
+        "dc": {
+            "dc_type": "WIS",
+            "dc_success": "none"
+        }
     }
 ]
