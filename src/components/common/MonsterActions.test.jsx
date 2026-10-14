@@ -54,6 +54,19 @@ describe('MonsterActions', () => {
       expect(screen.getByText(/Darkvision/)).toBeInTheDocument();
        });
 
+   it('displays bonus actions when sectionType is bonusActions', () => {
+      const bonusAction = createAction({ name: 'Shape-Shift' });
+      const monster = createMonster({ bonusActions: [bonusAction] });
+      render(<MonsterActions monster={monster} sectionType="bonusActions" />);
+      expect(screen.getByText(/Shape-Shift/)).toBeInTheDocument();
+       });
+
+   it('returns null when no bonus actions', () => {
+      const monster = createMonster({ bonusActions: [] });
+      const { container } = render(<MonsterActions monster={monster} sectionType="bonusActions" />);
+      expect(container.firstChild).toBeNull();
+       });
+
    it('displays lair actions when sectionType is lairActions', () => {
       const lairAction = createAction({ name: 'Earthquake' });
       const monster = createMonster({ lairActions: [lairAction] });

@@ -9,6 +9,7 @@ import MonsterReactions from './MonsterReactions';
 import MonsterLegendaryActions from './MonsterLegendaryActions';
 import MonsterRegionalEffects from './MonsterRegionalEffects';
 import './Cover.css';
+import './MonsterCard.css';
 
 /**
  * Common Monster component that works with normalized monster data
@@ -126,6 +127,15 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                  <h5>Actions</h5>
                              </div>
                              <MonsterActions monster={monster} sectionType="actions" />
+                             {monster.bonusActions && monster.bonusActions.length > 0 && (
+                                 <div>
+                                     <hr />
+                                     <div>
+                                         <h5>Bonus Actions</h5>
+                                     </div>
+                                     <MonsterActions monster={monster} sectionType="bonusActions" />
+                                 </div>
+                             )}
                              {monster.reactions && monster.reactions.length > 0 && (
                                  <div>
                                      <hr />
@@ -188,6 +198,15 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                                                    )}
                                                                </div>
                                                            )}
+                             {monster.combatStrategy && (
+                                 <div>
+                                     <hr />
+                                     <div className="monster-card-combat-strategy">
+                                         <h5><i className="fa-solid fa-chess"></i>Combat Strategy</h5>
+                                         <div dangerouslySetInnerHTML={renderHtmlContent(monster.combatStrategy)} />
+                                     </div>
+                                 </div>
+                             )}
                          </div>
                      </div>
                  )}

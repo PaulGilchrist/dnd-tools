@@ -1,8 +1,8 @@
 /**
- * Common MonsterActions component - Displays monster actions, traits, and lair actions
+ * Common MonsterActions component - Displays monster actions, traits, bonus actions, and lair actions
  * Works with normalized monster data from both 5e and 2024 versions
  * @param {object} monster - The normalized monster data object
- * @param {string} sectionType - The type of section to display: 'actions', 'traits', or 'lairActions'
+ * @param {string} sectionType - The type of section to display: 'actions', 'traits', 'bonusActions', or 'lairActions'
  */
 function MonsterActions({ monster, sectionType = 'actions' }) {
     if (!monster) {
@@ -14,6 +14,8 @@ function MonsterActions({ monster, sectionType = 'actions' }) {
         items = monster.actions || [];
       } else if (sectionType === 'traits') {
         items = monster.traits || [];
+      } else if (sectionType === 'bonusActions') {
+        items = monster.bonusActions || [];
       } else if (sectionType === 'lairActions') {
         items = monster.lairActions || [];
       }

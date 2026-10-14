@@ -1,0 +1,15 @@
+/* MonsterCard combat strategy section */
+.monster-card-combat-strategy {
+    border-left: 3px solid var(--color-header);
+    padding-left: 10px;
+    font-style: italic;
+    color: var(--color-body);
+}
+
+.monster-card-combat-strategy h5 {
+    font-style: normal;
+}
+
+.monster-card-combat-strategy h5 i {
+    margin-right: 6px;
+}
