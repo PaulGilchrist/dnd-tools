@@ -46,7 +46,7 @@
         "index": "aid",
         "name": "Aid",
         "description": [
-            "Level 2 Abjuration (Bard, Cleric, Druid, Paladin, Ranger) Casting Time: Action Range: 30 feet Components: V, S, M (a strip of white cloth) Duration: 8 hours Choose up to three creatures within range. Each target's Hit Point maximum and current Hit Points increase by 5 for the duration. Using a Higher-Level Spell Slot. Each target's Hit Points increase by 5 for each spell slot level above 2."
+            "Level 2 Abjuration (Bard, Cleric, Druid, Paladin, Ranger) Casting Time: Bonus Action Range: 30 feet Components: V, S, M (a strip of white cloth) Duration: 8 hours Choose up to three creatures within range. Each target's Hit Point maximum and current Hit Points increase by 5 for the duration. Using a Higher-Level Spell Slot. Each target's Hit Points increase by 5 for each spell slot level above 2."
         ],
         "range": "30 feet",
         "components": [
@@ -58,7 +58,7 @@
         "ritual": false,
         "duration": "8 hours",
         "concentration": false,
-        "casting_time": "Action",
+        "casting_time": "Bonus Action",
         "level": 2,
         "attack_type": null,
         "damage": null,
@@ -966,15 +966,15 @@
             "dc_success": "none"
         },
         "upcast_at_slot_level": {
-            "1": "1 target",
-            "2": "2 targets",
-            "3": "3 targets",
-            "4": "4 targets",
-            "5": "5 targets",
-            "6": "6 targets",
-            "7": "7 targets",
-            "8": "8 targets",
-            "9": "9 targets"
+            "1": "up to 3 targets",
+            "2": "up to 4 targets",
+            "3": "up to 5 targets",
+            "4": "up to 6 targets",
+            "5": "up to 7 targets",
+            "6": "up to 8 targets",
+            "7": "up to 9 targets",
+            "8": "up to 10 targets",
+            "9": "up to 11 targets"
         }
     },
     {
@@ -3079,7 +3079,8 @@
         },
         "automation": {
             "type": "reaction_counterspell",
-            "casting_time": "Reaction",
+            "casting_time": "1 reaction",
+            "saveDc": "spell_save_dc",
             "saveType": "CON",
             "saveAbility": "CHA",
             "range": "60 ft",
@@ -4769,8 +4770,8 @@
         "status_effects": []
     },
     {
-        "index": "evars-black-tentacles",
-        "name": "Evar's Black Tentacles",
+        "index": "evards-black-tentacles",
+        "name": "Evard's Black Tentacles",
         "description": [
             "<p>Squirming, ebony tentacles fill a 20-foot square on ground that you can see within range. For the duration, these tentacles turn the ground in that area into Difficult Terrain.</p><p>Each creature in that area makes a Strength saving throw. On a failed save, it takes 3d6 Bludgeoning damage, and it has the Restrained condition until the spell ends. A creature also makes that save if it enters the area or ends its turn there. A creature makes that save only once per turn.</p><p>A Restrained creature can take an action to make a Strength (Athletics) check against your spell save DC, ending the condition on itself on a success.</p>"
         ],
@@ -5035,6 +5036,7 @@
         "automation": {
             "type": "fear",
             "saveType": "WIS",
+            "saveDc": "spell_save_dc",
             "range": "Self (30-foot Cone)",
             "duration": "Concentration, up to 1 minute"
         }
@@ -5066,7 +5068,12 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "feather_fall",
+            "trigger": "falling",
+            "casting_time": "1 reaction"
+        }
     },
     {
         "index": "feign-death",
@@ -5249,7 +5256,20 @@
         ],
         "subclasses": [],
         "area_of_effect": null,
-        "status_effects": []
+        "status_effects": [],
+        "automation": {
+            "type": "summon_spirit",
+            "typeLabel": "Otherworldly Steed",
+            "baseLevel": 2,
+            "hpPerLevelAbove": 10,
+            "variants": [
+                {
+                    "name": "Otherworldly Steed",
+                    "monsterIndex": "otherworldly-steed"
+                }
+            ],
+            "noConcentration": true
+          }
     },
     {
         "index": "find-traps",
@@ -8044,7 +8064,7 @@
         "automation": {
             "type": "lesser_restoration",
             "range": "Touch",
-            "casting_time": "bonus_action",
+            "casting_time": "1 bonus action",
             "conditions": [
                 "blinded",
                 "deafened",
@@ -9635,12 +9655,13 @@
             "dc_type": "CON",
             "dc_success": "half"
         },
-        "automation": {
-            "type": "freezing_sphere",
-            "saveType": "CON",
-            "range": "300 feet",
-            "casting_time": "1 action"
-        }
+  "automation": {
+    "type": "freezing_sphere",
+    "saveType": "CON",
+    "saveDc": "spell_save_dc",
+    "range": "300 feet",
+    "casting_time": "1 action"
+  }
     },
     {
         "index": "otilukes-resilient-sphere",
@@ -10366,7 +10387,7 @@
         "automation": {
             "type": "prismatic_spray",
             "saveType": "DEX",
-            "damage": "10d6",
+            "damage": "12d6",
             "saveDc": "spell_save_dc"
         }
     },
@@ -11582,7 +11603,7 @@
             "type": "shield_of_faith",
             "target": "willing_creature",
             "duration": "Concentration, up to 10 minutes",
-            "casting_time": "Bonus Action",
+            "casting_time": "1 bonus action",
             "range": "60 feet"
         }
     },
@@ -11970,6 +11991,7 @@
         },
         "automation": {
             "type": "slow",
+            "saveDc": "spell_save_dc",
             "saveType": "WIS",
             "range": "120 feet",
             "duration": "Concentration, up to 1 minute",
@@ -12041,7 +12063,7 @@
         "automation": {
             "type": "spare_the_dying",
             "range": "15 feet",
-            "casting_time": "action"
+            "casting_time": "1 action"
         }
     },
     {
@@ -13002,8 +13024,16 @@
             "hpPerLevelAbove": 10,
             "variants": [
                 {
-                    "name": "Fey Spirit",
-                    "monsterIndex": "fey-spirit"
+                    "name": "Fey Spirit (Trickster)",
+                    "monsterIndex": "fey-spirit-trickster"
+                },
+                {
+                    "name": "Fey Spirit (Warrior)",
+                    "monsterIndex": "fey-spirit-warrior"
+                },
+                {
+                    "name": "Fey Spirit (Guide)",
+                    "monsterIndex": "fey-spirit-guide"
                 }
             ]
         }

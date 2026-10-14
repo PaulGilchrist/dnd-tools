@@ -1066,7 +1066,7 @@
         "description": "When you take the Attack action on your turn and attack with a weapon that has the Light property, you can make one extra attack as a Bonus Action later on the same turn with a different weapon, which must be a Melee weapon that lacks the Two-Handed property. You don't add your ability modifier to the extra attack's damage unless that modifier is negative.",
         "type": "bonus_action",
         "automation": {
-          "type": "bonus_attacks",
+          "type": "dual_wielder_attack",
           "trigger": "attack_action_with_light_weapon",
           "extraAttacks": 1,
           "weaponRequirements": {
@@ -1308,7 +1308,11 @@
         "description": "When you hit a creature with an Unarmed Strike as part of the Attack action on your turn, you can use both the Damage and the Grapple option. You can use this benefit only once per turn.",
         "type": "action",
         "automation": {
-          "casting_time": "action"
+          "type": "attack_rider",
+          "trigger": "unarmed_strike_hit",
+          "effect": "punch_and_grab",
+          "oncePerTurn": true,
+          "casting_time": "passive"
         }
       },
       {
@@ -1747,7 +1751,7 @@
           "effect": "advantage",
           "target": "d20",
           "cost": 1,
-          "casting_time": "reaction"
+          "casting_time": "1 reaction"
         }
       },
       {
@@ -1759,7 +1763,7 @@
           "effect": "disadvantage",
           "target": "attack_roll",
           "cost": 1,
-          "casting_time": "reaction"
+          "casting_time": "1 reaction"
         }
       }
     ],
@@ -2165,7 +2169,7 @@
           "rerollCount": 1,
           "oncePerTurn": true,
           "mustUseNew": true,
-          "casting_time": "reaction"
+          "casting_time": "1 reaction"
         }
       },
       {
@@ -2238,7 +2242,7 @@
         "type": "bonus_action",
         "automation": {
           "type": "apply_poison",
-          "casting_time": "bonus_action",
+          "casting_time": "1 bonus action",
           "damageExpression": "2d8",
           "damageType": "Poison",
           "condition": "poisoned",
@@ -3504,7 +3508,14 @@
       {
         "name": "Ritual Spells",
         "description": "Choose a number of level 1 spells equal to your Proficiency Bonus that have the Ritual tag. You always have those spells prepared, and you can cast them with any spell slots you have. The spells' spellcasting ability is the ability increased by this feat. Whenever your Proficiency Bonus increases thereafter, you can add an additional level 1 spell with the Ritual tag to the spells always prepared with this feature.",
-        "type": "spell"
+        "type": "spell",
+        "automation": {
+          "type": "ritual_spells",
+          "effect": "ritual_spells",
+          "chosenSpells": true,
+          "quickRitual": true,
+          "casting_time": "passive"
+        }
       },
       {
         "name": "Quick Ritual",
