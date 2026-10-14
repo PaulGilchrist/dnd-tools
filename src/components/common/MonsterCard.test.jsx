@@ -661,6 +661,50 @@ describe('MonsterCard', () => {
         expect(screen.queryByText('Bonus Actions')).not.toBeInTheDocument();
     });
 
+    it('does not render Actions section when actions is empty', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ actions: [] })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render Actions section when actions is null', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ actions: null })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render Actions section when actions is undefined', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ actions: undefined })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render regional effects when regionalEffects is an empty object', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ regionalEffects: {} })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByTestId('regional-effects')).not.toBeInTheDocument();
+    });
+
     it('renders lair actions section when present with actions', () => {
         render(
             <MonsterCard

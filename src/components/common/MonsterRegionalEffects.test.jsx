@@ -75,10 +75,16 @@ describe('MonsterRegionalEffects', () => {
       expect(screen.getByText(/Regional Effects/)).toBeInTheDocument();
           });
 
-   it('handles empty regional effects object', () => {
+   it('returns null when regional effects object is empty', () => {
       const monster = createMonster({ regionalEffects: {} });
-      render(<MonsterRegionalEffects monster={monster} />);
-      expect(screen.getByText(/Regional Effects/)).toBeInTheDocument();
+      const { container } = render(<MonsterRegionalEffects monster={monster} />);
+      expect(container.firstChild).toBeNull();
+          });
+
+   it('returns null when regional effects object has no summary, effects or usage', () => {
+      const monster = createMonster({ regionalEffects: { summary: null, effects: [], usage: null } });
+      const { container } = render(<MonsterRegionalEffects monster={monster} />);
+      expect(container.firstChild).toBeNull();
           });
 
    it('handles multiple effects', () => {

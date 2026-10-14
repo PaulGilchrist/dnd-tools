@@ -11,6 +11,10 @@ import MonsterRegionalEffects from './MonsterRegionalEffects';
 import './Cover.css';
 import './MonsterCard.css';
 
+// Whether a regional effects object has any content worth displaying
+const hasRegionalEffects = (regionalEffects) =>
+    !!(regionalEffects.summary || (regionalEffects.effects && regionalEffects.effects.length > 0) || regionalEffects.usage);
+
 /**
  * Common Monster component that works with normalized monster data
  * @param {object} props
@@ -123,10 +127,14 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                      <hr />
                                  </>
                              )}
-                             <div>
-                                 <h5>Actions</h5>
-                             </div>
-                             <MonsterActions monster={monster} sectionType="actions" />
+                             {monster.actions && monster.actions.length > 0 && (
+                                 <>
+                                     <div>
+                                         <h5>Actions</h5>
+                                     </div>
+                                     <MonsterActions monster={monster} sectionType="actions" />
+                                 </>
+                             )}
                              {monster.bonusActions && monster.bonusActions.length > 0 && (
                                  <div>
                                      <hr />
@@ -181,7 +189,7 @@ function MonsterCard({ cardType = 'outer', expand, monster, onExpand, onBookmark
                                      </div>
                                  </div>
                              )}
-                             {monster.regionalEffects && (
+                             {monster.regionalEffects && hasRegionalEffects(monster.regionalEffects) && (
                                  <div>
                                      <hr />
                                      <MonsterRegionalEffects monster={monster} />
