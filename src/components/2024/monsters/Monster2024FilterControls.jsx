@@ -136,7 +136,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                         value={filter.xpMin ?? ''}
                         onChange={(e) => handleXpMinChange(e.target.value)}
                         min="0"
-                        max="100000"
+                        max="150000"
                         step="25"
                         placeholder="min"
                     />
@@ -150,7 +150,7 @@ function Monster2024FilterControls({ filter, updateFilter }) {
                         value={filter.xpMax ?? ''}
                         onChange={(e) => handleXpMaxChange(e.target.value)}
                         min="0"
-                        max="100000"
+                        max="150000"
                         step="25"
                         placeholder="max"
                     />

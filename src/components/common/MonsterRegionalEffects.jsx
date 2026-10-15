@@ -10,6 +10,11 @@ function MonsterRegionalEffects({ monster }) {
         return null;
         }
 
+    const { summary, effects, usage } = monster.regionalEffects;
+    if (!summary && !(effects && effects.length > 0) && !usage) {
+        return null;
+    }
+
     return (
             <div>
                 <h5>Regional Effects</h5>

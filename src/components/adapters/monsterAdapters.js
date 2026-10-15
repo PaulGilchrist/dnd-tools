@@ -1,4 +1,5 @@
 import { renderHtmlContent } from '../../utils/htmlUtils';
+import { resolveMonsterIRV } from '../../utils/monsterIrv';
 
 /**
  * Normalize a 2024 monster into a common data shape
@@ -10,18 +11,20 @@ export function normalizeMonster2024(monster) {
     const savingThrows = monster.saving_throws || {};
     const skills = monster.skills || {};
 
-    // Normalize actions, traits, reactions, legendary actions
+    // Normalize actions, traits, bonus actions, reactions, legendary actions
     const normalizedActions = normalizeActionsList2024(monster.actions);
     const normalizedTraits = normalizeActionsList2024(monster.traits);
+    const normalizedBonusActions = normalizeActionsList2024(monster.bonus_actions);
     const normalizedReactions = normalizeActionsList2024(monster.reactions);
     const normalizedLegendaryActions = normalizeActionsList2024(monster.legendary_actions);
 
     // Normalize lair actions (2024 format)
     const lairActions = normalizeLairActions2024(monster.lair_actions);
 
-    // Normalize senses and speed
+    // Normalize senses, speed, and damage traits (2024 keys win, legacy mixed lists are split)
     const senses = monster.senses || {};
     const speed = monster.speed || {};
+    const irv = resolveMonsterIRV(monster);
 
     return {
         // Basic info
@@ -46,19 +49,18 @@ export function normalizeMonster2024(monster) {
         abilityScores: monster.ability_scores,
         abilityScoreModifiers: monster.ability_score_modifiers,
 
-        // Defenses
+        // Defenses (damage-type immunities only; conditions live in conditionImmunities)
         savingThrows,
         skills,
         senses,
-        immunities: monster.immunities || [],
-        damageImmunities: [],
-        damageResistances: [],
-        damageVulnerabilities: [],
-        conditionImmunities: [],
+        damageImmunities: irv.immunities,
+        damageResistances: irv.resistances,
+        damageVulnerabilities: irv.vulnerabilities,
+        conditionImmunities: irv.conditionImmunities,
         languages: monster.languages,
-        environments: null,
-        allies: null,
-        enemies: null,
+        environments: monster.environments || null,
+        allies: monster.allies || null,
+        enemies: monster.enemies || null,
         challengeRating: monster.challenge_rating,
         xp: monster.xp,
         legendaryResistance: monster.legendary_resistance,
@@ -69,10 +71,12 @@ export function normalizeMonster2024(monster) {
         // Combat
         actions: normalizedActions,
         traits: normalizedTraits,
+        bonusActions: normalizedBonusActions,
         reactions: normalizedReactions,
         legendaryActions: normalizedLegendaryActions,
         lairActions: lairActions,
         regionalEffects: monster.regional_effects,
+        combatStrategy: monster['combat-strategy'],
 
         // Description
         description: monster.description,

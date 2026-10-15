@@ -5,13 +5,13 @@ import { parseChallengeRating } from '../utils/monsterUtils';
 const defaultFilter = {
     bookmarked: 'All',
     challengeRatingMin: 0,
-    challengeRatingMax: 25,
+    challengeRatingMax: 30,
     environment: 'All',
     name: '',
     size: 'All',
     type: 'All',
     xpMin: 0,
-    xpMax: 50000,
+    xpMax: 150000,
 };
 
 /**
@@ -56,7 +56,7 @@ export function useMonsterFilter({ initialFilter } = {}) {
         // Challenge rating range
         const cr = parseChallengeRating(monster.challenge_rating);
         const crMin = filter.challengeRatingMin === '' ? 0 : filter.challengeRatingMin;
-        const crMax = filter.challengeRatingMax === '' ? 25 : filter.challengeRatingMax;
+        const crMax = filter.challengeRatingMax === '' ? 30 : filter.challengeRatingMax;
         if (cr < crMin || cr > crMax) {
             return false;
         }
@@ -95,7 +95,7 @@ export function useMonsterFilter({ initialFilter } = {}) {
 
         // XP range
         const xpMin = filter.xpMin === '' ? 0 : filter.xpMin;
-        const xpMax = filter.xpMax === '' ? 50000 : filter.xpMax;
+        const xpMax = filter.xpMax === '' ? 150000 : filter.xpMax;
         if (monster.xp < xpMin || monster.xp > xpMax) {
             return false;
         }

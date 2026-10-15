@@ -176,7 +176,7 @@ describe('monsterAdapters', () => {
             expect(result.lairActions).toEqual({});
         });
 
-        it('defaults 5e-only fields to empty/null in 2024', () => {
+        it('defaults missing fields to empty/null', () => {
             const monster = {};
             const result = normalizeMonster2024(monster);
 
@@ -184,9 +184,71 @@ describe('monsterAdapters', () => {
             expect(result.damageResistances).toEqual([]);
             expect(result.damageVulnerabilities).toEqual([]);
             expect(result.conditionImmunities).toEqual([]);
+            expect(result.bonusActions).toEqual([]);
             expect(result.environments).toBeNull();
             expect(result.allies).toBeNull();
             expect(result.enemies).toBeNull();
+            expect(result.combatStrategy).toBeUndefined();
+        });
+
+        it('maps 2024 schema damage traits and condition immunities', () => {
+            const monster = {
+                damage_immunities: ['lightning', 'poison'],
+                damage_resistances: ['necrotic'],
+                damage_vulnerabilities: ['psychic'],
+                condition_immunities: ['charmed', 'frightened'],
+            };
+            const result = normalizeMonster2024(monster);
+
+            expect(result.damageImmunities).toEqual(['lightning', 'poison']);
+            expect(result.damageResistances).toEqual(['necrotic']);
+            expect(result.damageVulnerabilities).toEqual(['psychic']);
+            expect(result.conditionImmunities).toEqual(['charmed', 'frightened']);
+        });
+
+        it('splits legacy mixed immunities into damage types and condition immunities', () => {
+            const monster = {
+                immunities: ['Poison', 'Thunder', 'Grappled', 'Paralyzed'],
+                resistances: ['Cold', 'Fire'],
+            };
+            const result = normalizeMonster2024(monster);
+
+            expect(result.damageImmunities).toEqual(['Poison', 'Thunder']);
+            expect(result.conditionImmunities).toEqual(['Grappled', 'Paralyzed']);
+            expect(result.damageResistances).toEqual(['Cold', 'Fire']);
+        });
+
+        it('maps combat-strategy', () => {
+            const monster = {
+                'combat-strategy': 'Open at range and close when hurt.'
+            };
+            const result = normalizeMonster2024(monster);
+
+            expect(result.combatStrategy).toBe('Open at range and close when hurt.');
+        });
+
+        it('normalizes bonus actions', () => {
+            const monster = {
+                bonus_actions: [{ name: 'Shape-Shift', description: '<p>Shift form.</p>' }]
+            };
+            const result = normalizeMonster2024(monster);
+
+            expect(result.bonusActions).toHaveLength(1);
+            expect(result.bonusActions[0].name).toBe('Shape-Shift');
+            expect(typeof result.bonusActions[0].renderDescription).toBe('function');
+        });
+
+        it('maps environments, allies and enemies', () => {
+            const monster = {
+                environments: ['mountain'],
+                allies: ['orc', 'kobold'],
+                enemies: ['gargoyle']
+            };
+            const result = normalizeMonster2024(monster);
+
+            expect(result.environments).toEqual(['mountain']);
+            expect(result.allies).toEqual(['orc', 'kobold']);
+            expect(result.enemies).toEqual(['gargoyle']);
         });
 
         it('handles lair actions array with mixed types', () => {

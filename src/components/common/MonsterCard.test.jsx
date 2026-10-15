@@ -616,6 +616,95 @@ describe('MonsterCard', () => {
         expect(screen.queryByText('Legendary Actions')).not.toBeInTheDocument();
     });
 
+    it('renders bonus actions section when bonusActions exist and are non-empty', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ bonusActions: [{ name: 'Shape-Shift' }] })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.getByText('Bonus Actions')).toBeInTheDocument();
+        expect(screen.getByTestId('actions-bonusActions')).toBeInTheDocument();
+    });
+
+    it('does not render bonus actions section when bonusActions is empty', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ bonusActions: [] })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Bonus Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render bonus actions section when bonusActions is null', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ bonusActions: null })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Bonus Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render bonus actions section when bonusActions is undefined', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ bonusActions: undefined })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Bonus Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render Actions section when actions is empty', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ actions: [] })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render Actions section when actions is null', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ actions: null })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render Actions section when actions is undefined', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ actions: undefined })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Actions')).not.toBeInTheDocument();
+    });
+
+    it('does not render regional effects when regionalEffects is an empty object', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ regionalEffects: {} })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByTestId('regional-effects')).not.toBeInTheDocument();
+    });
+
     it('renders lair actions section when present with actions', () => {
         render(
             <MonsterCard
@@ -843,6 +932,40 @@ describe('MonsterCard', () => {
             />
         );
         expect(screen.queryByText('(page')).not.toBeInTheDocument();
+    });
+
+    it('renders combat strategy section when combatStrategy is present', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ combatStrategy: 'Open at altitude with javelins.' })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.getByText('Combat Strategy')).toBeInTheDocument();
+        expect(screen.getByText('Open at altitude with javelins.')).toBeInTheDocument();
+    });
+
+    it('does not render combat strategy section when combatStrategy is null', () => {
+        render(
+            <MonsterCard
+                monster={createMonster({ combatStrategy: null })}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Combat Strategy')).not.toBeInTheDocument();
+    });
+
+    it('does not render combat strategy section when combatStrategy is undefined', () => {
+        render(
+            <MonsterCard
+                monster={createMonster()}
+                expand={true}
+                onExpand={mockOnExpand}
+            />
+        );
+        expect(screen.queryByText('Combat Strategy')).not.toBeInTheDocument();
     });
 
     it('stops propagation on image click', () => {

@@ -28,22 +28,20 @@ def parse_args():
     parser.add_argument('--comfy-url', default='http://localhost:8001', help='ComfyUI URL')
     return parser.parse_args()
 
-# Z-Image Turbo settings
-UNET_NAME = "z_image_turbo_bf16.safetensors"
-CLIP_NAME = "qwen_3_4b.safetensors"
-CLIP_TYPE = "lumina2"
-VAE_NAME = "ae.safetensors"
-STEPS = 8
+# Qwen-Image 2.1 settings
+UNET_NAME = "qwen_image_2.1_int8_convrot.safetensors"
+CLIP_NAME = "qwen3vl_8b_int8_convrot.safetensors"
+CLIP_TYPE = "qwen_image"
+VAE_NAME = "qwen_image_2.1_vae_bf16.safetensors"
+STEPS = 40
 CFG = 1
-SAMPLER = "res_multistep"
+SAMPLER = "euler"
 SCHEDULER = "simple"
-WIDTH = 1024
-HEIGHT = 1024
-AURA_FLOW_SHIFT = 3
+RESOLUTION = 1024
 CLIENT_ID = "batch-images-cmd"
 MAX_ATTEMPTS = 3
 POLL_INTERVAL = 5
-POLL_TIMEOUT = 120
+POLL_TIMEOUT = 900
 
 def make_workflow(creature_name, positive_prompt, seed):
     return {
@@ -60,22 +58,15 @@ def make_workflow(creature_name, positive_prompt, seed):
             "inputs": {"vae_name": VAE_NAME}
         },
         "4": {
-            "class_type": "CLIPTextEncode",
-            "inputs": {"text": positive_prompt, "clip": ["2", 0]}
+            "class_type": "TextEncodeQwenImage21",
+            "inputs": {
+                "clip": ["2", 0],
+                "prompt": positive_prompt,
+                "negative_prompt": "",
+                "resolution": RESOLUTION
+            }
         },
         "5": {
-            "class_type": "ConditioningZeroOut",
-            "inputs": {"conditioning": ["4", 0]}
-        },
-        "6": {
-            "class_type": "ModelSamplingAuraFlow",
-            "inputs": {"model": ["1", 0], "shift": AURA_FLOW_SHIFT}
-        },
-        "7": {
-            "class_type": "EmptySD3LatentImage",
-            "inputs": {"width": WIDTH, "height": HEIGHT, "batch_size": 1}
-        },
-        "8": {
             "class_type": "KSampler",
             "inputs": {
                 "seed": seed,
@@ -84,19 +75,19 @@ def make_workflow(creature_name, positive_prompt, seed):
                 "sampler_name": SAMPLER,
                 "scheduler": SCHEDULER,
                 "denoise": 1.0,
-                "model": ["6", 0],
+                "model": ["1", 0],
                 "positive": ["4", 0],
-                "negative": ["5", 0],
-                "latent_image": ["7", 0]
+                "negative": ["4", 1],
+                "latent_image": ["4", 2]
             }
         },
-        "9": {
+        "6": {
             "class_type": "VAEDecode",
-            "inputs": {"samples": ["8", 0], "vae": ["3", 0]}
+            "inputs": {"samples": ["5", 0], "vae": ["3", 0]}
         },
-        "10": {
+        "7": {
             "class_type": "SaveImage",
-            "inputs": {"filename_prefix": creature_name, "images": ["9", 0]}
+            "inputs": {"filename_prefix": creature_name, "images": ["6", 0]}
         }
     }
 
@@ -203,7 +194,7 @@ def main():
         creatures = json.load(f)
 
     TOTAL = len(creatures)
-    print(f"Generating {TOTAL} creatures with Z-Image Turbo...")
+    print(f"Generating {TOTAL} creatures with Qwen-Image 2.1...")
     print(f"  Creatures file: {creatures_path}")
     print(f"  Reference dir: {reference_dir}")
     print(f"  Downloads dir: {downloads_dir}")

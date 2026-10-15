@@ -31,13 +31,13 @@ describe('useMonsterFilter', () => {
         expect(result.current.filter).toEqual({
             bookmarked: 'All',
             challengeRatingMin: 0,
-            challengeRatingMax: 25,
+            challengeRatingMax: 30,
             environment: 'All',
             name: '',
             size: 'All',
             type: 'All',
             xpMin: 0,
-            xpMax: 50000,
+            xpMax: 150000,
         });
     });
 
@@ -349,13 +349,13 @@ describe('useMonsterFilter', () => {
             expect(result.current.showMonster(lowCRMonster)).toBe(true);
         });
 
-        it('treats empty string xpMax as 50000', () => {
+        it('treats empty string xpMax as 150000', () => {
             const { result } = renderHook(() => useMonsterFilter());
             act(() => {
                 result.current.updateFilter('xpMax', '');
             });
 
-            const highXPMonster = create5eMonster({ xp: 45000 });
+            const highXPMonster = create5eMonster({ xp: 75000 });
 
             expect(result.current.showMonster(highXPMonster)).toBe(true);
         });
